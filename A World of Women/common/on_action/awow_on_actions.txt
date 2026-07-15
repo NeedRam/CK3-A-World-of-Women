@@ -1,31 +1,43 @@
-on_startup = {
+on_game_start_after_lobby = {
 	events = {
 		awow.1000
 	}
 }
 
-on_monthly = {
-	if = {
-		limit = { has_first_cull_happened = yes }
-		change_global_variable = {
-			name = awow_months_since_cull
-			add = 1
-		}
+on_monthly_pulse = {
+	on_actions = {
+		awow_monthly_culling_pulse
 	}
-	if = {
-		limit = {
-			has_first_cull_happened = yes
-			exists = global_var:awow_months_since_cull
-			exists = global_var:awow_culling_frequency
-			global_var:awow_months_since_cull >= global_var:awow_culling_frequency
+}
+
+awow_monthly_culling_pulse = {
+	effect = {
+		if = {
+			limit = {
+				is_player = yes
+				has_first_cull_happened = yes
+			}
+			change_global_variable = {
+				name = awow_months_since_cull
+				add = 1
+			}
 		}
-		events = {
-			awow.0002
+		if = {
+			limit = {
+				is_player = yes
+				has_first_cull_happened = yes
+				has_global_variable = awow_months_since_cull
+				has_global_variable = awow_culling_frequency
+				global_var:awow_months_since_cull >= global_var:awow_culling_frequency
+			}
+			trigger_event = {
+				id = awow.0002
+			}
 		}
 	}
 }
 
-on_childbirth = {
+on_pregnancy = {
 	events = {
 		awow.0020
 	}

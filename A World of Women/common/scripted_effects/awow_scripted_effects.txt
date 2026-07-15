@@ -1,14 +1,14 @@
 awow_perform_culling = {
 	# Mark all cullable males
-	every_alive_character = {
+	every_living_character = {
 		limit = { can_be_culled = yes }
 		add_character_flag = awow_marked_for_death
 	}
 	
 	# Count and kill them
-	every_alive_character = {
+	every_living_character = {
 		limit = { has_character_flag = awow_marked_for_death }
-		kill_character = yes
+		death = natural
 		change_global_variable = {
 			name = awow_cull_count
 			add = 1
