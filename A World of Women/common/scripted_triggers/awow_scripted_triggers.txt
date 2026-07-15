@@ -1,0 +1,21 @@
+can_be_culled = {
+	is_alive = yes
+	is_female = no
+	NOT = { has_character_flag = awow_excluded_from_culling }
+	NOR = {
+		AND = {
+			game_rule = awow_exclude_player
+			is_player = yes
+		}
+		AND = {
+			game_rule = awow_exclude_player_dynasty
+			exists = dynasty
+			dynasty = { is_player_dynasty = yes }
+		}
+	}
+}
+
+has_first_cull_happened = {
+	exists = global_var:awow_initial_cull_done
+	global_var:awow_initial_cull_done = yes
+}

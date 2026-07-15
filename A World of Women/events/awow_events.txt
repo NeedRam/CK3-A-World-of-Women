@@ -1,0 +1,320 @@
+namespace = awow
+
+# Startup setup event - runs immediately, sets up variables and schedules first cull
+event = {
+	id = awow.1000
+	hide_window = yes
+	
+	immediate = {
+		# Set initial cull frequency to 6 months
+		set_global_variable = {
+			name = awow_culling_frequency
+			value = 6
+		}
+		
+		# Initialize months since cull counter
+		set_global_variable = {
+			name = awow_months_since_cull
+			value = 0
+		}
+		
+		# Schedule first cull in 30 days
+		trigger_event = {
+			id = awow.1001
+			days = 30
+		}
+	}
+}
+
+# Initial cull - The Vanishing (with narrative popup)
+# Fires 30 days after game start
+event = {
+	id = awow.1001
+	
+	title = awow.1001.title
+	desc = awow.1001.desc
+	
+	theme = great_pox
+	
+	left_portrait = root
+	
+	immediate = {
+		# Initialize cull count
+		set_global_variable = {
+			name = awow_cull_count
+			value = 0
+		}
+		
+		# Perform the culling
+		awow_perform_culling = yes
+		
+		# Mark that initial cull is done
+		set_global_variable = {
+			name = awow_initial_cull_done
+			value = yes
+		}
+	}
+	
+	option = {
+		name = awow.1001.a
+		custom_tooltip = awow_cull_count_tooltip
+	}
+}
+
+# Regular culling event (brief notification popup)
+event = {
+	id = awow.0002
+	
+	title = awow.0002.title
+	desc = awow.0002.desc
+	
+	theme = great_pox
+	
+	immediate = {
+		# Initialize cull count
+		set_global_variable = {
+			name = awow_cull_count
+			value = 0
+		}
+		
+		# Perform the culling
+		awow_perform_culling = yes
+	}
+	
+	# Send notification to player
+	option = {
+		name = awow.0002.a
+	}
+}
+
+# Frequency selection event
+event = {
+	id = awow.0003
+	
+	title = awow.0003.title
+	desc = awow.0003.desc
+	
+	theme = diplomacy
+	
+	left_portrait = root
+	
+	option = {
+		name = awow.0003.a
+		set_global_variable = {
+			name = awow_culling_frequency
+			value = 1
+		}
+		set_global_variable = {
+			name = awow_months_since_cull
+			value = 0
+		}
+		custom_tooltip = awow_frequency_monthly_tooltip
+	}
+	
+	option = {
+		name = awow.0003.b
+		set_global_variable = {
+			name = awow_culling_frequency
+			value = 3
+		}
+		set_global_variable = {
+			name = awow_months_since_cull
+			value = 0
+		}
+		custom_tooltip = awow_frequency_3months_tooltip
+	}
+	
+	option = {
+		name = awow.0003.c
+		set_global_variable = {
+			name = awow_culling_frequency
+			value = 6
+		}
+		set_global_variable = {
+			name = awow_months_since_cull
+			value = 0
+		}
+		custom_tooltip = awow_frequency_6months_tooltip
+	}
+	
+	option = {
+		name = awow.0003.d
+		set_global_variable = {
+			name = awow_culling_frequency
+			value = 12
+		}
+		set_global_variable = {
+			name = awow_months_since_cull
+			value = 0
+		}
+		custom_tooltip = awow_frequency_yearly_tooltip
+	}
+}
+
+# Interaction notification - Flagged for exclusion
+event = {
+	id = awow.0010
+	hide_window = yes
+	
+	immediate = {
+		custom_tooltip = awow_flag_exclude_notification_tooltip
+	}
+	
+	option = {
+		name = awow.0010.a
+	}
+}
+
+# Interaction notification - Removed from exclusion
+event = {
+	id = awow.0011
+	hide_window = yes
+	
+	immediate = {
+		custom_tooltip = awow_flag_include_notification_tooltip
+	}
+	
+	option = {
+		name = awow.0011.a
+	}
+}
+
+# Birth gender reassignment event
+# Fires on_childbirth, checks game rules to potentially change child's gender
+event = {
+	id = awow.0020
+	hide_window = yes
+	
+	immediate = {
+		# Check if the child's mother is the player
+		if = {
+			limit = {
+				mother = { is_player = yes }
+			}
+			# Player birth - check player rule
+			if = {
+				limit = {
+					game_rule = awow_birth_gender_player_67
+				}
+				if = {
+					limit = { random_chance < 0.67 }
+					set_character_gender = female
+				}
+			}
+			else_if = {
+				limit = {
+					game_rule = awow_birth_gender_player_75
+				}
+				if = {
+					limit = { random_chance < 0.75 }
+					set_character_gender = female
+				}
+			}
+			else_if = {
+				limit = {
+					game_rule = awow_birth_gender_player_80
+				}
+				if = {
+					limit = { random_chance < 0.80 }
+					set_character_gender = female
+				}
+			}
+			else_if = {
+				limit = {
+					game_rule = awow_birth_gender_player_90
+				}
+				if = {
+					limit = { random_chance < 0.90 }
+					set_character_gender = female
+				}
+			}
+			else_if = {
+				limit = {
+					game_rule = awow_birth_gender_player_95
+				}
+				if = {
+					limit = { random_chance < 0.95 }
+					set_character_gender = female
+				}
+			}
+			else_if = {
+				limit = {
+					game_rule = awow_birth_gender_player_99
+				}
+				if = {
+					limit = { random_chance < 0.99 }
+					set_character_gender = female
+				}
+			}
+			else_if = {
+				limit = {
+					game_rule = awow_birth_gender_player_100
+				}
+				set_character_gender = female
+			}
+		}
+		else = {
+			# Non-player birth - check world rule
+			if = {
+				limit = {
+					game_rule = awow_birth_gender_67
+				}
+				if = {
+					limit = { random_chance < 0.67 }
+					set_character_gender = female
+				}
+			}
+			else_if = {
+				limit = {
+					game_rule = awow_birth_gender_75
+				}
+				if = {
+					limit = { random_chance < 0.75 }
+					set_character_gender = female
+				}
+			}
+			else_if = {
+				limit = {
+					game_rule = awow_birth_gender_80
+				}
+				if = {
+					limit = { random_chance < 0.80 }
+					set_character_gender = female
+				}
+			}
+			else_if = {
+				limit = {
+					game_rule = awow_birth_gender_90
+				}
+				if = {
+					limit = { random_chance < 0.90 }
+					set_character_gender = female
+				}
+			}
+			else_if = {
+				limit = {
+					game_rule = awow_birth_gender_95
+				}
+				if = {
+					limit = { random_chance < 0.95 }
+					set_character_gender = female
+				}
+			}
+			else_if = {
+				limit = {
+					game_rule = awow_birth_gender_99
+				}
+				if = {
+					limit = { random_chance < 0.99 }
+					set_character_gender = female
+				}
+			}
+			else_if = {
+				limit = {
+					game_rule = awow_birth_gender_100
+				}
+				set_character_gender = female
+			}
+		}
+	}
+}

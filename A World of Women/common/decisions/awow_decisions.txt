@@ -1,0 +1,31 @@
+awow_change_frequency_decision = {
+	title = awow_change_frequency_decision_title
+	desc = awow_change_frequency_decision_desc
+	custom_tooltip = awow_change_frequency_decision_tooltip
+	
+	is_shown = {
+		exists = global_var:awow_initial_cull_done
+		global_var:awow_initial_cull_done = yes
+	}
+	
+	is_valid = {
+		exists = global_var:awow_initial_cull_done
+		global_var:awow_initial_cull_done = yes
+	}
+	
+	is_visible = {
+		exists = global_var:awow_initial_cull_done
+		global_var:awow_initial_cull_done = yes
+	}
+	
+	effect = {
+		trigger_event = {
+			id = awow.0003
+			days = 0
+		}
+	}
+	
+	ai_will_do = {
+		base = 0
+	}
+}

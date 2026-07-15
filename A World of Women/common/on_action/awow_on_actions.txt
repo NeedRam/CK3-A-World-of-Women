@@ -1,0 +1,32 @@
+on_startup = {
+	events = {
+		awow.1000
+	}
+}
+
+on_monthly = {
+	if = {
+		limit = { has_first_cull_happened = yes }
+		change_global_variable = {
+			name = awow_months_since_cull
+			add = 1
+		}
+	}
+	if = {
+		limit = {
+			has_first_cull_happened = yes
+			exists = global_var:awow_months_since_cull
+			exists = global_var:awow_culling_frequency
+			global_var:awow_months_since_cull >= global_var:awow_culling_frequency
+		}
+		events = {
+			awow.0002
+		}
+	}
+}
+
+on_childbirth = {
+	events = {
+		awow.0020
+	}
+}

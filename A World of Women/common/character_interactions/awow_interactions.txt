@@ -1,0 +1,51 @@
+awow_flag_exclude_interaction = {
+	custom_description = {
+		text = awow_flag_exclude_interaction_desc
+	}
+	
+	is_shown = {
+		is_alive = yes
+		is_female = no
+		NOT = { has_character_flag = awow_excluded_from_culling }
+	}
+	
+	is_valid = {
+		is_alive = yes
+		is_female = no
+		NOT = { has_character_flag = awow_excluded_from_culling }
+	}
+	
+	on_effect = {
+		add_character_flag = awow_excluded_from_culling
+		trigger_event = {
+			id = awow.0010
+			days = 0
+		}
+	}
+}
+
+awow_flag_include_interaction = {
+	custom_description = {
+		text = awow_flag_include_interaction_desc
+	}
+	
+	is_shown = {
+		is_alive = yes
+		is_female = no
+		has_character_flag = awow_excluded_from_culling
+	}
+	
+	is_valid = {
+		is_alive = yes
+		is_female = no
+		has_character_flag = awow_excluded_from_culling
+	}
+	
+	on_effect = {
+		remove_character_flag = awow_excluded_from_culling
+		trigger_event = {
+			id = awow.0011
+			days = 0
+		}
+	}
+}
