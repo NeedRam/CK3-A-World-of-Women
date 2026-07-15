@@ -1,16 +1,15 @@
 awow_change_frequency_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_realm.dds"
 	title = awow_change_frequency_decision_title
 	desc = awow_change_frequency_decision_desc
 	selection_tooltip = awow_change_frequency_decision_tooltip
 	
 	is_shown = {
-		has_global_variable = awow_initial_cull_done
-		global_var:awow_initial_cull_done = yes
+		is_ai = no
 	}
 	
 	is_valid = {
-		has_global_variable = awow_initial_cull_done
-		global_var:awow_initial_cull_done = yes
+		is_ai = no
 	}
 	
 	effect = {
@@ -23,6 +22,8 @@ awow_change_frequency_decision = {
 	ai_will_do = {
 		base = 0
 	}
+
+	confirm_text = awow_change_frequency_decision_confirm
 
 	ai_check_interval = 0
 }
