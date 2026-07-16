@@ -7,9 +7,7 @@
 awow_game_start_setup = {
 	effect = {
 		every_player = {
-			trigger_event = {
-				id = awow.1000
-			}
+			trigger_event = awow.1000
 		}
 	}
 }
