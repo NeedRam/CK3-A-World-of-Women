@@ -1,0 +1,13 @@
+# Ignore everything by default
+*
+
+# Unignore specific directories (trailing slash required)
+!.vscode/
+!A World of Women/
+!script docs/
+
+# Unignore the mod file
+!A World of Women.mod
+
+# Unignore this file itself
+!.gitignore
