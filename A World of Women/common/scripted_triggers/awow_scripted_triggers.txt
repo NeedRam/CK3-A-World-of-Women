@@ -2,19 +2,6 @@
 	is_alive = yes
 	is_female = no
 	NOT = { has_character_flag = awow_excluded_from_culling }
-	NOR = {
-		AND = {
-			has_game_rule = awow_exclude_player
-			is_player = yes
-		}
-		AND = {
-			has_game_rule = awow_exclude_player_dynasty
-			exists = dynasty
-			any_player = {
-				dynasty = root.dynasty
-			}
-		}
-	}
 }
 
 has_first_cull_happened = {

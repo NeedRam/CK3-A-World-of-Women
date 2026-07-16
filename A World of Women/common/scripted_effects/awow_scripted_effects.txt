@@ -5,8 +5,34 @@
 		value = 0
 	}
 
-	# Single pass: every living male that can be culled is killed and counted.
-	# (Doing the flag round-trip in two separate loops was unreliable here.)
+	# Spare the player character (if that rule is enabled).
+	if = {
+		limit = {
+			has_game_rule = awow_exclude_player
+		}
+		every_player = {
+			add_character_flag = awow_excluded_from_culling
+		}
+	}
+
+	# Spare the player's dynasty (if that rule is enabled).
+	# Flag every living character who shares a player's dynasty, using root.dynasty
+	# while scoped inside every_player (root is unambiguous there).
+	if = {
+		limit = {
+			has_game_rule = awow_exclude_player_dynasty
+		}
+		every_player = {
+			every_living_character = {
+				limit = {
+					dynasty = root.dynasty
+				}
+				add_character_flag = awow_excluded_from_culling
+			}
+		}
+	}
+
+	# Cull: every living male that can be culled is killed and counted.
 	every_living_character = {
 		limit = {
 			can_be_culled = yes

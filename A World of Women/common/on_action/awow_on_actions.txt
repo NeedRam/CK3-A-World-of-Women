@@ -26,30 +26,28 @@ quarterly_playable_pulse = {
 
 awow_monthly_culling_pulse = {
 	effect = {
-		# Only run once the initial "Vanishing" cull has completed.
-		limit = {
-			has_global_variable = awow_months_since_cull
-			has_global_variable = awow_culling_frequency
-			has_global_variable = awow_initial_cull_done
-			global_var:awow_initial_cull_done = yes
-		}
-		# Advance the cycle counter a single time (not once per player realm).
-		change_global_variable = {
-			name = awow_months_since_cull
-			add = 1
-		}
-		debug_log = "AWOW: pulse fired, months_since_cull=[global_var:awow_months_since_cull] frequency=[global_var:awow_culling_frequency]"
 		if = {
+			# Only run once the initial "Vanishing" cull has completed.
 			limit = {
-				global_var:awow_months_since_cull >= global_var:awow_culling_frequency
+				has_global_variable = awow_months_since_cull
+				has_global_variable = awow_culling_frequency
+				has_global_variable = awow_initial_cull_done
+				global_var:awow_initial_cull_done = yes
 			}
-			# Perform the world-wide cull exactly once for the whole map.
-			awow_perform_culling = yes
-			# Show a single sidebar notification to the (human) player(s).
-			# Scope into the player's realm (country) so the country_event
-			# notification resolves and shows in the sidebar.
-			every_player = {
-				scope:country ?= {
+			# Advance the cycle counter a single time (not once per player realm).
+			change_global_variable = {
+				name = awow_months_since_cull
+				add = 1
+			}
+			debug_log = "AWOW: pulse fired, months_since_cull=[global_var:awow_months_since_cull] frequency=[global_var:awow_culling_frequency]"
+			if = {
+				limit = {
+					global_var:awow_months_since_cull >= global_var:awow_culling_frequency
+				}
+				# Perform the world-wide cull exactly once for the whole map.
+				awow_perform_culling = yes
+				# Show a single notification to the (human) player(s).
+				every_player = {
 					trigger_event = {
 						id = awow.0002
 					}

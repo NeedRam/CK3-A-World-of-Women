@@ -63,7 +63,6 @@ awow.1001 = {
 	
 	option = {
 		name = awow.1001.a
-		custom_tooltip = awow_cull_count_tooltip
 	}
 }
 
@@ -71,8 +70,7 @@ awow.1001 = {
 # The actual culling is performed once, globally, by awow_monthly_culling_pulse
 # before this event is triggered, so awow_cull_count already holds the total.
 awow.0002 = {
-	type = country_event
-	notification = yes
+	type = character_event
 
 	title = awow.0002.title
 	desc = awow.0002.desc
@@ -184,7 +182,7 @@ awow.0020 = {
 	
 	immediate = {
 		if = {
-			limit = { is_player = yes }
+			limit = { is_ai = no }
 			# Player birth - check player rule
 			if = {
 				limit = { has_game_rule = awow_birth_gender_player_67 }

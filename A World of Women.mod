@@ -1,4 +1,4 @@
-version="1.0"
+﻿version="1.0"
 tags={
 	"Utilities"
 	"Decisions"
@@ -8,4 +8,4 @@ tags={
 }
 name="A World of Women"
 supported_version="1.*.*"
-path="D:/Documents/Paradox Interactive/Crusader Kings III/mod/A World of Women"
+path="D:/Documents/GitHub/CK3mod1/A World of Women"
