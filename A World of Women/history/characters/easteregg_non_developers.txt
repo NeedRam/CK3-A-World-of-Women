@@ -3,6 +3,7 @@
 
 # Joel's dad: here so that Joel gets his preferred patronymic.
 easteregg_joel_hansson_father = {
+    female = yes
     name="Hans" # Father to get "Hansson" for easteregg_joel_hansson
     religion="catholic"
     culture="danish"
@@ -120,6 +121,7 @@ easteregg_tamara_stokic = {
 
 # Dietwin, a character that got randomgenned and the community was sad about it when he left, so:
 easteregg_dietwin = {
+    female = yes
     name = "Dietwin"
     religion = catholic
     culture = bavarian
@@ -213,6 +215,7 @@ easteregg_ida_lilja = {
 }
 
 easteregg_henry_of_skalitz = { # Beginning of KCD1
+    female = yes
     name = "Henry"
     dynasty_house = house_of_skalitz
     dna = easteregg_henry_of_skalitz
@@ -280,6 +283,7 @@ easteregg_henry_of_skalitz = { # Beginning of KCD1
 }
 
 easteregg_henry_kobyla = { # End of KCD1
+    female = yes
     name = "Henry"
     dynasty_house = house_kobyla
     dna = easteregg_henry_of_skalitz
@@ -369,6 +373,7 @@ easteregg_henry_kobyla = { # End of KCD1
 }
 
 easteregg_henry_kobyla_late = { # End of KCD2
+    female = yes
     name = "Henry"
     dynasty_house = house_kobyla_late
     dna = easteregg_henry_of_skalitz
