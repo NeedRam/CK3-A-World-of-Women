@@ -1,8 +1,9 @@
 ﻿awow_flag_exclude_interaction = {
 	category = interaction_category_diplomacy
+	desc = awow_flag_exclude_interaction_desc
 	common_interaction = yes
 	auto_accept = yes
-	desc = awow_flag_exclude_interaction_desc
+
 
 	is_shown = {
 		scope:recipient = {
@@ -10,6 +11,7 @@
 			is_female = no
 			NOT = { has_character_flag = awow_excluded_from_culling }
 		}
+		save_scope_as = awow_culling_flag
 	}
 	
 	is_valid = {
@@ -33,9 +35,9 @@
 
 awow_flag_include_interaction = {
 	category = interaction_category_diplomacy
+	desc = awow_flag_include_interaction_desc
 	common_interaction = yes
 	auto_accept = yes
-	desc = awow_flag_include_interaction_desc
 
 	is_shown = {
 		scope:recipient = {

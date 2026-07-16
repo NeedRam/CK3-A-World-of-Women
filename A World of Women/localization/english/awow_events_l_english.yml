@@ -5,9 +5,12 @@
   awow.1001.a: "So it begins... a new age."
    awow_cull_count_tooltip: "[GetGlobalVariable('awow_cull_count').GetValue] souls have been claimed by the cataclysm."
   
+  awow_culling_message_title: "The Culling"
+  awow_culling_message_desc: "The culling has claimed its latest victims. [GetGlobalVariable('awow_cull_count').GetValue] males have been taken, preserving the natural order of this world."
+  
   # Regular Culling Event
   awow.0002.title: "The Culling"
-   awow.0002.desc: "The culling has claimed its latest victims. Many males have been taken, preserving the natural order of this world."
+   awow.0002.desc: "The culling has claimed its latest victims. [GetGlobalVariable('awow_cull_count').GetValue] males have been taken, preserving the natural order of this world."
  awow.0002.a: "The culling continues..."
  
  # Frequency Selection Event

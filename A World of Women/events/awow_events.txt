@@ -59,6 +59,21 @@ awow.1001 = {
 			name = awow_initial_cull_done
 			value = yes
 		}
+		
+		# Schedule the recurring monthly pulse (only once, from the first player to reach here)
+		if = {
+			limit = {
+				NOT = { has_global_variable = awow_pulse_scheduled }
+			}
+			set_global_variable = {
+				name = awow_pulse_scheduled
+				value = yes
+			}
+			trigger_event = {
+				id = awow.1002
+				days = 30
+			}
+		}
 	}
 	
 	option = {
@@ -66,11 +81,12 @@ awow.1001 = {
 	}
 }
 
-# Regular culling event (non-intrusive sidebar notification)
-# The actual culling is performed once, globally, by awow_monthly_culling_pulse
-# before this event is triggered, so awow_cull_count already holds the total.
+# Regular culling event (hidden - replaced by bottom-right interface message)
+# The actual culling is performed once, globally, by awow.1002
+# before the interface message is shown, so awow_cull_count already holds the total.
 awow.0002 = {
 	type = character_event
+	hidden = yes
 
 	title = awow.0002.title
 	desc = awow.0002.desc
@@ -79,6 +95,47 @@ awow.0002 = {
 	
 	option = {
 		name = awow.0002.a
+	}
+}
+
+# Recurring monthly culling pulse
+# Runs every ~30 days, checks if a cull is due, and sends a bottom-right alert instead of a popup.
+awow.1002 = {
+	type = character_event
+	hidden = yes
+	
+	immediate = {
+		# Advance the cycle counter
+		change_global_variable = {
+			name = awow_months_since_cull
+			add = 1
+		}
+		
+		# Check if it's time to cull
+		if = {
+			limit = {
+				global_var:awow_months_since_cull >= global_var:awow_culling_frequency
+			}
+			# Perform the world-wide cull exactly once
+			awow_perform_culling = yes
+			
+			# Show a single bottom-right alert to each human player
+			every_player = {
+				send_interface_message = {
+					type = awow_culling_message
+				}
+			}
+		}
+		
+		# Schedule the next pulse in ~30 days
+		trigger_event = {
+			id = awow.1002
+			days = 30
+		}
+	}
+	
+	option = {
+		name = awow.1002.a
 	}
 }
 

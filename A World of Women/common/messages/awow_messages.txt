@@ -1,0 +1,9 @@
+@default_msg_soundeffect = "event:/SFX/UI/Notifications/Messages/sfx_ui_message_theme_neutral"
+
+awow_culling_message = {
+	icon = "death_natural"
+	title = awow_culling_message_title
+	desc = awow_culling_message_desc
+	style = bad
+	soundeffect = @default_msg_soundeffect
+}
