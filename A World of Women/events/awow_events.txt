@@ -1,4 +1,4 @@
-namespace = awow
+﻿namespace = awow
 
 # Startup setup event - runs immediately, sets up variables and schedules first cull
 awow.1000 = {
@@ -18,6 +18,12 @@ awow.1000 = {
 			value = 0
 		}
 		
+		# Initialize cull count so the tooltip always has a value to read
+		set_global_variable = {
+			name = awow_cull_count
+			value = 0
+		}
+		
 		# Schedule first cull in 30 days
 		trigger_event = {
 			id = awow.1001
@@ -34,7 +40,7 @@ awow.1001 = {
 	title = awow.1001.title
 	desc = awow.1001.desc
 	
-	theme = great_pox
+	theme = death
 	
 	left_portrait = root
 	
@@ -61,27 +67,18 @@ awow.1001 = {
 	}
 }
 
-# Regular culling event (brief notification popup)
+# Regular culling event (non-intrusive sidebar notification)
+# The actual culling is performed once, globally, by awow_monthly_culling_pulse
+# before this event is triggered, so awow_cull_count already holds the total.
 awow.0002 = {
-	type = character_event
+	type = country_event
+	notification = yes
 
 	title = awow.0002.title
 	desc = awow.0002.desc
 	
-	theme = great_pox
+	theme = death
 	
-	immediate = {
-		# Initialize cull count
-		set_global_variable = {
-			name = awow_cull_count
-			value = 0
-		}
-		
-		# Perform the culling
-		awow_perform_culling = yes
-	}
-	
-	# Send notification to player
 	option = {
 		name = awow.0002.a
 	}

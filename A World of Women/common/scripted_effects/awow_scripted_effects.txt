@@ -1,24 +1,29 @@
-awow_perform_culling = {
-	# Mark all cullable males
-	every_living_character = {
-		limit = { can_be_culled = yes }
-		add_character_flag = awow_marked_for_death
+﻿awow_perform_culling = {
+	# Reset the running total before we count this pass.
+	set_global_variable = {
+		name = awow_cull_count
+		value = 0
 	}
-	
-	# Count and kill them
+
+	# Single pass: every living male that can be culled is killed and counted.
+	# (Doing the flag round-trip in two separate loops was unreliable here.)
 	every_living_character = {
-		limit = { has_character_flag = awow_marked_for_death }
+		limit = {
+			can_be_culled = yes
+		}
 		death = natural
 		change_global_variable = {
 			name = awow_cull_count
 			add = 1
 		}
-		remove_character_flag = awow_marked_for_death
 	}
-	
-	# Reset the month counter
+
+	# Reset the cycle counter so the next cull is scheduled from now.
 	set_global_variable = {
 		name = awow_months_since_cull
 		value = 0
 	}
+
+	# Debug trace - check Documents/Paradox Interactive/Crusader Kings III/logs for this line.
+	debug_log = "AWOW: cull complete, males taken = [global_var:awow_cull_count]"
 }

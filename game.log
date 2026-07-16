@@ -1,0 +1,53 @@
+[20:05:27][E][decision_type.cpp:43]: texture path empty on 'file: common/decisions/awow_decisions.txt line: 2 (awow_change_frequency_decision)'
+[20:05:27][E][decision_type.cpp:224]: awow_change_frequency_decision has 'ai_check_interval'/'ai_check_interval_by_tier' that's negative or unset. Setting to 0 instead
+[20:06:03][I][generatefrombookmarkidlerlogic.cpp:105]: Staring generate game state from bookmark task
+[20:06:04][I][gamestate.cpp:1063]: Start running through history.
+[20:06:11][I][gamestate.cpp:1173]: Completed running through history.
+[20:06:11][I][gamestate.cpp:1182]: Start running through post-history.
+[20:06:14][I][gamestate.cpp:1241]: Completed running through post-history.
+[20:06:14][I][generatefrombookmarkidlerlogic.cpp:127]: Completed generating game state from bookmark task
+[20:06:21][E][confederation.cpp:590]: Character 'Yasumoto_3 Tachibana of c_bitchu (Internal ID: 31325 - Historical ID japanese_tachibana_iyo_12)' is not allowed to join confederation 'Hok-ke Bloc (Id: 0)'.
+[20:06:21][W][council_task.cpp:553]: Councillor (Shishnand Davides of c_coimbra (Internal ID: 33872 - Historical ID 109610)) has active task 'task_spouse_default' but the manager believes it has 'task_organize_levies'
+[20:06:21][E][confederation.cpp:686]: House 'Tomura (Internal ID: 11842 - Internal Key: )' is not allowed to join confederation 'Kawachi Bloc (Id: 2)'.
+[20:06:23][E][jomini_script_system.cpp:303]: Script system error!
+  Error: add_realm_law_skip_effects effect [ Trying to add law to character 'Hereweard of Oslac of  (Internal ID: 35494 - Historical ID 90028)' who is not a ruler ]
+  Script location: file: common/on_action/game_start.txt line: 6317 (on_game_start_after_lobby)
+    file: common/on_action/game_start.txt line: 2591 (on_game_start_after_lobby)
+
+[20:06:23][E][jomini_script_system.cpp:303]: Script system error!
+  Error: add_courtier effect [ Trying to put character ('Turfida Lowborn of  (Internal ID: 36100 - Historical ID 90160)') in court of someone ('Hereweard of Oslac of  (Internal ID: 35494 - Historical ID 90028)') who cannot have a court ]
+  Script location: file: common/on_action/game_start.txt line: 6324 (on_game_start_after_lobby)
+    file: common/on_action/game_start.txt line: 2591 (on_game_start_after_lobby)
+
+[20:06:24][W][character.cpp:1803]: Failed to find title flavorization for title 'null' and character 'Zongyuan Yelü of  (Internal ID: 28825 - Historical ID nn_yelu_zongyuan)' of dynasty 'Yelü', defaulting to LocalizedHonorifics (may go in infinite loop)
+[20:06:24][W][character.cpp:1803]: Failed to find title flavorization for title 'null' and character 'Alp_Arslan Seljuk of  (Internal ID: 32186 - Historical ID 3040)' of dynasty 'Seljuk', defaulting to LocalizedHonorifics (may go in infinite loop)
+[20:06:24][E][landed_title_name_util.cpp:853]: Failed to find any valid flavorization for title 
+[20:06:24][E][character.cpp:1813]: Failed to find any valid flavorization for character 'Alp Arslan Seljuk' using title 'ONCLICK:TITLE,4294967295 TOOLTIP:LANDED_TITLE,4294967295 L; None of !!!'
+[20:06:24][W][character.cpp:1803]: Failed to find title flavorization for title 'null' and character 'Salamon Árpád of  (Internal ID: 37343 - Historical ID 476)' of dynasty 'Árpád', defaulting to LocalizedHonorifics (may go in infinite loop)
+[20:06:24][W][character.cpp:1803]: Failed to find title flavorization for title 'null' and character 'VI_rarA_cE_ntira Chola of  (Internal ID: 29185 - Historical ID 189042)' of dynasty 'Chola', defaulting to LocalizedHonorifics (may go in infinite loop)
+[20:06:26][I][character_window.cpp:1010]: Open character 'Murchad Briain of d_munster (Internal ID: 31853 - Historical ID 83355)'
+[20:06:37][I][character_window.cpp:1010]: Open character 'Murchad Briain of d_munster (Internal ID: 31853 - Historical ID 83355)'
+[20:06:41][W][council_task.cpp:553]: Councillor (HoE_l de Cornouaille of c_cornouaille (Internal ID: 32504 - Historical ID 178)) has active task 'task_spouse_default' but the manager believes it has 'task_organize_levies'
+[20:06:41][W][council_task.cpp:553]: Councillor (Shishnand Davides of c_coimbra (Internal ID: 33872 - Historical ID 109610)) has active task 'task_spouse_default' but the manager believes it has 'task_organize_levies'
+[20:06:44][E][jomini_script_system.cpp:303]: Script system error!
+  Error: set_knight_status effect [ Target character is not a potential knight in the scoped characters court ]
+  Script location: file: common/scripted_effects/00_accolades_scripted_effects.txt line: 10331 (accolade_create_squire_effect)
+    file: common/on_action/accolade_on_actions.txt line: 152 (on_accolade_create_squire)
+    file: common/on_action/accolade_on_actions.txt line: 142 (on_accolade_create_squire)
+
+[20:06:45][E][jomini_script_system.cpp:303]: Script system error!
+  Error: start_war effect [ Scope character is not a ruler, cannot start a war: Yahya Dhunnunid of  (Internal ID: 31100 - Historical ID 3924) ]
+  Script location: file: events/bookmark_events.txt line: 1845 (bookmark.1072:option)
+
+[20:06:46][E][jomini_script_system.cpp:303]: Script system error!
+  Error: set_knight_status effect [ Target character is not a potential knight in the scoped characters court ]
+  Script location: file: common/scripted_effects/00_accolades_scripted_effects.txt line: 10331 (accolade_create_squire_effect)
+    file: common/on_action/accolade_on_actions.txt line: 152 (on_accolade_create_squire)
+    file: common/on_action/accolade_on_actions.txt line: 142 (on_accolade_create_squire)
+
+[20:06:46][E][jomini_script_system.cpp:303]: Script system error!
+  Error: set_knight_status effect [ Target character is not a potential knight in the scoped characters court ]
+  Script location: file: common/scripted_effects/00_accolades_scripted_effects.txt line: 10331 (accolade_create_squire_effect)
+    file: common/on_action/accolade_on_actions.txt line: 152 (on_accolade_create_squire)
+    file: common/on_action/accolade_on_actions.txt line: 142 (on_accolade_create_squire)
+
