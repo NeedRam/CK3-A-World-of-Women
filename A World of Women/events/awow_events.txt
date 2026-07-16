@@ -40,9 +40,14 @@ awow.1001 = {
 	title = awow.1001.title
 	desc = awow.1001.desc
 	
+	left_portrait = {
+        character = root
+        animation = shock
+		camera = camera_event_center_pointing_right
+    } 
 	theme = death
-	
-	left_portrait = root
+	override_background = activity_witch_ritual
+	override_effect_2d = { reference = fog }
 	
 	immediate = {
 		# Initialize cull count
