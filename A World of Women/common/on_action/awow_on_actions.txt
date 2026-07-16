@@ -39,7 +39,7 @@ awow_monthly_culling_pulse = {
 				name = awow_months_since_cull
 				add = 1
 			}
-			debug_log = "AWOW: pulse fired, months_since_cull=[global_var:awow_months_since_cull] frequency=[global_var:awow_culling_frequency]"
+			debug_log = "AWOW: pulse fired"
 			if = {
 				limit = {
 					global_var:awow_months_since_cull >= global_var:awow_culling_frequency
