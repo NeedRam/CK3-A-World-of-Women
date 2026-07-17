@@ -4,7 +4,7 @@
 ### Ibn Tumart
 ibn_tumart_character_template = { # (history database char id 125501)
 	age = 49 # Around 50 when the attack on the Almoravids proper began
-	gender = male
+	gender = female
 	martial = 8
 	diplomacy = 14
 	intrigue = 10
@@ -24,7 +24,7 @@ ibn_tumart_character_template = { # (history database char id 125501)
 ### Abd al-Mu'min
 abd_al_mumin_character_template = {
 	age = 35 # Around 15 years younger than Ibn Tumart
-	gender = male
+	gender = female
 	martial = 14
 	diplomacy = 10
 	intrigue = 14
@@ -51,22 +51,7 @@ post_migration_local_warlord_template = {
 	culture = scope:seceding_duchy.title_capital_county.title_province.culture
 	faith = scope:seceding_duchy.title_capital_county.title_province.faith
 	gender_female_chance = {
-		if = {
-			limit = { scope:seceding_duchy.title_capital_county.title_province.faith = { has_doctrine = doctrine_gender_male_dominated } }
-			add = 0
-		}
-		else_if = {
-			limit = { scope:seceding_duchy.title_capital_county.title_province.faith = { has_doctrine = doctrine_gender_female_dominated } }
-			add = 100
-		}
-		else = {
-			add = 50
-		}
-	}
-	martial = {
-		min_template_decent_skill
-		max_template_decent_skill
-	}
+		add = 100
 }
 
 post_migration_minor_warlord_template = {
@@ -75,17 +60,7 @@ post_migration_minor_warlord_template = {
 	culture = scope:seceding_county.title_capital_county.title_province.culture
 	faith = scope:seceding_county.title_capital_county.title_province.faith
 	gender_female_chance = {
-		if = {
-			limit = { scope:seceding_county.title_capital_county.title_province.faith = { has_doctrine = doctrine_gender_male_dominated } }
-			add = 0
-		}
-		else_if = {
-			limit = { scope:seceding_county.title_capital_county.title_province.faith = { has_doctrine = doctrine_gender_female_dominated } }
-			add = 100
-		}
-		else = {
-			add = 50
-		}
+		add = 100
 	}
 	martial = {
 		min_template_decent_skill

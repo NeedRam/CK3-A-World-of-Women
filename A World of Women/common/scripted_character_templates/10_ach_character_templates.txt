@@ -1,5 +1,7 @@
-﻿funny_courtesan_character = {
+﻿#No Vanilla Gender / Gender Assigned in Character Creation Event #BugTrack
+funny_courtesan_character = {
 	age = { 18 25 }
+	gender = femalegender = female
 	random_traits_list = {
 		count = 1
 		education_diplomacy_2 = {}
@@ -63,8 +65,11 @@
 		}
 	}
 }
+
+#No Vanilla Gender / Gender Assigned in Character Creation Event #BugTrack
 cunning_courtesan_character = {
 	age = { 18 25 }
+	gender = female
 	random_traits_list = {
 		count = 1
 		education_intrigue_2 = {}
@@ -131,8 +136,11 @@ cunning_courtesan_character = {
 		}
 	}
 }
+
+#No Vanilla Gender / Gender Assigned in Character Creation Event #BugTrack
 fearsome_courtesan_character = {
 	age = { 20 35 }
+	gender = female
 	random_traits_list = {
 		count = 1
 		education_martial_1 = {}
@@ -196,8 +204,10 @@ fearsome_courtesan_character = {
 	}
 }
 
+#No Vanilla Gender / Gender Assigned in Character Creation Event #BugTrack
 experienced_courtesan_character = {
 	age = { 40 55 }
+	gender = female
 	random_traits_list = {
 		count = 1
 		education_stewardship_2 = {}
@@ -270,9 +280,11 @@ experienced_courtesan_character = {
 			30 = {
 				trigger = {
 					OR = {
-						culture = { has_cultural_pillar = heritage_mongolic
+						culture = { 
+							has_cultural_pillar = heritage_mongolic
 						}
-						culture = { has_cultural_pillar = heritage_turkic
+						culture = { 
+							has_cultural_pillar = heritage_turkic
 						}
 					}
 				}

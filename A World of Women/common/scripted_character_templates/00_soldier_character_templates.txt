@@ -1,65 +1,9 @@
-﻿
-soldier_friend_character = {
-	age = { 18 35 }
-	dynasty = none
-	random_traits_list = {
-		count = 1
-		education_martial_2 = {}
-		education_martial_3 = {}
-		education_martial_4 = {}
-	}
-	random_traits_list = {
-		count = 1
-		brave = {}
-		just = {}
-	}
-	random_traits_list = { #Something nice
-		count = 1
-		honest = {}
-		gregarious = {}
-		trusting = {}
-		compassionate = {}
-		generous = {}
-		humble = {}
-		calm = {}
-	}
-	random_traits_list = {
-		count = 1
-		lustful = {}
-		chaste = {}
-		wrathful = {}
-		arrogant = {}
-		impatient = {}
-		patient = {}
-		impatient  = {}
-		ambitious = {}
-		cynical = {}
-		zealous = {}
-		stubborn = {}
-	}
-	random_traits = no
-	faith = root.faith
-	culture = root.culture
-	martial = {
-		min_template_decent_skill
-		max_template_decent_skill
-	}
-	prowess = {
-		min_template_decent_skill
-		max_template_decent_skill
-	}
-	gender_female_chance = root_soldier_female_chance
-	after_creation = {
-		if = {
-			limit = { has_dlc_feature = tours_and_tournaments }
-			add_trait = tourney_participant
-			add_random_tourney_participant_level_effect = yes
-		}
-	}
-}
+﻿#BugTrack
 
+#No Vanilla Gender / Gender Assigned in Character Creation Event
 new_commander_character = {
 	age = { 18 40 }
+	gender = female
 	dynasty = none
 	random_traits_list = {
 		count = 1
@@ -129,8 +73,10 @@ new_commander_character = {
 	}
 }
 
+#No Vanilla Gender / Gender Assigned in Character Creation Event
 new_warrior_character = {
 	age = { 18 40 }
+	gender = female
 	dynasty = none
 	random_traits_list = {
 		count = 1
@@ -246,8 +192,10 @@ new_warrior_character = {
 	}
 }
 
+#No Vanilla Gender / Gender Assigned in Character Creation Event
 new_siege_engineer = {
 	age = { 30 45 }
+	gender = female
 	dynasty = none
 	random_traits_list = {
 		count = 1
@@ -321,8 +269,10 @@ new_siege_engineer = {
 	}
 }
 
+#No Vanilla Gender / Gender Assigned in Character Creation Event
 new_berserker_character = {
 	age = { 18 40 }
+	gender = female
 	dynasty = none
 	random_traits_list = {
 		count = 1
@@ -399,8 +349,10 @@ new_berserker_character = {
 	}
 }
 
+#No Vanilla Gender / Gender Assigned in Character Creation Event
 mercenary = {
 	age = { 25 42 }
+	gender = female
 	dynasty = none
 	random_traits_list = {
 		count = 1
@@ -450,8 +402,10 @@ mercenary = {
 	}
 }
 
+#No Vanilla Gender / Gender Assigned in Character Creation Event
 great_mercenary = {
 	age = { 25 42 }
+	gender = female
 	dynasty = none
 
 	random_traits_list = {
@@ -509,8 +463,10 @@ great_mercenary = {
 	}
 }
 
+#No Vanilla Gender / Gender Assigned in Character Creation Event
 retired_mercenary = {
 	age = { 40 60 }
+	gender = female
 	dynasty = none
 	random_traits_list = {
 		count = 1
@@ -562,8 +518,10 @@ retired_mercenary = {
 	}
 }
 
+#No Vanilla Gender / Gender Assigned in Character Creation Event
 new_raider_character = {
 	age = { 40 60 }
+	gender = female
 	dynasty = none
 	random_traits_list = {
 		count = 1
@@ -599,8 +557,10 @@ new_raider_character = {
 	prowess = { 8 14 }
 }
 
+#No Vanilla Gender / Gender Assigned in Character Creation Event
 honorable_soldier_character = {
 	age = { 30 50 }
+	gender = female
 	dynasty = none
 	random_traits_list = {
 		count = 1
@@ -649,8 +609,10 @@ honorable_soldier_character = {
 	}
 }
 
+#No Vanilla Gender / Gender Assigned in Character Creation Event
 old_knight_teacher = {
 	age = { 55 60 }
+	gender = female
 	dynasty = none
 	random_traits_list = {
 		count = 1
@@ -696,8 +658,10 @@ old_knight_teacher = {
 	}
 }
 
+#No Vanilla Gender / Gender Assigned in Character Creation Event
 wrestler_character = {
 	age = { 25 42 }
+	gender = female
 	dynasty = none
 
 	trait = education_martial_1

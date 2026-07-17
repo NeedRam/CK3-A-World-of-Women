@@ -1,6 +1,10 @@
-﻿# Peasant Faction Leader generated when the faction sends their demand
+﻿#BugTrack
+
+# Peasant Faction Leader generated when the faction sends their demand
+#No Vanilla Gender / Gender Assigned in Character Creation Event
 peasant_faction_leader_template = {
 	age = { 20 40 }
+	gender = female
 	dynasty = none
 	trait = brave
 	random_traits_list = {
@@ -85,8 +89,10 @@ peasant_faction_leader_template = {
 }
 
 # Populist Faction Leader generated when the faction sends their demand
+#No Vanilla Gender / Gender Assigned in Character Creation Event
 populist_faction_leader_template = {
 	age = { 20 40 }
+	gender = female
 	dynasty = none
 	trait = brave
 	random_traits_list = {
@@ -185,8 +191,10 @@ populist_faction_leader_template = {
 }
 
 # Nomadic Faction Leader generated when the faction sends their demand
+#No Vanilla Gender / Gender Assigned in Character Creation Event
 nomadic_faction_leader_template = {
 	age = { 20 40 }
+	gender = female
 	dynasty = none
 	trait = nomadic_philosophy
 	trait = brave

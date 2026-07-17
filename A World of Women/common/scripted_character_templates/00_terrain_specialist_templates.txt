@@ -1,5 +1,9 @@
-﻿winter_commander_character = {
+﻿#BugTrack
+
+#No Vanilla Gender / Gender Assigned in Character Creation Event
+winter_commander_character = {
 	age = { 18 40 }
+	gender = female
 	dynasty = none
 	random_traits_list = {
 		count = 1
@@ -55,8 +59,10 @@
 	}
 }
 
+#No Vanilla Gender / Gender Assigned in Character Creation Event
 forest_commander_character = {
 	age = { 18 40 }
+	gender = female
 	dynasty = none
 	random_traits_list = {
 		count = 1
@@ -107,8 +113,10 @@ forest_commander_character = {
 	}
 }
 
+#No Vanilla Gender / Gender Assigned in Character Creation Event
 mountain_commander_character = {
 	age = { 18 40 }
+	gender = female
 	dynasty = none
 	random_traits_list = {
 		count = 1
@@ -150,8 +158,10 @@ mountain_commander_character = {
 	}
 }
 
+#No Vanilla Gender / Gender Assigned in Character Creation Event
 desert_commander_character = {
 	age = { 18 40 }
+	gender = female
 	dynasty = none
 	random_traits_list = {
 		count = 1
@@ -194,8 +204,10 @@ desert_commander_character = {
 	}
 }
 
+#No Vanilla Gender / Gender Assigned in Character Creation Event
 hill_commander_character = {
 	age = { 18 40 }
+	gender = female
 	dynasty = none
 	random_traits_list = {
 		count = 1
@@ -234,8 +246,10 @@ hill_commander_character = {
 	}
 }
 
+#No Vanilla Gender / Gender Assigned in Character Creation Event
 jungle_commander_character = {
 	age = { 18 40 }
+	gender = female
 	dynasty = none
 	random_traits_list = {
 		count = 1
@@ -286,8 +300,10 @@ jungle_commander_character = {
 	}
 }
 
+#No Vanilla Gender / Gender Assigned in Character Creation Event
 open_commander_character = {
 	age = { 18 40 }
+	gender = female
 	dynasty = none
 	random_traits_list = {
 		count = 1
@@ -331,54 +347,6 @@ open_commander_character = {
 			TRACK = hunter
 			LEVEL_1 = yes
 			LEVEL_3 = no
-		}
-	}
-}
-
-#Slightly different to the above; used in the Hereward story cycle
-wetlands_commander_character = {
-	age = { 18 40 }
-	dynasty = none
-	culture = root.culture
-	faith = root.faith
-	gender_female_chance = root_soldier_female_chance
-	random_traits_list = {
-		count = 1
-		education_martial_2 = {}
-		education_martial_3 = {}
-		education_martial_4 = {}
-	}
-	random_traits_list = {
-		count = 3
-		wrathful = {}
-		calm = {}
-		patient = {}
-		impatient = {}
-		deceitful = {}
-		paranoid = {}
-		fickle = {}
-		lustful = {}
-		chaste = {}
-		cynical = {}
-		zealous = {}
-	}
-	random_traits_list = {
-		count = 1
-		lifestyle_blademaster = {}
-	}
-
-	random_traits = no
-	martial  = {
-		min_template_decent_skill
-		max_template_decent_skill
-	}
-
-	after_creation = {
-		add_trait = forder
-		add_random_tiered_trait_xp_effect = {
-			TRAIT = lifestyle_blademaster
-			LEVEL_1 = yes
-			LEVEL_3 = yes
 		}
 	}
 }

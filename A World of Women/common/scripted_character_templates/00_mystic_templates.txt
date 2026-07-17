@@ -5,17 +5,7 @@
 	random_traits = yes
 	faith = root.faith
 	gender_female_chance = {
-		if = {
-			limit = { root.faith = { has_doctrine = doctrine_gender_male_dominated } }
-			add = 0
-		}
-		else_if = {
-			limit = { root.faith = { has_doctrine = doctrine_gender_female_dominated } }
-			add = 100
-		}
-		else = {
-			add = 50
-		}
+		add = 100
 	}
 	learning = max_template_high_skill
 	after_creation = {
@@ -40,17 +30,7 @@ local_saint_template = {
 	culture = root.culture
 	dynasty = none
 	gender_female_chance = {
-		if = {
-			limit = { root.faith = { has_doctrine = doctrine_gender_male_dominated } }
-			add = 0
-		}
-		else_if = {
-			limit = { root.faith = { has_doctrine = doctrine_gender_female_dominated } }
-			add = 100
-		}
-		else = {
-			add = 50
-		}
+		add = 100
 	}
 	trait = lifestyle_mystic
 	#Education
@@ -270,17 +250,7 @@ mendicant_mystic_character = {
 	culture = root.culture
 	faith = root.faith
 	gender_female_chance = {
-		if = {
-			limit = { root.faith = { has_doctrine = doctrine_gender_male_dominated } }
-			add = 0
-		}
-		else_if = {
-			limit = { root.faith = { has_doctrine = doctrine_gender_female_dominated } }
-			add = 100
-		}
-		else = {
-			add = 50
-		}
+		add = 100
 	}
 	learning = max_template_high_skill
 	prowess = {
@@ -355,17 +325,7 @@ wise_woman_character = {
 	random_traits = yes
 	faith = root.faith
 	gender_female_chance = {
-		if = { # Higher chance for non-dominant gender
-			limit = { root.faith = { has_doctrine = doctrine_gender_male_dominated } }
-			add = 90
-		}
-		else_if = {
-			limit = { root.faith = { has_doctrine = doctrine_gender_female_dominated } }
-			add = 10
-		}
-		else = {
-			add = 50
-		}
+		add = 100
 	}
 	learning = max_template_high_skill
 	after_creation = {
@@ -400,17 +360,7 @@ stylite_saint_character = {
 	trait = eccentric
 	random_traits = yes
 	gender_female_chance = {
-		if = {
-			limit = { faith:orthodox = { has_doctrine_parameter = clergy_must_be_male } }
-			add = 0
-		}
-		else_if = {
-			limit = { faith:orthodox = { has_doctrine_parameter = clergy_must_be_female } }
-			add = 100
-		}
-		else = {
-			add = 50
-		}
+		add = 100
 	}
 	learning = max_template_high_skill
 	after_creation = {
@@ -492,17 +442,7 @@ scammer_template = {
 	}
 	random_traits = yes
 	gender_female_chance = {
-		if = { 
-			limit = { root.faith = { has_doctrine = doctrine_gender_male_dominated } }
-			add = 0
-		}
-		else_if = {
-			limit = { root.faith = { has_doctrine = doctrine_gender_female_dominated } }
-			add = 100
-		}
-		else = {
-			add = 50
-		}
+		add = 100
 	}
 	faith = root.faith
 	culture = root.culture

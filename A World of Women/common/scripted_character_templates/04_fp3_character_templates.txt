@@ -2,72 +2,7 @@
 #FP3 Character Templates
 #######################################################
 
-fp3_raging_ghazi_character = {
-	#General
-	age = { 18 40 }
-	culture = root.culture
-	faith = root.faith
-	dynasty = none
-	#Education
-	random_traits_list = {
-		education_martial_2 = {
-			weight = { base = 30 }
-		}
-		education_martial_3 = {
-			weight = { base = 20 }
-		}
-		education_martial_4 = {
-			weight = { base = 10}
-		}
-	}
-	trait = murderer
-	random_traits_list = {
-		count = 1
-		irritable = {}
-		drunkard = {}
-	}
-	random_traits_list = {
-		count = 1
-		aggressive_attacker = {}
-		desert_warrior = {}
-		reaver = {}
-	}
-	random_traits_list = {
-		count = 3
-		callous = {}
-		gluttonous = {}
-		impatient = {}
-		sadistic = {}
-		vengeful = {}
-		wrathful = {}
-		zealous = {}
-	}
-	random_traits_list = {
-		count = 1
-		faith_warrior = {}
-		lifestyle_blademaster = {}
-		strong = {}
-		lunatic_1 = {}
-		intellect_bad_1	= {}
-	}
-	random_traits = no
-	gender_female_chance = root_soldier_female_chance
-	#Skills
-	diplomacy = { min_template_low_skill max_template_decent_skill }
-	martial = { min_template_decent_skill max_template_high_skill }
-	stewardship = { min_template_low_skill max_template_decent_skill }
-	intrigue = { min_template_low_skill max_template_decent_skill }
-	learning = { min_template_low_skill max_template_decent_skill }
-	prowess = { min_template_decent_skill max_template_high_skill }
-	after_creation = {
-		add_random_tiered_trait_xp_effect = {
-			TRAIT = lifestyle_blademaster
-			LEVEL_1 = yes
-			LEVEL_3 = no
-		}
-	}
-}
-
+#Unchanged
 fp3_chinese_grand_old_lady = {
 	#General
 	age = { 50 75 }
@@ -113,7 +48,7 @@ fp3_chinese_eunuch_envoy = {
 	#General
 	age = { 20 55 }
 	dynasty = none
-	gender = male
+	gender = female
 	faith = faith:mahayana
 	culture = culture:han
 	#Education
@@ -149,8 +84,10 @@ fp3_chinese_eunuch_envoy = {
 	prowess = { min_template_low_skill max_template_decent_skill }
 }
 
+#No Vanilla Gender / Gender Assigned in Character Creation Event #BugTrack
 fp3_gnostic_paragon = {
 	age = { 30 60 }
+	gender = female
 	dynasty = none
 	faith = faith:manichean
 	culture = culture:levantine
@@ -205,8 +142,10 @@ fp3_gnostic_paragon = {
 	}
 }
 
+#No Vanilla Gender / Gender Assigned in Character Creation Event #BugTrack
 fp3_sufi_mystic = {
 	age = { 30 80 }
+	gender = female
 	dynasty = none
 	faith = root.faith
 	culture = root.culture
@@ -263,6 +202,7 @@ fp3_sufi_mystic = {
 	}
 }
 
+#No Vanilla Gender / Gender Assigned in Character Creation Event #BugTrack
 fp3_zoroastrian_armed_pilgrim = {
 	age = { 20 50 }
 	dynasty = none
@@ -334,7 +274,7 @@ fp3_young_rascal = {
 	}
 	random_traits = no
 	#Misc
-	gender_female_chance = 50
+	gender_female_chance = 100
 	#Skills
 	diplomacy = { min_template_average_skill max_template_average_skill }
 	martial = { min_template_average_skill max_template_average_skill }
@@ -344,6 +284,7 @@ fp3_young_rascal = {
 	prowess = { min_template_average_skill max_template_average_skill }
 }
 
+#Unchanged
 fp3_adorable_orphan = {
 	#General
 	age = { 6 13 }
@@ -369,7 +310,7 @@ fp3_adorable_orphan = {
 	}
 	#Misc
 	random_traits = no
-	gender_female_chance = 50
+	gender_female_chance = 100
 	#Skills
 	diplomacy = { min_template_low_skill max_template_high_skill }
 	martial = { min_template_low_skill max_template_average_skill }
@@ -377,45 +318,6 @@ fp3_adorable_orphan = {
 	intrigue = { min_template_average_skill max_template_high_skill }
 	learning = { min_template_low_skill max_template_average_skill }
 	prowess = { min_template_low_skill max_template_average_skill }
-}
-
-fp3_turkic_traveler = {
-	#General
-	age = { 24 40 }
-	culture = culture:turkish
-	dynasty = none
-	#Education
-	random_traits_list = {
-		education_martial_2 = {
-			weight = { base = 20 }
-		}
-		education_martial_3 = {
-			weight = { base = 30 }
-		}
-		education_martial_4 = {
-			weight = { base = 10}
-		}
-	}
-	trait = lifestyle_traveler
-	random_traits_list = {
-		count = 3
-		brave = {}
-		greedy = {}
-		gregarious = {}
-		wrathful = {}
-		deceitful = {}
-		ambitious = {}
-	}
-
-	random_traits = no
-	gender_female_chance = root_soldier_female_chance
-	#Skills
-	diplomacy = { min_template_low_skill max_template_decent_skill }
-	martial = { min_template_decent_skill max_template_decent_skill }
-	stewardship = { min_template_low_skill max_template_low_skill }
-	intrigue = { min_template_low_skill max_template_decent_skill }
-	learning = { min_template_low_skill max_template_low_skill }
-	prowess = { min_template_decent_skill max_template_decent_skill }
 }
 
 fp3_tomb_raider = {
@@ -454,7 +356,7 @@ fp3_tomb_raider = {
 	}
 
 	random_traits = no
-	gender_female_chance = 50
+	gender_female_chance = 100
 	#Skills
 	diplomacy = { min_template_low_skill max_template_decent_skill }
 	martial = { min_template_low_skill max_template_low_skill }
@@ -464,64 +366,6 @@ fp3_tomb_raider = {
 	prowess = { min_template_low_skill max_template_low_skill }
 }
 
-fp3_turko-mongol_leader = {
-	#General
-	age = { 24 40 }
-	culture = culture:turkish
-	faith = faith:maturidi
-	dynasty = generate
-	#Education
-	random_traits_list = {
-		education_martial_2 = {
-			weight = { base = 20 }
-		}
-		education_martial_3 = {
-			weight = { base = 30 }
-		}
-		education_martial_4 = {
-			weight = { base = 10}
-		}
-	}
-	trait = ambitious
-	trait = flexible_leader
-	random_traits_list = {
-		count = 2
-		brave = {}
-		greedy = {}
-		gregarious = {}
-		trusting = {}
-		wrathful = {}
-	}
-	random_traits_list = {
-		count = 1
-		athletic = {}
-		loyal = {}
-		reaver = {}
-	}
-	random_traits_list = {
-		count = 1
-		lifestyle_hunter = {}
-		strong = {}
-	}
-	random_traits = no
-	gender_female_chance = root_soldier_female_chance
-	#Skills
-	diplomacy = { min_template_low_skill max_template_decent_skill }
-	martial = { min_template_decent_skill max_template_high_skill }
-	stewardship = { min_template_low_skill max_template_decent_skill }
-	intrigue = { min_template_low_skill max_template_decent_skill }
-	learning = { min_template_low_skill max_template_decent_skill }
-	prowess = { min_template_decent_skill max_template_high_skill }
-	after_creation = {
-		add_random_tiered_trait_track_xp_effect = {
-			TRAIT = lifestyle_hunter
-			TRACK = hunter
-			LEVEL_1 = yes
-			LEVEL_3 = no
-		}
-	}
-}
-
 ####FP3 Historical Characters####
 
 #This is Ibn Sina, the great Iranian polymath. He's scripted here so we can potentialy use him in many events, or move him to the history files if needed later.
@@ -529,7 +373,7 @@ fp3_turko-mongol_leader = {
 fp3_avicenna_template = {
 	age = { 20 60 } #their rough age during the period of their flourishing
 	name = "Ibn_Sina" #Avicenna
-	gender = male
+	gender = female
 	faith = faith:maturidi
 	culture = culture:persian
 	dynasty_house = house:house_harmaytan #named for Harmaytan, his father's estate
@@ -572,7 +416,7 @@ fp3_avicenna_template = {
 fp3_rhazes_template = {
 	age = { 30 70 } #their rough age during the period of their flourishing
 	name = "Abu_Bakr_al-Razi" #Rhazes
-	gender = male
+	gender = female
 	faith = faith:ashari
 	culture = culture:persian
 	dynasty = none
@@ -611,7 +455,7 @@ fp3_rhazes_template = {
 fp3_al_akhwayni_template = {
 	age = { 30 70 } #their rough age during the period of their flourishing
 	name = "Al_Akhwayni" #Rhazes
-	gender = male
+	gender = female
 	faith = faith:mutazila
 	culture = culture:tajik
 	dynasty = none
@@ -654,7 +498,7 @@ fp3_ferdowsi_template = {
 	name = "Abul_Qasem_Ferdowsi" #Ferdowsi
 	faith = faith:maturidi
 	culture = culture:tajik
-	gender = male
+	gender = female
 	dynasty_house = house:house_tusi
 	trait = lifestyle_poet
 	trait = intellect_good_1
@@ -673,127 +517,4 @@ fp3_ferdowsi_template = {
 	learning = 12
 	intrigue = 6
 	stewardship = 10
-}
-
-fp3_skilled_outsider_template = {
-	# General
-	age = { 30 60 }
-	dynasty = none
-	# Education
-	## We give out random low tier education traits, and we'll upgrade them later if we're in batch B.
-	random_traits_list = {
-		count = 1
-		education_diplomacy_1 = {
-			trigger = {
-				OR = {
-					scope:outsider_diplomacy_martial = yes
-					scope:outsider_stewardship_diplomacy = yes
-				}
-			}
-		}
-		education_diplomacy_2 = {
-			trigger = {
-				OR = {
-					scope:outsider_diplomacy_martial = yes
-					scope:outsider_stewardship_diplomacy = yes
-				}
-			}
-		}
-		education_martial_1 = {
-			trigger = {
-				OR = {
-					scope:outsider_martial_prowess = yes
-					scope:outsider_diplomacy_martial = yes
-					# As there's no main prowess education.
-					scope:outsider_prowess_learning = yes
-				}
-			}
-		}
-		education_martial_2 = {
-			trigger = {
-				OR = {
-					scope:outsider_martial_prowess = yes
-					scope:outsider_diplomacy_martial = yes
-					# As there's no main prowess education.
-					scope:outsider_prowess_learning = yes
-				}
-			}
-		}
-		education_stewardship_1 = {
-			trigger = {
-				OR = {
-					scope:outsider_stewardship_diplomacy = yes
-					scope:outsider_intrigue_stewardship = yes
-				}
-			}
-		}
-		education_stewardship_2 = {
-			trigger = {
-				OR = {
-					scope:outsider_stewardship_diplomacy = yes
-					scope:outsider_intrigue_stewardship = yes
-				}
-			}
-		}
-		education_intrigue_1 = {
-			trigger = {
-				OR = {
-					scope:outsider_intrigue_stewardship = yes
-					scope:outsider_learning_intrigue = yes
-				}
-			}
-		}
-		education_intrigue_2 = {
-			trigger = {
-				OR = {
-					scope:outsider_intrigue_stewardship = yes
-					scope:outsider_learning_intrigue = yes
-				}
-			}
-		}
-		education_learning_1 = {
-			trigger = {
-				OR = {
-					scope:outsider_learning_intrigue = yes
-					scope:outsider_prowess_learning = yes
-				}
-			}
-		}
-		education_learning_2 = {
-			trigger = {
-				OR = {
-					scope:outsider_learning_intrigue = yes
-					scope:outsider_prowess_learning = yes
-				}
-			}
-		}
-	}
-	# We random roll all of our traits.
-	random_traits = yes
-	gender_female_chance = root_soldier_female_chance
-	# Skills
-	diplomacy = {
-		fp3_skilled_outsider_template_diplomacy_min_value
-		fp3_skilled_outsider_template_diplomacy_max_value
-	}
-	martial = {
-		fp3_skilled_outsider_template_martial_min_value
-		fp3_skilled_outsider_template_martial_max_value
-	}
-	stewardship = {
-		fp3_skilled_outsider_template_stewardship_min_value
-		fp3_skilled_outsider_template_stewardship_max_value
-	}
-	intrigue = {
-		fp3_skilled_outsider_template_intrigue_min_value
-		fp3_skilled_outsider_template_intrigue_max_value
-	}
-	learning = {
-		fp3_skilled_outsider_template_learning_min_value
-		fp3_skilled_outsider_template_learning_max_value
-	}
-	prowess = {
-		fp3_skilled_outsider_template_prowess_min_value
-		fp3_skilled_outsider_template_prowess_max_value
-	}
 }

@@ -1,19 +1,7 @@
-﻿
-tax_collector_character = {
-	age = { 30 65 }
-	dynasty = none
-	gender_female_chance = root_faith_dominant_gender_female_chance
-	random_traits = yes
-	culture = scope:county.culture
-	faith = scope:county.faith
-	stewardship = {
-		min_template_decent_skill
-		max_template_decent_skill
-	}
-}
-
+﻿#No Vanilla Gender / Gender Assigned in Character Creation Event #BugTrack
 administrator_character = {
 	age = { 20 50 }
+	gender = female
 	dynasty = none
 	random_traits_list = {
 		count = 1
@@ -185,41 +173,9 @@ estate_owner_character = {
 	culture = root.capital_province.culture
 	faith = root.capital_province.faith
 	gender_female_chance = {
-		if = {
-			limit = { root.capital_province.faith = { has_doctrine = doctrine_gender_male_dominated } }
-			add = 0
-		}
-		else_if = {
-			limit = { root.capital_province.faith = { has_doctrine = doctrine_gender_female_dominated } }
-			add = 100
-		}
-		else = {
-			add = 50
-		}
+		add = 100
 	}
 	stewardship = {
-		min_template_decent_skill
-		max_template_decent_skill
-	}
-}
-
-herald_character = {
-	age = { 30 50 }
-	dynasty = none
-	faith = root.faith
-	culture = root.culture
-	gender_female_chance = root_faith_dominant_gender_female_chance
-
-	# Traits
-	random_traits_list = {
-		count = 1
-		education_diplomacy_1 = {}
-		education_diplomacy_2 = {}
-	}
-	random_traits = yes
-	
-	# Skills
-	diplomacy = {
 		min_template_decent_skill
 		max_template_decent_skill
 	}

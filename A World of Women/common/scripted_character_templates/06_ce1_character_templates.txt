@@ -1,6 +1,9 @@
-﻿bard_template = {
-	age = { 20 35 }
+﻿#BugTrack
 
+#No Vanilla Gender / Gender Assigned in Character Creation Event
+bard_template = {
+	age = { 20 35 }
+	gender = female
 	# Traits
 	random_traits_list = { #are they gonna be bad or not, fun guessing
 		count = 1

@@ -1,7 +1,7 @@
 ﻿
 genghis_khan_character_template = { # (history database char id 125501)
 	age = 36 # Temujin's age around 1198
-	gender = male
+	gender = female
 	dynasty_house = house:house_borjigin
 	martial = 15
 	diplomacy = 12
@@ -47,6 +47,7 @@ genghis_khan_character_template = { # (history database char id 125501)
 	}
 }
 
+#Unchanged
 borte_character_template = { # (history database char id 172004)
 	age = 37
 	gender = female
@@ -73,7 +74,7 @@ borte_character_template = { # (history database char id 172004)
 
 jochi_character_template = {  # (history database char id 125502)
 	age = 17
-	gender = male
+	gender = female
 	dynasty_house = house:house_borjigin
 	faith = faith:tengri_pagan
 	culture = culture:mongol
@@ -112,7 +113,7 @@ jochi_character_template = {  # (history database char id 125502)
 
 tolui_character_template = { # (history database char id 125520)
 	age = 6
-	gender = male
+	gender = female
 	dynasty_house = house:house_borjigin
 	faith = faith:tengri_pagan
 	culture = culture:mongol
@@ -123,7 +124,7 @@ tolui_character_template = { # (history database char id 125520)
 
 chagatai_character_template = { # (history database char id 93062)
 	age = 15
-	gender = male
+	gender = female
 	dynasty_house = house:house_borjigin
 	faith = faith:tengri_pagan
 	culture = culture:mongol
@@ -155,7 +156,7 @@ chagatai_character_template = { # (history database char id 93062)
 
 ogodei_character_template = { # (history database char id 172005)
 	age = 12
-	gender = male
+	gender = female
 	dynasty_house = house:house_borjigin
 	faith = faith:tengri_pagan
 	culture = culture:mongol
@@ -170,6 +171,7 @@ ogodei_character_template = { # (history database char id 172005)
 	prowess = 20
 }
 
+#Unchanged
 altun_begi_character_template = { # (history database char id 217227)
 	age = 7
 	gender = female
@@ -180,10 +182,9 @@ altun_begi_character_template = { # (history database char id 217227)
 	random_traits = no
 }
 
-
 subutai_character_template = { # (history database char id 34850
 	age = 23
-	gender = male
+	gender = female
 	dynasty_house = house:house_uriankhai
 	faith = faith:tengri_pagan
 	culture = culture:mongol
@@ -230,6 +231,7 @@ subutai_character_template = { # (history database char id 34850
 
 
 ### Temujin's PARENTS (currently not in use)
+#Unchanged
 hoelun_character_template = { # (history database char id 172003)
 	name = "Hoelun" # Mother of Genghis Khan
 	age = 59
@@ -247,7 +249,7 @@ hoelun_character_template = { # (history database char id 172003)
 	trait = education_intrigue_4
 }
 
-
+#Unchanged
 yesu_gei_character_template = { # (history database char id 93055)
 	name = "YesU_gei" # Father of Genghis Khan
 	age = 88 # if alive at the spawning of 36 year old Temujin
@@ -268,17 +270,7 @@ yesu_gei_character_template = { # (history database char id 93055)
 dynamic_genghis_character_template = {
 	age = { 30 42 } # Temujin's age around 1198
 	gender_female_chance = {
-		if = {
-			limit = { faith:tengri_pagan = { has_doctrine = doctrine_gender_male_dominated } }
-			add = 0
-		}
-		else_if = {
-			limit = { faith:tengri_pagan = { has_doctrine = doctrine_gender_female_dominated } }
-			add = 100
-		}
-		else = {
-			add = 50
-		}
+		add = 100
 	}
 	martial = { 10 20 }
 	diplomacy = { 8 16 }
@@ -424,7 +416,7 @@ dynamic_genghis_spouse_template = {
 dynamic_genghis_child_template = {
 	age = { 2 14 }
 	gender_female_chance = {
-		add = 50
+		add = 100
 	}
 	faith = faith:tengri_pagan
 	culture = culture:mongol
