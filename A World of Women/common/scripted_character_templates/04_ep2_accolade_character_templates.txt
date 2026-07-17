@@ -80,7 +80,7 @@ accolade_marauder_character = {
 		lifestyle_hunter = {}
 	}
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		assign_intrigue_education_from_squires_quality_effect = yes
 		#berserker
@@ -276,7 +276,7 @@ accolade_idealist_character = {
 	}
 
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		assign_diplomacy_education_from_squires_quality_effect = yes
 		random = {
@@ -459,7 +459,7 @@ accolade_charmer_character = {
 		lifestyle_reveler = {}
 	}
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		assign_intrigue_education_from_squires_quality_effect = yes
 		random = {
@@ -636,7 +636,7 @@ accolade_thug_character = {
 		giant = {}
 	}
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		random_list = {
 			1 = {
@@ -833,7 +833,7 @@ accolade_disciplinarian_character = {
 		lifestyle_blademaster = {}
 	}
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		assign_stewardship_education_from_squires_quality_effect = yes
 		if = {
@@ -1014,7 +1014,7 @@ accolade_fanatic_character = {
 		lifestyle_blademaster = {}
 	}
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		assign_learning_education_from_squires_quality_effect = yes
 		# Cultural Traditions
@@ -1184,7 +1184,7 @@ accolade_valiant_character = {
 		loyal = {}
 	}
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		assign_martial_education_from_squires_quality_effect = yes
 		if = {
@@ -1400,7 +1400,7 @@ accolade_stalwart_character = {
 		unyielding_defender = {}
 	}
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		assign_martial_education_from_squires_quality_effect = yes
 		if = {
@@ -1584,7 +1584,7 @@ accolade_scoundrel_character = {
 		lifestyle_reveler = { }
 	}
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		random_list = {
 			1 = {
@@ -1798,7 +1798,7 @@ accolade_politicker_character = {
 		lifestyle_reveler = { }
 	}
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		assign_diplomacy_education_from_squires_quality_effect = yes
 		random = {
@@ -1991,7 +1991,7 @@ accolade_tactician_character = {
 		overseer = {}
 	}
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		assign_martial_education_from_squires_quality_effect = yes
 		# Cultural Traditions
@@ -2182,7 +2182,7 @@ accolade_reeve_character = {
 		architect = {}
 	}
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		assign_stewardship_education_from_squires_quality_effect = yes
 		# Cultural Traditions
@@ -2358,7 +2358,7 @@ accolade_manipulator_character = {
 		lifestyle_reveler = {}
 	}
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		assign_intrigue_education_from_squires_quality_effect = yes
 		# Cultural Traditions
@@ -2530,7 +2530,7 @@ accolade_mentor_character = {
 		lifestyle_physician = {}
 	}
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		assign_learning_education_from_squires_quality_effect = yes
 		# Cultural Traditions
@@ -2685,7 +2685,7 @@ accolade_contender_character = {
 		lifestyle_blademaster = {}
 	}
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		random_list = {
 			1 = {
@@ -2875,7 +2875,7 @@ accolade_archer_character = {
 		lifestyle_hunter = {}
 	}	
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		assign_martial_education_from_squires_quality_effect = yes
 		# Cultural Traditions
@@ -3032,7 +3032,7 @@ accolade_skirmisher_character = {
 		lifestyle_hunter = {}
 	}
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		assign_martial_education_from_squires_quality_effect = yes
 		add_trait = tourney_participant
@@ -3203,7 +3203,7 @@ accolade_pike_character = {
 		rough_terrain_expert = {}
 	}
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		assign_martial_education_from_squires_quality_effect = yes
 		add_trait = tourney_participant
@@ -3380,7 +3380,7 @@ accolade_outrider_character = {
 		open_terrain_expert = {}
 	}
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		assign_martial_education_from_squires_quality_effect = yes
 		add_trait = tourney_participant
@@ -3630,7 +3630,7 @@ accolade_vanguard_character = {
 		lifestyle_blademaster = {}
 	}
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		assign_martial_education_from_squires_quality_effect = yes
 		add_trait = tourney_participant
@@ -3881,7 +3881,7 @@ accolade_lancer_character = {
 		aggressive_attacker = {}
 	}
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		assign_martial_education_from_squires_quality_effect = yes
 		add_trait = tourney_participant
@@ -4076,7 +4076,7 @@ accolade_besieger_character = {
 		logistician = {}
 	}	
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		assign_martial_education_from_squires_quality_effect = yes		
 		add_trait = military_engineer
@@ -4279,7 +4279,7 @@ accolade_crossbowmen_character = {
 		military_engineer = {}
 	}	
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		assign_martial_education_from_squires_quality_effect = yes
 		add_trait = tourney_participant
@@ -4456,7 +4456,7 @@ accolade_camelry_character = {
 		lifestyle_hunter = {}
 	}
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		assign_martial_education_from_squires_quality_effect = yes
 		add_trait = desert_warrior
@@ -4614,7 +4614,7 @@ accolade_elephantry_character = {
 		gallant = {}
 	}	
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		assign_martial_education_from_squires_quality_effect = yes
 		add_trait = tourney_participant
@@ -4765,7 +4765,7 @@ accolade_horse_archer_character = {
 		flexible_leader = {}
 	}	
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		assign_martial_education_from_squires_quality_effect = yes
 		add_trait = tourney_participant
@@ -4950,7 +4950,7 @@ accolade_huntsmaster_character = {
 		lifestyle_herbalist = {}
 	}	
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		random_list = {
 			1 = {
@@ -5106,7 +5106,7 @@ accolade_blademaster_character = {
 		gallant = {}
 	}	
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		assign_martial_education_from_squires_quality_effect = yes
 		add_trait = lifestyle_blademaster	
@@ -5303,7 +5303,7 @@ accolade_master_of_revels_character = {
 		diplomat = {}
 	}	
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		random_list = {
 			1 = {
@@ -5412,7 +5412,7 @@ accolade_house_knight_character = {
 		unyielding_defender = {}
 	}
 	prowess = min_guest_template_skill
-	gender_female_chance = 100
+	gender_female_chance = scope_value_target_soldier_female_chance
 	after_creation = {
 		random_list = {
 			1 = {

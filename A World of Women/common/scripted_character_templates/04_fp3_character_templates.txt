@@ -51,7 +51,7 @@ fp3_raging_ghazi_character = {
 		intellect_bad_1	= {}
 	}
 	random_traits = no
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	#Skills
 	diplomacy = { min_template_low_skill max_template_decent_skill }
 	martial = { min_template_decent_skill max_template_high_skill }
@@ -113,7 +113,7 @@ fp3_chinese_eunuch_envoy = {
 	#General
 	age = { 20 55 }
 	dynasty = none
-	gender = female
+	gender = male
 	faith = faith:mahayana
 	culture = culture:han
 	#Education
@@ -334,7 +334,7 @@ fp3_young_rascal = {
 	}
 	random_traits = no
 	#Misc
-	gender_female_chance = 100
+	gender_female_chance = 50
 	#Skills
 	diplomacy = { min_template_average_skill max_template_average_skill }
 	martial = { min_template_average_skill max_template_average_skill }
@@ -369,7 +369,7 @@ fp3_adorable_orphan = {
 	}
 	#Misc
 	random_traits = no
-	gender_female_chance = 100
+	gender_female_chance = 50
 	#Skills
 	diplomacy = { min_template_low_skill max_template_high_skill }
 	martial = { min_template_low_skill max_template_average_skill }
@@ -408,7 +408,7 @@ fp3_turkic_traveler = {
 	}
 
 	random_traits = no
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	#Skills
 	diplomacy = { min_template_low_skill max_template_decent_skill }
 	martial = { min_template_decent_skill max_template_decent_skill }
@@ -454,7 +454,7 @@ fp3_tomb_raider = {
 	}
 
 	random_traits = no
-	gender_female_chance = 100
+	gender_female_chance = 50
 	#Skills
 	diplomacy = { min_template_low_skill max_template_decent_skill }
 	martial = { min_template_low_skill max_template_low_skill }
@@ -504,7 +504,7 @@ fp3_turko-mongol_leader = {
 		strong = {}
 	}
 	random_traits = no
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	#Skills
 	diplomacy = { min_template_low_skill max_template_decent_skill }
 	martial = { min_template_decent_skill max_template_high_skill }
@@ -529,7 +529,7 @@ fp3_turko-mongol_leader = {
 fp3_avicenna_template = {
 	age = { 20 60 } #their rough age during the period of their flourishing
 	name = "Ibn_Sina" #Avicenna
-	gender = female
+	gender = male
 	faith = faith:maturidi
 	culture = culture:persian
 	dynasty_house = house:house_harmaytan #named for Harmaytan, his father's estate
@@ -572,7 +572,7 @@ fp3_avicenna_template = {
 fp3_rhazes_template = {
 	age = { 30 70 } #their rough age during the period of their flourishing
 	name = "Abu_Bakr_al-Razi" #Rhazes
-	gender = female
+	gender = male
 	faith = faith:ashari
 	culture = culture:persian
 	dynasty = none
@@ -611,7 +611,7 @@ fp3_rhazes_template = {
 fp3_al_akhwayni_template = {
 	age = { 30 70 } #their rough age during the period of their flourishing
 	name = "Al_Akhwayni" #Rhazes
-	gender = female
+	gender = male
 	faith = faith:mutazila
 	culture = culture:tajik
 	dynasty = none
@@ -654,7 +654,7 @@ fp3_ferdowsi_template = {
 	name = "Abul_Qasem_Ferdowsi" #Ferdowsi
 	faith = faith:maturidi
 	culture = culture:tajik
-	gender = female
+	gender = male
 	dynasty_house = house:house_tusi
 	trait = lifestyle_poet
 	trait = intellect_good_1
@@ -770,7 +770,7 @@ fp3_skilled_outsider_template = {
 	}
 	# We random roll all of our traits.
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	# Skills
 	diplomacy = {
 		fp3_skilled_outsider_template_diplomacy_min_value

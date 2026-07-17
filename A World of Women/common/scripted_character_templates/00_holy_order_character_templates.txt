@@ -104,7 +104,7 @@
 	}	
 	faith = root.faith
 	culture = root.culture
-	gender_female_chance = 100
+	gender_female_chance = root_faith_clergy_gender_female_chance
 	martial = {
 		min_template_high_skill
 		max_template_high_skill
@@ -305,7 +305,7 @@ religious_leader_character = {
 	}
 	faith = root.faith
 	culture = root.culture
-	gender_female_chance = 100
+	gender_female_chance = root_faith_clergy_gender_female_chance
 	martial = {
 		min_template_high_skill
 		max_template_high_skill

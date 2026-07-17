@@ -2,7 +2,7 @@
 
 diplomacy_foreign_affairs_focus_friend_template = {
 	age = { 25 40 }
-	gender_female_chance = 100 #because chancellor gender is doctrine dependent
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance #because chancellor gender is doctrine dependent
 	random_traits = yes
 	culture = root.culture
 	faith = root.faith
@@ -16,7 +16,7 @@ diplomacy_foreign_affairs_focus_friend_template = {
 
 diplomacy_majesty_focus_friend_template = {
 	age = { 25 40 }
-	gender_female_chance = 100 #because chancellor gender is doctrine dependent
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance #because chancellor gender is doctrine dependent
 	random_traits = yes
 	culture = root.culture
 	faith = root.faith
@@ -31,7 +31,7 @@ diplomacy_majesty_focus_friend_template = {
 
 diplomacy_family_focus_friend_template = {
 	age = { 25 40 }
-	gender_female_chance = 100
+	gender_female_chance = 50
 	random_traits = yes
 	culture = root.culture
 	faith = root.faith
@@ -47,7 +47,7 @@ diplomacy_family_focus_friend_template = {
 
 martial_strategy_focus_friend_template = {
 	age = { 30 45 }
-	gender_female_chance = 100 #because marshal gender is doctrine dependent
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance #because marshal gender is doctrine dependent
 	random_traits = yes
 	culture = root.culture
 	faith = root.faith
@@ -61,7 +61,7 @@ martial_strategy_focus_friend_template = {
 
 martial_authority_focus_friend_template = {
 	age = { 30 45 }
-	gender_female_chance = 100 #because marshal gender is doctrine dependent
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance #because marshal gender is doctrine dependent
 	random_traits = yes
 	culture = root.culture
 	faith = root.faith
@@ -77,7 +77,7 @@ martial_authority_focus_friend_template = {
 martial_chivalry_focus_friend_template = {
 	age = { 25 40 }
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	culture = root.culture
 	faith = root.faith
 	prowess  = {
@@ -99,7 +99,7 @@ martial_chivalry_focus_friend_template = {
 
 stewardship_wealth_focus_friend_template = {
 	age = { 25 40 }
-	gender_female_chance = 100 #because steward gender is doctrine dependent
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance #because steward gender is doctrine dependent
 	random_traits = yes
 	culture = root.culture
 	faith = root.faith
@@ -113,7 +113,7 @@ stewardship_wealth_focus_friend_template = {
 
 stewardship_domain_focus_friend_template = {
 	age = { 25 40 }
-	gender_female_chance = 100 #because steward gender is doctrine dependent
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance #because steward gender is doctrine dependent
 	random_traits = yes
 	culture = root.culture
 	faith = root.faith
@@ -127,7 +127,7 @@ stewardship_domain_focus_friend_template = {
 
 stewardship_duty_focus_friend_template = {
 	age = { 25 40 }
-	gender_female_chance = 100 #because steward gender is doctrine dependent
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance #because steward gender is doctrine dependent
 	random_traits = yes
 	culture = root.culture
 	faith = root.faith
@@ -145,7 +145,7 @@ stewardship_duty_focus_friend_template = {
 intrigue_skulduggery_focus_friend_template = {
 	age = { 25 40 }
 	random_traits = yes
-	gender_female_chance = 100 #No gender blocks for spymaster
+	gender_female_chance = 50 #No gender blocks for spymaster
 	culture = root.culture
 	faith = root.faith
 	intrigue  = {
@@ -173,7 +173,7 @@ intrigue_temptation_focus_friend_template = {
 intrigue_intimidation_focus_friend_template = {
 	age = { 25 40 }
 	random_traits = yes
-	gender_female_chance = 100 #No gender blocks for spymaster
+	gender_female_chance = 50 #No gender blocks for spymaster
 	culture = root.culture
 	faith = root.faith
 	intrigue  = {
@@ -188,7 +188,7 @@ intrigue_intimidation_focus_friend_template = {
 
 learning_medicine_focus_friend_template = {
 	age = { 25 50 }
-	gender_female_chance = 100 #No gender blocks for physicians
+	gender_female_chance = 50 #No gender blocks for physicians
 	random_traits = yes
 	culture = root.culture
 	faith = root.faith
@@ -208,7 +208,7 @@ learning_medicine_focus_friend_template = {
 
 learning_scholarship_focus_friend_template = {
 	age = { 25 50 }
-	gender_female_chance = 100 #No gender blocks for physicians
+	gender_female_chance = 50 #No gender blocks for physicians
 	random_traits = yes
 	culture = root.culture
 	faith = root.faith
@@ -222,7 +222,7 @@ learning_scholarship_focus_friend_template = {
 
 learning_theology_focus_friend_template = {
 	age = { 25 50 }
-	gender_female_chance = 100 #No gender blocks for physicians
+	gender_female_chance = 50 #No gender blocks for physicians
 	random_traits = yes
 	culture = root.culture
 	faith = root.faith

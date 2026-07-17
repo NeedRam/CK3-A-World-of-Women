@@ -11,7 +11,7 @@
 	
 	faith = root.faith
 	culture = root.culture
-	gender_female_chance = 100
+	gender_female_chance = root_faith_clergy_gender_female_chance
 	learning = {
 		min_template_high_skill
 		max_template_high_skill
@@ -207,7 +207,7 @@ virtuous_priest_character_template = {
 	
 	faith = root.faith
 	culture = root.culture
-	gender_female_chance = 100
+	gender_female_chance = root_faith_clergy_gender_female_chance
 	learning = {
 		min_template_high_skill
 		max_template_high_skill
@@ -233,7 +233,7 @@ monk_character_template = {
 	random_traits = yes
 	faith = root.faith
 	culture = root.culture
-	gender_female_chance = 100
+	gender_female_chance = root_faith_clergy_gender_female_chance
 	learning = {
 		min_template_high_skill
 		max_template_high_skill
@@ -889,7 +889,7 @@ location_pilgrim_template = {
 	
 	faith = root.faith
 	culture = root.location.culture
-	gender_female_chance = 100
+	gender_female_chance = 50
 	random_traits = no
 	# Skills.
 	## Generally, we let people have a range of decent-ish competencies; they're the pilgrims a ruler takes not of, after all.
@@ -1102,7 +1102,7 @@ tournament_priest_character_template = {
 	
 	faith = scope:activity.activity_host.faith
 	culture =  scope:activity.activity_location.culture
-	gender_female_chance = 100
+	gender_female_chance = activity_host_clergy_gender_female_chance
 	learning = {
 		min_template_high_skill
 		max_template_high_skill
@@ -1153,7 +1153,7 @@ monk_brewer_template = {
 	
 	faith = root.faith
 	culture = root.culture
-	gender_female_chance = 100
+	gender_female_chance = root_faith_clergy_gender_female_chance
 	learning = {
 		min_template_high_skill
 		max_template_high_skill

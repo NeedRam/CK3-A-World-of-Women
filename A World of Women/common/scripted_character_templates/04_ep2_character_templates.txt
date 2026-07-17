@@ -15,7 +15,7 @@
 		min_template_decent_skill
 		max_template_decent_skill
 	}
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	after_creation = {
 		add_random_tiered_trait_xp_effect = {
 			TRAIT = lifestyle_blademaster
@@ -47,7 +47,7 @@ tournament_horse_character = {
 		min_template_decent_skill
 		max_template_decent_skill
 	}
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	after_creation = {
 		add_random_tiered_trait_track_xp_effect = {
 			TRAIT = tourney_participant
@@ -66,7 +66,7 @@ tournament_archery_character = {
 		min_template_decent_skill
 		max_template_decent_skill
 	}
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	after_creation = {
 		add_random_tiered_trait_track_xp_effect = {
 			TRAIT = tourney_participant
@@ -94,7 +94,7 @@ tournament_recital_character = {
 		min_template_decent_skill
 		max_template_decent_skill
 	}
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 }
 
 tournament_pugilism_character = {
@@ -111,7 +111,7 @@ tournament_pugilism_character = {
 		min_template_decent_skill
 		max_template_decent_skill
 	}
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	after_creation = {
 		add_random_tiered_trait_track_xp_effect = {
 			TRAIT = tourney_participant
@@ -134,7 +134,7 @@ tournament_board_game_character = {
 		min_template_decent_skill
 		max_template_decent_skill
 	}
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 }
 
 loyal_fan_character = {
@@ -153,7 +153,7 @@ loyal_fan_character = {
 		chaste = {}
 		lustful = {}
 	}
-	gender_female_chance = 100
+	gender_female_chance = 50
 }
 
 local_beauty_character = {
@@ -174,7 +174,7 @@ local_beauty_character = {
 		min_template_decent_skill
 		max_template_decent_skill
 	}
-	gender_female_chance = 100
+	gender_female_chance = root_sexuality_female_chance
 	after_creation = {
 		random_list = {
 			50 = {
@@ -238,7 +238,7 @@ feral_child_template = {
 		max_template_low_skill
 	}
 	dynasty = none
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	after_creation = {
 		random_list = {
 			20 = {
@@ -263,7 +263,7 @@ castaway_character = {
 	age = { 18 40 }
 	dynasty = none
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	after_creation = {
 		random_list = {
 			20 = {
@@ -312,7 +312,7 @@ sexy_assassin_character = {
 	random_traits = yes
 	faith = this.faith
 	culture = this.culture
-	gender_female_chance = 100
+	gender_female_chance = root_attraction_based_female_chance
 	intrigue = {
 		min_template_decent_skill
 		max_template_decent_skill
@@ -331,7 +331,7 @@ garden_hermit_character = {
 		education_learning_2 = {}
 		education_learning_3 = {}
 	}
-	gender_female_chance = 100
+	gender_female_chance = root_faith_clergy_gender_female_chance
 	learning = {
 		min_template_low_skill
 		max_template_low_skill
@@ -377,7 +377,7 @@ brainless_character_template = {
 		max_template_low_skill
 	}
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	after_creation = {
 		if = {
 			limit = { has_trait = lifestyle_reveler }
@@ -433,7 +433,7 @@ heartless_knight = {
 		max_template_low_skill
 	}
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 }
 
 cowardly_knight = {
@@ -460,13 +460,13 @@ cowardly_knight = {
 		max_template_low_skill
 	}
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 }
 
 child_thief_character = {
 	age = { 6 12 }
 	dynasty = none
-	gender_female_chance = 100
+	gender_female_chance = 50
 	trait = charming
 	intrigue = {
 		min_template_decent_skill
@@ -485,7 +485,7 @@ wealthy_gambler_template = {
 	random_traits = yes
 	faith = this.faith
 	culture = this.culture
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
 	stewardship = {
 		min_template_decent_skill
 		max_template_decent_skill
@@ -516,7 +516,7 @@ tournament_mulan_character = {
 		min_template_decent_skill
 		max_template_decent_skill
 	}
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_female_reversed_chance
 	after_creation = {
 		add_random_tiered_trait_xp_effect = {
 			TRAIT = lifestyle_blademaster
@@ -543,7 +543,7 @@ quasimodo_template = {
 		giant = {}
 	}
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = 50
 }
 
 tournament_unusual_stranger = {
@@ -564,7 +564,7 @@ tournament_unusual_stranger = {
 		max_template_decent_skill
 	}
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	after_creation = {
 		add_gold = 1
 	}
@@ -578,7 +578,7 @@ travel_messenger = {
 		min_template_decent_skill
 		max_template_high_skill
 	}
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	after_creation = {
 		add_gold = 10 
 	}
@@ -598,7 +598,7 @@ sea_captain = {
 	}
 	trait = forder
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	after_creation = {
 		random_list = {
 			15 = {
@@ -628,7 +628,7 @@ jungle_guide = {
 	}
 	trait = jungle_stalker
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	after_creation = {
 		random_list = {
 			55 = {
@@ -655,7 +655,7 @@ mountaineer_guide = {
 	}
 	trait = rough_terrain_expert
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	after_creation = {
 		random_list = {
 			55 = {
@@ -682,7 +682,7 @@ forder_guide = {
 	}
 	trait = forder
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	after_creation = {
 		random_list = {
 			55 = {
@@ -709,7 +709,7 @@ desert_warrior_guide = {
 	}
 	trait = desert_warrior
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	after_creation = {
 		random_list = {
 			55 = {
@@ -736,7 +736,7 @@ rough_terrain_guide = { #I.e. Forest Guide
 	}
 	trait = forest_fighter
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	after_creation = {
 		random_list = {
 			55 = {
@@ -759,7 +759,7 @@ cultural_ambassador = {
 		max_template_high_skill
 	}
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	after_creation = {
 		add_gold = 10
 	}

@@ -2,7 +2,7 @@
 scribe_travel_option_character = {
 	age = { 25 30 }
 	dynasty = none
-	gender_female_chance = 100
+	gender_female_chance = 50
 	
 	trait = devoted
 	trait = lifestyle_traveler
@@ -74,7 +74,7 @@ scribe_travel_option_character = {
 
 court_jester_court_position_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_female_chance
 	
 	dynasty = none
 	
@@ -108,7 +108,7 @@ court_jester_court_position_template = {
 
 stooge_camp_officer_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = 50
 	
 	dynasty = none
 	
@@ -163,7 +163,7 @@ stooge_camp_officer_template = {
 
 court_physician_court_position_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_female_chance
 	
 	dynasty = none
 	
@@ -211,7 +211,7 @@ court_physician_court_position_template = {
 
 chief_qadi_court_position_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = root_faith_clergy_gender_female_chance
 	
 	dynasty = none
 	
@@ -232,7 +232,7 @@ chief_qadi_court_position_template = {
 
 antiquarian_court_position_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_female_chance
 	
 	dynasty = none
 	
@@ -259,7 +259,7 @@ antiquarian_court_position_template = {
 
 great_antiquarian_court_position_template = {
 	age = { 40 50 }
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_female_chance
 	
 	dynasty = none
 	
@@ -286,7 +286,7 @@ great_antiquarian_court_position_template = {
 
 travel_leader_court_position_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_female_chance
 	
 	dynasty = none
 	
@@ -366,7 +366,7 @@ wet_nurse_court_position_template = {
 
 master_of_spoils_camp_officer_template = {
 	age = { 18 22 }
-	gender_female_chance = 100
+	gender_female_chance = 50
 	
 	dynasty = none
 	
@@ -396,7 +396,7 @@ master_of_spoils_camp_officer_template = {
 
 court_tutor_court_position_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_female_chance
 	
 	dynasty = none
 	
@@ -424,7 +424,7 @@ court_tutor_court_position_template = {
 
 court_guru_court_position_template = {
 	age = { 40 55 }
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_female_chance
 	
 	dynasty = none
 	
@@ -460,7 +460,7 @@ court_guru_court_position_template = {
 
 food_taster_court_position_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_female_chance
 	
 	dynasty = none
 	
@@ -489,7 +489,7 @@ food_taster_court_position_template = {
 
 camp_cook_camp_officer_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_female_chance
 	
 	dynasty = none
 	
@@ -519,7 +519,7 @@ camp_cook_camp_officer_template = {
 
 master_of_horse_court_position_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	
 	dynasty = none
 	
@@ -547,7 +547,7 @@ master_of_horse_court_position_template = {
 
 head_groom_camp_officer_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	
 	dynasty = none
 	
@@ -577,7 +577,7 @@ head_groom_camp_officer_template = {
 
 master_of_hunt_court_position_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	
 	dynasty = none
 	
@@ -623,7 +623,7 @@ master_of_hunt_court_position_template = {
 
 huntperson_camp_officer_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	
 	dynasty = none
 	
@@ -658,7 +658,7 @@ huntperson_camp_officer_template = {
 
 royal_architect_court_position_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_female_chance
 	
 	dynasty = none
 	
@@ -685,7 +685,7 @@ royal_architect_court_position_template = {
 
 head_porter_camp_officer_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = 50
 	
 	dynasty = none
 	
@@ -716,7 +716,7 @@ head_porter_camp_officer_template = {
 
 high_almoner_court_position_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = root_faith_clergy_gender_female_chance
 	
 	dynasty = none
 	
@@ -745,7 +745,7 @@ high_almoner_court_position_template = {
 
 chief_forager_camp_officer_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = 50
 	
 	dynasty = none
 	
@@ -777,7 +777,7 @@ chief_forager_camp_officer_template = {
 
 seneschal_court_position_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_female_chance
 	
 	dynasty = none
 	
@@ -805,7 +805,7 @@ seneschal_court_position_template = {
 
 quartermaster_camp_officer_template = { # Quartermaster
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_female_chance
 	
 	dynasty = none
 	
@@ -835,7 +835,7 @@ quartermaster_camp_officer_template = { # Quartermaster
 
 cupbearer_court_position_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_female_chance
 	
 	dynasty = none
 	
@@ -863,7 +863,7 @@ cupbearer_court_position_template = {
 
 witness_camp_officer_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_female_chance
 	
 	dynasty = none
 	
@@ -894,7 +894,7 @@ witness_camp_officer_template = {
 
 court_poet_court_position_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_female_chance
 	
 	dynasty = none
 	
@@ -926,7 +926,7 @@ court_poet_court_position_template = {
 
 court_musician_court_position_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_female_chance
 	
 	dynasty = none
 	
@@ -966,7 +966,7 @@ court_musician_court_position_template = {
 
 master_bard_camp_officer_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = 50
 	
 	dynasty = none
 	
@@ -995,7 +995,7 @@ master_bard_camp_officer_template = {
 
 bodyguard_court_position_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	
 	dynasty = none
 	
@@ -1045,7 +1045,7 @@ bodyguard_court_position_template = {
 
 champion_court_position_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	
 	dynasty = none
 	
@@ -1085,7 +1085,7 @@ champion_court_position_template = {
 
 master_of_arms_camp_officer_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	
 	dynasty = none
 	
@@ -1129,7 +1129,7 @@ master_of_arms_camp_officer_template = {
 
 executioner_court_position_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	
 	dynasty = none
 	
@@ -1164,7 +1164,7 @@ executioner_court_position_template = {
 
 chronicler_court_position_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_female_chance
 	
 	dynasty = none
 	
@@ -1195,7 +1195,7 @@ chronicler_court_position_template = {
 
 second_camp_officer_template = {
 	age = { 20 30 }
-	gender_female_chance = 100
+	gender_female_chance = 50
 	
 	dynasty = none
 	

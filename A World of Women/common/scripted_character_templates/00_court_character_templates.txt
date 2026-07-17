@@ -1,7 +1,7 @@
 ﻿bleeding_diplomat_character = {
 	age = { 18 60 }
 	dynasty = none
-	gender = female
+	gender = male
 	random_traits_list = {
 		count = 2
 		lustful = {}
@@ -28,7 +28,7 @@
 preaching_tour_priest_character = {
 	age = { 50 80 }
 	dynasty = none
-	gender_female_chance = 100
+	gender_female_chance = root_faith_clergy_gender_female_chance
 	random_traits_list = {
 		count = 2
 		lustful = {}
@@ -58,7 +58,7 @@ bernard_of_clairvaux_character = {
 	name = Bernard_of_Clairvaux
 	age = { 20 63 }
 	dynasty = none
-	gender = female
+	gender = male
 	trait = saint
 	trait = ambitious
 	trait = chaste
@@ -70,7 +70,7 @@ bernard_of_clairvaux_character = {
 head_chasing_monk_character = {
 	age = { 20 30 }
 	dynasty = none
-	gender_female_chance = 100
+	gender_female_chance = root_faith_clergy_gender_female_chance
 	faith = root.faith
 	culture = root.culture
 	
@@ -93,7 +93,7 @@ fake_artifact_peddler_character = {
 adoring_fan_character = {
 	age = { 20 80 }
 	dynasty = none
-	gender_female_chance = 100
+	gender_female_chance = root_faith_clergy_gender_female_chance
 	trait = trusting
 	trait = education_martial_3
 	random_traits = yes
@@ -102,7 +102,7 @@ adoring_fan_character = {
 trepanner_character = {
 	age = { 20 40 }
 	dynasty = none
-	gender_female_chance = 100
+	gender_female_chance = root_faith_clergy_gender_female_chance
 	
 	trait = lifestyle_physician
 	random_traits_list = {
@@ -142,7 +142,7 @@ random_learned_eunuch_character = {
 	dynasty = none
 	faith = root.faith
 	culture = root.culture
-	gender_female_chance = 100
+	gender_female_chance = 0
 	trait = beardless_eunuch
 	learning = {
 		min_template_high_skill
@@ -219,7 +219,7 @@ random_barrel_character = {
 	culture = root.capital_province.culture
 
 	# Some chance of non-dominant gender, but small
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
 
 	learning = {
 		min_template_low_skill
@@ -354,7 +354,7 @@ beautiful_man_character = {
 	culture = this.culture
 	faith = this.faith
 
-	gender_female_chance = 100
+	gender_female_chance = 0
 	
 	random_traits = no
 		

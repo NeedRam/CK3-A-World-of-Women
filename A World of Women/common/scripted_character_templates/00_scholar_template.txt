@@ -21,7 +21,7 @@ scholar_character = {
 	random_traits = yes
 	faith = root.faith
 	culture = root.culture
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
 	learning = {
 		min_template_high_skill
 		max_template_high_skill
@@ -47,7 +47,7 @@ writer_character = {
 	random_traits = yes
 	faith = root.faith
 	culture = root.culture
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
 	martial = {
 		min_template_low_skill
 		max_template_low_skill
@@ -71,7 +71,7 @@ capital_scholar_character = {
 	random_traits = yes
 	faith = capital_county.faith
 	culture = capital_county.culture
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
 	learning = {
 		min_template_high_skill
 		max_template_high_skill
@@ -97,7 +97,7 @@ capital_writer_character = {
 	random_traits = yes
 	faith = capital_county.faith
 	culture = capital_county.culture
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
 	martial = {
 		min_template_low_skill
 		max_template_low_skill

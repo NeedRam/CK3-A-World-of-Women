@@ -44,7 +44,7 @@ celebration_scholar_character = {
 	# Any Culture  existing in the realm
 	culture = scope:guest_culture
 
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
 	learning = {
 		min_template_high_skill
 		max_template_high_skill
@@ -88,7 +88,7 @@ celebration_martial_character = {
 	# Any Culture  existing in the realm
 	culture = scope:guest_culture
 
-	gender_female_chance = 100
+	gender_female_chance = root_faith_clergy_gender_female_chance
 
 	martial  = {
 		min_template_high_skill
@@ -137,7 +137,7 @@ celebration_diplomat_character = {
 	# Any Culture  existing in the realm
 	culture = scope:guest_culture
 
-	gender_female_chance = 100
+	gender_female_chance = root_faith_clergy_gender_female_chance
 
 	diplomacy  = {
 		min_template_high_skill
@@ -147,7 +147,7 @@ celebration_diplomat_character = {
 
 celebration_spy_character = {
 	age = { 25 40 }
-	gender_female_chance = 100 #because steward gender is doctrine dependent
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance #because steward gender is doctrine dependent
 	random_traits = yes
 	culture = scope:guest_culture
 	faith = scope:guest_faith
@@ -184,7 +184,7 @@ celebration_spy_character = {
 
 celebration_steward_character = {
 	age = { 25 40 }
-	gender_female_chance = 100 #because steward gender is doctrine dependent
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance #because steward gender is doctrine dependent
 	random_traits = yes
 	culture = scope:guest_culture
 	faith = scope:guest_faith
@@ -216,7 +216,7 @@ celebration_hunter_character = {
 	random_traits = yes
 	faith = scope:guest_faith
 	culture = scope:guest_culture
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	prowess = {
 		min_template_high_skill
 		max_template_high_skill
@@ -417,7 +417,7 @@ celebration_priest_character = {
 
 	faith = root.faith # use the root faith in this case as it's a Priest
 	culture = scope:guest_culture
-	gender_female_chance = 100
+	gender_female_chance = root_faith_clergy_gender_female_chance
 	learning = {
 		min_template_high_skill
 		max_template_high_skill
@@ -477,7 +477,7 @@ celebration_artisan_character = {
 		max_template_high_skill
 	}
 
-	gender_female_chance = 100
+	gender_female_chance = 50
 
 	after_creation = {
 		grant_inspiration_to_character_effect = { CHARACTER = this }
@@ -502,7 +502,7 @@ celebration_chessmaster_character = {
 	culture = scope:guest_culture
 
 	# Noble women use to play chess a lot
-	gender_female_chance = 100
+	gender_female_chance = 75
 
 	learning = {
 		min_template_high_skill
@@ -546,7 +546,7 @@ spanish_jewish_merchant_character = {
 	culture = culture:sephardi
 	faith = faith:kabarism # temporary, see after_creation effect below
 
-	gender_female_chance = 100
+	gender_female_chance = 0
 
 	stewardship = {
 		min_template_high_skill
@@ -575,7 +575,7 @@ spanish_conversos_character = {
 	faith = faith:conversos
 	culture = culture:sephardi
 
-	gender_female_chance = 100
+	gender_female_chance = 25
 }
 
 toledan_night_character = {
@@ -602,5 +602,5 @@ toledan_night_character = {
 	faith = root.faith
 	culture = root.culture
 
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
 }

@@ -1,6 +1,26 @@
 ﻿tgp_orphan_character = {
 	age = { 8 10 }
-	gender_female_chance = 100
+	gender_female_chance = {
+		if = {
+			limit = { 
+				root.faith = {
+					has_doctrine = doctrine_gender_male_dominated
+				}
+			}
+			add = 0
+		}
+		else_if = {
+			limit = {
+				root.faith = {
+					has_doctrine = doctrine_gender_female_dominated
+				}
+			}
+			add = 100
+		}
+		else = {
+			add = 50
+		}
+	}
 	dynasty = none
 	faith = root.faith
 	culture = root.culture
@@ -39,7 +59,19 @@ tgp_examiner_learning_template = {
 	random_traits = yes
 	faith = scope:host.top_liege.faith
 	culture = scope:host.top_liege.culture
-	gender_female_chance = 100
+	gender_female_chance = {
+		if = {
+			limit = { scope:host.top_liege.faith = { has_doctrine = doctrine_gender_male_dominated } }
+			add = 0
+		}
+		else_if = {
+			limit = { scope:host.top_liege.faith = { has_doctrine = doctrine_gender_female_dominated } }
+			add = 100
+		}
+		else = {
+			add = 50
+		}
+	}
 	after_creation = {
 		if = {
 			limit = {
@@ -76,7 +108,19 @@ tgp_examiner_martial_template = {
 	random_traits = yes
 	faith = scope:host.top_liege.faith
 	culture = scope:host.top_liege.culture
-	gender_female_chance = 100
+	gender_female_chance = {
+		if = {
+			limit = { scope:host.top_liege.faith = { has_doctrine = doctrine_gender_male_dominated } }
+			add = 0
+		}
+		else_if = {
+			limit = { scope:host.top_liege.faith = { has_doctrine = doctrine_gender_female_dominated } }
+			add = 100
+		}
+		else = {
+			add = 50
+		}
+	}
 	after_creation = {
 		if = {
 			limit = {
@@ -113,7 +157,19 @@ tgp_examiner_stewardship_template = {
 	random_traits = yes
 	faith = scope:host.top_liege.faith
 	culture = scope:host.top_liege.culture
-	gender_female_chance = 100
+	gender_female_chance = {
+		if = {
+			limit = { scope:host.top_liege.faith = { has_doctrine = doctrine_gender_male_dominated } }
+			add = 0
+		}
+		else_if = {
+			limit = { scope:host.top_liege.faith = { has_doctrine = doctrine_gender_female_dominated } }
+			add = 100
+		}
+		else = {
+			add = 50
+		}
+	}
 	after_creation = {
 		if = {
 			limit = {
@@ -150,7 +206,19 @@ tgp_learning_exam_entrant_template = {
 	random_traits = yes
 	faith = scope:host.top_liege.faith
 	culture = scope:host.top_liege.culture
-	gender_female_chance = 100
+	gender_female_chance = {
+		if = {
+			limit = { scope:host.top_liege.faith = { has_doctrine = doctrine_gender_male_dominated } }
+			add = 0
+		}
+		else_if = {
+			limit = { scope:host.top_liege.faith = { has_doctrine = doctrine_gender_female_dominated } }
+			add = 100
+		}
+		else = {
+			add = 50
+		}
+	}
 }
 
 tgp_stewardship_exam_entrant_template = {
@@ -168,7 +236,19 @@ tgp_stewardship_exam_entrant_template = {
 	random_traits = yes
 	faith = scope:host.top_liege.faith
 	culture = scope:host.top_liege.culture
-	gender_female_chance = 100
+	gender_female_chance = {
+		if = {
+			limit = { scope:host.top_liege.faith = { has_doctrine = doctrine_gender_male_dominated } }
+			add = 0
+		}
+		else_if = {
+			limit = { scope:host.top_liege.faith = { has_doctrine = doctrine_gender_female_dominated } }
+			add = 100
+		}
+		else = {
+			add = 50
+		}
+	}
 }
 
 tgp_martial_exam_entrant_template = {
@@ -186,13 +266,25 @@ tgp_martial_exam_entrant_template = {
 	random_traits = yes
 	faith = scope:host.top_liege.faith
 	culture = scope:host.top_liege.culture
-	gender_female_chance = 100
+	gender_female_chance = {
+		if = {
+			limit = { scope:host.top_liege.faith = { has_doctrine = doctrine_gender_male_dominated } }
+			add = 0
+		}
+		else_if = {
+			limit = { scope:host.top_liege.faith = { has_doctrine = doctrine_gender_female_dominated } }
+			add = 100
+		}
+		else = {
+			add = 50
+		}
+	}
 }
 
 tgp_concubine_template = {
 	age = { 16 21 }
 	dynasty = none
-	gender_female_chance = 100
+	gender_female_chance = marriage_gender_adjusted_female_chance
 	
 	random_traits = no
 	faith = root.faith
@@ -269,7 +361,19 @@ tgp_japan_imperial_scion_template = {
 	culture = scope:kampaku.culture
 	faith = scope:kampaku.faith
 	dynasty_house = scope:house_yamato
-	gender_female_chance = 100
+	gender_female_chance = {
+		if = {
+			limit = { scope:kampaku.faith = { has_doctrine = doctrine_gender_male_dominated } }
+			add = 0
+		}
+		else_if = {
+			limit = { scope:kampaku.faith = { has_doctrine = doctrine_gender_female_dominated } }
+			add = 100
+		}
+		else = {
+			add = 50
+		}
+	}
 }
 
 tgp_decent_heir_template = {
@@ -277,7 +381,7 @@ tgp_decent_heir_template = {
 	random_traits = yes
 	culture = root.culture
 	faith = root.faith
-	gender_female_chance = 100
+	gender_female_chance = 25
 	dynasty = none
 	random_traits_list = {
 		count = 1
@@ -327,7 +431,19 @@ tgp_minister_administrator_template = {
 		max_template_decent_skill
 	}
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = {
+		if = {
+			limit = { top_liege.faith = { has_doctrine = doctrine_gender_male_dominated } }
+			add = 0
+		}
+		else_if = {
+			limit = { top_liege.faith = { has_doctrine = doctrine_gender_female_dominated } }
+			add = 100
+		}
+		else = {
+			add = 50
+		}
+	}
 	after_creation = {
 		if = {
 			limit = {
@@ -386,7 +502,19 @@ tgp_minister_diplomat_template = {
 		max_template_decent_skill
 	}
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = {
+		if = {
+			limit = { top_liege.faith = { has_doctrine = doctrine_gender_male_dominated } }
+			add = 0
+		}
+		else_if = {
+			limit = { top_liege.faith = { has_doctrine = doctrine_gender_female_dominated } }
+			add = 100
+		}
+		else = {
+			add = 50
+		}
+	}
 	after_creation = {
 		if = {
 			limit = {
@@ -415,7 +543,19 @@ tgp_minister_commander_template = {
 		max_template_decent_skill
 	}
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = {
+		if = {
+			limit = { top_liege.culture = { has_cultural_parameter = martial_custom_male_only_combatant } }
+			add = 0
+		}
+		else_if = {
+			limit = { top_liege.culture = { has_cultural_parameter = martial_custom_female_only_combatant } }
+			add = 100
+		}
+		else = {
+			add = 50
+		}
+	}
 	after_creation = {
 		if = {
 			limit = {
@@ -472,7 +612,19 @@ tgp_minister_warrior_template = {
 		max_template_decent_skill
 	}
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = {
+		if = {
+			limit = { top_liege.culture = { has_cultural_parameter = martial_custom_male_only_combatant } }
+			add = 0
+		}
+		else_if = {
+			limit = { top_liege.culture = { has_cultural_parameter = martial_custom_female_only_combatant } }
+			add = 100
+		}
+		else = {
+			add = 50
+		}
+	}
 	after_creation = {
 		if = {
 			limit = {
@@ -539,7 +691,19 @@ tgp_minister_scholar_template = {
 		max_template_decent_skill
 	}
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = {
+		if = {
+			limit = { top_liege.faith = { has_doctrine = doctrine_gender_male_dominated } }
+			add = 0
+		}
+		else_if = {
+			limit = { top_liege.faith = { has_doctrine = doctrine_gender_female_dominated } }
+			add = 100
+		}
+		else = {
+			add = 50
+		}
+	}
 	after_creation = {
 		if = {
 			limit = {
@@ -577,7 +741,19 @@ tgp_minister_confucian_scholar_template = {
 		max_template_decent_skill
 	}
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = {
+		if = {
+			limit = { top_liege.faith = { has_doctrine = doctrine_gender_male_dominated } }
+			add = 0
+		}
+		else_if = {
+			limit = { top_liege.faith = { has_doctrine = doctrine_gender_female_dominated } }
+			add = 100
+		}
+		else = {
+			add = 50
+		}
+	}
 	after_creation = {
 		if = {
 			limit = {
@@ -622,7 +798,7 @@ tgp_minister_eunuch_template = {
 		max_template_decent_skill
 	}
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = 0
 	after_creation = {
 		if = {
 			limit = {
@@ -652,7 +828,7 @@ very_good_eunuch_character = {
 	dynasty = none
 	faith = root.faith
 	culture = root.culture
-	gender_female_chance = 100
+	gender_female_chance = 0
 	trait = beardless_eunuch
 	trait = loyal
 	learning = {
@@ -711,7 +887,7 @@ tgp_warrior_monk_template = {
 	dynasty = none
 	faith = root.faith
 	culture = root.culture
-	gender_female_chance = 100
+	gender_female_chance = root_faith_clergy_gender_female_chance
 	random_traits_list = {
 		count = 1
 		education_martial_2 = {}
@@ -758,7 +934,7 @@ tgp_court_brahmin_template = {
 	dynasty = none
 	faith = root.faith
 	culture = root.culture
-	gender_female_chance = 100
+	gender_female_chance = root_faith_clergy_gender_female_chance
 	random_traits_list = {
 		count = 1
 		generous = {}
@@ -796,7 +972,7 @@ tgp_khlon_glan_template = {
 	dynasty = none
 	faith = root.faith
 	culture = root.culture
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	random_traits = yes
 	martial = {
 		min_template_medium_skill
@@ -840,7 +1016,19 @@ tgp_steppe_admin_family_head_template = {
 		education_learning_4 = {}
 	}
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = {
+		if = {
+			limit = { top_liege.faith = { has_doctrine = doctrine_gender_male_dominated } }
+			add = 0
+		}
+		else_if = {
+			limit = { top_liege.faith = { has_doctrine = doctrine_gender_female_dominated } }
+			add = 100
+		}
+		else = {
+			add = 50
+		}
+	}
 	after_creation = {
 		change_merit = { fixed_range =  { min = 250 max = 1250 } }
 	}
@@ -854,7 +1042,7 @@ tgp_poet_lover_template = {
 		beauty_good_2 = {}
 		beauty_good_3 = {}
 	}
-	gender_female_chance = 100
+	gender_female_chance = root_attraction_based_female_chance
 	dynasty = none
 	trait = lustful
 	random_traits_list = {
@@ -931,7 +1119,7 @@ tgp_aspect_acolyte_template = {
 			}
 		}
 	}
-	gender_female_chance = 100
+	gender_female_chance = 0
 	dynasty = none
 	trait = lustful
 	random_traits_list = {

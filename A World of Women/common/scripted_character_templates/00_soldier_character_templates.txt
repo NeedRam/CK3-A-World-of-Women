@@ -48,7 +48,7 @@ soldier_friend_character = {
 		min_template_decent_skill
 		max_template_decent_skill
 	}
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	after_creation = {
 		if = {
 			limit = { has_dlc_feature = tours_and_tournaments }

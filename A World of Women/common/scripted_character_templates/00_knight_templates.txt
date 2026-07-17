@@ -32,7 +32,7 @@
 		max_template_high_skill
 	}
 	prowess = { 8 12 }
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	after_creation = {
 		if = {
 			limit = { has_dlc_feature = tours_and_tournaments }
@@ -83,7 +83,7 @@ knight = {
 		max_template_high_skill
 	}
 	prowess = { 8 12 }
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 }
 
 wandering_knight_character = {
@@ -136,7 +136,7 @@ wandering_knight_character = {
 		min_template_decent_skill
 		max_template_decent_skill
 	}
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	after_creation = {
 		if = {
 			limit = { has_dlc_feature = tours_and_tournaments }

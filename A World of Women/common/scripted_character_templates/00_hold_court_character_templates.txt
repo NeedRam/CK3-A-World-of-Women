@@ -166,7 +166,7 @@ suspicious_genealogist_character = {
 	faith = root.faith
 	culture = root.culture
 	trait = education_intrigue_2
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	diplomacy = 9
 	stewardship = 10
 	learning = 3
@@ -231,7 +231,7 @@ mime_template = {
 	}
 	random_traits = yes
 	dynasty = none
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_female_chance
 	trait = shrewd
 	trait = athletic
 	diplomacy = {
@@ -265,7 +265,7 @@ good_merchant_template = {
 	random_traits = yes
 	faith = this.faith
 	culture = this.culture
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
 	stewardship = {
 		min_template_decent_skill
 		max_template_decent_skill
@@ -290,7 +290,7 @@ good_merchant_template = {
 
 diplomacy_court_position_holder_template = {
 	age = { 25 60 }
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
 	dynasty = none
 	random_traits_list = {
 		count = 1
@@ -323,7 +323,7 @@ diplomacy_court_position_holder_template = {
 
 stewardship_court_position_holder_template = {
 	age = { 25 60 }
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
 	dynasty = none
 	random_traits_list = {
 		count = 1
@@ -343,7 +343,7 @@ stewardship_court_position_holder_template = {
 
 intrigue_court_position_holder_template = {
 	age = { 25 60 }
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
 	dynasty = none
 	random_traits_list = {
 		count = 1
@@ -363,7 +363,7 @@ intrigue_court_position_holder_template = {
 
 learning_court_position_holder_template = {
 	age = { 25 60 }
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
 	dynasty = none
 	random_traits_list = {
 		count = 1
@@ -397,7 +397,7 @@ learning_court_position_holder_template = {
 
 prowess_court_position_holder_template = {
 	age = { 25 60 }
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	dynasty = none
 	random_traits_list = {
 		count = 1

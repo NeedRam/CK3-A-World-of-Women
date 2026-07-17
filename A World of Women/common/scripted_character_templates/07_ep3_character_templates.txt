@@ -35,7 +35,7 @@ charioteer_template = {
 		max_template_high_skill
 	}
 
-	gender_female_chance = 100
+	gender_female_chance = activity_location_faith_dominant_gender_female_chance
 }
 
 generic_bookmaker_character = {
@@ -49,7 +49,7 @@ generic_bookmaker_character = {
 	}
 	dynasty = none
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
 	stewardship = {
 		min_template_decent_skill
 		max_template_decent_skill
@@ -70,7 +70,7 @@ anatolian_guide_character = {
 		education_martial_1 = {}
 		education_martial_2 = {}
 	}
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_female_chance 
 	prowess = {
 		min_template_low_skill
 		max_template_average_skill
@@ -109,7 +109,7 @@ varangian_template = {
 		min_template_average_skill
 		max_template_decent_skill
 	}
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	after_creation = {
 		add_trait = varangian
 		add_trait = tourney_participant
@@ -324,7 +324,7 @@ ep3_magistrate_character = {
 		education_stewardship_2 = { weight = { base = 35 } }
 		education_stewardship_3 = { weight = { base = 35 } }
 	}
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	culture = root.culture
 	faith = root.faith
 	dynasty = none
@@ -363,7 +363,23 @@ ep3_frankokratia_crusader_template = {
 	random_traits = yes
 	culture = scope:frankokratia_crusader.culture
 	faith = scope:frankokratia_crusader.faith
-	gender_female_chance = 100
+	gender_female_chance = {
+		if = {
+			limit = {
+				scope:frankokratia_crusader.faith = { has_doctrine = doctrine_gender_male_dominated }
+			}
+			add = 0
+		}
+		else_if = {
+			limit = {
+				scope:frankokratia_crusader.faith = { has_doctrine = doctrine_gender_female_dominated }
+			}
+			add = 100
+		}
+		else = {
+			add = 50
+		}
+	}
 	random_traits_list = {
 		education_martial_1 = { weight = { base = 35 } }
 		education_martial_2 = { weight = { base = 35 } }
@@ -472,7 +488,7 @@ laamp_inheritor_template = {
 
 	random_traits = yes
 
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 }
 
 traveler_character = {
@@ -480,7 +496,7 @@ traveler_character = {
 	dynasty = none
 	random_traits = yes
 	faith = this.faith
-	gender_female_chance = 100
+	gender_female_chance = 50
 	diplomacy = {
 		min_template_low_skill
 		max_template_high_skill
@@ -584,7 +600,7 @@ ep3_evangelizer_template = {
 
 ep3_poet_template = {
 	age = { 20 70 }
-	gender_female_chance = 100
+	gender_female_chance = 50
 	random_traits = yes
 	culture = root.culture
 	faith = root.faith
@@ -751,7 +767,7 @@ ep3_wallada_heir_template = {
 
 ep3_poet_toned_down_template = {
 	age = { 20 60 }
-	gender_female_chance = 100
+	gender_female_chance = 50
 	random_traits = yes
 	faith = root.faith
 	diplomacy = {
@@ -831,7 +847,7 @@ ep3_murderer_template = {
 	culture = root.culture
 	faith = root.faith
 	trait = gallowsbait
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	random_traits_list = {
 		count = 1
 		education_martial_2 = {}
@@ -900,7 +916,23 @@ ep3_sea_raider_template = {
 	}
 	#Misc
 	random_traits = no
-	gender_female_chance = 100
+	gender_female_chance = {
+		if = {
+			limit = {
+				scope:raider_faith = { has_doctrine = doctrine_gender_male_dominated }
+			}
+			add = 0
+		}
+		else_if = {
+			limit = {
+				scope:raider_faith = { has_doctrine = doctrine_gender_female_dominated }
+			}
+			add = 100
+		}
+		else = {
+			add = 50
+		}
+	}
 	trait = viking
 	#Skills
 	diplomacy = { min_template_low_skill max_template_average_skill }

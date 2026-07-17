@@ -37,7 +37,7 @@ bp1_yearly_2021_martial_person_template = {
 	martial = { 14 17 }
 	faith = root.faith
 	culture = root.culture
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	after_creation = {
 		if = {
 			limit = { has_trait = lifestyle_blademaster }
@@ -94,7 +94,7 @@ bp1_yearly_2021_learning_witch_template = {
 	martial = { 3 6 }
 	faith = root.faith
 	culture = root.culture
-	gender_female_chance = 100
+	gender_female_chance = 50
 	after_creation = {
 		add_character_flag = created
 		if = {
@@ -158,7 +158,7 @@ bp1_yearly_2021_learning_person_template = {
 	martial = { 3 6 }
 	faith = root.faith
 	culture = root.culture
-	gender_female_chance = 100
+	gender_female_chance = 50
 	after_creation = {
 		if = {
 			limit = { has_trait = lifestyle_mystic }
@@ -211,7 +211,7 @@ bp1_yearly_2021_stewardship_person_template = {
 	martial = { 3 6 }
 	faith = root.faith
 	culture = root.culture
-	gender_female_chance = 100
+	gender_female_chance = 50
 }
 
 bp1_yearly_2021_diplomacy_person_template = {
@@ -247,7 +247,7 @@ bp1_yearly_2021_diplomacy_person_template = {
 	martial = { 3 6 }
 	faith = root.faith
 	culture = root.culture
-	gender_female_chance = 100
+	gender_female_chance = 50
 	after_creation = {
 		add_random_tiered_trait_xp_effect = {
 			TRAIT = lifestyle_reveler
@@ -290,5 +290,5 @@ bp1_yearly_2021_intrigue_person_template = {
 	martial = { 3 6 }
 	faith = root.faith
 	culture = root.culture
-	gender_female_chance = 100
+	gender_female_chance = 50
 }

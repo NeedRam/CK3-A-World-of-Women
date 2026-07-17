@@ -21,7 +21,7 @@ servant_character = {
 	culture = this.culture
 	faith = this.faith
 	dynasty = none
-	gender_female_chance = 100
+	gender_female_chance = 50
 	intrigue = {
 		min_template_decent_skill
 		max_template_decent_skill
@@ -57,7 +57,7 @@ servant_character = {
 
 witchy_template = {
 	age = { 16 63 }
-	gender_female_chance = 100
+	gender_female_chance = 50
 	culture = root.culture
 	faith = root.faith
 	dynasty = none
@@ -159,7 +159,7 @@ merchant_template = {
 	random_traits = yes
 	faith = this.faith
 	culture = this.culture
-	gender_female_chance = 100
+	gender_female_chance = root_faith_dominant_gender_adjusted_female_chance
 	stewardship = {
 		min_template_decent_skill
 		max_template_decent_skill
@@ -176,7 +176,7 @@ hunter_template = {
 	random_traits = yes
 	faith = this.faith
 	culture = this.culture
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	prowess = {
 		min_template_decent_skill
 		max_template_decent_skill
@@ -220,7 +220,7 @@ falconer_template = {
 	random_traits = yes
 	faith = this.faith
 	culture = this.culture
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	prowess = {
 		min_template_decent_skill
 		max_template_decent_skill
@@ -263,7 +263,7 @@ detective_template = {
 	dynasty = none
 	faith = this.faith
 	culture = this.culture
-	gender_female_chance = 100
+	gender_female_chance = 0
 	random_traits = yes
 	random_traits_list = {
 		count = 1
@@ -291,7 +291,7 @@ generic_peasant_character = {
 	random_traits = yes
 	culture = root.culture
 	faith = root.faith
-	gender_female_chance = 100
+	gender_female_chance = 50
 	dynasty = none
 	random_traits_list = {
 		count = 1
@@ -411,7 +411,7 @@ challenger_peasant_character = {
 	age = { 18 45 }
 	dynasty = none
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	faith = root.faith
 	culture = root.culture
 	trait = zealous
@@ -463,7 +463,7 @@ drunken_peasant_character = {
 	age = { 18 45 }
 	dynasty = none
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	faith = root.faith
 	culture = root.culture
 	trait = drunkard
@@ -479,7 +479,7 @@ diseased_peasant_character = {
 	age = { 18 45 }
 	dynasty = none
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = 50
 	faith = root.faith
 	culture = root.culture
 	trait = peasant_leader
@@ -497,7 +497,7 @@ diseased_peasant_character = {
 peasant_child_character = {
 	age = { 3 15 }
 	dynasty = none
-	gender_female_chance = 100
+	gender_female_chance = 50
 	random_traits = yes
 	after_creation = {
 		add_character_flag = created
@@ -508,7 +508,7 @@ peasant_child_character = {
 peasant_young_child_character = {
 	age = { 6 12 }
 	dynasty = none
-	gender_female_chance = 100
+	gender_female_chance = 50
 	random_traits = yes
 	after_creation = {
 		add_character_flag = created
@@ -519,7 +519,7 @@ peasant_young_child_character = {
 peasant_toddler_character = {
 	age = { 3 8 }
 	dynasty = none
-	gender_female_chance = 100
+	gender_female_chance = 50
 	random_traits = yes
 }
 
@@ -634,7 +634,7 @@ bandit_character = {
 		forder = { weight = { base = 10 } }
 		tourney_participant = { weight = { base = 20 } }
 	}
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	martial = {
 		min_template_decent_skill
 		max_template_decent_skill
@@ -691,7 +691,7 @@ criminal_brains_character = {
 		deceitful = {}
 		arrogant = {}
 	}
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	diplomacy = {
 		min_template_low_skill
 		max_template_low_skill
@@ -786,7 +786,7 @@ criminal_brawn_character = {
 		deceitful = {}
 		arrogant = {}
 	}
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	diplomacy = {
 		min_template_low_skill
 		max_template_low_skill
@@ -895,7 +895,7 @@ criminal_fingers_character = {
 		deceitful = {}
 		arrogant = {}
 	}
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	diplomacy = {
 		min_template_low_skill
 		max_template_low_skill
@@ -967,7 +967,7 @@ guide_character = {
 	culture = root.location.county.holder.culture
 	faith = root.location.faith
 	dynasty = none
-	gender_female_chance = 100
+	gender_female_chance = 50
 	stewardship = {
 		min_template_decent_skill
 		max_template_decent_skill
@@ -984,7 +984,7 @@ tournament_locale_character = {
 	culture = scope:activity.activity_location.culture
 	faith = scope:activity.activity_location.faith
 	dynasty = none
-	gender_female_chance = 100
+	gender_female_chance = activity_host_faith_dominant_gender_adjusted_female_chance
 	intrigue = {
 		min_template_decent_skill
 		max_template_decent_skill
@@ -1028,7 +1028,7 @@ servant_father_character = {
 	age = { 16 36 }
 	random_traits = yes
 	dynasty = none
-	gender = female
+	gender = male
 	intrigue = {
 		min_template_decent_skill
 		max_template_decent_skill
@@ -1066,7 +1066,7 @@ jester_template = {
 	age = { 16 50 }
 	random_traits = yes
 	dynasty = none
-	gender_female_chance = 100
+	gender_female_chance = 50
 	diplomacy = {
 		min_template_decent_skill
 		max_template_decent_skill
@@ -1082,7 +1082,7 @@ jester_template = {
 }
 
 weird_sailor_template = {
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	random_traits = yes
 	dynasty = none
 	culture = root.location.culture
@@ -1141,7 +1141,7 @@ criminal_thief_bandit_character = {
 		stubborn = {}
 		vengeful = {}
 	}
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	diplomacy = {
 		min_template_low_skill
 		max_template_low_skill
@@ -1185,7 +1185,7 @@ generic_peasant_character_no_rags = {
 	random_traits = yes
 	culture = root.culture
 	faith = root.faith
-	gender_female_chance = 100
+	gender_female_chance = 50
 	dynasty = none
 	random_traits_list = {
 		count = 1
@@ -1248,7 +1248,7 @@ settlement_elder_character = {
 	random_traits = yes
 	culture = root.culture
 	faith = root.faith
-	gender_female_chance = 100
+	gender_female_chance = 50
 	dynasty = none
 	random_traits_list = {
 		count = 1
@@ -1331,7 +1331,7 @@ opposite_gender_peasant_template = {
 	dynasty = none
 	#Misc
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = root_self_based_reverse_female_chance
 	
 	after_creation = {
 		add_character_flag = created
@@ -1382,7 +1382,7 @@ local_noble_character = {
 	random_traits = yes
 	culture = root.culture
 	faith = root.faith
-	gender_female_chance = 100
+	gender_female_chance = 50
 	dynasty = generate
 	random_traits_list = {
 		count = 1
@@ -1442,7 +1442,7 @@ local_noble_character = {
 }
 
 mediocre_spouse = {
-	gender_female_chance = 100
+	gender_female_chance = root.marriage_gender_adjusted_female_chance
 	age = { 16 26 }
 	random_traits = yes
 	culture = root.culture

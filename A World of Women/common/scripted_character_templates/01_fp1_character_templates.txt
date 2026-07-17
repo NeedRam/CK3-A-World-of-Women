@@ -46,7 +46,7 @@ fp1_ms_godi_character = {
 	}
 	#Misc
 	random_traits = no
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	#Skills
 	diplomacy = 0
 	martial = 0
@@ -95,7 +95,7 @@ fp1_ms_reformed_missionary_character = {
 	}
 	#Misc
 	random_traits = no
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	#Skills
 	diplomacy = 0
 	martial = 0
@@ -137,7 +137,7 @@ fp1_ms_nithing_character = {
 	}
 	#Misc
 	random_traits = no
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	#Skills
 	diplomacy = 0
 	martial = 0
@@ -172,7 +172,7 @@ fp1_ms_warrior_character = {
 	}
 	#Misc
 	random_traits = no
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	#Skills
 	diplomacy = 0
 	martial = 0
@@ -233,7 +233,7 @@ fp1_ms_vagrant_character = {
 	}
 	#Misc
 	random_traits = no
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	#Skills
 	diplomacy = 0
 	martial = 0
@@ -282,7 +282,21 @@ fp1_western_warrior_character = {
 	#Misc
 	trait = adventurer
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = {
+		if = {
+			limit = {
+				scope:scandinavian_county.faith = { has_doctrine = doctrine_gender_male_dominated }
+			}
+			add = 0
+		}
+		else_if = {
+			limit = {
+				scope:scandinavian_county.faith = { has_doctrine = doctrine_gender_female_dominated }
+			}
+			add = 100
+		}
+		else = { add = 50 }
+	}
 	#Skills
 	diplomacy = { min_template_low_skill max_template_decent_skill }
 	martial = { min_template_decent_skill max_template_high_skill }
@@ -328,7 +342,21 @@ fp1_eastern_warrior_character = {
 	#Misc
 	trait = adventurer
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = {
+		if = {
+			limit = {
+				scope:scandinavian_county.faith = { has_doctrine = doctrine_gender_male_dominated }
+			}
+			add = 0
+		}
+		else_if = {
+			limit = {
+				scope:scandinavian_county.faith = { has_doctrine = doctrine_gender_female_dominated }
+			}
+			add = 100
+		}
+		else = { add = 50 }
+	}
 	#Skills
 	diplomacy = { min_template_low_skill max_template_decent_skill }
 	martial = { min_template_decent_skill max_template_high_skill }
@@ -385,7 +413,21 @@ fp1_jomsviking_bigwig = {
 		tourney_participant = {}
 	}
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = {
+		if = {
+			limit = {
+				faith:norse_pagan = { has_doctrine = doctrine_gender_male_dominated }
+			}
+			add = 0
+		}
+		else_if = {
+			limit = {
+				faith:norse_pagan = { has_doctrine = doctrine_gender_female_dominated }
+			}
+			add = 100
+		}
+		else = { add = 50 }
+	}
 	#Skills
 	diplomacy = { min_template_low_skill max_template_decent_skill }
 	martial = { min_template_decent_skill max_template_high_skill }
@@ -433,7 +475,21 @@ fp1_jomsviking_retainer_martial = {
 	trait = order_member
 	trait = viking
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = {
+		if = {
+			limit = {
+				faith:norse_pagan = { has_doctrine = doctrine_gender_male_dominated }
+			}
+			add = 0
+		}
+		else_if = {
+			limit = {
+				faith:norse_pagan = { has_doctrine = doctrine_gender_female_dominated }
+			}
+			add = 100
+		}
+		else = { add = 50 }
+	}
 	#Skills
 	diplomacy = { min_template_low_skill max_template_average_skill }
 	martial = { min_template_decent_skill max_template_high_skill }
@@ -478,7 +534,21 @@ fp1_jomsviking_retainer_prowess = {
 	trait = order_member
 	trait = viking
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = {
+		if = {
+			limit = {
+				faith:norse_pagan = { has_doctrine = doctrine_gender_male_dominated }
+			}
+			add = 0
+		}
+		else_if = {
+			limit = {
+				faith:norse_pagan = { has_doctrine = doctrine_gender_female_dominated }
+			}
+			add = 100
+		}
+		else = { add = 50 }
+	}
 	#Skills
 	diplomacy = { min_template_low_skill max_template_average_skill }
 	martial = { min_template_low_skill max_template_average_skill }
@@ -537,7 +607,7 @@ fp1_deceitful_warrior_character = {
 	}
 	#Misc
 	random_traits = no
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	#Skills
 	diplomacy = { min_template_low_skill max_template_decent_skill }
 	martial = { min_template_average_skill min_template_high_skill }
@@ -585,7 +655,7 @@ fp1_deceitful_explorer_character = {
 	}
 	#Misc
 	random_traits = no
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	#Skills
 	diplomacy = { min_template_low_skill max_template_decent_skill }
 	martial = { min_template_low_skill max_template_decent_skill }
@@ -633,7 +703,7 @@ fp1_truthful_explorer_character = {
 	}
 	#Misc
 	random_traits = no
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	#Skills
 	diplomacy = { min_template_low_skill max_template_decent_skill }
 	martial = { min_template_average_skill min_template_high_skill }
@@ -697,7 +767,7 @@ fp1_islamic_explorer_character = {
 			limit = {
 				scope:sponsoring_liege.faith = { has_doctrine = doctrine_gender_male_dominated }
 			}
-			add = 100
+			add = 0
 		}
 		else_if = {
 			limit = {
@@ -706,7 +776,7 @@ fp1_islamic_explorer_character = {
 			add = 100
 		}
 		else = {
-			add = 100
+			add = 50
 		}
 	}
 	#Skills
@@ -781,7 +851,7 @@ fp1_capital_county_nithing_character = {
 			limit = {
 				root.capital_county.faith = { has_doctrine = doctrine_gender_male_dominated }
 			}
-			add = 100
+			add = 0
 		}
 		else_if = {
 			limit = {
@@ -790,7 +860,7 @@ fp1_capital_county_nithing_character = {
 			add = 100
 		}
 		else = {
-			add = 100
+			add = 50
 		}
 	}
 	#Skills
@@ -821,7 +891,7 @@ fp1_capital_county_orphan_character = {
 	}
 	#Misc
 	random_traits = no
-	gender_female_chance = 100
+	gender_female_chance = 50
 	#Skills
 	diplomacy = { min_template_low_skill max_template_low_skill }
 	martial = { min_template_low_skill max_template_low_skill }
@@ -872,7 +942,7 @@ fp1_trade_partner_merchant = {
 	}
 	#Misc
 	random_traits = no
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	#Skills
 	diplomacy = { min_template_low_skill max_template_average_skill }
 	martial = { min_template_low_skill min_template_average_skill }
@@ -1028,7 +1098,7 @@ fp1_trade_partner_priest = {
 	}
 	#Misc
 	random_traits = no
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	trait = devoted
 	#Skills
 	## Skilled in diplomacy and learning so that they're still useful whatever your religious feelings.
@@ -1082,7 +1152,7 @@ fp1_trade_partner_spy = {
 	}
 	#Misc
 	random_traits = no
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	#Skills
 	diplomacy = { min_template_low_skill max_template_average_skill }
 	martial = { min_template_low_skill min_template_average_skill }
@@ -1135,7 +1205,7 @@ fp1_trade_partner_warrior = {
 	}
 	#Misc
 	random_traits = no
-	gender_female_chance = 100
+	gender_female_chance = root_soldier_female_chance
 	trait = viking
 	#Skills
 	diplomacy = { min_template_low_skill max_template_average_skill }
@@ -1156,7 +1226,23 @@ old_country_local_warlord_template = {
 	random_traits = yes
 	culture = scope:current_county.title_province.culture
 	faith = scope:current_county.title_province.faith
-	gender_female_chance = 100
+	gender_female_chance = {
+		if = {
+			limit = {
+				scope:current_county.title_province.faith = { has_doctrine = doctrine_gender_male_dominated }
+			}
+			add = 0
+		}
+		else_if = {
+			limit = {
+				scope:current_county.title_province.faith = { has_doctrine = doctrine_gender_female_dominated }
+			}
+			add = 100
+		}
+		else = {
+			add = 50
+		}
+	}
 	martial = {
 		min_template_decent_skill
 		max_template_decent_skill

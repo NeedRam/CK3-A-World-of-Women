@@ -10,7 +10,7 @@ bp1_doppelganger_template = {
 	dynasty = none
 	#Misc
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = root_self_based_female_chance
 
 	after_creation = {
 		copy_inheritable_appearance_from = root
@@ -85,7 +85,7 @@ bp1_bisexual_partner_template = {
 	dynasty = none
 	#Misc
 	random_traits = yes
-	gender_female_chance = 100
+	gender_female_chance = root_self_based_female_chance
 
 	after_creation = {
 		set_sexuality = bisexual
