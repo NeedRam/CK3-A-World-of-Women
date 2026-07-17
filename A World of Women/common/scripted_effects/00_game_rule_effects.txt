@@ -85,23 +85,7 @@ game_rule_create_spouse_and_children = {
 					culture = $CHARACTER$.culture
 					faith = $CHARACTER$.faith
 					gender_female_chance = {
-						if = {
-							limit = {
-								is_ruler = yes
-								$CHARACTER$ = { has_realm_law = male_only_law }
-							}
-							value = 0
-						}
-						else_if = {
-							limit = {
-								is_ruler = yes
-								$CHARACTER$ = { has_realm_law = female_only_law }
-							}
-							value = 100
-						}
-						else = {
-							value = 50
-						}
+						value = 100
 					}
 					age = {
 						value = scope:mother.age
@@ -119,23 +103,7 @@ game_rule_create_spouse_and_children = {
 					culture = $CHARACTER$.culture
 					faith = $CHARACTER$.faith
 					gender_female_chance = {
-						if = {
-							limit = {
-								is_ruler = yes
-								$CHARACTER$ = { has_realm_law = male_only_law }
-							}
-							value = 0
-						}
-						else_if = {
-							limit = {
-								is_ruler = yes
-								$CHARACTER$ = { has_realm_law = female_only_law }
-							}
-							value = 100
-						}
-						else = {
-							value = 50
-						}
+						value = 100
 					}
 					age = {
 						value = scope:mother.age
@@ -157,23 +125,7 @@ game_rule_create_spouse_and_children = {
 				culture = $CHARACTER$.culture
 				faith = $CHARACTER$.faith
 				gender_female_chance = {
-					if = {
-						limit = {
-							is_ruler = yes
-							$CHARACTER$ = { has_realm_law = male_only_law }
-						}
-						value = 0
-					}
-					else_if = {
-						limit = {
-							is_ruler = yes
-							$CHARACTER$ = { has_realm_law = female_only_law }
-						}
-						value = 100
-					}
-					else = {
-						value = 50
-					}
+					value = 100
 				}
 				age = {
 					value = scope:mother.age
@@ -201,7 +153,7 @@ game_rule_create_spouse_and_children = {
 					culture = $CHARACTER$.culture
 					faith = $CHARACTER$.faith
 					gender_female_chance = {
-						value = 50
+						value = 100
 					}
 					age = {
 						value = scope:mother.age
@@ -219,7 +171,7 @@ game_rule_create_spouse_and_children = {
 					culture = $CHARACTER$.culture
 					faith = $CHARACTER$.faith
 					gender_female_chance = {
-						value = 50
+						value = 100
 					}
 					age = {
 						value = scope:mother.age
@@ -248,7 +200,7 @@ game_rule_create_spouse_and_children = {
 					culture = $CHARACTER$.culture
 					faith = $CHARACTER$.faith
 					gender_female_chance = {
-						value = 50
+						value = 100
 					}
 					age = {
 						value = scope:mother.age
@@ -266,7 +218,7 @@ game_rule_create_spouse_and_children = {
 					culture = $CHARACTER$.culture
 					faith = $CHARACTER$.faith
 					gender_female_chance = {
-						value = 50
+						value = 100
 					}
 					age = {
 						value = scope:mother.age
@@ -1385,7 +1337,7 @@ game_rule_exclave_independence_effect = {
 					location = scope:county_of_origin.title_province
 					culture = scope:county_of_origin.culture
 					faith = scope:county_of_origin.faith
-					gender_female_chance = 50
+					gender_female_chance = 100
 					age = 32
 					save_scope_as = backup_character
 				}
@@ -1724,7 +1676,7 @@ game_rule_exclave_independence_effect = {
 					location = scope:county_of_origin.title_province
 					culture = scope:county_of_origin.culture
 					faith = scope:county_of_origin.faith
-					gender_female_chance = 50
+					gender_female_chance = 100
 					age = 32
 					save_scope_as = backup_character
 				}
@@ -2033,7 +1985,7 @@ game_rule_exclave_independence_effect = {
 					location = scope:county_of_origin.title_province
 					culture = scope:county_of_origin.culture
 					faith = scope:county_of_origin.faith
-					gender_female_chance = 50
+					gender_female_chance = 100
 					age = 32
 					save_scope_as = backup_character
 				}
@@ -2368,7 +2320,7 @@ game_rule_exclave_independence_effect = {
 					location = scope:county_of_origin.title_province
 					culture = scope:county_of_origin.culture
 					faith = scope:county_of_origin.faith
-					gender_female_chance = 50
+					gender_female_chance = 100
 					age = 32
 					save_scope_as = backup_character
 				}
@@ -2695,7 +2647,7 @@ game_rule_exclave_independence_effect = {
 					location = scope:county_of_origin.title_province
 					culture = scope:county_of_origin.culture
 					faith = scope:county_of_origin.faith
-					gender_female_chance = 50
+					gender_female_chance = 100
 					age = 32
 					save_scope_as = backup_character
 				}
@@ -3000,7 +2952,7 @@ game_rule_exclave_independence_effect = {
 					location = scope:county_of_origin.title_province
 					culture = scope:county_of_origin.culture
 					faith = scope:county_of_origin.faith
-					gender_female_chance = 50
+					gender_female_chance = 100
 					age = 32
 					save_scope_as = backup_character
 				}
