@@ -1,10 +1,15 @@
 # Ignore everything by default
 *
 
-# Unignore specific directories (trailing slash required)
+# Unignore specific directories and their contents
 !.vscode/
+!.vscode/**
+
 !A World of Women/
+!A World of Women/**
+
 !script docs/
+!script docs/**
 
 # Unignore the mod file
 !A World of Women.mod
