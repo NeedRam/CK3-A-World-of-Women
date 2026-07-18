@@ -1,88 +1,191 @@
-﻿
+﻿# Referenced by code. Chance 0-100 that a randomly created ruler will be female
+# Root is the new liege or previous holder of the title
 random_ruler_chance_for_female = {
-	value = 100
+    value = 0
+    faith = {
+        if = {
+            limit = { has_dominant_ruling_gender = dummy_female } # if faith allows females to rule, then add 50% chance
+            add = 100
+        }
+        if = {
+            limit = { NOT = { has_dominant_ruling_gender = dummy_male } } # if faith forbids males to rule, then add 50% chance
+            add = 100
+        }
+    }
 }
 
 random_theocratic_ruler_chance_for_female = {
-	value = 100
+    value = 100
 }
 
 root_attraction_based_female_chance = {
-	value = 100
+    add = 100
 }
 
 scope_attraction_based_female_chance = {
-	value = 100
+    add = 100
 }
 
 root_faith_clergy_gender_female_chance = {
-	add = 100
+    add = 100
 }
 
 scope_actor_faith_clergy_gender_female_chance = {
-	add = 100
+    add = 100
 }
 
 scope_value_target_soldier_female_chance = {
-	add = 100
+    if = {
+        limit = {
+            NOT = {
+                dummy_female = {
+                    can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = scope:value_target }
+                }
+            }
+            dummy_male = {
+                can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = scope:value_target }
+            }
+        }
+        add =  100
+    }
+    else_if = {
+        limit = {
+            dummy_female = {
+                can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = scope:value_target }
+            }
+            NOT = {
+                dummy_male = {
+                    can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = scope:value_target }
+                }
+            }
+        }
+        add =  100
+    }
+    else = {
+        add = 100
+    }
 }
 
 root_soldier_female_chance = {
-	add =  100
+    if = {
+        limit = {
+            NOT = { dummy_female = { can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root } } }
+            dummy_male = { can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root } }
+        }
+        add =  100
+    }
+    else_if = {
+        limit = {
+            dummy_female = { can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root } }
+            NOT = { dummy_male = { can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root } } }
+        }
+        add =  100
+    }
+    else = {
+        add = 100
+    }
 }
 
 root_non_combatant_female_chance = {
-	add = 100
+    if = {
+        limit = {
+            NOT = { dummy_female = { can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root } } }
+            dummy_male = { can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root } }
+        }
+        add =  100
+    }
+    else_if = {
+        limit = {
+            dummy_female = { can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root } }
+            NOT = { dummy_male = { can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = root } } }
+        }
+        add =  100
+    }
+    else = {
+        add = 100
+    }
 }
 
 actor_soldier_female_chance = {
-	add = 100
+    if = {
+        limit = {
+            NOT = { dummy_female = { can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = scope:actor } } }
+            dummy_male = { can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = scope:actor } }
+        }
+        add = 100
+    }
+    else_if = {
+        limit = {
+            dummy_female = { can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = scope:actor } }
+            NOT = { dummy_male = { can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = scope:actor } } }
+        }
+        add = 100
+    }
+    else = {
+        add = 100
+    }
 }
 
 recipient_soldier_female_chance = {
-	add = 100
+    if = {
+        limit = {
+            NOT = { dummy_female = { can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = scope:recipient } } }
+            dummy_male = { can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = scope:recipient } }
+        }
+        add = 100
+    }
+    else_if = {
+        limit = {
+            dummy_female = { can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = scope:recipient } }
+            NOT = { dummy_male = { can_be_combatant_based_on_gender_trigger = { ARMY_OWNER = scope:recipient } } }
+        }
+        add = 100
+    }
+    else = {
+        add = 100
+    }
 }
 
 root_faith_dominant_gender_female_chance = {
-	add = 100
+    add = 100
 }
 
 activity_location_faith_dominant_gender_female_chance = {
-	add = 100
+    add = 100
 }
 
 location_faith_dominant_gender_female_chance = {
-	add = 100
+    add = 100
 }
 
 root_faith_dominant_gender_female_reversed_chance = {
-	add = 100
+    add = 100
 }
 
 root_faith_dominant_gender_adjusted_female_chance = {
-	add = 100
+    add = 100
 }
 
 root_self_based_female_chance = {
-	add = 100
+    add = 100
 }
 
 root_self_based_reverse_female_chance = {
-	add = 100
+    add = 100
 }
 
 marriage_gender_adjusted_female_chance = {
-	add = 100
+    add = 100
 }
 
 root_sexuality_female_chance = {
-	add = 100
+    add = 100
 }
 
 activity_host_faith_dominant_gender_adjusted_female_chance = {
-	add = 100
+    add = 100
 }
 
 activity_host_clergy_gender_female_chance = {
-	add = 100
+    add = 100
 }

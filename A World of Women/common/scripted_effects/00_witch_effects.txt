@@ -2,32 +2,34 @@
 #Creates a witch and saves it as created_witch
 #WHO is character who will interact with the witch and TEMPLATE is the character whose culture should be used
 create_witch_effect = {
-	#Create them
-	create_character = {
-		location = $WHO$.capital_province
-		culture = $WHO$.culture
-		faith = $WHO$.faith
-		gender = female
-		template = witchy_template
-		random_traits = no
+    #Gender
+    dummy_female = { save_temporary_scope_as = witch_gender }
 
-		after_creation = {
-			give_witch_secret_or_trait_effect = yes
+    #Create them
+    create_character = {
+        location = $WHO$.capital_province
+        culture = $WHO$.culture
+        faith = $WHO$.faith
+        gender = scope:witch_gender
+        template = witchy_template
+        random_traits = no
 
-			#Sometimes adjust sexuality to create compatibility with WHO
-			if = {
-				limit = {
-					$WHO$ = { is_attracted_to_gender_of = prev }
-					NOT = { is_attracted_to_gender_of = $WHO$ }
-				}
-				random = {
-					chance = 65
-					set_sexuality = bisexual
-				}
-			}
-		}
-		
-		save_scope_as = created_witch
-	}
+        after_creation = {
+            give_witch_secret_or_trait_effect = yes
+
+            #Sometimes adjust sexuality to create compatibility with WHO
+            if = {
+                limit = {
+                    $WHO$ = { is_attracted_to_gender_of = prev }
+                    NOT = { is_attracted_to_gender_of = $WHO$ }
+                }
+                random = {
+                    chance = 65
+                    set_sexuality = bisexual
+                }
+            }
+        }
+
+        save_scope_as = created_witch
+    }
 }
-
