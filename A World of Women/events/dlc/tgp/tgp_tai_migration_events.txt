@@ -62,7 +62,7 @@ tgp_tai_migration_event.1000 = {
 				dynasty = none
 				culture = scope:migration_origin_culture
 				faith = scope:migration_origin_faith
-				gender = male
+				gender = female
 				after_creation = {
 					set_to_lowborn = yes
 				}
@@ -156,490 +156,6 @@ tgp_tai_migration_event.1000 = {
 	}
 }
 
-scripted_effect courtier_replacement_scripted_effect = {
-	#Replace current character if any
-	if = {
-		limit = {
-			employs_court_position = $POSITION$
-		}
-		add_courtier = $CHARACTER$
-		every_court_position_holder = {
-			type = $POSITION$
-			save_temporary_scope_as = current_court_position_holder
-			employer = {
-				replace_court_position = {
-					recipient = $CHARACTER$
-					holder = scope:current_court_position_holder
-					court_position = $POSITION$
-				}
-			}
-		}
-	}
-	#Or simply appoint new character
-	else = {
-		add_courtier = $CHARACTER$
-		appoint_court_position = {
-			recipient = $CHARACTER$
-			court_position = $POSITION$
-		}
-	}
-	custom_tooltip = will_have_excellent_aptitude
-}
-
-# Skilled Tai character offers services
-tgp_tai_migration_event.2000 = {
-	type = character_event
-	title = tgp_tai_migration_event.2000.t
-	desc = {
-		desc = tgp_tai_migration_event.2000.desc
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					scope:migrant_skilled_character = {
-						has_character_flag = migrant_wet_nurse
-					}
-				}
-				desc = tgp_tai_migration_event.2000.wet_nurse.desc
-			}
-			triggered_desc = {
-				trigger = {
-					scope:migrant_skilled_character = {
-						has_character_flag = migrant_champion
-					}
-				}
-				desc = tgp_tai_migration_event.2000.champion.desc
-			}
-			triggered_desc = {
-				trigger = {
-					scope:migrant_skilled_character = {
-						has_character_flag = migrant_travel_leader
-					}
-				}
-				desc = tgp_tai_migration_event.2000.travel_leader.desc
-			}
-			triggered_desc = {
-				trigger = {
-					scope:migrant_skilled_character = {
-						has_character_flag = migrant_master_of_hunt
-					}
-				}
-				desc = tgp_tai_migration_event.2000.master_of_hunt.desc
-			}
-			triggered_desc = {
-				trigger = {
-					scope:migrant_skilled_character = {
-						has_character_flag = migrant_court_physician
-					}
-				}
-				desc = tgp_tai_migration_event.2000.court_physician.desc
-			}
-			triggered_desc = {
-				trigger = {
-					scope:migrant_skilled_character = {
-						has_character_flag = migrant_antiquarian
-					}
-				}
-				desc = tgp_tai_migration_event.2000.antiquarian.desc
-			}
-			triggered_desc = {
-				trigger = {
-					scope:migrant_skilled_character = {
-						has_character_flag = migrant_court_tutor
-					}
-				}
-				desc = tgp_tai_migration_event.2000.court_tutor.desc
-			}
-		}
-		desc = tgp_tai_migration_event.2000.end.desc
-	}
-	theme = realm
-	right_portrait = {
-		character = root
-		camera = camera_event_right_crowner_crowning
-		animation = personality_rational
-	}
-	left_portrait = {
-		character = scope:migrant_skilled_character
-		camera = camera_event_group_talking_left_left
-		animation = admiration
-	}
-	cooldown = { years = 20 }
-	trigger = {
-		OR = { # checks if any of the following court posiitons are present at the court
-			OR = {
-				can_employ_court_position_type = wet_nurse_court_position
-				employs_court_position = wet_nurse_court_position
-			}
-			OR = {
-				can_employ_court_position_type = champion_court_position
-				employs_court_position = champion_court_position
-			}
-			OR = {
-				can_employ_court_position_type = travel_leader_court_position
-				employs_court_position = travel_leader_court_position
-			}
-			OR = {
-				can_employ_court_position_type = master_of_hunt_court_position
-				employs_court_position = master_of_hunt_court_position
-			}
-			OR = {
-				can_employ_court_position_type = court_physician_court_position
-				employs_court_position = court_physician_court_position
-			}
-			OR = {
-				can_employ_court_position_type = antiquarian_court_position
-				employs_court_position = antiquarian_court_position
-			}
-			OR = {
-				can_employ_court_position_type = court_tutor_court_position
-				employs_court_position = court_tutor_court_position
-			}
-		}
-	}
-	immediate = {
-		random_county_in_region = { # locate a Tai county where the character supposedly migrated from
-			region = custom_tai_migration_origin
-			limit = {
-				culture = {
-					has_cultural_pillar = heritage_tai
-				}
-			}
-			save_scope_as = migration_origin
-			holder = {
-				save_scope_as = migration_origin_holder
-			}
-			culture = {
-				save_scope_as = migration_origin_culture
-			}
-			faith = {
-				save_scope_as = migration_origin_faith
-			}
-		}
-		hidden_effect = { # Pick one of six court positions and create a character randomly
-			random_list = {
-				1 = {
-					trigger = { 
-						OR = {
-							can_employ_court_position_type = wet_nurse_court_position
-							employs_court_position = wet_nurse_court_position
-						}
-					}
-					create_character = {
-						template = wet_nurse_court_position_template
-						location = root.capital_province
-						dynasty = none
-						culture = scope:migration_origin_culture
-						faith = scope:migration_origin_faith
-						after_creation = {
-							set_to_lowborn = yes
-							add_character_flag = migrant_wet_nurse
-						}
-						save_scope_as = migrant_skilled_character
-					}
-					add_visiting_courtier = scope:migrant_skilled_character
-				}
-				1 = {
-					trigger = {
-						OR = {
-							can_employ_court_position_type = champion_court_position
-							employs_court_position = champion_court_position
-						}
-					}
-					create_character = {
-						template = champion_court_position_template
-						location = root.capital_province
-						dynasty = none
-						culture = scope:migration_origin_culture
-						faith = scope:migration_origin_faith
-						after_creation = {
-							set_to_lowborn = yes
-							add_character_flag = migrant_champion
-						}
-						save_scope_as = migrant_skilled_character
-					}
-					add_visiting_courtier = scope:migrant_skilled_character
-				}
-				1 = {
-					trigger = {
-						OR = {
-							can_employ_court_position_type = travel_leader_court_position
-							employs_court_position = travel_leader_court_position
-						}
-					}
-					create_character = {
-						template = travel_leader_court_position_template
-						location = root.capital_province
-						dynasty = none
-						culture = scope:migration_origin_culture
-						faith = scope:migration_origin_faith
-						after_creation = {
-							set_to_lowborn = yes
-							add_character_flag = migrant_travel_leader
-						}
-						save_scope_as = migrant_skilled_character
-					}
-					add_visiting_courtier = scope:migrant_skilled_character
-				}
-				1 = {
-					trigger = {
-						OR = {
-							can_employ_court_position_type = master_of_hunt_court_position
-							employs_court_position = master_of_hunt_court_position
-						}
-					}
-					create_character = {
-						template = master_of_hunt_court_position_template
-						location = root.capital_province
-						dynasty = none
-						culture = scope:migration_origin_culture
-						faith = scope:migration_origin_faith
-						after_creation = {
-							set_to_lowborn = yes
-							add_character_flag = migrant_master_of_hunt
-						}
-						save_scope_as = migrant_skilled_character
-					}
-					add_visiting_courtier = scope:migrant_skilled_character
-				}
-				1 = {
-					trigger = {
-						OR = {
-							can_employ_court_position_type = court_physician_court_position
-							employs_court_position = court_physician_court_position
-						}
-					}
-					create_character = {
-						template = court_physician_court_position_template
-						location = root.capital_province
-						dynasty = none
-						culture = scope:migration_origin_culture
-						faith = scope:migration_origin_faith
-						after_creation = {
-							set_to_lowborn = yes
-							add_character_flag = migrant_court_physician
-						}
-						save_scope_as = migrant_skilled_character
-					}
-					add_visiting_courtier = scope:migrant_skilled_character
-				}
-				1 = {
-					trigger = {
-						OR = {
-							can_employ_court_position_type = antiquarian_court_position
-							employs_court_position = antiquarian_court_position
-						}
-					}
-					create_character = {
-						template = antiquarian_court_position_template
-						location = root.capital_province
-						dynasty = none
-						culture = scope:migration_origin_culture
-						faith = scope:migration_origin_faith
-						after_creation = {
-							set_to_lowborn = yes
-							add_character_flag = migrant_antiquarian
-						}
-						save_scope_as = migrant_skilled_character
-					}
-					add_visiting_courtier = scope:migrant_skilled_character
-				}
-				3 = {
-					trigger = {
-						OR = {
-							can_employ_court_position_type = court_tutor_court_position
-							employs_court_position = court_tutor_court_position
-						}
-					}
-					create_character = {
-						template = court_tutor_court_position_template
-						location = root.capital_province
-						dynasty = none
-						culture = scope:migration_origin_culture
-						faith = scope:migration_origin_faith
-						after_creation = {
-							set_to_lowborn = yes
-							add_character_flag = migrant_court_tutor
-						}
-						save_scope_as = migrant_skilled_character
-					}
-					add_visiting_courtier = scope:migrant_skilled_character
-				}
-			}	
-		}
-		
-	}
-
-	option = {
-		name = tgp_tai_migration_event.2000.a # employ the character
-		culture = {
-			change_cultural_acceptance = {
-				target = culture:tai
-				value = 6
-				desc = cultural_acceptance_gain_event
-			}
-		}
-		if = {
-			limit = {
-				scope:migrant_skilled_character = {
-					has_character_flag = migrant_wet_nurse
-				}
-			}
-			courtier_replacement_scripted_effect = {
-				CHARACTER = scope:migrant_skilled_character
-				POSITION = wet_nurse_court_position
-			}
-		}
-		else_if = {
-			limit = {
-				scope:migrant_skilled_character = {
-					has_character_flag = migrant_champion
-				}
-			}
-			courtier_replacement_scripted_effect = {
-				CHARACTER = scope:migrant_skilled_character
-				POSITION = champion_court_position
-			}
-		}
-		else_if = {
-			limit = {
-				scope:migrant_skilled_character = {
-					has_character_flag = migrant_travel_leader
-				}
-			}
-			courtier_replacement_scripted_effect = {
-				CHARACTER = scope:migrant_skilled_character
-				POSITION = travel_leader_court_position
-			}
-		}
-		else_if = {
-			limit = {
-				scope:migrant_skilled_character = {
-					has_character_flag = migrant_master_of_hunt
-				}
-			}
-			courtier_replacement_scripted_effect = {
-				CHARACTER = scope:migrant_skilled_character
-				POSITION = master_of_hunt_court_position
-			}
-		}
-		else_if = {
-			limit = {
-				scope:migrant_skilled_character = {
-					has_character_flag = migrant_antiquarian
-				}
-			}
-			courtier_replacement_scripted_effect = {
-				CHARACTER = scope:migrant_skilled_character
-				POSITION = antiquarian_court_position
-			}
-		}
-		else_if = {
-			limit = {
-				scope:migrant_skilled_character = {
-					has_character_flag = migrant_court_tutor
-				}
-			}
-			courtier_replacement_scripted_effect = {
-				CHARACTER = scope:migrant_skilled_character
-				POSITION = court_tutor_court_position
-			}
-		}
-		else = {
-			limit = {
-				scope:migrant_skilled_character = {
-					has_character_flag = migrant_court_physician
-				}
-			}
-			courtier_replacement_scripted_effect = {
-				CHARACTER = scope:migrant_skilled_character
-				POSITION = court_physician_court_position
-			}
-		}
-		pay_treasury_or_gold = {
-			target = scope:migrant_skilled_character
-			value = medium_treasury_or_gold_value
-		}
-		ai_chance = {
-			base = 100
-		}
-	}
-	option = {
-		name = tgp_tai_migration_event.2000.b # invite to court, but not as an employer
-		duel = {
-			skill = diplomacy
-			value = medium_skill_rating
-			300 = {
-				compare_modifier = {
-					value = scope:duel_value
-					multiplier = 3.5
-					min = -49
-				}
-				add_courtier = scope:migrant_skilled_character
-				send_interface_toast = {
-					title = tgp_tai_migration_event.2000.b.success
-					left_icon = root 
-					right_icon = scope:migrant_skilled_character
-					add_prestige = minor_prestige_gain
-				}
-			}
-			50 = {
-				compare_modifier = {
-					value = scope:duel_value
-					multiplier = -3.5
-					min = -49
-				}
-				show_as_tooltip = {
-					remove_courtier_or_guest = scope:migrant_skilled_character
-				}
-				hidden_effect = {
-					if = { # make option a's elder disappear only if he's not recruited with character interaction
-						limit = {
-							scope:migrant_skilled_character = {
-								NOT = {
-									is_courtier_of = root
-								}
-							}
-						}
-						scope:migrant_skilled_character = {
-							silent_disappearance_effect = yes
-						}
-					}
-				}
-				send_interface_toast = {
-					title = tgp_tai_migration_event.2000.b.failure
-					left_icon = root 
-					right_icon = scope:migrant_skilled_character
-					add_prestige = minor_prestige_loss
-				}
-			}
-		}
-	}
-	option = {
-		name = tgp_tai_migration_event.2000.c # do not employ the character
-		show_as_tooltip = {
-			remove_courtier_or_guest = scope:migrant_skilled_character
-		}
-		hidden_effect = {
-			if = { # make option a's elder disappear only if he's not recruited with character interaction
-				limit = {
-					scope:migrant_skilled_character = {
-						NOT = {
-							is_courtier_of = root
-						}
-					}
-				}
-				scope:migrant_skilled_character = {
-					silent_disappearance_effect = yes
-				}
-			}
-		}
-	}
-
-	after = {
-		
-	}
-}
-
 # Noble Tai character and his family are asking for a county or a barony title
 tgp_tai_migration_event.3000 = {
 	type = character_event
@@ -696,12 +212,13 @@ tgp_tai_migration_event.3000 = {
 			create_character = {
 				template = local_noble_character
 				location = root.capital_province
-				gender = male
+				gender = female
 				culture = scope:migration_origin_culture
 				faith = scope:migration_origin_faith
 				save_scope_as = title_asking_noble_husband
 			}
 			add_visiting_courtier = scope:title_asking_noble_husband
+			#Untouched
 			create_character = {
 				template = local_noble_character
 				location = root.capital_province
@@ -718,7 +235,7 @@ tgp_tai_migration_event.3000 = {
 				location = root.capital_province
 				culture = scope:migration_origin_culture
 				faith = scope:migration_origin_faith
-				gender = male
+				gender = female
 				after_creation = {
 					set_mother = scope:title_asking_noble_wife
 					set_father = scope:title_asking_noble_husband
@@ -856,12 +373,13 @@ tgp_tai_migration_event.4000 = {
 				dynasty = none
 				culture = scope:migration_origin_culture
 				faith = scope:migration_origin_faith
-				gender = male
+				gender = female
 				after_creation = {
 					set_to_lowborn = yes
 				}
 				save_scope_as = lowborn_tai_family_husband
 			}
+			#Untouched
 			create_character = {
 				template = generic_peasant_character
 				location = root.capital_province
@@ -881,7 +399,7 @@ tgp_tai_migration_event.4000 = {
 				dynasty = none
 				culture = scope:migration_origin_culture
 				faith = scope:migration_origin_faith
-				gender = male
+				gender = female
 				after_creation = {
 					set_to_lowborn = yes
 					set_mother = scope:lowborn_tai_family_wife
@@ -889,6 +407,7 @@ tgp_tai_migration_event.4000 = {
 				}
 				save_scope_as = lowborn_tai_family_son
 			}
+			#Untouched
 			create_character = {
 				template = peasant_child_character
 				location = root.capital_province
@@ -1031,6 +550,7 @@ tgp_tai_migration_event.5000 = { # Spawn guests to migration target courts
 		hidden_effect = {
 			random_list = {
 				1 = {
+					#Untouched
 					create_character = {
 						template = beautiful_peasant_character
 						location = root.capital_province
