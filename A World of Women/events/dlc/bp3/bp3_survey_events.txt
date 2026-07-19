@@ -1,4 +1,4 @@
-﻿namespace = bp3_survey
+namespace = bp3_survey
 
 # Bandits in <X>
 bp3_survey.1010 = {
@@ -46,7 +46,8 @@ bp3_survey.1010 = {
         create_character = {
             template = mercenary
             location = scope:province
-            gender = root
+            # gender = root
+            gender = female
             culture = scope:province.culture
             faith = scope:province.faith
             save_scope_as = bandit_character
@@ -385,7 +386,8 @@ bp3_survey.1020 = {
             template = soldier_friend_character
             culture = root.culture
             faith = root.faith
-            gender = root
+            # gender = root
+            gender = female
             location = scope:province
             save_scope_as = soldier_character
 
@@ -558,7 +560,8 @@ scripted_effect bp3_survey_1030_character_effect = {
         template = merchant_template
         faith = scope:city_province.faith
         culture = scope:city_province.culture
-        gender = root
+        # gender = root
+        gender = female
         location = scope:city_province
         save_scope_as = merchant_$VALUE$
         after_creation = {
@@ -626,7 +629,8 @@ bp3_survey.1040 = {
             template = soldier_friend_character
             culture = root.culture
             faith = root.faith
-            gender = root
+            # gender = root
+            gender = female
             location = scope:province
             save_scope_as = soldier_character
 
@@ -640,7 +644,8 @@ bp3_survey.1040 = {
             template = merchant_template
             faith = scope:province.faith
             culture = scope:province.culture
-            gender = root
+            # gender = root
+            gender = female
             location = scope:province
             save_scope_as = merchant_character
         }
@@ -1024,7 +1029,8 @@ bp3_survey.1050 = {
             template = soldier_friend_character
             culture = root.culture
             faith = root.faith
-            gender = root
+            # gender = root
+            gender = female
             location = scope:province
             save_scope_as = soldier_character
 
@@ -1038,7 +1044,8 @@ bp3_survey.1050 = {
             template = merchant_template
             faith = scope:province.faith
             culture = scope:province.culture
-            gender = root
+            # gender = root
+            gender = female
             location = scope:province
             save_scope_as = merchant_character
         }
@@ -1249,7 +1256,8 @@ bp3_survey.1060 = {
             template = soldier_friend_character
             culture = root.culture
             faith = root.faith
-            gender = root
+            # gender = root
+            gender = female
             location = scope:province
             save_scope_as = soldier_character
 
@@ -1473,7 +1481,8 @@ bp3_survey.1080 = {
             template = soldier_friend_character
             culture = root.culture
             faith = root.faith
-            gender = root
+            # gender = root
+            gender = female
             location = scope:province
             save_scope_as = soldier_character
 
@@ -1487,7 +1496,8 @@ bp3_survey.1080 = {
             template = travel_leader_court_position_template
             faith = root.faith
             culture = root.culture
-            gender = root
+            # gender = root
+            gender = female
             location = scope:province
             save_scope_as = traveler_character
         }
@@ -1762,7 +1772,8 @@ bp3_survey.1090 = {
             template = soldier_friend_character
             culture = root.culture
             faith = root.faith
-            gender = root
+            # gender = root
+            gender = female
             location = scope:province
             save_scope_as = soldier_character
 
@@ -1776,7 +1787,8 @@ bp3_survey.1090 = {
             template = hunter_template
             faith = root.faith
             culture = root.culture
-            gender = root
+            # gender = root
+            gender = female
             location = scope:province
             save_scope_as = hunter_character
         }

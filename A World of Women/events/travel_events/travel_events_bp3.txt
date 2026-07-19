@@ -1,4 +1,4 @@
-﻿namespace = travel_events_bp3
+namespace = travel_events_bp3
 
 scripted_trigger bp3_travel_event_default_trigger = {
 	has_bp3_dlc_trigger = yes
@@ -504,7 +504,8 @@ travel_events_bp3.10 = { # Pilgrims on the Road
 				template = soldier_friend_character
 				culture = root.culture
 				faith = root.faith
-				gender = root
+				# gender = root
+				gender = female
 				location = root.location
 				save_scope_as = pilgrim_character
 			}
@@ -899,7 +900,8 @@ travel_events_bp3.15 = { # The Stories of <X>
 			template = master_bard_camp_officer_template
 			culture = location.culture
 			faith = location.faith
-			gender = root
+			# gender = root
+			gender = female
 			location = location
 			save_scope_as = bard_character
 		}
@@ -1171,7 +1173,8 @@ travel_events_bp3.20 = { # The <X> Guild
 			template = merchant_template
 			faith = location.faith
 			culture = location.culture
-			gender = root
+			# gender = root
+			gender = female
 			location = location
 			save_scope_as = merchant_character
 		}
@@ -1378,7 +1381,8 @@ travel_events_bp3.25 = { # The Toils of War
 			template = soldier_friend_character
 			culture = root.location.culture
 			faith = root.location.faith
-			gender = root
+			# gender = root
+			gender = female
 			employer = scope:liege
 			save_scope_as = soldier_character
 		}
@@ -2973,7 +2977,8 @@ travel_events_bp3.55 = { # Traveling Traders
 			template = merchant_template
 			faith = scope:republic_ruler.faith
 			culture = scope:republic_ruler.culture
-			gender = root
+			# gender = root
+			gender = female
 			location = location
 			save_scope_as = merchant_character
 
@@ -3191,7 +3196,8 @@ travel_events_bp3.60 = { # A Small Deal
 			template = merchant_template
 			faith = root.location.faith
 			culture = root.location.culture
-			gender = root
+			# gender = root
+			gender = female
 			location = location
 			save_scope_as = merchant_character
 
@@ -3550,7 +3556,8 @@ travel_events_bp3.70 = { # <X> Festival
 				age = { 20 25 }
 				faith = root.location.faith
 				culture = root.location.culture
-				opposite_gender = root
+				# opposite_gender = root
+				gender = female
 				location = location
 				save_scope_as = local_character
 				save_scope_as = dancing_partner
@@ -4464,7 +4471,8 @@ travel_events_bp3.95 = { # A Pilgrim's Tale
 			template = merchant_template
 			faith = root.faith
 			culture = root.location.culture
-			gender = root
+			# gender = root
+			gender = female
 			location = root.location
 			save_scope_as = pilgrim_character
 
