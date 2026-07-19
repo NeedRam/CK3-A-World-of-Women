@@ -1,111 +1,111 @@
 ﻿namespace = bp2_yearly
 
 bp2_yearly.2130 = {
-	type = character_event
-	content_source = dlc_009
-	title = bp2_yearly.2130.t
-	desc = bp2_yearly.2130.desc
-	theme = friend_relation
-	override_background = { reference = alley_day }
+    type = character_event
+    content_source = dlc_009
+    title = bp2_yearly.2130.t
+    desc = bp2_yearly.2130.desc
+    theme = friend_relation
+    override_background = { reference = alley_day }
 
-	left_portrait = {
-		character = root
-		animation = clutching_toy
-	}
-	right_portrait = {
-		character = scope:interlocutor
-		animation = sadness
-	}
+    left_portrait = {
+        character = root
+        animation = clutching_toy
+    }
+    right_portrait = {
+        character = scope:interlocutor
+        animation = sadness
+    }
 
-	cooldown = { years = 20 }
+    cooldown = { years = 20 }
 
-	trigger = {
-		has_bp2_dlc_trigger = yes
-		is_ai = no
-		is_ruler = yes
-		is_available_child = yes
-		age >= 6
-		number_of_personality_traits < 3
-		NOR = {
-			has_trait = generous
-			has_trait = greedy
-		}
-	}
+    trigger = {
+        has_bp2_dlc_trigger = yes
+        is_ai = no
+        is_ruler = yes
+        is_available_child = yes
+        age >= 6
+        number_of_personality_traits < 3
+        NOR = {
+            has_trait = generous
+            has_trait = greedy
+        }
+    }
 
-	weight_multiplier = {
-		base = 1
-		modifier = {
-			is_ai = no
-			factor = 10
-		}
-	}
+    weight_multiplier = {
+        base = 1
+        modifier = {
+            is_ai = no
+            factor = 10
+        }
+    }
 
-	immediate = {
-		set_favorite_toy_effect = yes
-		if = {
-			limit = {
-				any_pool_character = {
-					province = root.location
-					age >= root.age_minus_3
-					is_available_ai_child = yes
-				}
-			}
-			random_pool_character = {
-				province = root.location
-				limit = {
-					age >= root.age_minus_3
-					is_available_ai_child = yes
-				}
-				save_scope_as = interlocutor
-			}
-		}
-		else = {
-			create_character = {
-				template = child_peasant_character
-				dynasty = none
-				location = root.location
-				culture = root.culture
-				faith = root.faith
-				gender = female
-				save_scope_as = interlocutor
-			}
-		}
-	}
+    immediate = {
+        set_favorite_toy_effect = yes
+        if = {
+            limit = {
+                any_pool_character = {
+                    province = root.location
+                    age >= root.age_minus_3
+                    is_available_ai_child = yes
+                }
+            }
+            random_pool_character = {
+                province = root.location
+                limit = {
+                    age >= root.age_minus_3
+                    is_available_ai_child = yes
+                }
+                save_scope_as = interlocutor
+            }
+        }
+        else = {
+            create_character = {
+                template = child_peasant_character
+                dynasty = none
+                location = root.location
+                culture = root.culture
+                faith = root.faith
+                gender = root
+                save_scope_as = interlocutor
+            }
+        }
+    }
 
-	option = { # generous
-		name = bp2_yearly.2130.a
-		flavor = bp2_yearly.2130.a.flavor
-		add_trait = generous
-		add_piety = minor_piety_gain
+    option = { # generous
+        name = bp2_yearly.2130.a
+        flavor = bp2_yearly.2130.a.flavor
+        add_trait = generous
+        add_piety = minor_piety_gain
 
-		ai_chance = {
-			base = 30
-		}
+        ai_chance = {
+            base = 30
+        }
 
-		stress_impact = {
-			charming = minor_stress_impact_loss
-			rowdy = minor_stress_impact_gain
-		}
-	}
+        stress_impact = {
+            charming = minor_stress_impact_loss
+            rowdy = minor_stress_impact_gain
+        }
+    }
 
-	option = { # greedy
-		name = bp2_yearly.2130.b
-		add_trait = greedy
+    option = { # greedy
+        name = bp2_yearly.2130.b
+        add_trait = greedy
 
-		ai_chance = {
-			base = 30
-		}
+        ai_chance = {
+            base = 30
+        }
 
-		stress_impact = {
-			bossy = minor_stress_impact_loss
-		}
-	}
+        stress_impact = {
+            bossy = minor_stress_impact_loss
+        }
+    }
 
-	option = { # No way jose
-		name = bp2_yearly.2110.c
+    option = { # No way jose
+        name = bp2_yearly.2110.c
 
-		ai_chance = {
-			base = 30
-		}
-	}
+        ai_chance = {
+            base = 30
+        }
+    }
 }

@@ -1,110 +1,110 @@
 ﻿#DIPLOMACY LIFESTYLES
 
 diplomacy_family_focus_friend_template = {
-	age = { 25 40 }
-	gender_female_chance = 100
-	random_traits = yes
-	culture = root.culture
-	faith = root.faith
-	diplomacy  = {
-		min_template_decent_skill
-		max_template_decent_skill
-	}
-	trait = family_first
-	dynasty = none
+    age = { 25 40 }
+    gender_female_chance = 100
+    random_traits = yes
+    culture = root.culture
+    faith = root.faith
+    diplomacy  = {
+        min_template_decent_skill
+        max_template_decent_skill
+    }
+    trait = family_first
+    dynasty = none
 }
 
 #INTRIGUE
 
 intrigue_skulduggery_focus_friend_template = {
-	age = { 25 40 }
-	random_traits = yes
-	gender_female_chance = 100 #No gender blocks for spymaster
-	culture = root.culture
-	faith = root.faith
-	intrigue  = {
-		min_template_decent_skill
-		max_template_decent_skill
-	}
-	trait = schemer
-	dynasty = none
+    age = { 25 40 }
+    random_traits = yes
+    gender_female_chance = 100 #No gender blocks for spymaster
+    culture = root.culture
+    faith = root.faith
+    intrigue  = {
+        min_template_decent_skill
+        max_template_decent_skill
+    }
+    trait = schemer
+    dynasty = none
 }
 
 intrigue_temptation_focus_friend_template = {
-	age = { 25 40 }
-	random_traits = yes
-	gender = female
-	culture = root.culture
-	faith = root.faith
-	intrigue  = {
-		min_template_decent_skill
-		max_template_decent_skill
-	}
-	trait = seducer
-	dynasty = none
+    age = { 25 40 }
+    random_traits = yes
+    gender = root
+    culture = root.culture
+    faith = root.faith
+    intrigue  = {
+        min_template_decent_skill
+        max_template_decent_skill
+    }
+    trait = seducer
+    dynasty = none
 }
 
 intrigue_intimidation_focus_friend_template = {
-	age = { 25 40 }
-	random_traits = yes
-	gender_female_chance = 100 #No gender blocks for spymaster
-	culture = root.culture
-	faith = root.faith
-	intrigue  = {
-		min_template_decent_skill
-		max_template_decent_skill
-	}
-	trait = torturer
-	dynasty = none
+    age = { 25 40 }
+    random_traits = yes
+    gender_female_chance = 100 #No gender blocks for spymaster
+    culture = root.culture
+    faith = root.faith
+    intrigue  = {
+        min_template_decent_skill
+        max_template_decent_skill
+    }
+    trait = torturer
+    dynasty = none
 }
 
 #LEARNING
 
 learning_medicine_focus_friend_template = {
-	age = { 25 50 }
-	gender_female_chance = 100 #No gender blocks for physicians
-	random_traits = yes
-	culture = root.culture
-	faith = root.faith
-	random_traits_list = {
-		count = 1
-		education_learning_2 = {}
-		education_learning_3 = {}
-		education_learning_4 = {}
-	}
-	learning  = {
-		min_template_decent_skill
-		max_template_decent_skill
-	}
-	trait = whole_of_body
-	dynasty = none
+    age = { 25 50 }
+    gender_female_chance = 100 #No gender blocks for physicians
+    random_traits = yes
+    culture = root.culture
+    faith = root.faith
+    random_traits_list = {
+        count = 1
+        education_learning_2 = {}
+        education_learning_3 = {}
+        education_learning_4 = {}
+    }
+    learning  = {
+        min_template_decent_skill
+        max_template_decent_skill
+    }
+    trait = whole_of_body
+    dynasty = none
 }
 
 learning_scholarship_focus_friend_template = {
-	age = { 25 50 }
-	gender_female_chance = 100 #No gender blocks for physicians
-	random_traits = yes
-	culture = root.culture
-	faith = root.faith
-	learning  = {
-		min_template_decent_skill
-		max_template_decent_skill
-	}
-	trait = scholar
-	dynasty = none
+    age = { 25 50 }
+    gender_female_chance = 100 #No gender blocks for physicians
+    random_traits = yes
+    culture = root.culture
+    faith = root.faith
+    learning  = {
+        min_template_decent_skill
+        max_template_decent_skill
+    }
+    trait = scholar
+    dynasty = none
 }
 
 learning_theology_focus_friend_template = {
-	age = { 25 50 }
-	gender_female_chance = 100 #No gender blocks for physicians
-	random_traits = yes
-	culture = root.culture
-	faith = root.faith
-	learning  = {
-		min_template_decent_skill
-		max_template_decent_skill
-	}
-	trait = theologian
-	dynasty = none
+    age = { 25 50 }
+    gender_female_chance = 100 #No gender blocks for physicians
+    random_traits = yes
+    culture = root.culture
+    faith = root.faith
+    learning  = {
+        min_template_decent_skill
+        max_template_decent_skill
+    }
+    trait = theologian
+    dynasty = none
 }
 

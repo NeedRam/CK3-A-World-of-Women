@@ -2,1898 +2,1899 @@
 
 # Bandits in <X>
 bp3_survey.1010 = {
-	type = activity_event
-	content_source = dlc_015
-	title = bp3_survey.1010.t
-	desc = bp3_survey.1010.desc
-	theme = survey_activity
+    type = activity_event
+    content_source = dlc_015
+    title = bp3_survey.1010.t
+    desc = bp3_survey.1010.desc
+    theme = survey_activity
 
-	override_background = {
-		reference = alley_day
-	}
-	
-	cooldown = { years = 1 }
+    override_background = {
+        reference = alley_day
+    }
 
-	left_portrait = {
-		character = root
-		animation = go_to_your_room
-	}
+    cooldown = { years = 1 }
 
-	center_portrait = {
-		character = scope:peasant_character
-		animation = fear
-		hide_info = yes
-	}	
+    left_portrait = {
+        character = root
+        animation = go_to_your_room
+    }
 
-	right_portrait = {
-		character = scope:bandit_character
-		animation = celebrate_sword
-		hide_info = yes
-	}
+    center_portrait = {
+        character = scope:peasant_character
+        animation = fear
+        hide_info = yes
+    }
 
-	weight_multiplier = {
-		base = 1
-		modifier = {
-			factor = 3
-			scope:province.county = {
-				county_control < 80
-			}
-		}
-	}
+    right_portrait = {
+        character = scope:bandit_character
+        animation = celebrate_sword
+        hide_info = yes
+    }
 
-	immediate = {
-		inspection_survey_intent_control = { VALUE = 5 }
-		create_character = {
-			template = mercenary
-			location = scope:province
-			gender = female
-			culture = scope:province.culture
-			faith = scope:province.faith
-			save_scope_as = bandit_character
-		}
-		create_character = {
-			template = peasant_character
-			location = scope:province
-			gender = female
-			culture = scope:province.culture
-			faith = scope:province.faith
-			save_scope_as = peasant_character
-		}
-	}
+    weight_multiplier = {
+        base = 1
+        modifier = {
+            factor = 3
+            scope:province.county = {
+                county_control < 80
+            }
+        }
+    }
 
-	option = {
-		name = bp3_survey.1010.a
-		duel = {
-			skill = martial
-			value = 12
-			50 = {
-				inspection_activity_options_positive_modifier = yes
-				desc = bp3_survey.1010.a.win
-				compare_modifier = {
-					value = scope:duel_value
-					multiplier = 3.5
-					min = -49
-				}
-				send_interface_message = {
-					type = event_generic_good
-					title = bp3_survey.1010.a.win_short
+    immediate = {
+        inspection_survey_intent_control = { VALUE = 5 }
+        create_character = {
+            template = mercenary
+            location = scope:province
+            gender = root
+            culture = scope:province.culture
+            faith = scope:province.faith
+            save_scope_as = bandit_character
+        }
+        #Untouched
+        create_character = {
+            template = peasant_character
+            location = scope:province
+            gender = female
+            culture = scope:province.culture
+            faith = scope:province.faith
+            save_scope_as = peasant_character
+        }
+    }
 
-					add_prestige = medium_prestige_gain
-					scope:province.county = {
-						if = {
-							limit = {
-								has_county_modifier = inspection_bandits_in_x_border_negative_modifier
-							}
-							remove_county_modifier = inspection_bandits_in_x_border_negative_modifier
-						}
-						add_county_modifier = {
-							modifier = inspection_bandits_in_x_border_positive_modifier
-							years = 10
-						}
-					}
-					# Success chance
-					inspection_success_chance_change_focus_effect = {
-						FOCUS = border
-						CHANGE = increase_medium
-					}
-					inspection_success_chance_change_focus_effect = {
-						FOCUS = bureaucracy
-						CHANGE = increase_minor
-					}
-					inspection_success_chance_change_focus_effect = {
-						FOCUS = domain
-						CHANGE = increase_minor
-					}
-				}
+    option = {
+        name = bp3_survey.1010.a
+        duel = {
+            skill = martial
+            value = 12
+            50 = {
+                inspection_activity_options_positive_modifier = yes
+                desc = bp3_survey.1010.a.win
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 3.5
+                    min = -49
+                }
+                send_interface_message = {
+                    type = event_generic_good
+                    title = bp3_survey.1010.a.win_short
 
-				inspection_survey_local_message_county_modifier = {
-					TYPE = message_good
-					MODIFIER = inspection_bandits_in_x_border_positive_modifier
-					YEARS = 10
-				}
-			}
-			50 = {
-				inspection_activity_options_negative_modifier = yes
-				desc = bp3_survey.1010.a.lose_short
-				compare_modifier = {
-					value = scope:duel_value
-					multiplier = -3.5
-					min = -39
-				}
-				send_interface_message = {
-					type = event_generic_bad
-					title = bp3_survey.1010.a.lose
+                    add_prestige = medium_prestige_gain
+                    scope:province.county = {
+                        if = {
+                            limit = {
+                                has_county_modifier = inspection_bandits_in_x_border_negative_modifier
+                            }
+                            remove_county_modifier = inspection_bandits_in_x_border_negative_modifier
+                        }
+                        add_county_modifier = {
+                            modifier = inspection_bandits_in_x_border_positive_modifier
+                            years = 10
+                        }
+                    }
+                    # Success chance
+                    inspection_success_chance_change_focus_effect = {
+                        FOCUS = border
+                        CHANGE = increase_medium
+                    }
+                    inspection_success_chance_change_focus_effect = {
+                        FOCUS = bureaucracy
+                        CHANGE = increase_minor
+                    }
+                    inspection_success_chance_change_focus_effect = {
+                        FOCUS = domain
+                        CHANGE = increase_minor
+                    }
+                }
 
-					scope:province.county = {
-						add_county_modifier = {
-							modifier = inspection_bandits_in_x_border_negative_modifier
-							years = 10
-						}
-					}
-					# Success chance
-					inspection_success_chance_change_effect = {
-						CHANGE = decrease_minor
-					}
-				}
+                inspection_survey_local_message_county_modifier = {
+                    TYPE = message_good
+                    MODIFIER = inspection_bandits_in_x_border_positive_modifier
+                    YEARS = 10
+                }
+            }
+            50 = {
+                inspection_activity_options_negative_modifier = yes
+                desc = bp3_survey.1010.a.lose_short
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = -3.5
+                    min = -39
+                }
+                send_interface_message = {
+                    type = event_generic_bad
+                    title = bp3_survey.1010.a.lose
 
-				inspection_survey_local_message_county_modifier = {
-					TYPE = message_bad
-					MODIFIER = inspection_bandits_in_x_border_negative_modifier
-					YEARS = 10
-				}
-			}
-		}
+                    scope:province.county = {
+                        add_county_modifier = {
+                            modifier = inspection_bandits_in_x_border_negative_modifier
+                            years = 10
+                        }
+                    }
+                    # Success chance
+                    inspection_success_chance_change_effect = {
+                        CHANGE = decrease_minor
+                    }
+                }
 
-		stress_impact = {
-			craven = minor_stress_gain
-			brave = minor_stress_impact_loss
-			diligent = minor_stress_impact_loss
-			overseer = minor_stress_impact_loss
-		}
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 0
-				has_trait = craven
-			}
-			modifier = {
-				factor = 10
-				has_variable = inspection_activity_border_focus
-			}
-			modifier = {
-				factor = 5
-				OR = {
-					has_trait = overseer
-					has_trait = diligent
-					has_trait = brave
-				}
-			}
-		}
-	}
+                inspection_survey_local_message_county_modifier = {
+                    TYPE = message_bad
+                    MODIFIER = inspection_bandits_in_x_border_negative_modifier
+                    YEARS = 10
+                }
+            }
+        }
 
-	option = {
-		name = bp3_survey.1010.b
-		flavor = bp3_survey.1010.b.flavor
-		remove_short_term_gold = inspection_medium_gold
-		scope:province.county = {
-			add_county_modifier = {
-				modifier = inspection_bandits_in_x_domain_modifier
-				years = 10
-			}
-		}
-		inspection_survey_local_message_county_modifier = {
-			TYPE = message
-			MODIFIER = inspection_bandits_in_x_domain_modifier
-			YEARS = 10
-		}
+        stress_impact = {
+            craven = minor_stress_gain
+            brave = minor_stress_impact_loss
+            diligent = minor_stress_impact_loss
+            overseer = minor_stress_impact_loss
+        }
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 0
+                has_trait = craven
+            }
+            modifier = {
+                factor = 10
+                has_variable = inspection_activity_border_focus
+            }
+            modifier = {
+                factor = 5
+                OR = {
+                    has_trait = overseer
+                    has_trait = diligent
+                    has_trait = brave
+                }
+            }
+        }
+    }
 
-		# Success chance
-		inspection_success_chance_change_focus_effect = {
-			FOCUS = bureaucracy
-			CHANGE = increase_medium
-		}
-		inspection_success_chance_change_not_focus_effect = {
-			FOCUS = bureaucracy
-			CHANGE = decrease_minor
-		}
+    option = {
+        name = bp3_survey.1010.b
+        flavor = bp3_survey.1010.b.flavor
+        remove_short_term_gold = inspection_medium_gold
+        scope:province.county = {
+            add_county_modifier = {
+                modifier = inspection_bandits_in_x_domain_modifier
+                years = 10
+            }
+        }
+        inspection_survey_local_message_county_modifier = {
+            TYPE = message
+            MODIFIER = inspection_bandits_in_x_domain_modifier
+            YEARS = 10
+        }
 
-		stress_impact = {
-			callous = minor_stress_impact_loss
-			sadistic = minor_stress_impact_loss
-			compassionate = medium_stress_gain
-		}
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 0
-				has_trait = compassionate
-			}
-			modifier = {
-				factor = 10
-				has_variable = inspection_activity_bureaucracy_focus
-			}
-			modifier = {
-				factor = 5
-				OR = {
-					has_trait = callous
-					has_trait = sadistic
-				}
-			}
-		}
-	}
+        # Success chance
+        inspection_success_chance_change_focus_effect = {
+            FOCUS = bureaucracy
+            CHANGE = increase_medium
+        }
+        inspection_success_chance_change_not_focus_effect = {
+            FOCUS = bureaucracy
+            CHANGE = decrease_minor
+        }
 
-	option = {
-		name = bp3_survey.1010.c
-		duel = {
-			skill = prowess
-			value = 18
-			50 = {
-				desc = bp3_survey.1010.c.win
-				inspection_activity_options_positive_modifier = yes
-				compare_modifier = {
-					value = scope:duel_value
-					multiplier = 3.5
-					min = -49
-				}
-				send_interface_message = {
-					type = event_generic_good
-					title = bp3_survey.1010.c.win_short
+        stress_impact = {
+            callous = minor_stress_impact_loss
+            sadistic = minor_stress_impact_loss
+            compassionate = medium_stress_gain
+        }
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 0
+                has_trait = compassionate
+            }
+            modifier = {
+                factor = 10
+                has_variable = inspection_activity_bureaucracy_focus
+            }
+            modifier = {
+                factor = 5
+                OR = {
+                    has_trait = callous
+                    has_trait = sadistic
+                }
+            }
+        }
+    }
 
-					add_prestige = medium_prestige_gain
-					add_character_modifier = {
-						modifier = inspection_bandits_in_x_populace_modifier
-						years = 10
-					}
-					# Success chance
-					inspection_success_chance_change_focus_effect = {
-						FOCUS = domain
-						CHANGE = increase_medium
-					}
-					inspection_success_chance_change_focus_effect = {
-						FOCUS = border
-						CHANGE = increase_minor
-					}
-				}
-			}
-			50 = {
-				desc = bp3_survey.1010.c.lose
-				inspection_activity_options_negative_modifier = yes
-				compare_modifier = {
-					value = scope:duel_value
-					multiplier = -3.5
-					min = -39
-				}
-				send_interface_message = {
-					type = event_generic_bad
-					title = bp3_survey.1010.c.lose
+    option = {
+        name = bp3_survey.1010.c
+        duel = {
+            skill = prowess
+            value = 18
+            50 = {
+                desc = bp3_survey.1010.c.win
+                inspection_activity_options_positive_modifier = yes
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 3.5
+                    min = -49
+                }
+                send_interface_message = {
+                    type = event_generic_good
+                    title = bp3_survey.1010.c.win_short
 
-					increase_wounds_no_death_effect = { REASON = fight }
-					inspection_success_chance_change_effect = {
-						CHANGE = decrease_minor
-					}
-				}
-			}
-		}
+                    add_prestige = medium_prestige_gain
+                    add_character_modifier = {
+                        modifier = inspection_bandits_in_x_populace_modifier
+                        years = 10
+                    }
+                    # Success chance
+                    inspection_success_chance_change_focus_effect = {
+                        FOCUS = domain
+                        CHANGE = increase_medium
+                    }
+                    inspection_success_chance_change_focus_effect = {
+                        FOCUS = border
+                        CHANGE = increase_minor
+                    }
+                }
+            }
+            50 = {
+                desc = bp3_survey.1010.c.lose
+                inspection_activity_options_negative_modifier = yes
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = -3.5
+                    min = -39
+                }
+                send_interface_message = {
+                    type = event_generic_bad
+                    title = bp3_survey.1010.c.lose
 
-		stress_impact = {
-			craven = minor_stress_gain
-			brave = minor_stress_impact_loss
-			compassionate = medium_stress_impact_loss
-		}
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 0
-				has_trait = craven
-			}
-			modifier = {
-				factor = 10
-				has_variable = inspection_activity_domain_focus
-			}
-			modifier = {
-				factor = 5
-				OR = {
-					has_trait = brave
-					has_trait = compassionate
-				}
-			}
-		}
-	}
+                    increase_wounds_no_death_effect = { REASON = fight }
+                    inspection_success_chance_change_effect = {
+                        CHANGE = decrease_minor
+                    }
+                }
+            }
+        }
 
-	option = {
-		name = bp3_survey.1010.d
-		flavor = bp3_survey.1010.d.flavor
-		add_prestige = minor_prestige_loss
+        stress_impact = {
+            craven = minor_stress_gain
+            brave = minor_stress_impact_loss
+            compassionate = medium_stress_impact_loss
+        }
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 0
+                has_trait = craven
+            }
+            modifier = {
+                factor = 10
+                has_variable = inspection_activity_domain_focus
+            }
+            modifier = {
+                factor = 5
+                OR = {
+                    has_trait = brave
+                    has_trait = compassionate
+                }
+            }
+        }
+    }
 
-		# Success chance
-		inspection_success_chance_change_effect = {
-			CHANGE = decrease_minor
-		}
+    option = {
+        name = bp3_survey.1010.d
+        flavor = bp3_survey.1010.d.flavor
+        add_prestige = minor_prestige_loss
 
-		stress_impact = {
-			craven = minor_stress_impact_loss
-			brave = minor_stress_gain
-			compassionate = medium_stress_gain
-		}
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 0
-				OR = {
-					has_trait = brave
-					has_trait = compassionate
-				}
-			}
-			modifier = {
-				factor = 5
-				has_trait = craven
-			}
-		}
-	}
+        # Success chance
+        inspection_success_chance_change_effect = {
+            CHANGE = decrease_minor
+        }
 
-	after = {
-		scope:bandit_character = {
-			silent_disappear_ai_if_not_hired = yes
-		}
-		scope:peasant_character = {
-			silent_disappear_ai_if_not_hired = yes
-		}
-	}
+        stress_impact = {
+            craven = minor_stress_impact_loss
+            brave = minor_stress_gain
+            compassionate = medium_stress_gain
+        }
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 0
+                OR = {
+                    has_trait = brave
+                    has_trait = compassionate
+                }
+            }
+            modifier = {
+                factor = 5
+                has_trait = craven
+            }
+        }
+    }
+
+    after = {
+        scope:bandit_character = {
+            silent_disappear_ai_if_not_hired = yes
+        }
+        scope:peasant_character = {
+            silent_disappear_ai_if_not_hired = yes
+        }
+    }
 }
 
 # Old Roads of <X>
 bp3_survey.1020 = {
-	type = activity_event
-	content_source = dlc_015
-	title = bp3_survey.1020.t
-	desc = bp3_survey.1020.desc
-	theme = survey_activity
+    type = activity_event
+    content_source = dlc_015
+    title = bp3_survey.1020.t
+    desc = bp3_survey.1020.desc
+    theme = survey_activity
 
-	override_background = {
-		reference = terrain_scope
-	}
-	
-	cooldown = { years = 1 }
+    override_background = {
+        reference = terrain_scope
+    }
 
-	left_portrait = {
-		character = scope:soldier_character
-		hide_info = yes
-		animation = throne_room_two_handed_passive_1
-	}
+    cooldown = { years = 1 }
 
-	center_portrait = {
-		character = root
-		animation = survey
-	}
+    left_portrait = {
+        character = scope:soldier_character
+        hide_info = yes
+        animation = throne_room_two_handed_passive_1
+    }
 
-	trigger = {
-		scope:province.county = {
-			NOR = {
-				has_county_modifier = governance_excellent_new_road_modifier
-				has_county_modifier = governance_good_new_road_modifier
-				has_county_modifier = governance_standard_new_road_modifier
-				has_county_modifier = governance_poor_new_road_modifier
-			}
-		}
-	}
+    center_portrait = {
+        character = root
+        animation = survey
+    }
 
-	immediate = {
-		inspection_survey_intent_development = { VALUE = 5 }
-		scope:province = { save_scope_as = background_terrain_scope }
-		create_character = {
-			template = soldier_friend_character
-			culture = root.culture
-			faith = root.faith
-			gender = female
-			location = scope:province
-			save_scope_as = soldier_character
+    trigger = {
+        scope:province.county = {
+            NOR = {
+                has_county_modifier = governance_excellent_new_road_modifier
+                has_county_modifier = governance_good_new_road_modifier
+                has_county_modifier = governance_standard_new_road_modifier
+                has_county_modifier = governance_poor_new_road_modifier
+            }
+        }
+    }
 
-			after_creation = {
-				add_character_flag = {
-					flag = need_military_outfit
-				}
-			}
-		}
-	}
+    immediate = {
+        inspection_survey_intent_development = { VALUE = 5 }
+        scope:province = { save_scope_as = background_terrain_scope }
+        create_character = {
+            template = soldier_friend_character
+            culture = root.culture
+            faith = root.faith
+            gender = root
+            location = scope:province
+            save_scope_as = soldier_character
 
-	option = {
-		name = bp3_survey.1020.a
-		scope:province.county = {
-			add_county_modifier = {
-				modifier = inspection_old_roads_of_x_border_modifier
-				years = 10
-			}
-		}
-		inspection_survey_local_message_county_modifier = {
-			TYPE = message_good
-			MODIFIER = inspection_old_roads_of_x_border_modifier
-			YEARS = 10
-		}
+            after_creation = {
+                add_character_flag = {
+                    flag = need_military_outfit
+                }
+            }
+        }
+    }
 
-		remove_treasury_or_gold = inspection_minor_gold
-		# Success chance
-		inspection_success_chance_change_focus_effect = {
-			FOCUS = border
-			CHANGE = increase_medium
-		}
-		inspection_success_chance_change_focus_effect = {
-			FOCUS = bureaucracy
-			CHANGE = increase_minor
-		}
-		inspection_success_chance_change_focus_effect = {
-			FOCUS = domain
-			CHANGE = increase_minor
-		}
+    option = {
+        name = bp3_survey.1020.a
+        scope:province.county = {
+            add_county_modifier = {
+                modifier = inspection_old_roads_of_x_border_modifier
+                years = 10
+            }
+        }
+        inspection_survey_local_message_county_modifier = {
+            TYPE = message_good
+            MODIFIER = inspection_old_roads_of_x_border_modifier
+            YEARS = 10
+        }
 
-		stress_impact = {
-			greedy = minor_stress_gain
-			generous = minor_stress_impact_loss
-			profligate = minor_stress_impact_loss
-		}
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 0
-				has_trait = greedy
-			}
-			modifier = {
-				factor = 5
-				OR = {
-					has_trait = generous
-					has_trait = profligate
-				}
-			}
-		}
-	}
+        remove_treasury_or_gold = inspection_minor_gold
+        # Success chance
+        inspection_success_chance_change_focus_effect = {
+            FOCUS = border
+            CHANGE = increase_medium
+        }
+        inspection_success_chance_change_focus_effect = {
+            FOCUS = bureaucracy
+            CHANGE = increase_minor
+        }
+        inspection_success_chance_change_focus_effect = {
+            FOCUS = domain
+            CHANGE = increase_minor
+        }
 
-	option = {
-		name = bp3_survey.1020.b
-		scope:province.county = {
-			add_county_modifier = {
-				modifier = inspection_old_roads_of_x_populace_modifier
-				years = 10
-			}
-		}
-		inspection_survey_local_message_county_modifier = {
-			TYPE = message
-			MODIFIER = inspection_old_roads_of_x_populace_modifier
-			YEARS = 10
-		}
+        stress_impact = {
+            greedy = minor_stress_gain
+            generous = minor_stress_impact_loss
+            profligate = minor_stress_impact_loss
+        }
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 0
+                has_trait = greedy
+            }
+            modifier = {
+                factor = 5
+                OR = {
+                    has_trait = generous
+                    has_trait = profligate
+                }
+            }
+        }
+    }
 
-		inspection_success_chance_change_focus_effect = {
-			FOCUS = border
-			CHANGE = increase_minor
-		}
-		inspection_success_chance_change_focus_effect = {
-			FOCUS = bureaucracy
-			CHANGE = increase_medium
-		}
-		inspection_success_chance_change_focus_effect = {
-			FOCUS = domain
-			CHANGE = decrease_minor
-		}
+    option = {
+        name = bp3_survey.1020.b
+        scope:province.county = {
+            add_county_modifier = {
+                modifier = inspection_old_roads_of_x_populace_modifier
+                years = 10
+            }
+        }
+        inspection_survey_local_message_county_modifier = {
+            TYPE = message
+            MODIFIER = inspection_old_roads_of_x_populace_modifier
+            YEARS = 10
+        }
 
-		ai_chance = {
-			base = 100
-		}
-	}
+        inspection_success_chance_change_focus_effect = {
+            FOCUS = border
+            CHANGE = increase_minor
+        }
+        inspection_success_chance_change_focus_effect = {
+            FOCUS = bureaucracy
+            CHANGE = increase_medium
+        }
+        inspection_success_chance_change_focus_effect = {
+            FOCUS = domain
+            CHANGE = decrease_minor
+        }
 
-	option = {
-		name = bp3_survey.1020.c
-		scope:province.county = {
-			add_county_modifier = {
-				modifier = inspection_old_roads_of_x_domain_modifier
-				years = 10
-			}
-		}
-		inspection_survey_local_message_county_modifier = {
-			TYPE = message
-			MODIFIER = inspection_old_roads_of_x_domain_modifier
-			YEARS = 10
-		}
+        ai_chance = {
+            base = 100
+        }
+    }
 
-		inspection_success_chance_change_focus_effect = {
-			FOCUS = border
-			CHANGE = decrease_minor
-		}
-		inspection_success_chance_change_focus_effect = {
-			FOCUS = bureaucracy
-			CHANGE = decrease_minor
-		}
-		inspection_success_chance_change_focus_effect = {
-			FOCUS = domain
-			CHANGE = increase_medium
-		}
+    option = {
+        name = bp3_survey.1020.c
+        scope:province.county = {
+            add_county_modifier = {
+                modifier = inspection_old_roads_of_x_domain_modifier
+                years = 10
+            }
+        }
+        inspection_survey_local_message_county_modifier = {
+            TYPE = message
+            MODIFIER = inspection_old_roads_of_x_domain_modifier
+            YEARS = 10
+        }
 
-		ai_chance = {
-			base = 100
-		}
-	}
+        inspection_success_chance_change_focus_effect = {
+            FOCUS = border
+            CHANGE = decrease_minor
+        }
+        inspection_success_chance_change_focus_effect = {
+            FOCUS = bureaucracy
+            CHANGE = decrease_minor
+        }
+        inspection_success_chance_change_focus_effect = {
+            FOCUS = domain
+            CHANGE = increase_medium
+        }
 
-	option = {
-		name = bp3_survey.1020.d
-		scope:province.county = {
-			add_county_modifier = {
-				modifier = inspection_old_roads_negative_modifier
-				years = 10
-			}
-		}
-		inspection_survey_local_message_county_modifier = {
-			TYPE = message_bad
-			MODIFIER = inspection_old_roads_negative_modifier
-			YEARS = 10
-		}
+        ai_chance = {
+            base = 100
+        }
+    }
 
-		# Success chance
-		inspection_success_chance_change_effect = {
-			CHANGE = decrease_minor
-		}
+    option = {
+        name = bp3_survey.1020.d
+        scope:province.county = {
+            add_county_modifier = {
+                modifier = inspection_old_roads_negative_modifier
+                years = 10
+            }
+        }
+        inspection_survey_local_message_county_modifier = {
+            TYPE = message_bad
+            MODIFIER = inspection_old_roads_negative_modifier
+            YEARS = 10
+        }
 
-		stress_impact = {
-			generous = minor_stress_gain
-			profligate = minor_stress_gain
-		}
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 0
-				OR = {
-					has_trait = generous
-					has_trait = profligate
-				}
-			}
-		}
-	}
+        # Success chance
+        inspection_success_chance_change_effect = {
+            CHANGE = decrease_minor
+        }
 
-	after = {
-		scope:soldier_character = {
-			silent_disappear_ai_if_not_hired = yes
-		}
-	}
+        stress_impact = {
+            generous = minor_stress_gain
+            profligate = minor_stress_gain
+        }
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 0
+                OR = {
+                    has_trait = generous
+                    has_trait = profligate
+                }
+            }
+        }
+    }
+
+    after = {
+        scope:soldier_character = {
+            silent_disappear_ai_if_not_hired = yes
+        }
+    }
 }
 
 scripted_effect bp3_survey_1030_character_effect = {
-	create_character = {
-		template = merchant_template
-		faith = scope:city_province.faith
-		culture = scope:city_province.culture
-		gender = female
-		location = scope:city_province
-		save_scope_as = merchant_$VALUE$
-		after_creation = {
-			if = {
-				limit = {
-					scope:city_province = {
-						has_variable = fighting_guilds_option_$VALUE$
-						var:fighting_guilds_option_$VALUE$ = {
-							OR = {
-								this = 12
-								this = 14
-								this = 15
-							}
-						}
-					}
-				}
-				add_trait = giant
-			}
-		}
-	}
+    create_character = {
+        template = merchant_template
+        faith = scope:city_province.faith
+        culture = scope:city_province.culture
+        gender = root
+        location = scope:city_province
+        save_scope_as = merchant_$VALUE$
+        after_creation = {
+            if = {
+                limit = {
+                    scope:city_province = {
+                        has_variable = fighting_guilds_option_$VALUE$
+                        var:fighting_guilds_option_$VALUE$ = {
+                            OR = {
+                                this = 12
+                                this = 14
+                                this = 15
+                            }
+                        }
+                    }
+                }
+                add_trait = giant
+            }
+        }
+    }
 }
 
 # The Fire Spreading
 bp3_survey.1040 = {
-	type = activity_event
-	content_source = dlc_015
-	title = bp3_survey.1040.t
-	desc = bp3_survey.1040.desc
-	theme = survey_activity
+    type = activity_event
+    content_source = dlc_015
+    title = bp3_survey.1040.t
+    desc = bp3_survey.1040.desc
+    theme = survey_activity
 
-	override_background = {
-		reference = burning_building
-	}
-	
-	cooldown = { years = 1 }
+    override_background = {
+        reference = burning_building
+    }
 
-	left_portrait = {
-		character = scope:soldier_character
-		hide_info = yes
-		animation = throne_room_two_handed_passive_1
-	}
+    cooldown = { years = 1 }
 
-	center_portrait = {
-		character = root
-		animation = fear
-	}
+    left_portrait = {
+        character = scope:soldier_character
+        hide_info = yes
+        animation = throne_room_two_handed_passive_1
+    }
 
-	right_portrait = {
-		character = scope:merchant_character
-		hide_info = yes
-		animation = crying
-	}
+    center_portrait = {
+        character = root
+        animation = fear
+    }
 
-	lower_right_portrait = {
-		character = scope:county_owner
-	}
+    right_portrait = {
+        character = scope:merchant_character
+        hide_info = yes
+        animation = crying
+    }
 
-	override_effect_2d = {
-		reference = smoke
-	}
+    lower_right_portrait = {
+        character = scope:county_owner
+    }
 
-	immediate = {
-		inspection_survey_intent_development = { VALUE = 5 }
-		create_character = {
-			template = soldier_friend_character
-			culture = root.culture
-			faith = root.faith
-			gender = female
-			location = scope:province
-			save_scope_as = soldier_character
+    override_effect_2d = {
+        reference = smoke
+    }
 
-			after_creation = {
-				add_character_flag = {
-					flag = need_military_outfit
-				}
-			}
-		}
-		create_character = {
-			template = merchant_template
-			faith = scope:province.faith
-			culture = scope:province.culture
-			gender = female
-			location = scope:province
-			save_scope_as = merchant_character
-		}
-		scope:province = {
-			destroy_random_building_variable_effect = yes
-			if = {
-				limit = {
-					province_owner != root
-				}
-				province_owner = {
-					save_scope_as = county_owner
-				}
-			}
-		}
-	}
+    immediate = {
+        inspection_survey_intent_development = { VALUE = 5 }
+        create_character = {
+            template = soldier_friend_character
+            culture = root.culture
+            faith = root.faith
+            gender = root
+            location = scope:province
+            save_scope_as = soldier_character
 
-	option = {
-		name = bp3_survey.1040.a
-		inspection_success_chance_change_focus_effect = {
-			FOCUS = domain
-			CHANGE = increase_minor
-		}
-		duel = {
-			skill = prowess
-			value = 14
-			50 = {
-				desc = bp3_survey.1040.a.win
-				inspection_activity_options_positive_modifier = yes
-				compare_modifier = {
-					value = scope:duel_value
-					multiplier = 3.5
-					min = -49
-				}
+            after_creation = {
+                add_character_flag = {
+                    flag = need_military_outfit
+                }
+            }
+        }
+        create_character = {
+            template = merchant_template
+            faith = scope:province.faith
+            culture = scope:province.culture
+            gender = root
+            location = scope:province
+            save_scope_as = merchant_character
+        }
+        scope:province = {
+            destroy_random_building_variable_effect = yes
+            if = {
+                limit = {
+                    province_owner != root
+                }
+                province_owner = {
+                    save_scope_as = county_owner
+                }
+            }
+        }
+    }
 
-				send_interface_message = {
-					type = event_generic_good
-					title = bp3_survey.1040.a.win
-					
-					add_prestige = medium_prestige_gain
-					inspection_success_chance_change_effect = {
-						CHANGE = increase_medium
-					}
-					add_character_modifier = {
-						modifier = inspection_selfless_ruler_modifier
-						years = 10
-					}
-				}
-			}
-			45 = {
-				desc = bp3_survey.1040.a.loss
-				inspection_activity_options_negative_modifier = yes
-				compare_modifier = {
-					value = scope:duel_value
-					multiplier = -3.5
-					min = -34
-				}
-				hidden_effect = {
-					if = {
-						limit = {
-							scope:province.county.holder != scope:host
-						}
-						scope:province.county.holder = {
-							send_interface_message = {
-								type = send_interface_message_bad
-								title = bp3_survey_liege_intervention
+    option = {
+        name = bp3_survey.1040.a
+        inspection_success_chance_change_focus_effect = {
+            FOCUS = domain
+            CHANGE = increase_minor
+        }
+        duel = {
+            skill = prowess
+            value = 14
+            50 = {
+                desc = bp3_survey.1040.a.win
+                inspection_activity_options_positive_modifier = yes
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 3.5
+                    min = -49
+                }
 
-								show_as_tooltip = {
-									scope:province = { destroy_random_building_effect = yes }
-								}
-							}
-						}
-					}
-				}
+                send_interface_message = {
+                    type = event_generic_good
+                    title = bp3_survey.1040.a.win
 
-				send_interface_message = {
-					type = event_generic_bad
-					title = bp3_survey.1040.a.loss
-					
-					increase_wounds_no_death_effect = { REASON = burned }
-					scope:province = { destroy_random_building_effect = yes }
-				}
-			}
-			5 = {
-				desc = bp3_survey.1040.a.death
-				compare_modifier = {
-					value = scope:duel_value
-					multiplier = -3.5
-					min = -4
-				}
-				death = {
-					death_reason = death_burned
-				}
-			}
-		}
-		stress_impact = {
-			brave = minor_stress_impact_loss
-			compassionate = medium_stress_impact_loss
-			craven = minor_stress_gain
-		}
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 0
-				has_trait = craven
-			}
-			modifier = {
-				factor = 5
-				OR = {
-					has_trait = brave
-					has_trait = compassionate
-				}
-			}
-		}
-	}
+                    add_prestige = medium_prestige_gain
+                    inspection_success_chance_change_effect = {
+                        CHANGE = increase_medium
+                    }
+                    add_character_modifier = {
+                        modifier = inspection_selfless_ruler_modifier
+                        years = 10
+                    }
+                }
+            }
+            45 = {
+                desc = bp3_survey.1040.a.loss
+                inspection_activity_options_negative_modifier = yes
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = -3.5
+                    min = -34
+                }
+                hidden_effect = {
+                    if = {
+                        limit = {
+                            scope:province.county.holder != scope:host
+                        }
+                        scope:province.county.holder = {
+                            send_interface_message = {
+                                type = send_interface_message_bad
+                                title = bp3_survey_liege_intervention
 
-	option = {
-		name = bp3_survey.1040.b
-		remove_treasury_or_gold = inspection_medium_gold
-		scope:province.county = {
-			add_county_modifier = {
-				modifier = inspection_fire_spreading_modifier
-				years = 10
-			}
-		}
-		inspection_success_chance_change_focus_effect = {
-			FOCUS = bureaucracy
-			CHANGE = increase_minor
-		}
-		inspection_success_chance_change_focus_effect = {
-			FOCUS = domain
-			CHANGE = decrease_minor
-		}
-		random = {
-			chance = 25
-			hidden_effect = {
-				if = {
-					limit = {
-						scope:province.county.holder != scope:host
-					}
-					scope:province.county.holder = {
-						send_interface_message = {
-							type = send_interface_message_bad
-							title = bp3_survey_liege_intervention
+                                show_as_tooltip = {
+                                    scope:province = { destroy_random_building_effect = yes }
+                                }
+                            }
+                        }
+                    }
+                }
 
-							show_as_tooltip = {
-								scope:province = { destroy_random_building_effect = yes }
-							}
-						}
-					}
-				}
-			}
-			scope:province = { destroy_random_building_effect = yes }
-		}
-		stress_impact = {
-			generous = minor_stress_impact_loss
-			greedy = minor_stress_gain
-		}
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 0
-				has_trait = greedy
-			}
-			modifier = {
-				factor = 5
-				has_trait = generous
-			}
-		}
-	}
+                send_interface_message = {
+                    type = event_generic_bad
+                    title = bp3_survey.1040.a.loss
 
-	option = {
-		name = bp3_survey.1040.c
-		trigger = {
-			exists = scope:county_owner
-			NOR = {
-				scope:county_owner = root 
-				scope:county_owner = { is_ai = yes }
-			}
-			OR = {
-				has_trait = callous
-				has_trait = sadistic
-				AND = {
-					has_relation_rival = scope:province.province_owner
-					has_trait = vengeful
-				}
-			}
-		}
-		duel = {
-			skill = intrigue
-			value = 15
-			50 = {
-				desc = bp3_survey.1040.c.win
-				inspection_activity_options_positive_modifier = yes
-				compare_modifier = {
-					value = scope:duel_value
-					multiplier = 3.5
-					min = -49
-				}
-				send_interface_message = {
-					type = event_generic_good
-					title = bp3_survey.1040.c.win
+                    increase_wounds_no_death_effect = { REASON = burned }
+                    scope:province = { destroy_random_building_effect = yes }
+                }
+            }
+            5 = {
+                desc = bp3_survey.1040.a.death
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = -3.5
+                    min = -4
+                }
+                death = {
+                    death_reason = death_burned
+                }
+            }
+        }
+        stress_impact = {
+            brave = minor_stress_impact_loss
+            compassionate = medium_stress_impact_loss
+            craven = minor_stress_gain
+        }
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 0
+                has_trait = craven
+            }
+            modifier = {
+                factor = 5
+                OR = {
+                    has_trait = brave
+                    has_trait = compassionate
+                }
+            }
+        }
+    }
 
-					scope:county_owner = {
-						add_opinion = {
-							modifier = respect_opinion
-							target = root
-							opinion = 25
-						}
-					}
-					inspection_success_chance_change_focus_effect = {
-						FOCUS = domain
-						CHANGE = increase_minor
-					}
-				}
-			}
-			50 = {
-				desc = bp3_survey.1040.c.loss
-				inspection_activity_options_negative_modifier = yes
-				compare_modifier = {
-					value = scope:duel_value
-					multiplier = -3.5
-					min = -39
-				}
-				send_interface_message = {
-					type = event_generic_bad
-					title = bp3_survey.1040.c.loss
+    option = {
+        name = bp3_survey.1040.b
+        remove_treasury_or_gold = inspection_medium_gold
+        scope:province.county = {
+            add_county_modifier = {
+                modifier = inspection_fire_spreading_modifier
+                years = 10
+            }
+        }
+        inspection_success_chance_change_focus_effect = {
+            FOCUS = bureaucracy
+            CHANGE = increase_minor
+        }
+        inspection_success_chance_change_focus_effect = {
+            FOCUS = domain
+            CHANGE = decrease_minor
+        }
+        random = {
+            chance = 25
+            hidden_effect = {
+                if = {
+                    limit = {
+                        scope:province.county.holder != scope:host
+                    }
+                    scope:province.county.holder = {
+                        send_interface_message = {
+                            type = send_interface_message_bad
+                            title = bp3_survey_liege_intervention
 
-					scope:county_owner = {
-						add_opinion = {
-							modifier = hate_opinion
-							target = root
-							opinion = -50
-						}
-					}
-					inspection_success_chance_change_effect = {
-						CHANGE = decrease_medium
-					}
-				}
-			}
-		}
-		hidden_effect = {
-			if = {
-				limit = {
-					scope:province.county.holder != scope:host
-				}
-				scope:province.county.holder = {
-					send_interface_message = {
-						type = send_interface_message_bad
-						title = bp3_survey_liege_intervention
+                            show_as_tooltip = {
+                                scope:province = { destroy_random_building_effect = yes }
+                            }
+                        }
+                    }
+                }
+            }
+            scope:province = { destroy_random_building_effect = yes }
+        }
+        stress_impact = {
+            generous = minor_stress_impact_loss
+            greedy = minor_stress_gain
+        }
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 0
+                has_trait = greedy
+            }
+            modifier = {
+                factor = 5
+                has_trait = generous
+            }
+        }
+    }
 
-						show_as_tooltip = {
-							scope:province = { 
-								destroy_random_building_effect = yes 
-								county = { change_development_level = -2 }
-							}
-						}
-					}
-				}
-			}
-		}
-		scope:province = { 
-			destroy_random_building_effect = yes 
-			county = { change_development_level = -2 }
-		}
-		stress_impact = {
-			callous = minor_stress_impact_loss
-			sadistic = minor_stress_impact_loss
-			vengeful = minor_stress_impact_loss
-			compassionate = major_stress_gain
-		}
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 0
-				has_trait = compassionate
-			}
-			modifier = {
-				factor = 5
-				OR = {
-					has_trait = callous
-					has_trait = sadistic
-					has_trait = vengeful
-				}
-			}
-		}
-	}
+    option = {
+        name = bp3_survey.1040.c
+        trigger = {
+            exists = scope:county_owner
+            NOR = {
+                scope:county_owner = root
+                scope:county_owner = { is_ai = yes }
+            }
+            OR = {
+                has_trait = callous
+                has_trait = sadistic
+                AND = {
+                    has_relation_rival = scope:province.province_owner
+                    has_trait = vengeful
+                }
+            }
+        }
+        duel = {
+            skill = intrigue
+            value = 15
+            50 = {
+                desc = bp3_survey.1040.c.win
+                inspection_activity_options_positive_modifier = yes
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 3.5
+                    min = -49
+                }
+                send_interface_message = {
+                    type = event_generic_good
+                    title = bp3_survey.1040.c.win
 
-	option = {
-		name = bp3_survey.1040.d
-		random = {
-			chance = 50
-			hidden_effect = {
-				if = {
-					limit = {
-						scope:province.county.holder != scope:host
-					}
-					scope:province.county.holder = {
-						send_interface_message = {
-							type = send_interface_message_bad
-							title = bp3_survey_liege_intervention
+                    scope:county_owner = {
+                        add_opinion = {
+                            modifier = respect_opinion
+                            target = root
+                            opinion = 25
+                        }
+                    }
+                    inspection_success_chance_change_focus_effect = {
+                        FOCUS = domain
+                        CHANGE = increase_minor
+                    }
+                }
+            }
+            50 = {
+                desc = bp3_survey.1040.c.loss
+                inspection_activity_options_negative_modifier = yes
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = -3.5
+                    min = -39
+                }
+                send_interface_message = {
+                    type = event_generic_bad
+                    title = bp3_survey.1040.c.loss
 
-							show_as_tooltip = {
-								scope:province = { 
-									destroy_random_building_effect = yes 
-									county = { change_development_level = -1 }
-								}
-							}
-						}
-					}
-				}
-			}
-			send_interface_message = {
-				type = event_generic_bad
-				title = bp3_survey.1040.destroyed_building
+                    scope:county_owner = {
+                        add_opinion = {
+                            modifier = hate_opinion
+                            target = root
+                            opinion = -50
+                        }
+                    }
+                    inspection_success_chance_change_effect = {
+                        CHANGE = decrease_medium
+                    }
+                }
+            }
+        }
+        hidden_effect = {
+            if = {
+                limit = {
+                    scope:province.county.holder != scope:host
+                }
+                scope:province.county.holder = {
+                    send_interface_message = {
+                        type = send_interface_message_bad
+                        title = bp3_survey_liege_intervention
 
-				scope:province = { 
-					destroy_random_building_effect = yes 
-					county = { change_development_level = -1 }
-				}
-			}
-		}
-		inspection_success_chance_change_effect = {
-			CHANGE = decrease_medium
-		}
-		stress_impact = {
-			compassionate = medium_stress_gain
-		}
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 0
-				has_trait = compassionate
-			}
-		}
-	}
+                        show_as_tooltip = {
+                            scope:province = {
+                                destroy_random_building_effect = yes
+                                county = { change_development_level = -2 }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        scope:province = {
+            destroy_random_building_effect = yes
+            county = { change_development_level = -2 }
+        }
+        stress_impact = {
+            callous = minor_stress_impact_loss
+            sadistic = minor_stress_impact_loss
+            vengeful = minor_stress_impact_loss
+            compassionate = major_stress_gain
+        }
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 0
+                has_trait = compassionate
+            }
+            modifier = {
+                factor = 5
+                OR = {
+                    has_trait = callous
+                    has_trait = sadistic
+                    has_trait = vengeful
+                }
+            }
+        }
+    }
 
-	after = {
-		scope:merchant_character = {
-			silent_disappear_ai_if_not_hired = yes
-		}
-		scope:soldier_character = {
-			silent_disappear_ai_if_not_hired = yes
-		}
-	}
+    option = {
+        name = bp3_survey.1040.d
+        random = {
+            chance = 50
+            hidden_effect = {
+                if = {
+                    limit = {
+                        scope:province.county.holder != scope:host
+                    }
+                    scope:province.county.holder = {
+                        send_interface_message = {
+                            type = send_interface_message_bad
+                            title = bp3_survey_liege_intervention
+
+                            show_as_tooltip = {
+                                scope:province = {
+                                    destroy_random_building_effect = yes
+                                    county = { change_development_level = -1 }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            send_interface_message = {
+                type = event_generic_bad
+                title = bp3_survey.1040.destroyed_building
+
+                scope:province = {
+                    destroy_random_building_effect = yes
+                    county = { change_development_level = -1 }
+                }
+            }
+        }
+        inspection_success_chance_change_effect = {
+            CHANGE = decrease_medium
+        }
+        stress_impact = {
+            compassionate = medium_stress_gain
+        }
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 0
+                has_trait = compassionate
+            }
+        }
+    }
+
+    after = {
+        scope:merchant_character = {
+            silent_disappear_ai_if_not_hired = yes
+        }
+        scope:soldier_character = {
+            silent_disappear_ai_if_not_hired = yes
+        }
+    }
 }
 
 # Expanding the Town Walls
 bp3_survey.1050 = {
-	type = activity_event
-	content_source = dlc_015
-	title = bp3_survey.1050.t
-	desc = bp3_survey.1050.desc
-	theme = survey_activity
+    type = activity_event
+    content_source = dlc_015
+    title = bp3_survey.1050.t
+    desc = bp3_survey.1050.desc
+    theme = survey_activity
 
-	override_background = {
-		reference = market
-	}
-	
-	cooldown = { years = 1 }
+    override_background = {
+        reference = market
+    }
 
-	left_portrait = {
-		character = scope:soldier_character
-		hide_info = yes
-		animation = disapproval
-	}
+    cooldown = { years = 1 }
 
-	center_portrait = {
-		character = root
-		animation = thinking
-	}
+    left_portrait = {
+        character = scope:soldier_character
+        hide_info = yes
+        animation = disapproval
+    }
 
-	right_portrait = {
-		character = scope:merchant_character
-		hide_info = yes
-		animation = debating
-	}
+    center_portrait = {
+        character = root
+        animation = thinking
+    }
 
-	immediate = {
-		inspection_survey_intent_county_modifier = { MODIFIER = inspection_learning_intent_building_modifier }
-		create_character = {
-			template = soldier_friend_character
-			culture = root.culture
-			faith = root.faith
-			gender = female
-			location = scope:province
-			save_scope_as = soldier_character
+    right_portrait = {
+        character = scope:merchant_character
+        hide_info = yes
+        animation = debating
+    }
 
-			after_creation = {
-				add_character_flag = {
-					flag = need_military_outfit
-				}
-			}
-		}
-		create_character = {
-			template = merchant_template
-			faith = scope:province.faith
-			culture = scope:province.culture
-			gender = female
-			location = scope:province
-			save_scope_as = merchant_character
-		}
-	}
+    immediate = {
+        inspection_survey_intent_county_modifier = { MODIFIER = inspection_learning_intent_building_modifier }
+        create_character = {
+            template = soldier_friend_character
+            culture = root.culture
+            faith = root.faith
+            gender = root
+            location = scope:province
+            save_scope_as = soldier_character
 
-	option = {
-		name = bp3_survey.1050.a
-		remove_treasury_or_gold = {
-			value = {
-				value = minor_treasury_or_gold_value
-				min = 50
-			}
-			multiply = inspection_activity_option_multiplier
-		}
-		scope:province = {
-			add_province_modifier = {
-				modifier = inspection_expanding_walls_new_modifier
-				years = 10
-			}
-		}
-		inspection_survey_local_message_province_modifier = {
-			TYPE = message_good
-			MODIFIER = inspection_expanding_walls_new_modifier
-			YEARS = 10
-		}
+            after_creation = {
+                add_character_flag = {
+                    flag = need_military_outfit
+                }
+            }
+        }
+        create_character = {
+            template = merchant_template
+            faith = scope:province.faith
+            culture = scope:province.culture
+            gender = root
+            location = scope:province
+            save_scope_as = merchant_character
+        }
+    }
 
-		inspection_success_chance_change_effect = {
-			CHANGE = increase_minor
-		}
+    option = {
+        name = bp3_survey.1050.a
+        remove_treasury_or_gold = {
+            value = {
+                value = minor_treasury_or_gold_value
+                min = 50
+            }
+            multiply = inspection_activity_option_multiplier
+        }
+        scope:province = {
+            add_province_modifier = {
+                modifier = inspection_expanding_walls_new_modifier
+                years = 10
+            }
+        }
+        inspection_survey_local_message_province_modifier = {
+            TYPE = message_good
+            MODIFIER = inspection_expanding_walls_new_modifier
+            YEARS = 10
+        }
 
-		stress_impact = {
-			greedy = minor_stress_gain
-			generous = minor_stress_impact_loss
-			profligate = minor_stress_impact_loss
-		}
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 0
-				has_trait = greedy
-			}
-			modifier = {
-				factor = 5
-				OR = {
-					has_trait = generous
-					has_trait = profligate
-				}
-			}
-		}
-	}
+        inspection_success_chance_change_effect = {
+            CHANGE = increase_minor
+        }
 
-	option = {
-		name = bp3_survey.1050.b
-		remove_treasury_or_gold = {
-			value = {
-				value = minor_treasury_or_gold_value
-				min = 50
-			}
-			multiply = inspection_activity_option_multiplier
-		}
-		scope:province = {
-			add_province_modifier = {
-				modifier = inspection_expanding_walls_old_modifier
-				years = 10
-			}
-		}
-		inspection_survey_local_message_province_modifier = {
-			TYPE = message_good
-			MODIFIER = inspection_expanding_walls_old_modifier
-			YEARS = 10
-		}
+        stress_impact = {
+            greedy = minor_stress_gain
+            generous = minor_stress_impact_loss
+            profligate = minor_stress_impact_loss
+        }
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 0
+                has_trait = greedy
+            }
+            modifier = {
+                factor = 5
+                OR = {
+                    has_trait = generous
+                    has_trait = profligate
+                }
+            }
+        }
+    }
 
-		inspection_success_chance_change_effect = {
-			CHANGE = increase_minor
-		}
+    option = {
+        name = bp3_survey.1050.b
+        remove_treasury_or_gold = {
+            value = {
+                value = minor_treasury_or_gold_value
+                min = 50
+            }
+            multiply = inspection_activity_option_multiplier
+        }
+        scope:province = {
+            add_province_modifier = {
+                modifier = inspection_expanding_walls_old_modifier
+                years = 10
+            }
+        }
+        inspection_survey_local_message_province_modifier = {
+            TYPE = message_good
+            MODIFIER = inspection_expanding_walls_old_modifier
+            YEARS = 10
+        }
 
-		stress_impact = {
-			greedy = minor_stress_gain
-			generous = minor_stress_impact_loss
-			profligate = minor_stress_impact_loss
-		}
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 0
-				has_trait = greedy
-			}
-			modifier = {
-				factor = 5
-				OR = {
-					has_trait = generous
-					has_trait = profligate
-				}
-			}
-		}
-	}
+        inspection_success_chance_change_effect = {
+            CHANGE = increase_minor
+        }
 
-	option = {
-		name = bp3_survey.1050.c
-		inspection_success_chance_change_effect = {
-			CHANGE = decrease_minor
-		}
+        stress_impact = {
+            greedy = minor_stress_gain
+            generous = minor_stress_impact_loss
+            profligate = minor_stress_impact_loss
+        }
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 0
+                has_trait = greedy
+            }
+            modifier = {
+                factor = 5
+                OR = {
+                    has_trait = generous
+                    has_trait = profligate
+                }
+            }
+        }
+    }
 
-		stress_impact = {
-			greedy = minor_stress_impact_loss
-			generous = minor_stress_gain
-			profligate = minor_stress_gain
-		}
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 0
-				OR = {
-					has_trait = generous
-					has_trait = profligate
-				}
-			}
-			modifier = {
-				factor = 5
-				has_trait = greedy
-			}
-		}
-	}
+    option = {
+        name = bp3_survey.1050.c
+        inspection_success_chance_change_effect = {
+            CHANGE = decrease_minor
+        }
 
-	after = {
-		scope:merchant_character = {
-			silent_disappear_ai_if_not_hired = yes
-		}
-		scope:soldier_character = {
-			silent_disappear_ai_if_not_hired = yes
-		}
-	}
+        stress_impact = {
+            greedy = minor_stress_impact_loss
+            generous = minor_stress_gain
+            profligate = minor_stress_gain
+        }
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 0
+                OR = {
+                    has_trait = generous
+                    has_trait = profligate
+                }
+            }
+            modifier = {
+                factor = 5
+                has_trait = greedy
+            }
+        }
+    }
+
+    after = {
+        scope:merchant_character = {
+            silent_disappear_ai_if_not_hired = yes
+        }
+        scope:soldier_character = {
+            silent_disappear_ai_if_not_hired = yes
+        }
+    }
 }
 
 # Mine Your Own Business
 bp3_survey.1060 = {
-	type = activity_event
-	content_source = dlc_015
-	title = bp3_survey.1060.t
-	desc = {
-		desc = bp3_survey.1060.desc
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					scope:mine_type = 1
-				}
-				desc = bp3_survey.1060.desc.copper
-			}
-			triggered_desc = {
-				trigger = {
-					scope:mine_type = 2
-				}
-				desc = bp3_survey.1060.desc.silver
-			}
-			triggered_desc = {
-				trigger = {
-					scope:mine_type = 3
-				}
-				desc = bp3_survey.1060.desc.gold
-			}
-		}
-	}
-	theme = survey_activity
+    type = activity_event
+    content_source = dlc_015
+    title = bp3_survey.1060.t
+    desc = {
+        desc = bp3_survey.1060.desc
+        first_valid = {
+            triggered_desc = {
+                trigger = {
+                    scope:mine_type = 1
+                }
+                desc = bp3_survey.1060.desc.copper
+            }
+            triggered_desc = {
+                trigger = {
+                    scope:mine_type = 2
+                }
+                desc = bp3_survey.1060.desc.silver
+            }
+            triggered_desc = {
+                trigger = {
+                    scope:mine_type = 3
+                }
+                desc = bp3_survey.1060.desc.gold
+            }
+        }
+    }
+    theme = survey_activity
 
-	override_background = {
-		reference = fp3_cave
-	}
-	
-	cooldown = { years = 1 }
+    override_background = {
+        reference = fp3_cave
+    }
 
-	left_portrait = {
-		character = scope:soldier_character
-		hide_info = yes
-		animation = throne_room_two_handed_passive_1
-	}
+    cooldown = { years = 1 }
 
-	center_portrait = {
-		character = root
-		animation = survey
-	}
+    left_portrait = {
+        character = scope:soldier_character
+        hide_info = yes
+        animation = throne_room_two_handed_passive_1
+    }
 
-	right_portrait = {
-		character = scope:guest_1
-		animation = ecstasy
-	}
+    center_portrait = {
+        character = root
+        animation = survey
+    }
 
-	trigger = {
-		scope:province = { has_special_building_slot = no }
-	}
+    right_portrait = {
+        character = scope:guest_1
+        animation = ecstasy
+    }
 
-	weight_multiplier = {
-		base = 1
-		modifier = {
-			factor = 10
-			scope:province = {
-				OR = {
-					later_historical_gold_mine_trigger = yes
-					later_historical_silver_mine_trigger = yes
-					later_historical_copper_mine_trigger = yes
-				}
-			}
-		}
-	}
+    trigger = {
+        scope:province = { has_special_building_slot = no }
+    }
 
-	immediate = {
-		inspection_survey_intent_province_modifier = { MODIFIER = inspection_learning_intent_flourishing_metal_trade_modifier }
-		create_character = {
-			template = soldier_friend_character
-			culture = root.culture
-			faith = root.faith
-			gender = female
-			location = scope:province
-			save_scope_as = soldier_character
+    weight_multiplier = {
+        base = 1
+        modifier = {
+            factor = 10
+            scope:province = {
+                OR = {
+                    later_historical_gold_mine_trigger = yes
+                    later_historical_silver_mine_trigger = yes
+                    later_historical_copper_mine_trigger = yes
+                }
+            }
+        }
+    }
 
-			after_creation = {
-				add_character_flag = {
-					flag = need_military_outfit
-				}
-			}
-		}
+    immediate = {
+        inspection_survey_intent_province_modifier = { MODIFIER = inspection_learning_intent_flourishing_metal_trade_modifier }
+        create_character = {
+            template = soldier_friend_character
+            culture = root.culture
+            faith = root.faith
+            gender = root
+            location = scope:province
+            save_scope_as = soldier_character
 
-		scope:activity = {
-			random_attending_character = {
-				limit = {
-					this != root
-				}
-				weight = {
-					base = 1
-					modifier = {
-						factor = 20
-						OR = {
-							is_close_family_of = root
-							is_spouse_of = root
-						}
-					}
-				}
-				save_scope_as = guest_1
-			}
-		}
+            after_creation = {
+                add_character_flag = {
+                    flag = need_military_outfit
+                }
+            }
+        }
 
-		random_list = {
-			60 = {
-				trigger = {
-					scope:province = {
-						NOR = {
-							later_historical_gold_mine_trigger = yes
-							later_historical_silver_mine_trigger = yes
-						}
-					}
-				}
-				save_scope_value_as = {
-					name = mine_type
-					value = 1
-				}
-			}
-			35 = {
-				trigger = {
-					scope:province = {
-						NOR = {
-							later_historical_gold_mine_trigger = yes
-							later_historical_copper_mine_trigger = yes
-						}
-					}
-				}
-				save_scope_value_as = {
-					name = mine_type
-					value = 2
-				}
-			}
-			5 = {
-				trigger = {
-					scope:province = {
-						NOR = {
-							later_historical_silver_mine_trigger = yes
-							later_historical_copper_mine_trigger = yes
-						}
-					}
-				}
-				save_scope_value_as = {
-					name = mine_type
-					value = 3
-				}
-			}
-		}
-	}
+        scope:activity = {
+            random_attending_character = {
+                limit = {
+                    this != root
+                }
+                weight = {
+                    base = 1
+                    modifier = {
+                        factor = 20
+                        OR = {
+                            is_close_family_of = root
+                            is_spouse_of = root
+                        }
+                    }
+                }
+                save_scope_as = guest_1
+            }
+        }
 
-	option = {
-		name = bp3_survey.1060.a
-		scope:province = {
-			switch = {
-				trigger = scope:mine_type
-				3 = { 
-					hidden_effect = { add_special_building_slot = generic_gold_mines_01 }
-					add_special_building = generic_gold_mines_01
-				}
-				2 = { 
-					hidden_effect = { add_special_building_slot = generic_silver_mines_01 }
-					add_special_building = generic_silver_mines_01
-				}
-				1 = { 
-					hidden_effect = { add_special_building_slot = generic_copper_mines_01 }
-					add_special_building = generic_copper_mines_01
-				}
-			}
-		}
-		hidden_effect = {
-			if = {
-				limit = {
-					scope:province.county.holder != scope:host
-				}
-				scope:province.county.holder = {
-					send_interface_message = {
-						type = send_interface_message_good
-						title = bp3_survey_liege_intervention
+        random_list = {
+            60 = {
+                trigger = {
+                    scope:province = {
+                        NOR = {
+                            later_historical_gold_mine_trigger = yes
+                            later_historical_silver_mine_trigger = yes
+                        }
+                    }
+                }
+                save_scope_value_as = {
+                    name = mine_type
+                    value = 1
+                }
+            }
+            35 = {
+                trigger = {
+                    scope:province = {
+                        NOR = {
+                            later_historical_gold_mine_trigger = yes
+                            later_historical_copper_mine_trigger = yes
+                        }
+                    }
+                }
+                save_scope_value_as = {
+                    name = mine_type
+                    value = 2
+                }
+            }
+            5 = {
+                trigger = {
+                    scope:province = {
+                        NOR = {
+                            later_historical_silver_mine_trigger = yes
+                            later_historical_copper_mine_trigger = yes
+                        }
+                    }
+                }
+                save_scope_value_as = {
+                    name = mine_type
+                    value = 3
+                }
+            }
+        }
+    }
 
-						show_as_tooltip = {
-							scope:province = {
-								switch = {
-									trigger = scope:mine_type
-									3 = { 
-										hidden_effect = { add_special_building_slot = generic_gold_mines_01 }
-										add_special_building = generic_gold_mines_01
-									}
-									2 = { 
-										hidden_effect = { add_special_building_slot = generic_silver_mines_01 }
-										add_special_building = generic_silver_mines_01
-									}
-									1 = { 
-										hidden_effect = { add_special_building_slot = generic_copper_mines_01 }
-										add_special_building = generic_copper_mines_01
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
+    option = {
+        name = bp3_survey.1060.a
+        scope:province = {
+            switch = {
+                trigger = scope:mine_type
+                3 = {
+                    hidden_effect = { add_special_building_slot = generic_gold_mines_01 }
+                    add_special_building = generic_gold_mines_01
+                }
+                2 = {
+                    hidden_effect = { add_special_building_slot = generic_silver_mines_01 }
+                    add_special_building = generic_silver_mines_01
+                }
+                1 = {
+                    hidden_effect = { add_special_building_slot = generic_copper_mines_01 }
+                    add_special_building = generic_copper_mines_01
+                }
+            }
+        }
+        hidden_effect = {
+            if = {
+                limit = {
+                    scope:province.county.holder != scope:host
+                }
+                scope:province.county.holder = {
+                    send_interface_message = {
+                        type = send_interface_message_good
+                        title = bp3_survey_liege_intervention
 
-		inspection_success_chance_change_effect = {
-			CHANGE = increase_medium
-		}
-	}
+                        show_as_tooltip = {
+                            scope:province = {
+                                switch = {
+                                    trigger = scope:mine_type
+                                    3 = {
+                                        hidden_effect = { add_special_building_slot = generic_gold_mines_01 }
+                                        add_special_building = generic_gold_mines_01
+                                    }
+                                    2 = {
+                                        hidden_effect = { add_special_building_slot = generic_silver_mines_01 }
+                                        add_special_building = generic_silver_mines_01
+                                    }
+                                    1 = {
+                                        hidden_effect = { add_special_building_slot = generic_copper_mines_01 }
+                                        add_special_building = generic_copper_mines_01
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
-	after = {
-		scope:soldier_character = {
-			silent_disappear_ai_if_not_hired = yes
-		}
-	}
+        inspection_success_chance_change_effect = {
+            CHANGE = increase_medium
+        }
+    }
+
+    after = {
+        scope:soldier_character = {
+            silent_disappear_ai_if_not_hired = yes
+        }
+    }
 }
 
 scripted_trigger place_worth_visiting_modifier_trigger = {
-	NOR = {
-		has_province_modifier = inspection_proteted_poi_levy_modifier
-		has_province_modifier = inspection_protected_holy_site_levy_modifier
-		has_province_modifier = inspection_protected_holy_poi_levy_modifier
-		has_province_modifier = inspection_protected_poi_gold_modifier
-		has_province_modifier = inspection_protected_holy_site_gold_modifier
-		has_province_modifier = inspection_protected_holy_poi_gold_modifier
-	}
+    NOR = {
+        has_province_modifier = inspection_proteted_poi_levy_modifier
+        has_province_modifier = inspection_protected_holy_site_levy_modifier
+        has_province_modifier = inspection_protected_holy_poi_levy_modifier
+        has_province_modifier = inspection_protected_poi_gold_modifier
+        has_province_modifier = inspection_protected_holy_site_gold_modifier
+        has_province_modifier = inspection_protected_holy_poi_gold_modifier
+    }
 }
 
 # A Place Worth Visiting
 bp3_survey.1080 = {
-	type = activity_event
-	content_source = dlc_015
-	title = bp3_survey.1080.t
-	desc = {
-		desc = bp3_survey.1080.desc
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					exists = scope:holy_poi_location
-				}
-				desc = bp3_survey.1080.desc.holy_poi
-			}
-			triggered_desc = {
-				trigger = {
-					exists = scope:poi_location
-				}
-				desc = bp3_survey.1080.desc.poi
-			}
-			triggered_desc = {
-				trigger = {
-					exists = scope:holy_site_location
-				}
-				desc = bp3_survey.1080.desc.holy_site
-			}
-		}
-		desc = bp3_survey.1080.desc.outro
-	}
-	theme = survey_activity
+    type = activity_event
+    content_source = dlc_015
+    title = bp3_survey.1080.t
+    desc = {
+        desc = bp3_survey.1080.desc
+        first_valid = {
+            triggered_desc = {
+                trigger = {
+                    exists = scope:holy_poi_location
+                }
+                desc = bp3_survey.1080.desc.holy_poi
+            }
+            triggered_desc = {
+                trigger = {
+                    exists = scope:poi_location
+                }
+                desc = bp3_survey.1080.desc.poi
+            }
+            triggered_desc = {
+                trigger = {
+                    exists = scope:holy_site_location
+                }
+                desc = bp3_survey.1080.desc.holy_site
+            }
+        }
+        desc = bp3_survey.1080.desc.outro
+    }
+    theme = survey_activity
 
-	override_background = {
-		reference = market
-	}
-	
-	cooldown = { years = 1 }
+    override_background = {
+        reference = market
+    }
 
-	left_portrait = {
-		character = scope:soldier_character
-		hide_info = yes
-		animation = throne_room_two_handed_passive_1
-	}
+    cooldown = { years = 1 }
 
-	center_portrait = {
-		character = root
-		animation = thinking
-	}
+    left_portrait = {
+        character = scope:soldier_character
+        hide_info = yes
+        animation = throne_room_two_handed_passive_1
+    }
 
-	right_portrait = {
-		character = scope:traveler_character
-		hide_info = yes
-		animation = debating
-	}
+    center_portrait = {
+        character = root
+        animation = thinking
+    }
 
-	trigger = {
-		scope:province.county = {
-			any_county_province = {
-				OR = {
-					barony = { is_holy_site_of = root.faith }
-					has_special_building = yes
-				}
-				place_worth_visiting_modifier_trigger = yes
-			}
-		}
-	}
+    right_portrait = {
+        character = scope:traveler_character
+        hide_info = yes
+        animation = debating
+    }
 
-	immediate = {
-		inspection_survey_intent_control = { VALUE = 5 }
-		create_character = {
-			template = soldier_friend_character
-			culture = root.culture
-			faith = root.faith
-			gender = female
-			location = scope:province
-			save_scope_as = soldier_character
+    trigger = {
+        scope:province.county = {
+            any_county_province = {
+                OR = {
+                    barony = { is_holy_site_of = root.faith }
+                    has_special_building = yes
+                }
+                place_worth_visiting_modifier_trigger = yes
+            }
+        }
+    }
 
-			after_creation = {
-				add_character_flag = {
-					flag = need_military_outfit
-				}
-			}
-		}
-		create_character = {
-			template = travel_leader_court_position_template
-			faith = root.faith
-			culture = root.culture
-			gender = female
-			location = scope:province
-			save_scope_as = traveler_character
-		}
-		scope:province.county = {
-			random_county_province = {
-				limit = {
-					OR = {
-						any_journey_point_of_interest_trigger = yes
-						AND = {
-							barony = { is_holy_site_of = root.faith }
-							barony.title_province = scope:province.county.title_province
-						}
-					}
-					place_worth_visiting_modifier_trigger = yes
-				}
-				alternative_limit = {
-					OR = {
-						any_journey_point_of_interest_trigger = yes
-						barony = { is_holy_site_of = root.faith }
-					}
-					place_worth_visiting_modifier_trigger = yes
-				}
-				weight = {
-					base = 1
-					modifier = {
-						factor = 100
-						barony = { is_holy_site_of = root.faith }
-					}
-				}
-				if = {
-					limit = {
-						any_journey_point_of_interest_trigger = yes
-						barony = { is_holy_site_of = root.faith }
-					}
-					save_scope_as = holy_poi_location
-				}
-				else_if = {
-					limit = {
-						any_journey_point_of_interest_trigger = yes
-					}
-					save_scope_as = poi_location
-				}
-				else_if = {
-					limit = {
-						barony = { is_holy_site_of = root.faith }
-					}
-					save_scope_as = holy_site_location
-				}
-				save_scope_as = location_province
-			}
-		}
-	}
+    immediate = {
+        inspection_survey_intent_control = { VALUE = 5 }
+        create_character = {
+            template = soldier_friend_character
+            culture = root.culture
+            faith = root.faith
+            gender = root
+            location = scope:province
+            save_scope_as = soldier_character
 
-	option = {
-		name = bp3_survey.1080.a
-		remove_treasury_or_gold = inspection_minor_gold
-		scope:poi_location ?= {
-			add_province_modifier = {
-				modifier = inspection_protected_poi_gold_modifier
-				years = 25
-			}
-			inspection_survey_local_message_specific_location_province_modifier = {
-				TYPE = message_good
-				MODIFIER = inspection_protected_poi_gold_modifier
-				YEARS = 25
-			}
-		}
-		scope:holy_site_location ?= {
-			add_province_modifier = {
-				modifier = inspection_protected_holy_site_gold_modifier
-				years = 25
-			}
-			inspection_survey_local_message_specific_location_province_modifier = {
-				TYPE = message_good
-				MODIFIER = inspection_protected_holy_site_gold_modifier
-				YEARS = 25
-			}
-		}
-		scope:holy_poi_location ?= {
-			add_province_modifier = {
-				modifier = inspection_protected_holy_poi_gold_modifier
-				years = 25
-			}
-			inspection_survey_local_message_specific_location_province_modifier = {
-				TYPE = message_good
-				MODIFIER = inspection_protected_holy_poi_gold_modifier
-				YEARS = 25
-			}
-		}
+            after_creation = {
+                add_character_flag = {
+                    flag = need_military_outfit
+                }
+            }
+        }
+        create_character = {
+            template = travel_leader_court_position_template
+            faith = root.faith
+            culture = root.culture
+            gender = root
+            location = scope:province
+            save_scope_as = traveler_character
+        }
+        scope:province.county = {
+            random_county_province = {
+                limit = {
+                    OR = {
+                        any_journey_point_of_interest_trigger = yes
+                        AND = {
+                            barony = { is_holy_site_of = root.faith }
+                            barony.title_province = scope:province.county.title_province
+                        }
+                    }
+                    place_worth_visiting_modifier_trigger = yes
+                }
+                alternative_limit = {
+                    OR = {
+                        any_journey_point_of_interest_trigger = yes
+                        barony = { is_holy_site_of = root.faith }
+                    }
+                    place_worth_visiting_modifier_trigger = yes
+                }
+                weight = {
+                    base = 1
+                    modifier = {
+                        factor = 100
+                        barony = { is_holy_site_of = root.faith }
+                    }
+                }
+                if = {
+                    limit = {
+                        any_journey_point_of_interest_trigger = yes
+                        barony = { is_holy_site_of = root.faith }
+                    }
+                    save_scope_as = holy_poi_location
+                }
+                else_if = {
+                    limit = {
+                        any_journey_point_of_interest_trigger = yes
+                    }
+                    save_scope_as = poi_location
+                }
+                else_if = {
+                    limit = {
+                        barony = { is_holy_site_of = root.faith }
+                    }
+                    save_scope_as = holy_site_location
+                }
+                save_scope_as = location_province
+            }
+        }
+    }
 
-		inspection_success_chance_change_effect = {
-			CHANGE = increase_medium
-		}
+    option = {
+        name = bp3_survey.1080.a
+        remove_treasury_or_gold = inspection_minor_gold
+        scope:poi_location ?= {
+            add_province_modifier = {
+                modifier = inspection_protected_poi_gold_modifier
+                years = 25
+            }
+            inspection_survey_local_message_specific_location_province_modifier = {
+                TYPE = message_good
+                MODIFIER = inspection_protected_poi_gold_modifier
+                YEARS = 25
+            }
+        }
+        scope:holy_site_location ?= {
+            add_province_modifier = {
+                modifier = inspection_protected_holy_site_gold_modifier
+                years = 25
+            }
+            inspection_survey_local_message_specific_location_province_modifier = {
+                TYPE = message_good
+                MODIFIER = inspection_protected_holy_site_gold_modifier
+                YEARS = 25
+            }
+        }
+        scope:holy_poi_location ?= {
+            add_province_modifier = {
+                modifier = inspection_protected_holy_poi_gold_modifier
+                years = 25
+            }
+            inspection_survey_local_message_specific_location_province_modifier = {
+                TYPE = message_good
+                MODIFIER = inspection_protected_holy_poi_gold_modifier
+                YEARS = 25
+            }
+        }
 
-		stress_impact = {
-			compassionate = minor_stress_impact_loss
-			diligent = minor_stress_impact_loss
-		}
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 5
-				OR = {
-					has_trait = compassionate
-					has_trait = diligent
-				}
-			}
-		}
-	}
+        inspection_success_chance_change_effect = {
+            CHANGE = increase_medium
+        }
 
-	option = {
-		name = bp3_survey.1080.b
-		scope:poi_location ?= {
-			add_province_modifier = {
-				modifier = inspection_proteted_poi_levy_modifier
-				years = 25
-			}
-			inspection_survey_local_message_specific_location_province_modifier = {
-				TYPE = message
-				MODIFIER = inspection_proteted_poi_levy_modifier
-				YEARS = 25
-			}
-		}
-		scope:holy_site_location ?= {
-			add_province_modifier = {
-				modifier = inspection_protected_holy_site_levy_modifier
-				years = 25
-			}
-			inspection_survey_local_message_specific_location_province_modifier = {
-				TYPE = message
-				MODIFIER = inspection_protected_holy_site_levy_modifier
-				YEARS = 25
-			}
-		}
-		scope:holy_poi_location ?= {
-			add_province_modifier = {
-				modifier = inspection_protected_holy_poi_levy_modifier
-				years = 25
-			}
-			inspection_survey_local_message_specific_location_province_modifier = {
-				TYPE = message
-				MODIFIER = inspection_protected_holy_poi_levy_modifier
-				YEARS = 25
-			}
-		}
+        stress_impact = {
+            compassionate = minor_stress_impact_loss
+            diligent = minor_stress_impact_loss
+        }
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 5
+                OR = {
+                    has_trait = compassionate
+                    has_trait = diligent
+                }
+            }
+        }
+    }
 
-		inspection_success_chance_change_focus_effect = {
-			FOCUS = domain
-			CHANGE = decrease_minor
-		}
-		inspection_success_chance_change_not_focus_effect = {
-			FOCUS = domain
-			CHANGE = increase_minor
-		}
+    option = {
+        name = bp3_survey.1080.b
+        scope:poi_location ?= {
+            add_province_modifier = {
+                modifier = inspection_proteted_poi_levy_modifier
+                years = 25
+            }
+            inspection_survey_local_message_specific_location_province_modifier = {
+                TYPE = message
+                MODIFIER = inspection_proteted_poi_levy_modifier
+                YEARS = 25
+            }
+        }
+        scope:holy_site_location ?= {
+            add_province_modifier = {
+                modifier = inspection_protected_holy_site_levy_modifier
+                years = 25
+            }
+            inspection_survey_local_message_specific_location_province_modifier = {
+                TYPE = message
+                MODIFIER = inspection_protected_holy_site_levy_modifier
+                YEARS = 25
+            }
+        }
+        scope:holy_poi_location ?= {
+            add_province_modifier = {
+                modifier = inspection_protected_holy_poi_levy_modifier
+                years = 25
+            }
+            inspection_survey_local_message_specific_location_province_modifier = {
+                TYPE = message
+                MODIFIER = inspection_protected_holy_poi_levy_modifier
+                YEARS = 25
+            }
+        }
 
-		stress_impact = {
-			arrogant = minor_stress_impact_loss
-		}
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 5
-				has_trait = arrogant
-			}
-		}
-	}
+        inspection_success_chance_change_focus_effect = {
+            FOCUS = domain
+            CHANGE = decrease_minor
+        }
+        inspection_success_chance_change_not_focus_effect = {
+            FOCUS = domain
+            CHANGE = increase_minor
+        }
 
-	option = {
-		name = bp3_survey.1080.c
-		inspection_success_chance_change_effect = {
-			CHANGE = decrease_minor
-		}
+        stress_impact = {
+            arrogant = minor_stress_impact_loss
+        }
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 5
+                has_trait = arrogant
+            }
+        }
+    }
 
-		stress_impact = {
-			compassionate = minor_stress_gain
-			diligent = minor_stress_gain
-		}
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 0
-				OR = {
-					has_trait = compassionate
-					has_trait = diligent
-				}
-			}
-		}
-	}
+    option = {
+        name = bp3_survey.1080.c
+        inspection_success_chance_change_effect = {
+            CHANGE = decrease_minor
+        }
 
-	after = {
-		scope:soldier_character = {
-			silent_disappear_ai_if_not_hired = yes
-		}
-		scope:traveler_character = {
-			silent_disappear_ai_if_not_hired = yes
-		}
-	}
+        stress_impact = {
+            compassionate = minor_stress_gain
+            diligent = minor_stress_gain
+        }
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 0
+                OR = {
+                    has_trait = compassionate
+                    has_trait = diligent
+                }
+            }
+        }
+    }
+
+    after = {
+        scope:soldier_character = {
+            silent_disappear_ai_if_not_hired = yes
+        }
+        scope:traveler_character = {
+            silent_disappear_ai_if_not_hired = yes
+        }
+    }
 }
 
 scripted_trigger bp3_survey_1090_terrain_trigger = {
-	OR = {
-		has_holding = no
-		terrain = hills
-		terrain = mountains
-		terrain = steppe
-		terrain = forest
-		terrain = desert_mountains
-		terrain = desert
-		terrain = drylands
-	}
+    OR = {
+        has_holding = no
+        terrain = hills
+        terrain = mountains
+        terrain = steppe
+        terrain = forest
+        terrain = desert_mountains
+        terrain = desert
+        terrain = drylands
+    }
 }
 
 # The Hidden Hinterlands
 bp3_survey.1090 = {
-	type = activity_event
-	content_source = dlc_015
-	title = bp3_survey.1090.t
-	desc = bp3_survey.1090.desc
-	theme = survey_activity
+    type = activity_event
+    content_source = dlc_015
+    title = bp3_survey.1090.t
+    desc = bp3_survey.1090.desc
+    theme = survey_activity
 
-	override_background = {
-		trigger = {
-			scope:poaching_province = {
-				OR = {
-					terrain = forest
-					terrain = hills
-					terrain = mountains
-				}
-			}
-		}
-		reference = ep2_hunt_poachers_camp
-	}
+    override_background = {
+        trigger = {
+            scope:poaching_province = {
+                OR = {
+                    terrain = forest
+                    terrain = hills
+                    terrain = mountains
+                }
+            }
+        }
+        reference = ep2_hunt_poachers_camp
+    }
 
-	override_background = {
-		reference = wilderness
-	}
-	
-	cooldown = { years = 1 }
+    override_background = {
+        reference = wilderness
+    }
 
-	left_portrait = {
-		character = scope:soldier_character
-		hide_info = yes
-		animation = throne_room_two_handed_passive_1
-	}
+    cooldown = { years = 1 }
 
-	center_portrait = {
-		character = root
-		animation = survey
-	}
+    left_portrait = {
+        character = scope:soldier_character
+        hide_info = yes
+        animation = throne_room_two_handed_passive_1
+    }
 
-	right_portrait = {
-		character = scope:hunter_character
-		hide_info = yes
-		animation = hunting_carcass_start
-	}
+    center_portrait = {
+        character = root
+        animation = survey
+    }
 
-	trigger = {
-		scope:province.county = {
-			any_county_province = {
-				bp3_survey_1090_terrain_trigger = yes
-				NOR = {
-					has_province_modifier = inspection_hidden_hinterlands_recruit_modifier
-					has_province_modifier = inspection_hidden_hinterlands_hunters_modifier
-				}
-			}
-		}
-	}
+    right_portrait = {
+        character = scope:hunter_character
+        hide_info = yes
+        animation = hunting_carcass_start
+    }
 
-	immediate = {
-		inspection_survey_intent_control = { VALUE = 5 }
-		create_character = {
-			template = soldier_friend_character
-			culture = root.culture
-			faith = root.faith
-			gender = female
-			location = scope:province
-			save_scope_as = soldier_character
+    trigger = {
+        scope:province.county = {
+            any_county_province = {
+                bp3_survey_1090_terrain_trigger = yes
+                NOR = {
+                    has_province_modifier = inspection_hidden_hinterlands_recruit_modifier
+                    has_province_modifier = inspection_hidden_hinterlands_hunters_modifier
+                }
+            }
+        }
+    }
 
-			after_creation = {
-				add_character_flag = {
-					flag = need_military_outfit
-				}
-			}
-		}
-		create_character = {
-			template = hunter_template
-			faith = root.faith
-			culture = root.culture
-			gender = female
-			location = scope:province
-			save_scope_as = hunter_character
-		}
-		scope:province.county = {
-			random_county_province = {
-				limit = {
-					bp3_survey_1090_terrain_trigger = yes
-				}
-				save_scope_as = poaching_province
-			}
-		}
-	}
+    immediate = {
+        inspection_survey_intent_control = { VALUE = 5 }
+        create_character = {
+            template = soldier_friend_character
+            culture = root.culture
+            faith = root.faith
+            gender = root
+            location = scope:province
+            save_scope_as = soldier_character
 
-	option = {
-		name = bp3_survey.1090.a
-		remove_treasury_or_gold = inspection_minor_gold
-		scope:poaching_province = {
-			add_province_modifier = {
-				modifier = inspection_hidden_hinterlands_recruit_modifier
-				years = 25
-			}
-			inspection_survey_local_message_specific_location_province_modifier = {
-				TYPE = message_good
-				MODIFIER = inspection_hidden_hinterlands_recruit_modifier
-				YEARS = 25
-			}
-		}
+            after_creation = {
+                add_character_flag = {
+                    flag = need_military_outfit
+                }
+            }
+        }
+        create_character = {
+            template = hunter_template
+            faith = root.faith
+            culture = root.culture
+            gender = root
+            location = scope:province
+            save_scope_as = hunter_character
+        }
+        scope:province.county = {
+            random_county_province = {
+                limit = {
+                    bp3_survey_1090_terrain_trigger = yes
+                }
+                save_scope_as = poaching_province
+            }
+        }
+    }
 
-		inspection_success_chance_change_focus_effect = {
-			FOCUS = domain
-			CHANGE = decrease_minor
-		}
-		inspection_success_chance_change_not_focus_effect = {
-			FOCUS = domain
-			CHANGE = increase_medium
-		}
+    option = {
+        name = bp3_survey.1090.a
+        remove_treasury_or_gold = inspection_minor_gold
+        scope:poaching_province = {
+            add_province_modifier = {
+                modifier = inspection_hidden_hinterlands_recruit_modifier
+                years = 25
+            }
+            inspection_survey_local_message_specific_location_province_modifier = {
+                TYPE = message_good
+                MODIFIER = inspection_hidden_hinterlands_recruit_modifier
+                YEARS = 25
+            }
+        }
 
-		stress_impact = {
-			diligent = minor_stress_impact_loss
-			wrathful = minor_stress_impact_loss
-		}
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 5
-				OR = {
-					has_trait = diligent
-					has_trait = wrathful
-				}
-			}
-		}
-	}
+        inspection_success_chance_change_focus_effect = {
+            FOCUS = domain
+            CHANGE = decrease_minor
+        }
+        inspection_success_chance_change_not_focus_effect = {
+            FOCUS = domain
+            CHANGE = increase_medium
+        }
 
-	option = {
-		name = bp3_survey.1090.b
-		scope:poaching_province = {
-			add_province_modifier = {
-				modifier = inspection_hidden_hinterlands_hunters_modifier
-				years = 25
-			}
-			inspection_survey_local_message_specific_location_province_modifier = {
-				TYPE = message
-				MODIFIER = inspection_hidden_hinterlands_hunters_modifier
-				YEARS = 25
-			}
-		}
+        stress_impact = {
+            diligent = minor_stress_impact_loss
+            wrathful = minor_stress_impact_loss
+        }
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 5
+                OR = {
+                    has_trait = diligent
+                    has_trait = wrathful
+                }
+            }
+        }
+    }
 
-		inspection_success_chance_change_focus_effect = {
-			FOCUS = border
-			CHANGE = decrease_minor
-		}
-		inspection_success_chance_change_not_focus_effect = {
-			FOCUS = border
-			CHANGE = increase_minor
-		}
+    option = {
+        name = bp3_survey.1090.b
+        scope:poaching_province = {
+            add_province_modifier = {
+                modifier = inspection_hidden_hinterlands_hunters_modifier
+                years = 25
+            }
+            inspection_survey_local_message_specific_location_province_modifier = {
+                TYPE = message
+                MODIFIER = inspection_hidden_hinterlands_hunters_modifier
+                YEARS = 25
+            }
+        }
 
-		stress_impact = {
-			lifestyle_hunter = minor_stress_impact_loss
-		}
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 5
-				has_trait = lifestyle_hunter
-			}
-		}
-	}
+        inspection_success_chance_change_focus_effect = {
+            FOCUS = border
+            CHANGE = decrease_minor
+        }
+        inspection_success_chance_change_not_focus_effect = {
+            FOCUS = border
+            CHANGE = increase_minor
+        }
 
-	option = {
-		name = bp3_survey.1090.c
+        stress_impact = {
+            lifestyle_hunter = minor_stress_impact_loss
+        }
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 5
+                has_trait = lifestyle_hunter
+            }
+        }
+    }
 
-		inspection_success_chance_change_focus_effect = {
-			FOCUS = domain
-			CHANGE = increase_minor
-		}
-		inspection_success_chance_change_not_focus_effect = {
-			FOCUS = domain
-			CHANGE = decrease_minor
-		}
+    option = {
+        name = bp3_survey.1090.c
 
-		stress_impact = {
-			content = minor_stress_impact_loss
-		}
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 5
-				has_trait = content
-			}
-		}
-	}
+        inspection_success_chance_change_focus_effect = {
+            FOCUS = domain
+            CHANGE = increase_minor
+        }
+        inspection_success_chance_change_not_focus_effect = {
+            FOCUS = domain
+            CHANGE = decrease_minor
+        }
 
-	after = {
-		scope:soldier_character = {
-			silent_disappear_ai_if_not_hired = yes
-		}
-		scope:hunter_character = {
-			silent_disappear_ai_if_not_hired = yes
-		}
-	}
+        stress_impact = {
+            content = minor_stress_impact_loss
+        }
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 5
+                has_trait = content
+            }
+        }
+    }
+
+    after = {
+        scope:soldier_character = {
+            silent_disappear_ai_if_not_hired = yes
+        }
+        scope:hunter_character = {
+            silent_disappear_ai_if_not_hired = yes
+        }
+    }
 }

@@ -1,97 +1,97 @@
 ﻿#################################################
-	##Create Cossack Kingdom Decision Effect##
-	## By: Björn S
+##Create Cossack Kingdom Decision Effect##
+## By: Björn S
 #################################################
 
 create_cossack_scripted_effect = {
-	# Pseudo character to derive culture from without converting the founder by default
-	create_character = {
-		location = root.location
-		culture = root.culture
-		faith = root.faith
-		gender = female
-		dynasty = none
-		random_traits = no
-		save_scope_as = cossack
-	}
-	## We make all nomad holdings tribal, or the government change won't work
-	custom_tooltip = {
-		every_sub_realm_county = {
-			limit = {
-				title_province = {
-					OR = {
-						has_holding_type = nomad_holding
-						has_holding_type = herder_holding
-					}
-				}
-			}
-			## Add_to_list = holding_conversion
-			title_province = {
-				set_holding_type = tribal_holding
-			}
-		}
-		text = create_cossack_tribal_tooltip
-	}
-	change_government = tribal_government
+    # Pseudo character to derive culture from without converting the founder by default
+    create_character = {
+        location = root.location
+        culture = root.culture
+        faith = root.faith
+        gender = root
+        dynasty = none
+        random_traits = no
+        save_scope_as = cossack
+    }
+    ## We make all nomad holdings tribal, or the government change won't work
+    custom_tooltip = {
+        every_sub_realm_county = {
+            limit = {
+                title_province = {
+                    OR = {
+                        has_holding_type = nomad_holding
+                        has_holding_type = herder_holding
+                    }
+                }
+            }
+            ## Add_to_list = holding_conversion
+            title_province = {
+                set_holding_type = tribal_holding
+            }
+        }
+        text = create_cossack_tribal_tooltip
+    }
+    change_government = tribal_government
 
-	## Create the Cossack Culture ##
-	culture = { save_scope_as = founder_culture }
-	every_player = {
-		add_character_flag = {
-			flag = hide_hybridization_event
-			days = 1
-		}
-	}
-	custom_tooltip = {
-		text = cossack_custom_culture_hybrid
-		scope:cossack = { create_hybrid_culture = culture:kazak }
-	}
-	scope:new_culture ?= {
-		set_culture_name = {
-			noun = cossack
-			collective_noun = cossack_prefix
-			prefix = cossack_collective_noun
-		}
-	}
-	create_title_and_vassal_change = {
-		type = created
-		save_scope_as = title_change
-		add_claim_on_loss = no
-	}
-	title:k_cossack = {
-		change_title_holder = {
-			holder = root
-			change = scope:title_change
-		}
-	}
-	resolve_title_and_vassal_change = scope:title_change
+    ## Create the Cossack Culture ##
+    culture = { save_scope_as = founder_culture }
+    every_player = {
+        add_character_flag = {
+            flag = hide_hybridization_event
+            days = 1
+        }
+    }
+    custom_tooltip = {
+        text = cossack_custom_culture_hybrid
+        scope:cossack = { create_hybrid_culture = culture:kazak }
+    }
+    scope:new_culture ?= {
+        set_culture_name = {
+            noun = cossack
+            collective_noun = cossack_prefix
+            prefix = cossack_collective_noun
+        }
+    }
+    create_title_and_vassal_change = {
+        type = created
+        save_scope_as = title_change
+        add_claim_on_loss = no
+    }
+    title:k_cossack = {
+        change_title_holder = {
+            holder = root
+            change = scope:title_change
+        }
+    }
+    resolve_title_and_vassal_change = scope:title_change
 
-	## Set up the Cossack Kingdom title with de jure duchies
-	custom_tooltip = {
-		text = cossack_custom_de_jure
-		title:k_cossack = { set_de_jure_liege_title = title:e_caspian-pontic_steppe }
-		title:d_tana = { set_de_jure_liege_title = title:k_cossack }
-		title:d_red_levedia = { set_de_jure_liege_title = title:k_cossack }
-		title:d_levedia = { set_de_jure_liege_title = title:k_cossack }
-		title:d_don_valley = { set_de_jure_liege_title = title:k_cossack }
-		title:d_itil = { set_de_jure_liege_title = title:k_cossack }
-	}
+    ## Set up the Cossack Kingdom title with de jure duchies
+    custom_tooltip = {
+        text = cossack_custom_de_jure
+        title:k_cossack = { set_de_jure_liege_title = title:e_caspian-pontic_steppe }
+        title:d_tana = { set_de_jure_liege_title = title:k_cossack }
+        title:d_red_levedia = { set_de_jure_liege_title = title:k_cossack }
+        title:d_levedia = { set_de_jure_liege_title = title:k_cossack }
+        title:d_don_valley = { set_de_jure_liege_title = title:k_cossack }
+        title:d_itil = { set_de_jure_liege_title = title:k_cossack }
+    }
 
-	##Add Cossack Culture to all de jure duchies in the Cossack Kingdom
-	if = {
-		limit = { exists = scope:new_culture }
-		custom_tooltip = {
-			text = cossack_custom_county_culture
-			every_held_county = {
-				limit = { kingdom = title:k_cossack }
-				## Convert all the counties to Cossack Culture ##
-				set_county_culture = scope:new_culture
-			}
-		}
-	}
-	else = { custom_tooltip = cossack_custom_county_culture_fallback }
+    ##Add Cossack Culture to all de jure duchies in the Cossack Kingdom
+    if = {
+        limit = { exists = scope:new_culture }
+        custom_tooltip = {
+            text = cossack_custom_county_culture
+            every_held_county = {
+                limit = { kingdom = title:k_cossack }
+                ## Convert all the counties to Cossack Culture ##
+                set_county_culture = scope:new_culture
+            }
+        }
+    }
+    else = { custom_tooltip = cossack_custom_county_culture_fallback }
 
-	hidden_effect = {
-		scope:cossack ?= { silent_disappearance_effect = yes }
-	}
+    hidden_effect = {
+        scope:cossack ?= { silent_disappearance_effect = yes }
+    }
 }

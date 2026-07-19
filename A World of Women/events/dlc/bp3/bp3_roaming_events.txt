@@ -3,898 +3,898 @@
 ### Random Events
 # Meeting a Stranger
 bp3_roaming.0100 = {
-	type = activity_event
-	content_source = dlc_015
-	title = bp3_roaming.0100.t
-	desc = {
-		desc = bp3_roaming.0100.desc
-		triggered_desc = {
-			desc = bp3_roaming.0100.desc.companion
-			trigger = {
-				exists = scope:special_guest
-			}
-		}
-	}
-	theme = roaming_activity
+    type = activity_event
+    content_source = dlc_015
+    title = bp3_roaming.0100.t
+    desc = {
+        desc = bp3_roaming.0100.desc
+        triggered_desc = {
+            desc = bp3_roaming.0100.desc.companion
+            trigger = {
+                exists = scope:special_guest
+            }
+        }
+    }
+    theme = roaming_activity
 
-	left_portrait = {
-		character = scope:host
-		animation = survey_staff
-	}
+    left_portrait = {
+        character = scope:host
+        animation = survey_staff
+    }
 
-	center_portrait = {
-		character = scope:special_guest
-		animation = happiness
-	}
+    center_portrait = {
+        character = scope:special_guest
+        animation = happiness
+    }
 
-	right_portrait = {
-		character = scope:ancient_traveler
-		animation = scheme
-	}
+    right_portrait = {
+        character = scope:ancient_traveler
+        animation = scheme
+    }
 
-	cooldown = { months = 3 }
+    cooldown = { months = 3 }
 
-	weight_multiplier = {
-		base = 1
-		modifier = {
-			OR = {
-				has_activity_intent = reduce_stress_intent
-				has_activity_intent = roaming_mystic_intent
-			}
-			factor = 1.5
-		}
-	}
+    weight_multiplier = {
+        base = 1
+        modifier = {
+            OR = {
+                has_activity_intent = reduce_stress_intent
+                has_activity_intent = roaming_mystic_intent
+            }
+            factor = 1.5
+        }
+    }
 
-	immediate = {
-		save_scope_value_as = {
-			name = trait_xp
-			value = { integer_range = { min = 3 max = 5 } }
-		}
-		create_character = {
-			location = root.location
-			gender_female_chance = {
-				add = 100
-			}
-			template = ancient_forest_traveler_character
-			save_scope_as = ancient_traveler
-		}
-	}
+    immediate = {
+        save_scope_value_as = {
+            name = trait_xp
+            value = { integer_range = { min = 3 max = 5 } }
+        }
+        create_character = {
+            location = root.location
+            gender_female_chance = {
+                add = 100
+            }
+            template = ancient_forest_traveler_character
+            save_scope_as = ancient_traveler
+        }
+    }
 
-	option = {
-		name = bp3_roaming.0100.a
-		flavor = bp3_roaming.0100.a.flavor
-		scope:ancient_traveler = { silent_disappear_ai_if_not_hired = yes }
-		if = {
-			limit = {
-				has_trait = lifestyle_mystic
-			}
-			involved_activity = {
-				add_activity_log_entry = {
-					key = roaming_pondering_stone_mystic_key
-					tags = { activity_log }
-					character = scope:host
-					root = {
-						add_trait_xp = {
-							trait = lifestyle_mystic
-							value = scope:trait_xp
-						}
-					}
-				}
-			}
-			roaming_tally_variable_effect = { TYPE = mystic_xp VALUE = scope:trait_xp }
-		}
-		random_list = {
-			10 = {
-				trigger = { NOT = { has_character_modifier = pondering_rulership_modifier } }
-				roaming_pondering_stone_effect = { TYPE = rulership }
-			}
-			10 = {
-				trigger = { NOT = { has_character_modifier = pondering_religion_modifier } }
-				roaming_pondering_stone_effect = { TYPE = religion }
-			}
-			10 = {
-				trigger = { NOT = { has_character_modifier = pondering_war_modifier } }
-				roaming_pondering_stone_effect = { TYPE = war }
-			}
-			10 = {
-				trigger = { NOT = { has_character_modifier = pondering_schemes_modifier } }
-				roaming_pondering_stone_effect = { TYPE = schemes }
-			}
-			10 = {
-				trigger = { NOT = { has_character_modifier = pondering_management_modifier } }
-				roaming_pondering_stone_effect = { TYPE = management }
-			}
-			10 = {
-				trigger = { NOT = { has_character_modifier = pondering_travel_modifier } }
-				roaming_pondering_stone_effect = { TYPE = travel }
-			}
-			10 = {
-				trigger = { NOT = { has_trait = lifestyle_mystic } }
-				involved_activity = {
-					add_activity_log_entry = {
-						key = roaming_pondering_stone_key
-						tags = { activity_log }
-						character = scope:host
-						root = {
-							add_trait = lifestyle_mystic
-							set_variable = roaming_tally_mystic
-						}
-					}
-				}
-			}
-		}
+    option = {
+        name = bp3_roaming.0100.a
+        flavor = bp3_roaming.0100.a.flavor
+        scope:ancient_traveler = { silent_disappear_ai_if_not_hired = yes }
+        if = {
+            limit = {
+                has_trait = lifestyle_mystic
+            }
+            involved_activity = {
+                add_activity_log_entry = {
+                    key = roaming_pondering_stone_mystic_key
+                    tags = { activity_log }
+                    character = scope:host
+                    root = {
+                        add_trait_xp = {
+                            trait = lifestyle_mystic
+                            value = scope:trait_xp
+                        }
+                    }
+                }
+            }
+            roaming_tally_variable_effect = { TYPE = mystic_xp VALUE = scope:trait_xp }
+        }
+        random_list = {
+            10 = {
+                trigger = { NOT = { has_character_modifier = pondering_rulership_modifier } }
+                roaming_pondering_stone_effect = { TYPE = rulership }
+            }
+            10 = {
+                trigger = { NOT = { has_character_modifier = pondering_religion_modifier } }
+                roaming_pondering_stone_effect = { TYPE = religion }
+            }
+            10 = {
+                trigger = { NOT = { has_character_modifier = pondering_war_modifier } }
+                roaming_pondering_stone_effect = { TYPE = war }
+            }
+            10 = {
+                trigger = { NOT = { has_character_modifier = pondering_schemes_modifier } }
+                roaming_pondering_stone_effect = { TYPE = schemes }
+            }
+            10 = {
+                trigger = { NOT = { has_character_modifier = pondering_management_modifier } }
+                roaming_pondering_stone_effect = { TYPE = management }
+            }
+            10 = {
+                trigger = { NOT = { has_character_modifier = pondering_travel_modifier } }
+                roaming_pondering_stone_effect = { TYPE = travel }
+            }
+            10 = {
+                trigger = { NOT = { has_trait = lifestyle_mystic } }
+                involved_activity = {
+                    add_activity_log_entry = {
+                        key = roaming_pondering_stone_key
+                        tags = { activity_log }
+                        character = scope:host
+                        root = {
+                            add_trait = lifestyle_mystic
+                            set_variable = roaming_tally_mystic
+                        }
+                    }
+                }
+            }
+        }
 
-		stress_impact = { lifestyle_mystic = minor_stress_impact_loss }
-		roaming_tally_stress_impact_effect = { TRAIT = lifestyle_mystic VALUE = minor_stress_impact_loss }
+        stress_impact = { lifestyle_mystic = minor_stress_impact_loss }
+        roaming_tally_stress_impact_effect = { TRAIT = lifestyle_mystic VALUE = minor_stress_impact_loss }
 
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 1.5
-				has_trait = lifestyle_mystic
-			}
-		}
-	}
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 1.5
+                has_trait = lifestyle_mystic
+            }
+        }
+    }
 
-	option = {
-		name = bp3_roaming.0100.b
-		involved_activity = {
-			add_activity_log_entry = {
-				key = roaming_resting_stone_key
-				tags = { activity_log }
-				character = scope:host
-				root = {
-					stress_impact = {
-						base = minor_stress_impact_loss
-						athletic = medium_stress_gain
-						lazy = medium_stress_impact_loss
-					}
-					roaming_tally_variable_effect = { TYPE = stress VALUE = minor_stress_impact_loss }
-					roaming_tally_stress_impact_effect = { TRAIT = athletic VALUE = minor_stress_gain }
-					roaming_tally_stress_impact_effect = { TRAIT = lazy VALUE = medium_stress_impact_loss }
-				}
-			}
-		}
+    option = {
+        name = bp3_roaming.0100.b
+        involved_activity = {
+            add_activity_log_entry = {
+                key = roaming_resting_stone_key
+                tags = { activity_log }
+                character = scope:host
+                root = {
+                    stress_impact = {
+                        base = minor_stress_impact_loss
+                        athletic = medium_stress_gain
+                        lazy = medium_stress_impact_loss
+                    }
+                    roaming_tally_variable_effect = { TYPE = stress VALUE = minor_stress_impact_loss }
+                    roaming_tally_stress_impact_effect = { TRAIT = athletic VALUE = minor_stress_gain }
+                    roaming_tally_stress_impact_effect = { TRAIT = lazy VALUE = medium_stress_impact_loss }
+                }
+            }
+        }
 
-		scope:ancient_traveler = { silent_disappear_ai_if_not_hired = yes }
+        scope:ancient_traveler = { silent_disappear_ai_if_not_hired = yes }
 
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 0
-				has_trait = athletic
-			}
-		}
-	}
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 0
+                has_trait = athletic
+            }
+        }
+    }
 
-	option = {
-		name = bp3_roaming.0100.c
-		flavor = bp3_roaming.0100.c.flavor
-		duel = {
-			skill = learning
-			target = scope:ancient_traveler
-			50 = {
-				desc = bp3_roaming.0100.c.win
-				compare_modifier = {
-					 value = scope:duel_value
-					 multiplier = 1.5
-					 min = -49
-				}
-				involved_activity = {
-					add_activity_log_entry = {
-						key = roaming_old_man_key
-						tags = { activity_log }
-						character = scope:host
-						root = {
-							send_interface_toast = {
-								type = event_generic_good
-								title = bp3_roaming.0100.c.win
-								left_icon = root
-								add_learning_lifestyle_xp = 250
-								roaming_tally_variable_effect = {
-									TYPE = learning_lifestyle_xp
-									VALUE = 250
-								}
-								add_learning_skill = 1
-								roaming_tally_variable_effect = {
-									TYPE = learning_skill
-									VALUE = 1
-								}
-							}
-						}
-					}
-				}
-			}
-			50 = {
-				desc = bp3_roaming.0100.c.neutral
-				compare_modifier = {
-					 value = scope:duel_value
-					 multiplier = -1.5
-					 min = -49
-				}
-				involved_activity = {
-					add_activity_log_entry = {
-						key = roaming_old_man_key
-						tags = { activity_log }
-						character = scope:host
-						root = {
-							send_interface_toast = {
-								type = event_generic_neutral
-								title = bp3_roaming.0100.c.neutral
-								add_visiting_courtier = scope:ancient_traveler
-							}
-						}
-					}
-				}
-			}
-			50 = {
-				desc = bp3_roaming.0100.c.loss
-				compare_modifier = {
-					 value = scope:duel_value
-					 multiplier = -1
-					 min = -49
-				}
-				involved_activity = {
-					add_activity_log_entry = {
-						key = roaming_old_man_key
-						tags = { activity_log }
-						character = scope:host
-						root = {
-							send_interface_toast = {
-								type = event_generic_bad
-								title = bp3_roaming.0100.c.loss
-							}
-						}
-					}
-				}
-			}
-		}
-		stress_impact = {
-			gregarious = minor_stress_impact_loss
-			shy = medium_stress_gain
-		}
-		roaming_tally_stress_impact_effect = { TRAIT = gregarious VALUE = minor_stress_impact_loss }
-		roaming_tally_stress_impact_effect = { TRAIT = shy VALUE = medium_stress_gain }
+    option = {
+        name = bp3_roaming.0100.c
+        flavor = bp3_roaming.0100.c.flavor
+        duel = {
+            skill = learning
+            target = scope:ancient_traveler
+            50 = {
+                desc = bp3_roaming.0100.c.win
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = 1.5
+                    min = -49
+                }
+                involved_activity = {
+                    add_activity_log_entry = {
+                        key = roaming_old_man_key
+                        tags = { activity_log }
+                        character = scope:host
+                        root = {
+                            send_interface_toast = {
+                                type = event_generic_good
+                                title = bp3_roaming.0100.c.win
+                                left_icon = root
+                                add_learning_lifestyle_xp = 250
+                                roaming_tally_variable_effect = {
+                                    TYPE = learning_lifestyle_xp
+                                    VALUE = 250
+                                }
+                                add_learning_skill = 1
+                                roaming_tally_variable_effect = {
+                                    TYPE = learning_skill
+                                    VALUE = 1
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            50 = {
+                desc = bp3_roaming.0100.c.neutral
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = -1.5
+                    min = -49
+                }
+                involved_activity = {
+                    add_activity_log_entry = {
+                        key = roaming_old_man_key
+                        tags = { activity_log }
+                        character = scope:host
+                        root = {
+                            send_interface_toast = {
+                                type = event_generic_neutral
+                                title = bp3_roaming.0100.c.neutral
+                                add_visiting_courtier = scope:ancient_traveler
+                            }
+                        }
+                    }
+                }
+            }
+            50 = {
+                desc = bp3_roaming.0100.c.loss
+                compare_modifier = {
+                    value = scope:duel_value
+                    multiplier = -1
+                    min = -49
+                }
+                involved_activity = {
+                    add_activity_log_entry = {
+                        key = roaming_old_man_key
+                        tags = { activity_log }
+                        character = scope:host
+                        root = {
+                            send_interface_toast = {
+                                type = event_generic_bad
+                                title = bp3_roaming.0100.c.loss
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        stress_impact = {
+            gregarious = minor_stress_impact_loss
+            shy = medium_stress_gain
+        }
+        roaming_tally_stress_impact_effect = { TRAIT = gregarious VALUE = minor_stress_impact_loss }
+        roaming_tally_stress_impact_effect = { TRAIT = shy VALUE = medium_stress_gain }
 
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 0
-				has_trait = shy
-			}
-		}
-	}
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 0
+                has_trait = shy
+            }
+        }
+    }
 
-	option = {
-		name = bp3_roaming.0100.d
-		trigger = {
-			has_trait = lifestyle_poet
-		}
-		involved_activity = {
-			add_activity_log_entry = {
-				key = roaming_ancient_traveler_poet_key
-				tags = { activity_log }
-				character = root
-				root = {
-					roaming_fame_reward_event_effect = { VALUE = roaming_reward_fame_medium }
-					stress_impact = {
-						honest = medium_stress_gain
-						deceitful = minor_stress_impact_loss
-					}
-					roaming_tally_stress_impact_effect = { TRAIT = honest VALUE = minor_stress_gain }
-					roaming_tally_stress_impact_effect = { TRAIT = deceitful VALUE = minor_stress_impact_loss }
-				}
-			}
-		}
+    option = {
+        name = bp3_roaming.0100.d
+        trigger = {
+            has_trait = lifestyle_poet
+        }
+        involved_activity = {
+            add_activity_log_entry = {
+                key = roaming_ancient_traveler_poet_key
+                tags = { activity_log }
+                character = root
+                root = {
+                    roaming_fame_reward_event_effect = { VALUE = roaming_reward_fame_medium }
+                    stress_impact = {
+                        honest = medium_stress_gain
+                        deceitful = minor_stress_impact_loss
+                    }
+                    roaming_tally_stress_impact_effect = { TRAIT = honest VALUE = minor_stress_gain }
+                    roaming_tally_stress_impact_effect = { TRAIT = deceitful VALUE = minor_stress_impact_loss }
+                }
+            }
+        }
 
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 10
-				has_trait = lifestyle_poet
-			}
-			modifier = {
-				factor = 0
-				has_trait = honest
-			}
-		}
-	}
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 10
+                has_trait = lifestyle_poet
+            }
+            modifier = {
+                factor = 0
+                has_trait = honest
+            }
+        }
+    }
 }
 
 # The Forgotten Village
 bp3_roaming.0220 = {
-	type = activity_event
-	content_source = dlc_015
-	title = bp3_roaming.0220.t
-	desc = bp3_roaming.0220.desc
-	theme = roaming_activity
+    type = activity_event
+    content_source = dlc_015
+    title = bp3_roaming.0220.t
+    desc = bp3_roaming.0220.desc
+    theme = roaming_activity
 
-	override_background = { reference = market_tribal }
+    override_background = { reference = market_tribal }
 
-	left_portrait = {
-		character = scope:host
-		animation = shock
-	}
+    left_portrait = {
+        character = scope:host
+        animation = shock
+    }
 
-	right_portrait = {
-		character = scope:peasant_character
-		hide_info = yes
-		animation = dismissal
-	}
+    right_portrait = {
+        character = scope:peasant_character
+        hide_info = yes
+        animation = dismissal
+    }
 
-	cooldown = { months = 3 }
+    cooldown = { months = 3 }
 
-	weight_multiplier = {
-		base = 1
-		modifier = {
-			has_activity_intent = roaming_mystic_intent
-		}
-	}
+    weight_multiplier = {
+        base = 1
+        modifier = {
+            has_activity_intent = roaming_mystic_intent
+        }
+    }
 
-	immediate = {
-		create_character = {
-			template = peasant_character
-			faith = scope:province.faith
-			culture = scope:province.culture
-			gender = female
-			location = scope:province
-			save_scope_as = peasant_character
-		}
-	}
+    immediate = {
+        create_character = {
+            template = peasant_character
+            faith = scope:province.faith
+            culture = scope:province.culture
+            gender = root
+            location = scope:province
+            save_scope_as = peasant_character
+        }
+    }
 
-	option = {
-		name = {
-			trigger = {
-				is_landless_adventurer = no
-			}
-			text = bp3_roaming.0220.a
-		}
-		name = {
-			trigger = {
-				has_government = landless_adventurer_government
-			}
-			text = bp3_roaming.0220.a.landless
-		}
-		involved_activity = {
-			add_activity_log_entry = {
-				key = the_forgotten_village_key
-				tags = { activity_log }
-				character = root
-				root = {
-					roaming_gold_reward_APA_effect = { REWARD = tiny_gold_value }
-					stress_impact = {
-						greedy = minor_stress_impact_loss
-						generous = minor_stress_gain
-					}
-					roaming_tally_stress_impact_effect = { TRAIT = greedy VALUE = minor_stress_impact_loss }
-					roaming_tally_stress_impact_effect = { TRAIT = generous VALUE = minor_stress_gain }
-					if = {
-						limit = {
-							has_government = landless_adventurer_government
-							NOT = { has_trait = gallowsbait }
-						}
-						add_trait = gallowsbait
-					}
-					else_if = {
-						limit = {
-							has_government = landless_adventurer_government
-							has_trait = gallowsbait
-						}
-						add_trait_xp = {
-							trait = gallowsbait
-							track = thief
-							value = 5
-						}
-					}
-				}
-			}
-		}
+    option = {
+        name = {
+            trigger = {
+                is_landless_adventurer = no
+            }
+            text = bp3_roaming.0220.a
+        }
+        name = {
+            trigger = {
+                has_government = landless_adventurer_government
+            }
+            text = bp3_roaming.0220.a.landless
+        }
+        involved_activity = {
+            add_activity_log_entry = {
+                key = the_forgotten_village_key
+                tags = { activity_log }
+                character = root
+                root = {
+                    roaming_gold_reward_APA_effect = { REWARD = tiny_gold_value }
+                    stress_impact = {
+                        greedy = minor_stress_impact_loss
+                        generous = minor_stress_gain
+                    }
+                    roaming_tally_stress_impact_effect = { TRAIT = greedy VALUE = minor_stress_impact_loss }
+                    roaming_tally_stress_impact_effect = { TRAIT = generous VALUE = minor_stress_gain }
+                    if = {
+                        limit = {
+                            has_government = landless_adventurer_government
+                            NOT = { has_trait = gallowsbait }
+                        }
+                        add_trait = gallowsbait
+                    }
+                    else_if = {
+                        limit = {
+                            has_government = landless_adventurer_government
+                            has_trait = gallowsbait
+                        }
+                        add_trait_xp = {
+                            trait = gallowsbait
+                            track = thief
+                            value = 5
+                        }
+                    }
+                }
+            }
+        }
 
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 1.5
-				has_trait = greedy
-			}
-			modifier = {
-				factor = 0
-				has_trait = generous
-			}
-		}
-	}
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 1.5
+                has_trait = greedy
+            }
+            modifier = {
+                factor = 0
+                has_trait = generous
+            }
+        }
+    }
 
-	option = {
-		name = bp3_roaming.0220.b
-		involved_activity = {
-			add_activity_log_entry = {
-				key = the_forgotten_village_key
-				tags = { activity_log }
-				character = root
-				root = {
-					scope:province = {
-						add_province_modifier = {
-							modifier = roaming_forgotten_village_modifier
-							years = 10
-						}
-					}
-					stress_impact = {
-						lifestyle_mystic = minor_stress_impact_loss
-						gregarious = minor_stress_impact_loss
-					}
-					roaming_tally_stress_impact_effect = { TRAIT = lifestyle_mystic VALUE = minor_stress_impact_loss }
-					roaming_tally_stress_impact_effect = { TRAIT = gregarious VALUE = minor_stress_impact_loss }
-				}
-			}
-		}
+    option = {
+        name = bp3_roaming.0220.b
+        involved_activity = {
+            add_activity_log_entry = {
+                key = the_forgotten_village_key
+                tags = { activity_log }
+                character = root
+                root = {
+                    scope:province = {
+                        add_province_modifier = {
+                            modifier = roaming_forgotten_village_modifier
+                            years = 10
+                        }
+                    }
+                    stress_impact = {
+                        lifestyle_mystic = minor_stress_impact_loss
+                        gregarious = minor_stress_impact_loss
+                    }
+                    roaming_tally_stress_impact_effect = { TRAIT = lifestyle_mystic VALUE = minor_stress_impact_loss }
+                    roaming_tally_stress_impact_effect = { TRAIT = gregarious VALUE = minor_stress_impact_loss }
+                }
+            }
+        }
 
-		random = {
-			chance = roaming_mystic_chance_value
-			involved_activity = {
-				add_activity_log_entry = {
-					key = the_forgotten_village_mystic_key
-					tags = { activity_log }
-					character = root
-					root = {
-						send_interface_message = {
-							type = event_generic_good
-							title = bp3_roaming.0220.b.mystic
+        random = {
+            chance = roaming_mystic_chance_value
+            involved_activity = {
+                add_activity_log_entry = {
+                    key = the_forgotten_village_mystic_key
+                    tags = { activity_log }
+                    character = root
+                    root = {
+                        send_interface_message = {
+                            type = event_generic_good
+                            title = bp3_roaming.0220.b.mystic
 
-							roaming_mystic_xp_APA_effect = { REWARD = 3 }
-							if = {
-								limit = {
-									NOT = { has_trait = lifestyle_mystic }
-								}
-								add_trait = lifestyle_mystic
-							}
-						}
-					}
-				}
-			}
-		}
+                            roaming_mystic_xp_APA_effect = { REWARD = 3 }
+                            if = {
+                                limit = {
+                                    NOT = { has_trait = lifestyle_mystic }
+                                }
+                                add_trait = lifestyle_mystic
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 1.5
-				OR = {
-					has_trait = gregarious
-					has_trait = lifestyle_mystic
-				}
-			}
-		}
-	}
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 1.5
+                OR = {
+                    has_trait = gregarious
+                    has_trait = lifestyle_mystic
+                }
+            }
+        }
+    }
 
-	option = {
-		name = bp3_roaming.0220.c
-		involved_activity = {
-			add_activity_log_entry = {
-				key = the_forgotten_village_key
-				tags = { activity_log }
-				character = root
-				root = {
-					roaming_fame_reward_event_effect = { VALUE = roaming_reward_fame_medium }
-					stress_impact = { lifestyle_poet = minor_stress_impact_loss }
-					roaming_tally_stress_impact_effect = { TRAIT = lifestyle_poet VALUE = minor_stress_impact_loss }
-				}
-			}
-		}
+    option = {
+        name = bp3_roaming.0220.c
+        involved_activity = {
+            add_activity_log_entry = {
+                key = the_forgotten_village_key
+                tags = { activity_log }
+                character = root
+                root = {
+                    roaming_fame_reward_event_effect = { VALUE = roaming_reward_fame_medium }
+                    stress_impact = { lifestyle_poet = minor_stress_impact_loss }
+                    roaming_tally_stress_impact_effect = { TRAIT = lifestyle_poet VALUE = minor_stress_impact_loss }
+                }
+            }
+        }
 
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 1.5
-				has_trait = lifestyle_poet
-			}
-		}
-	}
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 1.5
+                has_trait = lifestyle_poet
+            }
+        }
+    }
 
-	after = {
-		scope:peasant_character = {
-			silent_disappear_ai_if_not_hired = yes
-		}
-	}
+    after = {
+        scope:peasant_character = {
+            silent_disappear_ai_if_not_hired = yes
+        }
+    }
 }
 
 # The Hermit
 bp3_roaming.0230 = {
-	type = activity_event
-	content_source = dlc_015
-	title = bp3_roaming.0230.t
-	desc = bp3_roaming.0230.desc
-	theme = roaming_activity
+    type = activity_event
+    content_source = dlc_015
+    title = bp3_roaming.0230.t
+    desc = bp3_roaming.0230.desc
+    theme = roaming_activity
 
-	left_portrait = {
-		character = scope:host
-		animation = boredom
-	}
+    left_portrait = {
+        character = scope:host
+        animation = boredom
+    }
 
-	right_portrait = {
-		character = scope:hermit_character
-		animation = debating
-	}
+    right_portrait = {
+        character = scope:hermit_character
+        animation = debating
+    }
 
-	cooldown = { months = 3 }
+    cooldown = { months = 3 }
 
-	trigger = {
-		scope:province.religion = {
-			any_faith = {
-				this != root.faith
-				num_county_followers < 3
-			}
-		}
-	}
+    trigger = {
+        scope:province.religion = {
+            any_faith = {
+                this != root.faith
+                num_county_followers < 3
+            }
+        }
+    }
 
-	weight_multiplier = {
-		base = 1
-		modifier = {
-			factor = 1.5
-			has_activity_intent = roaming_mystic_intent
-		}
-	}
+    weight_multiplier = {
+        base = 1
+        modifier = {
+            factor = 1.5
+            has_activity_intent = roaming_mystic_intent
+        }
+    }
 
-	immediate = {
-		scope:province.religion = {
-			random_faith = {
-				limit = {
-					this != root.faith
-					num_county_followers < 3
-				}
-				save_scope_as = hermit_faith
-			}
-		}
-		create_character = {
-			template = peasant_character
-			faith = scope:hermit_faith
-			culture = scope:province.culture
-			gender = female
-			location = scope:province
-			save_scope_as = hermit_character
-			after_creation = {
-				add_trait = eccentric
-				add_character_flag = roaming_character
-			}
-		}
-	}
+    immediate = {
+        scope:province.religion = {
+            random_faith = {
+                limit = {
+                    this != root.faith
+                    num_county_followers < 3
+                }
+                save_scope_as = hermit_faith
+            }
+        }
+        create_character = {
+            template = peasant_character
+            faith = scope:hermit_faith
+            culture = scope:province.culture
+            gender = root
+            location = scope:province
+            save_scope_as = hermit_character
+            after_creation = {
+                add_trait = eccentric
+                add_character_flag = roaming_character
+            }
+        }
+    }
 
-	option = {
-		name = bp3_roaming.0230.a
+    option = {
+        name = bp3_roaming.0230.a
 
-		involved_activity = {
-			add_activity_log_entry = {
-				key = the_hermit_key
-				tags = { activity_log }
-				character = root
-				root = {
-					add_character_modifier = {
-						modifier = roaming_the_hermit_modifier
-						years = 10
-					}
-					stress_impact = { zealous = major_stress_gain }
-					roaming_tally_stress_impact_effect = { TRAIT = zealous VALUE = major_stress_gain }
-				}
-			}
-		}
+        involved_activity = {
+            add_activity_log_entry = {
+                key = the_hermit_key
+                tags = { activity_log }
+                character = root
+                root = {
+                    add_character_modifier = {
+                        modifier = roaming_the_hermit_modifier
+                        years = 10
+                    }
+                    stress_impact = { zealous = major_stress_gain }
+                    roaming_tally_stress_impact_effect = { TRAIT = zealous VALUE = major_stress_gain }
+                }
+            }
+        }
 
-		random = {
-			chance = roaming_mystic_chance_value
-			involved_activity = {
-				add_activity_log_entry = {
-					key = the_hermit_learning_key
-					tags = { activity_log }
-					character = root
-					root = {
-						send_interface_message = {
-							type = event_generic_good
-							title = bp3_roaming.0230.a.hermit
+        random = {
+            chance = roaming_mystic_chance_value
+            involved_activity = {
+                add_activity_log_entry = {
+                    key = the_hermit_learning_key
+                    tags = { activity_log }
+                    character = root
+                    root = {
+                        send_interface_message = {
+                            type = event_generic_good
+                            title = bp3_roaming.0230.a.hermit
 
-							roaming_mystic_xp_APA_effect = { REWARD = 3 }
-							if = {
-								limit = {
-									NOT = { has_trait = lifestyle_mystic }
-								}
-								add_trait = lifestyle_mystic
-							}
-						}
-					}
-				}
-			}
-		}
+                            roaming_mystic_xp_APA_effect = { REWARD = 3 }
+                            if = {
+                                limit = {
+                                    NOT = { has_trait = lifestyle_mystic }
+                                }
+                                add_trait = lifestyle_mystic
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
-		scope:hermit_character = {
-			silent_disappear_ai_if_not_hired = yes
-		}
+        scope:hermit_character = {
+            silent_disappear_ai_if_not_hired = yes
+        }
 
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 1.5
-				has_trait = lifestyle_mystic
-			}
-			modifier = {
-				factor = 0
-				has_trait = zealous
-			}
-		}
-	}
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 1.5
+                has_trait = lifestyle_mystic
+            }
+            modifier = {
+                factor = 0
+                has_trait = zealous
+            }
+        }
+    }
 
-	option = {
-		name = bp3_roaming.0230.b
-		trigger = {
-			NOR = {
-				any_secret = { type = secret_crypto_religionist }
-				exists = secret_faith
-				scope:hermit_faith = faith
-			}
-		}
+    option = {
+        name = bp3_roaming.0230.b
+        trigger = {
+            NOR = {
+                any_secret = { type = secret_crypto_religionist }
+                exists = secret_faith
+                scope:hermit_faith = faith
+            }
+        }
 
-		involved_activity = {
-			add_activity_log_entry = {
-				key = the_hermit_key
-				tags = { activity_log }
-				character = root
-				root = {
-					custom_tooltip = bp3_roaming.0230.b.tooltip
-					make_character_crypto_religionist_effect = { CRYPTO_RELIGION = scope:hermit_faith }
-					stress_impact = { zealous = major_stress_gain }
-					roaming_tally_stress_impact_effect = { TRAIT = zealous VALUE = major_stress_gain }
-				}
-			}
-		}
+        involved_activity = {
+            add_activity_log_entry = {
+                key = the_hermit_key
+                tags = { activity_log }
+                character = root
+                root = {
+                    custom_tooltip = bp3_roaming.0230.b.tooltip
+                    make_character_crypto_religionist_effect = { CRYPTO_RELIGION = scope:hermit_faith }
+                    stress_impact = { zealous = major_stress_gain }
+                    roaming_tally_stress_impact_effect = { TRAIT = zealous VALUE = major_stress_gain }
+                }
+            }
+        }
 
-		scope:hermit_character = {
-			silent_disappear_ai_if_not_hired = yes
-		}
+        scope:hermit_character = {
+            silent_disappear_ai_if_not_hired = yes
+        }
 
-		ai_chance = {
-			base = 0
-			modifier = {
-				add = 100
-				OR = {
-					has_trait = lunatic
-					has_trait = eccentric
-				}
-			}
-		}
-	}
+        ai_chance = {
+            base = 0
+            modifier = {
+                add = 100
+                OR = {
+                    has_trait = lunatic
+                    has_trait = eccentric
+                }
+            }
+        }
+    }
 
-	option = {
-		name = bp3_roaming.0230.c
+    option = {
+        name = bp3_roaming.0230.c
 
-		involved_activity = {
-			add_activity_log_entry = {
-				key = the_hermit_key
-				tags = { activity_log }
-				character = root
-				root = {
-					add_piety = medium_piety_gain
-					roaming_tally_variable_effect = { TYPE = piety VALUE = medium_piety_gain }
+        involved_activity = {
+            add_activity_log_entry = {
+                key = the_hermit_key
+                tags = { activity_log }
+                character = root
+                root = {
+                    add_piety = medium_piety_gain
+                    roaming_tally_variable_effect = { TYPE = piety VALUE = medium_piety_gain }
 
-					scope:hermit_character = {
-						death = {
-							death_reason = death_murder
-							killer = root
-						}
-					}
+                    scope:hermit_character = {
+                        death = {
+                            death_reason = death_murder
+                            killer = root
+                        }
+                    }
 
-					stress_impact = { zealous = medium_stress_impact_loss }
-					roaming_tally_stress_impact_effect = { TRAIT = zealous VALUE = medium_stress_impact_loss }
-				}
-			}
-		}
+                    stress_impact = { zealous = medium_stress_impact_loss }
+                    roaming_tally_stress_impact_effect = { TRAIT = zealous VALUE = medium_stress_impact_loss }
+                }
+            }
+        }
 
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 1.5
-				has_trait = zealous
-			}
-		}
-	}
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 1.5
+                has_trait = zealous
+            }
+        }
+    }
 }
 
 # A Small Grave
 bp3_roaming.0250 = {
-	type = activity_event
-	content_source = dlc_015
-	title = bp3_roaming.0250.t
-	desc = bp3_roaming.0250.desc
-	theme = roaming_activity
+    type = activity_event
+    content_source = dlc_015
+    title = bp3_roaming.0250.t
+    desc = bp3_roaming.0250.desc
+    theme = roaming_activity
 
-	left_portrait = {
-		character = scope:host
-		animation = prayer
-	}
+    left_portrait = {
+        character = scope:host
+        animation = prayer
+    }
 
-	cooldown = { months = 3 }
+    cooldown = { months = 3 }
 
-	weight_multiplier = {
-		base = 1
-	}
+    weight_multiplier = {
+        base = 1
+    }
 
-	immediate = {
-		save_scope_value_as = {
-			name = randomized_chance
-			value = { integer_range = { min = 1 max = 20 } }
-		}
-	}
+    immediate = {
+        save_scope_value_as = {
+            name = randomized_chance
+            value = { integer_range = { min = 1 max = 20 } }
+        }
+    }
 
-	option = {
-		name = bp3_roaming.0250.a
-		involved_activity = {
-			add_activity_log_entry = {
-				key = a_small_grave_key
-				tags = { activity_log }
-				character = root
-				root = {
-					add_piety = medium_piety_gain
-					roaming_tally_variable_effect = { TYPE = piety VALUE = medium_piety_gain }
-					stress_impact = { zealous = medium_stress_impact_loss }
-					roaming_tally_stress_impact_effect = { TRAIT = zealous VALUE = medium_stress_impact_loss }
-				}
-			}
-		}
+    option = {
+        name = bp3_roaming.0250.a
+        involved_activity = {
+            add_activity_log_entry = {
+                key = a_small_grave_key
+                tags = { activity_log }
+                character = root
+                root = {
+                    add_piety = medium_piety_gain
+                    roaming_tally_variable_effect = { TYPE = piety VALUE = medium_piety_gain }
+                    stress_impact = { zealous = medium_stress_impact_loss }
+                    roaming_tally_stress_impact_effect = { TRAIT = zealous VALUE = medium_stress_impact_loss }
+                }
+            }
+        }
 
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 1.5
-				has_trait = zealous
-			}
-		}
-	}
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 1.5
+                has_trait = zealous
+            }
+        }
+    }
 
-	option = {
-		name = bp3_roaming.0250.b
-		add_piety = medium_piety_loss
-		roaming_tally_variable_effect = { TYPE = piety VALUE = medium_piety_loss }
-		show_as_tooltip = {
-			random_list = {
-				1 = {
-					desc = no_treasure
-					show_chance = no
-				}
-				1 = {
-					desc = small_treasure
-					show_chance = no
-					add_gold = tiny_gold_value
-				}
-				1 = {
-					desc = medium_treasure
-					show_chance = no
-					add_gold = minor_gold_value
-				}
-				1 = {
-					desc = large_treasure
-					show_chance = no
-					add_gold = medium_gold_value
-					custom_tooltip = bp3_roaming.0250.artifact
-				}
-			}
-			stress_impact = { greedy = medium_stress_impact_loss }
-		}
-		hidden_effect_new_object = {
-			involved_activity = {
-				add_activity_log_entry = {
-					key = a_small_grave_key
-					tags = { activity_log }
-					character = root
-					root = {
-						if = {
-							limit = {
-								scope:randomized_chance > 18
-							}
-							hidden_effect = {
-								create_character = {
-									template = merchant_template
-									faith = scope:province.faith
-									culture = scope:province.culture
-									gender = female
-									location = scope:province
-									save_scope_as = blacksmith_character
-								}
-								scope:blacksmith_character = {
-									random_list = {
-										1 = {
-											create_artifact_weapon_effect = {
-												OWNER = scope:blacksmith_character
-												CREATOR = scope:blacksmith_character
-												SET_WEAPON_TYPE = flag:no
-											}
-										}
-										1 = {
-											create_artifact_armor_effect = {
-												OWNER = scope:blacksmith_character
-												CREATOR = scope:blacksmith_character
-												SET_ARMOR_TYPE = flag:no
-											}
-										}
-										1 = {
-											create_artifact_brooch_effect = {
-												OWNER = scope:blacksmith_character
-												SMITH = scope:blacksmith_character
-											}
-										}
-									}
-								}
-							}
-							send_interface_message = {
-								type = event_generic_good
-								title = large_treasure
+    option = {
+        name = bp3_roaming.0250.b
+        add_piety = medium_piety_loss
+        roaming_tally_variable_effect = { TYPE = piety VALUE = medium_piety_loss }
+        show_as_tooltip = {
+            random_list = {
+                1 = {
+                    desc = no_treasure
+                    show_chance = no
+                }
+                1 = {
+                    desc = small_treasure
+                    show_chance = no
+                    add_gold = tiny_gold_value
+                }
+                1 = {
+                    desc = medium_treasure
+                    show_chance = no
+                    add_gold = minor_gold_value
+                }
+                1 = {
+                    desc = large_treasure
+                    show_chance = no
+                    add_gold = medium_gold_value
+                    custom_tooltip = bp3_roaming.0250.artifact
+                }
+            }
+            stress_impact = { greedy = medium_stress_impact_loss }
+        }
+        hidden_effect_new_object = {
+            involved_activity = {
+                add_activity_log_entry = {
+                    key = a_small_grave_key
+                    tags = { activity_log }
+                    character = root
+                    root = {
+                        if = {
+                            limit = {
+                                scope:randomized_chance > 18
+                            }
+                            hidden_effect = {
+                                create_character = {
+                                    template = merchant_template
+                                    faith = scope:province.faith
+                                    culture = scope:province.culture
+                                    gender = root
+                                    location = scope:province
+                                    save_scope_as = blacksmith_character
+                                }
+                                scope:blacksmith_character = {
+                                    random_list = {
+                                        1 = {
+                                            create_artifact_weapon_effect = {
+                                                OWNER = scope:blacksmith_character
+                                                CREATOR = scope:blacksmith_character
+                                                SET_WEAPON_TYPE = flag:no
+                                            }
+                                        }
+                                        1 = {
+                                            create_artifact_armor_effect = {
+                                                OWNER = scope:blacksmith_character
+                                                CREATOR = scope:blacksmith_character
+                                                SET_ARMOR_TYPE = flag:no
+                                            }
+                                        }
+                                        1 = {
+                                            create_artifact_brooch_effect = {
+                                                OWNER = scope:blacksmith_character
+                                                SMITH = scope:blacksmith_character
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            send_interface_message = {
+                                type = event_generic_good
+                                title = large_treasure
 
-								scope:newly_created_artifact ?= {
-									set_owner = {
-										target = root
-										history = {
-											actor = root
-											recipient = root
-											location = scope:province
-											type = discovered
-										}
-									}
-								}
-								add_gold = medium_gold_value
-							}
-						}
-						else_if = {
-							limit = {
-								scope:randomized_chance > 13
-							}
-							send_interface_message = {
-								type = event_generic_good
-								title = medium_treasure
+                                scope:newly_created_artifact ?= {
+                                    set_owner = {
+                                        target = root
+                                        history = {
+                                            actor = root
+                                            recipient = root
+                                            location = scope:province
+                                            type = discovered
+                                        }
+                                    }
+                                }
+                                add_gold = medium_gold_value
+                            }
+                        }
+                        else_if = {
+                            limit = {
+                                scope:randomized_chance > 13
+                            }
+                            send_interface_message = {
+                                type = event_generic_good
+                                title = medium_treasure
 
-								add_gold = minor_gold_value
-							}
-						}
-						else_if = {
-							limit = {
-								scope:randomized_chance > 7
-							}
-							send_interface_message = {
-								type = event_generic_good
-								title = small_treasure
+                                add_gold = minor_gold_value
+                            }
+                        }
+                        else_if = {
+                            limit = {
+                                scope:randomized_chance > 7
+                            }
+                            send_interface_message = {
+                                type = event_generic_good
+                                title = small_treasure
 
-								add_gold = tiny_gold_value
-							}
-						}
-						else = {
-							send_interface_message = {
-								type = event_generic_good
-								title = no_treasure
-							}
-						}
-						stress_impact = {
-							greedy = minor_stress_impact_loss
-							generous = minor_stress_gain
-							zealous = minor_stress_gain
-						}
-						roaming_tally_stress_impact_effect = { TRAIT = greedy VALUE = minor_stress_impact_loss }
-						roaming_tally_stress_impact_effect = { TRAIT = generous VALUE = minor_stress_gain }
-						roaming_tally_stress_impact_effect = { TRAIT = zealous VALUE = minor_stress_gain }
-					}
-				}
-			}
-		}
+                                add_gold = tiny_gold_value
+                            }
+                        }
+                        else = {
+                            send_interface_message = {
+                                type = event_generic_good
+                                title = no_treasure
+                            }
+                        }
+                        stress_impact = {
+                            greedy = minor_stress_impact_loss
+                            generous = minor_stress_gain
+                            zealous = minor_stress_gain
+                        }
+                        roaming_tally_stress_impact_effect = { TRAIT = greedy VALUE = minor_stress_impact_loss }
+                        roaming_tally_stress_impact_effect = { TRAIT = generous VALUE = minor_stress_gain }
+                        roaming_tally_stress_impact_effect = { TRAIT = zealous VALUE = minor_stress_gain }
+                    }
+                }
+            }
+        }
 
-		ai_chance = {
-			base = 100
-			modifier = {
-				factor = 1.5
-				has_trait = greedy
-			}
-			modifier = {
-				factor = 0
-				OR = {
-					has_trait = zealous
-					has_trait = generous
-				}
-			}
-		}
-	}
+        ai_chance = {
+            base = 100
+            modifier = {
+                factor = 1.5
+                has_trait = greedy
+            }
+            modifier = {
+                factor = 0
+                OR = {
+                    has_trait = zealous
+                    has_trait = generous
+                }
+            }
+        }
+    }
 
-	after = {
-		scope:blacksmith_character ?= {
-			silent_disappear_ai_if_not_hired = yes
-		}
-	}
+    after = {
+        scope:blacksmith_character ?= {
+            silent_disappear_ai_if_not_hired = yes
+        }
+    }
 }
