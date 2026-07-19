@@ -349,11 +349,22 @@ awow.0020 = {
                     scope:real_father = { is_ai = yes }
                 }
                 OR = {
-                    has_game_rule =
-                }
-                exists = dynasty
-                any_player = {
-                    dynasty = prev.dynasty
+                    # Mother is in a player dynasty
+                    AND = {
+                        exists = dynasty
+                        any_player = {
+                            dynasty = prev.dynasty
+                        }
+                    }
+                    # Father is in a player dynasty
+                    scope:real_father = {
+                        AND = {
+                            exists = dynasty
+                            any_player = {
+                                dynasty = prev.dynasty
+                            }
+                        }
+                    }
                 }
             }
             if = {
@@ -508,15 +519,8 @@ awow.0020 = {
                 set_pregnancy_gender = male
             }
         }
-        # Non-player baby gender
-        else_if = {
-            limit = {
-                AND = {
-                    # Ensures both parents are AI
-                    is_ai = yes
-                    scope:real_father = { is_ai = yes }
-                }
-            }
+        # Non-player / non-player-dynasty baby gender
+        else = {
             if = {
                 limit = { has_game_rule = awow_birth_gender_world_100 }
                 set_pregnancy_gender = female
