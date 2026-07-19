@@ -1,698 +1,698 @@
 ﻿namespace = ep3_camp_party
 
 # A local turns up
-ep3_camp_party.1020 = { 
-	type = activity_event
-	title = ep3_camp_party.1020.t
-	desc = {
-		desc = ep3_camp_party.1020.opening
-		first_valid = {
-			triggered_desc = {
-				trigger = {
-					scope:local = {
-						has_character_flag = witch_flag
-					}
-				}
-				desc = ep3_camp_party.1020.witch
-			}
-			triggered_desc = {
-				trigger = {
-					scope:local = {
-						has_character_flag = cannibal_flag
-					}
-				}
-				desc = ep3_camp_party.1020.cannibal
-			}
-			triggered_desc = {
-				trigger = {
-					scope:local = {
-						has_character_flag = mangled_flag
-					}
-				}
-				desc = ep3_camp_party.1020.mangled
-			}
-			triggered_desc = {
-				trigger = {
-					scope:local = {
-						has_character_flag = mystic_flag
-					}
-				}
-				desc = ep3_camp_party.1020.mystic
-			}
-			triggered_desc = {
-				trigger = {
-					scope:local = {
-						has_character_flag = siblings_flag
-					}
-				}
-				desc = ep3_camp_party.1020.siblings
-			}
-		}
-		triggered_desc = {
-			trigger = {
-				scope:local = {
-					NOT = {
-						has_character_flag = siblings_flag
-					}
-				}
-			}
-			desc = ep3_camp_party.1020.ending
-		}
-	}
-	theme = landless_adventurer
-	override_background = { reference = ep3_campfire }
-	left_portrait = {
-		character = root
-		animation = shock
-	}
-	center_portrait = {
-		trigger = {
-			exists = scope:local_sibling
-		}
-		character = scope:local_sibling
-		animation = sick
-		camera = camera_event_left_forward
-	}
-	right_portrait = {
-		character = scope:local
-		animation = beg		
-	}
-	cooldown = { months = 3 }
+ep3_camp_party.1020 = {
+    type = activity_event
+    title = ep3_camp_party.1020.t
+    desc = {
+        desc = ep3_camp_party.1020.opening
+        first_valid = {
+            triggered_desc = {
+                trigger = {
+                    scope:local = {
+                        has_character_flag = witch_flag
+                    }
+                }
+                desc = ep3_camp_party.1020.witch
+            }
+            triggered_desc = {
+                trigger = {
+                    scope:local = {
+                        has_character_flag = cannibal_flag
+                    }
+                }
+                desc = ep3_camp_party.1020.cannibal
+            }
+            triggered_desc = {
+                trigger = {
+                    scope:local = {
+                        has_character_flag = mangled_flag
+                    }
+                }
+                desc = ep3_camp_party.1020.mangled
+            }
+            triggered_desc = {
+                trigger = {
+                    scope:local = {
+                        has_character_flag = mystic_flag
+                    }
+                }
+                desc = ep3_camp_party.1020.mystic
+            }
+            triggered_desc = {
+                trigger = {
+                    scope:local = {
+                        has_character_flag = siblings_flag
+                    }
+                }
+                desc = ep3_camp_party.1020.siblings
+            }
+        }
+        triggered_desc = {
+            trigger = {
+                scope:local = {
+                    NOT = {
+                        has_character_flag = siblings_flag
+                    }
+                }
+            }
+            desc = ep3_camp_party.1020.ending
+        }
+    }
+    theme = landless_adventurer
+    override_background = { reference = ep3_campfire }
+    left_portrait = {
+        character = root
+        animation = shock
+    }
+    center_portrait = {
+        trigger = {
+            exists = scope:local_sibling
+        }
+        character = scope:local_sibling
+        animation = sick
+        camera = camera_event_left_forward
+    }
+    right_portrait = {
+        character = scope:local
+        animation = beg
+    }
+    cooldown = { months = 3 }
 
-	trigger = {
-		#Standard checks
-		has_ep3_dlc_trigger = yes
-		has_government = landless_adventurer_government
-		involved_activity = {
-			OR = {
-				has_activity_option = {
-					category = camp_party_option_food
-					option = camp_party_food_simple
-				}
-				has_activity_option = {
-					category = camp_party_option_food
-					option = camp_party_food_lavish
-				}
-			}
-		}
-	}
+    trigger = {
+        #Standard checks
+        has_ep3_dlc_trigger = yes
+        has_government = landless_adventurer_government
+        involved_activity = {
+            OR = {
+                has_activity_option = {
+                    category = camp_party_option_food
+                    option = camp_party_food_simple
+                }
+                has_activity_option = {
+                    category = camp_party_option_food
+                    option = camp_party_food_lavish
+                }
+            }
+        }
+    }
 
-	immediate = {
-		location = {
-			save_scope_as = location
-		}
-		involved_activity = {
-			save_scope_as = activity
-		}
+    immediate = {
+        location = {
+            save_scope_as = location
+        }
+        involved_activity = {
+            save_scope_as = activity
+        }
 
-		random_list = {
-			2 = { #Normal pool character
-				trigger = {
-					any_pool_character = {
-						province = root.location
-						is_physically_able_ai_adult = yes
-						has_no_particular_noble_roots_trigger = yes
-					}
-				}
-				random_pool_character = {
-					province = root.location
-					limit = {
-						is_physically_able_ai_adult = yes
-						has_no_particular_noble_roots_trigger = yes
-					}
-					save_scope_as = local
-				}
-			}
-			1 = {
-				create_character = {
-					template = bp1_yearly_2021_learning_witch_template
-					culture = location.culture
-					faith = location.faith
-					location = root.location
-					save_scope_as = local
-				}
-				hidden_effect = {
-					scope:local = {
-						add_character_flag = witch_flag
-					}
-				}
-			}
-			1 = {
-				create_character = {
-					template = generic_peasant_character
-					culture = location.culture
-					faith = location.faith
-					location = root.location
-					save_scope_as = local
-				}
-				hidden_effect = {
-					scope:local = {
-						add_secret = { type = secret_cannibal }
-						add_character_flag = cannibal_flag
-					}
-				}
-			}
-			1 = {
-				create_character = {
-					template = generic_peasant_character
-					culture = location.culture
-					faith = location.faith
-					location = root.location
-					age = { 20 30 }
-					save_scope_as = local
-				}
-				hidden_effect = {
-					scope:local = {
-						random_list = {
-							1 = { #Cowhig Croft 'em
-								add_trait = one_eyed
-								add_trait = one_legged
-								add_trait = scarred
-								add_trait_xp = {
-									trait = scarred
-									value = {
-										integer_range = {
-											min = 50
-											max = 100
-										}
-									}
-								}
-								add_learning_skill = { 5 15 }
-								add_diplomacy_skill = { 5 15 }
-								add_character_flag = mangled_flag
-							}
-							1 = { #'Yes it is', not 'that it be'
-								add_trait = lifestyle_mystic
-								add_trait_xp = {
-									trait = lifestyle_mystic
-									value = {
-										integer_range = {
-											min = 50
-											max = 100
-										}
-									}
-								}
-								add_trait = lifestyle_herbalist
-								set_age = { 35 60 }
-								add_character_flag = mystic_flag
-							}
-							1 = { #Someone suspiciously close to their sibling, whose parents have mysteriously just died...
-								create_character = { #Make their dad
-									template = generic_peasant_character
-									gender = male
-									culture = location.culture
-									faith = location.faith
-									location = root.location
-									age = { 50 70 }
-									save_scope_as = local_dad
-								}
-								#Untouched
-								create_character = { #Make their mum
-									template = generic_female_peasant_character
-									gender = female
-									culture = location.culture
-									faith = location.faith
-									location = root.location
-									age = { 50 70 }
-									save_scope_as = local_mum
-								}
+        random_list = {
+            2 = { #Normal pool character
+                trigger = {
+                    any_pool_character = {
+                        province = root.location
+                        is_physically_able_ai_adult = yes
+                        has_no_particular_noble_roots_trigger = yes
+                    }
+                }
+                random_pool_character = {
+                    province = root.location
+                    limit = {
+                        is_physically_able_ai_adult = yes
+                        has_no_particular_noble_roots_trigger = yes
+                    }
+                    save_scope_as = local
+                }
+            }
+            1 = {
+                create_character = {
+                    template = bp1_yearly_2021_learning_witch_template
+                    culture = location.culture
+                    faith = location.faith
+                    location = root.location
+                    save_scope_as = local
+                }
+                hidden_effect = {
+                    scope:local = {
+                        add_character_flag = witch_flag
+                    }
+                }
+            }
+            1 = {
+                create_character = {
+                    template = generic_peasant_character
+                    culture = location.culture
+                    faith = location.faith
+                    location = root.location
+                    save_scope_as = local
+                }
+                hidden_effect = {
+                    scope:local = {
+                        add_secret = { type = secret_cannibal }
+                        add_character_flag = cannibal_flag
+                    }
+                }
+            }
+            1 = {
+                create_character = {
+                    template = generic_peasant_character
+                    culture = location.culture
+                    faith = location.faith
+                    location = root.location
+                    age = { 20 30 }
+                    save_scope_as = local
+                }
+                hidden_effect = {
+                    scope:local = {
+                        random_list = {
+                            1 = { #Cowhig Croft 'em
+                                add_trait = one_eyed
+                                add_trait = one_legged
+                                add_trait = scarred
+                                add_trait_xp = {
+                                    trait = scarred
+                                    value = {
+                                        integer_range = {
+                                            min = 50
+                                            max = 100
+                                        }
+                                    }
+                                }
+                                add_learning_skill = { 5 15 }
+                                add_diplomacy_skill = { 5 15 }
+                                add_character_flag = mangled_flag
+                            }
+                            1 = { #'Yes it is', not 'that it be'
+                                add_trait = lifestyle_mystic
+                                add_trait_xp = {
+                                    trait = lifestyle_mystic
+                                    value = {
+                                        integer_range = {
+                                            min = 50
+                                            max = 100
+                                        }
+                                    }
+                                }
+                                add_trait = lifestyle_herbalist
+                                set_age = { 35 60 }
+                                add_character_flag = mystic_flag
+                            }
+                            1 = { #Someone suspiciously close to their sibling, whose parents have mysteriously just died...
+                                create_character = { #Make their dad
+                                    template = generic_peasant_character
+                                    gender = female
+                                    culture = location.culture
+                                    faith = location.faith
+                                    location = root.location
+                                    age = { 50 70 }
+                                    save_scope_as = local_dad
+                                }
+                                #Untouched
+                                create_character = { #Make their mum
+                                    template = generic_female_peasant_character
+                                    gender = female
+                                    culture = location.culture
+                                    faith = location.faith
+                                    location = root.location
+                                    age = { 50 70 }
+                                    save_scope_as = local_mum
+                                }
 
-								scope:local_dad = {
-									death = { death_reason = death_mysterious }
-								}
-								scope:local_mum = {
-									death = { death_reason = death_mysterious }
-								}
+                                scope:local_dad = {
+                                    death = { death_reason = death_mysterious }
+                                }
+                                scope:local_mum = {
+                                    death = { death_reason = death_mysterious }
+                                }
 
-								#Now back to the person at hand
-								set_sexuality = bisexual #No, this isn't a statement on the inherently incestuous nature of bisexuals, I just don't want to have to set up all the cascading checks for brother/brother, brother/sister, sister/sister for what is a throwaway part of an event. OK?! (ㆆ_ㆆ)
-								add_secret = { type = secret_incest }
-								set_father = scope:local_dad
-								set_mother = scope:local_mum
-								add_character_flag = siblings_flag
+                                #Now back to the person at hand
+                                set_sexuality = bisexual #No, this isn't a statement on the inherently incestuous nature of bisexuals, I just don't want to have to set up all the cascading checks for brother/brother, brother/sister, sister/sister for what is a throwaway part of an event. OK?! (ㆆ_ㆆ)
+                                add_secret = { type = secret_incest }
+                                set_father = scope:local_dad
+                                set_mother = scope:local_mum
+                                add_character_flag = siblings_flag
 
-								#Make them a good character that you want to have, so giving us plenty of intrigue later on
-								random_list = {
-									10 = { add_trait = beauty_good_1 }
-									10 = { add_trait = beauty_good_2 }
-									10 = { add_trait = physique_good_1 }
-									10 = { add_trait = physique_good_2 }
-									1 = { add_trait = fecund }
-									5 = { add_trait = strong }
-									5 = { add_trait = shrewd }
-								}
+                                #Make them a good character that you want to have, so giving us plenty of intrigue later on
+                                random_list = {
+                                    10 = { add_trait = beauty_good_1 }
+                                    10 = { add_trait = beauty_good_2 }
+                                    10 = { add_trait = physique_good_1 }
+                                    10 = { add_trait = physique_good_2 }
+                                    1 = { add_trait = fecund }
+                                    5 = { add_trait = strong }
+                                    5 = { add_trait = shrewd }
+                                }
 
-								#And now to their sibling
-								create_character = {
-									template = generic_peasant_character
-									culture = location.culture
-									faith = location.faith
-									location = root.location
-									age = { 20 30 }
-									save_scope_as = local_sibling
-								}
-								scope:local_sibling = {
-									set_sexuality = bisexual #Same goes here!
-									set_father = scope:local_dad
-									set_mother = scope:local_mum
-									set_relation_lover = { target = scope:local }
-									random_list = { #As above
-										10 = { add_trait = beauty_good_1 }
-										10 = { add_trait = beauty_good_2 }
-										10 = { add_trait = physique_good_1 }
-										10 = { add_trait = physique_good_2 }
-										1 = { add_trait = fecund }
-										5 = { add_trait = strong }
-										5 = { add_trait = shrewd }
-									}
-								}
+                                #And now to their sibling
+                                create_character = {
+                                    template = generic_peasant_character
+                                    culture = location.culture
+                                    faith = location.faith
+                                    location = root.location
+                                    age = { 20 30 }
+                                    save_scope_as = local_sibling
+                                }
+                                scope:local_sibling = {
+                                    set_sexuality = bisexual #Same goes here!
+                                    set_father = scope:local_dad
+                                    set_mother = scope:local_mum
+                                    set_relation_lover = { target = scope:local }
+                                    random_list = { #As above
+                                        10 = { add_trait = beauty_good_1 }
+                                        10 = { add_trait = beauty_good_2 }
+                                        10 = { add_trait = physique_good_1 }
+                                        10 = { add_trait = physique_good_2 }
+                                        1 = { add_trait = fecund }
+                                        5 = { add_trait = strong }
+                                        5 = { add_trait = shrewd }
+                                    }
+                                }
 
-								random_list = { #Did they kill their parents?
-									5 = { #First one did
-										add_trait = kinslayer_3 
-									}
-									5 = { #Second one did
-										scope:local_sibling = {
-											add_trait = kinslayer_3 
-										}
-									}
-									20 = { #They BOTH did!
-										add_trait = kinslayer_3
-										scope:local_sibling = {
-											add_trait = kinslayer_3 
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
+                                random_list = { #Did they kill their parents?
+                                    5 = { #First one did
+                                        add_trait = kinslayer_3
+                                    }
+                                    5 = { #Second one did
+                                        scope:local_sibling = {
+                                            add_trait = kinslayer_3
+                                        }
+                                    }
+                                    20 = { #They BOTH did!
+                                        add_trait = kinslayer_3
+                                        scope:local_sibling = {
+                                            add_trait = kinslayer_3
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
-	#Invite them in
-	option = { 
-		name = ep3_camp_party.1020.a
+    #Invite them in
+    option = {
+        name = ep3_camp_party.1020.a
 
-		domicile = {
-			change_provisions = minor_provisions_loss
-		}
+        domicile = {
+            change_provisions = minor_provisions_loss
+        }
 
-		add_courtier = scope:local
-		reverse_add_opinion = {
-			target = scope:local
-			modifier = grateful_opinion
-			opinion = 50
-		}
-		if = {
-			limit = {
-				exists = scope:local_sibling
-			}
-			add_courtier = scope:local_sibling
-			reverse_add_opinion = {
-				target = scope:local_sibling
-				modifier = grateful_opinion
-				opinion = 50
-			}
-		}
+        add_courtier = scope:local
+        reverse_add_opinion = {
+            target = scope:local
+            modifier = grateful_opinion
+            opinion = 50
+        }
+        if = {
+            limit = {
+                exists = scope:local_sibling
+            }
+            add_courtier = scope:local_sibling
+            reverse_add_opinion = {
+                target = scope:local_sibling
+                modifier = grateful_opinion
+                opinion = 50
+            }
+        }
 
-		stress_impact = {
-			trusting = miniscule_stress_impact_loss
-			paranoid = medium_stress_impact_gain
-			gregarious = miniscule_stress_impact_loss
-			shy = minor_stress_impact_gain
-		}
+        stress_impact = {
+            trusting = miniscule_stress_impact_loss
+            paranoid = medium_stress_impact_gain
+            gregarious = miniscule_stress_impact_loss
+            shy = minor_stress_impact_gain
+        }
 
-		ai_chance = {
-			base = 100
-			ai_value_modifier = {
-				ai_compassion = 1
-			}
-		}
-	}
+        ai_chance = {
+            base = 100
+            ai_value_modifier = {
+                ai_compassion = 1
+            }
+        }
+    }
 
-	#Give them food
-	option = { 
-		name = ep3_camp_party.1020.b
+    #Give them food
+    option = {
+        name = ep3_camp_party.1020.b
 
-		domicile = {
-			change_provisions = miniscule_provisions_loss
-		}
+        domicile = {
+            change_provisions = miniscule_provisions_loss
+        }
 
-		add_piety = medium_piety_gain
+        add_piety = medium_piety_gain
 
-		involved_activity = {
-			every_attending_character = {
-				custom = custom.every_attending_character
-				add_opinion = {
-					target = root
-					modifier = charity_opinion
-					opinion = 15
-				}
-			}
-		}
+        involved_activity = {
+            every_attending_character = {
+                custom = custom.every_attending_character
+                add_opinion = {
+                    target = root
+                    modifier = charity_opinion
+                    opinion = 15
+                }
+            }
+        }
 
-		stress_impact = {
-			just = miniscule_stress_impact_loss
-			generous = miniscule_stress_impact_loss
-			greedy = medium_stress_impact_gain
-			arbitrary = minor_stress_impact_gain
-		}
+        stress_impact = {
+            just = miniscule_stress_impact_loss
+            generous = miniscule_stress_impact_loss
+            greedy = medium_stress_impact_gain
+            arbitrary = minor_stress_impact_gain
+        }
 
-		ai_chance = {
-			base = 100
-			ai_value_modifier = {
-				ai_compassion = 0.5
-			}
-		}
-	}
+        ai_chance = {
+            base = 100
+            ai_value_modifier = {
+                ai_compassion = 0.5
+            }
+        }
+    }
 
-	#Something's off about them; turn them away
-	option = { 
-		name = ep3_camp_party.1020.c
+    #Something's off about them; turn them away
+    option = {
+        name = ep3_camp_party.1020.c
 
-		domicile = {
-			change_provisions = miniscule_provisions_gain
-		}
+        domicile = {
+            change_provisions = miniscule_provisions_gain
+        }
 
-		involved_activity = { activity_special_type_progression_variable = { NUM = 15 } }
-		custom_tooltip = camp_party_tt_positive_medium
+        involved_activity = { activity_special_type_progression_variable = { NUM = 15 } }
+        custom_tooltip = camp_party_tt_positive_medium
 
-		trigger_event = ep3_camp_party.1021
+        trigger_event = ep3_camp_party.1021
 
-		stress_impact = {
-			paranoid = medium_stress_impact_loss
-			compassionate = medium_stress_impact_gain
-			trusting = minor_stress_impact_gain
-			callous = minor_stress_impact_loss
-		}
+        stress_impact = {
+            paranoid = medium_stress_impact_loss
+            compassionate = medium_stress_impact_gain
+            trusting = minor_stress_impact_gain
+            callous = minor_stress_impact_loss
+        }
 
-		ai_chance = {
-			base = 100
-			ai_value_modifier = {
-				ai_energy = -1
-			}
-		}
-	}
+        ai_chance = {
+            base = 100
+            ai_value_modifier = {
+                ai_energy = -1
+            }
+        }
+    }
 }
 
 ep3_camp_party.2100 = {
-	type = activity_event
-	title = ep3_camp_party.2100.t
-	desc = {
-		random_valid = {
-			triggered_desc = {
-				trigger = { scope:char_spawn_type = flag:porters } #porters - himbos
-				desc = ep3_laamps.8200.desc_1
-			}
-			triggered_desc = {
-				trigger = { scope:char_spawn_type = flag:fools } #capering fools - fools 
-				desc = ep3_laamps.8200.desc_2
-			}
-			triggered_desc = {
-				trigger = { scope:char_spawn_type = flag:locals } #hangers on - local ethos people 
-				desc = ep3_laamps.8200.desc_3
-			}
-		}
-	}
-	theme = laamp
-	left_portrait = {
-		character = root
-		triggered_animation = {
-			trigger = {
-				scope:char_spawn_type = flag:porters
-			}
-			animation = admiration
-		}
-		triggered_animation = {
-			trigger = {
-				scope:char_spawn_type = flag:fools
-			}
-			animation = laugh
-		}
-		triggered_animation = {
-			trigger = {
-				scope:char_spawn_type = flag:locals
-			}
-			animation = personality_rational
-		}
-	}
-	right_portrait = {
-		character = scope:new_person
-		triggered_animation = {
-			trigger = {
-				scope:char_spawn_type = flag:porters
-			}
-			animation = hero_flex
-		}
-		triggered_animation = {
-			trigger = {
-				scope:char_spawn_type = flag:fools
-			}
-			animation = dancing
-		}
-		triggered_animation = {
-			trigger = {
-				scope:char_spawn_type = flag:locals
-			}
-			animation = beg
-		}
-		triggered_outfit = {
-			trigger = { scope:char_spawn_type = flag:porters }
-			outfit_tags = { beggar_rags }
-		}
-		triggered_outfit = {
-			trigger = { scope:char_spawn_type = flag:fools }
-			outfit_tags = { jester_outfit }
-		}
-	}
+    type = activity_event
+    title = ep3_camp_party.2100.t
+    desc = {
+        random_valid = {
+            triggered_desc = {
+                trigger = { scope:char_spawn_type = flag:porters } #porters - himbos
+                desc = ep3_laamps.8200.desc_1
+            }
+            triggered_desc = {
+                trigger = { scope:char_spawn_type = flag:fools } #capering fools - fools
+                desc = ep3_laamps.8200.desc_2
+            }
+            triggered_desc = {
+                trigger = { scope:char_spawn_type = flag:locals } #hangers on - local ethos people
+                desc = ep3_laamps.8200.desc_3
+            }
+        }
+    }
+    theme = laamp
+    left_portrait = {
+        character = root
+        triggered_animation = {
+            trigger = {
+                scope:char_spawn_type = flag:porters
+            }
+            animation = admiration
+        }
+        triggered_animation = {
+            trigger = {
+                scope:char_spawn_type = flag:fools
+            }
+            animation = laugh
+        }
+        triggered_animation = {
+            trigger = {
+                scope:char_spawn_type = flag:locals
+            }
+            animation = personality_rational
+        }
+    }
+    right_portrait = {
+        character = scope:new_person
+        triggered_animation = {
+            trigger = {
+                scope:char_spawn_type = flag:porters
+            }
+            animation = hero_flex
+        }
+        triggered_animation = {
+            trigger = {
+                scope:char_spawn_type = flag:fools
+            }
+            animation = dancing
+        }
+        triggered_animation = {
+            trigger = {
+                scope:char_spawn_type = flag:locals
+            }
+            animation = beg
+        }
+        triggered_outfit = {
+            trigger = { scope:char_spawn_type = flag:porters }
+            outfit_tags = { beggar_rags }
+        }
+        triggered_outfit = {
+            trigger = { scope:char_spawn_type = flag:fools }
+            outfit_tags = { jester_outfit }
+        }
+    }
 
-	override_background = {
-		reference = ep3_campfire
-	}
+    override_background = {
+        reference = ep3_campfire
+    }
 
-	trigger = {
-		has_ep3_dlc_trigger = yes
-		has_government = landless_adventurer_government
-		has_activity_intent = fireside_chat_intent
-	}
+    trigger = {
+        has_ep3_dlc_trigger = yes
+        has_government = landless_adventurer_government
+        has_activity_intent = fireside_chat_intent
+    }
 
-	weight_multiplier = {
-		base = 1
-		modifier = {
-			add = 0.5
-			domicile ?= {
-				has_domicile_parameter = camp_recruit_porters_events
-			}
-		}
-		modifier = {
-			add = 0.5
-			domicile ?= {
-				has_domicile_parameter = camp_recruit_fool_events
-			} 
-		}
-		modifier = {
-			add = 0.5
-			domicile ?= {
-				has_domicile_parameter = camp_recruit_locals_events
-			}
-		}
-	}
+    weight_multiplier = {
+        base = 1
+        modifier = {
+            add = 0.5
+            domicile ?= {
+                has_domicile_parameter = camp_recruit_porters_events
+            }
+        }
+        modifier = {
+            add = 0.5
+            domicile ?= {
+                has_domicile_parameter = camp_recruit_fool_events
+            }
+        }
+        modifier = {
+            add = 0.5
+            domicile ?= {
+                has_domicile_parameter = camp_recruit_locals_events
+            }
+        }
+    }
 
-	immediate = {
-		location = {
-			save_scope_as = location
-		}
-		location.county = {
-			save_scope_as = location_county
-		}
-		location.county.holder.top_liege = {
-			save_scope_as = location_top_liege
-		}
-		random_list = {
-			1 = {
-				save_scope_value_as = {
-					name = char_spawn_type
-					value = flag:locals
-				}
-			}
-			1 = {
-				save_scope_value_as = {
-					name = char_spawn_type
-					value = flag:porters
-				}
-			}
-			1 = {
-				save_scope_value_as = {
-					name = char_spawn_type
-					value = flag:fools
-				}
-			}
-		}
-		
-		if = {
-			limit = {
-				scope:char_spawn_type = flag:porters
-			}
-			#create a porter himbo
-			create_character = {
-				location = scope:location
-				age = { 18 28 }
-				random_traits_list = {
-					count = 1
-					education_martial_prowess_2 = {}
-					education_martial_prowess_3 = {}
-				}
-				random_traits_list = {
-					count = 1
-					brave = {}
-					diligent = {}
-					humble = {}
-				}
-				random_traits_list = {
-					honest = {}
-					gregarious = {}
-					trusting = {}
-					compassionate = {}
-					generous = {}
-					calm = {}
-				}
-				random_traits_list = {
-					count = 1
-					lustful = {}
-					chaste = {}
-					wrathful = {}
-					arrogant = {}
-					impatient = {}
-					patient = {}
-					impatient  = {}
-					ambitious = {}
-					cynical = {}
-					zealous = {}
-					stubborn = {}
-				}
-				random_traits = no
-				martial = {
-					min_template_low_skill
-					max_template_low_skill
-				}
-				prowess = {
-					min_template_high_skill
-					max_template_high_skill
-				}
-				faith = location.faith
-				culture = location.culture
-				gender_female_chance = {
-					add = 100
-				}
-				save_scope_as = new_person
-			}
+    immediate = {
+        location = {
+            save_scope_as = location
+        }
+        location.county = {
+            save_scope_as = location_county
+        }
+        location.county.holder.top_liege = {
+            save_scope_as = location_top_liege
+        }
+        random_list = {
+            1 = {
+                save_scope_value_as = {
+                    name = char_spawn_type
+                    value = flag:locals
+                }
+            }
+            1 = {
+                save_scope_value_as = {
+                    name = char_spawn_type
+                    value = flag:porters
+                }
+            }
+            1 = {
+                save_scope_value_as = {
+                    name = char_spawn_type
+                    value = flag:fools
+                }
+            }
+        }
 
-			hidden_effect = {
-				scope:new_person = {
-					random_list = {
-						2 = {
-							add_trait = intellect_bad_2
-							add_trait = physique_good_1
-							add_trait = strong
-						}
-						2 = {
-							add_trait = strong
-						}
-						2 = {
-							add_trait = strong
-							add_trait = giant
-						}
-						2 = {
-							add_trait = intellect_bad_1
-							add_trait = giant
-						}
-						1 = {
-							add_trait = giant
-							add_trait = physique_good_2
-							add_trait = strong
-						}
-					}
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				scope:char_spawn_type = flag:fools
-			}
-			create_character = {
-				template = poet_template
-				culture = location.culture
-				faith = location.faith
-				location = root.location
-				save_scope_as = new_person
-			}
-			hidden_effect = {
-				scope:new_person = {
-					add_trait = fecund
-					add_trait = lifestyle_traveler
-					add_trait = loyal
-				} 
-			}
-		}
-		else_if = {
-			limit = {
-				scope:char_spawn_type = flag:locals
-			}
-			create_character = {
-				template = merchant_template
-				culture = location.culture
-				faith = location.faith
-				location = root.location
-				save_scope_as = new_person
-			}
-			hidden_effect = {
-				scope:new_person = {
-					random_list = {
-						8 = {
-							add_trait = shrewd
-						}
-						1 = {
-							add_trait = intellect_good_1
-						}
-						1 = {
-							add_trait = intellect_good_2
-						}
-					}
-				}
-			}
-		}
-	}
+        if = {
+            limit = {
+                scope:char_spawn_type = flag:porters
+            }
+            #create a porter himbo
+            create_character = {
+                location = scope:location
+                age = { 18 28 }
+                random_traits_list = {
+                    count = 1
+                    education_martial_prowess_2 = {}
+                    education_martial_prowess_3 = {}
+                }
+                random_traits_list = {
+                    count = 1
+                    brave = {}
+                    diligent = {}
+                    humble = {}
+                }
+                random_traits_list = {
+                    honest = {}
+                    gregarious = {}
+                    trusting = {}
+                    compassionate = {}
+                    generous = {}
+                    calm = {}
+                }
+                random_traits_list = {
+                    count = 1
+                    lustful = {}
+                    chaste = {}
+                    wrathful = {}
+                    arrogant = {}
+                    impatient = {}
+                    patient = {}
+                    impatient  = {}
+                    ambitious = {}
+                    cynical = {}
+                    zealous = {}
+                    stubborn = {}
+                }
+                random_traits = no
+                martial = {
+                    min_template_low_skill
+                    max_template_low_skill
+                }
+                prowess = {
+                    min_template_high_skill
+                    max_template_high_skill
+                }
+                faith = location.faith
+                culture = location.culture
+                gender_female_chance = {
+                    add = 100
+                }
+                save_scope_as = new_person
+            }
 
-	option = { #welcome, weary traveler
-		name = ep3_laamps.8200.a
-		add_courtier = scope:new_person
-		add_character_flag = {
-			flag = had_ep3_laamps_8200
-			years = 4
-		}
+            hidden_effect = {
+                scope:new_person = {
+                    random_list = {
+                        2 = {
+                            add_trait = intellect_bad_2
+                            add_trait = physique_good_1
+                            add_trait = strong
+                        }
+                        2 = {
+                            add_trait = strong
+                        }
+                        2 = {
+                            add_trait = strong
+                            add_trait = giant
+                        }
+                        2 = {
+                            add_trait = intellect_bad_1
+                            add_trait = giant
+                        }
+                        1 = {
+                            add_trait = giant
+                            add_trait = physique_good_2
+                            add_trait = strong
+                        }
+                    }
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                scope:char_spawn_type = flag:fools
+            }
+            create_character = {
+                template = poet_template
+                culture = location.culture
+                faith = location.faith
+                location = root.location
+                save_scope_as = new_person
+            }
+            hidden_effect = {
+                scope:new_person = {
+                    add_trait = fecund
+                    add_trait = lifestyle_traveler
+                    add_trait = loyal
+                }
+            }
+        }
+        else_if = {
+            limit = {
+                scope:char_spawn_type = flag:locals
+            }
+            create_character = {
+                template = merchant_template
+                culture = location.culture
+                faith = location.faith
+                location = root.location
+                save_scope_as = new_person
+            }
+            hidden_effect = {
+                scope:new_person = {
+                    random_list = {
+                        8 = {
+                            add_trait = shrewd
+                        }
+                        1 = {
+                            add_trait = intellect_good_1
+                        }
+                        1 = {
+                            add_trait = intellect_good_2
+                        }
+                    }
+                }
+            }
+        }
+    }
 
-		ai_chance = 100
+    option = { #welcome, weary traveler
+        name = ep3_laamps.8200.a
+        add_courtier = scope:new_person
+        add_character_flag = {
+            flag = had_ep3_laamps_8200
+            years = 4
+        }
 
-		stress_impact = {
-			compassionate = minor_stress_loss
-		}
-	}
+        ai_chance = 100
 
-	option = { #please go away
-		name = ep3_laamps.8200.b
-		add_character_flag = {
-			flag = had_ep3_laamps_8200
-			years = 2
-		}
-		scope:new_person = {
-			silent_disappearance_effect = yes
-		}
+        stress_impact = {
+            compassionate = minor_stress_loss
+        }
+    }
 
-		stress_impact = {
-			paranoid = medium_stress_loss
-			shy = medium_stress_loss
-		}
-	}
+    option = { #please go away
+        name = ep3_laamps.8200.b
+        add_character_flag = {
+            flag = had_ep3_laamps_8200
+            years = 2
+        }
+        scope:new_person = {
+            silent_disappearance_effect = yes
+        }
+
+        stress_impact = {
+            paranoid = medium_stress_loss
+            shy = medium_stress_loss
+        }
+    }
 }
