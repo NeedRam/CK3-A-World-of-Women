@@ -1,19 +1,19 @@
 ﻿on_game_start_after_lobby = {
-	on_actions = {
-		awow_game_start_setup
-	}
+    on_actions = {
+        awow_game_start_setup
+    }
 }
 
 awow_game_start_setup = {
-	effect = {
-		every_player = {
-			trigger_event = awow.1000
-		}
-	}
+    effect = {
+        every_player = {
+            trigger_event = awow.1000
+        }
+    }
 }
 
 on_pregnancy_mother = {
-	events = {
-		awow.0020
-	}
+    events = {
+        awow.0020
+    }
 }

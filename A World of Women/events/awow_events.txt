@@ -2,245 +2,672 @@
 
 # Startup setup event - runs immediately, sets up variables and schedules first cull
 awow.1000 = {
-	type = character_event
-	hidden = yes
-	
-	immediate = {
-		# Set initial cull frequency to 6 months
-		set_global_variable = {
-			name = awow_culling_frequency
-			value = 6
-		}
-		
-		# Initialize months since cull counter
-		set_global_variable = {
-			name = awow_months_since_cull
-			value = 0
-		}
-		
-		# Initialize cull count so the tooltip always has a value to read
-		set_global_variable = {
-			name = awow_cull_count
-			value = 0
-		}
-		
-		# Schedule first cull in 30 days
-		trigger_event = {
-			id = awow.1001
-			days = 30
-		}
-	}
+    type = character_event
+    hidden = yes
+
+    immediate = {
+        # Set initial cull frequency to 6 months
+        set_global_variable = {
+            name = awow_culling_frequency
+            value = 6
+        }
+
+        # Initialize months since cull counter
+        set_global_variable = {
+            name = awow_months_since_cull
+            value = 0
+        }
+
+        # Initialize cull count so the tooltip always has a value to read
+        set_global_variable = {
+            name = awow_cull_count
+            value = 0
+        }
+
+        # Schedule first cull in 30 days
+        trigger_event = {
+            id = awow.1001
+            days = 30
+        }
+    }
 }
 
 # Initial cull - The Vanishing (with narrative popup)
 # Fires 30 days after game start
 awow.1001 = {
-	type = character_event
+    type = character_event
 
-	title = awow.1001.title
-	desc = awow.1001.desc
-	
-	left_portrait = {
+    title = awow.1001.title
+    desc = awow.1001.desc
+
+    left_portrait = {
         character = root
         animation = shock
-		camera = camera_event_center_pointing_right
-    } 
-	theme = death
-	override_background = activity_witch_ritual
-	override_effect_2d = { reference = fog }
-	
-	immediate = {
-		# Initialize cull count
-		set_global_variable = {
-			name = awow_cull_count
-			value = 0
-		}
-		
-		# Perform the culling
-		awow_perform_culling = yes
-		
-		# Mark that initial cull is done
-		set_global_variable = {
-			name = awow_initial_cull_done
-			value = yes
-		}
-		
-		# Schedule the recurring monthly pulse (only once, from the first player to reach here)
-		if = {
-			limit = {
-				NOT = { has_global_variable = awow_pulse_scheduled }
-			}
-			set_global_variable = {
-				name = awow_pulse_scheduled
-				value = yes
-			}
-			trigger_event = {
-				id = awow.1002
-				days = 30
-			}
-		}
-	}
-	
-	option = {
-		name = awow.1001.a
-	}
+        camera = camera_event_center_pointing_right
+    }
+    theme = death
+    override_background = activity_witch_ritual
+    override_effect_2d = { reference = fog }
+
+    immediate = {
+        # Initialize cull count
+        set_global_variable = {
+            name = awow_cull_count
+            value = 0
+        }
+
+        # Perform the culling
+        awow_perform_culling = yes
+
+        # Mark that initial cull is done
+        set_global_variable = {
+            name = awow_initial_cull_done
+            value = yes
+        }
+
+        # Schedule the recurring monthly pulse (only once, from the first player to reach here)
+        if = {
+            limit = {
+                NOT = { has_global_variable = awow_pulse_scheduled }
+            }
+            set_global_variable = {
+                name = awow_pulse_scheduled
+                value = yes
+            }
+            trigger_event = {
+                id = awow.1002
+                days = 30
+            }
+        }
+    }
+
+    option = {
+        name = awow.1001.a
+    }
 }
 
 # Regular culling event (hidden - replaced by bottom-right interface message)
 # The actual culling is performed once, globally, by awow.1002
 # before the interface message is shown, so awow_cull_count already holds the total.
 awow.0002 = {
-	type = character_event
-	hidden = yes
+    type = character_event
+    hidden = yes
 
-	title = awow.0002.title
-	desc = awow.0002.desc
-	
-	theme = death
-	
-	option = {
-		name = awow.0002.a
-	}
+    title = awow.0002.title
+    desc = awow.0002.desc
+
+    theme = death
+
+    option = {
+        name = awow.0002.a
+    }
 }
 
 # Recurring monthly culling pulse
 # Runs every ~30 days, checks if a cull is due, and sends a bottom-right alert instead of a popup.
 awow.1002 = {
-	type = character_event
-	hidden = yes
-	
-	immediate = {
-		# Advance the cycle counter
-		change_global_variable = {
-			name = awow_months_since_cull
-			add = 1
-		}
-		
-		# Check if it's time to cull
-		if = {
-			limit = {
-				global_var:awow_months_since_cull >= global_var:awow_culling_frequency
-			}
-			# Perform the world-wide cull exactly once
-			awow_perform_culling = yes
-			
-			# Show a single bottom-right alert to each human player
-			every_player = {
-				send_interface_message = {
-					type = awow_culling_message
-				}
-			}
-		}
-		
-		# Schedule the next pulse in ~30 days
-		trigger_event = {
-			id = awow.1002
-			days = 30
-		}
-	}
-	
-	option = {
-		name = awow.1002.a
-	}
+    type = character_event
+    hidden = yes
+
+    immediate = {
+        # Advance the cycle counter
+        change_global_variable = {
+            name = awow_months_since_cull
+            add = 1
+        }
+
+        # Check if it's time to cull
+        if = {
+            limit = {
+                global_var:awow_months_since_cull >= global_var:awow_culling_frequency
+            }
+            # Perform the world-wide cull exactly once
+            awow_perform_culling = yes
+
+            # Show a single bottom-right alert to each human player
+            every_player = {
+                send_interface_message = {
+                    type = awow_culling_message
+                }
+            }
+        }
+
+        # Schedule the next pulse in ~30 days
+        trigger_event = {
+            id = awow.1002
+            days = 30
+        }
+    }
+
+    option = {
+        name = awow.1002.a
+    }
 }
 
 # Interaction notification - Flagged for exclusion
 awow.0010 = {
-	type = character_event
-	hidden = yes
-	
-	immediate = {
-		custom_tooltip = awow_flag_exclude_notification_tooltip
-	}
-	
-	option = {
-		name = awow.0010.a
-	}
+    type = character_event
+    hidden = yes
+
+    immediate = {
+        custom_tooltip = awow_flag_exclude_notification_tooltip
+    }
+
+    option = {
+        name = awow.0010.a
+    }
 }
 
 # Interaction notification - Removed from exclusion
 awow.0011 = {
-	type = character_event
-	hidden = yes
-	
-	immediate = {
-		custom_tooltip = awow_flag_include_notification_tooltip
-	}
-	
-	option = {
-		name = awow.0011.a
-	}
+    type = character_event
+    hidden = yes
+
+    immediate = {
+        custom_tooltip = awow_flag_include_notification_tooltip
+    }
+
+    option = {
+        name = awow.0011.a
+    }
 }
 
 # Birth gender assignment event
-# Fires on_pregnancy, checks game rules to potentially set the unborn child's gender.
+# Fires on_pregnancy, checks game rules to set the unborn child's gender.
 awow.0020 = {
-	type = character_event
-	hidden = yes
-	
-	immediate = {
-		if = {
-			limit = { is_ai = no }
-			# Player birth - check player rule
-			if = {
-				limit = { has_game_rule = awow_birth_gender_player_67 }
-				random = { chance = 67 set_pregnancy_gender = female }
-			}
-			else_if = {
-				limit = { has_game_rule = awow_birth_gender_player_75 }
-				random = { chance = 75 set_pregnancy_gender = female }
-			}
-			else_if = {
-				limit = { has_game_rule = awow_birth_gender_player_80 }
-				random = { chance = 80 set_pregnancy_gender = female }
-			}
-			else_if = {
-				limit = { has_game_rule = awow_birth_gender_player_90 }
-				random = { chance = 90 set_pregnancy_gender = female }
-			}
-			else_if = {
-				limit = { has_game_rule = awow_birth_gender_player_95 }
-				random = { chance = 95 set_pregnancy_gender = female }
-			}
-			else_if = {
-				limit = { has_game_rule = awow_birth_gender_player_99 }
-				random = { chance = 99 set_pregnancy_gender = female }
-			}
-			else_if = {
-				limit = { has_game_rule = awow_birth_gender_player_100 }
-				set_pregnancy_gender = female
-			}
-		}
-		else = {
-			# Non-player birth - check world rule
-			if = {
-				limit = { has_game_rule = awow_birth_gender_67 }
-				random = { chance = 67 set_pregnancy_gender = female }
-			}
-			else_if = {
-				limit = { has_game_rule = awow_birth_gender_75 }
-				random = { chance = 75 set_pregnancy_gender = female }
-			}
-			else_if = {
-				limit = { has_game_rule = awow_birth_gender_80 }
-				random = { chance = 80 set_pregnancy_gender = female }
-			}
-			else_if = {
-				limit = { has_game_rule = awow_birth_gender_90 }
-				random = { chance = 90 set_pregnancy_gender = female }
-			}
-			else_if = {
-				limit = { has_game_rule = awow_birth_gender_95 }
-				random = { chance = 95 set_pregnancy_gender = female }
-			}
-			else_if = {
-				limit = { has_game_rule = awow_birth_gender_99 }
-				random = { chance = 99 set_pregnancy_gender = female }
-			}
-			else_if = {
-				limit = { has_game_rule = awow_birth_gender_100 }
-				set_pregnancy_gender = female
-			}
-		}
-	}
+    type = character_event
+    hidden = yes
+
+    immediate = {
+        # Player baby gender
+        if = {
+            limit = {
+                OR = {
+                    # Checks if the player is the mother or father
+                    is_ai = no
+                    scope:real_father = { is_ai = no }
+                }
+            }
+            if = {
+                limit = { has_game_rule = awow_birth_gender_player_100 }
+                set_pregnancy_gender = female
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_player_99 }
+                random_list = {
+                    99 = {
+                        set_pregnancy_gender = female
+                    }
+                    1 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_player_95 }
+                random_list = {
+                    95 = {
+                        set_pregnancy_gender = female
+                    }
+                    5 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_player_90 }
+                random_list = {
+                    90 = {
+                        set_pregnancy_gender = female
+                    }
+                    10 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_player_80 }
+                random_list = {
+                    80 = {
+                        set_pregnancy_gender = female
+                    }
+                    20 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_player_75 }
+                random_list = {
+                    75 = {
+                        set_pregnancy_gender = female
+                    }
+                    25 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_player_67 }
+                random_list = {
+                    67 = {
+                        set_pregnancy_gender = female
+                    }
+                    33 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_player_50 }
+                random_list = {
+                    50 = {
+                        set_pregnancy_gender = female
+                    }
+                    50 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_player_33 }
+                random_list = {
+                    33 = {
+                        set_pregnancy_gender = female
+                    }
+                    67 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_player_25 }
+                random_list = {
+                    25 = {
+                        set_pregnancy_gender = female
+                    }
+                    75 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_player_20 }
+                random_list = {
+                    20 = {
+                        set_pregnancy_gender = female
+                    }
+                    80 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_player_10 }
+                random_list = {
+                    10 = {
+                        set_pregnancy_gender = female
+                    }
+                    90 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_player_5 }
+                random_list = {
+                    5 = {
+                        set_pregnancy_gender = female
+                    }
+                    95 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_player_1 }
+                random_list = {
+                    1 = {
+                        set_pregnancy_gender = female
+                    }
+                    99 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_player_0 }
+                set_pregnancy_gender = male
+            }
+        }
+        # Player Dynasty baby gender
+        else_if = {
+            limit = {
+                AND = {
+                    # Ensures both parents are AI
+                    is_ai = yes
+                    scope:real_father = { is_ai = yes }
+                }
+                OR = {
+                    has_game_rule =
+                }
+                exists = dynasty
+                any_player = {
+                    dynasty = prev.dynasty
+                }
+            }
+            if = {
+                limit = { has_game_rule = awow_birth_gender_dynasty_100 }
+                set_pregnancy_gender = female
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_dynasty_99 }
+                random_list = {
+                    99 = {
+                        set_pregnancy_gender = female
+                    }
+                    1 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_dynasty_95 }
+                random_list = {
+                    95 = {
+                        set_pregnancy_gender = female
+                    }
+                    5 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_dynasty_90 }
+                random_list = {
+                    90 = {
+                        set_pregnancy_gender = female
+                    }
+                    10 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_dynasty_80 }
+                random_list = {
+                    80 = {
+                        set_pregnancy_gender = female
+                    }
+                    20 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_dynasty_75 }
+                random_list = {
+                    75 = {
+                        set_pregnancy_gender = female
+                    }
+                    25 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_dynasty_67 }
+                random_list = {
+                    67 = {
+                        set_pregnancy_gender = female
+                    }
+                    33 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_dynasty_50 }
+                random_list = {
+                    50 = {
+                        set_pregnancy_gender = female
+                    }
+                    50 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_dynasty_33 }
+                random_list = {
+                    33 = {
+                        set_pregnancy_gender = female
+                    }
+                    67 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_dynasty_25 }
+                random_list = {
+                    25 = {
+                        set_pregnancy_gender = female
+                    }
+                    75 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_dynasty_20 }
+                random_list = {
+                    20 = {
+                        set_pregnancy_gender = female
+                    }
+                    80 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_dynasty_10 }
+                random_list = {
+                    10 = {
+                        set_pregnancy_gender = female
+                    }
+                    90 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_dynasty_5 }
+                random_list = {
+                    5 = {
+                        set_pregnancy_gender = female
+                    }
+                    95 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_dynasty_1 }
+                random_list = {
+                    1 = {
+                        set_pregnancy_gender = female
+                    }
+                    99 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_dynasty_0 }
+                set_pregnancy_gender = male
+            }
+        }
+        # Non-player baby gender
+        else_if = {
+            limit = {
+                AND = {
+                    # Ensures both parents are AI
+                    is_ai = yes
+                    scope:real_father = { is_ai = yes }
+                }
+            }
+            if = {
+                limit = { has_game_rule = awow_birth_gender_world_100 }
+                set_pregnancy_gender = female
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_world_99 }
+                random_list = {
+                    99 = {
+                        set_pregnancy_gender = female
+                    }
+                    1 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_world_95 }
+                random_list = {
+                    95 = {
+                        set_pregnancy_gender = female
+                    }
+                    5 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_world_90 }
+                random_list = {
+                    90 = {
+                        set_pregnancy_gender = female
+                    }
+                    10 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_world_80 }
+                random_list = {
+                    80 = {
+                        set_pregnancy_gender = female
+                    }
+                    20 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_world_75 }
+                random_list = {
+                    75 = {
+                        set_pregnancy_gender = female
+                    }
+                    25 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_world_67 }
+                random_list = {
+                    67 = {
+                        set_pregnancy_gender = female
+                    }
+                    33 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_world_50 }
+                random_list = {
+                    50 = {
+                        set_pregnancy_gender = female
+                    }
+                    50 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_world_33 }
+                random_list = {
+                    33 = {
+                        set_pregnancy_gender = female
+                    }
+                    67 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_world_25 }
+                random_list = {
+                    25 = {
+                        set_pregnancy_gender = female
+                    }
+                    75 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_world_20 }
+                random_list = {
+                    20 = {
+                        set_pregnancy_gender = female
+                    }
+                    80 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_world_10 }
+                random_list = {
+                    10 = {
+                        set_pregnancy_gender = female
+                    }
+                    90 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_world_5 }
+                random_list = {
+                    5 = {
+                        set_pregnancy_gender = female
+                    }
+                    95 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_world_1 }
+                random_list = {
+                    1 = {
+                        set_pregnancy_gender = female
+                    }
+                    99 = {
+                        set_pregnancy_gender = male
+                    }
+                }
+            }
+            else_if = {
+                limit = { has_game_rule = awow_birth_gender_world_0 }
+                set_pregnancy_gender = male
+            }
+        }
+    }
 }

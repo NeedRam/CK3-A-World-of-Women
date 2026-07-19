@@ -1,55 +1,57 @@
 ﻿awow_perform_culling = {
-	# Reset the running total before we count this pass.
-	set_global_variable = {
-		name = awow_cull_count
-		value = 0
-	}
+    # Reset the running total before we count this pass.
+    set_global_variable = {
+        name = awow_cull_count
+        value = 0
+    }
 
-	# Spare the player character (if that rule is enabled).
-	if = {
-		limit = {
-			has_game_rule = awow_exclude_player
-		}
-		every_player = {
-			add_character_flag = awow_excluded_from_culling
-		}
-	}
+    # Spare the player character (if that rule is enabled).
+    if = {
+        limit = {
+            has_game_rule = awow_exclude_player
+        }
+        every_player = {
+            add_character_flag = awow_excluded_from_culling
+        }
+    }
 
-	# Spare the player's dynasty (if that rule is enabled).
-	# Flag every living character who shares a player's dynasty, using root.dynasty
-	# while scoped inside every_player (root is unambiguous there).
-	if = {
-		limit = {
-			has_game_rule = awow_exclude_player_dynasty
-		}
-		every_player = {
-			every_living_character = {
-				limit = {
-					dynasty = root.dynasty
-				}
-				add_character_flag = awow_excluded_from_culling
-			}
-		}
-	}
+    # Spare the player's dynasty (if that rule is enabled).
+    # Flag every living character who shares a player's dynasty, using root.dynasty
+    # while scoped inside every_player (root is unambiguous there).
+    if = {
+        limit = {
+            has_game_rule = awow_exclude_player_dynasty
+        }
+        every_player = {
+            every_living_character = {
+                limit = {
+                    any_player = {
+                        dynasty = prev.dynasty
+                    }
+                }
+                add_character_flag = awow_excluded_from_culling
+            }
+        }
+    }
 
-	# Cull: every living male that can be culled is killed and counted.
-	every_living_character = {
-		limit = {
-			can_be_culled = yes
-		}
-		death = natural
-		change_global_variable = {
-			name = awow_cull_count
-			add = 1
-		}
-	}
+    # Cull: every living male that can be culled is killed and counted.
+    every_living_character = {
+        limit = {
+            can_be_culled = yes
+        }
+        death = natural
+        change_global_variable = {
+            name = awow_cull_count
+            add = 1
+        }
+    }
 
-	# Reset the cycle counter so the next cull is scheduled from now.
-	set_global_variable = {
-		name = awow_months_since_cull
-		value = 0
-	}
+    # Reset the cycle counter so the next cull is scheduled from now.
+    set_global_variable = {
+        name = awow_months_since_cull
+        value = 0
+    }
 
-	# Debug trace - check Documents/Paradox Interactive/Crusader Kings III/logs for this line.
-	debug_log = "AWOW: cull complete"
+    # Debug trace - check Documents/Paradox Interactive/Crusader Kings III/logs for this line.
+    debug_log = "AWOW: cull complete"
 }
