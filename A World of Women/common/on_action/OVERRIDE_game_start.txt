@@ -7915,6 +7915,14 @@ on_game_start_after_lobby = {
             clear_global_variable_list = easteregg_characters_list
         }
 
+        # AWOW same-sex pregnancy: seed the monthly autonomous scheduler once at game start.
+        # Also fire the AWOW startup setup (was previously triggered by awow_game_start_setup).
+        every_player = {
+            debug_log = "AWOW SS-PREG: game start seeded scheduler on [this.GetName]"
+            trigger_event = awow.1000
+            trigger_event = awow_pregnancy.0003
+        }
+
         enable_and_run_succession_calculation = yes
     }
 

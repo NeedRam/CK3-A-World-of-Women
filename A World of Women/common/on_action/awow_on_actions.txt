@@ -1,20 +1,4 @@
-﻿on_game_start_after_lobby = {
-    on_actions = {
-        awow_game_start_setup
-    }
-}
-
-awow_game_start_setup = {
-    effect = {
-        every_player = {
-            trigger_event = awow.1000
-            trigger_event = awow_pregnancy.0003
-            debug_log = "AWOW SS-PREG: game start seeded scheduler on [this.GetName]"
-        }
-    }
-}
-
-on_pregnancy_mother = {
+﻿on_pregnancy_mother = {
     events = {
         awow.0020
     }

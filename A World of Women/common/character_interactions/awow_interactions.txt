@@ -68,11 +68,11 @@ awow_flag_include_interaction = {
 # bypassing the fertility roll. Reuses the exact same start logic as the AI path.
 # Usable by any female character on a female spouse/lover/etc. For debugging only.
 awow_test_same_sex_pregnancy_interaction = {
-    category = interaction_debug_main
-    icon = debug_chars
-    common_interaction = yes
-    use_diplomatic_range = no
-    ignores_pending_interaction_block = yes
+	category = interaction_category_uncategorized
+	icon = debug_chars
+	common_interaction = yes
+	use_diplomatic_range = no
+	ignores_pending_interaction_block = yes
 
     is_shown = {
         scope:recipient = {
