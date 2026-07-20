@@ -438,11 +438,7 @@ game_rule_inversed_gender_equality_effect = {
             }
             # Take care of any titles with their own title laws.
             every_held_title = {
-                limit = {
-                    OR = {
-                        can_title_have_law_general_trigger = yes
-                    }
-                }
+                limit = { can_title_have_law_general_trigger = yes }
                 # Invert male-only.
                 if = {
                     limit = { has_title_law = male_only_law }
