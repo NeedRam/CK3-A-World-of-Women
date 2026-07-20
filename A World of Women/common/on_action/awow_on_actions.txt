@@ -9,6 +9,7 @@ awow_game_start_setup = {
         every_player = {
             trigger_event = awow.1000
             trigger_event = awow_pregnancy.0003
+            debug_log = "AWOW SS-PREG: game start seeded scheduler on [this.GetName]"
         }
     }
 }

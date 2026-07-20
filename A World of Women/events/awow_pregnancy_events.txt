@@ -15,6 +15,7 @@ awow_pregnancy.0001 = {
 	}
 
 	immediate = {
+		debug_log = "AWOW SS-PREG: BIRTH event fired on [this.GetName] ([this.GetID]) other_mother_id=[var:awow_other_mother_id]"
 		# Resolve the other mother (may have died during the pregnancy).
 		character = var:awow_other_mother_id
 		save_scope_as = awow_other_mother
@@ -28,6 +29,8 @@ awow_pregnancy.0001 = {
 		else = {
 			set_variable = { name = awow_baby_female_chance value = 100 }
 		}
+
+		debug_log = "AWOW SS-PREG: BIRTH other_mother_name=[scope:awow_other_mother.GetName] female_chance=[var:awow_baby_female_chance]"
 
 		# Birth: both women are parents. Female father is data-only and safe.
 		if = {
@@ -44,6 +47,7 @@ awow_pregnancy.0001 = {
 				gender_female_chance = var:awow_baby_female_chance
 				save_scope_as = child
 			}
+			debug_log = "AWOW SS-PREG: BIRTH created child [scope:child.GetName] ([scope:child.GetID]) with both mothers"
 		}
 		else = {
 			create_character = {
@@ -57,6 +61,7 @@ awow_pregnancy.0001 = {
 				gender_female_chance = var:awow_baby_female_chance
 				save_scope_as = child
 			}
+			debug_log = "AWOW SS-PREG: BIRTH created child [scope:child.GetName] ([scope:child.GetID]) mother only (other dead)"
 		}
 
 		# Link the child to the other mother explicitly (idempotent if she exists).
@@ -117,6 +122,7 @@ awow_pregnancy.0003 = {
 	hidden = yes
 
 	immediate = {
+		debug_log = "AWOW SS-PREG: scheduler pulse 0003 fired on [this.GetName]"
 		awow_monthly_pregnancy_tick_effect = yes
 	}
 }
