@@ -296,7 +296,7 @@ game_rule_inversed_gender_equality_effect = {
             if = {
                 limit = { has_doctrine = doctrine_gender_male_dominated }
                 remove_doctrine = doctrine_gender_male_dominated
-                add_doctrine = doctrine_gender_female_dominated
+                add_doctrine = doctrine_clerical_gender_female_only
             }
             #Else: equal, do nothing
 
@@ -431,9 +431,6 @@ game_rule_inversed_gender_equality_effect = {
 
     ## REALM LAW
     every_ruler = {
-        limit = {
-            highest_held_title_tier >= tier_county
-        }
         # trigger changed during processing so can not add this in limit
         if = {
             limit = {
@@ -441,7 +438,11 @@ game_rule_inversed_gender_equality_effect = {
             }
             # Take care of any titles with their own title laws.
             every_held_title = {
-                limit = { can_title_have_law_general_trigger = yes }
+                limit = {
+                    OR = {
+                        can_title_have_law_general_trigger = yes
+                    }
+                }
                 # Invert male-only.
                 if = {
                     limit = { has_title_law = male_only_law }
@@ -469,7 +470,7 @@ game_rule_inversed_gender_equality_effect = {
             }
             else_if = {
                 limit = { has_realm_law = male_preference_law }
-                add_realm_law = female_preference_law
+                add_realm_law = female_only_law
                 if = {
                     limit = {
                         highest_held_title_tier >= tier_county
@@ -483,6 +484,10 @@ game_rule_inversed_gender_equality_effect = {
                     }
                     depose = yes
                 }
+            }
+            else_if = {
+                limit = { has_realm_law = female_preference_law }
+                add_realm_law = female_only_law
             }
             #Else: equal, nothing changes
         }

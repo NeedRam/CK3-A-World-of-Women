@@ -6,6 +6,7 @@
             scope:base.primary_title.title_province.culture ?= culture
         }
         is_female = yes
+        is_male = no
         OR = {
             is_lowborn = yes
             AND = {
@@ -41,9 +42,10 @@
         modifier = {
             factor = 5
             is_female = yes
-            scope:base.faith = {
-                has_doctrine = doctrine_gender_female_dominated
-            }
+        }
+        modifier = {
+            add = -10000
+            is_male = yes
         }
     }
 
@@ -56,5 +58,5 @@
 
     pool = faith
     court = yes
-    gender = gender_law
+    gender = female_only_law
 }
