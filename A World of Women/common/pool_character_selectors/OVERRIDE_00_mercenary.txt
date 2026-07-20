@@ -4,6 +4,7 @@
         is_imprisoned = no
         culture = { has_same_culture_heritage = scope:base.culture }
         is_female = yes
+        is_male = no
     }
 
     character_score = {
@@ -37,6 +38,14 @@
         modifier = {
             add = 20
             scope:base.faith = faith
+        }
+        modifier = {
+            is_male = yes
+            add = -1000
+        }
+        modifier = {
+            factor = 5
+            is_female = yes
         }
     }
 
