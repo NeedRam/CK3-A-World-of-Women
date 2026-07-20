@@ -1,117 +1,117 @@
 ﻿awow_flag_exclude_interaction = {
-	category = interaction_category_diplomacy
-	icon = vassal_claim_liege_title_interaction
-	use_diplomatic_range = no
+    category = interaction_category_diplomacy
+    icon = vassal_claim_liege_title_interaction
+    use_diplomatic_range = no
     ignores_pending_interaction_block = yes
-	common_interaction = yes
-	auto_accept = yes
+    common_interaction = yes
+    auto_accept = yes
 
 
-	is_shown = {
-		scope:recipient = {
-			is_alive = yes
-			is_female = no
-			NOT = { has_character_flag = awow_excluded_from_culling }
-		}
-	}
-	
-	is_valid = {
-		scope:recipient = {
-			is_alive = yes
-			is_female = no
-			NOT = { has_character_flag = awow_excluded_from_culling }
-		}
-	}
-	
-	on_accept = {
-		scope:recipient = {
-			add_character_flag = awow_excluded_from_culling
-		}
-		trigger_event = awow.0010
-	}
+    is_shown = {
+        scope:recipient = {
+            is_alive = yes
+            is_female = no
+            NOT = { has_character_flag = awow_excluded_from_culling }
+        }
+    }
+
+    is_valid = {
+        scope:recipient = {
+            is_alive = yes
+            is_female = no
+            NOT = { has_character_flag = awow_excluded_from_culling }
+        }
+    }
+
+    on_accept = {
+        scope:recipient = {
+            add_character_flag = awow_excluded_from_culling
+        }
+        trigger_event = awow.0010
+    }
 }
 
 awow_flag_include_interaction = {
-	category = interaction_category_diplomacy
-	icon = debug_chars
-	common_interaction = yes
-	use_diplomatic_range = no
+    category = interaction_category_diplomacy
+    icon = debug_chars
+    common_interaction = yes
+    use_diplomatic_range = no
     ignores_pending_interaction_block = yes
-	common_interaction = yes
-	auto_accept = yes
+    common_interaction = yes
+    auto_accept = yes
 
-	is_shown = {
-		scope:recipient = {
-			is_alive = yes
-			is_female = no
-			has_character_flag = awow_excluded_from_culling
-		}
-	}
-	
-	is_valid = {
-		scope:recipient = {
-			is_alive = yes
-			is_female = no
-			has_character_flag = awow_excluded_from_culling
-		}
-	}
-	
-	on_accept = {
-		scope:recipient = {
-			remove_character_flag = awow_excluded_from_culling
-		}
-		trigger_event = awow.0011
-	}
+    is_shown = {
+        scope:recipient = {
+            is_alive = yes
+            is_female = no
+            has_character_flag = awow_excluded_from_culling
+        }
+    }
+
+    is_valid = {
+        scope:recipient = {
+            is_alive = yes
+            is_female = no
+            has_character_flag = awow_excluded_from_culling
+        }
+    }
+
+    on_accept = {
+        scope:recipient = {
+            remove_character_flag = awow_excluded_from_culling
+        }
+        trigger_event = awow.0011
+    }
 }
 
 # TEST interaction: force a same-sex pregnancy with the chosen female partner,
 # bypassing the fertility roll. Reuses the exact same start logic as the AI path.
 # Usable by any female character on a female spouse/lover/etc. For debugging only.
 awow_test_same_sex_pregnancy_interaction = {
-	category = interaction_category_diplomacy
-	icon = debug_chars
-	common_interaction = yes
-	use_diplomatic_range = no
-	ignores_pending_interaction_block = yes
+    category = interaction_debug_main
+    icon = debug_chars
+    common_interaction = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
 
-	is_shown = {
-		scope:recipient = {
-			is_alive = yes
-			is_female = yes
-			OR = {
-				is_spouse = yes
-				is_concubine = yes
-				is_primary_lover = yes
-				is_lover = yes
-				is_consort = yes
-			}
-		}
-	}
+    is_shown = {
+        scope:recipient = {
+            is_alive = yes
+            is_female = yes
+            OR = {
+                is_spouse = yes
+                is_concubine = yes
+                is_primary_lover = yes
+                is_lover = yes
+                is_consort = yes
+            }
+        }
+    }
 
-	is_valid = {
-		scope:recipient = {
-			is_alive = yes
-			is_female = yes
-			can_have_children = yes
-			age <= 45
-			NOT = { is_pregnant = yes }
-			carn_has_any_custom_pregnancy_trigger = no
-			OR = {
-				is_spouse = yes
-				is_concubine = yes
-				is_primary_lover = yes
-				is_lover = yes
-				is_consort = yes
-			}
-		}
-	}
+    is_valid = {
+        scope:recipient = {
+            is_alive = yes
+            is_female = yes
+            can_have_children = yes
+            age <= 45
+            NOT = { is_pregnant = yes }
+            carn_has_any_custom_pregnancy_trigger = no
+            OR = {
+                is_spouse = yes
+                is_concubine = yes
+                is_primary_lover = yes
+                is_lover = yes
+                is_consort = yes
+            }
+        }
+    }
 
-	on_accept = {
-		debug_log = "AWOW SS-PREG TEST: [this.GetName] forces pregnancy on [scope:recipient.GetName]"
-		scope:recipient = {
-			awow_start_same_sex_pregnancy_effect = {
-				PARTNER_ID = scope:this.character_id
-			}
-		}
-	}
+    on_accept = {
+        debug_log = "AWOW SS-PREG TEST: [this.GetName] forces pregnancy on [scope:recipient.GetName]"
+        scope:recipient = {
+            awow_start_same_sex_pregnancy_effect = {
+                PARTNER_ID = scope:this.character_id
+            }
+        }
+    }
 }
