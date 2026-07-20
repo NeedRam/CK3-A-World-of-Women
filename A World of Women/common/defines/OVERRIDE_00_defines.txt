@@ -1,0 +1,40 @@
+﻿NCourt = {
+    # Number of spouses that should be available in a court.
+    # Spouses will be spawned at game start and on succession, if no matching characters are available.
+    GENERATED_SPOUSES_BARONY_PER_HOLDING_KEYS = {}
+    GENERATED_SPOUSES_BARONY_PER_HOLDING_VALUES = {}
+    GENERATED_SPOUSES_COUNTY = 0
+    GENERATED_SPOUSES_DUCHY = 0
+    GENERATED_SPOUSES_KINGDOM = 0
+    GENERATED_SPOUSES_EMPIRE = 0
+    GENERATED_SPOUSES_HEGEMONY = 0
+
+    # Number of commanders that should be available in a court.
+    # Commanders will be spawned at game start and on succession, if no matching characters are available.
+    GENERATED_COMMANDERS_BARONY_PER_HOLDING_KEYS = {}
+    GENERATED_COMMANDERS_BARONY_PER_HOLDING_VALUES = {}
+    GENERATED_COMMANDERS_COUNTY = 0
+    GENERATED_COMMANDERS_DUCHY = 0
+    GENERATED_COMMANDERS_KINGDOM = 0
+    GENERATED_COMMANDERS_EMPIRE = 0
+    GENERATED_COMMANDERS_HEGEMONY = 0
+    GENERATED_COMMANDERS_MERCENARY_COMPANY = 1
+    GENERATED_COMMANDERS_HOLY_ORDER = 1
+
+    # When a courtier has decided to leave, they will stay this much longer to give the liege the opportunity to make them stay
+    COURTIER_MOVE_TO_POOL_DELAY_MONTHS = 2
+
+    # Guests stay this long before they consider leaving. From then on there is a monthly chance they will decide to leave (monthly_leave_chance_x10).
+    GUEST_STAY_DURATION_MONTHS = 36
+    SETUP_GUEST_MIN_STAY_DURATION_MONTHS = 6 # guests filled into courts at game start will stay between SETUP_GUEST_MIN_STAY_DURATION_MONTHS and GUEST_STAY_DURATION_MONTHS
+    # Same as COURTIER_MOVE_TO_POOL_DELAY_MONTHS, but for guests
+    GUEST_MOVE_TO_POOL_DELAY_MONTHS = 2
+
+    # Maximum number of adult courtiers and guests, per ruler tier. While it won't throw anyone out if the limit is exceeded, no new guests will arrive while at or above the cap. See also: MIN_GUESTS_PER_TIER.
+    MAX_COURTIERS_AND_GUESTS_PER_TIER = { 0 0 6 8 12 20 36 }
+    # Minimum number of adult guests, per ruler tier. Overrides MAX_COURTIERS_AND_GUESTS_PER_TIER to make sure there are always some guests even if the courtiers have reached the cap.
+    MIN_GUESTS_PER_TIER = { 0 0 0 1 2 3 4 }
+
+    # If the pools are empty and guests need to be generated, generate at most this many per month
+    MAX_GUESTS_TO_GENERATE = 0
+}

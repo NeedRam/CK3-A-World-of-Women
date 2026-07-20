@@ -1,0 +1,303 @@
+﻿
+#Tribute Missions - a set of hidden Character Interactions, triggered by the Pay Tribute decision - what do you send?
+
+tribute_mission_concubine_interaction = {
+    hidden = yes
+
+    populate_recipient_list = {
+        scope:actor = {
+            every_courtier_or_guest = {
+                limit = {
+                    can_be_offered_as_concubine_to_character_trigger = {
+                        GIVER = scope:actor
+                        CHARACTER = scope:actor.overlord
+                    }
+                    tribute_mission_is_available_concubine_trigger = yes
+                }
+                add_to_list = characters
+            }
+        }
+    }
+
+    ai_min_reply_days = 0
+    ai_max_reply_days = 0
+
+    can_be_picked = {
+        is_adult = yes
+    }
+
+    auto_accept = {
+        OR = {
+            scope:actor = { subject_standing >= 0 }
+            scope:recipient = { is_ai = no }
+        }
+    }
+
+    on_accept = {
+        scope:actor = {
+            #Save the concubine
+            set_variable = {
+                name = tribute_mission_type
+                value = flag:concubine_tribute
+            }
+            set_variable = {
+                name = offered_concubine
+                value = scope:secondary_recipient
+            }
+            scope:secondary_recipient = {
+                add_character_flag = {
+                    flag = cannot_be_diarch # just enough to make sure they don't succeed to the diarchy while en route
+                    years = 2
+                }
+            }
+            custom_tooltip = tribute_mission_concubine_interaction.tooltip
+            #Some Mandala piety
+            show_as_tooltip = { tribute_mission_mandala_piety_effect = yes }
+
+            #Travel
+            tribute_mission_set_up_tribute_travel_effect = yes
+        }
+    }
+
+    ai_accept = {
+        base = 50
+
+        modifier = {
+            add = {
+                value = 50
+                multiply = scope:secondary_recipient.num_of_good_genetic_traits
+            }
+            scope:secondary_recipient = {
+                num_of_good_genetic_traits > 0
+                trigger_if = {
+                    limit = {
+                        is_female = yes
+                    }
+                    is_aging_character = no
+                }
+            }
+            desc = AI_POSITIVE_TRAIT_REASON
+        }
+
+        modifier = {
+            add = {
+                value = 50
+            }
+            scope:secondary_recipient = {
+                is_lowborn = no
+                trigger_if = {
+                    limit = {
+                        is_female = yes
+                    }
+                    is_aging_character = no
+                }
+            }
+            desc = AI_DYNASTY_PRESTIGE_REASON_NOBLE
+        }
+
+        modifier = {
+            add = {
+                value = -50
+                multiply = scope:secondary_recipient.num_of_bad_genetic_traits
+            }
+            scope:secondary_recipient = {
+                OR = {
+                    num_of_bad_genetic_traits > 0
+                }
+                trigger_if = {
+                    limit = {
+                        is_female = yes
+                    }
+                    is_aging_character = no
+                }
+            }
+            desc = AI_NEGATIVE_TRAIT_REASON
+        }
+
+        modifier = {
+            add = {
+                value = -50
+            }
+            scope:secondary_recipient = {
+                is_lowborn = yes
+                num_of_good_genetic_traits = 0
+                trigger_if = {
+                    limit = {
+                        is_female = yes
+                    }
+                    is_aging_character = no
+                }
+            }
+            desc = AI_DYNASTY_PRESTIGE_REASON_LOWBORN_NO_POSITIVE_TRAIT
+        }
+
+        opinion_modifier = { # Opinion of you
+            who = scope:recipient
+            opinion_target = scope:actor
+            multiplier = 1.0
+            desc = AI_OPINION_REASON
+        }
+
+        opinion_modifier = { # Opinion of concubine
+            who = scope:recipient
+            opinion_target = scope:secondary_recipient
+            multiplier = 0.25
+            desc = AI_OPINION_REASON
+        }
+
+        compare_modifier = { # Recipient is reluctant to marry old women (procreation is a key factor)
+            trigger = {
+                scope:secondary_recipient = {
+                    is_young_character = no
+                    is_female = yes
+                }
+            }
+            target = scope:secondary_recipient
+            value = age
+            multiplier = -5.0
+            step = 1
+            offset = -29
+            desc = MARRY_AGE
+        }
+
+        modifier = {
+            add = 50
+            scope:recipient = {
+                is_attracted_to_gender_of = scope:secondary_recipient
+            }
+            desc = AI_ATTRACTION_REASON
+        }
+
+        #More/Less likely based on difference in rank between actor and recipient
+        modifier = {
+            add = 20
+            scope:actor = {
+                tier_difference = {
+                    target = scope:recipient
+                    value = 1
+                }
+            }
+            desc = AI_RANK_DIFF
+        }
+        modifier = {
+            add = 30
+            scope:actor = {
+                tier_difference = {
+                    target = scope:recipient
+                    value = 2
+                }
+            }
+            desc = AI_RANK_DIFF
+        }
+        modifier = {
+            add = 40
+            scope:actor = {
+                tier_difference = {
+                    target = scope:recipient
+                    value = 3
+                }
+            }
+            desc = AI_RANK_DIFF
+        }
+        modifier = {
+            add = 50
+            scope:actor = {
+                tier_difference = {
+                    target = scope:recipient
+                    value = 4
+                }
+            }
+            desc = AI_RANK_DIFF
+        }
+        modifier = {
+            add = 60
+            scope:actor = {
+                tier_difference = {
+                    target = scope:recipient
+                    value = 5
+                }
+            }
+            desc = AI_RANK_DIFF
+        }
+        modifier = {
+            add = -20
+            scope:actor = {
+                tier_difference = {
+                    target = scope:recipient
+                    value = -1
+                }
+            }
+            desc = AI_RANK_DIFF
+        }
+        modifier = {
+            add = -30
+            scope:actor = {
+                tier_difference = {
+                    target = scope:recipient
+                    value = -2
+                }
+            }
+            desc = AI_RANK_DIFF
+        }
+        modifier = {
+            add = -40
+            scope:actor = {
+                tier_difference = {
+                    target = scope:recipient
+                    value = -3
+                }
+            }
+            desc = AI_RANK_DIFF
+        }
+        modifier = {
+            add = -50
+            scope:actor = {
+                tier_difference = {
+                    target = scope:recipient
+                    value = -4
+                }
+            }
+            desc = AI_RANK_DIFF
+        }
+        modifier = {
+            add = -60
+            scope:actor = {
+                tier_difference = {
+                    target = scope:recipient
+                    value = -5
+                }
+            }
+            desc = AI_RANK_DIFF
+        }
+        modifier = {
+            add = -250
+            scope:secondary_recipient = {
+                has_std_trigger = yes
+            }
+            desc = AI_STD_REASON
+        }
+        modifier = {
+            add = -250
+            scope:secondary_recipient = {
+                has_epidemic_disease_trigger = yes
+            }
+            desc = AI_CONTAGIOUS_REASON
+        }
+        modifier = {
+            add = -5000
+            scope:secondary_recipient = {
+                fertility <= 0
+            }
+            desc = AI_FERTILITY_REASON
+        }
+
+        # Unity modifiers
+        evaluate_action_increasing_house_unity = {
+            VALUE = 100
+        }
+    }
+
+    ai_will_do = {
+        base = 50
+    }
+}
