@@ -1,0 +1,10 @@
+# AWOW same-sex pregnancy hooks into Carnalitas's custom-pregnancy framework.
+# AWOW loads after Carnalitas, so these entries merge into the existing on_actions.
+
+# Fires when a custom pregnancy advances a stage. Our pregnancies use a single 280-day
+# stage, so this fires once at "birth". Create the child here.
+carn_on_custom_pregnancy_stage_change = {
+	events = {
+		awow_pregnancy.0001
+	}
+}

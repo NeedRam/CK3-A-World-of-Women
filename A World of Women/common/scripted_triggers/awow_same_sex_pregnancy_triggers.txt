@@ -1,0 +1,42 @@
+# AWOW same-sex (female-female) pregnancy triggers
+#
+# These are used by the autonomous monthly AI pregnancy tick. They decide whether a
+# given character (root) is a valid candidate and whether she has a female partner to
+# conceive with. Both women must be AI (the player is normally male and excluded) and
+# both must be female (no male is ever involved).
+
+# A character who is a valid pregnancy candidate on her own:
+# - alive, female, AI
+# - able to have children (not sterilized / incapable)
+# - of reproductive age (<= MAX_FEMALE_REPRODUCTION_AGE = 45 in base defines)
+# - not already pregnant (engine or any custom pregnancy)
+awow_same_sex_can_bear_trigger = {
+	AND = {
+		is_alive = yes
+		is_female = yes
+		is_ai = yes
+		can_have_children = yes
+		age <= 45
+		NOT = { is_pregnant = yes }
+		carn_has_any_custom_pregnancy_trigger = no
+	}
+}
+
+# Does the character have a female AI partner in an intimate relation?
+# Covers spouses, concubines, primary/secondary lovers, and consorts.
+# Used to gate the per-couple roll. Evaluated on root (the candidate mother).
+awow_has_ai_female_partner_trigger = {
+	any_relation = {
+		AND = {
+			is_female = yes
+			is_ai = yes
+			OR = {
+				is_spouse = yes
+				is_concubine = yes
+				is_primary_lover = yes
+				is_lover = yes
+				is_consort = yes
+			}
+		}
+	}
+}

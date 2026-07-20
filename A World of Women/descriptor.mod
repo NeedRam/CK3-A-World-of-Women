@@ -9,3 +9,6 @@ tags={
 name="A World of Women"
 supported_version="1.*.*"
 path="mod/A World of Women"
+dependencies={
+	"Carnalitas"
+}

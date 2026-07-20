@@ -1,0 +1,242 @@
+# AWOW same-sex (female-female) pregnancy scripted effects
+#
+# Driven by a monthly AI sweep (see awow_monthly_pregnancy_tick_effect). No male is ever
+# involved: a child is produced by create_character with both women as parents.
+#
+# Visible pregnancy uses the vanilla `pregnant` trait (shows the belly) plus Carnalitas's
+# custom-pregnancy variable so `carn_has_any_custom_pregnancy_trigger` / the stage-change
+# timer track the pregnancy and clean up correctly.
+
+# ---------------------------------------------------------------------------
+# awow_pick_female_chance (requires RULE = player|dynasty|world)
+# Reads the active awow_birth_gender_<RULE>_<N> game rule and stores the female
+# percentage (0-100) into var:awow_baby_female_chance. The number in the rule name
+# IS the female percentage, so each branch simply assigns that value.
+# ---------------------------------------------------------------------------
+awow_pick_female_chance = { # requires RULE
+	if = {
+		limit = { has_game_rule = awow_birth_gender_$RULE$_100 }
+		set_variable = { name = awow_baby_female_chance value = 100 }
+	}
+	else_if = {
+		limit = { has_game_rule = awow_birth_gender_$RULE$_99 }
+		set_variable = { name = awow_baby_female_chance value = 99 }
+	}
+	else_if = {
+		limit = { has_game_rule = awow_birth_gender_$RULE$_95 }
+		set_variable = { name = awow_baby_female_chance value = 95 }
+	}
+	else_if = {
+		limit = { has_game_rule = awow_birth_gender_$RULE$_90 }
+		set_variable = { name = awow_baby_female_chance value = 90 }
+	}
+	else_if = {
+		limit = { has_game_rule = awow_birth_gender_$RULE$_80 }
+		set_variable = { name = awow_baby_female_chance value = 80 }
+	}
+	else_if = {
+		limit = { has_game_rule = awow_birth_gender_$RULE$_75 }
+		set_variable = { name = awow_baby_female_chance value = 75 }
+	}
+	else_if = {
+		limit = { has_game_rule = awow_birth_gender_$RULE$_67 }
+		set_variable = { name = awow_baby_female_chance value = 67 }
+	}
+	else_if = {
+		limit = { has_game_rule = awow_birth_gender_$RULE$_50 }
+		set_variable = { name = awow_baby_female_chance value = 50 }
+	}
+	else_if = {
+		limit = { has_game_rule = awow_birth_gender_$RULE$_33 }
+		set_variable = { name = awow_baby_female_chance value = 33 }
+	}
+	else_if = {
+		limit = { has_game_rule = awow_birth_gender_$RULE$_25 }
+		set_variable = { name = awow_baby_female_chance value = 25 }
+	}
+	else_if = {
+		limit = { has_game_rule = awow_birth_gender_$RULE$_20 }
+		set_variable = { name = awow_baby_female_chance value = 20 }
+	}
+	else_if = {
+		limit = { has_game_rule = awow_birth_gender_$RULE$_10 }
+		set_variable = { name = awow_baby_female_chance value = 10 }
+	}
+	else_if = {
+		limit = { has_game_rule = awow_birth_gender_$RULE$_5 }
+		set_variable = { name = awow_baby_female_chance value = 5 }
+	}
+	else_if = {
+		limit = { has_game_rule = awow_birth_gender_$RULE$_1 }
+		set_variable = { name = awow_baby_female_chance value = 1 }
+	}
+	else = {
+		set_variable = { name = awow_baby_female_chance value = 0 }
+	}
+}
+
+# ---------------------------------------------------------------------------
+# awow_baby_female_chance_value
+# Produces var:awow_baby_female_chance (0-100) for a scripted birth.
+# Must be called with root = the pregnant mother and a saved scope
+# `awow_other_mother` = the other woman (her partner). Mirrors the three-tier logic
+# in awow.0020 so the two never drift.
+#   - player tier:  either woman is the player's character (not AI)
+#   - dynasty tier: both AI and either woman belongs to a player's dynasty
+#   - world tier:   everything else
+# ---------------------------------------------------------------------------
+awow_baby_female_chance_value = {
+	if = {
+		limit = {
+			OR = {
+				is_ai = no
+				scope:awow_other_mother = { is_ai = no }
+			}
+		}
+		awow_pick_female_chance = { RULE = player }
+	}
+	else_if = {
+		limit = {
+			AND = {
+				is_ai = yes
+				scope:awow_other_mother = { is_ai = yes }
+				OR = {
+					AND = {
+						exists = dynasty
+						any_player = { dynasty = prev.dynasty }
+					}
+					scope:awow_other_mother = {
+						AND = {
+							exists = dynasty
+							any_player = { dynasty = prev.dynasty }
+						}
+					}
+				}
+			}
+		}
+		awow_pick_female_chance = { RULE = dynasty }
+	}
+	else = {
+		awow_pick_female_chance = { RULE = world }
+	}
+}
+
+# ---------------------------------------------------------------------------
+# awow_start_same_sex_pregnancy_effect (requires PARTNER_ID)
+# Begins the scripted pregnancy on the current root (the pregnant mother).
+# PARTNER_ID is the character_id of the other woman, stored for the birth event.
+# Adds the visible `pregnant` trait and registers a Carnalitas custom pregnancy so its
+# stage-change timer (carn_custom_pregnancy.0001, DAYS_UNTIL_NEXT_STAGE = 280) eventually
+# fires awow_pregnancy.0001 via carn_on_custom_pregnancy_stage_change.
+# ---------------------------------------------------------------------------
+awow_start_same_sex_pregnancy_effect = { # requires PARTNER_ID
+	set_variable = { name = awow_other_mother_id value = $PARTNER_ID$ }
+	add_trait_force_tooltip = pregnant
+	carn_start_custom_pregnancy_effect = {
+		PREGNANCY_TYPE = awow_same_sex
+		DAYS_UNTIL_NEXT_STAGE = 280
+		CAN_BE_ABORTED = no
+	}
+}
+
+# ---------------------------------------------------------------------------
+# awow_try_same_sex_pregnancy_effect
+# Per-couple autonomous roll, run from the monthly tick on each eligible AI woman.
+# - Guard: must be a valid bearer and have a female AI partner.
+# - Deterministic couple lock: only the lower-character_id woman of a pair decides, so
+#   a couple attempts at most once per tick (prevents double conception in one month).
+# - 50/50 pick of which woman carries; fertility roll gates the actual conception.
+# ---------------------------------------------------------------------------
+awow_try_same_sex_pregnancy_effect = {
+	if = {
+		limit = {
+			awow_same_sex_can_bear_trigger = yes
+			awow_has_ai_female_partner_trigger = yes
+		}
+
+		# Capture one eligible female partner (the first match is fine; which
+		# partner conceives is immaterial to the outcome).
+		every_relation = {
+			limit = {
+				is_female = yes
+				is_ai = yes
+				OR = {
+					is_spouse = yes
+					is_concubine = yes
+					is_primary_lover = yes
+					is_lover = yes
+					is_consort = yes
+				}
+			}
+			if = {
+				limit = { NOT = { exists = scope:awow_partner } }
+				save_scope_as = awow_partner
+			}
+		}
+
+		# Only the lower-id woman decides for this couple this tick.
+		if = {
+			limit = { character_id < scope:awow_partner.character_id }
+
+			# Fertility chance: average of both women's fertility, scaled.
+			# Tunable multiplier (20) keeps monthly conception moderate so the
+			# population is self-sustaining without exploding.
+			set_variable = {
+				name = awow_fert_chance
+				value = scope:this.fertility
+			}
+			change_variable = {
+				name = awow_fert_chance
+				add = scope:awow_partner.fertility
+			}
+			divide_variable = {
+				name = awow_fert_chance
+				value = 2
+			}
+			multiply_variable = {
+				name = awow_fert_chance
+				value = 20
+			}
+
+			random = {
+				chance = var:awow_fert_chance
+				if = {
+					limit = { always = yes }
+					# This woman carries.
+					awow_start_same_sex_pregnancy_effect = {
+						PARTNER_ID = scope:awow_partner.character_id
+					}
+				}
+				else = {
+					# Partner carries: switch scope and start on her.
+					scope:awow_partner = {
+						awow_start_same_sex_pregnancy_effect = {
+							PARTNER_ID = scope:this.character_id
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# ---------------------------------------------------------------------------
+# awow_monthly_pregnancy_tick_effect
+# One global sweep over all living AI women. Each eligible woman runs the per-couple
+# roll. Self-reschedules every 30 days to emulate a monthly conception pulse.
+# Called once at game start by awow_game_start_setup.
+# ---------------------------------------------------------------------------
+awow_monthly_pregnancy_tick_effect = {
+	every_living_character = {
+		limit = {
+			awow_same_sex_can_bear_trigger = yes
+			awow_has_ai_female_partner_trigger = yes
+		}
+		awow_try_same_sex_pregnancy_effect = yes
+	}
+	# Reschedule the next pulse (30 days ~ one month).
+	trigger_event = {
+		id = awow_pregnancy.0003
+		days = 30
+	}
+}
