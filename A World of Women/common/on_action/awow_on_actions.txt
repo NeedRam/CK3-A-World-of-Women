@@ -5,29 +5,32 @@
 }
 
 on_birth_mother = {
-	events = {
-		awow_birth.1000
-	}
+    events = {
+        awow_birth.1000
+    }
 }
 
 on_birth_father = {
-	events = {
-		awow_birth.1001
-	}
+    events = {
+        awow_birth.1001
+    }
 }
 
 awow_game_start_setup = {
-	effect = {
-		every_player = {
-			trigger_event = awow.1000
-			trigger_event = awow_pregnancy.0003
-			debug_log = "AWOW SS-PREG: game start prep successful"
-		}
-		every_living_character = {
-			limit = { NOT = { has_character_flag = awow_relations_backfilled } }
-			awow_backfill_relations_effect = yes
-		}
-	}
+    effect = {
+        every_player = {
+            debug_log = "AWOW Culling: Prep START"
+            trigger_event = awow.1000
+            debug_log = "AWOW Culling: Prep DONE"
+
+        }
+        debug_log = "AWOW SS-PREG: Prep START"
+        awow_monthly_pregnancy_tick_effect = yes
+        debug_log = "AWOW SS-PREG: Prep DONE"
+        debug_log = "AWOW Backfill: START"
+        awow_backfill_relations_effect = yes
+        debug_log = "AWOW Backfill DONE"
+    }
 }
 
 on_pregnancy_mother = {
