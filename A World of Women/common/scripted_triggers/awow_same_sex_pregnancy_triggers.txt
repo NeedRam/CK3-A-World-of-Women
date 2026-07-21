@@ -8,7 +8,8 @@ awow_same_sex_can_bear_trigger = {
 		can_have_children = yes
 		age <= 45
 		NOT = { is_pregnant = yes }
-		carn_has_any_custom_pregnancy_trigger = no
+		NOT = { has_variable = awow_pregnancy_active }
+		NOT = { has_variable = awow_same_sex_partner_cooldown }
 	}
 }
 

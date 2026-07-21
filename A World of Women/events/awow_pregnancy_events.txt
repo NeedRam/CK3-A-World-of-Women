@@ -1,35 +1,26 @@
 ﻿namespace = awow_pregnancy
 
 # 0001 - Scripted birth for a same-sex (female-female) pregnancy.
-# Fired on the pregnant mother via Carnalitas's carn_on_custom_pregnancy_stage_change
-# hook 280 days after the pregnancy started. Creates a new FEMALE child with both women
-# as parents. No male is ever involved.
+# Fired on the pregnant mother 280 days after the AWOW pregnancy starts.
 awow_pregnancy.0001 = {
     type = character_event
     hidden = yes
 
     trigger = {
         is_alive = yes
-        has_trait = pregnant
-        exists = var:awow_other_mother_id
+        has_variable = awow_pregnancy_active
     }
 
     immediate = {
         debug_log = "AWOW SS-PREG: BIRTH event fired"
         debug_log = "AWOW SS-PREG: BIRTH checks passed"
         # Resolve the other mother (may have died during the pregnancy).
-        character = var:awow_other_mother_id
-        save_scope_as = awow_other_mother
+        var:awow_other_mother = {
+            save_scope_as = awow_other_mother
+        }
 
-        # Compute the female-percentage for the child from the active game rule.
-        # If the other mother is gone, default to 100%% (this is a world of women).
-        if = {
-            limit = { exists = scope:awow_other_mother }
-            awow_baby_female_chance_value = yes
-        }
-        else = {
-            set_variable = { name = awow_baby_female_chance value = 100 }
-        }
+        # Reuse AWOW's configured player/dynasty/world gender rules.
+        awow_baby_female_chance_value = yes
 
         debug_log = "AWOW SS-PREG: BIRTH other_mother resolved"
 
@@ -41,10 +32,9 @@ awow_pregnancy.0001 = {
                 random_traits = no
                 culture = root.culture
                 faith = root.faith
-                dynasty = root.dynasty
-                employer = root.employer
+                dynasty = inherit
+                location = root.location
                 mother = root
-                father = scope:awow_other_mother
                 gender_female_chance = var:awow_baby_female_chance
                 save_scope_as = child
             }
@@ -56,8 +46,8 @@ awow_pregnancy.0001 = {
                 random_traits = no
                 culture = root.culture
                 faith = root.faith
-                dynasty = root.dynasty
-                employer = root.employer
+                dynasty = inherit
+                location = root.location
                 mother = root
                 gender_female_chance = var:awow_baby_female_chance
                 save_scope_as = child
@@ -65,10 +55,11 @@ awow_pregnancy.0001 = {
             debug_log = "AWOW SS-PREG: BIRTH created child mother only (other dead)"
         }
 
-        # Link the child to the other mother explicitly (idempotent if she exists).
+        # CK3 rejects a female character in the biological father slot. Adoption
+        # is the engine-supported way to attach the second woman as a parent.
         if = {
             limit = { exists = scope:awow_other_mother }
-            scope:child = { set_father = scope:awow_other_mother }
+            scope:awow_other_mother = { adopt = scope:child }
         }
 
         # Birth memory so the event shows up in the character's timeline.
@@ -81,7 +72,8 @@ awow_pregnancy.0001 = {
 
         # Cleanup: remove the visible trait and Carnalitas's custom-pregnancy state.
         remove_trait = pregnant
-        remove_variable = awow_other_mother_id
+        remove_variable = awow_pregnancy_active
+        remove_variable = awow_other_mother
         carn_end_custom_pregnancy_effect = yes
 
         # Announce to the player only if the mother is the player's character
@@ -116,81 +108,17 @@ awow_pregnancy.0002 = {
     }
 }
 
-# 0003 - Monthly scheduler pulse (self-rescheduling). Iterates all living AI women and
-# runs the same-sex conception roll. Started once at game start; reschedules every 30 days.
+# 0003 - Low-frequency scheduler pulse. Iterates all living AI women once per year and
+# reschedules itself. The pregnancy itself still lasts 280 days.
 awow_pregnancy.0003 = {
     type = character_event
     hidden = yes
 
     immediate = {
-        debug_log = "AWOW SS-PREG: scheduler pulse 0003 fired"
         awow_monthly_pregnancy_tick_effect = yes
     }
 }
 
-# 0004 - Probe: does carn_on_custom_pregnancy_stage_change actually fire our events?
-# If this appears in the log, the on_action hook works and the issue is in 0001's trigger.
-awow_pregnancy.0004 = {
-    type = character_event
-    hidden = yes
-    immediate = {
-        debug_log = "AWOW SS-PREG: PROBE stage_change hook fired on X hook_works=YES"
-    }
-}
-
-
-
-# 0005 - Probe: try birth logic directly on a stuck pregnancy.
-# If this creates a child, the birth event logic works and the issue is the Carnalitas timer/on_action.
-# If it doesn't, the issue is in the birth event itself.
-awow_pregnancy.0005 = {
-    type = character_event
-    hidden = yes
-    trigger = {
-        is_alive = yes
-        has_trait = pregnant
-        exists = var:awow_other_mother_id
-    }
-    immediate = {
-        debug_log = "AWOW SS-PREG: PROBE birth direct on X"
-        character = var:awow_other_mother_id
-        save_scope_as = awow_other_mother
-        if = {
-            limit = { exists = scope:awow_other_mother }
-            create_character = {
-                age = 0
-                random_traits = no
-                culture = root.culture
-                faith = root.faith
-                dynasty = root.dynasty
-                employer = root.employer
-                mother = root
-                father = scope:awow_other_mother
-                gender_female_chance = 100
-                save_scope_as = child
-            }
-            debug_log = "AWOW SS-PREG: PROBE birth DIRECT SUCCESS"
-            remove_trait = pregnant
-            remove_variable = awow_other_mother_id
-        }
-        else = {
-            create_character = {
-                age = 0
-                random_traits = no
-                culture = root.culture
-                faith = root.faith
-                dynasty = root.dynasty
-                employer = root.employer
-                mother = root
-                gender_female_chance = 100
-                save_scope_as = child
-            }
-            debug_log = "AWOW SS-PREG: PROBE birth DIRECT SUCCESS no father"
-            remove_trait = pregnant
-            remove_variable = awow_other_mother_id
-        }
-    }
-}
 
 
 

@@ -104,7 +104,7 @@ awow_test_same_sex_pregnancy_interaction = {
         debug_log = "AWOW SS-PREG TEST: the player forced pregnancy on their spouse"
         scope:recipient = {
             awow_start_same_sex_pregnancy_effect = {
-                PARTNER_ID = scope:this.character_id
+                PARTNER = scope:actor
             }
         }
     }
