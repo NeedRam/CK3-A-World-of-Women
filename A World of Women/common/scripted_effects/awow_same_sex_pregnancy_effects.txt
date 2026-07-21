@@ -1,4 +1,4 @@
-# AWOW same-sex (female-female) pregnancy scripted effects
+﻿# AWOW same-sex (female-female) pregnancy scripted effects
 #
 # Driven by a monthly AI sweep (see awow_monthly_pregnancy_tick_effect). No male is ever
 # involved: a child is produced by create_character with both women as parents.
@@ -81,9 +81,6 @@ awow_pick_female_chance = { # requires RULE
 # Must be called with root = the pregnant mother and a saved scope
 # `awow_other_mother` = the other woman (her partner). Mirrors the three-tier logic
 # in awow.0020 so the two never drift.
-#   - player tier:  either woman is the player's character (not AI)
-#   - dynasty tier: both AI and either woman belongs to a player's dynasty
-#   - world tier:   everything else
 # ---------------------------------------------------------------------------
 awow_baby_female_chance_value = {
 	if = {
@@ -124,13 +121,9 @@ awow_baby_female_chance_value = {
 # ---------------------------------------------------------------------------
 # awow_start_same_sex_pregnancy_effect (requires PARTNER_ID)
 # Begins the scripted pregnancy on the current root (the pregnant mother).
-# PARTNER_ID is the character_id of the other woman, stored for the birth event.
-# Adds the visible `pregnant` trait and registers a Carnalitas custom pregnancy so its
-# stage-change timer (carn_custom_pregnancy.0001, DAYS_UNTIL_NEXT_STAGE = 280) eventually
-# fires awow_pregnancy.0001 via carn_on_custom_pregnancy_stage_change.
 # ---------------------------------------------------------------------------
 awow_start_same_sex_pregnancy_effect = { # requires PARTNER_ID
-	debug_log = "AWOW SS-PREG: START pregnancy on [this.GetName] ([this.GetID]) partner_id=$PARTNER_ID$"
+	debug_log = "AWOW SS-PREG: START [this.GetName] partner_id=$PARTNER_ID$"
 	set_variable = { name = awow_other_mother_id value = $PARTNER_ID$ }
 	add_trait_force_tooltip = pregnant
 	carn_start_custom_pregnancy_effect = {
@@ -138,16 +131,11 @@ awow_start_same_sex_pregnancy_effect = { # requires PARTNER_ID
 		DAYS_UNTIL_NEXT_STAGE = 280
 		CAN_BE_ABORTED = no
 	}
-	debug_log = "AWOW SS-PREG: after start, has_trait_pregnant=[has_trait=pregnant] carn_custom_preg set=[exists=var:carn_custom_pregnancy]"
+	debug_log = "AWOW SS-PREG: after_start pregnant=[has_trait=pregnant] carn_var=[exists=var:carn_custom_pregnancy]"
 }
 
 # ---------------------------------------------------------------------------
 # awow_try_same_sex_pregnancy_effect
-# Per-couple autonomous roll, run from the monthly tick on each eligible AI woman.
-# - Guard: must be a valid bearer and have a female AI partner.
-# - Deterministic couple lock: only the lower-character_id woman of a pair decides, so
-#   a couple attempts at most once per tick (prevents double conception in one month).
-# - 50/50 pick of which woman carries; fertility roll gates the actual conception.
 # ---------------------------------------------------------------------------
 awow_try_same_sex_pregnancy_effect = {
 	debug_log = "AWOW SS-PREG: try [this.GetName] ([this.GetID])"
@@ -157,40 +145,34 @@ awow_try_same_sex_pregnancy_effect = {
 			awow_has_ai_female_partner_trigger = yes
 		}
 
-		# Capture one eligible female partner (the first match is fine; which
-		# partner conceives is immaterial to the outcome).
-		every_relation = {
+		random_spouse = {
 			limit = {
 				is_female = yes
 				is_ai = yes
-				OR = {
-					is_spouse = yes
-					is_concubine = yes
-					is_primary_lover = yes
-					is_lover = yes
-					is_consort = yes
-				}
 			}
-			if = {
-				limit = { NOT = { exists = scope:awow_partner } }
+			save_scope_as = awow_partner
+		}
+		if = {
+			limit = { NOT = { exists = scope:awow_partner } }
+			random_consort = {
+				limit = {
+					is_female = yes
+					is_ai = yes
+				}
 				save_scope_as = awow_partner
 			}
 		}
 
 		if = {
 			limit = { exists = scope:awow_partner }
-			debug_log = "AWOW SS-PREG: partner found [scope:awow_partner.GetName] ([scope:awow_partner.GetID]) for [this.GetName]"
+			debug_log = "AWOW SS-PREG: partner [scope:awow_partner.GetName] ([scope:awow_partner.GetID]) for [this.GetName]"
 		}
 
-		# Only the lower-id woman decides for this couple this tick.
 		if = {
 			limit = { character_id < scope:awow_partner.character_id }
 
-				debug_log = "AWOW SS-PREG: [this.GetName] is decider for couple; fert=[scope:this.fertility] partner_fert=[scope:awow_partner.fertility]"
+			debug_log = "AWOW SS-PREG: decider [this.GetName] fert=[scope:this.fertility] partner_fert=[scope:awow_partner.fertility]"
 
-			# Fertility chance: average of both women's fertility, scaled.
-			# Tunable multiplier (20) keeps monthly conception moderate so the
-			# population is self-sustaining without exploding.
 			set_variable = {
 				name = awow_fert_chance
 				value = scope:this.fertility
@@ -208,21 +190,19 @@ awow_try_same_sex_pregnancy_effect = {
 				value = 20
 			}
 
-			debug_log = "AWOW SS-PREG: fert_chance=[var:awow_fert_chance] for [this.GetName]"
+			debug_log = "AWOW SS-PREG: fert_chance=[var:awow_fert_chance]"
 
 			random = {
 				chance = var:awow_fert_chance
 				if = {
 					limit = { always = yes }
-					# This woman carries.
-					debug_log = "AWOW SS-PREG: ROLLED SUCCESS [this.GetName] carries"
+					debug_log = "AWOW SS-PREG: SUCCESS [this.GetName] carries"
 					awow_start_same_sex_pregnancy_effect = {
 						PARTNER_ID = scope:awow_partner.character_id
 					}
 				}
 				else = {
-					# Partner carries: switch scope and start on her.
-					debug_log = "AWOW SS-PREG: ROLLED SUCCESS partner [scope:awow_partner.GetName] carries"
+					debug_log = "AWOW SS-PREG: SUCCESS partner carries"
 					scope:awow_partner = {
 						awow_start_same_sex_pregnancy_effect = {
 							PARTNER_ID = scope:this.character_id
@@ -236,23 +216,60 @@ awow_try_same_sex_pregnancy_effect = {
 
 # ---------------------------------------------------------------------------
 # awow_monthly_pregnancy_tick_effect
-# One global sweep over all living AI women. Each eligible woman runs the per-couple
-# roll. Self-reschedules every 30 days to emulate a monthly conception pulse.
-# Called once at game start by awow_game_start_setup.
+# DIAGNOSTIC version: counts AI females and why they don't qualify.
 # ---------------------------------------------------------------------------
 awow_monthly_pregnancy_tick_effect = {
 	debug_log = "AWOW SS-PREG: monthly tick start"
+
+	set_global_variable = { name = awow_diag_total_ai_fem value = 0 }
+	set_global_variable = { name = awow_diag_has_partner  value = 0 }
+	set_global_variable = { name = awow_diag_spouse_only  value = 0 }
+	set_global_variable = { name = awow_diag_can_bear    value = 0 }
+	set_global_variable = { name = awow_diag_candidate    value = 0 }
+
 	every_living_character = {
-		limit = {
-			awow_same_sex_can_bear_trigger = yes
-			awow_has_ai_female_partner_trigger = yes
+		limit = { is_ai = yes is_female = yes }
+		change_global_variable = { name = awow_diag_total_ai_fem add = 1 }
+		debug_log = "AWOW SS-PREG: diag_ai_fem"
+
+		if = {
+			limit = { awow_has_spouse_partner_trigger = yes }
+			change_global_variable = { name = awow_diag_spouse_only add = 1 }
+			debug_log = "AWOW SS-PREG: diag_spouse_only"
 		}
-		debug_log = "AWOW SS-PREG: candidate [this.GetName] ([this.GetID])"
-		awow_try_same_sex_pregnancy_effect = yes
+
+		if = {
+			limit = { awow_has_ai_female_partner_trigger = yes }
+			change_global_variable = { name = awow_diag_has_partner add = 1 }
+			debug_log = "AWOW SS-PREG: diag_has_partner"
+		}
+
+		if = {
+			limit = { awow_same_sex_can_bear_trigger = yes }
+			change_global_variable = { name = awow_diag_can_bear add = 1 }
+			debug_log = "AWOW SS-PREG: diag_can_bear"
+		}
+
+		if = {
+			limit = {
+				awow_same_sex_can_bear_trigger = yes
+				awow_has_ai_female_partner_trigger = yes
+			}
+			change_global_variable = { name = awow_diag_candidate add = 1 }
+			debug_log = "AWOW SS-PREG: CANDIDATE FOUND"
+			awow_try_same_sex_pregnancy_effect = yes
+		}
 	}
-	# Reschedule the next pulse (30 days ~ one month).
+
+	debug_log = "AWOW SS-PREG: diag DONE"
+
 	trigger_event = {
 		id = awow_pregnancy.0003
 		days = 30
 	}
 }
+
+
+
+
+

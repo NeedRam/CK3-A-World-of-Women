@@ -1,15 +1,5 @@
-# AWOW same-sex (female-female) pregnancy triggers
-#
-# These are used by the autonomous monthly AI pregnancy tick. They decide whether a
-# given character (root) is a valid candidate and whether she has a female partner to
-# conceive with. Both women must be AI (the player is normally male and excluded) and
-# both must be female (no male is ever involved).
+﻿# AWOW same-sex (female-female) pregnancy triggers
 
-# A character who is a valid pregnancy candidate on her own:
-# - alive, female, AI
-# - able to have children (not sterilized / incapable)
-# - of reproductive age (<= MAX_FEMALE_REPRODUCTION_AGE = 45 in base defines)
-# - not already pregnant (engine or any custom pregnancy)
 awow_same_sex_can_bear_trigger = {
 	AND = {
 		is_alive = yes
@@ -22,21 +12,26 @@ awow_same_sex_can_bear_trigger = {
 	}
 }
 
-# Does the character have a female AI partner in an intimate relation?
-# Covers spouses, concubines, primary/secondary lovers, and consorts.
-# Used to gate the per-couple roll. Evaluated on root (the candidate mother).
+# Does the character have a female AI spouse or concubine?
+# Uses CK3 dedicated iterators (any_spouse / any_consort), NOT any_relation
+# with type=spouse (spouse is not a relation type in CK3).
 awow_has_ai_female_partner_trigger = {
-	any_relation = {
-		AND = {
+	OR = {
+		any_spouse = {
 			is_female = yes
 			is_ai = yes
-			OR = {
-				is_spouse = yes
-				is_concubine = yes
-				is_primary_lover = yes
-				is_lover = yes
-				is_consort = yes
-			}
 		}
+		any_consort = {
+			is_female = yes
+			is_ai = yes
+		}
+	}
+}
+
+# Diagnostic: spouse-only variant (no concubines) for comparison in logs.
+awow_has_spouse_partner_trigger = {
+	any_spouse = {
+		is_female = yes
+		is_ai = yes
 	}
 }
