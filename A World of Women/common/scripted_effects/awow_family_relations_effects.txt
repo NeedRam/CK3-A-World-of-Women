@@ -1,4 +1,4 @@
-awow_assign_parent_effect = {
+﻿awow_assign_parent_effect = {
 	set_relation_awow_parent = scope:child
 }
 
@@ -9,7 +9,7 @@ awow_assign_parent_engine_effect = {
 		every_child = {
 			limit = {
 				has_relation_awow_parent = scope:awow_child
-				NOT = { is_same_character = scope:awow_child }
+				NOT = { this = scope:awow_child }
 			}
 			awow_assign_sibling_effect = {
 				sibling_a = scope:awow_child
@@ -59,7 +59,7 @@ awow_assign_parent_co_mother_effect = {
 		every_child = {
 			limit = {
 				has_relation_awow_parent = scope:awow_child
-				NOT = { is_same_character = scope:awow_child }
+				NOT = { this = scope:awow_child }
 			}
 			awow_assign_sibling_effect = {
 				sibling_a = scope:awow_child
@@ -128,89 +128,98 @@ awow_assign_birth_relations_effect = {
 }
 
 awow_backfill_relations_effect = {
-	set_character_flag = awow_relations_backfilled
+	add_character_flag = awow_relations_backfilled
 
 	if = {
-		limit = { exists = mother }
-		awow_assign_parent_engine_effect = yes
-	}
-	if = {
-		limit = { exists = father }
-		scope:father = {
-			save_scope_as = parent
+		limit = {
+			OR = {
+				exists = mother
+				exists = father
+				any_sibling = { is_alive = yes }
+			}
+		}
+		if = {
+			limit = { exists = mother }
 			awow_assign_parent_engine_effect = yes
 		}
-	}
-
-	every_sibling = {
-		limit = { is_alive = yes }
-		awow_assign_sibling_effect = {
-			sibling_a = scope:awow_child
-			sibling_b = scope:this
-		}
-	}
-
-	every_sibling = {
-		limit = { is_alive = yes }
-		scope:mother = {
-			save_scope_as = parent
-			awow_assign_grandparent_effect = {
-				grandparent = scope:this
-				grandchild = scope:awow_child
+		if = {
+			limit = { exists = father }
+			scope:father = {
+				save_scope_as = parent
+				awow_assign_parent_engine_effect = yes
 			}
 		}
-		scope:father = {
-			save_scope_as = parent
-			awow_assign_grandparent_effect = {
-				grandparent = scope:this
-				grandchild = scope:awow_child
+
+		every_sibling = {
+			limit = { is_alive = yes }
+			awow_assign_sibling_effect = {
+				sibling_a = scope:awow_child
+				sibling_b = scope:this
 			}
 		}
-	}
 
-	if = {
-		limit = { exists = mother }
-		scope:mother = {
-			save_scope_as = parent
-			if = {
-				limit = { exists = scope:parent.mother }
-				scope:parent.mother = {
-					awow_assign_grandparent_effect = {
-						grandparent = scope:this
-						grandchild = scope:awow_child
-					}
+		every_sibling = {
+			limit = { is_alive = yes }
+			scope:mother = {
+				save_scope_as = parent
+				awow_assign_grandparent_effect = {
+					grandparent = scope:this
+					grandchild = scope:awow_child
 				}
 			}
-			if = {
-				limit = { exists = scope:parent.father }
-				scope:parent.father = {
-					awow_assign_grandparent_effect = {
-						grandparent = scope:this
-						grandchild = scope:awow_child
-					}
+			scope:father = {
+				save_scope_as = parent
+				awow_assign_grandparent_effect = {
+					grandparent = scope:this
+					grandchild = scope:awow_child
 				}
 			}
 		}
-	}
-	if = {
-		limit = { exists = father }
-		scope:father = {
-			save_scope_as = parent
-			if = {
-				limit = { exists = scope:parent.mother }
-				scope:parent.mother = {
-					awow_assign_grandparent_effect = {
-						grandparent = scope:this
-						grandchild = scope:awow_child
+
+		if = {
+			limit = { exists = mother }
+			scope:mother = {
+				save_scope_as = parent
+				if = {
+					limit = { exists = scope:parent.mother }
+					scope:parent.mother = {
+						awow_assign_grandparent_effect = {
+							grandparent = scope:this
+							grandchild = scope:awow_child
+						}
+					}
+				}
+				if = {
+					limit = { exists = scope:parent.father }
+					scope:parent.father = {
+						awow_assign_grandparent_effect = {
+							grandparent = scope:this
+							grandchild = scope:awow_child
+						}
 					}
 				}
 			}
-			if = {
-				limit = { exists = scope:parent.father }
-				scope:parent.father = {
-					awow_assign_grandparent_effect = {
-						grandparent = scope:this
-						grandchild = scope:awow_child
+		}
+		if = {
+			limit = { exists = father }
+			scope:father = {
+				save_scope_as = parent
+				if = {
+					limit = { exists = scope:parent.mother }
+					scope:parent.mother = {
+						awow_assign_grandparent_effect = {
+							grandparent = scope:this
+							grandchild = scope:awow_child
+						}
+					}
+				}
+				if = {
+					limit = { exists = scope:parent.father }
+					scope:parent.father = {
+						awow_assign_grandparent_effect = {
+							grandparent = scope:this
+							grandchild = scope:awow_child
+						}
 					}
 				}
 			}
