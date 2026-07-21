@@ -110,6 +110,7 @@ awow_start_same_sex_pregnancy_effect = { # requires PARTNER
 		CAN_BE_ABORTED = yes
 	}
 	add_trait_force_tooltip = pregnant
+	awow_roll_multiple_children_chance_effect = yes
 	trigger_event = {
 		id = awow_pregnancy.0001
 		days = 280
@@ -156,19 +157,41 @@ awow_try_same_sex_pregnancy_effect = {
 			random_list = {
 				50 = {
 					random = {
-						chance = carn_sex_pregnancy_chance
+						chance = awow_impregnation_chance_value
 						awow_start_same_sex_pregnancy_effect = { PARTNER = scope:awow_partner }
 					}
 				}
 				50 = {
 					scope:awow_partner = {
 						random = {
-							chance = carn_sex_pregnancy_chance
+							chance = awow_impregnation_chance_value
 							awow_start_same_sex_pregnancy_effect = { PARTNER = scope:awow_root }
 						}
 					}
 				}
 			}
+		}
+	}
+}
+
+awow_roll_multiple_children_chance_effect = {
+	if = {
+		limit = {
+			NOR = {
+				has_character_flag = awow_pregnancy_will_be_twins_flag
+				has_character_flag = awow_pregnancy_will_be_triplets_flag
+			}
+		}
+		random = {
+			chance = awow_pregnancy_twin_chance_value
+			add_character_flag = awow_pregnancy_will_be_twins_flag
+		}
+	}
+	if = {
+		limit = { NOT = { has_character_flag = awow_pregnancy_will_be_twins_flag } }
+		random = {
+			chance = awow_pregnancy_triplet_chance_value
+			add_character_flag = awow_pregnancy_will_be_triplets_flag
 		}
 	}
 }
@@ -183,6 +206,6 @@ awow_monthly_pregnancy_tick_effect = {
 	}
 	trigger_event = {
 		id = awow_pregnancy.0003
-		days = 365
+		days = awow_pregnancy_scheduler_days_value
 	}
 }

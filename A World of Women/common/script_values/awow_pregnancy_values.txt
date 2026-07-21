@@ -1,0 +1,171 @@
+awow_pregnancy_scheduler_days_value = {
+	value = 365
+}
+
+awow_impregnation_bearer_value = {
+	value = 0
+	add = {
+		value = scope:mother.fertility
+		multiply = 50
+	}
+	if = {
+		limit = { scope:mother = { has_trait = fecund } }
+		add = 50
+	}
+	if = {
+		limit = { scope:mother = { has_trait = infertile } }
+		subtract = 50
+	}
+	if = {
+		limit = { scope:mother = { has_trait = impotent } }
+		subtract = 50
+	}
+	if = {
+		limit = { scope:mother = { effective_age > 45 } }
+		subtract = {
+			value = scope:mother.effective_age
+			subtract = 45
+			multiply = 2
+			min = 0
+		}
+	}
+	min = 0
+	max = 100
+}
+
+awow_impregnation_partner_value = {
+	value = 0
+	add = {
+		value = scope:father.fertility
+		multiply = 50
+	}
+	if = {
+		limit = { scope:father = { has_trait = fecund } }
+		add = 50
+	}
+	if = {
+		limit = { scope:father = { has_trait = infertile } }
+		subtract = 50
+	}
+	if = {
+		limit = { scope:father = { has_trait = impotent } }
+		subtract = 50
+	}
+	min = 0
+	max = 100
+}
+
+awow_impregnation_chance_value = {
+	value = 0
+	add = awow_impregnation_bearer_value
+	add = awow_impregnation_partner_value
+	divide = 2
+	if = {
+		limit = {
+			OR = {
+				scope:mother = { has_relation_wedding_good_fertility = scope:father }
+				scope:father = { has_relation_wedding_good_fertility = scope:mother }
+			}
+		}
+		multiply = 1.25
+	}
+	else_if = {
+		limit = {
+			OR = {
+				scope:mother = { has_relation_wedding_very_good_fertility = scope:father }
+				scope:father = { has_relation_wedding_very_good_fertility = scope:mother }
+			}
+		}
+		multiply = 1.50
+	}
+	else_if = {
+		limit = {
+			OR = {
+				scope:mother = { has_relation_wedding_bad_fertility = scope:father }
+				scope:father = { has_relation_wedding_bad_fertility = scope:mother }
+			}
+		}
+		multiply = 0.50
+	}
+	else_if = {
+		limit = {
+			OR = {
+				scope:mother = { has_relation_wedding_very_bad_fertility = scope:father }
+				scope:father = { has_relation_wedding_very_bad_fertility = scope:mother }
+			}
+		}
+		multiply = 0
+	}
+	else_if = {
+		limit = {
+			OR = {
+				scope:mother = { is_spouse_of = scope:father }
+				scope:father = { is_spouse_of = scope:mother }
+			}
+		}
+		multiply = define:NChildbirth|PRIMARY_SPOUSE_FERTILITY_MULTIPLIER
+	}
+	else_if = {
+		limit = {
+			OR = {
+				scope:mother = { is_concubine_of = scope:father }
+				scope:father = { is_concubine_of = scope:mother }
+			}
+		}
+		multiply = define:NChildbirth|CONCUBINE_FERTILITY_MULTIPLIER
+	}
+	if = {
+		limit = {
+			scope:mother = { is_ruler = no }
+			scope:father = { is_ruler = no }
+		}
+		multiply = define:NChildbirth|NON_RULER_FERTILITY_MULTIPLIER
+	}
+	min = 0
+	max = 100
+}
+
+awow_pregnancy_twin_chance_value = {
+	value = 2
+	add = {
+		value = awow_impregnation_chance_value
+		subtract = 100
+		min = 0
+	}
+	if = {
+		limit = { scope:mother = { has_trait = fecund } }
+		add = 4
+	}
+	if = {
+		limit = { scope:mother = { has_trait = infertile } }
+		subtract = 4
+	}
+	round = yes
+}
+
+awow_pregnancy_triplet_chance_value = {
+	value = 0
+	if = {
+		limit = {
+			OR = {
+				scope:mother = { has_relation_wedding_very_good_fertility = scope:father }
+				scope:father = { has_relation_wedding_very_good_fertility = scope:mother }
+			}
+		}
+		add = 0.2
+	}
+	else_if = {
+		limit = {
+			OR = {
+				scope:mother = { has_relation_wedding_good_fertility = scope:father }
+				scope:father = { has_relation_wedding_good_fertility = scope:mother }
+			}
+		}
+		add = 0.1
+	}
+	round = yes
+}
+
+awow_pregnancy_child_limit_rule_value = {
+	value = 0.1
+}

@@ -2,6 +2,7 @@
 
 # 0001 - Scripted birth for a same-sex (female-female) pregnancy.
 # Fired on the pregnant mother 280 days after the AWOW pregnancy starts.
+# Supports singleton, twin, and triplet births via character flags set during conception.
 awow_pregnancy.0001 = {
     type = character_event
     hidden = yes
@@ -14,17 +15,25 @@ awow_pregnancy.0001 = {
     immediate = {
         debug_log = "AWOW SS-PREG: BIRTH event fired"
         debug_log = "AWOW SS-PREG: BIRTH checks passed"
-        # Resolve the other mother (may have died during the pregnancy).
         var:awow_other_mother = {
             save_scope_as = awow_other_mother
         }
 
-        # Reuse AWOW's configured player/dynasty/world gender rules.
         awow_baby_female_chance_value = yes
 
         debug_log = "AWOW SS-PREG: BIRTH other_mother resolved"
 
-        # Birth: both women are parents. Female father is data-only and safe.
+        if = {
+            limit = { exists = scope:awow_other_mother }
+            scope:awow_other_mother = {
+                save_scope_as = awow_co_mother_scope
+                if = {
+                    limit = { is_alive = yes }
+                    save_scope_as = awow_co_mother_alive
+                }
+            }
+        }
+
         if = {
             limit = { exists = scope:awow_other_mother }
             create_character = {
@@ -38,7 +47,7 @@ awow_pregnancy.0001 = {
                 gender_female_chance = var:awow_baby_female_chance
                 save_scope_as = child
             }
-            debug_log = "AWOW SS-PREG: BIRTH created child with both mothers"
+            scope:child = { set_relation_awow_co_mother = scope:awow_other_mother }
         }
         else = {
             create_character = {
@@ -52,17 +61,72 @@ awow_pregnancy.0001 = {
                 gender_female_chance = var:awow_baby_female_chance
                 save_scope_as = child
             }
-            debug_log = "AWOW SS-PREG: BIRTH created child mother only (other dead)"
         }
 
-        # CK3 rejects a female character in the biological father slot. Adoption
-        # is the engine-supported way to attach the second woman as a parent.
         if = {
-            limit = { exists = scope:awow_other_mother }
-            scope:awow_other_mother = { adopt = scope:child }
+            limit = { has_character_flag = awow_pregnancy_will_be_twins_flag }
+            if = {
+                limit = { exists = scope:awow_other_mother }
+                create_character = {
+                    age = 0
+                    random_traits = no
+                    culture = root.culture
+                    faith = root.faith
+                    dynasty = inherit
+                    location = root.location
+                    mother = root
+                    gender_female_chance = var:awow_baby_female_chance
+                    save_scope_as = child_2
+                }
+                scope:child_2 = { set_relation_awow_co_mother = scope:awow_other_mother }
+            }
+            else = {
+                create_character = {
+                    age = 0
+                    random_traits = no
+                    culture = root.culture
+                    faith = root.faith
+                    dynasty = inherit
+                    location = root.location
+                    mother = root
+                    gender_female_chance = var:awow_baby_female_chance
+                    save_scope_as = child_2
+                }
+            }
         }
 
-        # Birth memory so the event shows up in the character's timeline.
+        if = {
+            limit = { has_character_flag = awow_pregnancy_will_be_triplets_flag }
+            if = {
+                limit = { exists = scope:awow_other_mother }
+                create_character = {
+                    age = 0
+                    random_traits = no
+                    culture = root.culture
+                    faith = root.faith
+                    dynasty = inherit
+                    location = root.location
+                    mother = root
+                    gender_female_chance = var:awow_baby_female_chance
+                    save_scope_as = child_3
+                }
+                scope:child_3 = { set_relation_awow_co_mother = scope:awow_other_mother }
+            }
+            else = {
+                create_character = {
+                    age = 0
+                    random_traits = no
+                    culture = root.culture
+                    faith = root.faith
+                    dynasty = inherit
+                    location = root.location
+                    mother = root
+                    gender_female_chance = var:awow_baby_female_chance
+                    save_scope_as = child_3
+                }
+            }
+        }
+
         create_character_memory = {
             type = child_born
             participants = {
@@ -70,14 +134,13 @@ awow_pregnancy.0001 = {
             }
         }
 
-        # Cleanup: remove the visible trait and Carnalitas's custom-pregnancy state.
         remove_trait = pregnant
         remove_variable = awow_pregnancy_active
         remove_variable = awow_other_mother
+        remove_character_flag = awow_pregnancy_will_be_twins_flag
+        remove_character_flag = awow_pregnancy_will_be_triplets_flag
         carn_end_custom_pregnancy_effect = yes
 
-        # Announce to the player only if the mother is the player's character
-        # (rare: a female player). AI mothers get no popup.
         if = {
             limit = { is_ai = no }
             scope:child = {
@@ -86,10 +149,22 @@ awow_pregnancy.0001 = {
                 }
             }
         }
+
+        if = {
+            limit = {
+                exists = scope:awow_co_mother_alive
+                scope:awow_co_mother_alive = { is_ai = no }
+            }
+            scope:awow_co_mother_alive = {
+                trigger_event = {
+                    id = awow_pregnancy.0004
+                }
+            }
+        }
     }
 }
 
-# 0002 - Visible birth announcement for a female player mother.
+# 0002 - Visible birth announcement for a female player mother (carrying mother).
 awow_pregnancy.0002 = {
     type = character_event
     hidden = no
@@ -108,7 +183,7 @@ awow_pregnancy.0002 = {
     }
 }
 
-# 0003 - Low-frequency scheduler pulse. Iterates all living AI women once per year and
+# 0003 - Low-frequency scheduler pulse. Iterates all living women once per year and
 # reschedules itself. The pregnancy itself still lasts 280 days.
 awow_pregnancy.0003 = {
     type = character_event
@@ -119,7 +194,22 @@ awow_pregnancy.0003 = {
     }
 }
 
+# 0004 - Visible birth announcement for the non-carrying player mother (co-mother).
+# Fires only if the non-carrying mother is alive and is the player character.
+awow_pregnancy.0004 = {
+    type = character_event
+    hidden = no
 
+    trigger = {
+        is_alive = yes
+        is_female = yes
+    }
 
+    title = awow_pregnancy_0004_t
+    desc = awow_pregnancy_0004_d
 
-
+    option = {
+        name = awow_pregnancy_0004_ok
+        trigger = { always = yes }
+    }
+}
