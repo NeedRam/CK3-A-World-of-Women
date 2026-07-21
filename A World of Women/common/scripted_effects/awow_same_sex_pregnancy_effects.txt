@@ -13,66 +13,66 @@
 # percentage (0-100) into var:awow_baby_female_chance. The number in the rule name
 # IS the female percentage, so each branch simply assigns that value.
 # ---------------------------------------------------------------------------
-awow_pick_female_chance = { # requires RULE
-	if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_100 }
-		set_variable = { name = awow_baby_female_chance value = 100 }
-	}
-	else_if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_99 }
-		set_variable = { name = awow_baby_female_chance value = 99 }
-	}
-	else_if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_95 }
-		set_variable = { name = awow_baby_female_chance value = 95 }
-	}
-	else_if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_90 }
-		set_variable = { name = awow_baby_female_chance value = 90 }
-	}
-	else_if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_80 }
-		set_variable = { name = awow_baby_female_chance value = 80 }
-	}
-	else_if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_75 }
-		set_variable = { name = awow_baby_female_chance value = 75 }
-	}
-	else_if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_67 }
-		set_variable = { name = awow_baby_female_chance value = 67 }
-	}
-	else_if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_50 }
-		set_variable = { name = awow_baby_female_chance value = 50 }
-	}
-	else_if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_33 }
-		set_variable = { name = awow_baby_female_chance value = 33 }
-	}
-	else_if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_25 }
-		set_variable = { name = awow_baby_female_chance value = 25 }
-	}
-	else_if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_20 }
-		set_variable = { name = awow_baby_female_chance value = 20 }
-	}
-	else_if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_10 }
-		set_variable = { name = awow_baby_female_chance value = 10 }
-	}
-	else_if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_5 }
-		set_variable = { name = awow_baby_female_chance value = 5 }
-	}
-	else_if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_1 }
-		set_variable = { name = awow_baby_female_chance value = 1 }
-	}
-	else = {
-		set_variable = { name = awow_baby_female_chance value = 0 }
-	}
+awow_pick_female_chance = { # requires RULE (player/dynasty/world)
+    if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_100 }
+        set_variable = { name = awow_baby_female_chance value = 100 }
+    }
+    else_if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_99 }
+        set_variable = { name = awow_baby_female_chance value = 99 }
+    }
+    else_if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_95 }
+        set_variable = { name = awow_baby_female_chance value = 95 }
+    }
+    else_if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_90 }
+        set_variable = { name = awow_baby_female_chance value = 90 }
+    }
+    else_if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_80 }
+        set_variable = { name = awow_baby_female_chance value = 80 }
+    }
+    else_if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_75 }
+        set_variable = { name = awow_baby_female_chance value = 75 }
+    }
+    else_if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_67 }
+        set_variable = { name = awow_baby_female_chance value = 67 }
+    }
+    else_if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_50 }
+        set_variable = { name = awow_baby_female_chance value = 50 }
+    }
+    else_if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_33 }
+        set_variable = { name = awow_baby_female_chance value = 33 }
+    }
+    else_if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_25 }
+        set_variable = { name = awow_baby_female_chance value = 25 }
+    }
+    else_if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_20 }
+        set_variable = { name = awow_baby_female_chance value = 20 }
+    }
+    else_if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_10 }
+        set_variable = { name = awow_baby_female_chance value = 10 }
+    }
+    else_if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_5 }
+        set_variable = { name = awow_baby_female_chance value = 5 }
+    }
+    else_if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_1 }
+        set_variable = { name = awow_baby_female_chance value = 1 }
+    }
+    else = {
+        set_variable = { name = awow_baby_female_chance value = 0 }
+    }
 }
 
 # ---------------------------------------------------------------------------
@@ -83,39 +83,39 @@ awow_pick_female_chance = { # requires RULE
 # in awow.0020 so the two never drift.
 # ---------------------------------------------------------------------------
 awow_baby_female_chance_value = {
-	if = {
-		limit = {
-			OR = {
-				is_ai = no
-				scope:awow_other_mother = { is_ai = no }
-			}
-		}
-		awow_pick_female_chance = { RULE = player }
-	}
-	else_if = {
-		limit = {
-			AND = {
-				is_ai = yes
-				scope:awow_other_mother = { is_ai = yes }
-				OR = {
-					AND = {
-						exists = dynasty
-						any_player = { dynasty = prev.dynasty }
-					}
-					scope:awow_other_mother = {
-						AND = {
-							exists = dynasty
-							any_player = { dynasty = prev.dynasty }
-						}
-					}
-				}
-			}
-		}
-		awow_pick_female_chance = { RULE = dynasty }
-	}
-	else = {
-		awow_pick_female_chance = { RULE = world }
-	}
+    if = {
+        limit = {
+            OR = {
+                is_ai = no
+                scope:awow_other_mother = { is_ai = no }
+            }
+        }
+        awow_pick_female_chance = { RULE = player }
+    }
+    else_if = {
+        limit = {
+            AND = {
+                is_ai = yes
+                scope:awow_other_mother = { is_ai = yes }
+                OR = {
+                    AND = {
+                        exists = dynasty
+                        any_player = { dynasty = prev.dynasty }
+                    }
+                    scope:awow_other_mother = {
+                        AND = {
+                            exists = dynasty
+                            any_player = { dynasty = prev.dynasty }
+                        }
+                    }
+                }
+            }
+        }
+        awow_pick_female_chance = { RULE = dynasty }
+    }
+    else = {
+        awow_pick_female_chance = { RULE = world }
+    }
 }
 
 # ---------------------------------------------------------------------------
@@ -123,153 +123,123 @@ awow_baby_female_chance_value = {
 # Begins the scripted pregnancy on the current root (the pregnant mother).
 # ---------------------------------------------------------------------------
 awow_start_same_sex_pregnancy_effect = { # requires PARTNER_ID
-	debug_log = "AWOW SS-PREG: START [this.GetName] partner_id=$PARTNER_ID$"
-	set_variable = { name = awow_other_mother_id value = $PARTNER_ID$ }
-	add_trait_force_tooltip = pregnant
-	carn_start_custom_pregnancy_effect = {
-		PREGNANCY_TYPE = awow_same_sex
-		DAYS_UNTIL_NEXT_STAGE = 280
-		CAN_BE_ABORTED = no
-	}
-	debug_log = "AWOW SS-PREG: after_start pregnant=[has_trait=pregnant] carn_var=[exists=var:carn_custom_pregnancy]"
+    debug_log_scopes = no
+    set_variable = { name = awow_other_mother_id value = $PARTNER_ID$ }
+    add_trait_force_tooltip = pregnant
+    carn_start_custom_pregnancy_effect = {
+        PREGNANCY_TYPE = awow_same_sex
+        DAYS_UNTIL_NEXT_STAGE = 280
+        CAN_BE_ABORTED = no
+    }
 }
 
 # ---------------------------------------------------------------------------
 # awow_try_same_sex_pregnancy_effect
 # ---------------------------------------------------------------------------
 awow_try_same_sex_pregnancy_effect = {
-	debug_log = "AWOW SS-PREG: try [this.GetName] ([this.GetID])"
-	if = {
-		limit = {
-			awow_same_sex_can_bear_trigger = yes
-			awow_has_ai_female_partner_trigger = yes
-		}
+    debug_log = "AWOW SS-PREG: try character"
+    debug_log_scopes = no
+    if = {
+        limit = {
+            awow_same_sex_can_bear_trigger = yes
+            awow_has_ai_female_partner_trigger = yes
+        }
 
-		random_spouse = {
-			limit = {
-				is_female = yes
-				is_ai = yes
-			}
-			save_scope_as = awow_partner
-		}
-		if = {
-			limit = { NOT = { exists = scope:awow_partner } }
-			random_consort = {
-				limit = {
-					is_female = yes
-					is_ai = yes
-				}
-				save_scope_as = awow_partner
-			}
-		}
+        random_spouse = {
+            limit = {
+                is_female = yes
+                is_ai = yes
+            }
+            save_scope_as = awow_partner
+        }
+        if = {
+            limit = { NOT = { exists = scope:awow_partner } }
+            random_consort = {
+                limit = {
+                    is_female = yes
+                    is_ai = yes
+                }
+                save_scope_as = awow_partner
+            }
+        }
 
-		if = {
-			limit = { exists = scope:awow_partner }
-			debug_log = "AWOW SS-PREG: partner [scope:awow_partner.GetName] ([scope:awow_partner.GetID]) for [this.GetName]"
-		}
+        if = {
+            limit = { exists = scope:awow_partner }
+            debug_log_scopes = yes
+        }
 
-		if = {
-			limit = { character_id < scope:awow_partner.character_id }
+        if = {
+            limit = { character_id < scope:awow_partner.character_id }
+            debug_log = "AWOW SS-PREG: decider ROOT vs partner"
 
-			debug_log = "AWOW SS-PREG: decider [this.GetName] fert=[scope:this.fertility] partner_fert=[scope:awow_partner.fertility]"
-
-			set_variable = {
-				name = awow_fert_chance
-				value = scope:this.fertility
-			}
-			change_variable = {
-				name = awow_fert_chance
-				add = scope:awow_partner.fertility
-			}
-			divide_variable = {
-				name = awow_fert_chance
-				value = 2
-			}
-			multiply_variable = {
-				name = awow_fert_chance
-				value = 20
-			}
-
-			debug_log = "AWOW SS-PREG: fert_chance=[var:awow_fert_chance]"
-
-			random = {
-				chance = var:awow_fert_chance
-				if = {
-					limit = { always = yes }
-					debug_log = "AWOW SS-PREG: SUCCESS [this.GetName] carries"
-					awow_start_same_sex_pregnancy_effect = {
-						PARTNER_ID = scope:awow_partner.character_id
-					}
-				}
-				else = {
-					debug_log = "AWOW SS-PREG: SUCCESS partner carries"
-					scope:awow_partner = {
-						awow_start_same_sex_pregnancy_effect = {
-							PARTNER_ID = scope:this.character_id
-						}
-					}
-				}
-			}
-		}
-	}
+            # Fixed 50% conception chance per eligible couple per month.
+            random_list = {
+                50 = {
+                    debug_log = "AWOW SS-PREG: SUCCESS ROOT carries"
+                    awow_start_same_sex_pregnancy_effect = {
+                        PARTNER_ID = scope:awow_partner.character_id
+                    }
+                }
+                50 = {
+                    debug_log = "AWOW SS-PREG: SUCCESS partner carries"
+                    scope:awow_partner = {
+                        awow_start_same_sex_pregnancy_effect = {
+                            PARTNER_ID = scope:this.character_id
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 # ---------------------------------------------------------------------------
 # awow_monthly_pregnancy_tick_effect
-# DIAGNOSTIC version: counts AI females and why they don't qualify.
+# Iterates all AI females and runs the same-sex conception roll.
 # ---------------------------------------------------------------------------
 awow_monthly_pregnancy_tick_effect = {
-	debug_log = "AWOW SS-PREG: monthly tick start"
+    debug_log = "AWOW SS-PREG: monthly tick start"
+    debug_log_scopes = no
 
-	set_global_variable = { name = awow_diag_total_ai_fem value = 0 }
-	set_global_variable = { name = awow_diag_has_partner  value = 0 }
-	set_global_variable = { name = awow_diag_spouse_only  value = 0 }
-	set_global_variable = { name = awow_diag_can_bear    value = 0 }
-	set_global_variable = { name = awow_diag_candidate    value = 0 }
+    set_global_variable = { name = awow_diag_total_ai_fem value = 0 }
+    set_global_variable = { name = awow_diag_has_partner  value = 0 }
+    set_global_variable = { name = awow_diag_spouse_only  value = 0 }
+    set_global_variable = { name = awow_diag_can_bear    value = 0 }
+    set_global_variable = { name = awow_diag_candidate    value = 0 }
 
-	every_living_character = {
-		limit = { is_ai = yes is_female = yes }
-		change_global_variable = { name = awow_diag_total_ai_fem add = 1 }
-		debug_log = "AWOW SS-PREG: diag_ai_fem"
+    every_living_character = {
+        limit = { is_ai = yes is_female = yes }
+        change_global_variable = { name = awow_diag_total_ai_fem add = 1 }
 
-		if = {
-			limit = { awow_has_spouse_partner_trigger = yes }
-			change_global_variable = { name = awow_diag_spouse_only add = 1 }
-			debug_log = "AWOW SS-PREG: diag_spouse_only"
-		}
+        if = {
+            limit = { awow_has_spouse_partner_trigger = yes }
+            change_global_variable = { name = awow_diag_spouse_only add = 1 }
+        }
 
-		if = {
-			limit = { awow_has_ai_female_partner_trigger = yes }
-			change_global_variable = { name = awow_diag_has_partner add = 1 }
-			debug_log = "AWOW SS-PREG: diag_has_partner"
-		}
+        if = {
+            limit = { awow_has_ai_female_partner_trigger = yes }
+            change_global_variable = { name = awow_diag_has_partner add = 1 }
+        }
 
-		if = {
-			limit = { awow_same_sex_can_bear_trigger = yes }
-			change_global_variable = { name = awow_diag_can_bear add = 1 }
-			debug_log = "AWOW SS-PREG: diag_can_bear"
-		}
+        if = {
+            limit = { awow_same_sex_can_bear_trigger = yes }
+            change_global_variable = { name = awow_diag_can_bear add = 1 }
+        }
 
-		if = {
-			limit = {
-				awow_same_sex_can_bear_trigger = yes
-				awow_has_ai_female_partner_trigger = yes
-			}
-			change_global_variable = { name = awow_diag_candidate add = 1 }
-			debug_log = "AWOW SS-PREG: CANDIDATE FOUND"
-			awow_try_same_sex_pregnancy_effect = yes
-		}
-	}
+        if = {
+            limit = {
+                awow_same_sex_can_bear_trigger = yes
+                awow_has_ai_female_partner_trigger = yes
+            }
+            change_global_variable = { name = awow_diag_candidate add = 1 }
+            awow_try_same_sex_pregnancy_effect = yes
+        }
+    }
 
-	debug_log = "AWOW SS-PREG: diag DONE"
+    debug_log = "AWOW SS-PREG: diag DONE"
 
-	trigger_event = {
-		id = awow_pregnancy.0003
-		days = 30
-	}
+    trigger_event = {
+        id = awow_pregnancy.0003
+        days = 30
+    }
 }
-
-
-
-
-

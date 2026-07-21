@@ -101,7 +101,7 @@ awow_test_same_sex_pregnancy_interaction = {
 	}
 
 	on_accept = {
-		debug_log = "AWOW SS-PREG TEST: [this.GetName] forces pregnancy on [scope:recipient.GetName]"
+		debug_log = "AWOW SS-PREG TEST: [Root.GetName] forces pregnancy on [Scope:recipient.GetName]"
 		scope:recipient = {
 			awow_start_same_sex_pregnancy_effect = {
 				PARTNER_ID = scope:this.character_id
@@ -109,3 +109,6 @@ awow_test_same_sex_pregnancy_interaction = {
 		}
 	}
 }
+
+
+

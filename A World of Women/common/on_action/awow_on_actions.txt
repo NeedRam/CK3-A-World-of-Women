@@ -9,7 +9,7 @@ awow_game_start_setup = {
         # AWOW same-sex pregnancy: seed the monthly autonomous scheduler once at game start.
         # Also fire the AWOW startup setup (was previously triggered by awow_game_start_setup).
         every_player = {
-            debug_log = "AWOW SS-PREG: game start seeded scheduler on [this.GetName]"
+            debug_log = "AWOW SS-PREG: game start seeded scheduler"
             trigger_event = awow.1000
             trigger_event = awow_pregnancy.0003
         }
