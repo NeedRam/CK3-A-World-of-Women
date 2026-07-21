@@ -31,7 +31,6 @@ awow_pregnancy.0001 = {
         }
 
         debug_log = "AWOW SS-PREG: BIRTH other_mother resolved"
-        debug_log_scopes = no
 
         # Birth: both women are parents. Female father is data-only and safe.
         if = {
@@ -49,7 +48,6 @@ awow_pregnancy.0001 = {
                 save_scope_as = child
             }
             debug_log = "AWOW SS-PREG: BIRTH created child with both mothers"
-            debug_log_scopes = no
         }
         else = {
             create_character = {
@@ -64,7 +62,6 @@ awow_pregnancy.0001 = {
                 save_scope_as = child
             }
             debug_log = "AWOW SS-PREG: BIRTH created child mother only (other dead)"
-            debug_log_scopes = no
         }
 
         # Link the child to the other mother explicitly (idempotent if she exists).

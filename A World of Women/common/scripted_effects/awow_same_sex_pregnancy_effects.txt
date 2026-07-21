@@ -123,7 +123,6 @@ awow_baby_female_chance_value = {
 # Begins the scripted pregnancy on the current root (the pregnant mother).
 # ---------------------------------------------------------------------------
 awow_start_same_sex_pregnancy_effect = { # requires PARTNER_ID
-    debug_log_scopes = no
     set_variable = { name = awow_other_mother_id value = $PARTNER_ID$ }
     add_trait_force_tooltip = pregnant
     carn_start_custom_pregnancy_effect = {
@@ -137,8 +136,6 @@ awow_start_same_sex_pregnancy_effect = { # requires PARTNER_ID
 # awow_try_same_sex_pregnancy_effect
 # ---------------------------------------------------------------------------
 awow_try_same_sex_pregnancy_effect = {
-    debug_log = "AWOW SS-PREG: try character"
-    debug_log_scopes = no
     if = {
         limit = {
             awow_same_sex_can_bear_trigger = yes
@@ -165,12 +162,11 @@ awow_try_same_sex_pregnancy_effect = {
 
         if = {
             limit = { exists = scope:awow_partner }
-            debug_log_scopes = yes
+            debug_log = "AWOW SS-PREG: partner found"
         }
 
         if = {
             limit = { character_id < scope:awow_partner.character_id }
-            debug_log = "AWOW SS-PREG: decider ROOT vs partner"
 
             # Fixed 50% conception chance per eligible couple per month.
             random_list = {
@@ -199,7 +195,6 @@ awow_try_same_sex_pregnancy_effect = {
 # ---------------------------------------------------------------------------
 awow_monthly_pregnancy_tick_effect = {
     debug_log = "AWOW SS-PREG: monthly tick start"
-    debug_log_scopes = no
 
     set_global_variable = { name = awow_diag_total_ai_fem value = 0 }
     set_global_variable = { name = awow_diag_has_partner  value = 0 }
