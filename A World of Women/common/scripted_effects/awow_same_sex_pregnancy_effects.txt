@@ -123,13 +123,20 @@ awow_baby_female_chance_value = {
 # Begins the scripted pregnancy on the current root (the pregnant mother).
 # ---------------------------------------------------------------------------
 awow_start_same_sex_pregnancy_effect = { # requires PARTNER_ID
+    debug_log = "AWOW SS-PREG: START"
     set_variable = { name = awow_other_mother_id value = $PARTNER_ID$ }
-    add_trait_force_tooltip = pregnant
     carn_start_custom_pregnancy_effect = {
         PREGNANCY_TYPE = awow_same_sex
         DAYS_UNTIL_NEXT_STAGE = 280
-        CAN_BE_ABORTED = no
+        CAN_BE_ABORTED = yes
     }
+    add_trait_force_tooltip = pregnant
+    # Schedule our own birth timer as a reliable fallback.
+    trigger_event = {
+        id = awow_pregnancy.0001
+        days = 280
+    }
+    debug_log = "AWOW SS-PREG: after_start"
 }
 
 # ---------------------------------------------------------------------------
@@ -172,16 +179,28 @@ awow_try_same_sex_pregnancy_effect = {
             random_list = {
                 50 = {
                     debug_log = "AWOW SS-PREG: SUCCESS ROOT carries"
-                    awow_start_same_sex_pregnancy_effect = {
-                        PARTNER_ID = scope:awow_partner.character_id
+                    set_variable = { name = awow_other_mother_id value = scope:awow_partner.character_id }
+                    carn_start_custom_pregnancy_effect = {
+                        PREGNANCY_TYPE = awow_same_sex
+                        DAYS_UNTIL_NEXT_STAGE = 280
+                        CAN_BE_ABORTED = yes
                     }
+                    add_trait_force_tooltip = pregnant
+                    trigger_event = { id = awow_pregnancy.0001 days = 280 }
+                    debug_log = "AWOW SS-PREG: INLINE after_start"
                 }
                 50 = {
                     debug_log = "AWOW SS-PREG: SUCCESS partner carries"
                     scope:awow_partner = {
-                        awow_start_same_sex_pregnancy_effect = {
-                            PARTNER_ID = scope:this.character_id
+                        set_variable = { name = awow_other_mother_id value = scope:this.character_id }
+                        carn_start_custom_pregnancy_effect = {
+                            PREGNANCY_TYPE = awow_same_sex
+                            DAYS_UNTIL_NEXT_STAGE = 280
+                            CAN_BE_ABORTED = yes
                         }
+                        add_trait_force_tooltip = pregnant
+                        trigger_event = { id = awow_pregnancy.0001 days = 280 }
+                        debug_log = "AWOW SS-PREG: INLINE partner after_start"
                     }
                 }
             }
@@ -233,8 +252,34 @@ awow_monthly_pregnancy_tick_effect = {
 
     debug_log = "AWOW SS-PREG: diag DONE"
 
+    # Check for stuck pregnancies: any living woman with our custom pregnancy
+    # marker who hasn't birthed yet. Fire probe event to test birth logic directly.
+    every_living_character = {
+        limit = {
+            has_trait = pregnant
+            exists = var:awow_other_mother_id
+        }
+        debug_log = "AWOW SS-PREG: STUCK pregnancy found"
+        trigger_event = {
+            id = awow_pregnancy.0005
+        }
+    }
+
     trigger_event = {
         id = awow_pregnancy.0003
         days = 30
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

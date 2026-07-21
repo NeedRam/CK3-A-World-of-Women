@@ -16,6 +16,7 @@ awow_pregnancy.0001 = {
 
     immediate = {
         debug_log = "AWOW SS-PREG: BIRTH event fired"
+        debug_log = "AWOW SS-PREG: BIRTH checks passed"
         # Resolve the other mother (may have died during the pregnancy).
         character = var:awow_other_mother_id
         save_scope_as = awow_other_mother
@@ -126,4 +127,71 @@ awow_pregnancy.0003 = {
         awow_monthly_pregnancy_tick_effect = yes
     }
 }
+
+# 0004 - Probe: does carn_on_custom_pregnancy_stage_change actually fire our events?
+# If this appears in the log, the on_action hook works and the issue is in 0001's trigger.
+awow_pregnancy.0004 = {
+    type = character_event
+    hidden = yes
+    immediate = {
+        debug_log = "AWOW SS-PREG: PROBE stage_change hook fired on X hook_works=YES"
+    }
+}
+
+
+
+# 0005 - Probe: try birth logic directly on a stuck pregnancy.
+# If this creates a child, the birth event logic works and the issue is the Carnalitas timer/on_action.
+# If it doesn't, the issue is in the birth event itself.
+awow_pregnancy.0005 = {
+    type = character_event
+    hidden = yes
+    trigger = {
+        is_alive = yes
+        has_trait = pregnant
+        exists = var:awow_other_mother_id
+    }
+    immediate = {
+        debug_log = "AWOW SS-PREG: PROBE birth direct on X"
+        character = var:awow_other_mother_id
+        save_scope_as = awow_other_mother
+        if = {
+            limit = { exists = scope:awow_other_mother }
+            create_character = {
+                age = 0
+                random_traits = no
+                culture = root.culture
+                faith = root.faith
+                dynasty = root.dynasty
+                employer = root.employer
+                mother = root
+                father = scope:awow_other_mother
+                gender_female_chance = 100
+                save_scope_as = child
+            }
+            debug_log = "AWOW SS-PREG: PROBE birth DIRECT SUCCESS"
+            remove_trait = pregnant
+            remove_variable = awow_other_mother_id
+        }
+        else = {
+            create_character = {
+                age = 0
+                random_traits = no
+                culture = root.culture
+                faith = root.faith
+                dynasty = root.dynasty
+                employer = root.employer
+                mother = root
+                gender_female_chance = 100
+                save_scope_as = child
+            }
+            debug_log = "AWOW SS-PREG: PROBE birth DIRECT SUCCESS no father"
+            remove_trait = pregnant
+            remove_variable = awow_other_mother_id
+        }
+    }
+}
+
+
+
 
