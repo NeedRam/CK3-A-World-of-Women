@@ -4,16 +4,30 @@
     }
 }
 
+on_birth_mother = {
+	events = {
+		awow_birth.1000
+	}
+}
+
+on_birth_father = {
+	events = {
+		awow_birth.1001
+	}
+}
+
 awow_game_start_setup = {
-    effect = {
-        # AWOW same-sex pregnancy: seed the monthly autonomous scheduler once at game start.
-        # Also fire the AWOW startup setup (was previously triggered by awow_game_start_setup).
-        every_player = {
-            trigger_event = awow.1000
-            trigger_event = awow_pregnancy.0003
-            debug_log = "AWOW SS-PREG: game start prep successful"
-        }
-    }
+	effect = {
+		every_player = {
+			trigger_event = awow.1000
+			trigger_event = awow_pregnancy.0003
+			debug_log = "AWOW SS-PREG: game start prep successful"
+		}
+		every_living_character = {
+			limit = { NOT = { has_character_flag = awow_relations_backfilled } }
+			awow_backfill_relations_effect = yes
+		}
+	}
 }
 
 on_pregnancy_mother = {

@@ -1,0 +1,51 @@
+namespace = awow_birth
+
+# 1000 - Assign AWOW family relations for a vanilla birth (mother-scoped).
+# Fires from on_birth_mother; ROOT = mother.
+# Uses mother's most recent legitimate child as the newborn.
+awow_birth.1000 = {
+	type = character_event
+	hidden = yes
+
+	trigger = {
+		is_alive = yes
+	}
+
+	immediate = {
+		root = {
+			save_scope_as = birth_parent
+		}
+		if = {
+			limit = { exists = scope:birth_parent.most_recent_legitimate_child }
+			scope:birth_parent.most_recent_legitimate_child = {
+				save_scope_as = child
+				awow_assign_birth_relations_effect = yes
+			}
+		}
+	}
+}
+
+# 1001 - Assign AWOW family relations for a vanilla birth (father-scoped).
+# Fires from on_birth_father; ROOT = father.
+# Uses father's most recent legitimate child as the newborn.
+awow_birth.1001 = {
+	type = character_event
+	hidden = yes
+
+	trigger = {
+		is_alive = yes
+	}
+
+	immediate = {
+		root = {
+			save_scope_as = birth_parent
+		}
+		if = {
+			limit = { exists = scope:birth_parent.most_recent_legitimate_child }
+			scope:birth_parent.most_recent_legitimate_child = {
+				save_scope_as = child
+				awow_assign_birth_relations_effect = yes
+			}
+		}
+	}
+}

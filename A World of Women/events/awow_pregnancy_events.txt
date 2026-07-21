@@ -161,6 +161,15 @@ awow_pregnancy.0001 = {
                 }
             }
         }
+
+        if = {
+            limit = { exists = scope:awow_other_mother }
+            scope:awow_other_mother = {
+                save_scope_as = other_mother
+            }
+        }
+
+        awow_assign_birth_relations_effect = yes
     }
 }
 

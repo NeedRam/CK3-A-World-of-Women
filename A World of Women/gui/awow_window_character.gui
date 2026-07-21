@@ -1,0 +1,32 @@
+window = {
+	name = "character_window"
+	widgetid = "character_window"
+
+	widget = {
+		name = "family"
+
+		blockoverride "parents" {
+			blockoverride "portrait_datamodel" {
+				datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'awow_child' ) )]"
+			}
+		}
+
+		blockoverride "children" {
+			blockoverride "portrait_datamodel" {
+				datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'awow_parent' ) )]"
+			}
+		}
+
+		blockoverride "siblings" {
+			blockoverride "portrait_datamodel" {
+				datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'awow_sibling' ) )]"
+			}
+		}
+
+		blockoverride "grandparents" {
+			blockoverride "portrait_datamodel" {
+				datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'awow_grandparent' ) )]"
+			}
+		}
+	}
+}
