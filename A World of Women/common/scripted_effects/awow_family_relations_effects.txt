@@ -155,8 +155,9 @@ awow_backfill_relations_effect = {
         if = {
             limit = { exists = mother }
             debug_log = "AWOW BACKFILL mother branch enter"
+            mother = { save_scope_as = awow_mother }
 
-            mother = {
+            scope:awow_mother = {
                 debug_log = "AWOW BACKFILL inside mother scope"
 
                 set_relation_awow_parent = scope:awow_backfill_char
@@ -170,8 +171,9 @@ awow_backfill_relations_effect = {
 
                 if = {
                     limit = { exists = mother }
+                    mother = { save_scope_as = awow_mother_mother }
                     debug_log = "AWOW BACKFILL mothers mother exists"
-                    mother = {
+                    scope:awow_mother_mother = {
                         save_scope_as = parent_mother
                         awow_assign_grandparent_effect = {
                             grandparent = scope:parent_mother
@@ -183,8 +185,9 @@ awow_backfill_relations_effect = {
 
                 if = {
                     limit = { exists = father }
+                    father = { save_scope_as = awow_mother_father }
                     debug_log = "AWOW BACKFILL mothers father exists"
-                    father = {
+                    scope:awow_mother_father = {
                         save_scope_as = parent_father
                         awow_assign_grandparent_effect = {
                             grandparent = scope:parent_father
@@ -201,9 +204,10 @@ awow_backfill_relations_effect = {
         # --- Father path ---
         if = {
             limit = { exists = father }
+            father = { save_scope_as = awow_father }
             debug_log = "AWOW BACKFILL father branch enter"
 
-            father = {
+            scope:awow_father = {
                 debug_log = "AWOW BACKFILL inside father scope"
 
                 set_relation_awow_parent = scope:awow_backfill_char
@@ -217,8 +221,9 @@ awow_backfill_relations_effect = {
 
                 if = {
                     limit = { exists = mother }
+                    mother = { save_scope_as = awow_father_mother }
                     debug_log = "AWOW BACKFILL fathers mother exists"
-                    mother = {
+                    scope:awow_father_mother = {
                         save_scope_as = parent_mother
                         awow_assign_grandparent_effect = {
                             grandparent = scope:parent_mother
@@ -230,8 +235,9 @@ awow_backfill_relations_effect = {
 
                 if = {
                     limit = { exists = father }
+                    father = { save_scope_as = awow_father_father }
                     debug_log = "AWOW BACKFILL fathers father exists"
-                    father = {
+                    scope:awow_father_father = {
                         save_scope_as = parent_father
                         awow_assign_grandparent_effect = {
                             grandparent = scope:parent_father

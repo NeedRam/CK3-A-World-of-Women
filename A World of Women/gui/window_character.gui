@@ -1970,7 +1970,7 @@ window = {
                                 layoutpolicy_vertical = expanding
 
                                 blockoverride "portrait_datamodel" {
-                                    datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'awow_child' ) )]"
+                                    datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'awow_parent' ) )]"
                                 }
 
                                 blockoverride "header_text"
@@ -2275,7 +2275,7 @@ window = {
                             name = "children"
 
                             blockoverride "portrait_datamodel" {
-                                datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'awow_parent' ) )]"
+                                datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'awow_child' ) )]"
                             }
 
                             blockoverride "header_text"
