@@ -56,20 +56,24 @@ awow_try_same_sex_pregnancy_effect = {
             }
             random_list = {
                 50 = {
+                    save_scope_as = mother
+                    scope:awow_partner = { save_scope_as = father }
                     random = {
                         chance = awow_impregnation_chance_value
-                        save_scope_as = mother
-                        scope:awow_partner = { save_scope_as = father }
-                        awow_start_same_sex_pregnancy_effect = { PARTNER = scope:awow_partner }
+                        scope:mother = {
+                            awow_start_same_sex_pregnancy_effect = { PARTNER = scope:father }
+                        }
                     }
                 }
                 50 = {
                     scope:awow_partner = {
+                        save_scope_as = mother
+                        scope:awow_root = { save_scope_as = father }
                         random = {
                             chance = awow_impregnation_chance_value
-                            save_scope_as = father
-                            scope:awow_partner = { save_scope_as = mother }
-                            awow_start_same_sex_pregnancy_effect = { PARTNER = scope:awow_root }
+                            scope:mother = {
+                                awow_start_same_sex_pregnancy_effect = { PARTNER = scope:father }
+                            }
                         }
                     }
                 }
