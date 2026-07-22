@@ -177,7 +177,7 @@ awow.0020 = {
     hidden = yes
 
     immediate = {
-        scope:child.real_father = { save_scope_as = real_father }
+        scope:real_father = { save_scope_as = real_father }
         # Player baby gender
         if = {
             limit = {

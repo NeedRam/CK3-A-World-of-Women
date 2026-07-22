@@ -137,7 +137,10 @@ awow_test_set_parent = {
 
     on_accept = {
         scope:recipient = {
-            set_relation_awow_parent = scope:recipient
+            set_relation_awow_parent = scope:actor
+        }
+        scope:child = {
+            set_relation_awow_child = scope:parent
         }
     }
 }
@@ -163,7 +166,12 @@ awow_test_set_child = {
     }
 
     on_accept = {
-        set_relation_awow_child = scope:actor
+        scope:recipient = {
+            set_relation_awow_child = scope:actor
+        }
+        scope:child = {
+            set_relation_awow_parent = scope:parent
+        }
     }
 }
 
