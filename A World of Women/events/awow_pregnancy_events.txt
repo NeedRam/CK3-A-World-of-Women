@@ -20,32 +20,16 @@ awow_pregnancy.0001 = {
 
         debug_log = "AWOW SS-PREG: BIRTH other_mother resolved"
 
-        if = {
-            limit = { exists = scope:awow_other_mother }
-            create_character = {
-                age = 0
-                random_traits = no
-                culture = root.culture
-                faith = root.faith
-                dynasty = inherit
-                location = root.location
-                mother = root
-                gender_female_chance = awow_baby_female_chance_value
-                save_scope_as = child
-            }
-        }
-        else = {
-            create_character = {
-                age = 0
-                random_traits = no
-                culture = root.culture
-                faith = root.faith
-                dynasty = inherit
-                location = root.location
-                mother = root
-                gender_female_chance = awow_baby_female_chance_value
-                save_scope_as = child
-            }
+        create_character = {
+            age = 0
+            random_traits = no
+            culture = root.culture
+            faith = root.faith
+            dynasty = inherit
+            location = root.location
+            mother = root
+            gender_female_chance = awow_baby_female_chance_value
+            save_scope_as = child
         }
         scope:child = { awow_assign_scripted_birth_relations_effect = yes }
         create_character_memory = {
@@ -212,5 +196,20 @@ awow_pregnancy.0004 = {
     option = {
         name = awow_pregnancy_0004_ok
         trigger = { always = yes }
+    }
+}
+
+# 1000 - Assign AWOW family relations for a vanilla birth
+# root = scope:child
+awow_pregnancy.1000 = {
+    type = character_event
+    hidden = yes
+
+    trigger = {
+        is_alive = yes
+    }
+
+    immediate = {
+        awow_assign_scripted_birth_relations_effect = yes
     }
 }
