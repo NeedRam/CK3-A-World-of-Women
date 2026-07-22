@@ -28,7 +28,7 @@ awow_pregnancy.0001 = {
             dynasty = inherit
             location = root.location
             mother = root
-            gender_female_chance = awow_baby_female_chance_value
+            gender_female_chance = var:awow_baby_female_chance
             save_scope_as = child
         }
         scope:child = { awow_assign_scripted_birth_relations_effect = yes }
@@ -49,7 +49,7 @@ awow_pregnancy.0001 = {
                 dynasty = inherit
                 location = root.location
                 mother = root
-                gender_female_chance = awow_baby_female_chance_value
+                gender_female_chance = var:awow_baby_female_chance
                 save_scope_as = child_2
             }
             scope:child_2 = { awow_assign_scripted_birth_relations_effect = yes }
@@ -71,7 +71,7 @@ awow_pregnancy.0001 = {
                 dynasty = inherit
                 location = root.location
                 mother = root
-                gender_female_chance = awow_baby_female_chance_value
+                gender_female_chance = var:awow_baby_female_chance
                 save_scope_as = child_3
             }
             scope:child_3 = { awow_assign_scripted_birth_relations_effect = yes }
@@ -121,6 +121,7 @@ awow_pregnancy.0001 = {
 awow_pregnancy.0002 = {
     type = character_event
     hidden = no
+    theme = character_event
 
     trigger = {
         is_alive = yes
@@ -152,6 +153,7 @@ awow_pregnancy.0003 = {
 awow_pregnancy.0004 = {
     type = character_event
     hidden = no
+    theme = character_event
 
     trigger = {
         is_alive = yes
