@@ -2,210 +2,114 @@
 # Carnalitas supplies the pregnancy portrait support and fertility script value;
 # AWOW owns the pregnancy state and delayed birth event.
 
-# Reads awow_birth_gender_<RULE>_<N> and stores the selected female percentage.
-awow_pick_female_chance = { # requires RULE = player|dynasty|world
-	if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_100 }
-		set_variable = { name = awow_baby_female_chance value = 100 }
-	}
-	else_if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_99 }
-		set_variable = { name = awow_baby_female_chance value = 99 }
-	}
-	else_if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_95 }
-		set_variable = { name = awow_baby_female_chance value = 95 }
-	}
-	else_if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_90 }
-		set_variable = { name = awow_baby_female_chance value = 90 }
-	}
-	else_if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_80 }
-		set_variable = { name = awow_baby_female_chance value = 80 }
-	}
-	else_if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_75 }
-		set_variable = { name = awow_baby_female_chance value = 75 }
-	}
-	else_if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_67 }
-		set_variable = { name = awow_baby_female_chance value = 67 }
-	}
-	else_if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_50 }
-		set_variable = { name = awow_baby_female_chance value = 50 }
-	}
-	else_if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_33 }
-		set_variable = { name = awow_baby_female_chance value = 33 }
-	}
-	else_if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_25 }
-		set_variable = { name = awow_baby_female_chance value = 25 }
-	}
-	else_if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_20 }
-		set_variable = { name = awow_baby_female_chance value = 20 }
-	}
-	else_if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_10 }
-		set_variable = { name = awow_baby_female_chance value = 10 }
-	}
-	else_if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_5 }
-		set_variable = { name = awow_baby_female_chance value = 5 }
-	}
-	else_if = {
-		limit = { has_game_rule = awow_birth_gender_$RULE$_1 }
-		set_variable = { name = awow_baby_female_chance value = 1 }
-	}
-	else = {
-		set_variable = { name = awow_baby_female_chance value = 0 }
-	}
-}
-
-awow_baby_female_chance_value = {
-	if = {
-		limit = {
-			OR = {
-				is_ai = no
-				scope:awow_other_mother = { is_ai = no }
-			}
-		}
-		awow_pick_female_chance = { RULE = player }
-	}
-	else_if = {
-		limit = {
-			AND = {
-				is_ai = yes
-				scope:awow_other_mother = { is_ai = yes }
-				OR = {
-					AND = {
-						exists = dynasty
-						any_player = { dynasty = prev.dynasty }
-					}
-					scope:awow_other_mother = {
-						AND = {
-							exists = dynasty
-							any_player = { dynasty = prev.dynasty }
-						}
-					}
-				}
-			}
-		}
-		awow_pick_female_chance = { RULE = dynasty }
-	}
-	else = {
-		awow_pick_female_chance = { RULE = world }
-	}
-}
-
 awow_start_same_sex_pregnancy_effect = { # requires PARTNER
-	set_variable = { name = awow_pregnancy_active value = yes }
-	set_variable = { name = awow_other_mother value = $PARTNER$ }
-	carn_start_custom_pregnancy_effect = {
-		PREGNANCY_TYPE = awow_same_sex
-		DAYS_UNTIL_NEXT_STAGE = 280
-		CAN_BE_ABORTED = yes
-	}
-	add_trait_force_tooltip = pregnant
-	awow_roll_multiple_children_chance_effect = yes
-	trigger_event = {
-		id = awow_pregnancy.0001
-		days = 280
-	}
+    set_variable = { name = awow_pregnancy_active value = yes }
+    set_variable = { name = awow_other_mother value = $PARTNER$ }
+    carn_start_custom_pregnancy_effect = {
+        PREGNANCY_TYPE = awow_same_sex
+        DAYS_UNTIL_NEXT_STAGE = 280
+        CAN_BE_ABORTED = yes
+    }
+    add_trait_force_tooltip = pregnant
+    awow_roll_multiple_children_chance_effect = yes
+    trigger_event = {
+        id = awow_pregnancy.0001
+        days = 280
+    }
 }
 
 # One annual world scan. Each eligible pair is marked for the year, one woman
 # is selected 50/50, then Carnalitas's fertility value performs the conception roll.
 awow_try_same_sex_pregnancy_effect = {
-	if = {
-		limit = {
-			awow_same_sex_can_bear_trigger = yes
-			awow_has_ai_female_partner_trigger = yes
-		}
-		random_spouse = {
-			limit = { awow_same_sex_can_bear_trigger = yes }
-			save_scope_as = awow_partner
-		}
-		if = {
-			limit = { NOT = { exists = scope:awow_partner } }
-			random_consort = {
-				limit = { awow_same_sex_can_bear_trigger = yes }
-				save_scope_as = awow_partner
-			}
-		}
-		if = {
-			limit = { exists = scope:awow_partner }
-			save_scope_as = awow_root
-			scope:awow_partner = {
-				save_scope_as = awow_partner_for_chance
-				set_variable = {
-					name = awow_same_sex_partner_cooldown
-					value = yes
-					days = 365
-				}
-			}
-			set_variable = {
-				name = awow_same_sex_partner_cooldown
-				value = yes
-				days = 365
-			}
-			save_scope_as = mother
-			scope:awow_partner = { save_scope_as = father }
-			random_list = {
-				50 = {
-					random = {
-						chance = awow_impregnation_chance_value
-						awow_start_same_sex_pregnancy_effect = { PARTNER = scope:awow_partner }
-					}
-				}
-				50 = {
-					scope:awow_partner = {
-						random = {
-							chance = awow_impregnation_chance_value
-							awow_start_same_sex_pregnancy_effect = { PARTNER = scope:awow_root }
-						}
-					}
-				}
-			}
-		}
-	}
+    clear_saved_scope = awow_partner
+    clear_saved_scope = awow_root
+    if = {
+        limit = {
+            awow_same_sex_can_bear_trigger = yes
+            awow_has_ai_female_partner_trigger = yes
+        }
+        random_spouse = {
+            limit = { awow_same_sex_can_bear_trigger = yes }
+            save_scope_as = awow_partner
+        }
+        if = {
+            limit = { NOT = { exists = scope:awow_partner } }
+            random_consort = {
+                limit = { awow_same_sex_can_bear_trigger = yes }
+                save_scope_as = awow_partner
+            }
+        }
+        if = {
+            limit = { exists = scope:awow_partner }
+            save_scope_as = awow_root
+            scope:awow_partner = {
+                set_variable = {
+                    name = awow_same_sex_partner_cooldown
+                    value = yes
+                    days = 365
+                }
+            }
+            set_variable = {
+                name = awow_same_sex_partner_cooldown
+                value = yes
+                days = 365
+            }
+            random_list = {
+                50 = {
+                    random = {
+                        chance = awow_impregnation_chance_value
+                        save_scope_as = mother
+                        scope:awow_partner = { save_scope_as = father }
+                        awow_start_same_sex_pregnancy_effect = { PARTNER = scope:awow_partner }
+                    }
+                }
+                50 = {
+                    scope:awow_partner = {
+                        random = {
+                            chance = awow_impregnation_chance_value
+                            save_scope_as = father
+                            scope:awow_partner = { save_scope_as = mother }
+                            awow_start_same_sex_pregnancy_effect = { PARTNER = scope:awow_root }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 awow_roll_multiple_children_chance_effect = {
-	if = {
-		limit = {
-			NOR = {
-				has_character_flag = awow_pregnancy_will_be_twins_flag
-				has_character_flag = awow_pregnancy_will_be_triplets_flag
-			}
-		}
-		random = {
-			chance = awow_pregnancy_twin_chance_value
-			add_character_flag = awow_pregnancy_will_be_twins_flag
-		}
-	}
-	if = {
-		limit = { NOT = { has_character_flag = awow_pregnancy_will_be_twins_flag } }
-		random = {
-			chance = awow_pregnancy_triplet_chance_value
-			add_character_flag = awow_pregnancy_will_be_triplets_flag
-		}
-	}
+    if = {
+        limit = {
+            NOR = {
+                has_character_flag = awow_pregnancy_will_be_twins_flag
+                has_character_flag = awow_pregnancy_will_be_triplets_flag
+            }
+        }
+        random = {
+            chance = awow_pregnancy_twin_chance_value
+            add_character_flag = awow_pregnancy_will_be_twins_flag
+        }
+    }
+    if = {
+        limit = { NOT = { has_character_flag = awow_pregnancy_will_be_twins_flag } }
+        random = {
+            chance = awow_pregnancy_triplet_chance_value
+            add_character_flag = awow_pregnancy_will_be_triplets_flag
+        }
+    }
 }
 
 awow_monthly_pregnancy_tick_effect = {
-	every_living_character = {
-		limit = {
-			awow_same_sex_can_bear_trigger = yes
-			awow_has_ai_female_partner_trigger = yes
-		}
-		awow_try_same_sex_pregnancy_effect = yes
-	}
-	trigger_event = {
-		id = awow_pregnancy.0003
-		days = awow_pregnancy_scheduler_days_value
-	}
+    every_living_character = {
+        limit = {
+            awow_same_sex_can_bear_trigger = yes
+            awow_has_ai_female_partner_trigger = yes
+        }
+        awow_try_same_sex_pregnancy_effect = yes
+    }
+    trigger_event = {
+        id = awow_pregnancy.0003
+        days = awow_pregnancy_scheduler_days_value
+    }
 }

@@ -1,27 +1,19 @@
 ﻿awow_parent = {
-	corresponding = awow_child
+    corresponding = awow_child
 }
 
 awow_child = {
-	corresponding = awow_parent
+    corresponding = awow_parent
 }
 
 awow_grandparent = {
-	corresponding = awow_grandchild
+    corresponding = awow_grandchild
 }
 
 awow_grandchild = {
-	corresponding = awow_grandparent
+    corresponding = awow_grandparent
 }
 
 awow_sibling = {
-	corresponding = awow_sibling
-}
-
-awow_co_mother = {
-	corresponding = awow_co_mother_child
-}
-
-awow_co_mother_child = {
-	corresponding = awow_co_mother
+    corresponding = awow_sibling
 }

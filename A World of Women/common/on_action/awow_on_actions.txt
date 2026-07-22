@@ -4,18 +4,6 @@
     }
 }
 
-on_birth_mother = {
-    events = {
-        awow_birth.1000
-    }
-}
-
-on_birth_father = {
-    events = {
-        awow_birth.1001
-    }
-}
-
 awow_game_start_setup = {
     effect = {
         every_player = {
@@ -36,5 +24,11 @@ awow_game_start_setup = {
 on_pregnancy_mother = {
     events = {
         awow.0020
+    }
+}
+
+on_birth_child = {
+    events = {
+        awow_birth.0001
     }
 }

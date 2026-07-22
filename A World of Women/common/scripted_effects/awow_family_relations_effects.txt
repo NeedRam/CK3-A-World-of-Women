@@ -1,145 +1,126 @@
-﻿awow_assign_parent_effect = {
-    set_relation_awow_parent = scope:child
+﻿awow_set_parent_effect = {
+    set_relation_awow_parent = scope:awow_child
 }
 
-awow_assign_sibling_effect = {
-    set_relation_awow_sibling = scope:sibling_b
+awow_set_child_effect = {
+    set_relation_awow_child = scope:awow_parent
 }
 
-awow_assign_grandparent_effect = {
-    set_relation_awow_grandparent = scope:grandchild
+awow_set_my_sibling_effect = {
+    set_relation_awow_sibling = scope:awow_sibling
 }
 
-# ---------- engine-parent path ----------
+awow_set_sibling_of_effect = {
+    set_relation_awow_sibling = scope:awow_child
+}
 
-awow_assign_parent_engine_effect = {
-    # ROOT = parent (mother or father)
-    # Requires: scope:child
-    awow_assign_parent_effect = yes
+awow_set_grandparent_effect = {
+    set_relation_awow_grandparent = scope:awow_child
+}
 
-    every_child = {
-        limit = { NOT = { this = scope:child } }
-        awow_assign_sibling_effect = {
-            sibling_a = scope:child
-            sibling_b = scope:this
-        }
-    }
+awow_set_grandchild_effect = {
+    set_relation_awow_grandchild = scope:awow_grandparent
+}
 
+awow_assign_scripted_parent_relations_effect = {
+    root = { save_scope_as = awow_child }
     if = {
         limit = { exists = mother }
-        mother = {
-            save_scope_as = parent_mother
-            awow_assign_grandparent_effect = {
-                grandparent = scope:parent_mother
-                grandchild = scope:awow_child
-            }
+        mother = { save_scope_as = awow_parent }
+        scope:awow_parent = {
+            awow_set_parent_effect = yes
+            awow_assign_siblings_effect = yes
+            awow_assign_grandparent_relations_effect = yes
         }
+        awow_set_child_effect = yes
+        clear_saved_scope = awow_parent
     }
     if = {
         limit = { exists = father }
-        father = {
-            save_scope_as = parent_father
-            awow_assign_grandparent_effect = {
-                grandparent = scope:parent_father
-                grandchild = scope:awow_child
-            }
+        father = { save_scope_as = awow_parent }
+        scope:awow_parent = {
+            awow_set_parent_effect = yes
+            awow_assign_siblings_effect = yes
+            awow_assign_grandparent_relations_effect = yes
         }
+        awow_set_child_effect = yes
+        clear_saved_scope = awow_parent
+    }
+    if = {
+        limit = { exists = scope:awow_other_mother }
+        scope:awow_other_mother = {
+            save_scope_as = awow_parent
+            awow_set_parent_effect = yes
+            awow_assign_siblings_effect = yes
+            awow_assign_grandparent_relations_effect = yes
+        }
+        awow_set_child_effect = yes
+        clear_saved_scope = awow_parent
+        clear_saved_scope = awow_other_mother
+    }
+    clear_saved_scope = awow_child
+}
+
+awow_assign_siblings_effect = {
+    every_child = {
+        save_scope_as = awow_sibling
+        awow_set_sibling_of_effect = yes
+        scope:awow_child = {
+            awow_set_my_sibling_effect = yes
+        }
+        clear_saved_scope = awow_sibling
+    }
+    every_relation = {
+        type = awow_child
+        save_scope_as = awow_sibling
+        awow_set_sibling_of_effect = yes
+        scope:awow_child = {
+            awow_set_my_sibling_effect = yes
+        }
+        clear_saved_scope = awow_sibling
     }
 }
 
-# ---------- co-mother path ----------
-
-awow_assign_parent_co_mother_effect = {
-    # ROOT = co-mother
-    # Requires: scope:child, scope:carrying_mother
-    awow_assign_parent_effect = yes
-
-    every_child = {
-        limit = { NOT = { this = scope:child } }
-        awow_assign_sibling_effect = {
-            sibling_a = scope:child
-            sibling_b = scope:this
-        }
-    }
-
-    if = {
-        limit = { exists = mother }
-        mother = {
-            save_scope_as = co_mother_parent
-            awow_assign_grandparent_effect = {
-                grandparent = scope:co_mother_parent
-                grandchild = scope:awow_child
-            }
-        }
-    }
+awow_assign_grandparent_relations_effect = {
     if = {
         limit = { exists = father }
-        father = {
-            save_scope_as = co_mother_parent
-            awow_assign_grandparent_effect = {
-                grandparent = scope:co_mother_parent
-                grandchild = scope:awow_child
+        father = { save_scope_as = awow_grandparent }
+        scope:awow_grandparent = {
+            awow_set_grandparent_effect = yes
+            scope:awow_child = {
+                awow_set_grandchild_effect = yes
             }
         }
+        clear_saved_scope = awow_grandparent
     }
-
     if = {
-        limit = { exists = scope:carrying_mother }
-        NOT = { scope:carrying_mother = root }
-        scope:carrying_mother = {
-            if = {
-                limit = { exists = mother }
-                mother = {
-                    save_scope_as = carrying_parent
-                    awow_assign_grandparent_effect = {
-                        grandparent = scope:carrying_parent
-                        grandchild = scope:awow_child
-                    }
-                }
-            }
-            if = {
-                limit = { exists = father }
-                father = {
-                    save_scope_as = carrying_parent
-                    awow_assign_grandparent_effect = {
-                        grandparent = scope:carrying_parent
-                        grandchild = scope:awow_child
-                    }
-                }
+        limit = { exists = mother }
+        mother = { save_scope_as = awow_grandparent }
+        scope:awow_grandparent = {
+            awow_set_grandparent_effect = yes
+            scope:awow_child = {
+                awow_set_grandchild_effect = yes
             }
         }
+        clear_saved_scope = awow_grandparent
+    }
+    every_relation = {
+        type = awow_parent
+        limit = { NOT = { scope:awow_child = { any_relation = { type = awow_grandparent } } } }
+        save_scope_as = awow_grandparent
+        awow_set_grandparent_effect = yes
+        scope:awow_child = {
+            awow_set_grandchild_effect = yes
+        }
+        clear_saved_scope = awow_grandparent
     }
 }
+
 
 # ---------- birth hook ----------
 
-awow_assign_birth_relations_effect = {
-    # Requires: scope:child
-    # Optional: scope:other_mother (co-mother)
-
-    if = {
-        limit = { exists = scope:child.mother }
-        scope:child.mother = {
-            save_scope_as = carrying_mother
-            awow_assign_parent_engine_effect = yes
-        }
-    }
-
-    if = {
-        limit = { exists = scope:child.father }
-        scope:child.father = {
-            awow_assign_parent_engine_effect = yes
-        }
-    }
-
-    if = {
-        limit = { exists = scope:other_mother }
-        scope:other_mother = {
-            save_scope_as = co_mother_parent
-            scope:child.mother = { save_scope_as = carrying_mother }
-            awow_assign_parent_co_mother_effect = yes
-        }
-    }
+awow_assign_scripted_birth_relations_effect = {
+    awow_assign_scripted_parent_relations_effect = yes
 }
 
 # ---------- game-start backfill ----------
@@ -147,118 +128,28 @@ awow_assign_birth_relations_effect = {
 awow_backfill_relations_effect = {
     every_living_character = {
         limit = { NOT = { has_character_flag = awow_relations_backfilled } }
-
-        save_scope_as = awow_backfill_char
-        debug_log = "AWOW BACKFILL anchored"
-
-        # --- Mother path ---
-        if = {
-            limit = { exists = mother }
-            debug_log = "AWOW BACKFILL mother branch enter"
-            mother = { save_scope_as = awow_mother }
-
-            scope:awow_mother = {
-                debug_log = "AWOW BACKFILL inside mother scope"
-
-                set_relation_awow_parent = scope:awow_backfill_char
-                debug_log = "AWOW BACKFILL mother set parent done"
-
-                every_child = {
-                    limit = { is_alive = yes, NOT = { this = scope:awow_backfill_char } }
-                    debug_log = "AWOW BACKFILL mother sibling link"
-                }
-                debug_log = "AWOW BACKFILL mother sibling loop done"
-
-                if = {
-                    limit = { exists = mother }
-                    mother = { save_scope_as = awow_mother_mother }
-                    debug_log = "AWOW BACKFILL mothers mother exists"
-                    scope:awow_mother_mother = {
-                        save_scope_as = parent_mother
-                        awow_assign_grandparent_effect = {
-                            grandparent = scope:parent_mother
-                            grandchild = scope:awow_backfill_char
-                        }
-                    }
-                }
-                else = { debug_log = "AWOW BACKFILL mothers mother missing" }
-
-                if = {
-                    limit = { exists = father }
-                    father = { save_scope_as = awow_mother_father }
-                    debug_log = "AWOW BACKFILL mothers father exists"
-                    scope:awow_mother_father = {
-                        save_scope_as = parent_father
-                        awow_assign_grandparent_effect = {
-                            grandparent = scope:parent_father
-                            grandchild = scope:awow_backfill_char
-                        }
-                    }
-                }
-                else = { debug_log = "AWOW BACKFILL mothers father missing" }
-            }
-            debug_log = "AWOW BACKFILL mother branch exit"
-        }
-        else = { debug_log = "AWOW BACKFILL no mother" }
-
-        # --- Father path ---
-        if = {
-            limit = { exists = father }
-            father = { save_scope_as = awow_father }
-            debug_log = "AWOW BACKFILL father branch enter"
-
-            scope:awow_father = {
-                debug_log = "AWOW BACKFILL inside father scope"
-
-                set_relation_awow_parent = scope:awow_backfill_char
-                debug_log = "AWOW BACKFILL father set parent done"
-
-                every_child = {
-                    limit = { is_alive = yes, NOT = { this = scope:awow_backfill_char } }
-                    debug_log = "AWOW BACKFILL father sibling link"
-                }
-                debug_log = "AWOW BACKFILL father sibling loop done"
-
-                if = {
-                    limit = { exists = mother }
-                    mother = { save_scope_as = awow_father_mother }
-                    debug_log = "AWOW BACKFILL fathers mother exists"
-                    scope:awow_father_mother = {
-                        save_scope_as = parent_mother
-                        awow_assign_grandparent_effect = {
-                            grandparent = scope:parent_mother
-                            grandchild = scope:awow_backfill_char
-                        }
-                    }
-                }
-                else = { debug_log = "AWOW BACKFILL fathers mother missing" }
-
-                if = {
-                    limit = { exists = father }
-                    father = { save_scope_as = awow_father_father }
-                    debug_log = "AWOW BACKFILL fathers father exists"
-                    scope:awow_father_father = {
-                        save_scope_as = parent_father
-                        awow_assign_grandparent_effect = {
-                            grandparent = scope:parent_father
-                            grandchild = scope:awow_backfill_char
-                        }
-                    }
-                }
-                else = { debug_log = "AWOW BACKFILL fathers father missing" }
-            }
-            debug_log = "AWOW BACKFILL father branch exit"
-        }
-        else = { debug_log = "AWOW BACKFILL no father" }
-
-        # Alive siblings that don't share a parent: mutual symmetric link
-        every_sibling = {
-            limit = { is_alive = yes }
-            debug_log = "AWOW BACKFILL cross-parent sibling link"
-            set_relation_awow_sibling = root
-        }
-        debug_log = "AWOW BACKFILL exit"
-
+        awow_assign_scripted_birth_relations_effect = yes
         add_character_flag = awow_relations_backfilled
     }
+    every_living_character = {
+        limit = { NOT = { has_character_flag = awow_relations_frontfilled } }
+        awow_backfill_2nd_pass_effect = yes
+        add_character_flag = awow_relations_frontfilled
+    }
+}
+
+awow_backfill_2nd_pass_effect = {
+    root = { save_scope_as = awow_child }
+    every_relation = {
+        type = awow_parent
+        save_scope_as = awow_parent
+        awow_set_parent_effect = yes
+        awow_assign_siblings_effect = yes
+        awow_assign_grandparent_relations_effect = yes
+        scope:awow_child = {
+            awow_set_child_effect = yes
+        }
+    }
+    clear_saved_scope = awow_parent
+    clear_saved_scope = awow_child
 }

@@ -169,3 +169,103 @@ awow_pregnancy_triplet_chance_value = {
 awow_pregnancy_child_limit_rule_value = {
     value = 0.1
 }
+
+
+# Reads awow_birth_gender_<RULE>_<N> and stores the selected female percentage.
+awow_pick_female_chance_value = { # requires RULE = player|dynasty|world
+    if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_100 }
+        set_variable = { name = awow_baby_female_chance value = 100 }
+    }
+    else_if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_99 }
+        set_variable = { name = awow_baby_female_chance value = 99 }
+    }
+    else_if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_95 }
+        set_variable = { name = awow_baby_female_chance value = 95 }
+    }
+    else_if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_90 }
+        set_variable = { name = awow_baby_female_chance value = 90 }
+    }
+    else_if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_80 }
+        set_variable = { name = awow_baby_female_chance value = 80 }
+    }
+    else_if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_75 }
+        set_variable = { name = awow_baby_female_chance value = 75 }
+    }
+    else_if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_67 }
+        set_variable = { name = awow_baby_female_chance value = 67 }
+    }
+    else_if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_50 }
+        set_variable = { name = awow_baby_female_chance value = 50 }
+    }
+    else_if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_33 }
+        set_variable = { name = awow_baby_female_chance value = 33 }
+    }
+    else_if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_25 }
+        set_variable = { name = awow_baby_female_chance value = 25 }
+    }
+    else_if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_20 }
+        set_variable = { name = awow_baby_female_chance value = 20 }
+    }
+    else_if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_10 }
+        set_variable = { name = awow_baby_female_chance value = 10 }
+    }
+    else_if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_5 }
+        set_variable = { name = awow_baby_female_chance value = 5 }
+    }
+    else_if = {
+        limit = { has_game_rule = awow_birth_gender_$RULE$_1 }
+        set_variable = { name = awow_baby_female_chance value = 1 }
+    }
+    else = {
+        set_variable = { name = awow_baby_female_chance value = 0 }
+    }
+}
+
+awow_baby_female_chance_value = {
+    if = {
+        limit = {
+            OR = {
+                is_ai = no
+                scope:awow_other_mother = { is_ai = no }
+            }
+        }
+        value = awow_pick_female_chance = { RULE = player }
+    }
+    else_if = {
+        limit = {
+            AND = {
+                is_ai = yes
+                scope:awow_other_mother = { is_ai = yes }
+                OR = {
+                    AND = {
+                        exists = dynasty
+                        any_player = { dynasty = prev.dynasty }
+                    }
+                    scope:awow_other_mother = {
+                        AND = {
+                            exists = dynasty
+                            any_player = { dynasty = prev.dynasty }
+                        }
+                    }
+                }
+            }
+        }
+        value = awow_pick_female_chance = { RULE = dynasty }
+    }
+    else = {
+        value = awow_pick_female_chance = { RULE = world }
+    }
+}

@@ -6,33 +6,19 @@
 awow_pregnancy.0001 = {
     type = character_event
     hidden = yes
-
+    debug_log = "AWOW SS-PREG: BIRTH event fired"
     trigger = {
         is_alive = yes
         has_variable = awow_pregnancy_active
     }
-
+    debug_log = "AWOW SS-PREG: BIRTH checks passed"
     immediate = {
-        debug_log = "AWOW SS-PREG: BIRTH event fired"
-        debug_log = "AWOW SS-PREG: BIRTH checks passed"
         var:awow_other_mother = {
             save_scope_as = awow_other_mother
         }
 
-        awow_baby_female_chance_value = yes
 
         debug_log = "AWOW SS-PREG: BIRTH other_mother resolved"
-
-        if = {
-            limit = { exists = scope:awow_other_mother }
-            scope:awow_other_mother = {
-                save_scope_as = awow_co_mother_scope
-                if = {
-                    limit = { is_alive = yes }
-                    save_scope_as = awow_co_mother_alive
-                }
-            }
-        }
 
         if = {
             limit = { exists = scope:awow_other_mother }
@@ -44,10 +30,9 @@ awow_pregnancy.0001 = {
                 dynasty = inherit
                 location = root.location
                 mother = root
-                gender_female_chance = var:awow_baby_female_chance
+                gender_female_chance = awow_baby_female_chance_value
                 save_scope_as = child
             }
-            scope:child = { set_relation_awow_co_mother = scope:awow_other_mother }
         }
         else = {
             create_character = {
@@ -58,8 +43,15 @@ awow_pregnancy.0001 = {
                 dynasty = inherit
                 location = root.location
                 mother = root
-                gender_female_chance = var:awow_baby_female_chance
+                gender_female_chance = awow_baby_female_chance_value
                 save_scope_as = child
+            }
+        }
+        scope:child = { awow_assign_scripted_birth_relations_effect = yes }
+        create_character_memory = {
+            type = child_born
+            participants = {
+                child = scope:child
             }
         }
 
@@ -75,10 +67,9 @@ awow_pregnancy.0001 = {
                     dynasty = inherit
                     location = root.location
                     mother = root
-                    gender_female_chance = var:awow_baby_female_chance
+                    gender_female_chance = awow_baby_female_chance_value
                     save_scope_as = child_2
                 }
-                scope:child_2 = { set_relation_awow_co_mother = scope:awow_other_mother }
             }
             else = {
                 create_character = {
@@ -89,8 +80,15 @@ awow_pregnancy.0001 = {
                     dynasty = inherit
                     location = root.location
                     mother = root
-                    gender_female_chance = var:awow_baby_female_chance
+                    gender_female_chance = awow_baby_female_chance_value
                     save_scope_as = child_2
+                }
+            }
+            scope:child_2 = { awow_assign_scripted_birth_relations_effect = yes }
+            create_character_memory = {
+                type = child_born
+                participants = {
+                    child = scope:child_2
                 }
             }
         }
@@ -107,10 +105,9 @@ awow_pregnancy.0001 = {
                     dynasty = inherit
                     location = root.location
                     mother = root
-                    gender_female_chance = var:awow_baby_female_chance
+                    gender_female_chance = awow_baby_female_chance_value
                     save_scope_as = child_3
                 }
-                scope:child_3 = { set_relation_awow_co_mother = scope:awow_other_mother }
             }
             else = {
                 create_character = {
@@ -121,16 +118,16 @@ awow_pregnancy.0001 = {
                     dynasty = inherit
                     location = root.location
                     mother = root
-                    gender_female_chance = var:awow_baby_female_chance
+                    gender_female_chance = awow_baby_female_chance_value
                     save_scope_as = child_3
                 }
             }
-        }
-
-        create_character_memory = {
-            type = child_born
-            participants = {
-                child = scope:child
+            scope:child_3 = { awow_assign_scripted_birth_relations_effect = yes }
+            create_character_memory = {
+                type = child_born
+                participants = {
+                    child = scope:child_3
+                }
             }
         }
 
@@ -152,26 +149,19 @@ awow_pregnancy.0001 = {
 
         if = {
             limit = {
-                exists = scope:awow_co_mother_alive
-                scope:awow_co_mother_alive = { is_ai = no }
+                exists = scope:awow_other_mother
+                scope:awow_other_mother = {
+                    is_ai = no
+                    is_alive = yes
+                }
             }
-            scope:awow_co_mother_alive = {
+            scope:awow_other_mother = {
                 trigger_event = {
                     id = awow_pregnancy.0004
                 }
             }
         }
-
-        if = {
-            limit = { exists = scope:awow_other_mother }
-            scope:awow_other_mother = {
-                save_scope_as = other_mother
-            }
-        }
-
-        debug_log = "AWOW BIRTH 0001 start"
-        awow_assign_birth_relations_effect = yes
-        debug_log = "AWOW BIRTH 0001 relations done"
+        clear_saved_scope = awow_other_mother
     }
 }
 

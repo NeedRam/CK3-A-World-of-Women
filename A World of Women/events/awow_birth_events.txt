@@ -1,31 +1,16 @@
 ﻿namespace = awow_birth
 
-# 1000 - Assign AWOW family relations for a vanilla birth (mother-scoped).
-# Fires from on_birth_mother; ROOT = mother, scope:child = newborn.
-awow_birth.1000 = {
-	type = character_event
-	hidden = yes
+# 1000 - Assign AWOW family relations for a vanilla birth
+# root = scope:child
+awow_birth.0001 = {
+    type = character_event
+    hidden = yes
 
-	trigger = {
-		is_alive = yes
-	}
+    trigger = {
+        is_alive = yes
+    }
 
-	immediate = {
-		awow_assign_birth_relations_effect = yes
-	}
-}
-
-# 1001 - Assign AWOW family relations for a vanilla birth (father-scoped).
-# Fires from on_birth_father; ROOT = father, scope:child = newborn.
-awow_birth.1001 = {
-	type = character_event
-	hidden = yes
-
-	trigger = {
-		is_alive = yes
-	}
-
-	immediate = {
-		awow_assign_birth_relations_effect = yes
-	}
+    immediate = {
+        awow_assign_scripted_birth_relations_effect = yes
+    }
 }
