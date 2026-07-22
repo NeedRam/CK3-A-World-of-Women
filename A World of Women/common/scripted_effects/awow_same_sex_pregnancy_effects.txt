@@ -1,10 +1,8 @@
 ﻿# AWOW autonomous female-female pregnancy system.
-# Carnalitas supplies the pregnancy portrait support and fertility script value;
-# AWOW owns the pregnancy state and delayed birth event.
+# Carnalitas supplies the pregnancy portrait support
 
 awow_start_same_sex_pregnancy_effect = { # requires PARTNER
     set_variable = { name = awow_pregnancy_active value = yes }
-    set_variable = { name = awow_other_mother value = $PARTNER$ }
     carn_start_custom_pregnancy_effect = {
         PREGNANCY_TYPE = awow_same_sex
         DAYS_UNTIL_NEXT_STAGE = 280
@@ -46,10 +44,11 @@ awow_try_same_sex_pregnancy_effect = {
                 50 = {
                     save_scope_as = mother
                     scope:awow_partner = { save_scope_as = father }
+                    scope:awow_partner = { save_scope_as = awow_other_mother }
                     random = {
                         chance = awow_impregnation_chance_value
                         scope:mother = {
-                            awow_start_same_sex_pregnancy_effect = { PARTNER = scope:father }
+                            awow_start_same_sex_pregnancy_effect = yes
                         }
                     }
                 }
@@ -57,10 +56,11 @@ awow_try_same_sex_pregnancy_effect = {
                     scope:awow_partner = {
                         save_scope_as = mother
                         scope:awow_root = { save_scope_as = father }
+                        scope:awow_root = { save_scope_as = awow_other_mother }
                         random = {
                             chance = awow_impregnation_chance_value
                             scope:mother = {
-                                awow_start_same_sex_pregnancy_effect = { PARTNER = scope:father }
+                                awow_start_same_sex_pregnancy_effect = yes
                             }
                         }
                     }

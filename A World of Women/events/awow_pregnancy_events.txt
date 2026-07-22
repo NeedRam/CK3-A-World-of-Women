@@ -13,10 +13,6 @@ awow_pregnancy.0001 = {
     }
     debug_log = "AWOW SS-PREG: BIRTH checks passed"
     immediate = {
-        var:awow_other_mother = {
-            save_scope_as = awow_other_mother
-        }
-
 
         debug_log = "AWOW SS-PREG: BIRTH other_mother resolved"
 
