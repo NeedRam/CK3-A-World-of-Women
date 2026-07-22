@@ -110,6 +110,55 @@ awow_test_same_sex_pregnancy_interaction = {
     }
 }
 
+awow_test_set_parent = {
+    category = interaction_category_uncategorized
+    icon = vassal_claim_liege_title_interaction
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+    common_interaction = yes
+    auto_accept = yes
 
+
+    is_shown = {
+        scope:recipient = {
+            is_alive = yes
+        }
+    }
+
+    is_valid = {
+        scope:recipient = {
+            is_alive = yes
+        }
+    }
+
+    on_accept = {
+        set_relation_awow_parent = scope:recipient
+    }
+}
+
+awow_test_set_child = {
+    category = interaction_category_uncategorized
+    icon = vassal_claim_liege_title_interaction
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+    common_interaction = yes
+    auto_accept = yes
+
+    is_shown = {
+        scope:recipient = {
+            is_alive = yes
+        }
+    }
+
+    is_valid = {
+        scope:recipient = {
+            is_alive = yes
+        }
+    }
+
+    on_accept = {
+        set_relation_awow_child = scope:recipient
+    }
+}
 
 

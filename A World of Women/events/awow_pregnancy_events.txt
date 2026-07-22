@@ -41,32 +41,16 @@ awow_pregnancy.0001 = {
 
         if = {
             limit = { has_character_flag = awow_pregnancy_will_be_twins_flag }
-            if = {
-                limit = { exists = scope:awow_other_mother }
-                create_character = {
-                    age = 0
-                    random_traits = no
-                    culture = root.culture
-                    faith = root.faith
-                    dynasty = inherit
-                    location = root.location
-                    mother = root
-                    gender_female_chance = awow_baby_female_chance_value
-                    save_scope_as = child_2
-                }
-            }
-            else = {
-                create_character = {
-                    age = 0
-                    random_traits = no
-                    culture = root.culture
-                    faith = root.faith
-                    dynasty = inherit
-                    location = root.location
-                    mother = root
-                    gender_female_chance = awow_baby_female_chance_value
-                    save_scope_as = child_2
-                }
+            create_character = {
+                age = 0
+                random_traits = no
+                culture = root.culture
+                faith = root.faith
+                dynasty = inherit
+                location = root.location
+                mother = root
+                gender_female_chance = awow_baby_female_chance_value
+                save_scope_as = child_2
             }
             scope:child_2 = { awow_assign_scripted_birth_relations_effect = yes }
             create_character_memory = {
@@ -79,32 +63,16 @@ awow_pregnancy.0001 = {
 
         if = {
             limit = { has_character_flag = awow_pregnancy_will_be_triplets_flag }
-            if = {
-                limit = { exists = scope:awow_other_mother }
-                create_character = {
-                    age = 0
-                    random_traits = no
-                    culture = root.culture
-                    faith = root.faith
-                    dynasty = inherit
-                    location = root.location
-                    mother = root
-                    gender_female_chance = awow_baby_female_chance_value
-                    save_scope_as = child_3
-                }
-            }
-            else = {
-                create_character = {
-                    age = 0
-                    random_traits = no
-                    culture = root.culture
-                    faith = root.faith
-                    dynasty = inherit
-                    location = root.location
-                    mother = root
-                    gender_female_chance = awow_baby_female_chance_value
-                    save_scope_as = child_3
-                }
+            create_character = {
+                age = 0
+                random_traits = no
+                culture = root.culture
+                faith = root.faith
+                dynasty = inherit
+                location = root.location
+                mother = root
+                gender_female_chance = awow_baby_female_chance_value
+                save_scope_as = child_3
             }
             scope:child_3 = { awow_assign_scripted_birth_relations_effect = yes }
             create_character_memory = {
@@ -200,7 +168,6 @@ awow_pregnancy.0004 = {
 }
 
 # 1000 - Assign AWOW family relations for a vanilla birth
-# root = scope:child
 awow_pregnancy.1000 = {
     type = character_event
     hidden = yes
