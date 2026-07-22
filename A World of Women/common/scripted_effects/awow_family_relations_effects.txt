@@ -48,7 +48,7 @@ awow_set_grandparent_effect = {
                 NOT = { any_relation = { type = awow_grandchild } }
             }
         }
-        set_relation_awow_grandparent = scope:awow_child
+        set_relation_awow_grandparent = scope:awow_grandparent
         debug_log = "AWOW RELATIONS: Grandparent Relation Set"
     }
 }
@@ -61,7 +61,7 @@ awow_set_grandchild_effect = {
                 NOT = { any_relation = { type = awow_grandchild } }
             }
         }
-        set_relation_awow_grandchild = scope:awow_grandparent
+        set_relation_awow_grandchild = scope:awow_child
         debug_log = "AWOW RELATIONS: Grandchild Relation Set"
     }
 }
@@ -178,10 +178,10 @@ awow_assign_grandparent_relations_effect = {
             if = {
                 limit = { is_alive = yes }
                 debug_log = "AWOW RELATIONS: in grandparent"
-                awow_set_grandparent_effect = yes
+                awow_set_grandchild_effect = yes
                 scope:awow_child = {
                     debug_log = "AWOW RELATIONS: in grandchild"
-                    awow_set_grandchild_effect = yes
+                    awow_set_grandparent_effect = yes
                 }
             }
         }
@@ -194,10 +194,10 @@ awow_assign_grandparent_relations_effect = {
             if = {
                 limit = { is_alive = yes }
                 debug_log = "AWOW RELATIONS: in grandparent"
-                awow_set_grandparent_effect = yes
+                awow_set_grandchild_effect = yes
                 scope:awow_child = {
                     debug_log = "AWOW RELATIONS: in grandchild"
-                    awow_set_grandchild_effect = yes
+                    awow_set_grandparent_effect = yes
                 }
             }
         }
