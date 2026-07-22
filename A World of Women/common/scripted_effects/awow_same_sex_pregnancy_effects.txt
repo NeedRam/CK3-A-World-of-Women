@@ -42,18 +42,6 @@ awow_try_same_sex_pregnancy_effect = {
         if = {
             limit = { exists = scope:awow_partner }
             save_scope_as = awow_root
-            scope:awow_partner = {
-                set_variable = {
-                    name = awow_same_sex_partner_cooldown
-                    value = yes
-                    days = 365
-                }
-            }
-            set_variable = {
-                name = awow_same_sex_partner_cooldown
-                value = yes
-                days = 365
-            }
             random_list = {
                 50 = {
                     save_scope_as = mother

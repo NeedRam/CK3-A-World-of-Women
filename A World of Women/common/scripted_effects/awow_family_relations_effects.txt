@@ -1,13 +1,23 @@
 ﻿awow_set_parent_effect = {
     if = {
-        limit = { NOT = { any_relation = { type = awow_parent } } }
+        limit = {
+            AND = {
+                NOT = { any_relation = { type = awow_parent } }
+                NOT = { any_relation = { type = awow_child } }
+            }
+        }
         set_relation_awow_parent = scope:awow_parent
     }
 }
 
 awow_set_child_effect = {
     if = {
-        limit = { NOT = { any_relation = { type = awow_child } } }
+        limit = {
+            AND = {
+                NOT = { any_relation = { type = awow_parent } }
+                NOT = { any_relation = { type = awow_child } }
+            }
+        }
         set_relation_awow_child = scope:awow_child
     }
 }
@@ -28,14 +38,24 @@ awow_set_sibling_of_effect = {
 
 awow_set_grandparent_effect = {
     if = {
-        limit = { NOT = { any_relation = { type = awow_grandparent } } }
+        limit = {
+            AND = {
+                NOT = { any_relation = { type = awow_grandparent } }
+                NOT = { any_relation = { type = awow_grandchild } }
+            }
+        }
         set_relation_awow_grandparent = scope:awow_child
     }
 }
 
 awow_set_grandchild_effect = {
     if = {
-        limit = { NOT = { any_relation = { type = awow_grandchild } } }
+        limit = {
+            AND = {
+                NOT = { any_relation = { type = awow_grandparent } }
+                NOT = { any_relation = { type = awow_grandchild } }
+            }
+        }
         set_relation_awow_grandchild = scope:awow_grandparent
     }
 }
@@ -43,50 +63,59 @@ awow_set_grandchild_effect = {
 awow_assign_scripted_parent_relations_effect = {
     save_scope_as = awow_child
     if = {
-        limit = { exists = mother }
-        mother = { save_scope_as = awow_parent }
-        scope:awow_parent = {
-            if = {
-                limit = { is_alive = yes }
-                awow_set_child_effect = yes
-                awow_assign_siblings_effect = yes
-                awow_assign_grandparent_relations_effect = yes
+        limit = { is_alive = yes }
+        if = {
+            limit = { 
+                exists = mother 
             }
+            mother = { save_scope_as = awow_parent }
+            scope:awow_parent = {
+                if = {
+                    limit = { is_alive = yes }
+                    awow_set_child_effect = yes
+                    awow_assign_siblings_effect = yes
+                    awow_assign_grandparent_relations_effect = yes
+                }
 
-        }
-        awow_set_parent_effect = yes
-        clear_saved_scope = awow_parent
-    }
-    if = {
-        limit = { exists = father }
-        father = { save_scope_as = awow_parent }
-        scope:awow_parent = {
+            }
             if = {
-                limit = { is_alive = yes }
-                awow_set_child_effect = yes
-                awow_assign_siblings_effect = yes
-                awow_assign_grandparent_relations_effect = yes
+                limit { scope:awow_parent = { is_alive = yes } }
+                awow_set_parent_effect = yes
             }
         }
-        awow_set_parent_effect = yes
-        clear_saved_scope = awow_parent
-    }
-    if = {
-        limit = { exists = scope:awow_other_mother }
-        scope:awow_other_mother = {
+        if = {
+            limit = { exists = father }
+            father = { save_scope_as = awow_parent }
+            scope:awow_parent = {
+                if = {
+                    limit = { is_alive = yes }
+                    awow_set_child_effect = yes
+                    awow_assign_siblings_effect = yes
+                    awow_assign_grandparent_relations_effect = yes
+                }
+            }
             if = {
-                limit = { is_alive = yes }
-                save_scope_as = awow_parent
-                awow_set_child_effect = yes
-                awow_assign_siblings_effect = yes
-                awow_assign_grandparent_relations_effect = yes
+                limit { scope:awow_parent = { is_alive = yes } }
+                awow_set_parent_effect = yes
             }
         }
-        awow_set_parent_effect = yes
-        clear_saved_scope = awow_parent
-        clear_saved_scope = awow_other_mother
+        if = {
+            limit = { exists = scope:awow_other_mother }
+            scope:awow_other_mother = {
+                if = {
+                    limit = { is_alive = yes }
+                    save_scope_as = awow_parent
+                    awow_set_child_effect = yes
+                    awow_assign_siblings_effect = yes
+                    awow_assign_grandparent_relations_effect = yes
+                }
+            }
+            if = {
+                limit { scope:awow_parent = { is_alive = yes } }
+                awow_set_parent_effect = yes
+            }
+        }
     }
-    clear_saved_scope = awow_child
 }
 
 awow_assign_siblings_effect = {
@@ -101,7 +130,6 @@ awow_assign_siblings_effect = {
             scope:awow_child = {
                 awow_set_my_sibling_effect = yes
             }
-            clear_saved_scope = awow_sibling
         }
     }
     every_relation = {
@@ -117,7 +145,6 @@ awow_assign_siblings_effect = {
                 awow_set_my_sibling_effect = yes
             }
         }
-        clear_saved_scope = awow_sibling
     }
 }
 
@@ -134,7 +161,6 @@ awow_assign_grandparent_relations_effect = {
                 }
             }
         }
-        clear_saved_scope = awow_grandparent
     }
     if = {
         limit = { exists = mother }
@@ -149,7 +175,6 @@ awow_assign_grandparent_relations_effect = {
             }
 
         }
-        clear_saved_scope = awow_grandparent
     }
     every_relation = {
         type = awow_parent
@@ -162,7 +187,6 @@ awow_assign_grandparent_relations_effect = {
                 awow_set_grandchild_effect = yes
             }
         }
-        clear_saved_scope = awow_grandparent
     }
 }
 
@@ -189,20 +213,14 @@ awow_backfill_relations_effect = {
 }
 
 awow_backfill_2nd_pass_effect = {
-    root = { save_scope_as = awow_child }
+    save_scope_as = awow_child
     every_relation = {
         type = awow_parent
         save_scope_as = awow_parent
         if = {
             limit = { is_alive = yes }
-            awow_set_parent_effect = yes
             awow_assign_siblings_effect = yes
             awow_assign_grandparent_relations_effect = yes
-            scope:awow_child = {
-                awow_set_child_effect = yes
-            }
         }
     }
-    clear_saved_scope = awow_parent
-    clear_saved_scope = awow_child
 }
