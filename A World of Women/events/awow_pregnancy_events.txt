@@ -11,7 +11,8 @@ awow_pregnancy.0001 = {
         has_variable = awow_pregnancy_active
     }
     immediate = {
-
+        debug_log = "AWOW SS-PREG: borning child"
+        awow_baby_female_chance_effect = yes
         create_character = {
             age = 0
             random_traits = no
@@ -34,6 +35,8 @@ awow_pregnancy.0001 = {
                 child = scope:child
             }
         }
+
+        debug_log = "AWOW SS-PREG: child borned"
 
         if = {
             limit = { has_character_flag = awow_pregnancy_will_be_twins_flag }
@@ -59,6 +62,7 @@ awow_pregnancy.0001 = {
                     child = scope:childsr
                 }
             }
+            debug_log = "AWOW SS-PREG: another child borned"
         }
 
         if = {
@@ -85,6 +89,7 @@ awow_pregnancy.0001 = {
                     child = scope:childssr
                 }
             }
+            debug_log = "AWOW SS-PREG: many childs born"
         }
 
         remove_trait = pregnant
@@ -93,6 +98,7 @@ awow_pregnancy.0001 = {
         remove_character_flag = awow_pregnancy_will_be_triplets_flag
         carn_end_custom_pregnancy_effect = yes
 
+        debug_log = "AWOW SS-PREG: removed traits and flags child borned"
 
         ######### REDO EVENT POPUPS #########
         if = {
@@ -119,6 +125,7 @@ awow_pregnancy.0001 = {
             }
         }
         clear_saved_scope = awow_other_mother
+        debug_log = "AWOW SS-PREG: not ai popups sent"
     }
 }
 
@@ -149,6 +156,7 @@ awow_pregnancy.0003 = {
     hidden = yes
 
     immediate = {
+        awow_pregnancy_pulse_effect = yes
         awow_monthly_pregnancy_tick_effect = yes
     }
 }

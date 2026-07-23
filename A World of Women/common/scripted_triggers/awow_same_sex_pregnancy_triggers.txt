@@ -4,8 +4,7 @@ awow_same_sex_can_bear_trigger = {
     AND = {
         is_alive = yes
         is_female = yes
-        can_have_children = yes
-        age <= 45
+        is_adult = yes
         NOT = { is_pregnant = yes }
         NOT = { has_variable = awow_pregnancy_active }
     }
