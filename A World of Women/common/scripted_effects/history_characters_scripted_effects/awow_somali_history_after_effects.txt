@@ -1,0 +1,1389 @@
+﻿assign_history_somali_other_mothers = {
+	somali0002_effect = yes
+	somali0003_effect = yes
+	somali0004_effect = yes
+	somali0005_effect = yes
+	somali0006_effect = yes
+	somali0007_effect = yes
+	somali0008_effect = yes
+	somali0009_effect = yes
+	somali0010_effect = yes
+	somali0011_effect = yes
+	somali0012_effect = yes
+	somali0013_effect = yes
+	somali0014_effect = yes
+	somali0015_effect = yes
+	somali0017_effect = yes
+	somali0018_effect = yes
+	somali0019_effect = yes
+	somali0020_effect = yes
+	somali0021_effect = yes
+	somali0022_effect = yes
+	somali0023_effect = yes
+	somali0024_effect = yes
+	somali0025_effect = yes
+	somali0026_effect = yes
+	somali0027_effect = yes
+	somali0028_effect = yes
+	somali0029_effect = yes
+	somali0030_effect = yes
+	somali0031_effect = yes
+	somali0032_effect = yes
+	somali0033_effect = yes
+	somali0034_effect = yes
+	somali0035_effect = yes
+	somali0036_effect = yes
+	somali0037_effect = yes
+	somali0038_effect = yes
+	somali0039_effect = yes
+	somali0040_effect = yes
+	somali0041_effect = yes
+	somali0042_effect = yes
+	somali0043_effect = yes
+	somali0044_effect = yes
+	somali0045_effect = yes
+	somali0046_effect = yes
+	somali0047_effect = yes
+	somali0048_effect = yes
+	somali0049_effect = yes
+	somali0050_effect = yes
+	somali0051_effect = yes
+	somali0052_effect = yes
+	somali0053_effect = yes
+	somali0054_effect = yes
+	somali0061_effect = yes
+	somali0062_effect = yes
+	somali0063_effect = yes
+	somali0065_effect = yes
+	somali0077_effect = yes
+	somali0078_effect = yes
+	somali0079_effect = yes
+	somali0080_effect = yes
+	somali0082_effect = yes
+	somali0083_effect = yes
+	somali0084_effect = yes
+	somali0085_effect = yes
+	somali0086_effect = yes
+	somali0087_effect = yes
+	somali0088_effect = yes
+	somali0089_effect = yes
+	somali0090_effect = yes
+	somali0091_effect = yes
+	somali0093_effect = yes
+	somali0094_effect = yes
+	somali0095_effect = yes
+	somali0096_effect = yes
+	somali0097_effect = yes
+	somali0099_effect = yes
+	somali0100_effect = yes
+	somali0101_effect = yes
+	somali0102_effect = yes
+	somali0103_effect = yes
+	somali0104_effect = yes
+	somali0105_effect = yes
+	somali0106_effect = yes
+	somali0107_effect = yes
+	somali0108_effect = yes
+	somali0110_effect = yes
+	somali0111_effect = yes
+	somali0112_effect = yes
+	somali0113_effect = yes
+	somali0114_effect = yes
+	somali0115_effect = yes
+	somali0116_effect = yes
+	somali0117_effect = yes
+	somali0118_effect = yes
+	somali0119_effect = yes
+	somali0120_effect = yes
+	somali0121_effect = yes
+	somali0122_effect = yes
+	somali0123_effect = yes
+	somali0125_effect = yes
+	somali0126_effect = yes
+	somali0127_effect = yes
+	somali0128_effect = yes
+	somali0129_effect = yes
+	somali0130_effect = yes
+	somali0132_effect = yes
+	somali0133_effect = yes
+	somali0134_effect = yes
+	somali0135_effect = yes
+	somali0136_effect = yes
+	somali0137_effect = yes
+	somali0138_effect = yes
+	somali0139_effect = yes
+	somali0140_effect = yes
+	somali0141_effect = yes
+	somali0142_effect = yes
+	somali0143_effect = yes
+	somali0144_effect = yes
+	somali0145_effect = yes
+	somali0146_effect = yes
+	somali0147_effect = yes
+	somali0148_effect = yes
+	somali0149_effect = yes
+	somali0150_effect = yes
+	somali0151_effect = yes
+	somali0152_effect = yes
+	somali0153_effect = yes
+	somali0156_effect = yes
+	somali0157_effect = yes
+	somali0158_effect = yes
+	somali0159_effect = yes
+	somali0166_effect = yes
+	somali0167_effect = yes
+	somali0169_effect = yes
+	somali0170_effect = yes
+	somali0171_effect = yes
+	somali0172_effect = yes
+	somali0173_effect = yes
+	somali0174_effect = yes
+	somali0176_effect = yes
+	somali0177_effect = yes
+	somali0178_effect = yes
+	somali0179_effect = yes
+	somali0180_effect = yes
+	somali0181_effect = yes
+	somali_ewaso_ngiro_02_effect = yes
+	somali_ewaso_ngiro_03_effect = yes
+	somali_ewaso_ngiro_04_effect = yes
+	somali_ewaso_ngiro_05_effect = yes
+	somali_ewaso_ngiro_06_effect = yes
+	somali_ewaso_ngiro_07_effect = yes
+	somali_ewaso_ngiro_08_effect = yes
+	somali_ewaso_ngiro_09_effect = yes
+	somali_ewaso_ngiro_10_effect = yes
+}
+
+somali0002_effect = {
+	character:somali0002 = { save_scope_as = awow_child}
+	character:somali0001 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0003_effect = {
+	character:somali0003 = { save_scope_as = awow_child}
+	character:somali0002 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0004_effect = {
+	character:somali0004 = { save_scope_as = awow_child}
+	character:somali0003 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0005_effect = {
+	character:somali0005 = { save_scope_as = awow_child}
+	character:somali0003 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0006_effect = {
+	character:somali0006 = { save_scope_as = awow_child}
+	character:somali0003 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0007_effect = {
+	character:somali0007 = { save_scope_as = awow_child}
+	character:somali0006 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0008_effect = {
+	character:somali0008 = { save_scope_as = awow_child}
+	character:somali0006 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0009_effect = {
+	character:somali0009 = { save_scope_as = awow_child}
+	character:somali0008 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0010_effect = {
+	character:somali0010 = { save_scope_as = awow_child}
+	character:somali0009 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0011_effect = {
+	character:somali0011 = { save_scope_as = awow_child}
+	character:somali0010 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0012_effect = {
+	character:somali0012 = { save_scope_as = awow_child}
+	character:somali0010 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0013_effect = {
+	character:somali0013 = { save_scope_as = awow_child}
+	character:somali0012 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0014_effect = {
+	character:somali0014 = { save_scope_as = awow_child}
+	character:somali0012 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0015_effect = {
+	character:somali0015 = { save_scope_as = awow_child}
+	character:somali0014 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0017_effect = {
+	character:somali0017 = { save_scope_as = awow_child}
+	character:somali0016 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0018_effect = {
+	character:somali0018 = { save_scope_as = awow_child}
+	character:somali0017 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0019_effect = {
+	character:somali0019 = { save_scope_as = awow_child}
+	character:somali0018 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0020_effect = {
+	character:somali0020 = { save_scope_as = awow_child}
+	character:somali0019 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0021_effect = {
+	character:somali0021 = { save_scope_as = awow_child}
+	character:somali0020 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0022_effect = {
+	character:somali0022 = { save_scope_as = awow_child}
+	character:somali0021 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0023_effect = {
+	character:somali0023 = { save_scope_as = awow_child}
+	character:somali0022 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0024_effect = {
+	character:somali0024 = { save_scope_as = awow_child}
+	character:somali0023 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0025_effect = {
+	character:somali0025 = { save_scope_as = awow_child}
+	character:somali0024 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0026_effect = {
+	character:somali0026 = { save_scope_as = awow_child}
+	character:somali0025 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0027_effect = {
+	character:somali0027 = { save_scope_as = awow_child}
+	character:somali0026 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0028_effect = {
+	character:somali0028 = { save_scope_as = awow_child}
+	character:somali0027 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0029_effect = {
+	character:somali0029 = { save_scope_as = awow_child}
+	character:somali0028 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0030_effect = {
+	character:somali0030 = { save_scope_as = awow_child}
+	character:somali0029 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0031_effect = {
+	character:somali0031 = { save_scope_as = awow_child}
+	character:somali0016 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0032_effect = {
+	character:somali0032 = { save_scope_as = awow_child}
+	character:somali0031 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0033_effect = {
+	character:somali0033 = { save_scope_as = awow_child}
+	character:somali0032 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0034_effect = {
+	character:somali0034 = { save_scope_as = awow_child}
+	character:somali0033 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0035_effect = {
+	character:somali0035 = { save_scope_as = awow_child}
+	character:somali0034 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0036_effect = {
+	character:somali0036 = { save_scope_as = awow_child}
+	character:somali0035 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0037_effect = {
+	character:somali0037 = { save_scope_as = awow_child}
+	character:somali0036 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0038_effect = {
+	character:somali0038 = { save_scope_as = awow_child}
+	character:somali0037 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0039_effect = {
+	character:somali0039 = { save_scope_as = awow_child}
+	character:somali0038 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0040_effect = {
+	character:somali0040 = { save_scope_as = awow_child}
+	character:somali0039 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0041_effect = {
+	character:somali0041 = { save_scope_as = awow_child}
+	character:somali0040 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0042_effect = {
+	character:somali0042 = { save_scope_as = awow_child}
+	character:somali0041 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0043_effect = {
+	character:somali0043 = { save_scope_as = awow_child}
+	character:somali0016 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0044_effect = {
+	character:somali0044 = { save_scope_as = awow_child}
+	character:somali0043 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0045_effect = {
+	character:somali0045 = { save_scope_as = awow_child}
+	character:somali0044 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0046_effect = {
+	character:somali0046 = { save_scope_as = awow_child}
+	character:somali0045 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0047_effect = {
+	character:somali0047 = { save_scope_as = awow_child}
+	character:somali0046 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0048_effect = {
+	character:somali0048 = { save_scope_as = awow_child}
+	character:somali0047 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0049_effect = {
+	character:somali0049 = { save_scope_as = awow_child}
+	character:somali0048 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0050_effect = {
+	character:somali0050 = { save_scope_as = awow_child}
+	character:somali0049 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0051_effect = {
+	character:somali0051 = { save_scope_as = awow_child}
+	character:somali0050 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0052_effect = {
+	character:somali0052 = { save_scope_as = awow_child}
+	character:somali0051 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0053_effect = {
+	character:somali0053 = { save_scope_as = awow_child}
+	character:somali0052 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0054_effect = {
+	character:somali0054 = { save_scope_as = awow_child}
+	character:somali0053 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0061_effect = {
+	character:somali0061 = { save_scope_as = awow_child}
+	character:somali0060 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0062_effect = {
+	character:somali0062 = { save_scope_as = awow_child}
+	character:somali0060 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0063_effect = {
+	character:somali0063 = { save_scope_as = awow_child}
+	character:somali0061 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0065_effect = {
+	character:somali0065 = { save_scope_as = awow_child}
+	character:somali0064 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0077_effect = {
+	character:somali0077 = { save_scope_as = awow_child}
+	character:somali0076 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0078_effect = {
+	character:somali0078 = { save_scope_as = awow_child}
+	character:somali0077 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0079_effect = {
+	character:somali0079 = { save_scope_as = awow_child}
+	character:somali0078 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0080_effect = {
+	character:somali0080 = { save_scope_as = awow_child}
+	character:somali0079 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0082_effect = {
+	character:somali0082 = { save_scope_as = awow_child}
+	character:somali0081 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0083_effect = {
+	character:somali0083 = { save_scope_as = awow_child}
+	character:somali0082 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0084_effect = {
+	character:somali0084 = { save_scope_as = awow_child}
+	character:somali0083 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0085_effect = {
+	character:somali0085 = { save_scope_as = awow_child}
+	character:somali0084 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0086_effect = {
+	character:somali0086 = { save_scope_as = awow_child}
+	character:somali0085 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0087_effect = {
+	character:somali0087 = { save_scope_as = awow_child}
+	character:somali0086 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0088_effect = {
+	character:somali0088 = { save_scope_as = awow_child}
+	character:somali0087 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0089_effect = {
+	character:somali0089 = { save_scope_as = awow_child}
+	character:somali0088 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0090_effect = {
+	character:somali0090 = { save_scope_as = awow_child}
+	character:somali0016 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0091_effect = {
+	character:somali0091 = { save_scope_as = awow_child}
+	character:somali0090 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0093_effect = {
+	character:somali0093 = { save_scope_as = awow_child}
+	character:somali0092 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0094_effect = {
+	character:somali0094 = { save_scope_as = awow_child}
+	character:somali0093 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0095_effect = {
+	character:somali0095 = { save_scope_as = awow_child}
+	character:somali0094 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0096_effect = {
+	character:somali0096 = { save_scope_as = awow_child}
+	character:somali0109 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0097_effect = {
+	character:somali0097 = { save_scope_as = awow_child}
+	character:somali0096 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0099_effect = {
+	character:somali0099 = { save_scope_as = awow_child}
+	character:somali0098 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0100_effect = {
+	character:somali0100 = { save_scope_as = awow_child}
+	character:somali0099 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0101_effect = {
+	character:somali0101 = { save_scope_as = awow_child}
+	character:somali0100 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0102_effect = {
+	character:somali0102 = { save_scope_as = awow_child}
+	character:somali0101 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0103_effect = {
+	character:somali0103 = { save_scope_as = awow_child}
+	character:somali0102 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0104_effect = {
+	character:somali0104 = { save_scope_as = awow_child}
+	character:somali0109 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0105_effect = {
+	character:somali0105 = { save_scope_as = awow_child}
+	character:somali0060 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0106_effect = {
+	character:somali0106 = { save_scope_as = awow_child}
+	character:somali0060 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0107_effect = {
+	character:somali0107 = { save_scope_as = awow_child}
+	character:somali0060 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0108_effect = {
+	character:somali0108 = { save_scope_as = awow_child}
+	character:somali0060 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0110_effect = {
+	character:somali0110 = { save_scope_as = awow_child}
+	character:somali0061 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0111_effect = {
+	character:somali0111 = { save_scope_as = awow_child}
+	character:somali0110 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0112_effect = {
+	character:somali0112 = { save_scope_as = awow_child}
+	character:somali0111 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0113_effect = {
+	character:somali0113 = { save_scope_as = awow_child}
+	character:somali0112 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0114_effect = {
+	character:somali0114 = { save_scope_as = awow_child}
+	character:somali0113 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0115_effect = {
+	character:somali0115 = { save_scope_as = awow_child}
+	character:somali0114 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0116_effect = {
+	character:somali0116 = { save_scope_as = awow_child}
+	character:somali0115 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0117_effect = {
+	character:somali0117 = { save_scope_as = awow_child}
+	character:somali0116 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0118_effect = {
+	character:somali0118 = { save_scope_as = awow_child}
+	character:somali0105 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0119_effect = {
+	character:somali0119 = { save_scope_as = awow_child}
+	character:somali0118 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0120_effect = {
+	character:somali0120 = { save_scope_as = awow_child}
+	character:somali0119 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0121_effect = {
+	character:somali0121 = { save_scope_as = awow_child}
+	character:somali0120 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0122_effect = {
+	character:somali0122 = { save_scope_as = awow_child}
+	character:somali0121 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0123_effect = {
+	character:somali0123 = { save_scope_as = awow_child}
+	character:somali0106 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0125_effect = {
+	character:somali0125 = { save_scope_as = awow_child}
+	character:somali0124 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0126_effect = {
+	character:somali0126 = { save_scope_as = awow_child}
+	character:somali0125 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0127_effect = {
+	character:somali0127 = { save_scope_as = awow_child}
+	character:somali0126 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0128_effect = {
+	character:somali0128 = { save_scope_as = awow_child}
+	character:somali0127 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0129_effect = {
+	character:somali0129 = { save_scope_as = awow_child}
+	character:somali0090 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0130_effect = {
+	character:somali0130 = { save_scope_as = awow_child}
+	character:somali0129 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0132_effect = {
+	character:somali0132 = { save_scope_as = awow_child}
+	character:somali0131 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0133_effect = {
+	character:somali0133 = { save_scope_as = awow_child}
+	character:somali0132 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0134_effect = {
+	character:somali0134 = { save_scope_as = awow_child}
+	character:somali0133 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0135_effect = {
+	character:somali0135 = { save_scope_as = awow_child}
+	character:somali0134 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0136_effect = {
+	character:somali0136 = { save_scope_as = awow_child}
+	character:somali0135 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0137_effect = {
+	character:somali0137 = { save_scope_as = awow_child}
+	character:somali0136 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0138_effect = {
+	character:somali0138 = { save_scope_as = awow_child}
+	character:somali0107 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0139_effect = {
+	character:somali0139 = { save_scope_as = awow_child}
+	character:somali0138 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0140_effect = {
+	character:somali0140 = { save_scope_as = awow_child}
+	character:somali0139 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0141_effect = {
+	character:somali0141 = { save_scope_as = awow_child}
+	character:somali0140 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0142_effect = {
+	character:somali0142 = { save_scope_as = awow_child}
+	character:somali0141 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0143_effect = {
+	character:somali0143 = { save_scope_as = awow_child}
+	character:somali0142 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0144_effect = {
+	character:somali0144 = { save_scope_as = awow_child}
+	character:somali0143 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0145_effect = {
+	character:somali0145 = { save_scope_as = awow_child}
+	character:somali0144 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0146_effect = {
+	character:somali0146 = { save_scope_as = awow_child}
+	character:somali0145 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0147_effect = {
+	character:somali0147 = { save_scope_as = awow_child}
+	character:somali0140 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0148_effect = {
+	character:somali0148 = { save_scope_as = awow_child}
+	character:somali0147 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0149_effect = {
+	character:somali0149 = { save_scope_as = awow_child}
+	character:somali0148 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0150_effect = {
+	character:somali0150 = { save_scope_as = awow_child}
+	character:somali0149 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0151_effect = {
+	character:somali0151 = { save_scope_as = awow_child}
+	character:somali0150 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0152_effect = {
+	character:somali0152 = { save_scope_as = awow_child}
+	character:somali0151 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0153_effect = {
+	character:somali0153 = { save_scope_as = awow_child}
+	character:somali0152 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0156_effect = {
+	character:somali0156 = { save_scope_as = awow_child}
+	character:somali0155 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0157_effect = {
+	character:somali0157 = { save_scope_as = awow_child}
+	character:somali0156 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0158_effect = {
+	character:somali0158 = { save_scope_as = awow_child}
+	character:somali0157 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0159_effect = {
+	character:somali0159 = { save_scope_as = awow_child}
+	character:somali0158 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0166_effect = {
+	character:somali0166 = { save_scope_as = awow_child}
+	character:somali0159 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0167_effect = {
+	character:somali0167 = { save_scope_as = awow_child}
+	character:somali0166 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0169_effect = {
+	character:somali0169 = { save_scope_as = awow_child}
+	character:somali0168 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0170_effect = {
+	character:somali0170 = { save_scope_as = awow_child}
+	character:somali0169 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0171_effect = {
+	character:somali0171 = { save_scope_as = awow_child}
+	character:somali0170 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0172_effect = {
+	character:somali0172 = { save_scope_as = awow_child}
+	character:somali0171 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0173_effect = {
+	character:somali0173 = { save_scope_as = awow_child}
+	character:somali0172 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0174_effect = {
+	character:somali0174 = { save_scope_as = awow_child}
+	character:somali0173 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0176_effect = {
+	character:somali0176 = { save_scope_as = awow_child}
+	character:somali0175 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0177_effect = {
+	character:somali0177 = { save_scope_as = awow_child}
+	character:somali0176 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0178_effect = {
+	character:somali0178 = { save_scope_as = awow_child}
+	character:somali0177 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0179_effect = {
+	character:somali0179 = { save_scope_as = awow_child}
+	character:somali0178 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0180_effect = {
+	character:somali0180 = { save_scope_as = awow_child}
+	character:somali0179 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali0181_effect = {
+	character:somali0181 = { save_scope_as = awow_child}
+	character:somali0180 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali_ewaso_ngiro_02_effect = {
+	character:somali_ewaso_ngiro_02 = { save_scope_as = awow_child}
+	character:somali_ewaso_ngiro_01 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali_ewaso_ngiro_03_effect = {
+	character:somali_ewaso_ngiro_03 = { save_scope_as = awow_child}
+	character:somali_ewaso_ngiro_02 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali_ewaso_ngiro_04_effect = {
+	character:somali_ewaso_ngiro_04 = { save_scope_as = awow_child}
+	character:somali_ewaso_ngiro_03 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali_ewaso_ngiro_05_effect = {
+	character:somali_ewaso_ngiro_05 = { save_scope_as = awow_child}
+	character:somali_ewaso_ngiro_04 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali_ewaso_ngiro_06_effect = {
+	character:somali_ewaso_ngiro_06 = { save_scope_as = awow_child}
+	character:somali_ewaso_ngiro_05 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali_ewaso_ngiro_07_effect = {
+	character:somali_ewaso_ngiro_07 = { save_scope_as = awow_child}
+	character:somali_ewaso_ngiro_06 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali_ewaso_ngiro_08_effect = {
+	character:somali_ewaso_ngiro_08 = { save_scope_as = awow_child}
+	character:somali_ewaso_ngiro_07 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali_ewaso_ngiro_09_effect = {
+	character:somali_ewaso_ngiro_09 = { save_scope_as = awow_child}
+	character:somali_ewaso_ngiro_08 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+somali_ewaso_ngiro_10_effect = {
+	character:somali_ewaso_ngiro_10 = { save_scope_as = awow_child}
+	character:somali_ewaso_ngiro_09 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+

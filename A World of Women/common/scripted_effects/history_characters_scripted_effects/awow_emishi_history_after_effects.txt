@@ -1,0 +1,66 @@
+﻿assign_history_emishi_other_mothers = {
+	emishi_tsugaru_1_effect = yes
+	emishi_tsugaru_2_effect = yes
+	emishi_tsugaru_3_effect = yes
+	emishi_tsugaru_4_effect = yes
+	emishi_tsugaru_5_effect = yes
+	emishi_tsugaru_6_effect = yes
+	emishi_tsugaru_7_effect = yes
+}
+
+emishi_tsugaru_1_effect = {
+	character:emishi_tsugaru_1 = { save_scope_as = awow_child}
+	character:emishi_tsugaru_2 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+emishi_tsugaru_2_effect = {
+	character:emishi_tsugaru_2 = { save_scope_as = awow_child}
+	character:emishi_tsugaru_3 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+emishi_tsugaru_3_effect = {
+	character:emishi_tsugaru_3 = { save_scope_as = awow_child}
+	character:emishi_tsugaru_4 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+emishi_tsugaru_4_effect = {
+	character:emishi_tsugaru_4 = { save_scope_as = awow_child}
+	character:emishi_tsugaru_5 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+emishi_tsugaru_5_effect = {
+	character:emishi_tsugaru_5 = { save_scope_as = awow_child}
+	character:emishi_tsugaru_6 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+emishi_tsugaru_6_effect = {
+	character:emishi_tsugaru_6 = { save_scope_as = awow_child}
+	character:emishi_tsugaru_7 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+emishi_tsugaru_7_effect = {
+	character:emishi_tsugaru_7 = { save_scope_as = awow_child}
+	character:emishi_tsugaru_8 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+

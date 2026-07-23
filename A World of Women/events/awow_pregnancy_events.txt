@@ -6,15 +6,11 @@
 awow_pregnancy.0001 = {
     type = character_event
     hidden = yes
-    debug_log = "AWOW SS-PREG: BIRTH event fired"
     trigger = {
         is_alive = yes
         has_variable = awow_pregnancy_active
     }
-    debug_log = "AWOW SS-PREG: BIRTH checks passed"
     immediate = {
-
-        debug_log = "AWOW SS-PREG: BIRTH other_mother resolved"
 
         create_character = {
             age = 0

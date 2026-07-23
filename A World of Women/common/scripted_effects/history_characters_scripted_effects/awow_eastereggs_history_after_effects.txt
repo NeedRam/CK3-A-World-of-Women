@@ -1,0 +1,12 @@
+﻿assign_history_eastereggs_other_mothers = {
+	easteregg_joel_hansson_effect = yes
+}
+
+easteregg_joel_hansson_effect = {
+	character:easteregg_joel_hansson = { save_scope_as = awow_child}
+	character:easteregg_joel_hansson_father = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+

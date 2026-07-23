@@ -23,7 +23,6 @@
     female = yes
     name = "Baruch" #Barak
     dynasty = 11001
-    assign_historic_father_as_other_mother = { daddy = 41713 }# Guessed connection to keep the dynasty connected
     martial = 5
     diplomacy = 5
     intrigue = 5
@@ -48,7 +47,6 @@
     female = yes
     name = "Yosef" #Yusuf
     dynasty = 11001
-    assign_historic_father_as_other_mother = { daddy = 41713 }# Guessed connection to keep the dynasty connected
     martial = 4
     diplomacy = 9
     intrigue = 4
@@ -211,7 +209,6 @@
     trait = stubborn
     trait = education_stewardship_4
     trait = cynical
-    assign_historic_father_as_other_mother = { daddy = 3220 }
     1025.1.2 = {
         birth = "1025.1.2"
     }
@@ -227,7 +224,6 @@ sephardi_0001 = { #Qasmuna, a famous jewish female poet. It is far from certain 
     name = "Qasmuna"
     female = yes
     dynasty = 101606
-    assign_historic_father_as_other_mother = { daddy = 3220 }
     religion = rabbinism
     culture = sephardi
     trait = intellect_good_1
@@ -256,7 +252,6 @@ sephardi_0002 = {
 sephardi_0003 = {
     female = yes
     name = "Nissim"
-    assign_historic_father_as_other_mother = { daddy = sephardi_0002 }
     religion = rabbinism
     culture = sephardi
     990.1.1 = {
@@ -270,7 +265,6 @@ sephardi_0003 = {
 sephardi_0004 = {
     name = "Rahel"
     female = yes
-    assign_historic_father_as_other_mother = { daddy = sephardi_0003 }
     religion = rabbinism
     culture = sephardi
     1037.1.1 = {
@@ -288,7 +282,6 @@ sephardi_0005 = { #Azariah, Yosef ben Naghrela's son
     female = yes
     name = "Azariah"
     dynasty = 101606
-    assign_historic_father_as_other_mother = { daddy = 3221 }
     mother = sephardi_0004
     religion = rabbinism
     culture = sephardi

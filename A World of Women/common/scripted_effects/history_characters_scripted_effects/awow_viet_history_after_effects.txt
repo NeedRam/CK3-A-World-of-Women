@@ -1,0 +1,795 @@
+﻿assign_history_viet_other_mothers = {
+	viet_ly_1_effect = yes
+	viet_ly_2_effect = yes
+	viet_ly_3_effect = yes
+	viet_ly_4_effect = yes
+	viet_ly_5_effect = yes
+	viet_ly_6_effect = yes
+	viet_ly_7_effect = yes
+	viet_ly_8_effect = yes
+	viet_ly_9_effect = yes
+	viet_ly_10_effect = yes
+	viet_ly_11_effect = yes
+	viet_ly_12_effect = yes
+	viet_ly_13_effect = yes
+	viet_ly_14_effect = yes
+	viet_ly_15_effect = yes
+	viet_ly_16_effect = yes
+	viet_ly_17_effect = yes
+	viet_ly_18_effect = yes
+	viet_ly_19_effect = yes
+	viet_ly_20_effect = yes
+	viet_ly_21_effect = yes
+	viet_ly_22_effect = yes
+	viet_ly_23_effect = yes
+	viet_ly_24_effect = yes
+	viet_ly_25_effect = yes
+	viet_ly_26_effect = yes
+	viet_ly_27_effect = yes
+	viet_ly_28_effect = yes
+	viet_ly_29_effect = yes
+	viet_ly_30_effect = yes
+	viet_ly_31_effect = yes
+	viet_ly_32_effect = yes
+	viet_ly_33_effect = yes
+	viet_ly_34_effect = yes
+	viet_ly_38_effect = yes
+	viet_dinh_1_effect = yes
+	viet_dinh_2_effect = yes
+	viet_dinh_3_effect = yes
+	viet_dinh_4_effect = yes
+	viet_dinh_5_effect = yes
+	viet_dinh_6_effect = yes
+	viet_dinh_7_effect = yes
+	viet_dinh_8_effect = yes
+	viet_dinh_9_effect = yes
+	viet_dinh_10_effect = yes
+	viet_le_1_effect = yes
+	viet_le_3_effect = yes
+	viet_le_4_effect = yes
+	viet_le_5_effect = yes
+	viet_le_6_effect = yes
+	viet_le_7_effect = yes
+	viet_le_8_effect = yes
+	viet_le_9_effect = yes
+	viet_le_10_effect = yes
+	viet_le_11_effect = yes
+	viet_le_12_effect = yes
+	viet_le_13_effect = yes
+	viet_le_14_effect = yes
+	viet_le_15_effect = yes
+	viet_ngo_1_effect = yes
+	viet_ngo_2_effect = yes
+	viet_ngo_3_effect = yes
+	viet_ngo_4_effect = yes
+	viet_ngo_10_effect = yes
+	viet_ngo_9_effect = yes
+	viet_tran_2_effect = yes
+	viet_tran_3_effect = yes
+	viet_tran_4_effect = yes
+	viet_tran_5_effect = yes
+	viet_tran_7_effect = yes
+	viet_duong_1_effect = yes
+	viet_duong_2_effect = yes
+	viet_than_1_effect = yes
+	viet_than_2_effect = yes
+	viet_do_1_effect = yes
+	viet_do_2_effect = yes
+	viet_do_4_effect = yes
+	viet_do_5_effect = yes
+	viet_do_6_effect = yes
+	viet_ngo_6_effect = yes
+	viet_ngo_7_effect = yes
+	viet_ngo_8_effect = yes
+	viet_khuc_2_effect = yes
+	viet_khuc_3_effect = yes
+	viet_ly_two_3_effect = yes
+	viet_to_2_effect = yes
+	viet_dam_2_effect = yes
+	viet_dam_3_effect = yes
+}
+
+viet_ly_1_effect = {
+	character:viet_ly_1 = { save_scope_as = awow_child}
+	character:viet_ly_39 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_2_effect = {
+	character:viet_ly_2 = { save_scope_as = awow_child}
+	character:viet_ly_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_3_effect = {
+	character:viet_ly_3 = { save_scope_as = awow_child}
+	character:viet_ly_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_4_effect = {
+	character:viet_ly_4 = { save_scope_as = awow_child}
+	character:viet_ly_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_5_effect = {
+	character:viet_ly_5 = { save_scope_as = awow_child}
+	character:viet_ly_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_6_effect = {
+	character:viet_ly_6 = { save_scope_as = awow_child}
+	character:viet_ly_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_7_effect = {
+	character:viet_ly_7 = { save_scope_as = awow_child}
+	character:viet_ly_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_8_effect = {
+	character:viet_ly_8 = { save_scope_as = awow_child}
+	character:viet_ly_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_9_effect = {
+	character:viet_ly_9 = { save_scope_as = awow_child}
+	character:viet_ly_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_10_effect = {
+	character:viet_ly_10 = { save_scope_as = awow_child}
+	character:viet_ly_2 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_11_effect = {
+	character:viet_ly_11 = { save_scope_as = awow_child}
+	character:viet_ly_2 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_12_effect = {
+	character:viet_ly_12 = { save_scope_as = awow_child}
+	character:viet_ly_2 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_13_effect = {
+	character:viet_ly_13 = { save_scope_as = awow_child}
+	character:viet_ly_2 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_14_effect = {
+	character:viet_ly_14 = { save_scope_as = awow_child}
+	character:viet_ly_2 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_15_effect = {
+	character:viet_ly_15 = { save_scope_as = awow_child}
+	character:viet_ly_10 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_16_effect = {
+	character:viet_ly_16 = { save_scope_as = awow_child}
+	character:viet_ly_10 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_17_effect = {
+	character:viet_ly_17 = { save_scope_as = awow_child}
+	character:viet_ly_10 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_18_effect = {
+	character:viet_ly_18 = { save_scope_as = awow_child}
+	character:viet_ly_10 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_19_effect = {
+	character:viet_ly_19 = { save_scope_as = awow_child}
+	character:viet_ly_10 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_20_effect = {
+	character:viet_ly_20 = { save_scope_as = awow_child}
+	character:viet_ly_17 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_21_effect = {
+	character:viet_ly_21 = { save_scope_as = awow_child}
+	character:viet_ly_20 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_22_effect = {
+	character:viet_ly_22 = { save_scope_as = awow_child}
+	character:viet_ly_20 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_23_effect = {
+	character:viet_ly_23 = { save_scope_as = awow_child}
+	character:viet_ly_20 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_24_effect = {
+	character:viet_ly_24 = { save_scope_as = awow_child}
+	character:viet_ly_22 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_25_effect = {
+	character:viet_ly_25 = { save_scope_as = awow_child}
+	character:viet_ly_22 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_26_effect = {
+	character:viet_ly_26 = { save_scope_as = awow_child}
+	character:viet_ly_22 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_27_effect = {
+	character:viet_ly_27 = { save_scope_as = awow_child}
+	character:viet_ly_22 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_28_effect = {
+	character:viet_ly_28 = { save_scope_as = awow_child}
+	character:viet_ly_22 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_29_effect = {
+	character:viet_ly_29 = { save_scope_as = awow_child}
+	character:viet_ly_22 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_30_effect = {
+	character:viet_ly_30 = { save_scope_as = awow_child}
+	character:viet_ly_22 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_31_effect = {
+	character:viet_ly_31 = { save_scope_as = awow_child}
+	character:viet_ly_11 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_32_effect = {
+	character:viet_ly_32 = { save_scope_as = awow_child}
+	character:viet_ly_39 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_33_effect = {
+	character:viet_ly_33 = { save_scope_as = awow_child}
+	character:viet_ly_39 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_34_effect = {
+	character:viet_ly_34 = { save_scope_as = awow_child}
+	character:viet_ly_35 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_38_effect = {
+	character:viet_ly_38 = { save_scope_as = awow_child}
+	character:viet_ly_10 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_dinh_1_effect = {
+	character:viet_dinh_1 = { save_scope_as = awow_child}
+	character:viet_dinh_5 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_dinh_2_effect = {
+	character:viet_dinh_2 = { save_scope_as = awow_child}
+	character:viet_dinh_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_dinh_3_effect = {
+	character:viet_dinh_3 = { save_scope_as = awow_child}
+	character:viet_dinh_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_dinh_4_effect = {
+	character:viet_dinh_4 = { save_scope_as = awow_child}
+	character:viet_dinh_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_dinh_5_effect = {
+	character:viet_dinh_5 = { save_scope_as = awow_child}
+	character:viet_dinh_11 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_dinh_6_effect = {
+	character:viet_dinh_6 = { save_scope_as = awow_child}
+	character:viet_dinh_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_dinh_7_effect = {
+	character:viet_dinh_7 = { save_scope_as = awow_child}
+	character:viet_dinh_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_dinh_8_effect = {
+	character:viet_dinh_8 = { save_scope_as = awow_child}
+	character:viet_dinh_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_dinh_9_effect = {
+	character:viet_dinh_9 = { save_scope_as = awow_child}
+	character:viet_dinh_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_dinh_10_effect = {
+	character:viet_dinh_10 = { save_scope_as = awow_child}
+	character:viet_dinh_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_le_1_effect = {
+	character:viet_le_1 = { save_scope_as = awow_child}
+	character:viet_le_2 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_le_3_effect = {
+	character:viet_le_3 = { save_scope_as = awow_child}
+	character:viet_le_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_le_4_effect = {
+	character:viet_le_4 = { save_scope_as = awow_child}
+	character:viet_le_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_le_5_effect = {
+	character:viet_le_5 = { save_scope_as = awow_child}
+	character:viet_le_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_le_6_effect = {
+	character:viet_le_6 = { save_scope_as = awow_child}
+	character:viet_le_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_le_7_effect = {
+	character:viet_le_7 = { save_scope_as = awow_child}
+	character:viet_le_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_le_8_effect = {
+	character:viet_le_8 = { save_scope_as = awow_child}
+	character:viet_le_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_le_9_effect = {
+	character:viet_le_9 = { save_scope_as = awow_child}
+	character:viet_le_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_le_10_effect = {
+	character:viet_le_10 = { save_scope_as = awow_child}
+	character:viet_le_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_le_11_effect = {
+	character:viet_le_11 = { save_scope_as = awow_child}
+	character:viet_le_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_le_12_effect = {
+	character:viet_le_12 = { save_scope_as = awow_child}
+	character:viet_le_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_le_13_effect = {
+	character:viet_le_13 = { save_scope_as = awow_child}
+	character:viet_le_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_le_14_effect = {
+	character:viet_le_14 = { save_scope_as = awow_child}
+	character:viet_le_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_le_15_effect = {
+	character:viet_le_15 = { save_scope_as = awow_child}
+	character:viet_le_6 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ngo_1_effect = {
+	character:viet_ngo_1 = { save_scope_as = awow_child}
+	character:viet_ngo_3 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ngo_2_effect = {
+	character:viet_ngo_2 = { save_scope_as = awow_child}
+	character:viet_ngo_6 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ngo_3_effect = {
+	character:viet_ngo_3 = { save_scope_as = awow_child}
+	character:viet_ngo_14 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ngo_4_effect = {
+	character:viet_ngo_4 = { save_scope_as = awow_child}
+	character:viet_ngo_10 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ngo_10_effect = {
+	character:viet_ngo_10 = { save_scope_as = awow_child}
+	character:viet_ngo_2 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ngo_9_effect = {
+	character:viet_ngo_9 = { save_scope_as = awow_child}
+	character:viet_ngo_8 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_tran_2_effect = {
+	character:viet_tran_2 = { save_scope_as = awow_child}
+	character:viet_tran_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_tran_3_effect = {
+	character:viet_tran_3 = { save_scope_as = awow_child}
+	character:viet_tran_2 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_tran_4_effect = {
+	character:viet_tran_4 = { save_scope_as = awow_child}
+	character:viet_tran_3 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_tran_5_effect = {
+	character:viet_tran_5 = { save_scope_as = awow_child}
+	character:viet_tran_3 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_tran_7_effect = {
+	character:viet_tran_7 = { save_scope_as = awow_child}
+	character:viet_tran_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_duong_1_effect = {
+	character:viet_duong_1 = { save_scope_as = awow_child}
+	character:viet_duong_2 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_duong_2_effect = {
+	character:viet_duong_2 = { save_scope_as = awow_child}
+	character:viet_duong_3 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_than_1_effect = {
+	character:viet_than_1 = { save_scope_as = awow_child}
+	character:viet_than_3 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_than_2_effect = {
+	character:viet_than_2 = { save_scope_as = awow_child}
+	character:viet_than_3 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_do_1_effect = {
+	character:viet_do_1 = { save_scope_as = awow_child}
+	character:viet_do_3 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_do_2_effect = {
+	character:viet_do_2 = { save_scope_as = awow_child}
+	character:viet_do_3 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_do_4_effect = {
+	character:viet_do_4 = { save_scope_as = awow_child}
+	character:viet_do_5 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_do_5_effect = {
+	character:viet_do_5 = { save_scope_as = awow_child}
+	character:viet_do_3 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_do_6_effect = {
+	character:viet_do_6 = { save_scope_as = awow_child}
+	character:viet_do_5 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ngo_6_effect = {
+	character:viet_ngo_6 = { save_scope_as = awow_child}
+	character:viet_ngo_3 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ngo_7_effect = {
+	character:viet_ngo_7 = { save_scope_as = awow_child}
+	character:viet_ngo_3 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ngo_8_effect = {
+	character:viet_ngo_8 = { save_scope_as = awow_child}
+	character:viet_ngo_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_khuc_2_effect = {
+	character:viet_khuc_2 = { save_scope_as = awow_child}
+	character:viet_khuc_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_khuc_3_effect = {
+	character:viet_khuc_3 = { save_scope_as = awow_child}
+	character:viet_khuc_2 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_ly_two_3_effect = {
+	character:viet_ly_two_3 = { save_scope_as = awow_child}
+	character:viet_ly_two_2 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_to_2_effect = {
+	character:viet_to_2 = { save_scope_as = awow_child}
+	character:viet_to_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_dam_2_effect = {
+	character:viet_dam_2 = { save_scope_as = awow_child}
+	character:viet_dam_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+viet_dam_3_effect = {
+	character:viet_dam_3 = { save_scope_as = awow_child}
+	character:viet_dam_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+

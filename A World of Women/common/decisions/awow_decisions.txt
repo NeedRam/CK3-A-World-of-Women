@@ -1,123 +1,120 @@
 ﻿awow_change_frequency_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/activity_splash_screens/tour_arrival_tribal_neutral.dds"
-	}
-	title = awow_change_frequency_decision_title
-	desc = awow_change_frequency_decision_desc
-	selection_tooltip = awow_change_frequency_decision_tooltip
-	
-	ai_goal = no
-	ai_will_do = {
-		value = 0
-	}
+    picture = {
+        reference = "gfx/interface/illustrations/activity_splash_screens/tour_arrival_tribal_neutral.dds"
+    }
+    title = awow_change_frequency_decision_title
+    desc = awow_change_frequency_decision_desc
+    selection_tooltip = awow_change_frequency_decision_tooltip
 
-	is_shown = {
-		is_ai = no
-	}
-	
-	is_valid_showing_failures_only = {
-		is_ai = no
-	}
+    ai_goal = no
 
-	widget = {
-		gui = "decision_view_widget_option_list_generic"
-		controller = decision_option_list_controller
-		decision_to_second_step_button = "awow_change_frequency_decision_confirm"
-		show_from_start = yes
+    is_shown = {
+        is_ai = no
+    }
 
-		item = {
-			value = awow_frequency_monthly
-			is_valid = { always = yes }
-			localization = awow_frequency_monthly
-			icon = "gfx/interface/icons/message_feed/activity.dds"
-			ai_chance = { value = 0 }
-		}
+    is_valid_showing_failures_only = {
+        is_ai = no
+    }
 
-		item = {
-			value = awow_frequency_3months
-			is_valid = { always = yes }
-			localization = awow_frequency_3months
-			icon = "gfx/interface/icons/message_feed/activity.dds"
-			ai_chance = { value = 0 }
-		}
+    widget = {
+        gui = "decision_view_widget_option_list_generic"
+        controller = decision_option_list_controller
+        decision_to_second_step_button = "awow_change_frequency_decision_confirm"
+        show_from_start = yes
 
-		item = {
-			value = awow_frequency_6months
-			is_valid = { always = yes }
-			localization = awow_frequency_6months
-			icon = "gfx/interface/icons/message_feed/activity.dds"
-			ai_chance = { value = 0 }
-		}
+        item = {
+            value = awow_frequency_monthly
+            is_valid = { always = yes }
+            localization = awow_frequency_monthly
+            icon = "gfx/interface/icons/message_feed/activity.dds"
+            ai_chance = { value = 0 }
+        }
 
-		item = {
-			value = awow_frequency_yearly
-			is_valid = { always = yes }
-			localization = awow_frequency_yearly
-			icon = "gfx/interface/icons/message_feed/activity.dds"
-			ai_chance = { value = 0 }
-		}
-	}
-	
-	effect = {
-		if = {
-			limit = { scope:awow_frequency_monthly = yes }
-			set_global_variable = {
-				name = awow_culling_frequency
-				value = 1
-			}
-			set_global_variable = {
-				name = awow_months_since_cull
-				value = 0
-			}
-			custom_tooltip = awow_frequency_monthly_tooltip
-		}
-		else_if = {
-			limit = { scope:awow_frequency_3months = yes }
-			set_global_variable = {
-				name = awow_culling_frequency
-				value = 3
-			}
-			set_global_variable = {
-				name = awow_months_since_cull
-				value = 0
-			}
-			custom_tooltip = awow_frequency_3months_tooltip
-		}
-		else_if = {
-			limit = { scope:awow_frequency_6months = yes }
-			set_global_variable = {
-				name = awow_culling_frequency
-				value = 6
-			}
-			set_global_variable = {
-				name = awow_months_since_cull
-				value = 0
-			}
-			custom_tooltip = awow_frequency_6months_tooltip
-		}
-		else_if = {
-			limit = { scope:awow_frequency_yearly = yes }
-			set_global_variable = {
-				name = awow_culling_frequency
-				value = 12
-			}
-			set_global_variable = {
-				name = awow_months_since_cull
-				value = 0
-			}
-			custom_tooltip = awow_frequency_yearly_tooltip
-		}
-	}
+        item = {
+            value = awow_frequency_3months
+            is_valid = { always = yes }
+            localization = awow_frequency_3months
+            icon = "gfx/interface/icons/message_feed/activity.dds"
+            ai_chance = { value = 0 }
+        }
 
-	ai_potential = {
-		always = no
-	}
-	
-	ai_will_do = {
-		base = 0
-	}
+        item = {
+            value = awow_frequency_6months
+            is_valid = { always = yes }
+            localization = awow_frequency_6months
+            icon = "gfx/interface/icons/message_feed/activity.dds"
+            ai_chance = { value = 0 }
+        }
 
-	confirm_text = awow_change_frequency_decision_confirm
+        item = {
+            value = awow_frequency_yearly
+            is_valid = { always = yes }
+            localization = awow_frequency_yearly
+            icon = "gfx/interface/icons/message_feed/activity.dds"
+            ai_chance = { value = 0 }
+        }
+    }
 
-	ai_check_interval = 0
+    effect = {
+        if = {
+            limit = { scope:awow_frequency_monthly = yes }
+            set_global_variable = {
+                name = awow_culling_frequency
+                value = 1
+            }
+            set_global_variable = {
+                name = awow_months_since_cull
+                value = 0
+            }
+            custom_tooltip = awow_frequency_monthly_tooltip
+        }
+        else_if = {
+            limit = { scope:awow_frequency_3months = yes }
+            set_global_variable = {
+                name = awow_culling_frequency
+                value = 3
+            }
+            set_global_variable = {
+                name = awow_months_since_cull
+                value = 0
+            }
+            custom_tooltip = awow_frequency_3months_tooltip
+        }
+        else_if = {
+            limit = { scope:awow_frequency_6months = yes }
+            set_global_variable = {
+                name = awow_culling_frequency
+                value = 6
+            }
+            set_global_variable = {
+                name = awow_months_since_cull
+                value = 0
+            }
+            custom_tooltip = awow_frequency_6months_tooltip
+        }
+        else_if = {
+            limit = { scope:awow_frequency_yearly = yes }
+            set_global_variable = {
+                name = awow_culling_frequency
+                value = 12
+            }
+            set_global_variable = {
+                name = awow_months_since_cull
+                value = 0
+            }
+            custom_tooltip = awow_frequency_yearly_tooltip
+        }
+    }
+
+    ai_potential = {
+        always = no
+    }
+
+    ai_will_do = {
+        base = 0
+    }
+
+    confirm_text = awow_change_frequency_decision_confirm
+
+    ai_check_interval = 0
 }

@@ -1,0 +1,507 @@
+﻿assign_history_sami_other_mothers = {
+	﻿144625_effect = yes
+	144644_effect = yes
+	144645_effect = yes
+	144646_effect = yes
+	228000_effect = yes
+	228009_effect = yes
+	28009_effect = yes
+	486010_effect = yes
+	143128_effect = yes
+	143131_effect = yes
+	167728_effect = yes
+	170146_effect = yes
+	170147_effect = yes
+	170148_effect = yes
+	170149_effect = yes
+	170150_effect = yes
+	170334_effect = yes
+	170335_effect = yes
+	170336_effect = yes
+	170337_effect = yes
+	suontile_1_effect = yes
+	suontile_2_effect = yes
+	suontile_3_effect = yes
+	suontile_4_effect = yes
+	suontile_5_effect = yes
+	suontile_6_effect = yes
+	suontile_7_effect = yes
+	suontile_8_effect = yes
+	sami_000012_effect = yes
+	suontile_9_effect = yes
+	suontile_10_effect = yes
+	suontile_11_effect = yes
+	suontile_12_effect = yes
+	suontile_13_effect = yes
+	vuovi_1_effect = yes
+	vuovi_2_effect = yes
+	vuovi_3_effect = yes
+	vuovi_4_effect = yes
+	vuovi_5_effect = yes
+	suadigil_1_effect = yes
+	suadigil_2_effect = yes
+	suadigil_3_effect = yes
+	suadigil_4_effect = yes
+	mohkku_1_effect = yes
+	mohkku_2_effect = yes
+	mohkku_3_effect = yes
+	mohkku_4_effect = yes
+	skolti_1_effect = yes
+	skolti_2_effect = yes
+	skolti_3_effect = yes
+	skolti_4_effect = yes
+	kittali_1_effect = yes
+	kittali_2_effect = yes
+	kittali_3_effect = yes
+	kittali_4_effect = yes
+	kittali_5_effect = yes
+}
+
+﻿144625_effect = {
+	character:﻿144625 = { save_scope_as = awow_child}
+	character:28009 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+144644_effect = {
+	character:144644 = { save_scope_as = awow_child}
+	character:20617 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+144645_effect = {
+	character:144645 = { save_scope_as = awow_child}
+	character:228000 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+144646_effect = {
+	character:144646 = { save_scope_as = awow_child}
+	character:144645 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+228000_effect = {
+	character:228000 = { save_scope_as = awow_child}
+	character:144644 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+228009_effect = {
+	character:228009 = { save_scope_as = awow_child}
+	character:144625 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+28009_effect = {
+	character:28009 = { save_scope_as = awow_child}
+	character:170150 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+486010_effect = {
+	character:486010 = { save_scope_as = awow_child}
+	character:143131 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+143128_effect = {
+	character:143128 = { save_scope_as = awow_child}
+	character:228001 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+143131_effect = {
+	character:143131 = { save_scope_as = awow_child}
+	character:143128 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+167728_effect = {
+	character:167728 = { save_scope_as = awow_child}
+	character:167727 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+170146_effect = {
+	character:170146 = { save_scope_as = awow_child}
+	character:170337 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+170147_effect = {
+	character:170147 = { save_scope_as = awow_child}
+	character:170146 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+170148_effect = {
+	character:170148 = { save_scope_as = awow_child}
+	character:170147 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+170149_effect = {
+	character:170149 = { save_scope_as = awow_child}
+	character:170148 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+170150_effect = {
+	character:170150 = { save_scope_as = awow_child}
+	character:170149 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+170334_effect = {
+	character:170334 = { save_scope_as = awow_child}
+	character:170333 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+170335_effect = {
+	character:170335 = { save_scope_as = awow_child}
+	character:170334 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+170336_effect = {
+	character:170336 = { save_scope_as = awow_child}
+	character:170335 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+170337_effect = {
+	character:170337 = { save_scope_as = awow_child}
+	character:170336 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+suontile_1_effect = {
+	character:suontile_1 = { save_scope_as = awow_child}
+	character:sami_000011 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+suontile_2_effect = {
+	character:suontile_2 = { save_scope_as = awow_child}
+	character:suontile_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+suontile_3_effect = {
+	character:suontile_3 = { save_scope_as = awow_child}
+	character:suontile_2 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+suontile_4_effect = {
+	character:suontile_4 = { save_scope_as = awow_child}
+	character:suontile_3 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+suontile_5_effect = {
+	character:suontile_5 = { save_scope_as = awow_child}
+	character:suontile_4 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+suontile_6_effect = {
+	character:suontile_6 = { save_scope_as = awow_child}
+	character:suontile_5 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+suontile_7_effect = {
+	character:suontile_7 = { save_scope_as = awow_child}
+	character:suontile_6 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+suontile_8_effect = {
+	character:suontile_8 = { save_scope_as = awow_child}
+	character:suontile_7 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+sami_000012_effect = {
+	character:sami_000012 = { save_scope_as = awow_child}
+	character:suontile_8 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+suontile_9_effect = {
+	character:suontile_9 = { save_scope_as = awow_child}
+	character:sami_000012 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+suontile_10_effect = {
+	character:suontile_10 = { save_scope_as = awow_child}
+	character:suontile_9 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+suontile_11_effect = {
+	character:suontile_11 = { save_scope_as = awow_child}
+	character:suontile_10 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+suontile_12_effect = {
+	character:suontile_12 = { save_scope_as = awow_child}
+	character:suontile_11 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+suontile_13_effect = {
+	character:suontile_13 = { save_scope_as = awow_child}
+	character:suontile_12 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+vuovi_1_effect = {
+	character:vuovi_1 = { save_scope_as = awow_child}
+	character:sami_000014 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+vuovi_2_effect = {
+	character:vuovi_2 = { save_scope_as = awow_child}
+	character:vuovi_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+vuovi_3_effect = {
+	character:vuovi_3 = { save_scope_as = awow_child}
+	character:vuovi_2 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+vuovi_4_effect = {
+	character:vuovi_4 = { save_scope_as = awow_child}
+	character:vuovi_3 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+vuovi_5_effect = {
+	character:vuovi_5 = { save_scope_as = awow_child}
+	character:vuovi_4 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+suadigil_1_effect = {
+	character:suadigil_1 = { save_scope_as = awow_child}
+	character:sami_000005 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+suadigil_2_effect = {
+	character:suadigil_2 = { save_scope_as = awow_child}
+	character:suadigil_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+suadigil_3_effect = {
+	character:suadigil_3 = { save_scope_as = awow_child}
+	character:suadigil_2 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+suadigil_4_effect = {
+	character:suadigil_4 = { save_scope_as = awow_child}
+	character:suadigil_3 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+mohkku_1_effect = {
+	character:mohkku_1 = { save_scope_as = awow_child}
+	character:sami_000006 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+mohkku_2_effect = {
+	character:mohkku_2 = { save_scope_as = awow_child}
+	character:mohkku_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+mohkku_3_effect = {
+	character:mohkku_3 = { save_scope_as = awow_child}
+	character:mohkku_2 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+mohkku_4_effect = {
+	character:mohkku_4 = { save_scope_as = awow_child}
+	character:mohkku_3 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+skolti_1_effect = {
+	character:skolti_1 = { save_scope_as = awow_child}
+	character:sami_000010 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+skolti_2_effect = {
+	character:skolti_2 = { save_scope_as = awow_child}
+	character:skolti_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+skolti_3_effect = {
+	character:skolti_3 = { save_scope_as = awow_child}
+	character:skolti_2 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+skolti_4_effect = {
+	character:skolti_4 = { save_scope_as = awow_child}
+	character:skolti_3 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+kittali_1_effect = {
+	character:kittali_1 = { save_scope_as = awow_child}
+	character:sami_000016 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+kittali_2_effect = {
+	character:kittali_2 = { save_scope_as = awow_child}
+	character:kittali_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+kittali_3_effect = {
+	character:kittali_3 = { save_scope_as = awow_child}
+	character:kittali_2 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+kittali_4_effect = {
+	character:kittali_4 = { save_scope_as = awow_child}
+	character:kittali_3 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+kittali_5_effect = {
+	character:kittali_5 = { save_scope_as = awow_child}
+	character:kittali_4 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+

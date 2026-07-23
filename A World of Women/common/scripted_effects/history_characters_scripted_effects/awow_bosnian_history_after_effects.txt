@@ -1,0 +1,165 @@
+﻿assign_history_bosnian_other_mothers = {
+	34149_effect = yes
+	34150_effect = yes
+	34151_effect = yes
+	34153_effect = yes
+	468800_effect = yes
+	468801_effect = yes
+	468805_effect = yes
+	468806_effect = yes
+	468807_effect = yes
+	468810_effect = yes
+	34145_effect = yes
+	34146_effect = yes
+	34147_effect = yes
+	218801_effect = yes
+	boricevic_1_effect = yes
+	boricevic_2_effect = yes
+	boricevic_3_effect = yes
+	kulinic_1_effect = yes
+}
+
+34149_effect = {
+	character:34149 = { save_scope_as = awow_child}
+	character:34148 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+34150_effect = {
+	character:34150 = { save_scope_as = awow_child}
+	character:34148 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+34151_effect = {
+	character:34151 = { save_scope_as = awow_child}
+	character:468810 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+34153_effect = {
+	character:34153 = { save_scope_as = awow_child}
+	character:34151 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+468800_effect = {
+	character:468800 = { save_scope_as = awow_child}
+	character:468810 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+468801_effect = {
+	character:468801 = { save_scope_as = awow_child}
+	character:468800 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+468805_effect = {
+	character:468805 = { save_scope_as = awow_child}
+	character:468810 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+468806_effect = {
+	character:468806 = { save_scope_as = awow_child}
+	character:468810 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+468807_effect = {
+	character:468807 = { save_scope_as = awow_child}
+	character:468810 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+468810_effect = {
+	character:468810 = { save_scope_as = awow_child}
+	character:34148 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+34145_effect = {
+	character:34145 = { save_scope_as = awow_child}
+	character:218801 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+34146_effect = {
+	character:34146 = { save_scope_as = awow_child}
+	character:218801 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+34147_effect = {
+	character:34147 = { save_scope_as = awow_child}
+	character:218801 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+218801_effect = {
+	character:218801 = { save_scope_as = awow_child}
+	character:218800 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+boricevic_1_effect = {
+	character:boricevic_1 = { save_scope_as = awow_child}
+	character:boricevic_4 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+boricevic_2_effect = {
+	character:boricevic_2 = { save_scope_as = awow_child}
+	character:boricevic_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+boricevic_3_effect = {
+	character:boricevic_3 = { save_scope_as = awow_child}
+	character:boricevic_1 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+
+kulinic_1_effect = {
+	character:kulinic_1 = { save_scope_as = awow_child}
+	character:218800 = { save_scope_as = awow_parent}
+	assign_historic_father_as_other_mother = yes
+	clear_saved_scope = awow_child
+	clear_saved_scope = awow_parent
+}
+

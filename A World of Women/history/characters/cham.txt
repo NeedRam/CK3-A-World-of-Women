@@ -24,7 +24,6 @@ cham_bhrgu_01 = {
     culture = "cham"
     trait = education_stewardship_3
     trait = architect
-    assign_historic_father_as_other_mother = { daddy = cham_bhrgu_00 }
     833.1.1 = {	#unknown
         birth = yes
     }
@@ -39,7 +38,6 @@ cham_bhrgu_01b = {	#brother of Indravarman II & father of Jaya Simhavarman I
     dynasty = cham_bhrgu	#Bhrgu
     religion = "shaivism"
     culture = "cham"
-    assign_historic_father_as_other_mother = { daddy = cham_bhrgu_00 }
     835.1.1 = {	#unknown
         birth = yes
     }
@@ -55,7 +53,6 @@ cham_bhrgu_02 = {
     religion = "shaivism"
     culture = "cham"
     trait = architect
-    assign_historic_father_as_other_mother = { daddy = cham_bhrgu_01b }
     857.1.1 = {	#unknown
         birth = yes
     }
@@ -70,7 +67,6 @@ cham_bhrgu_03 = {
     dynasty = cham_bhrgu	#Bhrgu
     religion = "shaivism"
     culture = "cham"
-    assign_historic_father_as_other_mother = { daddy = cham_bhrgu_02 }
     879.1.1 = {	#unknown
         birth = yes
     }
@@ -99,7 +95,6 @@ cham_bhrgu_05 = {
     dynasty = cham_bhrgu	#Bhrgu
     religion = "shaivism"
     culture = "cham"
-    assign_historic_father_as_other_mother = { daddy = cham_bhrgu_04 }
     898.1.1 = {	#unknown
         birth = yes
     }
@@ -128,7 +123,6 @@ cham_bhrgu_07 = {
     dynasty = cham_bhrgu	#Bhrgu
     religion = "shaivism"
     culture = "cham"
-    assign_historic_father_as_other_mother = { daddy = cham_bhrgu_06 }
     940.1.1 = {	#unknown
         birth = yes
     }
@@ -143,7 +137,6 @@ cham_bhrgu_08 = {
     dynasty = cham_bhrgu	#Bhrgu
     religion = "shaivism"
     culture = "cham"
-    assign_historic_father_as_other_mother = { daddy = cham_bhrgu_07 }
     961.1.1 = {	#unknown
         birth = yes
     }
@@ -201,7 +194,6 @@ cham_champakingother_06 = {
     dynasty = cham_vikranta	#unsure, fic name
     religion = "shaivism"
     culture = "cham"
-    assign_historic_father_as_other_mother = { daddy = cham_champakingother_05 }
     1007.1.1 = {	#unknown
         birth = yes
     }
@@ -232,7 +224,6 @@ cham_uroja_01a = {	#son of Jaya Paramesvaravarman and father of Bhadravarman & R
     dynasty = cham_uroja
     religion = "shaivism"
     culture = "cham"
-    assign_historic_father_as_other_mother = { daddy = cham_uroja_01 }
     1017.1.1 = {
         birth = yes
     }
@@ -247,7 +238,6 @@ cham_uroja_02 = {
     dynasty = cham_uroja
     religion = "shaivism"
     culture = "cham"
-    assign_historic_father_as_other_mother = { daddy = cham_uroja_01a }
     1040.1.1 = {
         birth = yes
     }
@@ -263,7 +253,6 @@ cham_uroja_03 = {
     religion = "shaivism"
     culture = "cham"
     trait = education_martial_2
-    assign_historic_father_as_other_mother = { daddy = cham_uroja_01a }
     1043.1.1 = {
         birth = yes
     }
@@ -293,7 +282,6 @@ cham_pralayeshvara_01 = {
     dynasty = cham_pralayeshvara
     religion = "shaivism"
     culture = "cham"
-    assign_historic_father_as_other_mother = { daddy = cham_pralayeshvara_01a }
     1042.1.1 = {
         birth = yes
     }
@@ -308,7 +296,6 @@ cham_pralayeshvara_02 = {
     dynasty = cham_pralayeshvara
     religion = "shaivism"
     culture = "cham"
-    assign_historic_father_as_other_mother = { daddy = cham_pralayeshvara_01 }
     1071.1.1 = {
         birth = yes
     }
@@ -323,7 +310,6 @@ cham_pralayeshvara_03 = {
     dynasty = cham_pralayeshvara
     religion = "mahayana"
     culture = "cham"
-    assign_historic_father_as_other_mother = { daddy = cham_pralayeshvara_01a }
     1044.1.1 = {
         birth = yes
     }
@@ -338,7 +324,6 @@ cham_pralayeshvara_02a = {
     dynasty = cham_pralayeshvara
     religion = "shaivism"
     culture = "cham"
-    assign_historic_father_as_other_mother = { daddy = cham_pralayeshvara_01 }
     1075.1.1 = {
         birth = yes
     }
@@ -353,7 +338,6 @@ cham_pralayeshvara_04 = {
     dynasty = cham_pralayeshvara
     religion = "shaivism"
     culture = "cham"
-    assign_historic_father_as_other_mother = { daddy = cham_pralayeshvara_02a }
     1098.1.1 = {
         birth = yes
     }
@@ -398,7 +382,6 @@ cham_panduranga_02 = {
     dynasty = cham_panduranga
     religion = "shaivism"
     culture = "cham"
-    assign_historic_father_as_other_mother = { daddy = cham_panduranga_01 }
     trait = education_martial_3
     1121.1.1 = {	#unknown
         birth = yes
@@ -414,7 +397,6 @@ cham_panduranga_03 = {
     dynasty = cham_panduranga
     religion = "shaivism"
     culture = "cham"
-    assign_historic_father_as_other_mother = { daddy = cham_panduranga_02 }#possibly
     1144.1.1 = {	#unknown
         birth = yes
     }
@@ -479,7 +461,6 @@ cham_panduranga_04c = {	#daughter of Jaya Indravarman IV
     female = yes
     religion = "shaivism"
     culture = "cham"
-    assign_historic_father_as_other_mother = { daddy = cham_panduranga_04 }
     mother = cham_panduranga_04a	#unsure
     1167.1.1 = {
         birth = yes
@@ -495,7 +476,6 @@ cham_panduranga_04d = {	#daughter of Jaya Indravarman IV
     female = yes
     religion = "shaivism"
     culture = "cham"
-    assign_historic_father_as_other_mother = { daddy = cham_panduranga_04 }
     mother = cham_panduranga_04a	#unsure
     1169.1.1 = {
         birth = yes
@@ -511,7 +491,6 @@ cham_panduranga_04e = {	#daughter of Jaya Indravarman IV
     female = yes
     religion = "shaivism"
     culture = "cham"
-    assign_historic_father_as_other_mother = { daddy = cham_panduranga_04 }
     mother = cham_panduranga_04b	#unsure
     1172.1.1 = {
         birth = yes
@@ -646,7 +625,6 @@ cham_antekings_08 = {
     dynasty = "cham_simhapura"
     religion = "shaivism"
     culture = "cham"
-    assign_historic_father_as_other_mother = { daddy = cham_antekings_07 }
     539.1.1 = {	#unsure
         birth = yes
     }
@@ -661,7 +639,6 @@ cham_antekings_09 = {
     dynasty = "cham_simhapura"
     religion = "shaivism"
     culture = "cham"
-    assign_historic_father_as_other_mother = { daddy = cham_antekings_08 }
     571.1.1 = {	#unsure
         birth = yes
     }
@@ -676,7 +653,6 @@ cham_antekings_10 = {
     dynasty = "cham_simhapura"
     religion = "shaivism"
     culture = "cham"
-    assign_historic_father_as_other_mother = { daddy = cham_antekings_09 }
     599.1.1 = {	#unsure
         birth = yes
     }
@@ -706,7 +682,6 @@ cham_antekings_12 = {
     dynasty = "cham_simhapura"
     religion = "shaivism"
     culture = "cham"
-    assign_historic_father_as_other_mother = { daddy = cham_antekings_09 }
     604.1.1 = {	#unsure
         birth = yes
     }
@@ -749,7 +724,6 @@ cham_antekings_15 = {
     dynasty = "cham_simhapura"
     religion = "shaivism"
     culture = "cham"
-    assign_historic_father_as_other_mother = { daddy = cham_antekings_13 }
     659.1.1 = {	#unsure
         birth = yes
     }
@@ -778,7 +752,6 @@ cham_antekings_17 = {
     dynasty = "cham_vicitrasagara"
     religion = "shaivism"
     culture = "cham"
-    assign_historic_father_as_other_mother = { daddy = cham_antekings_17a }
     725.1.1 = {	#unsure
         birth = yes
     }
@@ -807,7 +780,6 @@ cham_antekings_17b = {
     dynasty = "cham_vicitrasagara"
     religion = "shaivism"
     culture = "cham"
-    assign_historic_father_as_other_mother = { daddy = cham_antekings_17a }
     726.1.1 = {	#unknown
         birth = yes
     }
@@ -866,7 +838,6 @@ cham_antekings_21 = {
     dynasty = "cham_vicitrasagara"
     religion = "shaivism"
     culture = "cham"
-    assign_historic_father_as_other_mother = { daddy = cham_antekings_20 }
     801.1.1 = {	#unsure
         birth = yes
     }
