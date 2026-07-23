@@ -179,7 +179,7 @@ nn_yelu_saladi = {
     religion = "avatamsaka"
     culture = khitan
     848.1.1 = {	birth = yes	}	#Unknown
-    867.1.1 = {	add_spouse = nn_yaonian_yanmujin	}
+    867.1.1 = {	add_same_sex_spouse =nn_yaonian_yanmujin	}
     901.1.1 = {	death = yes	}	#Unknown
 }
 
@@ -226,7 +226,7 @@ nn_yaonian_yanmujin = {
     trait = education_martial_4
     mother = nn_yaonian_yanmujin	#Yaonian Yanmujin
     872.6.6 = {	birth = yes	}
-    895.1.1 = {	add_spouse = nn_shulu_ping	}	#Unknown when they get married, set as the birth of their first child
+    895.1.1 = {	add_same_sex_spouse =nn_shulu_ping	}	#Unknown when they get married, set as the birth of their first child
     926.9.6 = {	death = yes	}
 }
 
@@ -288,7 +288,7 @@ nn_yelu_yindi = {
     culture = khitan
     mother = nn_yaonian_yanmujin	#Yaonian Yanmujin
     878.1.1 = {	birth = yes	}	#Unknown
-    898.1.1 = {	add_spouse = nn_nerigun	}
+    898.1.1 = {	add_same_sex_spouse =nn_nerigun	}
     926.1.1 = {	death = yes	}
 }
 
@@ -477,7 +477,7 @@ nn_yelu_zhigu = {
     trait = education_diplomacy_3
     mother = nn_shulu_ping	#Shulü Ping
     902.11.25 = {	birth = yes	}
-    923.1.1 = {	add_spouse = nn_xiao_wen	}
+    923.1.1 = {	add_same_sex_spouse =nn_xiao_wen	}
     947.5.15 = {	death = yes	}
     #father of 194329 (Jing), nn_yelu_yanchege (Yanchege), nn_yelu_tiande (Tiande), nn_yelu_dilie (Dilie), nn_yelu_bishe (Bishe), nn_yelu_lubugu (Lübugu), nn_yelu_chaogui (Chaogui)
 }
@@ -505,7 +505,7 @@ nn_yelu_xiyin = {
     trait = lazy
     trait = arrogant
     935.1.1 = {	birth = yes	}	#Unknown
-    968.1.1 = { add_spouse = nn_xiao_sis_yileilan	}	#Unknown when ; aka Lady Xiao, one of the 3 Xiao sisters
+    968.1.1 = { add_same_sex_spouse =nn_xiao_sis_yileilan	}	#Unknown when ; aka Lady Xiao, one of the 3 Xiao sisters
     982.1.1 = {	death = yes	}
 }
 
@@ -557,7 +557,7 @@ nn_yelu_yaliguo = {
     trait = education_martial_3
     mother = nn_conc_xiao_bei	#Concubine Xiao to Yelü Bei
     919.1.29 = {	birth = yes	}
-    942.1.1 = {	add_spouse = nn_xiao_sagezhi	}	#Unknown when
+    942.1.1 = {	add_same_sex_spouse =nn_xiao_sagezhi	}	#Unknown when
     951.10.7 = {	death = yes	}
 }
 
@@ -639,7 +639,7 @@ nn_yelu_yanchege = {
     culture = khitan
     mother = nn_xiao_wen	#Xiao Wen
     935.1.1 = {	birth = yes	}
-    967.1.1 = { add_spouse = nn_xiao_sis_hunian	}	#Xiao Hunian, one of the 3 Xiao sisters
+    967.1.1 = { add_same_sex_spouse =nn_xiao_sis_hunian	}	#Xiao Hunian, one of the 3 Xiao sisters
     972.1.1 = {	death = yes	}
 }
 
@@ -718,7 +718,7 @@ nn_yelu_houabu = {
     culture = khitan
     mother = nn_xiao_sagezhi
     948.9.1 = {	birth = yes	}
-    969.1.1 = {	add_spouse = nn_xiao_sis_yanyan	}	#Xiao Yanyan, one of the 3 Xiao sisters, aka Empress Ruizhi
+    969.1.1 = {	add_same_sex_spouse =nn_xiao_sis_yanyan	}	#Xiao Yanyan, one of the 3 Xiao sisters, aka Empress Ruizhi
     982.10.13 = {	death = yes	}
 }
 
@@ -790,7 +790,7 @@ nn_yelu_guanyin_JZ = {
     trait = education_stewardship_4
     mother = nn_xiao_sis_yanyan	#Xiao Yanyan
     972.1.16 = {	birth = yes	}
-    999.1.1 = {	add_spouse = nn_xiao_pusage	}
+    999.1.1 = {	add_same_sex_spouse =nn_xiao_pusage	}
     1000.1.1 = {	culture = khitan	}	#liao culture = sinicize khitan ; he was instrumental in LIAO's sinicization ; date a bit arbitrary, in the midst of his reforms
     1031.6.25 = {	death = yes	}
 }
@@ -805,7 +805,7 @@ nn_yelu_longqing = {
     mother = nn_xiao_sis_yanyan	#Xiao Yanyan
     973.1.1 = {	birth = yes	}
     1000.1.1 = {	culture = khitan	}
-    1016.1.1 = {	add_spouse = nn_xiao_shi	}
+    1016.1.1 = {	add_same_sex_spouse =nn_xiao_shi	}
     1016.12.1 = {	death = yes	}
 }
 
@@ -843,7 +843,7 @@ nn_yelu_longyou = {
     mother = nn_xiao_sis_yanyan	#Xiao Yanyan
     979.1.1 = {	birth = yes	}
     1000.1.1 = {	culture = khitan	}
-    1004.1.1 = {	add_spouse = nn_xiao_QI	}	#Unknown when
+    1004.1.1 = {	add_same_sex_spouse =nn_xiao_QI	}	#Unknown when
     1012.8.1 = {	death = yes	}
 }
 
@@ -984,7 +984,7 @@ nn_shulu_shilu = {
     religion = "avatamsaka"
     culture = khitan
     875.1.1 = {	birth = yes	}	#Unknown
-    909.1.1 = {	add_spouse = nn_yelu_zhigu }	#unsure when they married
+    909.1.1 = {	add_same_sex_spouse =nn_yelu_zhigu }	#unsure when they married
     911.1.1 = {	death = yes	}
 }
 
@@ -1029,7 +1029,7 @@ nn_xiao_siwen = {
     religion = "avatamsaka"
     culture = khitan
     930.1.1 = {	birth = yes	}	#Unknown
-    951.1.1 = { add_spouse = nn_yelu_lubugu	}	#Unkonwn when
+    951.1.1 = { add_same_sex_spouse =nn_yelu_lubugu	}	#Unkonwn when
     970.1.1 = {	death = yes	}
 }
 
@@ -1091,7 +1091,7 @@ nn_xiao_shennu = {
     religion = "avatamsaka"
     culture = khitan
     976.1.1 = {	birth = yes	}	#Unknown
-    996.1.1 = {	add_spouse = nn_yelu_shuge	}	#Unknown
+    996.1.1 = {	add_same_sex_spouse =nn_yelu_shuge	}	#Unknown
     1000.1.1 = {	culture = khitan	}
     1024.1.1 = {	death = yes	}	#Unknown
 }
@@ -1114,7 +1114,7 @@ nn_xiao_paiya = {
     culture = khitan
     trait = education_stewardship_3
     969.1.1 = {	birth = yes	}	#Unknown
-    990.1.1 = {	add_spouse = nn_yelu_changshou_JZ	}	#around that time
+    990.1.1 = {	add_same_sex_spouse =nn_yelu_changshou_JZ	}	#around that time
     1000.1.1 = {	culture = khitan	}
     1023.1.1 = {	death = yes	}
 }
@@ -1128,7 +1128,7 @@ nn_xiao_hengde = {
     trait = brave
     trait = education_martial_3
     971.1.1 = {	birth = yes	}	#Unknown
-    983.1.1 = {	add_spouse = nn_yelu_yanshou_JZ	}
+    983.1.1 = {	add_same_sex_spouse =nn_yelu_yanshou_JZ	}
     996.6.1 = {	death = yes	}
 }
 
@@ -1142,7 +1142,7 @@ nn_xiao_jixian = {
     trait = temperate
     trait = education_martial_3
     964.1.1 = {	birth = yes	}	#Unknown
-    981.1.1 = {	add_spouse = nn_yelu_guanyin_JZ	}	#Unsure, around this time
+    981.1.1 = {	add_same_sex_spouse =nn_yelu_guanyin_JZ	}	#Unsure, around this time
     1000.1.1 = {	culture = khitan	}
     1022.1.1 = {	death = yes	}	#Unknown, at 58
 }
@@ -1324,7 +1324,7 @@ khitan_qudug_1 = {
         birth = yes
     }
     1031.4.19 = {
-        add_spouse = 217177
+        add_same_sex_spouse =217177
     }
     1065.9.12 = {
         death = yes
@@ -1393,7 +1393,7 @@ khitan_qudug_1 = {
 #		birth = yes
 #	}
 #	1031.6.10 = {
-#		add_spouse = 217182
+#		add_same_sex_spouse =217182
 #	}
 #	1052.10.7 = {
 #		death = yes
@@ -1756,7 +1756,7 @@ nn_yelu_yansiFIC = {
     trait = education_stewardship_1
     mother = nn_xiao_noujin
     1016.4.3 = {	birth = yes	}
-    1035.3.1 = {	add_spouse = nn_xiao_dali	}
+    1035.3.1 = {	add_same_sex_spouse =nn_xiao_dali	}
     1055.8.28 = {	death = yes	}
 }
 
@@ -2029,7 +2029,7 @@ nn_yelu_tubote = {	#Aka Yelü Zongyun
     culture = khitan
     mother = nn_xiao_BIN
     1005.1.1 = {	birth = yes	}
-    1023.1.1 = {	add_spouse = nn_xiao_piri }	#Unknown
+    1023.1.1 = {	add_same_sex_spouse =nn_xiao_piri }	#Unknown
     1064.1.1 = {	death = yes	}
 }
 
@@ -2178,7 +2178,7 @@ nn_yelu_yelu = {
     1032.9.14 = {	birth = yes	}
     1055.8.28 = {   name = "Hongji_6DA2_57FA" } # Regnal
     1055.12.1 = {
-        add_spouse = 194402
+        add_same_sex_spouse =194402
         effect = {
             spawn_army = {
                 name = event_troop_default_name
@@ -2562,7 +2562,7 @@ nn_xiao_pili = {
     culture = khitan
     mother = nn_yelu_guanyin_JZ
     985.1.1 = {	birth = yes }	#Unknown
-    1012.1.1 = {	add_spouse = nn_yelu_yange	}
+    1012.1.1 = {	add_same_sex_spouse =nn_yelu_yange	}
     1040.1.1 = {	death = yes	}	#Unknown, after 1026 and before 1045
 }
 
@@ -2607,7 +2607,7 @@ nn_xiao_hui = {
     culture = khitan
     mother = nn_yelu_guanyin_JZ
     1020.1.1 = {	birth = yes }	#Unknown
-    1040.1.1 = {	add_spouse = nn_yelu_shuogu	}
+    1040.1.1 = {	add_same_sex_spouse =nn_yelu_shuogu	}
     1074.1.1 = {	death = yes	}	#Unknown
 }
 
@@ -2666,7 +2666,7 @@ nn_xiao_gaojiu = {
     religion = "avatamsaka"
     culture = khitan
     1000.1.1 = {	birth = yes }	#Unknown
-    1040.1.1 = {	add_spouse = nn_yelu_shige	}
+    1040.1.1 = {	add_same_sex_spouse =nn_yelu_shige	}
     1068.1.1 = {	death = yes	}	#Unknown
 }
 
@@ -2716,7 +2716,7 @@ nn_xiao_yuliye = {
     religion = "avatamsaka"
     culture = khitan
     1045.1.1 = {	birth = yes }	#Unknown
-    1063.1.1 = {	add_spouse = nn_yelu_wolitai	}
+    1063.1.1 = {	add_same_sex_spouse =nn_yelu_wolitai	}
     1083.1.1 = {	death = yes	}	#Unknown
 }
 
@@ -2748,7 +2748,7 @@ nn_xiao_xiamo = {
     culture = khitan
     trait = calm
     1050.1.1 = {	birth = yes }	#Unknown
-    1075.1.1 = {	add_spouse = nn_yelu_sage_DZ	}
+    1075.1.1 = {	add_same_sex_spouse =nn_yelu_sage_DZ	}
     1076.7.1 = {	death = yes	}
 }
 
@@ -2760,7 +2760,7 @@ nn_xiao_choubo = {
     culture = khitan
     trait = calm
     1062.1.1 = {	birth = yes }
-    1090.1.1 = {	add_spouse = nn_yelu_teri_DZ	}
+    1090.1.1 = {	add_same_sex_spouse =nn_yelu_teri_DZ	}
     1116.3.1 = {	death = yes	}
     #father of Xiao Zhonggong (1090-1150) and Xiao Zhongxuan
 }
@@ -2828,7 +2828,7 @@ nn_xiao_xiaonian = {
     religion = "avatamsaka"
     culture = khitan
     1005.1.1 = {	birth = yes }	#Unknown
-    1026.1.1 = {	add_spouse = nn_yelu_cuiba	}
+    1026.1.1 = {	add_same_sex_spouse =nn_yelu_cuiba	}
     1063.1.1 = {	death = yes	}	#Unknown
 }
 
@@ -2850,7 +2850,7 @@ nn_xiao_yangliu = {
     religion = "avatamsaka"
     culture = khitan
     1010.1.1 = {	birth = yes }	#Unknown
-    1029.1.1 = {	add_spouse = nn_yelu_taoge	}
+    1029.1.1 = {	add_same_sex_spouse =nn_yelu_taoge	}
     1070.1.1 = {	death = yes	}	#Unknown
 }
 
@@ -2883,7 +2883,7 @@ nn_xiao_shuanggu = {
     religion = "avatamsaka"
     culture = khitan
     1015.1.1 = {	birth = yes }	#Unknown
-    1033.1.1 = {	add_spouse = nn_yelu_tianni	}
+    1033.1.1 = {	add_same_sex_spouse =nn_yelu_tianni	}
     1067.1.1 = {	death = yes	}	#Unknown
 }
 
@@ -2916,7 +2916,7 @@ nn_xiao_lian = {
     religion = "avatamsaka"
     culture = khitan
     1019.1.1 = {	birth = yes }	#Unknown
-    1036.1.1 = {	add_spouse = nn_yelu_jiuge	}
+    1036.1.1 = {	add_same_sex_spouse =nn_yelu_jiuge	}
     1069.1.1 = {	death = yes	}	#Unknown
 }
 
@@ -2938,7 +2938,7 @@ nn_xiao_gu = {
     religion = "avatamsaka"
     culture = khitan
     1020.1.1 = {	birth = yes }	#Unknown
-    1037.1.1 = {	add_spouse = nn_yelu_changshou	}
+    1037.1.1 = {	add_same_sex_spouse =nn_yelu_changshou	}
     1079.1.1 = {	death = yes	}	#Unknown
 }
 
@@ -2960,7 +2960,7 @@ nn_xiao_kulie = {
     religion = "avatamsaka"
     culture = khitan
     1024.1.1 = {	birth = yes }	#Unknown
-    1042.1.1 = {	add_spouse = nn_yelu_taige	}
+    1042.1.1 = {	add_same_sex_spouse =nn_yelu_taige	}
     1082.1.1 = {	death = yes	}	#Unknown
 }
 
@@ -2993,7 +2993,7 @@ nn_xiao_tuyu = {
     religion = "avatamsaka"
     culture = khitan
     1025.1.1 = {	birth = yes }	#Unknown
-    1043.1.1 = {	add_spouse = nn_yelu_saige	}
+    1043.1.1 = {	add_same_sex_spouse =nn_yelu_saige	}
     1090.1.1 = {	death = yes	}	#Unknown
 }
 
@@ -3004,7 +3004,7 @@ nn_xiao_wangliu = {
     religion = "avatamsaka"
     culture = khitan
     1026.1.1 = {	birth = yes }	#Unknown
-    1045.1.1 = {	add_spouse = nn_yelu_xingge	}
+    1045.1.1 = {	add_same_sex_spouse =nn_yelu_xingge	}
     1089.1.1 = {	death = yes	}	#Unknown
 }
 
@@ -3176,7 +3176,7 @@ nn_LIAOliu_sangu = {
     religion = "avatamsaka"
     culture = khitan
     1017.1.1 = {	birth = yes }	#Unknown
-    1038.1.1 = {	add_spouse = nn_yelu_bage	}
+    1038.1.1 = {	add_same_sex_spouse =nn_yelu_bage	}
     1073.1.1 = {	death = yes	}	#Unknown
 }
 
@@ -3219,7 +3219,7 @@ nn_LIAOliu_siduan = {
     religion = "avatamsaka"
     culture = khitan
     1019.1.1 = {	birth = yes }	#Unknown
-    1041.1.1 = {	add_spouse = nn_yelu_baishi	}
+    1041.1.1 = {	add_same_sex_spouse =nn_yelu_baishi	}
     1068.1.1 = {	death = yes	}	#Unknown
 }
 
@@ -3285,7 +3285,7 @@ nn_LIAOliu_liufu = {
     religion = avatamsaka
     culture = khitan
     1087.1.1 = {	birth = yes	}
-    1130.1.1 = { 	add_spouse = 188906	} # Tabuyan
+    1130.1.1 = { 	add_same_sex_spouse =188906	} # Tabuyan
     1143.1.1 = {
         #name = "Tianyou_5929_7950"
         death = yes
@@ -3314,7 +3314,7 @@ nn_LIAOliu_liufu = {
     culture = khitan
     mother = 188906 # Tabuyan
     1140.1.1 = {	birth = yes	}
-    1160.1.1 = {	add_spouse = 188910	}	#Xiao Duolu
+    1160.1.1 = {	add_same_sex_spouse =188910	}	#Xiao Duolu
     1177.1.1 = {
         #name = "Chengtian_627F_5929"
         death = { death_reason = death_execution killer = 188909 } # Wolila

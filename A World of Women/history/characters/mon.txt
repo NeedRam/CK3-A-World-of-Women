@@ -470,7 +470,7 @@ mon053 = {
         employer = burman001 #Anawrahta
 
         add_secret = { type = secret_cannibal } # supposedly cooked and ate the body of a Zawgyi
-        add_spouse = burman017 # Me Wunna
+        add_same_sex_spouse =burman017 # Me Wunna
 
         effect = {
             add_opinion = { # loves his wife
@@ -511,7 +511,7 @@ mon054 = {
         birth = yes
     }
     1066.1.1 = {
-        add_spouse = burman001 # Anawrahta
+        add_same_sex_spouse =burman001 # Anawrahta
     }
     1090.1.1 = {
         death = yes
@@ -528,7 +528,7 @@ mon055 = {
         birth = yes
     }
     1048.1.1 = {
-        add_spouse = mon031
+        add_same_sex_spouse =mon031
     }
     1114.1.1 = {
         death = yes

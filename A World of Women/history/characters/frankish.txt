@@ -27,10 +27,10 @@
         add_pressed_claim = title:k_lotharingia
     }
     772.1.1 = {
-        add_spouse = 167827
+        add_same_sex_spouse =167827
     }
     784.1.1 = {
-        add_spouse = 168225
+        add_same_sex_spouse =168225
         give_nickname = nick_the_great
     }
     814.1.2 = {
@@ -48,7 +48,7 @@
         birth = yes
     }
     767.5.5 = {
-        add_spouse = 194173
+        add_same_sex_spouse =194173
     }
     768.9.24 = {
         add_pressed_claim = title:k_france
@@ -74,13 +74,13 @@
         birth = "636.1.2"
     }
     658.1.1 = {
-        add_spouse = 190419
+        add_same_sex_spouse =190419
     }
     674.1.1 = {
         remove_spouse = 190419
     }
     675.1.1 = {
-        add_spouse = 190420
+        add_same_sex_spouse =190420
     }
     714.1.17 = {
         death = "714.1.17"
@@ -416,7 +416,7 @@
     }
 
     730.1.1 = {
-        add_spouse = 91121 #Williswinthe, daughter of count Adalelm (730.1.1)
+        add_same_sex_spouse =91121 #Williswinthe, daughter of count Adalelm (730.1.1)
     }
 
     760.1.1 = {
@@ -486,7 +486,7 @@
         birth = yes
     }
     827.1.1 = {
-        add_spouse = 200147
+        add_same_sex_spouse =200147
     }
     830.1.1 = {
         death = yes
@@ -584,7 +584,7 @@
     612.1.1 = {
         birth = yes
     }
-    643.1.1 = { add_spouse = 91404 } #Begga
+    643.1.1 = { add_same_sex_spouse =91404 } #Begga
     662.1.1 = {
         death = yes
     }
@@ -1209,7 +1209,7 @@
         birth = yes
     }
     768.1.1 = {
-        add_spouse = 190515
+        add_same_sex_spouse =190515
     }
     805.1.1 = {
         death = yes
@@ -1341,7 +1341,7 @@
     culture = "frankish"
 
     674.1.1 = { birth = yes } #unknown
-    706.1.1 = { add_spouse = 91387 } #Ermengarde
+    706.1.1 = { add_same_sex_spouse =91387 } #Ermengarde
     750.1.1 = { death = yes } #unknown
 }
 
@@ -1380,7 +1380,7 @@
     mother = 91387 #Ermengarde
 
     690.1.1 = { birth = yes } #unknown, down from 708
-    724.1.1 = { add_spouse = 91392 } #fantasy spouse
+    724.1.1 = { add_same_sex_spouse =91392 } #fantasy spouse
     765.1.1 = { death = yes } #down from 790
 }
 
@@ -1437,7 +1437,7 @@
         birth = yes #unknown
     }
     744.1.1 = {
-        add_spouse = 190440 #Richarde
+        add_same_sex_spouse =190440 #Richarde
     }
     780.1.1 = {
         death = yes #after 778
@@ -1579,7 +1579,7 @@
     culture = "frankish"
 
     570.1.1 = { birth = yes } #unknown,
-    615.1.1 = { add_spouse = 91403 } #Itta
+    615.1.1 = { add_same_sex_spouse =91403 } #Itta
     640.1.1 = { give_nickname = "nick_the_old" }
     647.1.1 = { death = yes } #death in 647
 }
@@ -1613,7 +1613,7 @@
     culture = "frankish"
 
     700.1.1 = { birth = yes } #unknown
-    730.1.1 = { add_spouse = 91406 }  #ERMENSUINDA
+    730.1.1 = { add_same_sex_spouse =91406 }  #ERMENSUINDA
     760.1.1 = { death = yes } #after 30 Jul 757
 }
 91406 = {
@@ -1635,7 +1635,7 @@
     mother = 91406 #Ermensuinda
 
     732.1.1 = { birth = yes } #unknown
-    750.1.1 = { add_spouse = 91502 }  #HRUODSUINDA
+    750.1.1 = { add_same_sex_spouse =91502 }  #HRUODSUINDA
     790.1.1 = { death = yes } #after 30 May 779
 }
 91502 = {
@@ -1667,7 +1667,7 @@
     mother = 91406 #Ermensuinda
 
     734.1.1 = { birth = yes } #unknown
-    750.1.1 = { add_spouse = 91460 }  #WILLISWINDIS
+    750.1.1 = { add_same_sex_spouse =91460 }  #WILLISWINDIS
     760.1.1 = { death = yes } #after 30 Jul 757
 }
 91460 = {
@@ -1732,7 +1732,7 @@
     culture = "frankish"
 
     640.1.1 = { birth = yes } #unknown
-    660.1.1 = { add_spouse = 91466 }  #Bertrade
+    660.1.1 = { add_same_sex_spouse =91466 }  #Bertrade
     700.1.1 = { death = yes } #unknown
 }
 91466 = {
@@ -1943,7 +1943,7 @@
 
     730.1.1 = { birth = yes } #unknown
     750.1.1 = {
-        add_spouse = 194175
+        add_same_sex_spouse =194175
     }
     775.1.1 = { death = yes } #after 30 Oct 759
 }
@@ -2055,7 +2055,7 @@
     culture = "frankish"
 
     720.1.1 = { birth = yes } #unknown
-    740.1.1 = { add_spouse = 91498 } #unknown wife
+    740.1.1 = { add_same_sex_spouse =91498 } #unknown wife
     780.1.1 = { death = yes } #unknown
 }
 
@@ -2068,7 +2068,7 @@
     mother = 91498 #unknown mother
 
     742.1.1 = { birth = yes } #unknown
-    760.1.1 = { add_spouse = 91499 } #wife unknown
+    760.1.1 = { add_same_sex_spouse =91499 } #wife unknown
     800.1.1 = { death = yes } #after 13 Aug 762
 }
 
@@ -2145,7 +2145,7 @@
     religion = "catholic"
     culture = "frankish"
     700.1.1 = { birth = yes } #in power in Maine during the bishopric of Gauslin from 743 to 771
-    720.1.1 = { add_spouse = 91504 } #unknown date
+    720.1.1 = { add_same_sex_spouse =91504 } #unknown date
     775.1.1 = { death = yes} #unknown
 }
 91504 = {
@@ -2242,7 +2242,7 @@
         birth = "810.1.1"
     }
     849.1.1 = {
-        add_spouse = 7978
+        add_same_sex_spouse =7978
     }
     863.1.1 = {
         death = "863.1.1"
@@ -2262,7 +2262,7 @@
         trait = education_learning_2
     }
     723.1.1 = {
-        add_spouse = 91390 # Ermentrude, niece of Fulrad
+        add_same_sex_spouse =91390 # Ermentrude, niece of Fulrad
     }
     785.1.1 = {
         death = yes #after 782
@@ -2358,7 +2358,7 @@
         birth = yes
     }
     494.1.1 = {
-        add_spouse = 168749
+        add_same_sex_spouse =168749
     }
     499.1.1 = {
         religion = "catholic"
@@ -2381,7 +2381,7 @@
         religion = "catholic"
     }
     516.1.1 = {
-        add_spouse = 168754
+        add_same_sex_spouse =168754
     }
     534.1.1 = {
         death = yes
@@ -2463,7 +2463,7 @@
         religion = "catholic"
     }
     514.1.1 = {
-        add_spouse = 168752
+        add_same_sex_spouse =168752
     }
     524.6.25 = {
         death = yes
@@ -2502,7 +2502,7 @@
         religion = "catholic"
     }
     525.1.1 = {
-        add_spouse = 168752
+        add_same_sex_spouse =168752
     }
     561.11.29 = {
         death = yes
@@ -2849,7 +2849,7 @@
         birth = yes
     }
     669.1.1 = {
-        add_spouse = 168705
+        add_same_sex_spouse =168705
     }
     675.1.1 = {
         death = {
@@ -2868,7 +2868,7 @@
         birth = yes
     }
     670.1.1 = {
-        add_spouse = 190418 #DODA (Chrothechildis/Rotilde), Daughter of ANSEGISEL
+        add_same_sex_spouse =190418 #DODA (Chrothechildis/Rotilde), Daughter of ANSEGISEL
     }
     691.4.12 = {
         death = yes
@@ -3209,7 +3209,7 @@
         birth = yes
     }
     497.1.1 = {
-        add_spouse = 168785
+        add_same_sex_spouse =168785
     }
     523.1.1 = {
         death = yes
@@ -3703,10 +3703,10 @@
         birth = "686.8.23"
     }
     703.1.1 = {
-        add_spouse = 190425
+        add_same_sex_spouse =190425
     }
     725.2.1 = {
-        add_spouse = 190426
+        add_same_sex_spouse =190426
     }
     732.11.1 = {
         give_nickname = nick_the_hammer
@@ -3732,7 +3732,7 @@
         birth = "714.1.1"
     }
     736.1.1 = {
-        add_spouse = 190429
+        add_same_sex_spouse =190429
     }
     768.9.24 = {
         death = "768.9.24"
@@ -3789,7 +3789,7 @@
         birth = "673.1.1"
     }
     711.1.1 = {
-        add_spouse = 131724 # Thiadsvind
+        add_same_sex_spouse =131724 # Thiadsvind
     }
     714.1.1 = {
         death = "714.1.1"
@@ -4005,7 +4005,7 @@
         birth = "757.1.1"
     }
     810.1.1 = {
-        add_spouse = 168080
+        add_same_sex_spouse =168080
     }
     816.10.28 = {
         death = "816.10.28"
@@ -4021,7 +4021,7 @@
         birth = "740.1.1"
     }
     760.1.1 = {
-        add_spouse = 168128
+        add_same_sex_spouse =168128
     }
     804.1.1 = {
         death = "804.1.1"
@@ -4448,7 +4448,7 @@
         birth = yes
     }
     848.1.1 = {
-        add_spouse = 167977
+        add_same_sex_spouse =167977
     }
     893.3.1 = {
         death = yes
@@ -4624,7 +4624,7 @@ frankish0006 = {
         birth = yes
     }
     824.1.1 = {
-        add_spouse = 168141 # Duoda Sanche de Vasconie
+        add_same_sex_spouse =168141 # Duoda Sanche de Vasconie
     }
     840.6.20 = {
         name = "Bernat"

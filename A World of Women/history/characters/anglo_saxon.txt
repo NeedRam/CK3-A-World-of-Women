@@ -149,10 +149,10 @@
         birth = "968.1.1"
     }
     985.1.1 = {
-        add_spouse = 105
+        add_same_sex_spouse =105
     }
     1002.3.1 = {
-        add_spouse = 259 #Emma de Normandie
+        add_same_sex_spouse =259 #Emma de Normandie
     }
     1016.1.1 = {
         give_nickname = nick_the_unready_anglo_saxon
@@ -225,7 +225,7 @@
         birth = "1016.1.1"
     }
     1036.1.2 = {
-        add_spouse = 41101
+        add_same_sex_spouse =41101
         give_nickname = nick_the_exile
         effect = {
             learn_language_of_culture = culture:russian
@@ -360,7 +360,7 @@
         give_nickname = nick_the_confessor
     }
     1046.1.1 = {
-        add_spouse = 121
+        add_same_sex_spouse =121
     }
     1066.1.5 = {
         death = "1066.1.5"
@@ -470,7 +470,7 @@
         birth = "993.1.1"
     }
     1015.1.2 = {
-        add_spouse = 101534
+        add_same_sex_spouse =101534
     }
     1053.4.15 = {
         death = "1053.4.15"
@@ -528,7 +528,7 @@
         }
     }
     1045.1.1 = {
-        add_spouse = 131 #Ealdgyth 'Swanneck'
+        add_same_sex_spouse =131 #Ealdgyth 'Swanneck'
         effect = {
             set_relation_lover = { reason = lover_history target = character:131 }
             add_hook = {
@@ -546,7 +546,7 @@
         remove_spouse = 131
     }
     1066.1.1 = {
-        add_spouse = 123 #Ealdgyth of Mercia
+        add_same_sex_spouse =123 #Ealdgyth of Mercia
         effect = {
             reverse_add_opinion = {
                 modifier = divorced_me_opinion
@@ -630,7 +630,7 @@
         birth = "1025.1.1"
     }
     1050.1.1 = {
-        add_spouse = 363
+        add_same_sex_spouse =363
     }
 
     1066.1.1 = {
@@ -807,7 +807,7 @@
     }
     1045.1.1 = {
         give_nickname = nick_the_fair
-        add_spouse = 122
+        add_same_sex_spouse =122
     }
     1086.1.2 = {
         death = "1086.1.2"
@@ -898,10 +898,10 @@
         birth = "974.1.1"
     }
     990.1.1 = {
-        add_spouse = 161263
+        add_same_sex_spouse =161263
     }
     1010.1.1 = {
-        add_spouse = 161261
+        add_same_sex_spouse =161261
     }
     1016.1.1 = {
         death = "1016.1.1"
@@ -1029,7 +1029,7 @@
         birth = "1010.1.2"
     }
     1046.1.2 = {
-        add_spouse = 193
+        add_same_sex_spouse =193
     }
     1055.1.2 = {
         death = "1055.1.2"
@@ -1054,7 +1054,7 @@
         birth = "1050.1.2"
     }
     1070.1.1 = {
-        add_spouse = 317
+        add_same_sex_spouse =317
     }
     1076.1.1 = {
         death = "1076.1.1"
@@ -1236,7 +1236,7 @@
         birth = "968.1.1"
     }
     1018.1.1 = {
-        add_spouse = 161279
+        add_same_sex_spouse =161279
     }
 
     1057.10.30 = {
@@ -1261,7 +1261,7 @@
         birth = "1019.1.1"
     }
     1036.1.1 = {
-        add_spouse = 161280
+        add_same_sex_spouse =161280
     }
     1062.1.1 = {
         death = "1062.1.1"
@@ -1433,7 +1433,7 @@
         birth = "1073.1.1"
     }
     1085.1.1 = {
-        add_spouse = 7388
+        add_same_sex_spouse =7388
     }
     1130.1.1 = {
         death = "1130.1.1"
@@ -1473,7 +1473,7 @@
         }
     }
     867.1.1 = {
-        add_spouse = 306020
+        add_same_sex_spouse =306020
     }
     890.1.1 = {
         give_nickname = nick_the_great
@@ -1678,7 +1678,7 @@
         birth = yes
     }
     1060.1.1 = {
-        add_spouse = 90160 #Turfida
+        add_same_sex_spouse =90160 #Turfida
         add_pressed_claim = title:c_cambridgeshire
         give_nickname = nick_the_wake
         effect = {
@@ -1964,10 +1964,10 @@
             birth = "795.1.1"
         }
         832.1.1 = {
-            add_spouse = 306023 #Osburh, mother of his children
+            add_same_sex_spouse =306023 #Osburh, mother of his children
         }
         856.10.1 = {
-            add_spouse = 90110 #(Judith of Flanders)
+            add_same_sex_spouse =90110 #(Judith of Flanders)
         }
 
         858.1.13 = {
@@ -1988,7 +1988,7 @@
             birth = "834.1.1"
         }
         858.2.1 = {
-            add_spouse = 90110 #(Judith of Flanders)
+            add_same_sex_spouse =90110 #(Judith of Flanders)
         }
         860.12.20 = {
             death = "860.12.20"
@@ -2028,7 +2028,7 @@
             birth = "840.1.1"
         }
         866.1.1 = {
-            add_spouse = 306015 #Wulfthryth
+            add_same_sex_spouse =306015 #Wulfthryth
         }
         871.1.1 = {
             death = "871.1.1"
@@ -2240,7 +2240,7 @@
             birth = "1010.1.1"
         }
         1035.1.1 = {
-            add_spouse = 161264
+            add_same_sex_spouse =161264
         }
         1060.1.1 = {
             death = "1060.1.1"
@@ -2319,7 +2319,7 @@
             birth = "1030.1.1"
         }
         1048.1.1 = {
-            add_spouse = 161269
+            add_same_sex_spouse =161269
         }
         1080.1.1 = {
             death = "1080.1.1"
@@ -2410,7 +2410,7 @@
             birth = "980.1.1"
         }
         1009.1.1 = {
-            add_spouse = 161277
+            add_same_sex_spouse =161277
         }
         1017.12.25 = {
             death = "1017.12.25"
@@ -2586,7 +2586,7 @@
             birth = yes
         }
         855.1.1 = {
-            add_spouse = 168594
+            add_same_sex_spouse =168594
         }
         874.1.1 = {
             death = yes
@@ -2617,7 +2617,7 @@
             birth = yes
         }
         842.1.1 = {
-            add_spouse = 306019
+            add_same_sex_spouse =306019
         }
 
         879.1.1 = {
@@ -2680,7 +2680,7 @@
         }
 
         840.1.1 = {
-            add_spouse = 6890
+            add_same_sex_spouse =6890
         }
 
         867.3.21 = {
@@ -2718,7 +2718,7 @@
             birth = yes
         }
         866.1.1 = {
-            add_spouse = 6891
+            add_same_sex_spouse =6891
         }
         867.3.21 = {
             death = yes
@@ -3281,7 +3281,7 @@
         }
         620.1.1 = {
             religion = "catholic"
-            #add_spouse = Emma Meroving
+            #add_same_sex_spouse =Emma Meroving
         }
         640.1.1 = {
             death = "640.1.1"
@@ -3312,7 +3312,7 @@
             birth = "592.1.1"
         }
         620.1.1 = {
-            add_spouse = 205198
+            add_same_sex_spouse =205198
         }
         640.1.1 = {
             death = "640.1.1"
@@ -4147,7 +4147,7 @@
             birth = "730.1.1"
         }
         760.1.1 = {
-            add_spouse = 205074
+            add_same_sex_spouse =205074
         }
         796.7.29 = {
             death = "796.7.29"
@@ -4177,7 +4177,7 @@
             birth = "744.1.1"
         }
         760.1.1 = {
-            add_spouse = 205072
+            add_same_sex_spouse =205072
         }
         799.1.1 = {
             death = "799.1.1"
@@ -6080,7 +6080,7 @@
             birth = "585.1.1"
         }
         620.1.1 = {
-            add_spouse = 205034
+            add_same_sex_spouse =205034
         }
         633.10.12 = {
             death = "633.10.12"
@@ -6226,7 +6226,7 @@
             birth = "555.1.1"
         }
         590.1.1 = {
-            add_spouse = 205210
+            add_same_sex_spouse =205210
         }
         616.1.1 = {
             death = "616.1.1"
@@ -6242,7 +6242,7 @@
             birth = "570.1.1"
         }
         590.1.1 = {
-            add_spouse = 205209
+            add_same_sex_spouse =205209
         }
         634.1.1 = {
             death = "634.1.1"
@@ -6259,7 +6259,7 @@
             birth = "590.1.1"
         }
         617.1.1 = {
-            add_spouse = 166558
+            add_same_sex_spouse =166558
         }
         634.1.1 = {
             death = "634.1.1"
@@ -6290,7 +6290,7 @@
             birth = "612.1.1"
         }
         642.1.1 = {
-            add_spouse = 205214
+            add_same_sex_spouse =205214
         }
         670.2.15 = {
             death = "670.2.15"
@@ -6307,7 +6307,7 @@
             birth = "626.4.19"
         }
         642.1.1 = {
-            add_spouse = 205213
+            add_same_sex_spouse =205213
         }
         686.1.1 = {
             death = "686.1.1"
@@ -6479,7 +6479,7 @@
             birth = "730.1.1"
         }
         750.1.1 = {
-            add_spouse = 205237
+            add_same_sex_spouse =205237
         }
         790.1.1 = {
             death = "790.1.1"
@@ -6625,7 +6625,7 @@
             birth = "725.1.1"
         }
         750.1.1 = {
-            add_spouse = 205227
+            add_same_sex_spouse =205227
         }
         774.1.1 = {
             death = "774.1.1"
