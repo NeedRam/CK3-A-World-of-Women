@@ -114,7 +114,7 @@ awow_test_same_sex_pregnancy_interaction = {
     }
 }
 
-awow_test_set_parent = {
+awow_test_set_me_as_parent_of = {
     category = interaction_category_uncategorized
     icon = vassal_claim_liege_title_interaction
     use_diplomatic_range = no
@@ -145,7 +145,63 @@ awow_test_set_parent = {
     }
 }
 
-awow_test_set_child = {
+awow_test_set_me_as_mother_of = {
+    category = interaction_category_uncategorized
+    icon = vassal_claim_liege_title_interaction
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+    common_interaction = yes
+    auto_accept = yes
+
+
+    is_shown = {
+        scope:recipient = {
+            is_alive = yes
+        }
+    }
+
+    is_valid = {
+        scope:recipient = {
+            is_alive = yes
+        }
+    }
+
+    on_accept = {
+        scope:recipient = {
+            awow_set_mother_of_child_effect = scope:actor
+        }
+    }
+}
+
+awow_test_set_me_as_father_of = {
+    category = interaction_category_uncategorized
+    icon = vassal_claim_liege_title_interaction
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+    common_interaction = yes
+    auto_accept = yes
+
+
+    is_shown = {
+        scope:recipient = {
+            is_alive = yes
+        }
+    }
+
+    is_valid = {
+        scope:recipient = {
+            is_alive = yes
+        }
+    }
+
+    on_accept = {
+        scope:recipient = {
+            awow_set_father_of_child_effect = scope:actor
+        }
+    }
+}
+
+awow_test_set_me_as_child_of = {
     category = interaction_category_uncategorized
     icon = vassal_claim_liege_title_interaction
     use_diplomatic_range = no
@@ -168,9 +224,6 @@ awow_test_set_child = {
     on_accept = {
         scope:recipient = {
             set_relation_awow_child = scope:actor
-        }
-        scope:child = {
-            set_relation_awow_parent = scope:parent
         }
     }
 }

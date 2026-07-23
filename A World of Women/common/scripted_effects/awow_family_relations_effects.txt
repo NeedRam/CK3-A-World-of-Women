@@ -13,7 +13,7 @@ awow_set_parent_effect = {
             scope:awow_parent = { is_alive = yes }
         }
         set_relation_awow_parent = scope:awow_parent
-        # debug_log = "AWOW RELATIONS: Parent Relation Set"
+        debug_log = "AWOW RELATIONS:      Parent Relation Set"
     }
 }
 
@@ -26,7 +26,33 @@ awow_set_child_effect = {
             scope:awow_child = { is_alive = yes }
         }
         set_relation_awow_child = scope:awow_child
-        # debug_log = "AWOW RELATIONS: Child Relation Set"
+        debug_log = "AWOW RELATIONS: Child Relation Set"
+    }
+}
+
+awow_set_mother_of_child_effect = {
+    if = {
+        limit = {
+            is_alive = yes
+            NOT = { any_relation = { type = awow_mother } }
+            NOT = { any_relation = { type = awow_child } }
+            scope:awow_child = { is_alive = yes }
+        }
+        set_relation_awow_child = scope:awow_child
+        debug_log = "AWOW RELATIONS: Child Relation Set"
+    }
+}
+
+awow_set_father_of_child_effect = {
+    if = {
+        limit = {
+            is_alive = yes
+            NOT = { any_relation = { type = awow_father } }
+            NOT = { any_relation = { type = awow_child } }
+            scope:awow_child = { is_alive = yes }
+        }
+        set_relation_awow_child = scope:awow_child
+        debug_log = "AWOW RELATIONS: Child Relation Set"
     }
 }
 
@@ -40,7 +66,7 @@ awow_set_my_sibling_effect = {
             scope:awow_sibling = { is_alive = yes }
         }
         set_relation_awow_sibling = scope:awow_sibling
-        # debug_log = "AWOW RELATIONS: mySibling Relation Set"
+        debug_log = "AWOW RELATIONS:           mySibling Relation Set"
     }
 }
 
@@ -52,7 +78,7 @@ awow_set_sibling_of_effect = {
             scope:awow_child = { is_alive = yes }
         }
         set_relation_awow_sibling = scope:awow_child
-        # debug_log = "AWOW RELATIONS: SiblingOf Relation Set"
+        debug_log = "AWOW RELATIONS:            SiblingOf Relation Set"
     }
 }
 
@@ -67,7 +93,7 @@ awow_set_grandparent_effect = {
             scope:awow_grandparent = { is_alive = yes }
         }
         set_relation_awow_grandparent = scope:awow_grandparent
-        # debug_log = "AWOW RELATIONS: Grandparent Relation Set"
+        debug_log = "AWOW RELATIONS:           Grandparent Relation Set"
     }
 }
 
@@ -80,7 +106,7 @@ awow_set_grandchild_effect = {
             scope:awow_child = { is_alive = yes }
         }
         set_relation_awow_grandchild = scope:awow_child
-        # debug_log = "AWOW RELATIONS: Grandchild Relation Set"
+        debug_log = "AWOW RELATIONS:            Grandchild Relation Set"
     }
 }
 
@@ -92,6 +118,7 @@ awow_convert_vanilla_relations_to_scripted_effect = {
     if = {
         limit = { is_alive = yes }
         save_scope_as = awow_child
+        debug_log = "AWOW RELATIONS: scope child"
         if = {
             limit = {
                 exists = scope:awow_child.father
@@ -108,6 +135,7 @@ awow_assign_scripted_relations_effect = {
     if = {
         limit = { is_alive = yes }
         save_scope_as = awow_child
+        debug_log = "AWOW RELATIONS: scope child"
         awow_assign_mother_relations_effect = yes
         awow_assign_other_mother_relations_effect = yes
     }
@@ -121,11 +149,10 @@ awow_assign_scripted_relations_effect = {
 # ---------- PARENTS ---------- #
 
 awow_assign_father_relations_effect = {
-    # debug_log = "AWOW RELATIONS: in child"
     scope:awow_child.father = { save_scope_as = awow_parent }
     scope:awow_parent = {
-        # debug_log = "AWOW RELATIONS: in father"
-        awow_set_child_effect = yes
+        debug_log = "AWOW RELATIONS:    in father"
+        awow_set_father_of_child_effect = yes
         awow_assign_siblings_effect = yes
         awow_assign_grandparent_relations_effect = yes
     }
@@ -137,7 +164,6 @@ awow_assign_father_relations_effect = {
 }
 
 awow_assign_mother_relations_effect = {
-    # debug_log = "AWOW RELATIONS: in child"
     if = {
         if = {
             limit = {
@@ -147,8 +173,8 @@ awow_assign_mother_relations_effect = {
             scope:awow_child.mother = { save_scope_as = awow_parent }
             scope:awow_parent = {
                 if = {
-                    # debug_log = "AWOW RELATIONS: in mother"
-                    awow_set_child_effect = yes
+                    debug_log = "AWOW RELATIONS:    in mother"
+                    awow_set_mother_of_child_effect = yes
                     awow_assign_siblings_effect = yes
                     awow_assign_grandparent_relations_effect = yes
                 }
@@ -159,18 +185,16 @@ awow_assign_mother_relations_effect = {
             }
             clear_saved_scope = awow_parent
         }
-
     }
 }
 
 awow_assign_other_mother_relations_effect = {
-    # debug_log = "AWOW RELATIONS: in child"
     scope:awow_other_mother = {
         if = {
             limit = { is_alive = yes }
             save_scope_as = awow_parent
-            # debug_log = "AWOW RELATIONS: in other_mother"
-            awow_set_child_effect = yes
+            debug_log = "AWOW RELATIONS:    in other_mother"
+            awow_set_father_of_child_effect = yes
             awow_assign_siblings_effect = yes
             awow_assign_grandparent_relations_effect = yes
         }
@@ -185,7 +209,7 @@ awow_assign_other_mother_relations_effect = {
 # ---------- Siblings ---------- #
 
 awow_assign_siblings_effect = {
-    # debug_log = "AWOW RELATIONS: Every Child"
+    # Assign vanilla childs of parent as siblings
     every_child = {
         if = {
             limit = {
@@ -194,16 +218,16 @@ awow_assign_siblings_effect = {
                 this.mother = scope:awow_parent
             }
             save_scope_as = awow_sibling
-            # debug_log = "AWOW RELATIONS: in siblingof"
+            debug_log = "AWOW RELATIONS:        in sibling"
             awow_set_sibling_of_effect = yes
             scope:awow_child = {
-                # debug_log = "AWOW RELATIONS: in mysibling"
                 awow_set_my_sibling_effect = yes
             }
         }
         clear_saved_scope = awow_sibling
     }
-    # debug_log = "AWOW RELATIONS: Every Relation"
+
+    # Assign awow_childs of parent as siblings
     every_relation = {
         type = awow_child
         if = {
@@ -213,10 +237,9 @@ awow_assign_siblings_effect = {
                 this.mother = scope:awow_parent
             }
             save_scope_as = awow_sibling
-            # debug_log = "AWOW RELATIONS: in siblingof"
+            debug_log = "AWOW RELATIONS:        in sibling"
             awow_set_sibling_of_effect = yes
             scope:awow_child = {
-                # debug_log = "AWOW RELATIONS: in mysibling"
                 awow_set_my_sibling_effect = yes
             }
         }
@@ -231,13 +254,10 @@ awow_assign_grandparent_relations_effect = {
         limit = { exists = scope:awow_parent.mother }
         scope:awow_parent.mother = { save_scope_as = awow_grandparent }
         scope:awow_grandparent = {
-            if = {
-                # debug_log = "AWOW RELATIONS: in grandparent"
-                awow_set_grandchild_effect = yes
-                scope:awow_child = {
-                    # debug_log = "AWOW RELATIONS: in grandchild"
-                    awow_set_grandparent_effect = yes
-                }
+            debug_log = "AWOW RELATIONS:        in grandmother"
+            awow_set_grandchild_effect = yes
+            scope:awow_child = {
+                awow_set_grandparent_effect = yes
             }
         }
         clear_saved_scope = awow_grandparent
@@ -246,28 +266,27 @@ awow_assign_grandparent_relations_effect = {
         limit = { exists = scope:awow_parent.father }
         scope:awow_parent.father = { save_scope_as = awow_grandparent }
         scope:awow_grandparent = {
-            if = {
-                # debug_log = "AWOW RELATIONS: in grandparent"
-                awow_set_grandchild_effect = yes
-                scope:awow_child = {
-                    # debug_log = "AWOW RELATIONS: in grandchild"
-                    awow_set_grandparent_effect = yes
-                }
+            debug_log = "AWOW RELATIONS:        in grandfather"
+            awow_set_grandchild_effect = yes
+            scope:awow_child = {
+                awow_set_grandparent_effect = yes
             }
         }
         clear_saved_scope = awow_grandparent
     }
+
+    # Check for awow_parents of the parent or awow_parent and assign them as grandparents
     every_relation = {
         type = awow_parent
-        limit = { NOT = { scope:awow_child = { any_relation = { type = awow_grandparent } } } }
+        limit = {
+            NOT = { scope:awow_child = { any_relation = { type = awow_grandchild } } }
+            NOT = { scope:awow_child = { any_relation = { type = awow_grandparent } } }
+        }
         save_scope_as = awow_grandparent
-        if = {
-            # debug_log = "AWOW RELATIONS: in grandparent"
-            awow_set_grandchild_effect = yes
-            scope:awow_child = {
-                # debug_log = "AWOW RELATIONS: in grandchild"
-                awow_set_grandparent_effect = yes
-            }
+        debug_log = "AWOW RELATIONS:        in grandparent"
+        awow_set_grandchild_effect = yes
+        scope:awow_child = {
+            awow_set_grandparent_effect = yes
         }
         clear_saved_scope = awow_grandparent
     }
@@ -279,13 +298,16 @@ awow_assign_grandparent_relations_effect = {
 
 awow_mass_vanilla_relations_to_scripted_relations_conversion_effect = {
     every_living_character = {
+
         limit = { NOT = { has_character_flag = awow_relations_backfilled } }
+        debug_log = "AWOW RELATIONS: scope child"
         awow_convert_vanilla_relations_to_scripted_effect = yes
         add_character_flag = awow_relations_backfilled
     }
     debug_log = "AWOW RELATIONS: Starting BackBACKFILL"
     every_living_character = {
         limit = { NOT = { has_character_flag = awow_relations_frontfilled } }
+        debug_log = "AWOW RELATIONS: scope child again "
         awow_backfill_2nd_pass_effect = yes
         add_character_flag = awow_relations_frontfilled
     }
@@ -296,16 +318,18 @@ awow_backfill_2nd_pass_effect = {
     every_relation = {
         type = awow_parent
         save_scope_as = awow_parent
-        if = {
-            awow_assign_siblings_effect = yes
-            awow_assign_grandparent_relations_effect = yes
-        }
+        debug_log = "AWOW RELATIONS:    in mother again"
+        awow_assign_siblings_effect = yes
+        awow_assign_grandparent_relations_effect = yes
     }
+    clear_saved_scope = awow_child
+    clear_saved_scope = awow_parent
 }
 
 assign_historic_father_as_other_mother = {
     save_scope_as = awow_child
     scope:$daddy$ = { save_scope_as = awow_other_mother }
+    debug_log = "AWOW RELATIONS: going in other_mother"
     awow_assign_other_mother_relations_effect = yes
     clear_saved_scope = awow_child
     clear_saved_scope = awow_other_mother
