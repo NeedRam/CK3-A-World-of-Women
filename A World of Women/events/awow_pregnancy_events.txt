@@ -29,7 +29,7 @@ awow_pregnancy.0001 = {
         }
 
         scope:child = {
-            awow_assign_scripted_parent_relations_effect = yes
+            awow_assign_scripted_relations_effect = yes
         }
 
         create_character_memory = {
@@ -50,17 +50,17 @@ awow_pregnancy.0001 = {
                 location = root.location
                 mother = root
                 gender_female_chance = var:awow_baby_female_chance
-                save_scope_as = child_2
+                save_scope_as = childsr
             }
 
-            scope:child_2 = {
-                awow_assign_scripted_parent_relations_effect = yes
+            scope:childsr = {
+                awow_assign_scripted_relations_effect = yes
             }
 
             create_character_memory = {
                 type = child_born
                 participants = {
-                    child = scope:child_2
+                    child = scope:childsr
                 }
             }
         }
@@ -76,24 +76,23 @@ awow_pregnancy.0001 = {
                 location = root.location
                 mother = root
                 gender_female_chance = var:awow_baby_female_chance
-                save_scope_as = child_3
+                save_scope_as = childssr
             }
 
-            scope:child_3 = {
-                awow_assign_scripted_parent_relations_effect = yes
+            scope:childssr = {
+                awow_assign_scripted_relations_effect = yes
             }
 
             create_character_memory = {
                 type = child_born
                 participants = {
-                    child = scope:child_3
+                    child = scope:childssr
                 }
             }
         }
 
         remove_trait = pregnant
         remove_variable = awow_pregnancy_active
-        remove_variable = awow_other_mother
         remove_character_flag = awow_pregnancy_will_be_twins_flag
         remove_character_flag = awow_pregnancy_will_be_triplets_flag
         carn_end_custom_pregnancy_effect = yes

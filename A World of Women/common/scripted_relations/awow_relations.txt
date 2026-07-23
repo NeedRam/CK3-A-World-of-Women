@@ -9,8 +9,8 @@ awow_mother = {
     title_grant_target = yes
     opinion = 50
     relation_aliases = { awow_parent }
-    relation_aliases = { parent }
-    relation_aliases = { mother }
+    # relation_aliases = { parent }
+    # relation_aliases = { mother }
 }
 
 awow_father = {
@@ -18,15 +18,15 @@ awow_father = {
     title_grant_target = yes
     opinion = 50
     relation_aliases = { awow_parent }
-    relation_aliases = { parent }
-    relation_aliases = { father }
+    # relation_aliases = { parent }
+    # relation_aliases = { father }
 }
 
 awow_child = {
     corresponding = awow_parent
     title_grant_target = yes
     opinion = 50
-    relation_aliases = { child }
+    # relation_aliases = { child }
 }
 
 awow_grandparent = {
@@ -39,8 +39,8 @@ awow_grandmother = {
     corresponding = awow_grandchild
     title_grant_target = yes
     opinion = 20
-    relation_aliases = { grandmother }
-    relation_aliases = { grandparent }
+    # relation_aliases = { grandmother }
+    # relation_aliases = { grandparent }
     relation_aliases = { awow_grandparent }
 }
 
@@ -48,8 +48,8 @@ awow_grandfather = {
     corresponding = awow_grandchild
     title_grant_target = yes
     opinion = 20
-    relation_aliases = { grandfather }
-    relation_aliases = { grandparent }
+    # relation_aliases = { grandfather }
+    # relation_aliases = { grandparent }
     relation_aliases = { awow_grandparent }
 }
 
@@ -57,12 +57,12 @@ awow_grandchild = {
     corresponding = awow_grandparent
     title_grant_target = yes
     opinion = 20
-    relation_aliases = { grandchild }
+    # relation_aliases = { grandchild }
 }
 
 awow_sibling = {
     corresponding = awow_sibling
     title_grant_target = yes
     opinion = 25
-    relation_aliases = { sibling }
+    # relation_aliases = { sibling }
 }
