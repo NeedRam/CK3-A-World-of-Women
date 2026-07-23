@@ -41,314 +41,548 @@
 }
 
 302618_effect = {
-	character:302618 = { save_scope_as = awow_child}
-	character:302616 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302618
+			exists = character:302616
+		}
+		character:302618 = { save_scope_as = awow_child}
+		character:302616 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302619_effect = {
-	character:302619 = { save_scope_as = awow_child}
-	character:302616 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302619
+			exists = character:302616
+		}
+		character:302619 = { save_scope_as = awow_child}
+		character:302616 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302621_effect = {
-	character:302621 = { save_scope_as = awow_child}
-	character:302620 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302621
+			exists = character:302620
+		}
+		character:302621 = { save_scope_as = awow_child}
+		character:302620 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302622_effect = {
-	character:302622 = { save_scope_as = awow_child}
-	character:302620 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302622
+			exists = character:302620
+		}
+		character:302622 = { save_scope_as = awow_child}
+		character:302620 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302623_effect = {
-	character:302623 = { save_scope_as = awow_child}
-	character:302621 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302623
+			exists = character:302621
+		}
+		character:302623 = { save_scope_as = awow_child}
+		character:302621 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302624_effect = {
-	character:302624 = { save_scope_as = awow_child}
-	character:302622 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302624
+			exists = character:302622
+		}
+		character:302624 = { save_scope_as = awow_child}
+		character:302622 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302625_effect = {
-	character:302625 = { save_scope_as = awow_child}
-	character:302623 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302625
+			exists = character:302623
+		}
+		character:302625 = { save_scope_as = awow_child}
+		character:302623 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302626_effect = {
-	character:302626 = { save_scope_as = awow_child}
-	character:302625 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302626
+			exists = character:302625
+		}
+		character:302626 = { save_scope_as = awow_child}
+		character:302625 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302627_effect = {
-	character:302627 = { save_scope_as = awow_child}
-	character:302626 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302627
+			exists = character:302626
+		}
+		character:302627 = { save_scope_as = awow_child}
+		character:302626 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302628_effect = {
-	character:302628 = { save_scope_as = awow_child}
-	character:302627 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302628
+			exists = character:302627
+		}
+		character:302628 = { save_scope_as = awow_child}
+		character:302627 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302648_effect = {
-	character:302648 = { save_scope_as = awow_child}
-	character:302647 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302648
+			exists = character:302647
+		}
+		character:302648 = { save_scope_as = awow_child}
+		character:302647 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302649_effect = {
-	character:302649 = { save_scope_as = awow_child}
-	character:302648 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302649
+			exists = character:302648
+		}
+		character:302649 = { save_scope_as = awow_child}
+		character:302648 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302650_effect = {
-	character:302650 = { save_scope_as = awow_child}
-	character:302649 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302650
+			exists = character:302649
+		}
+		character:302650 = { save_scope_as = awow_child}
+		character:302649 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302651_effect = {
-	character:302651 = { save_scope_as = awow_child}
-	character:302650 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302651
+			exists = character:302650
+		}
+		character:302651 = { save_scope_as = awow_child}
+		character:302650 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302652_effect = {
-	character:302652 = { save_scope_as = awow_child}
-	character:302651 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302652
+			exists = character:302651
+		}
+		character:302652 = { save_scope_as = awow_child}
+		character:302651 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302654_effect = {
-	character:302654 = { save_scope_as = awow_child}
-	character:302653 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302654
+			exists = character:302653
+		}
+		character:302654 = { save_scope_as = awow_child}
+		character:302653 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302655_effect = {
-	character:302655 = { save_scope_as = awow_child}
-	character:302654 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302655
+			exists = character:302654
+		}
+		character:302655 = { save_scope_as = awow_child}
+		character:302654 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302656_effect = {
-	character:302656 = { save_scope_as = awow_child}
-	character:302655 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302656
+			exists = character:302655
+		}
+		character:302656 = { save_scope_as = awow_child}
+		character:302655 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302733_effect = {
-	character:302733 = { save_scope_as = awow_child}
-	character:302731 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302733
+			exists = character:302731
+		}
+		character:302733 = { save_scope_as = awow_child}
+		character:302731 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302735_effect = {
-	character:302735 = { save_scope_as = awow_child}
-	character:302731 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302735
+			exists = character:302731
+		}
+		character:302735 = { save_scope_as = awow_child}
+		character:302731 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302737_effect = {
-	character:302737 = { save_scope_as = awow_child}
-	character:302733 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302737
+			exists = character:302733
+		}
+		character:302737 = { save_scope_as = awow_child}
+		character:302733 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302738_effect = {
-	character:302738 = { save_scope_as = awow_child}
-	character:302733 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302738
+			exists = character:302733
+		}
+		character:302738 = { save_scope_as = awow_child}
+		character:302733 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302739_effect = {
-	character:302739 = { save_scope_as = awow_child}
-	character:302735 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302739
+			exists = character:302735
+		}
+		character:302739 = { save_scope_as = awow_child}
+		character:302735 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302740_effect = {
-	character:302740 = { save_scope_as = awow_child}
-	character:302735 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302740
+			exists = character:302735
+		}
+		character:302740 = { save_scope_as = awow_child}
+		character:302735 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302742_effect = {
-	character:302742 = { save_scope_as = awow_child}
-	character:302741 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302742
+			exists = character:302741
+		}
+		character:302742 = { save_scope_as = awow_child}
+		character:302741 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302743_effect = {
-	character:302743 = { save_scope_as = awow_child}
-	character:302741 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302743
+			exists = character:302741
+		}
+		character:302743 = { save_scope_as = awow_child}
+		character:302741 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302747_effect = {
-	character:302747 = { save_scope_as = awow_child}
-	character:302745 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302747
+			exists = character:302745
+		}
+		character:302747 = { save_scope_as = awow_child}
+		character:302745 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302748_effect = {
-	character:302748 = { save_scope_as = awow_child}
-	character:302745 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302748
+			exists = character:302745
+		}
+		character:302748 = { save_scope_as = awow_child}
+		character:302745 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302749_effect = {
-	character:302749 = { save_scope_as = awow_child}
-	character:302745 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302749
+			exists = character:302745
+		}
+		character:302749 = { save_scope_as = awow_child}
+		character:302745 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302750_effect = {
-	character:302750 = { save_scope_as = awow_child}
-	character:302747 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302750
+			exists = character:302747
+		}
+		character:302750 = { save_scope_as = awow_child}
+		character:302747 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302751_effect = {
-	character:302751 = { save_scope_as = awow_child}
-	character:302748 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302751
+			exists = character:302748
+		}
+		character:302751 = { save_scope_as = awow_child}
+		character:302748 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302752_effect = {
-	character:302752 = { save_scope_as = awow_child}
-	character:302750 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302752
+			exists = character:302750
+		}
+		character:302752 = { save_scope_as = awow_child}
+		character:302750 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302753_effect = {
-	character:302753 = { save_scope_as = awow_child}
-	character:302752 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302753
+			exists = character:302752
+		}
+		character:302753 = { save_scope_as = awow_child}
+		character:302752 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302754_effect = {
-	character:302754 = { save_scope_as = awow_child}
-	character:302752 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302754
+			exists = character:302752
+		}
+		character:302754 = { save_scope_as = awow_child}
+		character:302752 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302757_effect = {
-	character:302757 = { save_scope_as = awow_child}
-	character:302755 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302757
+			exists = character:302755
+		}
+		character:302757 = { save_scope_as = awow_child}
+		character:302755 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302758_effect = {
-	character:302758 = { save_scope_as = awow_child}
-	character:302757 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302758
+			exists = character:302757
+		}
+		character:302758 = { save_scope_as = awow_child}
+		character:302757 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302759_effect = {
-	character:302759 = { save_scope_as = awow_child}
-	character:302758 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302759
+			exists = character:302758
+		}
+		character:302759 = { save_scope_as = awow_child}
+		character:302758 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302760_effect = {
-	character:302760 = { save_scope_as = awow_child}
-	character:302759 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302760
+			exists = character:302759
+		}
+		character:302760 = { save_scope_as = awow_child}
+		character:302759 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 302761_effect = {
-	character:302761 = { save_scope_as = awow_child}
-	character:302760 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:302761
+			exists = character:302760
+		}
+		character:302761 = { save_scope_as = awow_child}
+		character:302760 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 

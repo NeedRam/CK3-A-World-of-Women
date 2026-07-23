@@ -7,42 +7,72 @@
 }
 
 bisayan_zamboanga_11_fic_effect = {
-	character:bisayan_zamboanga_11_fic = { save_scope_as = awow_child}
-	character:bisayan_zamboanga_10 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:bisayan_zamboanga_11_fic
+			exists = character:bisayan_zamboanga_10
+		}
+		character:bisayan_zamboanga_11_fic = { save_scope_as = awow_child}
+		character:bisayan_zamboanga_10 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 bisayan_butuan_11_effect = {
-	character:bisayan_butuan_11 = { save_scope_as = awow_child}
-	character:bisayan_butuan_10 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:bisayan_butuan_11
+			exists = character:bisayan_butuan_10
+		}
+		character:bisayan_butuan_11 = { save_scope_as = awow_child}
+		character:bisayan_butuan_10 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 bisayan_butuan_12_effect = {
-	character:bisayan_butuan_12 = { save_scope_as = awow_child}
-	character:bisayan_butuan_11 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:bisayan_butuan_12
+			exists = character:bisayan_butuan_11
+		}
+		character:bisayan_butuan_12 = { save_scope_as = awow_child}
+		character:bisayan_butuan_11 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 bisayan_butuan_13_fic_effect = {
-	character:bisayan_butuan_13_fic = { save_scope_as = awow_child}
-	character:bisayan_butuan_12 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:bisayan_butuan_13_fic
+			exists = character:bisayan_butuan_12
+		}
+		character:bisayan_butuan_13_fic = { save_scope_as = awow_child}
+		character:bisayan_butuan_12 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
 bisayan_panay_11_effect = {
-	character:bisayan_panay_11 = { save_scope_as = awow_child}
-	character:bisayan_panay_10 = { save_scope_as = awow_parent}
-	awow_assign_historic_father_as_other_mother = yes
-	clear_saved_scope = awow_child
-	clear_saved_scope = awow_parent
+	if = {
+		limit = {
+			exists = character:bisayan_panay_11
+			exists = character:bisayan_panay_10
+		}
+		character:bisayan_panay_11 = { save_scope_as = awow_child}
+		character:bisayan_panay_10 = { save_scope_as = awow_other_mother}
+		awow_assign_historic_father_as_other_mother = yes
+		clear_saved_scope = awow_child
+		clear_saved_scope = awow_other_mother
+	}
 }
 
