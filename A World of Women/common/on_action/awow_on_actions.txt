@@ -12,15 +12,19 @@ awow_game_start_setup = {
             debug_log = "AWOW Culling: Prep DONE"
 
         }
-        debug_log = "AWOW SS-PREG: Prep START"
-        awow_monthly_pregnancy_tick_effect = yes
-        debug_log = "AWOW SS-PREG: Prep DONE"
-        debug_log = "AWOW Backfill: START"
-        awow_mass_vanilla_relations_to_scripted_relations_conversion_effect = yes
-        debug_log = "AWOW Backfill DONE"
         debug_log = "AWOW BI Girls: Making all girls bi START"
         awow_all_girls_should_be_bi = yes
         debug_log = "AWOW BI Girls: All girls super bi now START"
+        debug_log = "AWOW SS-PREG: Prep START"
+        awow_monthly_pregnancy_tick_effect = yes
+        debug_log = "AWOW SS-PREG: Prep DONE"
+        debug_log = "AWOW HOM: Assigning all Historic other Mothers START"
+        awow_assign_all_character_history_after_effects = yes
+        debug_log = "AWOW HOM: DONE"
+        debug_log = "AWOW Backfill: START"
+        awow_mass_vanilla_relations_to_scripted_relations_conversion_effect = yes
+        debug_log = "AWOW Backfill DONE"
+
     }
 }
 
