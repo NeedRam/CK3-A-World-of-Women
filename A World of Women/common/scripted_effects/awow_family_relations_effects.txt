@@ -30,32 +30,6 @@ awow_set_child_effect = {
     }
 }
 
-awow_set_mother_of_child_effect = {
-    if = {
-        limit = {
-            is_alive = yes
-            NOT = { any_relation = { type = awow_mother } }
-            NOT = { any_relation = { type = awow_child } }
-            scope:awow_child = { is_alive = yes }
-        }
-        set_relation_awow_child = scope:awow_child
-        debug_log = "AWOW RELATIONS: Child Relation Set"
-    }
-}
-
-awow_set_father_of_child_effect = {
-    if = {
-        limit = {
-            is_alive = yes
-            NOT = { any_relation = { type = awow_father } }
-            NOT = { any_relation = { type = awow_child } }
-            scope:awow_child = { is_alive = yes }
-        }
-        set_relation_awow_child = scope:awow_child
-        debug_log = "AWOW RELATIONS: Child Relation Set"
-    }
-}
-
 # ---------- Sibling ---------- #
 
 awow_set_my_sibling_effect = {
@@ -152,7 +126,7 @@ awow_assign_father_relations_effect = {
     scope:awow_child.father = { save_scope_as = awow_parent }
     scope:awow_parent = {
         debug_log = "AWOW RELATIONS:    in father"
-        awow_set_father_of_child_effect = yes
+        awow_set_child_effect = yes
         awow_assign_siblings_effect = yes
         awow_assign_grandparent_relations_effect = yes
     }
@@ -174,7 +148,7 @@ awow_assign_mother_relations_effect = {
             scope:awow_parent = {
                 if = {
                     debug_log = "AWOW RELATIONS:    in mother"
-                    awow_set_mother_of_child_effect = yes
+                    awow_set_child_effect = yes
                     awow_assign_siblings_effect = yes
                     awow_assign_grandparent_relations_effect = yes
                 }
@@ -194,7 +168,7 @@ awow_assign_other_mother_relations_effect = {
             limit = { is_alive = yes }
             save_scope_as = awow_parent
             debug_log = "AWOW RELATIONS:    in other_mother"
-            awow_set_father_of_child_effect = yes
+            awow_set_child_effect = yes
             awow_assign_siblings_effect = yes
             awow_assign_grandparent_relations_effect = yes
         }
