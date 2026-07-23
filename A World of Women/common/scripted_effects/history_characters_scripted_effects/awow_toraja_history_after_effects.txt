@@ -7,7 +7,7 @@
 toraja_banawa_11_fic_effect = {
 	character:toraja_banawa_11_fic = { save_scope_as = awow_child}
 	character:toraja_banawa_10_fic = { save_scope_as = awow_parent}
-	assign_historic_father_as_other_mother = yes
+	awow_assign_historic_father_as_other_mother = yes
 	clear_saved_scope = awow_child
 	clear_saved_scope = awow_parent
 }
@@ -15,7 +15,7 @@ toraja_banawa_11_fic_effect = {
 toraja_wenang_02_fic_effect = {
 	character:toraja_wenang_02_fic = { save_scope_as = awow_child}
 	character:toraja_wenang_01_fic = { save_scope_as = awow_parent}
-	assign_historic_father_as_other_mother = yes
+	awow_assign_historic_father_as_other_mother = yes
 	clear_saved_scope = awow_child
 	clear_saved_scope = awow_parent
 }
@@ -23,7 +23,7 @@ toraja_wenang_02_fic_effect = {
 toraja_tamboeko_02_fic_effect = {
 	character:toraja_tamboeko_02_fic = { save_scope_as = awow_child}
 	character:toraja_tamboeko_01_fic = { save_scope_as = awow_parent}
-	assign_historic_father_as_other_mother = yes
+	awow_assign_historic_father_as_other_mother = yes
 	clear_saved_scope = awow_child
 	clear_saved_scope = awow_parent
 }
