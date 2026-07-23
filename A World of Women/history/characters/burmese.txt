@@ -29,7 +29,7 @@ earlyburman002 = {
     dynasty = 2000000 #Pagan
     religion = ari
     culture = burmese
-    father = earlyburman001
+    assign_historic_father_as_other_mother = { daddy = earlyburman001 }
 
     859.1.1 = {
         birth = yes
@@ -61,7 +61,7 @@ earlyburman004 = {
     dynasty = 2000001 #Sale
     religion = ari
     culture = burmese
-    father = earlyburman003
+    assign_historic_father_as_other_mother = { daddy = earlyburman003 }
 
     919.1.1 = {
         birth = yes
@@ -96,7 +96,7 @@ earlyburman006 = {
     dynasty = 2000002 #Nyaung-U
     religion = ari
     culture = burmese
-    father = earlyburman005
+    assign_historic_father_as_other_mother = { daddy = earlyburman005 }
     trait = lifestyle_hunter
 
     1000.12.1 = {
@@ -114,7 +114,7 @@ earlyburman007 = {
     dynasty = 2000002 #Nyaung-U
     religion = ari
     culture = burmese
-    father = earlyburman005
+    assign_historic_father_as_other_mother = { daddy = earlyburman005 }
 
     1000.3.29 = {
         birth = yes
@@ -132,7 +132,7 @@ earlyburman008 = {
     dynasty = 2000000 #Pagan
     religion = ari
     culture = burmese
-    father = earlyburman002
+    assign_historic_father_as_other_mother = { daddy = earlyburman002 }
 
     890.1.1 = {
         birth = yes
@@ -147,7 +147,7 @@ burman000 = {
     dynasty = 2000000 #Pagan
     religion = ari
     culture = burmese
-    father = earlyburman008
+    assign_historic_father_as_other_mother = { daddy = earlyburman008 }
 
     955.1.1 = {
         birth = yes
@@ -163,7 +163,7 @@ burman001 = {
     dynasty = 2000000 #Pagan
     religion = ari
     culture = burmese
-    father = burman000
+    assign_historic_father_as_other_mother = { daddy = burman000 }
     mother = burman018
     trait = education_martial_4
     trait = ambitious
@@ -216,7 +216,7 @@ burman002 = {
     dynasty = 2000000 #Pagan
     religion = theravada
     culture = burmese
-    father = burman001
+    assign_historic_father_as_other_mother = { daddy = burman001 }
     mother = burman004
     trait = education_diplomacy_1 # nearly destroyed his father's empire
     trait = impatient
@@ -236,7 +236,7 @@ burman003 = {
     dynasty = 2000000 #Pagan
     religion = theravada
     culture = burmese
-    father = burman001
+    assign_historic_father_as_other_mother = { daddy = burman001 }
     mother = burman005
     trait = education_martial_4 # an excellent general
     trait = lustful # boinked his dad's wife
@@ -560,7 +560,7 @@ arakan002 = {
     dynasty = 2000003 #Candras
     religion = theravada
     culture = burmese
-    father = arakan001
+    assign_historic_father_as_other_mother = { daddy = arakan001 }
 
     780.1.1 = {
         birth = yes
@@ -575,7 +575,7 @@ arakan003 = {
     dynasty = 2000003 #Candras
     religion = theravada
     culture = burmese
-    father = arakan002
+    assign_historic_father_as_other_mother = { daddy = arakan002 }
 
     796.1.1 = {
         birth = yes
@@ -590,7 +590,7 @@ arakan004 = {
     dynasty = 2000003 #Candras
     religion = theravada
     culture = burmese
-    father = arakan003
+    assign_historic_father_as_other_mother = { daddy = arakan003 }
 
     820.1.1 = {
         birth = yes
@@ -605,7 +605,7 @@ arakan005 = {
     dynasty = 2000003 #Candras
     religion = theravada
     culture = burmese
-    father = arakan004
+    assign_historic_father_as_other_mother = { daddy = arakan004 }
 
     840.1.1 = {
         birth = yes
@@ -620,7 +620,7 @@ arakan006 = {
     dynasty = 2000003 #Candras
     religion = theravada
     culture = burmese
-    father = arakan005
+    assign_historic_father_as_other_mother = { daddy = arakan005 }
 
     856.1.1 = {
         birth = yes
@@ -635,7 +635,7 @@ arakan007 = {
     dynasty = 2000003 #Candras
     religion = theravada
     culture = burmese
-    father = arakan006
+    assign_historic_father_as_other_mother = { daddy = arakan006 }
 
     876.1.1 = {
         birth = yes
@@ -650,7 +650,7 @@ arakan008 = {
     dynasty = 2000003 #Candras
     religion = theravada
     culture = burmese
-    father = arakan007
+    assign_historic_father_as_other_mother = { daddy = arakan007 }
 
     892.1.1 = {
         birth = yes
@@ -665,7 +665,7 @@ arakan009 = {
     dynasty = 2000003 #Candras
     religion = theravada
     culture = burmese
-    father = arakan008
+    assign_historic_father_as_other_mother = { daddy = arakan008 }
 
     910.1.1 = {
         birth = yes
@@ -694,7 +694,7 @@ arakan011 = {
     dynasty = 2000006 #Myu
     religion = theravada
     culture = burmese
-    father = arakan010
+    assign_historic_father_as_other_mother = { daddy = arakan010 }
 
     900.1.1 = {
         birth = yes
@@ -709,7 +709,7 @@ arakan012 = {
     dynasty = 2000006 #Myu
     religion = theravada
     culture = burmese
-    father = arakan010
+    assign_historic_father_as_other_mother = { daddy = arakan010 }
 
     910.1.1 = {
         birth = yes
@@ -724,7 +724,7 @@ arakan013 = {
     dynasty = 2000006 #Myu
     religion = theravada
     culture = burmese
-    father = arakan012
+    assign_historic_father_as_other_mother = { daddy = arakan012 }
 
     930.1.1 = {
         birth = yes
@@ -739,7 +739,7 @@ arakan014 = {
     dynasty = 2000003 #Candras
     religion = theravada
     culture = burmese
-    father = arakan009
+    assign_historic_father_as_other_mother = { daddy = arakan009 }
 
     935.1.1 = {
         birth = yes
@@ -754,7 +754,7 @@ arakan015 = {
     dynasty = 2000003 #Candras
     religion = theravada
     culture = burmese
-    father = arakan008
+    assign_historic_father_as_other_mother = { daddy = arakan008 }
 
     915.1.1 = {
         birth = yes
@@ -769,7 +769,7 @@ arakan016 = {
     dynasty = 2000003 #Candras
     religion = theravada
     culture = burmese
-    father = arakan015
+    assign_historic_father_as_other_mother = { daddy = arakan015 }
 
     931.1.1 = {
         birth = yes
@@ -784,7 +784,7 @@ arakan017 = {
     dynasty = 2000003 #Candras
     religion = theravada
     culture = burmese
-    father = arakan016
+    assign_historic_father_as_other_mother = { daddy = arakan016 }
 
     948.1.1 = {
         birth = yes
@@ -799,7 +799,7 @@ arakan018 = {
     dynasty = 2000003 #Candras
     religion = theravada
     culture = burmese
-    father = arakan016
+    assign_historic_father_as_other_mother = { daddy = arakan016 }
 
     950.1.1 = {
         birth = yes
@@ -814,7 +814,7 @@ arakan019 = {
     dynasty = 2000003 #Candras
     religion = theravada
     culture = burmese
-    father = arakan018
+    assign_historic_father_as_other_mother = { daddy = arakan018 }
 
     966.1.1 = {
         birth = yes
@@ -829,7 +829,7 @@ arakan020 = {
     dynasty = 2000003 #Candras
     religion = theravada
     culture = burmese
-    father = arakan019
+    assign_historic_father_as_other_mother = { daddy = arakan019 }
 
     982.1.1 = {
         birth = yes
@@ -844,7 +844,7 @@ arakan021 = {
     dynasty = 2000003 #Candras
     religion = theravada
     culture = burmese
-    father = arakan020
+    assign_historic_father_as_other_mother = { daddy = arakan020 }
 
     998.1.1 = {
         birth = yes
@@ -859,7 +859,7 @@ arakan022 = {
     dynasty = 2000003 #Candras
     religion = theravada
     culture = burmese
-    father = arakan021
+    assign_historic_father_as_other_mother = { daddy = arakan021 }
 
     1014.1.1 = {
         birth = yes
@@ -874,7 +874,7 @@ arakan023 = {
     dynasty = 2000003 #Candras
     religion = theravada
     culture = burmese
-    father = arakan022
+    assign_historic_father_as_other_mother = { daddy = arakan022 }
 
     1030.1.1 = {
         birth = yes
@@ -903,7 +903,7 @@ arakan025 = {
     dynasty = 2000003 #Candras
     religion = theravada
     culture = burmese
-    father = arakan023
+    assign_historic_father_as_other_mother = { daddy = arakan023 }
 
     1046.1.1 = {
         birth = yes
@@ -918,7 +918,7 @@ arakan026 = {
     dynasty = 2000003 #Candras
     religion = theravada
     culture = burmese
-    father = arakan025
+    assign_historic_father_as_other_mother = { daddy = arakan025 }
 
     1062.1.1 = {
         birth = yes
@@ -949,7 +949,7 @@ manipur002 = {
     dynasty = 2000010 #Ningthouja
     religion = sedism
     culture = burmese
-    father = manipur001
+    assign_historic_father_as_other_mother = { daddy = manipur001 }
 
     153.1.1 = {
         birth = yes
@@ -964,7 +964,7 @@ manipur003 = {
     dynasty = 2000010 #Ningthouja
     religion = sedism
     culture = burmese
-    father = manipur002
+    assign_historic_father_as_other_mother = { daddy = manipur002 }
 
     263.1.1 = {
         birth = yes
@@ -979,7 +979,7 @@ manipur004 = {
     dynasty = 2000010 #Ningthouja
     religion = sedism
     culture = burmese
-    father = manipur003
+    assign_historic_father_as_other_mother = { daddy = manipur003 }
 
     320.1.1 = {
         birth = yes
@@ -994,7 +994,7 @@ manipur005 = {
     dynasty = 2000010 #Ningthouja
     religion = sedism
     culture = burmese
-    father = manipur004
+    assign_historic_father_as_other_mother = { daddy = manipur004 }
 
     345.1.1 = {
         birth = yes
@@ -1009,7 +1009,7 @@ manipur006 = {
     dynasty = 2000010 #Ningthouja
     religion = sedism
     culture = burmese
-    father = manipur005
+    assign_historic_father_as_other_mother = { daddy = manipur005 }
 
     370.1.1 = {
         birth = yes
@@ -1024,7 +1024,7 @@ manipur007 = {
     dynasty = 2000010 #Ningthouja
     religion = sedism
     culture = burmese
-    father = manipur006
+    assign_historic_father_as_other_mother = { daddy = manipur006 }
 
     385.1.1 = {
         birth = yes
@@ -1039,7 +1039,7 @@ manipur008 = {
     dynasty = 2000010 #Ningthouja
     religion = sedism
     culture = burmese
-    father = manipur007
+    assign_historic_father_as_other_mother = { daddy = manipur007 }
 
     426.1.1 = {
         birth = yes
@@ -1054,7 +1054,7 @@ manipur009 = {
     dynasty = 2000010 #Ningthouja
     religion = sedism
     culture = burmese
-    father = manipur008
+    assign_historic_father_as_other_mother = { daddy = manipur008 }
 
     488.1.1 = {
         birth = yes
@@ -1069,7 +1069,7 @@ manipur010 = {
     dynasty = 2000010 #Ningthouja
     religion = sedism
     culture = burmese
-    father = manipur009
+    assign_historic_father_as_other_mother = { daddy = manipur009 }
 
     560.1.1 = {
         birth = yes
@@ -1084,7 +1084,7 @@ manipur011 = {
     dynasty = 2000010 #Ningthouja
     religion = sedism
     culture = burmese
-    father = manipur010
+    assign_historic_father_as_other_mother = { daddy = manipur010 }
 
     657.1.1 = {
         birth = yes
@@ -1099,7 +1099,7 @@ manipur012 = {
     dynasty = 2000010 #Ningthouja
     religion = sedism
     culture = burmese
-    father = manipur011
+    assign_historic_father_as_other_mother = { daddy = manipur011 }
 
     710.1.1 = {
         birth = yes
@@ -1114,7 +1114,7 @@ manipur013 = {
     dynasty = 2000010 #Ningthouja
     religion = sedism
     culture = burmese
-    father = manipur012
+    assign_historic_father_as_other_mother = { daddy = manipur012 }
 
     740.1.1 = {
         birth = yes
@@ -1129,7 +1129,7 @@ manipur014 = {
     dynasty = 2000010 #Ningthouja
     religion = sedism
     culture = burmese
-    father = manipur013
+    assign_historic_father_as_other_mother = { daddy = manipur013 }
 
     765.1.1 = {
         birth = yes
@@ -1144,7 +1144,7 @@ manipur015 = {
     dynasty = 2000010 #Ningthouja
     religion = sedism
     culture = burmese
-    father = manipur014
+    assign_historic_father_as_other_mother = { daddy = manipur014 }
 
     820.1.1 = {
         birth = yes
@@ -1159,7 +1159,7 @@ manipur016 = {
     dynasty = 2000010 #Ningthouja
     religion = sedism
     culture = burmese
-    father = manipur015
+    assign_historic_father_as_other_mother = { daddy = manipur015 }
 
     860.1.1 = {
         birth = yes
@@ -1174,7 +1174,7 @@ manipur017 = {
     dynasty = 2000010 #Ningthouja
     religion = sedism
     culture = burmese
-    father = manipur016
+    assign_historic_father_as_other_mother = { daddy = manipur016 }
 
     900.1.1 = {
         birth = yes
@@ -1189,7 +1189,7 @@ manipur018 = {
     dynasty = 2000010 #Ningthouja
     religion = sedism
     culture = burmese
-    father = manipur017
+    assign_historic_father_as_other_mother = { daddy = manipur017 }
 
     920.1.1 = {
         birth = yes
@@ -1204,7 +1204,7 @@ manipur019 = {
     dynasty = 2000010 #Ningthouja
     religion = sedism
     culture = burmese
-    father = manipur018
+    assign_historic_father_as_other_mother = { daddy = manipur018 }
 
     982.1.1 = {
         birth = yes
@@ -1219,7 +1219,7 @@ manipur020 = {
     dynasty = 2000010 #Ningthouja
     religion = sedism
     culture = burmese
-    father = manipur019
+    assign_historic_father_as_other_mother = { daddy = manipur019 }
 
     1036.1.1 = {
         birth = yes
@@ -1234,7 +1234,7 @@ manipur021 = {
     dynasty = 2000010 #Ningthouja
     religion = sedism
     culture = burmese
-    father = manipur020
+    assign_historic_father_as_other_mother = { daddy = manipur020 }
 
     1065.1.1 = {
         birth = yes
@@ -1250,7 +1250,7 @@ pagan_1 = {
     dynasty = 2000000 #Pagan
     religion = theravada
     culture = burmese
-    father = pagan_2
+    assign_historic_father_as_other_mother = { daddy = pagan_2 }
     1150.10.8 = {
         birth = yes
     }
@@ -1265,7 +1265,7 @@ pagan_2 = {
     dynasty = 2000000 #Pagan
     religion = theravada
     culture = burmese
-    father = pagan_3
+    assign_historic_father_as_other_mother = { daddy = pagan_3 }
     1118.1.1 = {
         birth = yes
     }
@@ -1280,7 +1280,7 @@ pagan_3 = {
     dynasty = 2000000 #Pagan
     religion = theravada
     culture = burmese
-    father = pagan_4
+    assign_historic_father_as_other_mother = { daddy = pagan_4 }
     1093.1.1 = {
         birth = yes
     }
@@ -1295,7 +1295,7 @@ pagan_4 = {
     dynasty = 2000000 #Pagan
     religion = theravada
     culture = burmese
-    father = burman002
+    assign_historic_father_as_other_mother = { daddy = burman002 }
     1070.1.1 = {
         birth = yes
     }
@@ -1310,7 +1310,7 @@ pagan_5 = {
     dynasty = 2000000
     religion = theravada
     culture = burmese
-    father = pagan_1
+    assign_historic_father_as_other_mother = { daddy = pagan_1 }
     1166.1.1 = {
         birth = yes
     }
@@ -1325,7 +1325,7 @@ pagan_6 = {
     dynasty = 2000000
     religion = theravada
     culture = burmese
-    father = pagan_1
+    assign_historic_father_as_other_mother = { daddy = pagan_1 }
     1169.1.1 = {
         birth = yes
     }
@@ -1340,7 +1340,7 @@ pagan_7 = {
     dynasty = 2000000
     religion = theravada
     culture = burmese
-    father = pagan_1
+    assign_historic_father_as_other_mother = { daddy = pagan_1 }
     1172.1.1 = {
         birth = yes
     }
@@ -1355,7 +1355,7 @@ pagan_8 = {
     dynasty = 2000000
     religion = theravada
     culture = burmese
-    father = pagan_1
+    assign_historic_father_as_other_mother = { daddy = pagan_1 }
     1174.1.1 = {
         birth = yes
     }
@@ -1370,7 +1370,7 @@ pagan_9 = {
     dynasty = 2000000
     religion = theravada
     culture = burmese
-    father = pagan_1
+    assign_historic_father_as_other_mother = { daddy = pagan_1 }
     1175.2.4 = {
         birth = yes
     }
@@ -1385,7 +1385,7 @@ pagan_10 = {
     dynasty = 2000000 #Pagan
     religion = theravada
     culture = burmese
-    father = pagan_2
+    assign_historic_father_as_other_mother = { daddy = pagan_2 }
     1142.1.1 = {
         birth = yes
     }
@@ -1400,7 +1400,7 @@ pagan_11 = {
     dynasty = 2000000 #Pagan
     religion = theravada
     culture = burmese
-    father = pagan_3
+    assign_historic_father_as_other_mother = { daddy = pagan_3 }
     1120.1.1 = {
         birth = yes
     }
@@ -1415,7 +1415,7 @@ pagan_12 = {
     dynasty = 2000000 #Pagan
     religion = theravada
     culture = burmese
-    father = pagan_3
+    assign_historic_father_as_other_mother = { daddy = pagan_3 }
     1122.1.1 = {
         birth = yes
     }
@@ -1430,7 +1430,7 @@ pagan_13 = {
     dynasty = 2000000 #Pagan
     religion = theravada
     culture = burmese
-    father = pagan_3
+    assign_historic_father_as_other_mother = { daddy = pagan_3 }
     1124.1.1 = {
         birth = yes
     }
@@ -1445,7 +1445,7 @@ pagan_14 = {
     dynasty = 2000000 #Pagan
     religion = theravada
     culture = burmese
-    father = pagan_3
+    assign_historic_father_as_other_mother = { daddy = pagan_3 }
     1126.1.1 = {
         birth = yes
     }
@@ -1460,7 +1460,7 @@ pagan_15 = {
     dynasty = 2000000 #Pagan
     religion = theravada
     culture = burmese
-    father = pagan_3
+    assign_historic_father_as_other_mother = { daddy = pagan_3 }
     1128.1.1 = {
         birth = yes
     }
@@ -1475,7 +1475,7 @@ pagan_16 = {
     dynasty = 2000000 #Pagan
     religion = theravada
     culture = burmese
-    father = pagan_3
+    assign_historic_father_as_other_mother = { daddy = pagan_3 }
     1130.1.1 = {
         birth = yes
     }
@@ -1490,7 +1490,7 @@ thupyinnya_1 = {
     dynasty = 2000018 # Thupyinnya
     religion = ari
     culture = burmese
-    father = burman015
+    assign_historic_father_as_other_mother = { daddy = burman015 }
     1067.1.1 = {
         birth = yes
     }
@@ -1505,7 +1505,7 @@ thupyinnya_2 = {
     dynasty = 2000018 # Thupyinnya
     religion = ari
     culture = burmese
-    father = thupyinnya_1
+    assign_historic_father_as_other_mother = { daddy = thupyinnya_1 }
     1090.1.1 = {
         birth = yes
     }
@@ -1520,7 +1520,7 @@ thupyinnya_3 = {
     dynasty = 2000018 # Thupyinnya
     religion = ari
     culture = burmese
-    father = thupyinnya_2
+    assign_historic_father_as_other_mother = { daddy = thupyinnya_2 }
     1113.1.1 = {
         birth = yes
     }
@@ -1535,7 +1535,7 @@ thupyinnya_4 = {
     dynasty = 2000018 # Thupyinnya
     religion = ari
     culture = burmese
-    father = thupyinnya_3
+    assign_historic_father_as_other_mother = { daddy = thupyinnya_3 }
     1136.1.1 = {
         birth = yes
     }
@@ -1550,7 +1550,7 @@ thupyinnya_5 = {
     dynasty = 2000018 # Thupyinnya
     religion = ari
     culture = burmese
-    father = thupyinnya_4
+    assign_historic_father_as_other_mother = { daddy = thupyinnya_4 }
     1159.1.1 = {
         birth = yes
     }
@@ -1565,7 +1565,7 @@ kaleinga_1 = {
     dynasty = 2000014 # Kaleinga
     religion = ari
     culture = burmese
-    father = burman011
+    assign_historic_father_as_other_mother = { daddy = burman011 }
     1067.1.1 = {
         birth = yes
     }
@@ -1580,7 +1580,7 @@ kaleinga_2 = {
     dynasty = 2000014 # Kaleinga
     religion = ari
     culture = burmese
-    father = kaleinga_1
+    assign_historic_father_as_other_mother = { daddy = kaleinga_1 }
     1090.1.1 = {
         birth = yes
     }
@@ -1595,7 +1595,7 @@ kaleinga_3 = {
     dynasty = 2000014 # Kaleinga
     religion = ari
     culture = burmese
-    father = kaleinga_2
+    assign_historic_father_as_other_mother = { daddy = kaleinga_2 }
     1113.1.1 = {
         birth = yes
     }
@@ -1610,7 +1610,7 @@ kaleinga_4 = {
     dynasty = 2000014 # Kaleinga
     religion = ari
     culture = burmese
-    father = kaleinga_3
+    assign_historic_father_as_other_mother = { daddy = kaleinga_3 }
     1136.1.1 = {
         birth = yes
     }
@@ -1625,7 +1625,7 @@ kaleinga_5 = {
     dynasty = 2000014 # Kaleinga
     religion = ari
     culture = burmese
-    father = kaleinga_4
+    assign_historic_father_as_other_mother = { daddy = kaleinga_4 }
     1159.1.1 = {
         birth = yes
     }
@@ -1640,7 +1640,7 @@ kaleinga_6 = {
     dynasty = 2000016 # Kaleinga
     religion = ari
     culture = burmese
-    father = burman013
+    assign_historic_father_as_other_mother = { daddy = burman013 }
     1067.1.1 = {
         birth = yes
     }
@@ -1655,7 +1655,7 @@ kaleinga_7 = {
     dynasty = 2000016 # Kaleinga
     religion = ari
     culture = burmese
-    father = kaleinga_6
+    assign_historic_father_as_other_mother = { daddy = kaleinga_6 }
     1090.1.1 = {
         birth = yes
     }
@@ -1670,7 +1670,7 @@ kaleinga_8 = {
     dynasty = 2000016 # Kaleinga
     religion = ari
     culture = burmese
-    father = kaleinga_7
+    assign_historic_father_as_other_mother = { daddy = kaleinga_7 }
     1113.1.1 = {
         birth = yes
     }
@@ -1685,7 +1685,7 @@ kaleinga_9 = {
     dynasty = 2000016 # Kaleinga
     religion = ari
     culture = burmese
-    father = kaleinga_8
+    assign_historic_father_as_other_mother = { daddy = kaleinga_8 }
     1135.1.1 = {
         birth = yes
     }
@@ -1700,7 +1700,7 @@ kaleinga_10 = {
     dynasty = 2000016 # Kaleinga
     religion = ari
     culture = burmese
-    father = kaleinga_9
+    assign_historic_father_as_other_mother = { daddy = kaleinga_9 }
     1158.1.1 = {
         birth = yes
     }

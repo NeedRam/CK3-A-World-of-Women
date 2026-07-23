@@ -22,7 +22,7 @@ malay_oldsrivijaya_02 = {
     dynasty = malay_srivijaya	#fictional name
     religion = mahayana
     culture = malay
-    father = malay_oldsrivijaya_01	#unsure
+    assign_historic_father_as_other_mother = { daddy = malay_oldsrivijaya_01 }#unsure
     671.1.1 = {	#unknown
         birth = yes
     }
@@ -37,7 +37,7 @@ malay_oldsrivijaya_03 = {
     dynasty = malay_srivijaya	#fictional name
     religion = mahayana
     culture = malay
-    father = malay_oldsrivijaya_02	#unsure
+    assign_historic_father_as_other_mother = { daddy = malay_oldsrivijaya_02 }#unsure
     697.1.1 = {	#unknown
         birth = yes
     }
@@ -75,7 +75,7 @@ malay_padmavamsa_02 = {
     dynasty = malay_padmavamsa
     culture = malay
     religion = theravada
-    father = malay_padmavamsa_01	#very unsure
+    assign_historic_father_as_other_mother = { daddy = malay_padmavamsa_01 }#very unsure
     1173.1.1 = {	#ficitonal
         birth = yes
     }
@@ -90,7 +90,7 @@ malay_padmavamsa_03 = {
     dynasty = malay_padmavamsa
     culture = malay
     religion = theravada
-    father = malay_padmavamsa_02	#unsure
+    assign_historic_father_as_other_mother = { daddy = malay_padmavamsa_02 }#unsure
     1199.1.1 = {	#ficitonal
         birth = yes
     }
@@ -159,7 +159,7 @@ malay_kedah_04 = {	#possibly real, data uncertain, Kedah 867
     dynasty = malay_mahawangsa
     religion = shaivism
     culture = malay
-    father = malay_kedah_03
+    assign_historic_father_as_other_mother = { daddy = malay_kedah_03 }
     849.2.6 = {	#unknown
         birth = yes
     }
@@ -267,7 +267,7 @@ malay_soma_02 = {
     dynasty = malay_soma
     religion = mahayana
     culture = malay
-    father = malay_soma_01
+    assign_historic_father_as_other_mother = { daddy = malay_soma_01 }
     780.1.1 = {	#unknown
         birth = yes
     }
@@ -617,7 +617,7 @@ malay_melayu_21 = {	#ruler of Melayu kingdom in 1183
     dynasty = malay_mauli
     religion = mahayana	#possibly vajrayana
     culture = malay
-    father = malay_melayu_20_fic
+    assign_historic_father_as_other_mother = { daddy = malay_melayu_20_fic }
     1152.1.1 = {
         birth = yes
     }
@@ -1339,7 +1339,7 @@ malay_tanjungpura_02_fic = {
     dynasty = dayak_bakula
     religion = shaivism
     culture = malay
-    father = malay_tanjungpura_01_fic
+    assign_historic_father_as_other_mother = { daddy = malay_tanjungpura_01_fic }
     873.12.18 = {
         birth = yes
     }
@@ -1354,7 +1354,7 @@ malay_tanjungpura_03_fic = {
     dynasty = dayak_bakula
     religion = shaivism
     culture = malay
-    father = malay_tanjungpura_02_fic
+    assign_historic_father_as_other_mother = { daddy = malay_tanjungpura_02_fic }
     903.8.12 = {
         birth = yes
     }
@@ -1369,7 +1369,7 @@ malay_tanjungpura_04_fic = {
     dynasty = dayak_bakula
     religion = shaivism
     culture = malay
-    father = malay_tanjungpura_03_fic
+    assign_historic_father_as_other_mother = { daddy = malay_tanjungpura_03_fic }
     935.2.11 = {
         birth = yes
     }
@@ -1384,7 +1384,7 @@ malay_tanjungpura_05_fic = {
     dynasty = dayak_bakula
     religion = shaivism
     culture = malay
-    father = malay_tanjungpura_04_fic
+    assign_historic_father_as_other_mother = { daddy = malay_tanjungpura_04_fic }
     964.4.20 = {
         birth = yes
     }
@@ -1399,7 +1399,7 @@ malay_tanjungpura_06_fic = {
     dynasty = dayak_bakula
     religion = shaivism
     culture = malay
-    father = malay_tanjungpura_05_fic
+    assign_historic_father_as_other_mother = { daddy = malay_tanjungpura_05_fic }
     995.9.26 = {
         birth = yes
     }
@@ -1414,7 +1414,7 @@ malay_tanjungpura_07_fic = {
     dynasty = dayak_bakula
     religion = shaivism
     culture = malay
-    father = malay_tanjungpura_06_fic
+    assign_historic_father_as_other_mother = { daddy = malay_tanjungpura_06_fic }
     1034.5.3 = {
         birth = yes
     }
@@ -1429,7 +1429,7 @@ malay_tanjungpura_08_fic = {
     dynasty = dayak_bakula
     religion = shaivism
     culture = malay
-    father = malay_tanjungpura_07_fic
+    assign_historic_father_as_other_mother = { daddy = malay_tanjungpura_07_fic }
     1063.5.27 = {
         birth = yes
     }
@@ -1459,7 +1459,7 @@ malay_tanjungpura_10_fic = {
     dynasty = dayak_bakula
     religion = shaivism
     culture = malay
-    father = malay_tanjungpura_09_fic
+    assign_historic_father_as_other_mother = { daddy = malay_tanjungpura_09_fic }
     1139.11.27 = {
         birth = yes
     }
@@ -1489,7 +1489,7 @@ malay_tanjungpura_12_fic = {
     dynasty = dayak_bakula
     religion = shaivism
     culture = malay
-    father = malay_tanjungpura_11_fic
+    assign_historic_father_as_other_mother = { daddy = malay_tanjungpura_11_fic }
     1197.11.14 = {
         birth = yes
     }
@@ -1504,7 +1504,7 @@ malay_tanjungpura_13_fic = {
     dynasty = dayak_bakula
     religion = shaivism
     culture = malay
-    father = malay_tanjungpura_12_fic
+    assign_historic_father_as_other_mother = { daddy = malay_tanjungpura_12_fic }
     1222.10.5 = {
         birth = yes
     }
@@ -1549,7 +1549,7 @@ malays_sambas_03_fic = {
     dynasty = dayak_wijaya
     religion = mahayana
     culture = malay
-    father = malays_sambas_02_fic
+    assign_historic_father_as_other_mother = { daddy = malays_sambas_02_fic }
     890.7.13 = {
         birth = yes
     }
@@ -1564,7 +1564,7 @@ malays_sambas_04_fic = {
     dynasty = dayak_wijaya
     religion = mahayana
     culture = malay
-    father = malays_sambas_03_fic
+    assign_historic_father_as_other_mother = { daddy = malays_sambas_03_fic }
     925.1.11 = {
         birth = yes
     }
@@ -1579,7 +1579,7 @@ malays_sambas_05_fic = {
     dynasty = dayak_wijaya
     religion = mahayana
     culture = malay
-    father = malays_sambas_04_fic
+    assign_historic_father_as_other_mother = { daddy = malays_sambas_04_fic }
     963.5.6 = {
         birth = yes
     }
@@ -1594,7 +1594,7 @@ malays_sambas_06_fic = {
     dynasty = dayak_wijaya
     religion = mahayana
     culture = malay
-    father = malays_sambas_05_fic
+    assign_historic_father_as_other_mother = { daddy = malays_sambas_05_fic }
     991.4.25 = {
         birth = yes
     }
@@ -1609,7 +1609,7 @@ malays_sambas_07_fic = {
     dynasty = dayak_wijaya
     religion = mahayana
     culture = malay
-    father = malays_sambas_06_fic
+    assign_historic_father_as_other_mother = { daddy = malays_sambas_06_fic }
     1021.6.9 = {
         birth = yes
     }
@@ -1624,7 +1624,7 @@ malays_sambas_08_fic = {
     dynasty = dayak_wijaya
     religion = mahayana
     culture = malay
-    father = malays_sambas_07_fic
+    assign_historic_father_as_other_mother = { daddy = malays_sambas_07_fic }
     1056.6.30 = {
         birth = yes
     }
@@ -1639,7 +1639,7 @@ malays_sambas_09_fic = {
     dynasty = dayak_wijaya
     religion = mahayana
     culture = malay
-    father = malays_sambas_08_fic
+    assign_historic_father_as_other_mother = { daddy = malays_sambas_08_fic }
     1085.9.2 = {
         birth = yes
     }
@@ -1654,7 +1654,7 @@ malays_sambas_10_fic = {
     dynasty = dayak_wijaya
     religion = mahayana
     culture = malay
-    father = malays_sambas_09_fic
+    assign_historic_father_as_other_mother = { daddy = malays_sambas_09_fic }
     1113.1.1 = {
         birth = yes
     }
@@ -1669,7 +1669,7 @@ malays_sambas_11_fic = {
     dynasty = dayak_wijaya
     religion = mahayana
     culture = malay
-    father = malays_sambas_10_fic
+    assign_historic_father_as_other_mother = { daddy = malays_sambas_10_fic }
     1151.4.7 = {
         birth = yes
     }
@@ -1684,7 +1684,7 @@ malays_sambas_12_fic = {
     dynasty = dayak_wijaya
     religion = mahayana
     culture = malay
-    father = malays_sambas_11_fic
+    assign_historic_father_as_other_mother = { daddy = malays_sambas_11_fic }
     1189.2.15 = {
         birth = yes
     }
@@ -1699,7 +1699,7 @@ malays_sambas_13_fic = {
     dynasty = dayak_wijaya
     religion = mahayana
     culture = malay
-    father = malays_sambas_12_fic
+    assign_historic_father_as_other_mother = { daddy = malays_sambas_12_fic }
     1216.6.26 = {
         birth = yes
     }

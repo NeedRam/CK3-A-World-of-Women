@@ -1722,7 +1722,7 @@ fictional_sakas_8 = {
     dynasty= saka_pamirid
     religion="maturidi"
     culture="saka"
-    father = fictional_sakas_5
+    assign_historic_father_as_other_mother = { daddy = fictional_sakas_5 }
     888.1.1={
         birth=yes
     }
@@ -1740,7 +1740,7 @@ fictional_sakas_9 = {
     dynasty= saka_pamirid
     religion="maturidi"
     culture="tajik"
-    father = fictional_sakas_8
+    assign_historic_father_as_other_mother = { daddy = fictional_sakas_8 }
     913.1.1={
         birth=yes
     }
@@ -1755,7 +1755,7 @@ fictional_sakas_10 = {
     dynasty= saka_pamirid
     religion="maturidi"
     culture="tajik"
-    father = fictional_sakas_9
+    assign_historic_father_as_other_mother = { daddy = fictional_sakas_9 }
     945.1.1={
         birth=yes
     }
@@ -1770,7 +1770,7 @@ fictional_sakas_11 = {
     dynasty= saka_pamirid
     religion="maturidi"
     culture="tajik"
-    father = fictional_sakas_10
+    assign_historic_father_as_other_mother = { daddy = fictional_sakas_10 }
     980.1.1={
         birth=yes
     }
@@ -1785,7 +1785,7 @@ fictional_sakas_12 = {
     dynasty= saka_pamirid
     religion="maturidi"
     culture="tajik"
-    father = fictional_sakas_11
+    assign_historic_father_as_other_mother = { daddy = fictional_sakas_11 }
     1010.1.1={
         birth=yes
     }
@@ -1803,7 +1803,7 @@ fictional_sakas_13 = {
     dynasty= saka_pamirid
     religion="ismaili"
     culture="tajik"
-    father = fictional_sakas_12
+    assign_historic_father_as_other_mother = { daddy = fictional_sakas_12 }
     trait = spindly
     1039.1.1={
         birth=yes

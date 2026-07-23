@@ -16,7 +16,7 @@ awow_game_start_setup = {
         awow_monthly_pregnancy_tick_effect = yes
         debug_log = "AWOW SS-PREG: Prep DONE"
         debug_log = "AWOW Backfill: START"
-        awow_backfill_relations_effect = yes
+        awow_mass_vanilla_relations_to_scripted_relations_conversion_effect = yes
         debug_log = "AWOW Backfill DONE"
     }
 }

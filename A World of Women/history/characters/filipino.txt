@@ -876,7 +876,7 @@ bisayan_zamboanga_11_fic = {	#fictional ruler Zamboanga 1066
     dynasty = bisayan_sanmalan
     religion = shaivism
     culture = bisayan
-    father = bisayan_zamboanga_10
+    assign_historic_father_as_other_mother = { daddy = bisayan_zamboanga_10 }
     1022.11.8 = {
         birth = yes
     }
@@ -1021,7 +1021,7 @@ bisayan_butuan_11 = {
     dynasty = bisayan_bantuan
     religion = shaivism
     culture = bisayan
-    father = bisayan_butuan_10	#maybe
+    assign_historic_father_as_other_mother = { daddy = bisayan_butuan_10 }#maybe
     967.1.1 = {	#unknown
         birth = yes
     }
@@ -1036,7 +1036,7 @@ bisayan_butuan_12 = {
     dynasty = bisayan_bantuan
     religion = shaivism
     culture = bisayan
-    father = bisayan_butuan_11	#maybe
+    assign_historic_father_as_other_mother = { daddy = bisayan_butuan_11 }#maybe
     990.1.1 = {
         birth = yes
     }
@@ -1051,7 +1051,7 @@ bisayan_butuan_13_fic = {	#fic ruler of Butuan 1066
     dynasty = bisayan_bantuan
     religion = shaivism
     culture = bisayan
-    father = bisayan_butuan_12	#maybe
+    assign_historic_father_as_other_mother = { daddy = bisayan_butuan_12 }#maybe
     1022.3.18 = {
         birth = yes
     }
@@ -1211,7 +1211,7 @@ bisayan_panay_11 = {
     dynasty = bisayan_madyaas
     religion = dayawism
     culture = bisayan
-    father = bisayan_panay_10
+    assign_historic_father_as_other_mother = { daddy = bisayan_panay_10 }
     1044.1.1 = {	#unknown
         birth = yes
     }

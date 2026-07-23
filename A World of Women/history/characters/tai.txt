@@ -83,7 +83,7 @@ ngoenyang_2 = {
     dynasty = Lao
     culture = "tai"
     religion = "theravada"
-    father = ngoenyang_1
+    assign_historic_father_as_other_mother = { daddy = ngoenyang_1 }
     640.1.1 = {
         birth = yes
     }
@@ -98,7 +98,7 @@ ngoenyang_3 = {
     dynasty = Lao
     culture = "tai"
     religion = "theravada"
-    father = ngoenyang_2
+    assign_historic_father_as_other_mother = { daddy = ngoenyang_2 }
     660.1.1 = {
         birth = yes
     }
@@ -113,7 +113,7 @@ ngoenyang_4 = {
     dynasty = Lao
     culture = "tai"
     religion = "theravada"
-    father = ngoenyang_3
+    assign_historic_father_as_other_mother = { daddy = ngoenyang_3 }
     680.1.1 = {
         birth = yes
     }
@@ -128,7 +128,7 @@ ngoenyang_5 = {
     dynasty = Lao
     culture = "tai"
     religion = "theravada"
-    father = ngoenyang_4
+    assign_historic_father_as_other_mother = { daddy = ngoenyang_4 }
     710.1.1 = {
         birth = yes
     }
@@ -143,7 +143,7 @@ ngoenyang_6 = {
     dynasty = Lao
     culture = "tai"
     religion = "theravada"
-    father = ngoenyang_5
+    assign_historic_father_as_other_mother = { daddy = ngoenyang_5 }
     750.1.1 = {
         birth = yes
     }
@@ -158,7 +158,7 @@ ngoenyang_7 = {
     dynasty = Lao
     culture = "tai"
     religion = "theravada"
-    father = ngoenyang_6
+    assign_historic_father_as_other_mother = { daddy = ngoenyang_6 }
     770.1.1 = {
         birth = yes
     }
@@ -173,7 +173,7 @@ ngoenyang_8 = {
     dynasty = Lao
     culture = "tai"
     religion = "theravada"
-    father = ngoenyang_7
+    assign_historic_father_as_other_mother = { daddy = ngoenyang_7 }
     800.1.1 = {
         birth = yes
     }
@@ -188,7 +188,7 @@ ngoenyang_9 = {
     dynasty = Lao
     culture = "tai"
     religion = "theravada"
-    father = ngoenyang_8
+    assign_historic_father_as_other_mother = { daddy = ngoenyang_8 }
     820.1.1 = {
         birth = yes
     }
@@ -203,7 +203,7 @@ ngoenyang_10 = {
     dynasty = Lao
     culture = "tai"
     religion = "theravada"
-    father = ngoenyang_9
+    assign_historic_father_as_other_mother = { daddy = ngoenyang_9 }
     850.1.1 = {
         birth = yes
     }
@@ -218,7 +218,7 @@ ngoenyang_11 = {
     dynasty = Lao
     culture = "tai"
     religion = "theravada"
-    father = ngoenyang_10
+    assign_historic_father_as_other_mother = { daddy = ngoenyang_10 }
     862.1.1 = {
         birth = yes
     }
@@ -233,7 +233,7 @@ ngoenyang_12 = {
     dynasty = Lao
     culture = "tai"
     religion = "theravada"
-    father = ngoenyang_11
+    assign_historic_father_as_other_mother = { daddy = ngoenyang_11 }
     880.1.1 = {
         birth = yes
     }
@@ -248,7 +248,7 @@ ngoenyang_13 = {
     dynasty = Lao
     culture = "tai"
     religion = "theravada"
-    father = ngoenyang_12
+    assign_historic_father_as_other_mother = { daddy = ngoenyang_12 }
     902.1.1 = {
         birth = yes
     }
@@ -263,7 +263,7 @@ ngoenyang_14 = {
     dynasty = Lao
     culture = "tai"
     religion = "theravada"
-    father = ngoenyang_13
+    assign_historic_father_as_other_mother = { daddy = ngoenyang_13 }
     930.1.1 = {
         birth = yes
     }
@@ -278,7 +278,7 @@ ngoenyang_15 = {
     dynasty = Lao
     culture = "tai"
     religion = "theravada"
-    father = ngoenyang_14
+    assign_historic_father_as_other_mother = { daddy = ngoenyang_14 }
     946.1.1 = {
         birth = yes
     }
@@ -293,7 +293,7 @@ ngoenyang_16 = {
     dynasty = Lao
     culture = "tai"
     religion = "theravada"
-    father = ngoenyang_15
+    assign_historic_father_as_other_mother = { daddy = ngoenyang_15 }
     962.1.1 = {
         birth = yes
     }
@@ -308,7 +308,7 @@ ngoenyang_17 = {
     dynasty = Lao
     culture = "tai"
     religion = "theravada"
-    father = ngoenyang_16
+    assign_historic_father_as_other_mother = { daddy = ngoenyang_16 }
     980.1.1 = {
         birth = yes
     }
@@ -323,7 +323,7 @@ ngoenyang_18 = {
     dynasty = Lao
     culture = "tai"
     religion = "theravada"
-    father = ngoenyang_17
+    assign_historic_father_as_other_mother = { daddy = ngoenyang_17 }
     1000.1.1 = {
         birth = yes
     }
@@ -338,7 +338,7 @@ ngoenyang_19 = {
     dynasty = Lao
     culture = "tai"
     religion = "theravada"
-    father = ngoenyang_18
+    assign_historic_father_as_other_mother = { daddy = ngoenyang_18 }
     1043.1.1 = {
         birth = yes
     }
@@ -353,7 +353,7 @@ chomtham = {
     religion = "theravada"
     culture = "tai"
     dynasty = Lao
-    father = ngoenyang_18
+    assign_historic_father_as_other_mother = { daddy = ngoenyang_18 }
     1030.1.1 = {
         birth = yes
     }
@@ -369,7 +369,7 @@ chomtham_successor_1 = {
     religion = "theravada"
     culture = "tai"
     dynasty = Lao
-    father = chomtham
+    assign_historic_father_as_other_mother = { daddy = chomtham }
     1065.1.1 = {
         birth = yes
     }
@@ -384,7 +384,7 @@ chomtham_successor_2 = {
     religion = "theravada"
     culture = "tai"
     dynasty = Lao
-    father = chomtham
+    assign_historic_father_as_other_mother = { daddy = chomtham }
     1069.1.1 = {
         birth = yes
     }
@@ -399,7 +399,7 @@ ngoenyang_20 = {
     dynasty = Lao
     culture = "tai"
     religion = "theravada"
-    father = ngoenyang_19
+    assign_historic_father_as_other_mother = { daddy = ngoenyang_19 }
     1065.1.1 = {
         birth = yes
     }
@@ -414,7 +414,7 @@ chomtham_successor_3 = {
     religion = "theravada"
     culture = "tai"
     dynasty = Lao
-    father = ngoenyang_20
+    assign_historic_father_as_other_mother = { daddy = ngoenyang_20 }
     1100.1.1 = {
         birth = yes
     }
@@ -429,7 +429,7 @@ ngoenyang_21 = {
     dynasty = Lao
     culture = "tai"
     religion = "theravada"
-    father = ngoenyang_20
+    assign_historic_father_as_other_mother = { daddy = ngoenyang_20 }
     1090.1.1 = {
         birth = yes
     }
@@ -444,7 +444,7 @@ ngoenyang_22 = {
     dynasty = Lao
     culture = "tai"
     religion = "theravada"
-    father = ngoenyang_21
+    assign_historic_father_as_other_mother = { daddy = ngoenyang_21 }
     1150.1.1 = {
         birth = yes
     }
@@ -459,7 +459,7 @@ ngoenyang_23 = {
     dynasty = Lao
     culture = "tai"
     religion = "theravada"
-    father = ngoenyang_22
+    assign_historic_father_as_other_mother = { daddy = ngoenyang_22 }
     1180.1.1 = {
         birth = yes
     }
@@ -474,7 +474,7 @@ ngoenyang_24 = {
     dynasty = Lao
     culture = "tai"
     religion = "theravada"
-    father = ngoenyang_23
+    assign_historic_father_as_other_mother = { daddy = ngoenyang_23 }
     1210.1.1 = {
         birth = yes
     }
@@ -489,7 +489,7 @@ ngoenyang_25 = {
     dynasty = Lao
     culture = "tai"
     religion = "theravada"
-    father = ngoenyang_24
+    assign_historic_father_as_other_mother = { daddy = ngoenyang_24 }
     1238.1.1 = {
         birth = yes
     }
@@ -572,7 +572,7 @@ tai_hsenwi_02 = {	#Possible ruler of Hsenwi
     dynasty = tai_theinni
     religion = "satsana_phi"
     culture = "tai"
-    father = tai_hsenwi_01
+    assign_historic_father_as_other_mother = { daddy = tai_hsenwi_01 }
     840.1.1 = {
         birth = yes
     }
@@ -601,7 +601,7 @@ tai_hsenwi_04 = {	#Possible ruler of Hsenwi
     dynasty = tai_theinni
     religion = "satsana_phi"
     culture = "tai"
-    father = tai_hsenwi_03
+    assign_historic_father_as_other_mother = { daddy = tai_hsenwi_03 }
     927.1.1 = {
         birth = yes
     }
@@ -616,7 +616,7 @@ tai_hsenwi_05 = {	#Possible ruler of Hsenwi
     dynasty = tai_theinni
     religion = "satsana_phi"
     culture = "tai"
-    father = tai_hsenwi_04
+    assign_historic_father_as_other_mother = { daddy = tai_hsenwi_04 }
     951.1.1 = {
         birth = yes
     }
@@ -645,7 +645,7 @@ tai_hsenwi_07 = {	#Possible ruler of Hsenwi
     dynasty = tai_theinni
     religion = "satsana_phi"
     culture = "tai"
-    father = tai_hsenwi_06
+    assign_historic_father_as_other_mother = { daddy = tai_hsenwi_06 }
     1015.1.1 = {
         birth = yes
     }
@@ -660,7 +660,7 @@ tai_hsenwi_08 = {	#Possible ruler of Hsenwi
     dynasty = tai_theinni
     religion = "satsana_phi"
     culture = "tai"
-    father = tai_hsenwi_07
+    assign_historic_father_as_other_mother = { daddy = tai_hsenwi_07 }
     1033.1.1 = {
         birth = yes
     }
@@ -689,7 +689,7 @@ tai_hsenwi_10 = {	#Possible ruler of Hsenwi
     dynasty = tai_theinni
     religion = "satsana_phi"
     culture = "tai"
-    father = tai_hsenwi_09
+    assign_historic_father_as_other_mother = { daddy = tai_hsenwi_09 }
     1098.1.1 = {
         birth = yes
     }

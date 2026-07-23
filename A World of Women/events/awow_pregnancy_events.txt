@@ -24,10 +24,14 @@ awow_pregnancy.0001 = {
             dynasty = inherit
             location = root.location
             mother = root
-            gender_female_chance = var:awow_baby_female_chance_effect
+            gender_female_chance = var:awow_baby_female_chance
             save_scope_as = child
         }
-        scope:child = { awow_assign_scripted_birth_relations_effect = yes }
+
+        scope:child = {
+            awow_assign_scripted_parent_relations_effect = yes
+        }
+
         create_character_memory = {
             type = child_born
             participants = {
@@ -45,10 +49,14 @@ awow_pregnancy.0001 = {
                 dynasty = inherit
                 location = root.location
                 mother = root
-                gender_female_chance = var:awow_baby_female_chance_effect
+                gender_female_chance = var:awow_baby_female_chance
                 save_scope_as = child_2
             }
-            scope:child_2 = { awow_assign_scripted_birth_relations_effect = yes }
+
+            scope:child_2 = {
+                awow_assign_scripted_parent_relations_effect = yes
+            }
+
             create_character_memory = {
                 type = child_born
                 participants = {
@@ -67,10 +75,14 @@ awow_pregnancy.0001 = {
                 dynasty = inherit
                 location = root.location
                 mother = root
-                gender_female_chance = var:awow_baby_female_chance_effect
+                gender_female_chance = var:awow_baby_female_chance
                 save_scope_as = child_3
             }
-            scope:child_3 = { awow_assign_scripted_birth_relations_effect = yes }
+
+            scope:child_3 = {
+                awow_assign_scripted_parent_relations_effect = yes
+            }
+
             create_character_memory = {
                 type = child_born
                 participants = {
@@ -86,6 +98,8 @@ awow_pregnancy.0001 = {
         remove_character_flag = awow_pregnancy_will_be_triplets_flag
         carn_end_custom_pregnancy_effect = yes
 
+
+        ######### REDO EVENT POPUPS #########
         if = {
             limit = { is_ai = no }
             scope:child = {
@@ -175,6 +189,6 @@ awow_pregnancy.1000 = {
     }
 
     immediate = {
-        awow_assign_scripted_birth_relations_effect = yes
+        awow_convert_vanilla_relations_to_scripted_effect = yes
     }
 }

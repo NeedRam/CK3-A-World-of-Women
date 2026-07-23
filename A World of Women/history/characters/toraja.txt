@@ -38,7 +38,7 @@ toraja_banawa_11_fic = {
     dynasty = toraja_kaili
     religion = kaharingan
     culture = toraja
-    father = toraja_banawa_10_fic
+    assign_historic_father_as_other_mother = { daddy = toraja_banawa_10_fic }
     1052.1.1 = {
         birth = yes
     }
@@ -82,7 +82,7 @@ toraja_wenang_02_fic = {
     dynasty = toraja_bowontehu
     religion = kaharingan
     culture = toraja
-    father = toraja_wenang_01_fic
+    assign_historic_father_as_other_mother = { daddy = toraja_wenang_01_fic }
     867.1.1 = {
         birth = yes
     }
@@ -240,7 +240,7 @@ toraja_tamboeko_02_fic = {
     dynasty = bugis_medaka
     religion = aluk
     culture = toraja
-    father = toraja_tamboeko_01_fic
+    assign_historic_father_as_other_mother = { daddy = toraja_tamboeko_01_fic }
     863.1.1 = {
         birth = yes
     }

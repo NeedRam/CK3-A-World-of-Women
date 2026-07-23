@@ -24,7 +24,7 @@ khmer_kaundinya_2 = {
     dynasty = khmer_kaundinya
     religion = "shaivism"
     culture = "khmer"
-    father = khmer_kaundinya_1
+    assign_historic_father_as_other_mother = { daddy = khmer_kaundinya_1 }
     trait = beauty_good_2
     trait = brave
     trait = generous
@@ -42,7 +42,7 @@ khmer_kaundinya_3 = {
     dynasty = khmer_kaundinya
     religion = "shaivism"
     culture = "khmer"
-    father = khmer_kaundinya_1
+    assign_historic_father_as_other_mother = { daddy = khmer_kaundinya_1 }
     trait = education_stewardship_2
     trait = content
     trait = zealous
@@ -63,7 +63,7 @@ khmer_kaundinya_4 = {
     dynasty = khmer_kaundinya
     religion = "vaishnavism"
     culture = "khmer"
-    father = khmer_kaundinya_3
+    assign_historic_father_as_other_mother = { daddy = khmer_kaundinya_3 }
     1080.1.1 = {
         birth = yes
     }
@@ -81,7 +81,7 @@ khmer_kaundinya_5 = {
     dynasty = khmer_kaundinya
     religion = "vaishnavism"
     culture = "khmer"
-    father = khmer_kaundinya_2
+    assign_historic_father_as_other_mother = { daddy = khmer_kaundinya_2 }
     1053.1.1 = {
         birth = yes
     }
@@ -116,7 +116,7 @@ khmer_mahidharapura_7 = {
     dynasty = khmer_mahidharapura
     religion = "vaishnavism"
     culture = "khmer"
-    father = khmer_mahidharapura_6
+    assign_historic_father_as_other_mother = { daddy = khmer_mahidharapura_6 }
     1054.1.1 = {
         birth = yes
     }
@@ -131,7 +131,7 @@ khmer_mahidharapura_8 = {
     dynasty = khmer_mahidharapura
     religion = "shaivism"
     culture = "khmer"
-    father = khmer_mahidharapura_13
+    assign_historic_father_as_other_mother = { daddy = khmer_mahidharapura_13 }
     mother = khmer_none_3 #Rajapatindralakshmi
     1090.1.1 = {
         birth = yes
@@ -150,7 +150,7 @@ khmer_mahidharapura_9 = {
     dynasty = khmer_mahidharapura
     religion = "vaishnavism"
     culture = "khmer"
-    father = khmer_mahidharapura_6
+    assign_historic_father_as_other_mother = { daddy = khmer_mahidharapura_6 }
     1041.1.1 = {
         birth = yes
     }
@@ -165,7 +165,7 @@ khmer_mahidharapura_10 = {
     dynasty = khmer_mahidharapura
     religion = "shaivism"
     culture = "khmer"
-    father = khmer_mahidharapura_6
+    assign_historic_father_as_other_mother = { daddy = khmer_mahidharapura_6 }
     mother = khmer_none_1 #Hiranyalakshmi
     1052.1.1 = {
         birth = yes
@@ -184,7 +184,7 @@ khmer_mahidharapura_11 = {
     dynasty = khmer_mahidharapura
     religion = "vaishnavism"
     culture = "khmer"
-    father = khmer_mahidharapura_9
+    assign_historic_father_as_other_mother = { daddy = khmer_mahidharapura_9 }
     1066.1.1 = {
         birth = yes
     }
@@ -202,7 +202,7 @@ khmer_mahidharapura_12 = {
     dynasty = khmer_mahidharapura
     religion = "vaishnavism"
     culture = "khmer"
-    father = khmer_mahidharapura_7
+    assign_historic_father_as_other_mother = { daddy = khmer_mahidharapura_7 }
     1070.1.1 = {
         birth = yes
     }
@@ -220,7 +220,7 @@ khmer_mahidharapura_13 = {
     dynasty = khmer_mahidharapura
     religion = "shaivism"
     culture = "khmer"
-    father = khmer_mahidharapura_6
+    assign_historic_father_as_other_mother = { daddy = khmer_mahidharapura_6 }
     mother = khmer_none_1 #Hiranyalakshmi
     1053.1.1 = {
         birth = yes
@@ -239,7 +239,7 @@ khmer_mahidharapura_14 = {
     dynasty = khmer_mahidharapura
     religion = "vaishnavism"
     culture = "khmer"
-    father = khmer_mahidharapura_7
+    assign_historic_father_as_other_mother = { daddy = khmer_mahidharapura_7 }
     1066.1.1 = {
         birth = yes
     }
@@ -257,7 +257,7 @@ khmer_mahidharapura_15 = {
     dynasty = khmer_mahidharapura
     religion = "vaishnavism"	#possibly  Vishnuite
     culture = "khmer"
-    father = khmer_mahidharapura_11
+    assign_historic_father_as_other_mother = { daddy = khmer_mahidharapura_11 }
     mother = khmer_mahidharapura_14
     1094.1.1 = {
         birth = yes
@@ -273,7 +273,7 @@ khmer_mahidharapura_16 = {
     dynasty = khmer_mahidharapura
     religion = "shaivism"
     culture = "khmer"
-    father = khmer_mahidharapura_8
+    assign_historic_father_as_other_mother = { daddy = khmer_mahidharapura_8 }
     mother = khmer_kaundinya_4
     1120.1.1 = {
         birth = yes
@@ -289,7 +289,7 @@ khmer_mahidharapura_17 = {
     dynasty = khmer_mahidharapura
     religion = "mahayana"
     culture = "khmer"
-    father = khmer_mahidharapura_8
+    assign_historic_father_as_other_mother = { daddy = khmer_mahidharapura_8 }
     mother = khmer_kaundinya_4
     trait = education_learning_4
     trait = intellect_good_2
@@ -337,7 +337,7 @@ khmer_jayaviispouse_2 = {	#2nd spouse of Jayavarman VII
     trait = intellect_good_2
     trait = education_learning_4
     trait = lifestyle_poet
-    father = khmer_jayaviispouse_1
+    assign_historic_father_as_other_mother = { daddy = khmer_jayaviispouse_1 }
     1123.3.14 = {	#Unknown, older than Jayarajadevi
         birth = yes
     }
@@ -353,7 +353,7 @@ khmer_jayaviispouse_3 = {	#1st spouse of Jayavarman VII
     religion = "vaishnavism"
     culture = "khmer"
     trait = education_learning_3
-    father = khmer_jayaviispouse_1
+    assign_historic_father_as_other_mother = { daddy = khmer_jayaviispouse_1 }
     1125.8.22 = {	#Unknown, her sons were young but ready/almost ready to fight by 1160-1165
         birth = yes
     }
@@ -371,7 +371,7 @@ khmer_mahidharapura_18 = {
     dynasty = khmer_mahidharapura
     religion = "vaishnavism"
     culture = "khmer"
-    father = khmer_mahidharapura_17	#Jayavarman VII
+    assign_historic_father_as_other_mother = { daddy = khmer_mahidharapura_17 }#Jayavarman VII
     mother = khmer_jayaviispouse_3	#Jayarajadevi
     1143.12.6 = {	#unsure, fought with Yasovarman in 1160-1165
         birth = yes
@@ -387,7 +387,7 @@ khmer_mahidharapura_19 = {
     dynasty = khmer_mahidharapura
     religion = "vaishnavism"
     culture = "khmer"
-    father = khmer_mahidharapura_17	#Jayavarman VII
+    assign_historic_father_as_other_mother = { daddy = khmer_mahidharapura_17 }#Jayavarman VII
     mother = khmer_jayaviispouse_3	#Jayarajadevi
     1145.9.25 = {	#unsure, young/ready to fight in 1160-1165
         birth = yes
@@ -403,7 +403,7 @@ khmer_mahidharapura_20 = {
     dynasty = khmer_mahidharapura
     religion = "vaishnavism"
     culture = "khmer"
-    father = khmer_mahidharapura_17	#Jayavarman VII
+    assign_historic_father_as_other_mother = { daddy = khmer_mahidharapura_17 }#Jayavarman VII
     mother = khmer_jayaviispouse_3	#Jayarajadevi
     1151.2.19 = {	#Unknown
         birth = yes
@@ -419,7 +419,7 @@ khmer_mahidharapura_21 = {
     dynasty = khmer_mahidharapura
     religion = "mahayana"
     culture = "khmer"
-    father = khmer_mahidharapura_17	#Jayavarman VII
+    assign_historic_father_as_other_mother = { daddy = khmer_mahidharapura_17 }#Jayavarman VII
     mother = khmer_jayaviispouse_2	#Indradevi
     1163.1.1 = {	#Married to a Tai noble from the late XIIth-mid XIIIth
         birth = yes
@@ -435,7 +435,7 @@ khmer_mahidharapura_22 = {
     dynasty = khmer_mahidharapura
     religion = "mahayana"
     culture = "khmer"
-    father = khmer_mahidharapura_17	#Jayavarman VII
+    assign_historic_father_as_other_mother = { daddy = khmer_mahidharapura_17 }#Jayavarman VII
     mother = khmer_jayaviispouse_2	#Indradevi
     1165.12.2 = {	#authored inscriptions in ~1191
         birth = yes
@@ -454,7 +454,7 @@ khmer_mahidharapura_23 = {
     dynasty = khmer_mahidharapura
     religion = "vaishnavism"
     culture = "khmer"
-    father = khmer_mahidharapura_17	#Jayavarman VII
+    assign_historic_father_as_other_mother = { daddy = khmer_mahidharapura_17 }#Jayavarman VII
     mother = khmer_jayaviispouse_2	#Indradevi
     1167.1.1 = {	#very unknown
         birth = yes
@@ -543,7 +543,7 @@ khmer_sivakaivalya_5 = {
     dynasty = khmer_sivakaivalya
     culture = "khmer"
     religion = "vajrayana"
-    father = khmer_sivakaivalya_6
+    assign_historic_father_as_other_mother = { daddy = khmer_sivakaivalya_6 }
     800.1.1 = {
         birth = yes
     }
@@ -600,7 +600,7 @@ khmer_sivakaivalya_9 = {
     dynasty = khmer_sivakaivalya
     culture = "khmer"
     religion = "vajrayana"
-    father = khmer_sivakaivalya_6
+    assign_historic_father_as_other_mother = { daddy = khmer_sivakaivalya_6 }
     801.1.1 = {
         birth = yes
     }
@@ -615,7 +615,7 @@ khmer_sivakaivalya_10 = {
     dynasty = khmer_sivakaivalya
     culture = "khmer"
     religion = "vajrayana"
-    father = khmer_sivakaivalya_18
+    assign_historic_father_as_other_mother = { daddy = khmer_sivakaivalya_18 }
     863.1.1 = {
         birth = yes
     }
@@ -630,7 +630,7 @@ khmer_sivakaivalya_11 = {
     dynasty = khmer_sivakaivalya
     culture = "khmer"
     religion = "vajrayana"
-    father = khmer_sivakaivalya_18
+    assign_historic_father_as_other_mother = { daddy = khmer_sivakaivalya_18 }
     864.1.1 = {
         birth = yes
     }
@@ -645,7 +645,7 @@ khmer_sivakaivalya_12 = {
     dynasty = khmer_sivakaivalya
     culture = "khmer"
     religion = "vajrayana"
-    father = khmer_sivakaivalya_11
+    assign_historic_father_as_other_mother = { daddy = khmer_sivakaivalya_11 }
     893.1.1 = {
         birth = yes
     }
@@ -674,7 +674,7 @@ khmer_sivakaivalya_14 = {
     dynasty = khmer_sivakaivalya
     culture = "khmer"
     religion = "vajrayana"
-    father = khmer_sivakaivalya_13
+    assign_historic_father_as_other_mother = { daddy = khmer_sivakaivalya_13 }
     912.1.1 = {
         birth = yes
     }
@@ -703,7 +703,7 @@ khmer_sivakaivalya_16 = {
     dynasty = khmer_sivakaivalya
     culture = "khmer"
     religion = "vajrayana"
-    father = khmer_sivakaivalya_15
+    assign_historic_father_as_other_mother = { daddy = khmer_sivakaivalya_15 }
     929.1.1 = {
         birth = yes
     }
@@ -760,7 +760,7 @@ khmer_sivakaivalya_2 = {
     dynasty = khmer_sivakaivalya
     culture = "khmer"
     religion = "vajrayana"
-    father = khmer_sivakaivalya_4
+    assign_historic_father_as_other_mother = { daddy = khmer_sivakaivalya_4 }
     990.1.1 = {
         birth = yes
     }
@@ -775,7 +775,7 @@ khmer_sivakaivalya_1 = {
     dynasty = khmer_sivakaivalya
     culture = "khmer"
     religion = "vajrayana"
-    father = khmer_sivakaivalya_3
+    assign_historic_father_as_other_mother = { daddy = khmer_sivakaivalya_3 }
     995.1.1 = {
         birth = yes
     }
@@ -790,7 +790,7 @@ khmer_sivakaivalya_18 = {
     dynasty = khmer_sivakaivalya
     culture = "khmer"
     religion = "vajrayana"
-    father = khmer_sivakaivalya_5
+    assign_historic_father_as_other_mother = { daddy = khmer_sivakaivalya_5 }
     827.1.1 = {
         birth = yes
     }
@@ -805,7 +805,7 @@ khmer_sivakaivalya_19 = {
     dynasty = khmer_sivakaivalya
     culture = "khmer"
     religion = "vajrayana"
-    father = khmer_sivakaivalya_17
+    assign_historic_father_as_other_mother = { daddy = khmer_sivakaivalya_17 }
     988.1.1 = {
         birth = yes
     }
@@ -954,7 +954,7 @@ khmer_varman_5 = {
     dynasty = khmer_varman
     culture = "khmer"
     religion = "shaivism"
-    father = khmer_varman_7
+    assign_historic_father_as_other_mother = { daddy = khmer_varman_7 }
     888.1.1 = {
         birth = yes
     }
@@ -969,7 +969,7 @@ khmer_varman_6 = {
     dynasty = khmer_varman
     culture = "khmer"
     religion = "shaivism"
-    father = khmer_varman_7
+    assign_historic_father_as_other_mother = { daddy = khmer_varman_7 }
     883.1.1 = {
         birth = yes
     }
@@ -1019,7 +1019,7 @@ khmer_varman_9 = {
     name = "Jayavarman" # Jayavarman III
     dynasty = khmer_varman
     culture = "khmer"
-    father = khmer_varman_10
+    assign_historic_father_as_other_mother = { daddy = khmer_varman_10 }
     religion = "vaishnavism"	#"one of the few Vishnuite kings of Cambodia"
     diplomacy = 1
     martial = 3

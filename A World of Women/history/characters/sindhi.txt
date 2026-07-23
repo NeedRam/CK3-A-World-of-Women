@@ -4,7 +4,7 @@
     dynasty = 1043005
     religion = "ashari"
     culture = "sindhi"
-    father = extra_habbaris_2
+    assign_historic_father_as_other_mother = { daddy = extra_habbaris_2 }
     821.1.1 = {
         birth = yes
     }
@@ -35,7 +35,7 @@ extra_habbaris_2 = {
     dynasty = 1043005
     religion = "ashari"
     culture = "levantine"
-    father = extra_habbaris_1
+    assign_historic_father_as_other_mother = { daddy = extra_habbaris_1 }
     771.12.5 = {
         birth = yes
     }
@@ -53,7 +53,7 @@ extra_habbaris_3 = {
     dynasty = 1043005
     religion = "ashari"
     culture = "sindhi"
-    father = 175050
+    assign_historic_father_as_other_mother = { daddy = 175050 }
     842.10.2 = {
         birth = yes
         effect = {
@@ -71,7 +71,7 @@ extra_habbaris_4 = {
     dynasty = 1043005
     religion = "ashari"
     culture = "sindhi"
-    father = extra_habbaris_3
+    assign_historic_father_as_other_mother = { daddy = extra_habbaris_3 }
     878.5.9 = {
         birth = yes
     }
@@ -86,7 +86,7 @@ extra_habbaris_5 = {
     dynasty = 1043005
     religion = "ashari"
     culture = "sindhi"
-    father = extra_habbaris_4
+    assign_historic_father_as_other_mother = { daddy = extra_habbaris_4 }
     899.1.1 = {
         birth = yes
     }
@@ -101,7 +101,7 @@ extra_habbaris_6 = {
     dynasty = 1043005
     religion = "ashari"
     culture = "sindhi"
-    father = extra_habbaris_4
+    assign_historic_father_as_other_mother = { daddy = extra_habbaris_4 }
     903.5.9 = {
         birth = yes
     }
@@ -222,7 +222,7 @@ extra_habbaris_6 = {
     dynasty = 1042090 # Sumra
     religion = "ismaili" # Ismaili
     culture = "sindhi"
-    father = 188349
+    assign_historic_father_as_other_mother = { daddy = 188349 }
     1015.1.1 = {
         birth = yes
     }
@@ -237,7 +237,7 @@ extra_habbaris_6 = {
     dynasty = 1042090 # Sumra
     religion = "ismaili" # Ismaili
     culture = "sindhi"
-    father = 188349
+    assign_historic_father_as_other_mother = { daddy = 188349 }
     1023.1.1 = {
         birth = yes
     }
@@ -252,7 +252,7 @@ extra_habbaris_6 = {
     dynasty = 1042090 # Sumra
     religion = "ismaili" # Ismaili
     culture = "sindhi"
-    father = 188351
+    assign_historic_father_as_other_mother = { daddy = 188351 }
     1043.1.1 = {
         birth = yes
     }
@@ -267,7 +267,7 @@ extra_habbaris_6 = {
     dynasty = 1042090 # Sumra
     religion = "ashari"
     culture = "sindhi"
-    father = 188352
+    assign_historic_father_as_other_mother = { daddy = 188352 }
     trait = education_diplomacy_4
     1063.1.1 = {
         birth = yes
@@ -283,7 +283,7 @@ extra_habbaris_6 = {
     dynasty = 1042090 # Sumra
     religion = "ashari"
     culture = "sindhi"
-    father = 188352
+    assign_historic_father_as_other_mother = { daddy = 188352 }
     1086.1.1 = {
         birth = yes
     }
@@ -301,7 +301,7 @@ extra_habbaris_6 = {
     female = yes
     religion = "ashari"
     culture = "sindhi"
-    father = 188356
+    assign_historic_father_as_other_mother = { daddy = 188356 }
     1084.1.1 = {
         birth = yes
     }
@@ -330,7 +330,7 @@ extra_habbaris_6 = {
     dynasty = 214004 # Sumra (sister-in-law of last Sumra)
     religion = "ashari"
     culture = "sindhi"
-    father = 188356
+    assign_historic_father_as_other_mother = { daddy = 188356 }
     1098.1.1 = {
         birth = yes
     }
@@ -345,7 +345,7 @@ extra_habbaris_6 = {
     dynasty = 214004 # Sumra (sister-in-law of last Sumra)
     religion = "ashari"
     culture = "sindhi"
-    father = 188356
+    assign_historic_father_as_other_mother = { daddy = 188356 }
     1105.1.1 = {
         birth = yes
     }
@@ -360,7 +360,7 @@ extra_habbaris_6 = {
     dynasty = 214004 # Sumra
     religion = "ashari"
     culture = "sindhi"
-    father = 188358 # flimsy conjecture, probably a usurper
+    assign_historic_father_as_other_mother = { daddy = 188358 }# flimsy conjecture, probably a usurper
     1148.1.1 = {
         birth = yes
     }
@@ -391,7 +391,7 @@ extra_habbaris_6 = {
     dynasty = 1042090 # Sumra
     religion = "ashari"
     culture = "sindhi"
-    father = 188360
+    assign_historic_father_as_other_mother = { daddy = 188360 }
     1125.1.1 = {
         birth = yes
     }
@@ -406,7 +406,7 @@ extra_habbaris_6 = {
     dynasty = 1042090 # Sumra
     religion = "ashari"
     culture = "sindhi"
-    father = 188360
+    assign_historic_father_as_other_mother = { daddy = 188360 }
     1150.1.1 = {
         birth = yes
     }
@@ -421,7 +421,7 @@ extra_habbaris_6 = {
     dynasty = 1042090 # Sumra
     religion = "ashari"
     culture = "sindhi"
-    father = 188362 # unclear if true
+    assign_historic_father_as_other_mother = { daddy = 188362 }# unclear if true
     1178.1.1 = {
         birth = yes
     }
@@ -437,7 +437,7 @@ extra_habbaris_6 = {
     dynasty = 1042090 # Sumra
     religion = "ashari"
     culture = "sindhi"
-    father = 188363
+    assign_historic_father_as_other_mother = { daddy = 188363 }
     1200.1.1 = {
         birth = yes
     }
@@ -452,7 +452,7 @@ extra_habbaris_6 = {
     dynasty = 1042090 # Sumra
     religion = "ashari"
     culture = "sindhi"
-    father = 188364 # conjecture
+    assign_historic_father_as_other_mother = { daddy = 188364 }# conjecture
     1220.1.1 = {
         birth = yes
     }
@@ -467,7 +467,7 @@ extra_habbaris_6 = {
     dynasty = 1042090 # Sumra
     religion = "ashari"
     culture = "sindhi"
-    father = 188365
+    assign_historic_father_as_other_mother = { daddy = 188365 }
     1238.1.1 = {
         birth = yes
     }
@@ -482,7 +482,7 @@ extra_habbaris_6 = {
     dynasty = 1042090 # Sumra
     religion = "ashari"
     culture = "sindhi"
-    father = 188366
+    assign_historic_father_as_other_mother = { daddy = 188366 }
     1254.1.1 = {
         birth = yes
     }
@@ -497,7 +497,7 @@ extra_habbaris_6 = {
     dynasty = 1042090 # Sumra
     religion = "ashari"
     culture = "sindhi"
-    father = 188366
+    assign_historic_father_as_other_mother = { daddy = 188366 }
     1256.1.1 = {
         birth = yes
     }
@@ -512,7 +512,7 @@ extra_habbaris_6 = {
     dynasty = 1042090 # Sumra
     religion = "ashari"
     culture = "sindhi"
-    father = 188368
+    assign_historic_father_as_other_mother = { daddy = 188368 }
     1276.1.1 = {
         birth = yes
     }
@@ -527,7 +527,7 @@ extra_habbaris_6 = {
     dynasty = 1042090 # Sumra
     religion = "ashari"
     culture = "sindhi"
-    father = 188369
+    assign_historic_father_as_other_mother = { daddy = 188369 }
     1296.1.1 = {
         birth = yes
     }
@@ -542,7 +542,7 @@ extra_habbaris_6 = {
     dynasty = 1042090 # Sumra
     religion = "ashari"
     culture = "sindhi"
-    father = 188369
+    assign_historic_father_as_other_mother = { daddy = 188369 }
     1300.1.1 = {
         birth = yes
     }
@@ -557,7 +557,7 @@ extra_habbaris_6 = {
     dynasty = 1042090 # Sumra
     religion = "ashari"
     culture = "sindhi"
-    father = 188371
+    assign_historic_father_as_other_mother = { daddy = 188371 }
     1330.1.1 = {
         birth = yes
     }
@@ -613,7 +613,7 @@ extra_habbaris_6 = {
     dynasty = 1041117
     religion = "smartism"
     culture = "sindhi"
-    father = 188558
+    assign_historic_father_as_other_mother = { daddy = 188558 }
     755.1.1 = {
         birth = yes
     }

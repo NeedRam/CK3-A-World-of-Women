@@ -24,7 +24,7 @@ javanese_sailendra_02 = {
     dynasty = javanese_sailendra
     religion = mahayana	#unsure
     culture = javanese
-    father = javanese_sailendra_01
+    assign_historic_father_as_other_mother = { daddy = javanese_sailendra_01 }
     611.1.1 = {	#unsure
         birth = yes
     }
@@ -57,7 +57,7 @@ javanese_sailendra_03 = {
     religion = mahayana	#unsure
     culture = javanese
     mother = javanese_sailendra_02
-    father = javanese_sailendra_02a
+    assign_historic_father_as_other_mother = { daddy = javanese_sailendra_02a }
     630.1.1 = {	#unknown
         birth = yes
     }
@@ -76,7 +76,7 @@ javanese_sailendra_03a = {
     religion = mahayana	#unsure
     culture = javanese
     mother = javanese_sailendra_02
-    father = javanese_sailendra_02a
+    assign_historic_father_as_other_mother = { daddy = javanese_sailendra_02a }
     633.1.1 = {	#unknown
         birth = yes
     }
@@ -106,7 +106,7 @@ javanese_sailendra_04 = {
     religion = mahayana	#unsure
     culture = javanese
     mother = javanese_sailendra_03
-    father = javanese_sailendra_03b
+    assign_historic_father_as_other_mother = { daddy = javanese_sailendra_03b }
     652.1.1 = {	#unknown
         birth = yes
     }
@@ -122,7 +122,7 @@ javanese_sailendra_04a = {
     religion = mahayana	#unsure
     culture = javanese
     mother = javanese_sailendra_03
-    father = javanese_sailendra_03b
+    assign_historic_father_as_other_mother = { daddy = javanese_sailendra_03b }
     656.1.1 = {	#unknown
         birth = yes
     }
@@ -170,7 +170,7 @@ javanese_sailendra_06 = {
     dynasty = javanese_sailendra
     religion = mahayana
     culture = javanese
-    father = javanese_sailendra_05	#Dharanindra
+    assign_historic_father_as_other_mother = { daddy = javanese_sailendra_05 }#Dharanindra
     771.1.1 = {	#unknown
         birth = yes
     }
@@ -188,7 +188,7 @@ javanese_sailendra_07 = {
     dynasty = javanese_sailendra
     religion = mahayana
     culture = javanese
-    father = javanese_sailendra_06	#Samaratungga
+    assign_historic_father_as_other_mother = { daddy = javanese_sailendra_06 }#Samaratungga
     mother = malay_soma_02	#Tara Soma
     806.1.1 = {	#unknown
         birth = yes
@@ -204,7 +204,7 @@ javanese_sailendra_08 = {
     dynasty = javanese_sailendra
     religion = mahayana
     culture = javanese
-    father = javanese_sailendra_06	#Samaratungga
+    assign_historic_father_as_other_mother = { daddy = javanese_sailendra_06 }#Samaratungga
     mother = malay_soma_02	#Tara Soma
     806.1.1 = {	#unknown
         birth = yes
@@ -234,7 +234,7 @@ javanese_sailendra_21 = {
     dynasty = javanese_sailendra
     religion = mahayana
     culture = javanese
-    father = javanese_sailendra_20	#unsure, maybe not
+    assign_historic_father_as_other_mother = { daddy = javanese_sailendra_20 }#unsure, maybe not
     957.1.1 = {	#unknown
         birth = yes
     }
@@ -249,7 +249,7 @@ javanese_sailendra_22 = {
     dynasty = javanese_sailendra	#possibly Varmadeva ?
     religion = mahayana
     culture = javanese
-    father = javanese_sailendra_20	#unsure, maybe not
+    assign_historic_father_as_other_mother = { daddy = javanese_sailendra_20 }#unsure, maybe not
     959.1.1 = {	#unknown
         birth = yes
     }
@@ -264,7 +264,7 @@ javanese_sailendra_23 = {
     dynasty = javanese_sailendra	#possibly Varmadeva/Warmadewa ?
     religion = mahayana
     culture = javanese
-    father = javanese_sailendra_22	#unsure, maybe not
+    assign_historic_father_as_other_mother = { daddy = javanese_sailendra_22 }#unsure, maybe not
     981.1.1 = {	#unknown
         birth = yes
     }
@@ -279,7 +279,7 @@ javanese_sailendra_24 = {
     dynasty = javanese_sailendra	#unsure
     religion = mahayana
     culture = javanese
-    father = javanese_sailendra_21	#unsure, maybe not
+    assign_historic_father_as_other_mother = { daddy = javanese_sailendra_21 }#unsure, maybe not
     978.1.1 = {	#unknown
         birth = yes
     }
@@ -294,7 +294,7 @@ javanese_sailendra_25 = {
     dynasty = javanese_sailendra	#possibly Varmadeva ?
     religion = mahayana
     culture = javanese
-    father = javanese_sailendra_23	#unsure, maybe not
+    assign_historic_father_as_other_mother = { daddy = javanese_sailendra_23 }#unsure, maybe not
     1001.1.1 = {	#unknown
         birth = yes
     }
@@ -309,7 +309,7 @@ javanese_sailendra_26 = {
     dynasty = javanese_sailendra	#probably
     religion = mahayana
     culture = javanese
-    father = javanese_sailendra_23	#unsure, maybe not
+    assign_historic_father_as_other_mother = { daddy = javanese_sailendra_23 }#unsure, maybe not
     1003.1.1 = {	#unknown
         birth = yes
     }
@@ -367,7 +367,7 @@ javanese_sanjaya_02 = {
     dynasty_house = house_sailendra_sanjaya
     religion = shaivism
     culture = javanese
-    father = javanese_sanjaya_01a	#possibly nephew of Sanjaya
+    assign_historic_father_as_other_mother = { daddy = javanese_sanjaya_01a }#possibly nephew of Sanjaya
     722.1.1 = {	#unknown
         birth = yes
     }
@@ -387,7 +387,7 @@ javanese_sanjaya_03 = {
     dynasty_house = house_sailendra_sanjaya
     religion = mahayana
     culture = javanese
-    father = javanese_sanjaya_02
+    assign_historic_father_as_other_mother = { daddy = javanese_sanjaya_02 }
     749.1.1 = {	#unknown
         birth = yes
     }
@@ -403,7 +403,7 @@ javanese_sanjaya_04 = {
     dynasty_house = house_sailendra_sanjaya
     religion = shaivism
     culture = javanese
-    father = javanese_sanjaya_03
+    assign_historic_father_as_other_mother = { daddy = javanese_sanjaya_03 }
     771.1.1 = {	#unknown
         birth = yes
     }
@@ -418,7 +418,7 @@ javanese_sanjaya_04a = {
     dynasty_house = house_sailendra_sanjaya
     religion = mahayana
     culture = javanese
-    father = javanese_sanjaya_04
+    assign_historic_father_as_other_mother = { daddy = javanese_sanjaya_04 }
     793.1.1 = {	#unknown
         birth = yes
     }
@@ -435,7 +435,7 @@ javanese_sanjaya_05 = {
     dynasty_house = house_sailendra_sanjaya
     religion = mahayana
     culture = javanese
-    father = javanese_sanjaya_03
+    assign_historic_father_as_other_mother = { daddy = javanese_sanjaya_03 }
     774.1.1 = {	#unknown
         birth = yes
     }
@@ -451,7 +451,7 @@ javanese_sanjaya_06 = {
     dynasty_house = house_sailendra_sanjaya
     religion = shaivism
     culture = javanese
-    father = javanese_sanjaya_05
+    assign_historic_father_as_other_mother = { daddy = javanese_sanjaya_05 }
     799.1.1 = {	#unknown
         birth = yes
     }
@@ -470,7 +470,7 @@ javanese_sanjaya_07 = {
     dynasty_house = house_sailendra_sanjaya
     religion = vaishnavism
     culture = javanese
-    father = javanese_sanjaya_06
+    assign_historic_father_as_other_mother = { daddy = javanese_sanjaya_06 }
     mother = javanese_sailendra_08
     diplomacy = 3
     martial = 4
@@ -497,7 +497,7 @@ javanese_sanjaya_07a = {
     dynasty_house = house_sailendra_sanjaya
     religion = shaivism
     culture = javanese
-    father = javanese_sanjaya_06
+    assign_historic_father_as_other_mother = { daddy = javanese_sanjaya_06 }
     mother = javanese_sailendra_08
     823.1.1 = {	#unknown
         birth = yes
@@ -588,7 +588,7 @@ javanese_sanjaya_13 = {
     dynasty_house = house_sailendra_sanjaya
     religion = shaivism
     culture = javanese
-    father = javanese_sanjaya_11
+    assign_historic_father_as_other_mother = { daddy = javanese_sanjaya_11 }
     865.1.1 = {	#unknown
         birth = yes
     }
@@ -603,7 +603,7 @@ javanese_sanjaya_13a = {
     dynasty_house = house_sailendra_sanjaya
     religion = shaivism
     culture = javanese
-    father = javanese_sanjaya_13
+    assign_historic_father_as_other_mother = { daddy = javanese_sanjaya_13 }
     887.1.1 = {	#unknown
         birth = yes
     }
@@ -649,7 +649,7 @@ javanese_sanjaya_15a = {
     dynasty_house = house_sailendra_sanjaya
     culture = javanese
     religion = shaivism
-    father = javanese_sanjaya_15	#Dyah Wawa
+    assign_historic_father_as_other_mother = { daddy = javanese_sanjaya_15 }#Dyah Wawa
     895.1.1 = {	#Unknown
         birth = yes
     }
@@ -664,7 +664,7 @@ javanese_sanjaya_16 = {
     dynasty_house = house_sailendra_sanjaya
     religion = shaivism
     culture = javanese
-    father = javanese_sanjaya_01	#Sanjaya
+    assign_historic_father_as_other_mother = { daddy = javanese_sanjaya_01 }#Sanjaya
     699.1.1 = {	#unknown
         birth = yes
     }
@@ -679,7 +679,7 @@ javanese_sanjaya_17 = {
     dynasty_house = house_sailendra_sanjaya
     religion = shaivism
     culture = javanese
-    father = javanese_sanjaya_16
+    assign_historic_father_as_other_mother = { daddy = javanese_sanjaya_16 }
     719.1.1 = {
         birth = yes
     }
@@ -694,7 +694,7 @@ javanese_sanjaya_18 = {
     dynasty_house = house_sailendra_sanjaya
     religion = shaivism
     culture = javanese
-    father = javanese_sanjaya_16
+    assign_historic_father_as_other_mother = { daddy = javanese_sanjaya_16 }
     723.1.1 = {
         birth = yes
     }
@@ -709,7 +709,7 @@ javanese_sanjaya_19 = {
     dynasty_house = house_sailendra_sanjaya
     religion = shaivism
     culture = javanese
-    father = javanese_sanjaya_18
+    assign_historic_father_as_other_mother = { daddy = javanese_sanjaya_18 }
     745.1.1 = {	#unknown
         birth = yes
     }
@@ -724,7 +724,7 @@ javanese_sanjaya_20 = {
     dynasty_house = house_sailendra_sanjaya
     religion = shaivism
     culture = javanese
-    father = javanese_sanjaya_19
+    assign_historic_father_as_other_mother = { daddy = javanese_sanjaya_19 }
     765.1.1 = {	#unknown
         birth = yes
     }
@@ -764,7 +764,7 @@ javanese_ishana_02 = {
     dynasty = javanese_ishana
     culture = javanese
     religion = "vaishnavism"
-    father = javanese_ishana_01
+    assign_historic_father_as_other_mother = { daddy = javanese_ishana_01 }
     mother = javanese_sanjaya_15a
     917.1.1 = {	#unknown
         birth = yes
@@ -794,7 +794,7 @@ javanese_ishana_03 = {
     dynasty = javanese_ishana
     culture = javanese
     religion = "vaishnavism"
-    father = javanese_ishana_02a
+    assign_historic_father_as_other_mother = { daddy = javanese_ishana_02a }
     mother = javanese_ishana_02
     936.1.1 = {	#unknown
         birth = yes
@@ -810,7 +810,7 @@ javanese_ishana_04 = {
     dynasty = javanese_ishana
     culture = javanese
     religion = "vaishnavism"
-    father = javanese_ishana_03
+    assign_historic_father_as_other_mother = { daddy = javanese_ishana_03 }
     959.1.1 = {	#unknown
         birth = yes
     }
@@ -826,7 +826,7 @@ javanese_ishana_04a = {
     dynasty = javanese_ishana
     culture = javanese
     religion = "vaishnavism"
-    father = javanese_ishana_04
+    assign_historic_father_as_other_mother = { daddy = javanese_ishana_04 }
     992.1.1 = {	#unknown
         birth = yes
     }
@@ -841,7 +841,7 @@ javanese_ishana_05 = {	#mother of Airlangga
     dynasty = javanese_ishana
     culture = javanese
     religion = "kalikula_shaktism"	#faitfhul of Durga
-    father = javanese_ishana_03
+    assign_historic_father_as_other_mother = { daddy = javanese_ishana_03 }
     trait = education_learning_3
     trait = vengeful
     trait = fornicator	#She might scandalously have had other relations before Udyana, and there are some speculations around Airlangga
@@ -860,7 +860,7 @@ javanese_ishana_06 = {
     dynasty = javanese_ishana
     religion = vaishnavism
     culture = javanese
-    father = javanese_warmadewa_06	#Udayana
+    assign_historic_father_as_other_mother = { daddy = javanese_warmadewa_06 }#Udayana
     mother = javanese_ishana_05	#Mahendradatta Ishana
     991.1.1 = {
         birth = yes
@@ -879,7 +879,7 @@ javanese_ishana_07 = {
     dynasty = javanese_ishana
     religion = mahayana
     culture = javanese
-    father = javanese_ishana_06	#Airlangga
+    assign_historic_father_as_other_mother = { daddy = javanese_ishana_06 }#Airlangga
     mother = javanese_ishana_04a	#maybe
     trait = education_learning_3
     1011.1.1 = {	#unknown
@@ -896,7 +896,7 @@ javanese_ishana_08 = {
     dynasty = javanese_ishana
     religion = shaivism
     culture = javanese
-    father = javanese_ishana_06	#Airlangga
+    assign_historic_father_as_other_mother = { daddy = javanese_ishana_06 }#Airlangga
     mother = javanese_ishana_04a	#maybe
     1012.1.1 = {	#unknown
         birth = yes
@@ -912,7 +912,7 @@ javanese_ishana_09 = {
     dynasty = javanese_ishana
     religion = shaivism
     culture = javanese
-    father = javanese_ishana_06	#Airlangga
+    assign_historic_father_as_other_mother = { daddy = javanese_ishana_06 }#Airlangga
     mother = javanese_ishana_04a	#maybe
     1014.1.1 = {	#unknown
         birth = yes
@@ -928,7 +928,7 @@ javanese_ishana_09a = {
     dynasty = javanese_ishana
     religion = shaivism
     culture = javanese
-    father = javanese_ishana_09
+    assign_historic_father_as_other_mother = { daddy = javanese_ishana_09 }
     1033.1.1 = {	#unknown
         birth = yes
     }
@@ -943,7 +943,7 @@ javanese_ishana_10 = {
     dynasty = javanese_ishana
     religion = shaivism
     culture = javanese
-    father = javanese_ishana_06	#Airlangga
+    assign_historic_father_as_other_mother = { daddy = javanese_ishana_06 }#Airlangga
     mother = javanese_ishana_04a	#maybe
     1017.1.1 = {	#unknown
         birth = yes
@@ -959,7 +959,7 @@ javanese_ishana_11 = {
     dynasty = javanese_ishana
     religion = shaivism
     culture = javanese
-    father = javanese_ishana_08	#Samarawijaya, maybe not, we're stretching here
+    assign_historic_father_as_other_mother = { daddy = javanese_ishana_08 }#Samarawijaya, maybe not, we're stretching here
     1034.1.1 = {	#unknown
         birth = yes
     }
@@ -974,7 +974,7 @@ javanese_ishana_12 = {
     dynasty = javanese_ishana
     religion = shaivism
     culture = javanese
-    father = javanese_ishana_11	#Jitendrakara, maybe not, we're stretching here
+    assign_historic_father_as_other_mother = { daddy = javanese_ishana_11 }#Jitendrakara, maybe not, we're stretching here
     1065.1.1 = {	#unknown
         birth = yes
     }
@@ -1020,7 +1020,7 @@ javanese_ishana_13b = {
     dynasty = javanese_ishana
     religion = shaivism
     culture = javanese
-    father = javanese_ishana_13
+    assign_historic_father_as_other_mother = { daddy = javanese_ishana_13 }
     mother = javanese_ishana_13a
     1127.1.1 = {	#unknown
         birth = yes
@@ -1036,7 +1036,7 @@ javanese_ishana_13c = {
     dynasty = javanese_ishana
     religion = shaivism
     culture = javanese
-    father = javanese_ishana_13
+    assign_historic_father_as_other_mother = { daddy = javanese_ishana_13 }
     mother = javanese_ishana_13a
     1129.1.1 = {	#unknown
         birth = yes
@@ -1052,7 +1052,7 @@ javanese_ishana_13d = {
     dynasty = javanese_ishana
     religion = shaivism
     culture = javanese
-    father = javanese_ishana_13
+    assign_historic_father_as_other_mother = { daddy = javanese_ishana_13 }
     mother = javanese_ishana_13a
     1130.1.1 = {	#unknown
         birth = yes
@@ -1068,7 +1068,7 @@ javanese_ishana_13e = {
     dynasty = javanese_ishana
     religion = shaivism
     culture = javanese
-    father = javanese_ishana_13
+    assign_historic_father_as_other_mother = { daddy = javanese_ishana_13 }
     mother = javanese_ishana_13a
     1132.1.1 = {	#unknown
         birth = yes
@@ -1098,7 +1098,7 @@ javanese_ishana_15 = {
     dynasty = javanese_ishana
     religion = shaivism
     culture = javanese
-    father = javanese_ishana_13	#Jayabhaya, maybe
+    assign_historic_father_as_other_mother = { daddy = javanese_ishana_13 }#Jayabhaya, maybe
     mother = javanese_ishana_13a	#maybe
     1131.1.1 = {	#unknown
         birth = yes
@@ -1142,7 +1142,7 @@ javanese_ishana_20_fic = {	#fictional
     dynasty = javanese_ishana
     religion = shaivism
     culture = javanese
-    father = javanese_ishana_10	#Samarotsaha
+    assign_historic_father_as_other_mother = { daddy = javanese_ishana_10 }#Samarotsaha
     1042.4.27 = {	#unknown
         birth = yes
     }
@@ -1157,7 +1157,7 @@ javanese_ishana_21_fic = {	#fictional
     dynasty = javanese_ishana
     religion = shaivism
     culture = javanese
-    father = javanese_ishana_20_fic
+    assign_historic_father_as_other_mother = { daddy = javanese_ishana_20_fic }
     1065.2.20 = {	#unknown
         birth = yes
     }
@@ -1172,7 +1172,7 @@ javanese_ishana_22_fic = {	#fictional
     dynasty = javanese_ishana
     religion = shaivism
     culture = javanese
-    father = javanese_ishana_21_fic
+    assign_historic_father_as_other_mother = { daddy = javanese_ishana_21_fic }
     1095.12.7 = {
         birth = yes
     }
@@ -1300,7 +1300,7 @@ javanese_warmadewa_08 = {
     dynasty = javanese_warmadewa
     culture = javanese
     religion = "vaishnavism"
-    father = javanese_warmadewa_06	#Udayana
+    assign_historic_father_as_other_mother = { daddy = javanese_warmadewa_06 }#Udayana
     mother = javanese_ishana_05	#Mahendradatta Ishana
     trait = education_stewardship_3
     993.1.1 = { #unknown, after Airlangga
@@ -1317,7 +1317,7 @@ javanese_warmadewa_09 = {
     dynasty = javanese_warmadewa
     culture = "javanese"
     religion = "vaishnavism"
-    father = javanese_warmadewa_06	#Udayana
+    assign_historic_father_as_other_mother = { daddy = javanese_warmadewa_06 }#Udayana
     mother = javanese_ishana_05	#Mahendradatta Ishana
     trait = compassionate
     trait = generous
@@ -1440,7 +1440,7 @@ javanese_warmadewa_16 = {
     dynasty_house = house_warmadewa_jaya
     culture = "javanese"
     religion = "vaishnavism"
-    father = javanese_warmadewa_15	#possibly
+    assign_historic_father_as_other_mother = { daddy = javanese_warmadewa_15 }#possibly
     1151.1.1 = {	#unknown
         birth = yes
     }
@@ -1482,7 +1482,7 @@ javanese_siliwangi_00 = {
     dynasty = javanese_siliwangi
     culture = javanese
     religion = shaivism
-    father = javanese_siliwangi_0
+    assign_historic_father_as_other_mother = { daddy = javanese_siliwangi_0 }
     mother = javanese_manisri_18
     939.1.1 = {	#started ruling in 989
         birth = yes
@@ -1498,7 +1498,7 @@ javanese_siliwangi_000 = {
     dynasty = javanese_siliwangi
     culture = javanese
     religion = shaivism
-    father = javanese_siliwangi_00
+    assign_historic_father_as_other_mother = { daddy = javanese_siliwangi_00 }
     959.1.1 = {	#started ruling in 1012
         birth = yes
     }
@@ -1513,7 +1513,7 @@ javanese_siliwangi_01 = {
     dynasty = javanese_siliwangi
     culture = javanese
     religion = shaivism
-    father = javanese_siliwangi_000
+    assign_historic_father_as_other_mother = { daddy = javanese_siliwangi_000 }
     978.1.1 = {	#started ruling in 1019
         birth = yes
     }
@@ -1528,7 +1528,7 @@ javanese_siliwangi_02 = {
     dynasty = javanese_siliwangi
     culture = javanese
     religion = shaivism
-    father = javanese_siliwangi_01
+    assign_historic_father_as_other_mother = { daddy = javanese_siliwangi_01 }
     998.1.1 = {	#started ruling in 1030
         birth = yes
     }
@@ -1543,7 +1543,7 @@ javanese_siliwangi_03 = {
     dynasty = javanese_siliwangi
     culture = javanese
     religion = shaivism
-    father = javanese_siliwangi_02
+    assign_historic_father_as_other_mother = { daddy = javanese_siliwangi_02 }
     1019.1.1 = {	#started ruling in 1042
         birth = yes
     }
@@ -1558,7 +1558,7 @@ javanese_siliwangi_04 = {
     dynasty = javanese_siliwangi
     culture = javanese
     religion = shaivism
-    father = javanese_siliwangi_03
+    assign_historic_father_as_other_mother = { daddy = javanese_siliwangi_03 }
     1049.1.1 = {	#started ruling in 1064/1065
         birth = yes
     }
@@ -1589,7 +1589,7 @@ javanese_siliwangi_04a = {
     dynasty = javanese_siliwangi
     culture = javanese
     religion = shaivism
-    father = javanese_siliwangi_03
+    assign_historic_father_as_other_mother = { daddy = javanese_siliwangi_03 }
     1046.1.1 = {	#unknown
         birth = yes
     }
@@ -1604,7 +1604,7 @@ javanese_siliwangi_04b = {
     dynasty = javanese_siliwangi
     culture = javanese
     religion = shaivism
-    father = javanese_siliwangi_03
+    assign_historic_father_as_other_mother = { daddy = javanese_siliwangi_03 }
     1050.1.1 = {	#unknown
         birth = yes
     }
@@ -1620,7 +1620,7 @@ javanese_siliwangi_05 = {
     dynasty = javanese_siliwangi
     culture = javanese
     religion = shaivism
-    father = javanese_siliwangi_04
+    assign_historic_father_as_other_mother = { daddy = javanese_siliwangi_04 }
     mother = javanese_siliwangi_04w
     1089.1.1 = {	#unknown, her reported father has an impossible reported timeline
         birth = yes
@@ -1636,7 +1636,7 @@ javanese_siliwangi_06 = {
     dynasty = javanese_siliwangi
     culture = javanese
     religion = shaivism
-    father = javanese_siliwangi_05
+    assign_historic_father_as_other_mother = { daddy = javanese_siliwangi_05 }
     1119.1.1 = {
         birth = yes
     }
@@ -1651,7 +1651,7 @@ javanese_siliwangi_07 = {
     dynasty = javanese_siliwangi
     culture = javanese
     religion = shaivism
-    father = javanese_siliwangi_06
+    assign_historic_father_as_other_mother = { daddy = javanese_siliwangi_06 }
     1145.1.1 = {	#unknown
         birth = yes
     }
@@ -1688,7 +1688,7 @@ javanese_siliwangi_08a = {
     dynasty = javanese_siliwangi
     culture = javanese
     religion = shaivism
-    father = javanese_siliwangi_07
+    assign_historic_father_as_other_mother = { daddy = javanese_siliwangi_07 }
     mother = javanese_siliwangi_07a
     1169.1.1 = {	#unknown
         birth = yes
@@ -1717,7 +1717,7 @@ javanese_siliwangi_08b = {
     dynasty = javanese_siliwangi
     culture = javanese
     religion = shaivism
-    father = javanese_siliwangi_07
+    assign_historic_father_as_other_mother = { daddy = javanese_siliwangi_07 }
     mother = javanese_siliwangi_07b
     1170.1.1 = {	#unknown
         birth = yes
@@ -1746,7 +1746,7 @@ javanese_siliwangi_08c = {
     dynasty = javanese_siliwangi
     culture = javanese
     religion = shaivism
-    father = javanese_siliwangi_07
+    assign_historic_father_as_other_mother = { daddy = javanese_siliwangi_07 }
     mother = javanese_siliwangi_07c
     1171.1.1 = {	#unknown
         birth = yes
@@ -1789,7 +1789,7 @@ javanese_manisri_02 = {
     dynasty = javanese_manisri
     culture = javanese
     religion = shaivism
-    father = javanese_manisri_01
+    assign_historic_father_as_other_mother = { daddy = javanese_manisri_01 }
     769.1.1 = {	#unknown
         birth = yes
     }
@@ -1804,7 +1804,7 @@ javanese_manisri_03 = {
     dynasty = javanese_manisri
     culture = javanese
     religion = shaivism
-    father = javanese_manisri_02
+    assign_historic_father_as_other_mother = { daddy = javanese_manisri_02 }
     793.1.1 = {	#unknown
         birth = yes
     }
@@ -1819,7 +1819,7 @@ javanese_manisri_04 = {
     dynasty = javanese_manisri
     culture = javanese
     religion = shaivism
-    father = javanese_manisri_03
+    assign_historic_father_as_other_mother = { daddy = javanese_manisri_03 }
     824.1.1 = {	#unknown
         birth = yes
     }
@@ -1863,7 +1863,7 @@ javanese_manisri_07 = {
     dynasty = javanese_manisri
     culture = javanese
     religion = shaivism
-    father = javanese_manisri_06
+    assign_historic_father_as_other_mother = { daddy = javanese_manisri_06 }
     931.1.1 = {	#unknown
         birth = yes
     }
@@ -1922,7 +1922,7 @@ javanese_manisri_11 = {
     dynasty = javanese_manisri
     culture = javanese
     religion = shaivism
-    father = javanese_manisri_10
+    assign_historic_father_as_other_mother = { daddy = javanese_manisri_10 }
     1063.1.1 = {	#unknown
         birth = yes
     }
@@ -1953,7 +1953,7 @@ javanese_manisri_13 = {
     dynasty = javanese_manisri
     culture = javanese
     religion = shaivism
-    father = javanese_manisri_02
+    assign_historic_father_as_other_mother = { daddy = javanese_manisri_02 }
     799.1.1 = {	#unknown/sketchy
         birth = yes
     }
@@ -1971,7 +1971,7 @@ javanese_manisri_14 = {
     dynasty = javanese_manisri
     culture = javanese
     religion = shaivism
-    father = javanese_manisri_13
+    assign_historic_father_as_other_mother = { daddy = javanese_manisri_13 }
     mother = javanese_gilingwesi_05
     839.1.1 = {	#unknown/sketchy
         birth = yes
@@ -1987,7 +1987,7 @@ javanese_manisri_15 = {
     dynasty = javanese_manisri
     culture = javanese
     religion = shaivism
-    father = javanese_manisri_14
+    assign_historic_father_as_other_mother = { daddy = javanese_manisri_14 }
     864.1.1 = {	#unknown
         birth = yes
     }
@@ -2002,7 +2002,7 @@ javanese_manisri_16 = {
     dynasty = javanese_manisri
     culture = javanese
     religion = shaivism
-    father = javanese_manisri_14
+    assign_historic_father_as_other_mother = { daddy = javanese_manisri_14 }
     867.1.1 = {	#unknown
         birth = yes
     }
@@ -2017,7 +2017,7 @@ javanese_manisri_16a = {
     dynasty = javanese_manisri
     culture = javanese
     religion = shaivism
-    father = javanese_manisri_16
+    assign_historic_father_as_other_mother = { daddy = javanese_manisri_16 }
     896.1.1 = {	#unknown
         birth = yes
     }
@@ -2032,7 +2032,7 @@ javanese_manisri_17 = {
     dynasty = javanese_manisri
     culture = javanese
     religion = shaivism
-    father = javanese_manisri_15
+    assign_historic_father_as_other_mother = { daddy = javanese_manisri_15 }
     903.1.1 = {	#unknown
         birth = yes
     }
@@ -2047,7 +2047,7 @@ javanese_manisri_18 = {
     dynasty = javanese_manisri
     culture = javanese
     religion = shaivism
-    father = javanese_manisri_17
+    assign_historic_father_as_other_mother = { daddy = javanese_manisri_17 }
     922.1.1 = {
         birth = yes
     }
@@ -2062,7 +2062,7 @@ javanese_manisri_19 = {
     dynasty = javanese_manisri
     culture = javanese
     religion = shaivism
-    father = javanese_manisri_17
+    assign_historic_father_as_other_mother = { daddy = javanese_manisri_17 }
     929.1.1 = {	#unknown
         birth = yes
     }
@@ -2102,7 +2102,7 @@ javanese_gilingwesi_02 = {
     dynasty = javanese_gilingwesi
     culture = javanese
     religion = shaivism
-    father = javanese_gilingwesi_01
+    assign_historic_father_as_other_mother = { daddy = javanese_gilingwesi_01 }
     767.1.1 = {
         birth = yes
     }
@@ -2135,7 +2135,7 @@ javanese_gilingwesi_04 = {
     dynasty = javanese_gilingwesi
     culture = javanese
     religion = shaivism
-    father = javanese_gilingwesi_03
+    assign_historic_father_as_other_mother = { daddy = javanese_gilingwesi_03 }
     mother = javanese_gilingwesi_02
     794.1.1 = {		#started ruled ~819
         birth = yes
@@ -2151,7 +2151,7 @@ javanese_gilingwesi_05 = {
     dynasty = javanese_gilingwesi
     culture = javanese
     religion = shaivism
-    father = javanese_gilingwesi_03
+    assign_historic_father_as_other_mother = { daddy = javanese_gilingwesi_03 }
     mother = javanese_gilingwesi_02
     800.1.1 = {
         birth = yes
@@ -2167,7 +2167,7 @@ javanese_gilingwesi_06 = {
     dynasty = javanese_gilingwesi
     culture = javanese
     religion = shaivism
-    father = javanese_gilingwesi_03
+    assign_historic_father_as_other_mother = { daddy = javanese_gilingwesi_03 }
     mother = javanese_gilingwesi_02
     895.1.1 = {	#unknown
         birth = yes
@@ -2238,7 +2238,7 @@ javanese_lumajang_03_fic = {	#fictional
     dynasty = javanese_sminingrat
     religion = shaivism
     culture = javanese
-    father = javanese_lumajang_02_fic
+    assign_historic_father_as_other_mother = { daddy = javanese_lumajang_02_fic }
     1127.3.20 = {
         birth = yes
     }
@@ -2253,7 +2253,7 @@ javanese_lumajang_04_fic = {	#fictional
     dynasty = javanese_sminingrat
     religion = shaivism
     culture = javanese
-    father = javanese_lumajang_03_fic
+    assign_historic_father_as_other_mother = { daddy = javanese_lumajang_03_fic }
     1157.4.9 = {
         birth = yes
     }

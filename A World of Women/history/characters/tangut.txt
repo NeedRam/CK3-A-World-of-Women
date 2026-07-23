@@ -961,7 +961,7 @@
     dynasty = 1029302 #Ngwemi/Weiming
     religion = "zhengyi"
     culture = "tangut"
-    father = 206654
+    assign_historic_father_as_other_mother = { daddy = 206654 }
     diplomacy = 5
     martial = 3
     stewardship = 4
@@ -1004,7 +1004,7 @@
     dynasty = 1029302 #Ngwemi/Weiming
     religion = "zhengyi"
     culture = "tangut"
-    father = 206657 # King Renzong_4EC1_5B97
+    assign_historic_father_as_other_mother = { daddy = 206657 }# King Renzong_4EC1_5B97
     mother = tangut_luo_1 # Empress Luo
     1177.1.1 = {
         birth = yes
@@ -1419,7 +1419,7 @@
     dynasty = 1029307 # Yeli
     religion = mahayana
     culture = tangut
-    father = 206685
+    assign_historic_father_as_other_mother = { daddy = 206685 }
     985.1.1 = {
         birth=yes
     }
@@ -2899,7 +2899,7 @@
     dynasty = 1029309 # Mozang
     religion = zhengyi
     culture = tangut
-    father = 206782
+    assign_historic_father_as_other_mother = { daddy = 206782 }
     trait = beauty_good_2
     trait = lustful
     trait = gregarious
@@ -4837,7 +4837,7 @@ tangut_liang_1 =  {
     trait = deceitful
     trait = ambitious
     trait = patient
-    father = tangut_liang_3 # Jie
+    assign_historic_father_as_other_mother = { daddy = tangut_liang_3 }# Jie
     sexuality = heterosexual
     1040.1.1 = {
         birth = yes
@@ -4854,7 +4854,7 @@ tangut_liang_2 =  {
     dynasty = tangut_liang
     religion = zhengyi
     culture = han
-    father = tangut_liang_3 # Jie
+    assign_historic_father_as_other_mother = { daddy = tangut_liang_3 }# Jie
     trait = education_diplomacy_3
     trait = ambitious
     trait = stubborn
@@ -4887,7 +4887,7 @@ tangut_liang_4 =  { # 梁皇后 (西夏惠宗)
     dynasty = tangut_liang
     religion = zhengyi
     culture = han
-    father = tangut_liang_2 # Yimai_4E59_57CB
+    assign_historic_father_as_other_mother = { daddy = tangut_liang_2 }# Yimai_4E59_57CB
     trait = beauty_good_2
     1063.1.1 = {
         birth = yes
@@ -4903,7 +4903,7 @@ tangut_liang_5 = {
     dynasty = tangut_liang
     religion = zhengyi
     culture = han
-    father = tangut_liang_2 # Yimai_4E59_57CB
+    assign_historic_father_as_other_mother = { daddy = tangut_liang_2 }# Yimai_4E59_57CB
     1066.1.1 = {
         birth = yes
     }
@@ -4920,7 +4920,7 @@ tangut_tuoba_1 = {
     dynasty = 1029317 #Tuoba
     religion = zhengyi
     culture = tangut
-    father = 206645 # Yiyin_5F5D_6BB7
+    assign_historic_father_as_other_mother = { daddy = 206645 }# Yiyin_5F5D_6BB7
     937.1.1={
         birth = yes
     }
@@ -4938,7 +4938,7 @@ tangut_tuoba_2 = {
     dynasty = 1029317 #Tuoba
     religion = zhengyi
     culture = tangut
-    father = 206645 # Yiyin_5F5D_6BB7
+    assign_historic_father_as_other_mother = { daddy = 206645 }# Yiyin_5F5D_6BB7
     940.1.1={
         birth = yes
     }
@@ -4958,7 +4958,7 @@ tangut_yeli_1 = { # wife of King Jingzong
     dynasty = 1029307 # Yeli
     religion = mahayana
     culture = tangut
-    father = 206685 # Haili
+    assign_historic_father_as_other_mother = { daddy = 206685 }# Haili
     1010.1.1 = {
         birth=yes
     }
@@ -4975,7 +4975,7 @@ tangut_weiming_1 = {
     dynasty = 1029302 # Weiming
     religion = mahayana
     culture = tangut
-    father = 206650 # King Jingzong_666F_5B97
+    assign_historic_father_as_other_mother = { daddy = 206650 }# King Jingzong_666F_5B97
     mother = tangut_yeli_1 # Xiancheng_5BAA_6210
     1029.1.1 = {
         birth = yes
@@ -4991,7 +4991,7 @@ tangut_weiming_2 = {
     dynasty = 1029302 # Weiming
     religion = mahayana
     culture = tangut
-    father = 206650 # King Jingzong_666F_5B97
+    assign_historic_father_as_other_mother = { daddy = 206650 }# King Jingzong_666F_5B97
     mother = tangut_yeli_1 # Xiancheng_5BAA_6210
     1032.1.1 = {
         birth = yes
@@ -5007,7 +5007,7 @@ tangut_weiming_3 = {
     dynasty = 1029302 # Weiming
     religion = mahayana
     culture = tangut
-    father = 206650 # King Jingzong_666F_5B97
+    assign_historic_father_as_other_mother = { daddy = 206650 }# King Jingzong_666F_5B97
     mother = tangut_yeli_1 # Xiancheng_5BAA_6210
     1035.1.1 = {
         birth = yes
@@ -5025,7 +5025,7 @@ tangut_mozang_1 = { # 没藏皇后 (西夏毅宗)
     dynasty=1029309 # Mozang
     religion="mahayana"
     culture="tangut"
-    father = 206783 # Epang_8BB9_5E9E
+    assign_historic_father_as_other_mother = { daddy = 206783 }# Epang_8BB9_5E9E
     1033.1.1 = {
         birth = yes
     }

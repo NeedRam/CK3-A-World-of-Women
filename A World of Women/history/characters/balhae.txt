@@ -12,7 +12,7 @@ balhae_dae_1 = { # King Go
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_17 # Geol_geol_jung_sang
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_17 }# Geol_geol_jung_sang
     680.1.1 = {
         birth = yes
     }
@@ -28,7 +28,7 @@ balhae_dae_2 = {
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_1
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_1 }
     695.1.1 = {
         birth = yes
     }
@@ -43,7 +43,7 @@ balhae_dae_3 = { # King Mun
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_2 # Mu_ye
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_2 }# Mu_ye
     715.1.1 = {
         birth = yes
     }
@@ -59,7 +59,7 @@ balhae_dae_4 = { # King Won-ui
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_23 #
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_23 }#
     751.1.1 = {
         birth = yes
     }
@@ -74,7 +74,7 @@ balhae_dae_5 = { # King Seong
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_16 # Goeng_rim
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_16 }# Goeng_rim
     771.1.1 = {
         birth = yes
     }
@@ -90,7 +90,7 @@ balhae_dae_6 = { # King Gang
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_3 # Heum_mu
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_3 }# Heum_mu
     754.1.1 = {
         birth = yes
     }
@@ -106,7 +106,7 @@ balhae_dae_7 = { # King Jeong
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_6 # King Gang
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_6 }# King Gang
     777.1.1 = {
         birth = yes
     }
@@ -122,7 +122,7 @@ balhae_dae_8 = { # King Hui
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_6 # King Gang
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_6 }# King Gang
     783.1.1 = {
         birth = yes
     }
@@ -138,7 +138,7 @@ balhae_dae_9 = { # King Gan
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_6 # King Gang
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_6 }# King Gang
     786.1.1 = {
         birth = yes
     }
@@ -154,7 +154,7 @@ balhae_dae_10 = { # King Seon
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_20 # Gwang_deok
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_20 }# Gwang_deok
     750.1.1 = {
         birth = yes
     }
@@ -170,7 +170,7 @@ balhae_dae_11 = {
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_21 # Sin_deok
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_21 }# Sin_deok
     797.1.1 = {
         birth = yes
     }
@@ -185,7 +185,7 @@ balhae_dae_12 = { # King Geon_hwang
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_21 # Sin_deok
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_21 }# Sin_deok
     799.1.1 = {
         birth = yes
     }
@@ -200,7 +200,7 @@ balhae_dae_14 = { # King Wi_hae
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_22 # Hyeon_seok
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_22 }# Hyeon_seok
     873.1.1 = {
         birth = yes
     }
@@ -215,7 +215,7 @@ balhae_dae_15 = { # King In_seon
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_14 # Wi_hae
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_14 }# Wi_hae
     891.1.1 = {
         birth = yes
     }
@@ -230,7 +230,7 @@ balhae_dae_16 = {
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_3 # King Mun
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_3 }# King Mun
     745.1.1 = {
         birth = yes
     }
@@ -259,7 +259,7 @@ balhae_dae_18 = {
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_17 # Geol_geol_jung_sang
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_17 }# Geol_geol_jung_sang
     685.1.1 = {
         birth = yes
     }
@@ -274,7 +274,7 @@ balhae_dae_19 = {
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_18 # Ya_bal
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_18 }# Ya_bal
     725.1.1 = {
         birth = yes
     }
@@ -289,7 +289,7 @@ balhae_dae_20 = {
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_18 # Ya_bal
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_18 }# Ya_bal
     730.1.1 = {
         birth = yes
     }
@@ -304,7 +304,7 @@ balhae_dae_21 = {
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_10 # In_su
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_10 }# In_su
     769.1.1 = {
         birth = yes
     }
@@ -319,7 +319,7 @@ balhae_dae_22 = { # King Hyeon_seok
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_12 # King Geon_hwang
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_12 }# King Geon_hwang
     827.1.1 = {
         birth = yes
     }
@@ -334,7 +334,7 @@ balhae_dae_23 = {
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_2 # King Mu_ye
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_2 }# King Mu_ye
     725.1.1 = {
         birth = yes
     }
@@ -349,7 +349,7 @@ balhae_dae_24 = {
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_14 # Wi_hae
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_14 }# Wi_hae
     901.1.1 = {
         birth = yes
     }
@@ -364,7 +364,7 @@ balhae_dae_25 = {
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_18 # Ya_bal
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_18 }# Ya_bal
     704.1.1 = {
         birth = yes
     }
@@ -379,7 +379,7 @@ balhae_dae_26 = {
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_7 # King Jeong
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_7 }# King Jeong
     798.1.1 = {
         birth = yes
     }
@@ -394,7 +394,7 @@ balhae_dae_27 = {
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_8 # King Hui
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_8 }# King Hui
     810.1.1 = {
         birth = yes
     }
@@ -423,7 +423,7 @@ balhae_dae_29 = {
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_28 #
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_28 }#
     986.1.1 = {
         birth = yes
     }
@@ -438,7 +438,7 @@ balhae_dae_30 = {
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_28 #
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_28 }#
     990.1.1 = {
         birth = yes
     }
@@ -453,7 +453,7 @@ balhae_dae_31 = { # Prince Gwang_hyeon
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_15 # King In_seon
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_15 }# King In_seon
     909.1.1 = {
         birth = yes
     }
@@ -468,7 +468,7 @@ balhae_dae_32 = {
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_31 # Gwang_hyeon
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_31 }# Gwang_hyeon
     942.1.1 = {
         birth = yes
     }
@@ -483,7 +483,7 @@ balhae_dae_33 = {
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_32 # Do_su
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_32 }# Do_su
     980.1.1 = {
         birth = yes
     }
@@ -498,7 +498,7 @@ balhae_dae_34 = {
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_33 # Hyeong_in
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_33 }# Hyeong_in
     1023.1.1 = {
         birth = yes
     }
@@ -513,7 +513,7 @@ balhae_dae_35 = {
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_34 # Hong_yun
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_34 }# Hong_yun
     1066.1.1 = {
         birth = yes
     }
@@ -528,7 +528,7 @@ balhae_dae_38 = {
     dynasty = balhae_dae
     religion = avatamsaka
     culture = goryeo
-    father = balhae_dae_35 # Wan
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_35 }# Wan
     1101.1.1 = {
         birth = yes
     }
@@ -543,7 +543,7 @@ balhae_dae_39 = {
     dynasty = balhae_dae
     religion = avatamsaka
     culture = goryeo
-    father = balhae_dae_38 # Gyeom
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_38 }# Gyeom
     1143.1.1 = {
         birth = yes
     }
@@ -558,7 +558,7 @@ balhae_dae_40 = {
     dynasty = balhae_dae
     religion = avatamsaka
     culture = goryeo
-    father = balhae_dae_39 # Su_han
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_39 }# Su_han
     1171.1.1 = {
         birth = yes
     }
@@ -573,7 +573,7 @@ balhae_dae_41 = {
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_14 # Bong_ye
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_14 }# Bong_ye
     932.1.1 = {
         birth = yes
     }
@@ -588,7 +588,7 @@ balhae_dae_42 = {
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_14 # Bong_ye
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_14 }# Bong_ye
     935.1.1 = {
         birth = yes
     }
@@ -603,7 +603,7 @@ balhae_dae_43 = {
     dynasty = balhae_dae
     religion = avatamsaka
     culture = goryeo
-    father = balhae_dae_39 # Su_han
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_39 }# Su_han
     1174.1.1 = {
         birth = yes
     }
@@ -653,7 +653,7 @@ balhae_dae_52_fic = {
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_50_fic
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_50_fic }
     mother = balhae_dae_51_fic
     1044.1.29 = {
         birth = yes
@@ -669,7 +669,7 @@ balhae_dae_53_fic = {
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_50_fic
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_50_fic }
     mother = balhae_dae_51_fic
     1046.11.7 = {
         birth = yes
@@ -685,7 +685,7 @@ balhae_dae_54_fic = {
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_50_fic
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_50_fic }
     1047.12.14 = {
         birth = yes
     }
@@ -700,7 +700,7 @@ balhae_dae_55_fic = {
     dynasty = balhae_dae
     religion = vinaya
     culture = balhae
-    father = balhae_dae_50_fic
+    assign_historic_father_as_other_mother = { daddy = balhae_dae_50_fic }
     mother = balhae_dae_51_fic
     1049.4.20 = {
         birth = yes
@@ -739,7 +739,7 @@ balhae_hae_2 = {
     dynasty = balhae_hae
     religion = vinaya
     culture = balhae
-    father = balhae_hae_1
+    assign_historic_father_as_other_mother = { daddy = balhae_hae_1 }
     856.1.1 = {
         birth = yes
     }
@@ -754,7 +754,7 @@ balhae_hae_3 = {
     dynasty = balhae_hae
     religion = vinaya
     culture = balhae
-    father = balhae_hae_1
+    assign_historic_father_as_other_mother = { daddy = balhae_hae_1 }
     859.1.1 = {
         birth = yes
     }
@@ -769,7 +769,7 @@ balhae_hae_4 = {
     dynasty = balhae_hae
     religion = vinaya
     culture = balhae
-    father = balhae_hae_1
+    assign_historic_father_as_other_mother = { daddy = balhae_hae_1 }
     862.1.1 = {
         birth = yes
     }
@@ -807,7 +807,7 @@ balhae_jin_2 = {
     dynasty = balhae_jin
     religion = vinaya
     culture = balhae
-    father = balhae_jin_1
+    assign_historic_father_as_other_mother = { daddy = balhae_jin_1 }
     851.1.1 = {
         birth = yes
     }
@@ -822,7 +822,7 @@ balhae_jin_3 = {
     dynasty = balhae_jin
     religion = vinaya
     culture = balhae
-    father = balhae_jin_1
+    assign_historic_father_as_other_mother = { daddy = balhae_jin_1 }
     856.1.1 = {
         birth = yes
     }
@@ -860,7 +860,7 @@ balhae_mok_2 = {
     dynasty = balhae_mok
     religion = vinaya
     culture = balhae
-    father = balhae_mok_1
+    assign_historic_father_as_other_mother = { daddy = balhae_mok_1 }
     862.1.1 = {
         birth = yes
     }
@@ -875,7 +875,7 @@ balhae_mok_3 = {
     dynasty = balhae_mok
     religion = vinaya
     culture = balhae
-    father = balhae_mok_1
+    assign_historic_father_as_other_mother = { daddy = balhae_mok_1 }
     865.1.1 = {
         birth = yes
     }
@@ -890,7 +890,7 @@ balhae_mok_4 = {
     dynasty = balhae_mok
     religion = vinaya
     culture = balhae
-    father = balhae_mok_1
+    assign_historic_father_as_other_mother = { daddy = balhae_mok_1 }
     866.1.1 = {
         birth = yes
     }
@@ -905,7 +905,7 @@ balhae_mok_5 = {
     dynasty = balhae_mok
     religion = vinaya
     culture = balhae
-    father = balhae_mok_1
+    assign_historic_father_as_other_mother = { daddy = balhae_mok_1 }
     867.1.1 = {
         birth = yes
     }
@@ -943,7 +943,7 @@ balhae_sa_2 = {
     dynasty = balhae_sa
     religion = vinaya
     culture = balhae
-    father = balhae_sa_1
+    assign_historic_father_as_other_mother = { daddy = balhae_sa_1 }
     854.1.1 = {
         birth = yes
     }
@@ -958,7 +958,7 @@ balhae_sa_3 = {
     dynasty = balhae_sa
     religion = vinaya
     culture = balhae
-    father = balhae_sa_1
+    assign_historic_father_as_other_mother = { daddy = balhae_sa_1 }
     857.1.1 = {
         birth = yes
     }
@@ -973,7 +973,7 @@ balhae_sa_4 = {
     dynasty = balhae_sa
     religion = vinaya
     culture = balhae
-    father = balhae_sa_1
+    assign_historic_father_as_other_mother = { daddy = balhae_sa_1 }
     860.1.1 = {
         birth = yes
     }
@@ -988,7 +988,7 @@ balhae_sa_5 = {
     dynasty = balhae_sa
     religion = vinaya
     culture = balhae
-    father = balhae_sa_1
+    assign_historic_father_as_other_mother = { daddy = balhae_sa_1 }
     862.1.1 = {
         birth = yes
     }
@@ -1003,7 +1003,7 @@ balhae_sa_6 = {
     dynasty = balhae_sa
     religion = vinaya
     culture = balhae
-    father = balhae_sa_1
+    assign_historic_father_as_other_mother = { daddy = balhae_sa_1 }
     865.1.1 = {
         birth = yes
     }
@@ -1041,7 +1041,7 @@ balhae_yeon_2 = {
     dynasty = balhae_yeon
     religion = vinaya
     culture = balhae
-    father = balhae_yeon_1
+    assign_historic_father_as_other_mother = { daddy = balhae_yeon_1 }
     859.1.1 = {
         birth = yes
     }
@@ -1056,7 +1056,7 @@ balhae_yeon_3 = {
     dynasty = balhae_yeon
     religion = vinaya
     culture = balhae
-    father = balhae_yeon_1
+    assign_historic_father_as_other_mother = { daddy = balhae_yeon_1 }
     861.1.1 = {
         birth = yes
     }
@@ -1071,7 +1071,7 @@ balhae_yeon_4 = {
     dynasty = balhae_yeon
     religion = vinaya
     culture = balhae
-    father = balhae_yeon_1
+    assign_historic_father_as_other_mother = { daddy = balhae_yeon_1 }
     864.1.1 = {
         birth = yes
     }
@@ -1109,7 +1109,7 @@ balhae_baek_2 = {
     dynasty = balhae_baek
     religion = vinaya
     culture = balhae
-    father = balhae_baek_1
+    assign_historic_father_as_other_mother = { daddy = balhae_baek_1 }
     842.1.1 = {
         birth = yes
     }
@@ -1124,7 +1124,7 @@ balhae_baek_3 = {
     dynasty = balhae_baek
     religion = vinaya
     culture = balhae
-    father = balhae_baek_1
+    assign_historic_father_as_other_mother = { daddy = balhae_baek_1 }
     845.1.1 = {
         birth = yes
     }
@@ -1139,7 +1139,7 @@ balhae_baek_4 = {
     dynasty = balhae_baek
     religion = vinaya
     culture = balhae
-    father = balhae_baek_1
+    assign_historic_father_as_other_mother = { daddy = balhae_baek_1 }
     848.1.1 = {
         birth = yes
     }
@@ -1177,7 +1177,7 @@ balhae_guk_2 = {
     dynasty = balhae_guk
     religion = vinaya
     culture = balhae
-    father = balhae_guk_1
+    assign_historic_father_as_other_mother = { daddy = balhae_guk_1 }
     855.1.1 = {
         birth = yes
     }
@@ -1192,7 +1192,7 @@ balhae_guk_3 = {
     dynasty = balhae_guk
     religion = vinaya
     culture = balhae
-    father = balhae_guk_1
+    assign_historic_father_as_other_mother = { daddy = balhae_guk_1 }
     857.1.1 = {
         birth = yes
     }
@@ -1230,7 +1230,7 @@ balhae_ye_2 = {
     dynasty = balhae_ye
     religion = vinaya
     culture = balhae
-    father = balhae_ye_1
+    assign_historic_father_as_other_mother = { daddy = balhae_ye_1 }
     850.1.1 = {
         birth = yes
     }
@@ -1245,7 +1245,7 @@ balhae_ye_3 = {
     dynasty = balhae_ye
     religion = vinaya
     culture = balhae
-    father = balhae_ye_1
+    assign_historic_father_as_other_mother = { daddy = balhae_ye_1 }
     852.1.1 = {
         birth = yes
     }
@@ -1260,7 +1260,7 @@ balhae_ye_4 = {
     dynasty = balhae_ye
     religion = vinaya
     culture = balhae
-    father = balhae_ye_1
+    assign_historic_father_as_other_mother = { daddy = balhae_ye_1 }
     854.1.1 = {
         birth = yes
     }
@@ -1298,7 +1298,7 @@ balhae_jeo_2 = {
     dynasty = balhae_jeo
     religion = vinaya
     culture = balhae
-    father = balhae_jeo_1
+    assign_historic_father_as_other_mother = { daddy = balhae_jeo_1 }
     859.1.1 = {
         birth = yes
     }
@@ -1313,7 +1313,7 @@ balhae_jeo_3 = {
     dynasty = balhae_jeo
     religion = vinaya
     culture = balhae
-    father = balhae_jeo_1
+    assign_historic_father_as_other_mother = { daddy = balhae_jeo_1 }
     862.1.1 = {
         birth = yes
     }
@@ -1328,7 +1328,7 @@ balhae_jeo_4 = {
     dynasty = balhae_jeo
     religion = vinaya
     culture = balhae
-    father = balhae_jeo_1
+    assign_historic_father_as_other_mother = { daddy = balhae_jeo_1 }
     865.1.1 = {
         birth = yes
     }
@@ -1366,7 +1366,7 @@ balhae_jeok_2 = {
     dynasty = balhae_jeok
     religion = vinaya
     culture = balhae
-    father = balhae_jeok_1
+    assign_historic_father_as_other_mother = { daddy = balhae_jeok_1 }
     854.1.1 = {
         birth = yes
     }
@@ -1381,7 +1381,7 @@ balhae_jeok_3 = {
     dynasty = balhae_jeok
     religion = vinaya
     culture = balhae
-    father = balhae_jeok_1
+    assign_historic_father_as_other_mother = { daddy = balhae_jeok_1 }
     857.1.1 = {
         birth = yes
     }
@@ -1396,7 +1396,7 @@ balhae_jeok_4 = {
     dynasty = balhae_jeok
     religion = vinaya
     culture = balhae
-    father = balhae_jeok_1
+    assign_historic_father_as_other_mother = { daddy = balhae_jeok_1 }
     860.1.1 = {
         birth = yes
     }
@@ -1434,7 +1434,7 @@ balhae_nan_2 = {
     dynasty = balhae_nan
     religion = vinaya
     culture = balhae
-    father = balhae_nan_1
+    assign_historic_father_as_other_mother = { daddy = balhae_nan_1 }
     858.1.1 = {
         birth = yes
     }
@@ -1449,7 +1449,7 @@ balhae_nan_3 = {
     dynasty = balhae_nan
     religion = vinaya
     culture = balhae
-    father = balhae_nan_1
+    assign_historic_father_as_other_mother = { daddy = balhae_nan_1 }
     860.1.1 = {
         birth = yes
     }
@@ -1487,7 +1487,7 @@ balhae_dongseong_2 = {
     dynasty = balhae_dongseong
     religion = vinaya
     culture = balhae
-    father = balhae_dongseong_1
+    assign_historic_father_as_other_mother = { daddy = balhae_dongseong_1 }
     851.1.1 = {
         birth = yes
     }
@@ -1502,7 +1502,7 @@ balhae_dongseong_3 = {
     dynasty = balhae_dongseong
     religion = vinaya
     culture = balhae
-    father = balhae_dongseong_1
+    assign_historic_father_as_other_mother = { daddy = balhae_dongseong_1 }
     854.1.1 = {
         birth = yes
     }
@@ -1517,7 +1517,7 @@ balhae_dongseong_4 = {
     dynasty = balhae_dongseong
     religion = vinaya
     culture = balhae
-    father = balhae_dongseong_1
+    assign_historic_father_as_other_mother = { daddy = balhae_dongseong_1 }
     857.1.1 = {
         birth = yes
     }
@@ -1555,7 +1555,7 @@ balhae_heukchi_2 = {
     dynasty = balhae_heukchi
     religion = vinaya
     culture = balhae
-    father = balhae_heukchi_1
+    assign_historic_father_as_other_mother = { daddy = balhae_heukchi_1 }
     863.1.1 = {
         birth = yes
     }
@@ -1570,7 +1570,7 @@ balhae_heukchi_3 = {
     dynasty = balhae_heukchi
     religion = vinaya
     culture = balhae
-    father = balhae_heukchi_1
+    assign_historic_father_as_other_mother = { daddy = balhae_heukchi_1 }
     866.1.1 = {
         birth = yes
     }
@@ -1608,7 +1608,7 @@ balhae_mun_2 = {
     dynasty = balhae_mun
     religion = vinaya
     culture = balhae
-    father = balhae_mun_1
+    assign_historic_father_as_other_mother = { daddy = balhae_mun_1 }
     859.1.1 = {
         birth = yes
     }
@@ -1623,7 +1623,7 @@ balhae_mun_3 = {
     dynasty = balhae_mun
     religion = vinaya
     culture = balhae
-    father = balhae_mun_1
+    assign_historic_father_as_other_mother = { daddy = balhae_mun_1 }
     863.1.1 = {
         birth = yes
     }
@@ -1638,7 +1638,7 @@ balhae_mun_4 = {
     dynasty = balhae_mun
     religion = vinaya
     culture = balhae
-    father = balhae_mun_1
+    assign_historic_father_as_other_mother = { daddy = balhae_mun_1 }
     862.1.1 = {
         birth = yes
     }
@@ -1676,7 +1676,7 @@ balhae_gwisil_2 = {
     dynasty = balhae_gwisil
     religion = vinaya
     culture = balhae
-    father = balhae_gwisil_1
+    assign_historic_father_as_other_mother = { daddy = balhae_gwisil_1 }
     859.1.1 = {
         birth = yes
     }
@@ -1691,7 +1691,7 @@ balhae_gwisil_3 = {
     dynasty = balhae_gwisil
     religion = vinaya
     culture = balhae
-    father = balhae_gwisil_1
+    assign_historic_father_as_other_mother = { daddy = balhae_gwisil_1 }
     862.1.1 = {
         birth = yes
     }
@@ -1706,7 +1706,7 @@ balhae_gwisil_4 = {
     dynasty = balhae_gwisil
     religion = vinaya
     culture = balhae
-    father = balhae_gwisil_1
+    assign_historic_father_as_other_mother = { daddy = balhae_gwisil_1 }
     865.1.1 = {
         birth = yes
     }
@@ -1721,7 +1721,7 @@ balhae_gwisil_5 = {
     dynasty = balhae_gwisil
     religion = vinaya
     culture = balhae
-    father = balhae_gwisil_1
+    assign_historic_father_as_other_mother = { daddy = balhae_gwisil_1 }
     868.1.1 = {
         birth = yes
     }
@@ -1759,7 +1759,7 @@ balhae_eokrye_2 = {
     dynasty = balhae_eokrye
     religion = vinaya
     culture = balhae
-    father = balhae_eokrye_1
+    assign_historic_father_as_other_mother = { daddy = balhae_eokrye_1 }
     853.1.1 = {
         birth = yes
     }
@@ -1774,7 +1774,7 @@ balhae_eokrye_3 = {
     dynasty = balhae_eokrye
     religion = vinaya
     culture = balhae
-    father = balhae_eokrye_1
+    assign_historic_father_as_other_mother = { daddy = balhae_eokrye_1 }
     857.1.1 = {
         birth = yes
     }
@@ -1789,7 +1789,7 @@ balhae_eokrye_4 = {
     dynasty = balhae_eokrye
     religion = vinaya
     culture = balhae
-    father = balhae_eokrye_1
+    assign_historic_father_as_other_mother = { daddy = balhae_eokrye_1 }
     860.1.1 = {
         birth = yes
     }
@@ -1845,7 +1845,7 @@ balhae_eun_2 = {
     dynasty = balhae_eun
     religion = vinaya
     culture = balhae
-    father = balhae_eun_1 #
+    assign_historic_father_as_other_mother = { daddy = balhae_eun_1 }#
     865.1.1 = {
         birth = yes
     }
@@ -1876,7 +1876,7 @@ balhae_wi_2 = {
     dynasty = balhae_wi
     religion = vinaya
     culture = balhae
-    father = balhae_wi_1 #
+    assign_historic_father_as_other_mother = { daddy = balhae_wi_1 }#
     866.1.1 = {
         birth = yes
     }
@@ -1907,7 +1907,7 @@ balhae_mo_2 = {
     dynasty = balhae_mo
     religion = vinaya
     culture = balhae
-    father = balhae_mo_1 #
+    assign_historic_father_as_other_mother = { daddy = balhae_mo_1 }#
     865.1.1 = {
         birth = yes
     }
@@ -1938,7 +1938,7 @@ balhae_bak_2 = {
     dynasty = balhae_bak
     religion = vinaya
     culture = balhae
-    father = balhae_bak_1 # Seung
+    assign_historic_father_as_other_mother = { daddy = balhae_bak_1 }# Seung
     866.1.1 = {
         birth = yes
     }
@@ -1969,7 +1969,7 @@ balhae_bae_2 = {
     dynasty = balhae_bae
     religion = vinaya
     culture = balhae
-    father = balhae_bae_1 #
+    assign_historic_father_as_other_mother = { daddy = balhae_bae_1 }#
     854.1.1 = {
         birth = yes
     }
@@ -2014,7 +2014,7 @@ balhae_sin_2 = {
     dynasty = balhae_sin
     religion = vinaya
     culture = balhae
-    father = balhae_sin_1 #
+    assign_historic_father_as_other_mother = { daddy = balhae_sin_1 }#
     867.1.1 = {
         birth = yes
     }
@@ -2068,7 +2068,7 @@ balhae_o_2 = {
     dynasty = balhae_o
     religion = vinaya
     culture = balhae
-    father = balhae_o_1 # Heung
+    assign_historic_father_as_other_mother = { daddy = balhae_o_1 }# Heung
     851.1.1 = {
         birth = yes
     }
@@ -2083,7 +2083,7 @@ balhae_o_3 = {
     dynasty = balhae_o
     religion = vinaya
     culture = balhae
-    father = balhae_o_2 # So_do
+    assign_historic_father_as_other_mother = { daddy = balhae_o_2 }# So_do
     888.1.1 = {
         birth = yes
     }
@@ -2098,7 +2098,7 @@ balhae_o_4 = {
     dynasty = balhae_o
     religion = vinaya
     culture = balhae
-    father = balhae_o_3 # Gwang_chan
+    assign_historic_father_as_other_mother = { daddy = balhae_o_3 }# Gwang_chan
     917.1.1 = {
         birth = yes
     }
@@ -2113,7 +2113,7 @@ balhae_o_5 = { # King Hyeon_myeong
     dynasty = balhae_o
     religion = vinaya
     culture = balhae
-    father = balhae_o_4 # Je_hyeon
+    assign_historic_father_as_other_mother = { daddy = balhae_o_4 }# Je_hyeon
     941.1.1 = {
         birth = yes
     }
@@ -2128,7 +2128,7 @@ balhae_o_6 = {
     dynasty = balhae_o
     religion = vinaya
     culture = balhae
-    father = balhae_o_5 # Hyeon_myeong
+    assign_historic_father_as_other_mother = { daddy = balhae_o_5 }# Hyeon_myeong
     969.1.1 = {
         birth = yes
     }
@@ -2166,7 +2166,7 @@ balhae_go_2 = {
     dynasty = balhae_go
     religion = vinaya
     culture = balhae
-    father = balhae_go_1 #
+    assign_historic_father_as_other_mother = { daddy = balhae_go_1 }#
     837.1.1 = {
         birth = yes
     }
@@ -2181,7 +2181,7 @@ balhae_go_3 = {
     dynasty = balhae_go
     religion = vinaya
     culture = balhae
-    father = balhae_go_2 #
+    assign_historic_father_as_other_mother = { daddy = balhae_go_2 }#
     865.1.1 = {
         birth = yes
     }
@@ -2196,7 +2196,7 @@ balhae_go_4 = {
     dynasty = balhae_go
     religion = vinaya
     culture = balhae
-    father = balhae_go_3 #
+    assign_historic_father_as_other_mother = { daddy = balhae_go_3 }#
     891.1.1 = {
         birth = yes
     }
@@ -2211,7 +2211,7 @@ balhae_go_5 = {
     dynasty = balhae_go
     religion = vinaya
     culture = balhae
-    father = balhae_go_1 #
+    assign_historic_father_as_other_mother = { daddy = balhae_go_1 }#
     840.1.1 = {
         birth = yes
     }
@@ -2226,7 +2226,7 @@ balhae_go_6 = {
     dynasty = balhae_go
     religion = vinaya
     culture = balhae
-    father = balhae_go_1 #
+    assign_historic_father_as_other_mother = { daddy = balhae_go_1 }#
     843.1.1 = {
         birth = yes
     }
@@ -2241,7 +2241,7 @@ balhae_go_7 = {
     dynasty = balhae_go
     religion = vinaya
     culture = balhae
-    father = balhae_go_8 # Gwan_74D8
+    assign_historic_father_as_other_mother = { daddy = balhae_go_8 }# Gwan_74D8
     1066.1.1 = {
         birth = yes
     }
@@ -2293,7 +2293,7 @@ balhae_yeol_2 = {
     dynasty = balhae_yeol
     religion = vinaya
     culture = balhae
-    father = balhae_yeol_1 #
+    assign_historic_father_as_other_mother = { daddy = balhae_yeol_1 }#
     867.1.1 = {
         birth = yes
     }
@@ -2308,7 +2308,7 @@ balhae_yeol_3 = {
     dynasty = balhae_yeol
     religion = vinaya
     culture = balhae
-    father = balhae_yeol_2 # Ju_do
+    assign_historic_father_as_other_mother = { daddy = balhae_yeol_2 }# Ju_do
     895.1.1 = {
         birth = yes
     }
@@ -2323,7 +2323,7 @@ balhae_yeol_4 = { # King Man-hwa
     dynasty = balhae_yeol
     religion = vinaya
     culture = balhae
-    father = balhae_yeol_3 #
+    assign_historic_father_as_other_mother = { daddy = balhae_yeol_3 }#
     933.1.1 = {
         birth = yes
     }
@@ -2361,7 +2361,7 @@ balhae_yang_2 = {
     dynasty = balhae_yang
     religion = vinaya
     culture = balhae
-    father = balhae_yang_1 #
+    assign_historic_father_as_other_mother = { daddy = balhae_yang_1 }#
     829.1.1 = {
         birth = yes
     }
@@ -2376,7 +2376,7 @@ balhae_yang_3 = {
     dynasty = balhae_yang
     religion = vinaya
     culture = balhae
-    father = balhae_yang_1 #
+    assign_historic_father_as_other_mother = { daddy = balhae_yang_1 }#
     831.1.1 = {
         birth = yes
     }
@@ -2405,7 +2405,7 @@ balhae_yang_5 = {
     dynasty = balhae_yang
     religion = vinaya
     culture = balhae
-    father = balhae_yang_4 # Gyu
+    assign_historic_father_as_other_mother = { daddy = balhae_yang_4 }# Gyu
     993.1.1 = {
         birth = yes
     }
@@ -2420,7 +2420,7 @@ balhae_yang_6 = {
     dynasty = balhae_yang
     religion = vinaya
     culture = balhae
-    father = balhae_yang_5 # Dae_chun
+    assign_historic_father_as_other_mother = { daddy = balhae_yang_5 }# Dae_chun
     1028.1.1 = {
         birth = yes
     }

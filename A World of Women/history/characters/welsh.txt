@@ -30,7 +30,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = education_martial_2
-    father = 184125 #Cuhelyn
+    assign_historic_father_as_other_mother = { daddy = 184125 }#Cuhelyn
     950.1.1 = {
         birth = "950.1.1"
     }
@@ -46,7 +46,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = education_martial_2
-    father = 8187 #Idnerth ap Madog
+    assign_historic_father_as_other_mother = { daddy = 8187 }#Idnerth ap Madog
     1050.1.1 = {
         birth = "1050.1.1"
     }
@@ -61,7 +61,7 @@
     dynasty_house = house_british_isles_maelienydd #Maelienydd
     religion = "catholic"
     culture = "welsh"
-    father = 131702
+    assign_historic_father_as_other_mother = { daddy = 131702 }
     1118.1.1 = {
         birth = "1118.1.1"
     }
@@ -83,7 +83,7 @@
     stewardship = 5
     religion = "catholic"
     culture = "welsh"
-    father = 159312
+    assign_historic_father_as_other_mother = { daddy = 159312 }
     mother = 159374
     trait = cynical
     trait = education_diplomacy_2
@@ -101,7 +101,7 @@
     dynasty = 4041 # FitzGerald
     religion = "catholic"
     culture = "welsh"
-    father = 204056 # Gerald de Windsor
+    assign_historic_father_as_other_mother = { daddy = 204056 }# Gerald de Windsor
     mother = 204057  # Nest ferch Rhys
     1126.1.1 = {
         birth = "1126.1.1"
@@ -118,7 +118,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = bastard
-    father = 81816 #Rhys ap Tewdr
+    assign_historic_father_as_other_mother = { daddy = 81816 }#Rhys ap Tewdr
     1085.1.1 = {
         birth = "1085.1.1"
     }
@@ -138,7 +138,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = education_martial_2
-    father = 205831
+    assign_historic_father_as_other_mother = { daddy = 205831 }
     mother = 205840
     1150.1.2 = {
         birth = "1150.1.2"
@@ -181,7 +181,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = kinslayer_3
-    father = 214710 #Owain ap Gruffydd
+    assign_historic_father_as_other_mother = { daddy = 214710 }#Owain ap Gruffydd
     mother = 214808 #Crisiant ferch Gronw
     1134.1.1 = {
         birth = "1134.1.1"
@@ -208,7 +208,7 @@
     trait = deceitful
     trait = humble
     trait = education_martial_2
-    father = 214700
+    assign_historic_father_as_other_mother = { daddy = 214700 }
     mother = 204499
     1174.1.2 = {
         birth = "1174.1.2"
@@ -231,7 +231,7 @@
     culture = "welsh"
     trait = craven
     trait = education_stewardship_2
-    father = 214700
+    assign_historic_father_as_other_mother = { daddy = 214700 }
     mother = 204499
     1175.1.2 = {
         birth = "1175.1.2"
@@ -255,7 +255,7 @@
     trait = chaste
     trait = arbitrary
     trait = education_stewardship_2
-    father = 214700
+    assign_historic_father_as_other_mother = { daddy = 214700 }
     mother = 204499
     1176.1.2 = {
         birth = "1176.1.2"
@@ -278,7 +278,7 @@
     culture = "welsh"
     trait = brave
     trait = education_martial_2
-    father = 214700
+    assign_historic_father_as_other_mother = { daddy = 214700 }
     mother = 204499
     1177.1.2 = {
         birth = "1177.1.2"
@@ -295,7 +295,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 81031 #Gruffyd ap Cynan
+    assign_historic_father_as_other_mother = { daddy = 81031 }#Gruffyd ap Cynan
     mother = 214814 #Angharad ferch Owain
     trait = lustful
     1100.1.1 = {
@@ -322,7 +322,7 @@
     female = yes
     religion = "catholic"
     culture = "welsh"
-    father = 138478 # Llywarch ap Trahaiarn
+    assign_historic_father_as_other_mother = { daddy = 138478 }# Llywarch ap Trahaiarn
     1100.1.1 = {
         birth = "1100.1.1" #unknown
     }
@@ -339,7 +339,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 214710 #Owain ap Gruffydd
+    assign_historic_father_as_other_mother = { daddy = 214710 }#Owain ap Gruffydd
     mother = 214711 #Gwladys Aberffraw
     trait = beauty_bad_2
     1132.1.1 = {
@@ -360,7 +360,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 214712 #Iorwerth ap Owain
+    assign_historic_father_as_other_mother = { daddy = 214712 }#Iorwerth ap Owain
     mother = 214717 #Marared of Powys
     1173.1.1 = {
         birth = "1173.1.1"
@@ -392,7 +392,7 @@
     trait = diligent
     trait = just
     trait = calm
-    father = 214710
+    assign_historic_father_as_other_mother = { daddy = 214710 }
     mother = 214713
     1130.1.2 = {
         birth = "1130.1.2"
@@ -409,7 +409,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 214710 #Owain ap Gruffydd
+    assign_historic_father_as_other_mother = { daddy = 214710 }#Owain ap Gruffydd
     mother = 214713
     trait = bastard
     1131.1.1 = {
@@ -427,7 +427,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 214718 #Madog ap Maredudd
+    assign_historic_father_as_other_mother = { daddy = 214718 }#Madog ap Maredudd
     #mother Susann of Gwynedd
     1150.1.1 = {
         birth = "1150.1.1"
@@ -445,7 +445,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 6360 #Maredudd ap Bleddyn
+    assign_historic_father_as_other_mother = { daddy = 6360 }#Maredudd ap Bleddyn
     1070.1.1 = {
         birth = "1070.1.1" #unknown
     }
@@ -464,7 +464,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 214722 #Gruffyd ap Maredudd
+    assign_historic_father_as_other_mother = { daddy = 214722 }#Gruffyd ap Maredudd
     #mother Gwerfyl daughter of Gwrgeno ap Hywel
     1125.1.1 = {
         birth = "1125.1.1"
@@ -484,7 +484,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 214710 # Owain ap Gruffydd
+    assign_historic_father_as_other_mother = { daddy = 214710 }# Owain ap Gruffydd
     trait = bastard
     1140.1.1 = {
         birth = "1140.1.1" #unknown
@@ -501,7 +501,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 6360 #Maredudd ap Bleddyn
+    assign_historic_father_as_other_mother = { daddy = 6360 }#Maredudd ap Bleddyn
     1064.1.1 = {
         birth = "1064.1.1"
     }
@@ -518,7 +518,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 81854 #Gruffydd Maelor ap Madog
+    assign_historic_father_as_other_mother = { daddy = 81854 }#Gruffydd Maelor ap Madog
     #mother Angharad of Gwynedd
     1175.1.1 = {
         birth = "1175.1.1" #unknown
@@ -536,7 +536,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = gregarious
-    father = 214810 #Gruffydd ap Rhys
+    assign_historic_father_as_other_mother = { daddy = 214810 }#Gruffydd ap Rhys
     mother = 214811 #Gwenllian ferch Gruffydd
     1132.1.2 = {
         birth = "1132.1.2"
@@ -556,7 +556,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 214718 #Madog ap Maredudd
+    assign_historic_father_as_other_mother = { daddy = 214718 }#Madog ap Maredudd
     mother = 138449 #Susann ferch Gruffydd
     1136.1.1 = {
         birth = "1136.1.1"
@@ -573,7 +573,7 @@
     dynasty_house = house_british_isles_dinefwr #Dinefwr
     religion = "catholic"
     culture = "welsh"
-    father = 214800 #Rhys ap Gruffydd
+    assign_historic_father_as_other_mother = { daddy = 214800 }#Rhys ap Gruffydd
     mother = 214801 #Gwenllian ferch Owain
     1162.1.1 = {
         birth = "1162.1.1"
@@ -591,7 +591,7 @@
     dynasty_house = house_british_isles_dinefwr #Dinefwr
     religion = "catholic"
     culture = "welsh"
-    father = 214800 #Rhys ap Gruffydd
+    assign_historic_father_as_other_mother = { daddy = 214800 }#Rhys ap Gruffydd
     mother = 214801 #Gwenllian ferch Owain
     1164.1.1 = {
         birth = "1164.1.1"
@@ -611,7 +611,7 @@
     dynasty_house = house_british_isles_dinefwr #Dinefwr
     religion = "catholic"
     culture = "welsh"
-    father = 214800
+    assign_historic_father_as_other_mother = { daddy = 214800 }
     mother = 214801
     1166.1.2 = {
         birth = "1166.1.2"
@@ -629,7 +629,7 @@
     dynasty_house = house_british_isles_dinefwr #Dinefwr
     religion = "catholic"
     culture = "welsh"
-    father = 214800 #Rhys ap Gruffydd
+    assign_historic_father_as_other_mother = { daddy = 214800 }#Rhys ap Gruffydd
     mother = 214801 #Gwenllian ferch Owain
     1167.1.1 = {
         birth = "1167.1.1"
@@ -647,7 +647,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = bastard
-    father = 214800 #Rhys ap Gruffydd
+    assign_historic_father_as_other_mother = { daddy = 214800 }#Rhys ap Gruffydd
     1172.1.1 = {
         birth = "1172.1.1"
     }
@@ -663,7 +663,7 @@
     dynasty_house = house_british_isles_dinefwr #Dinefwr
     religion = "catholic"
     culture = "welsh"
-    father = 214800 #Rhys ap Gruffydd
+    assign_historic_father_as_other_mother = { daddy = 214800 }#Rhys ap Gruffydd
     mother = 214801 #Gwenllian ferch Owain
     1172.1.1 = {
         birth = "1172.1.1"
@@ -681,7 +681,7 @@
     dynasty_house = house_british_isles_tegainl #Tegaingl
     religion = "catholic"
     culture = "welsh"
-    father = 214809 #Gronw ap Owain
+    assign_historic_father_as_other_mother = { daddy = 214809 }#Gronw ap Owain
     1118.1.1 = {
         birth = "1118.1.1"
     }
@@ -697,7 +697,7 @@
     dynasty_house = house_british_isles_tegainl #Tegaingl
     religion = "catholic"
     culture = "welsh"
-    father = 214815 #Owain ap Edwin
+    assign_historic_father_as_other_mother = { daddy = 214815 }#Owain ap Edwin
     1063.1.1 = {
         birth = "1063.1.1" #unknown
     }
@@ -713,7 +713,7 @@
     dynasty_house = house_british_isles_dinefwr #Dinefrw
     religion = "catholic"
     culture = "welsh"
-    father = 81816 #Rhys ap Tewdr
+    assign_historic_father_as_other_mother = { daddy = 81816 }#Rhys ap Tewdr
     mother = 40506 #Gwladys ap Rhiwallon
     1090.1.1 = {
         birth = "1090.1.1"
@@ -733,7 +733,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 81031 #Gruffyd ap Cynan
+    assign_historic_father_as_other_mother = { daddy = 81031 }#Gruffyd ap Cynan
     mother = 214814 #Angharad ferch Owain
     1105.1.1 = {
         birth = "1105.1.1"
@@ -751,7 +751,7 @@
     dynasty_house = house_british_isles_tegainl #Tegaingl
     religion = "catholic"
     culture = "welsh"
-    father = 214815 #Owain ap Edwin
+    assign_historic_father_as_other_mother = { daddy = 214815 }#Owain ap Edwin
     1065.1.1 = {
         birth = "1065.1.1"
     }
@@ -767,7 +767,7 @@
     dynasty_house = house_british_isles_tegainl #Tegaingl
     religion = "catholic"
     culture = "welsh"
-    father = 40508 #Edwin ap Goronwy
+    assign_historic_father_as_other_mother = { daddy = 40508 }#Edwin ap Goronwy
     mother = 40505 #Iweryd ap Cynfyn
     1044.1.1 = {
         birth = "1044.1.1"
@@ -788,7 +788,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = kinslayer_3
-    father = 214710 #Owain ap Gruffydd
+    assign_historic_father_as_other_mother = { daddy = 214710 }#Owain ap Gruffydd
     mother = 214808 #Crisiant ferch Gronw
     1136.1.1 = {
         birth = "1136.1.1"
@@ -808,7 +808,7 @@
     dynasty_house = house_british_isles_aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 232002 #Rhodri ab Owain
+    assign_historic_father_as_other_mother = { daddy = 232002 }#Rhodri ab Owain
     1179.1.1 = {
         birth = "1179.1.1"
     }
@@ -824,7 +824,7 @@
     dynasty_house = house_british_isles_aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 232002 #Rhodri ab Owain
+    assign_historic_father_as_other_mother = { daddy = 232002 }#Rhodri ab Owain
     1180.1.1 = {
         birth = "1180.1.1"
     }
@@ -840,7 +840,7 @@
     dynasty_house = house_british_isles_aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 232002 #Rhodri ab Owain
+    assign_historic_father_as_other_mother = { daddy = 232002 }#Rhodri ab Owain
     1181.1.1 = {
         birth = "1181.1.1"
     }
@@ -856,7 +856,7 @@
     dynasty_house = house_british_isles_dinefwr
     religion = "catholic"
     culture = "welsh"
-    father = 214800 #Rhys ap Gruffydd
+    assign_historic_father_as_other_mother = { daddy = 214800 }#Rhys ap Gruffydd
     mother = 214801 #Gwenllian ferch Owain
     1170.1.1 = {
         birth = "1170.1.1"
@@ -872,7 +872,7 @@
     dynasty_house = house_british_isles_seisyll # Seisyll
     religion = "catholic"
     culture = "welsh"
-    father = 81820 #Seisyll of Gwynedd
+    assign_historic_father_as_other_mother = { daddy = 81820 }#Seisyll of Gwynedd
     mother = 159042 # Prawst ferch Elisedd ap Anarawd
     978.1.1 = {
         birth = "978.1.1" #after 980
@@ -891,7 +891,7 @@
     dynasty_house = house_british_isles_dinefwr #Dinefwr
     religion = "catholic"
     culture = "welsh"
-    father = 81821 #Maredudd ab Owain (Deheubarth)
+    assign_historic_father_as_other_mother = { daddy = 81821 }#Maredudd ab Owain (Deheubarth)
     978.1.1 = {
         birth = "978.1.1" #982
     }
@@ -908,7 +908,7 @@
     dynasty_house = house_british_isles_seisyll # Seisyll
     religion = "catholic"
     culture = "welsh"
-    father = 40500 #Llywelyn ap Seisyll of Gwynedd
+    assign_historic_father_as_other_mother = { daddy = 40500 }#Llywelyn ap Seisyll of Gwynedd
     mother = 40501 # Angharad Dinefwr
     1003.1.1 = {
         birth = "1003.1.1"
@@ -932,7 +932,7 @@
     dynasty_house = house_british_isles_mathrafal
     religion = "catholic"
     culture = "welsh"
-    father = 138444 #Gwerstan
+    assign_historic_father_as_other_mother = { daddy = 138444 }#Gwerstan
     978.1.1 = {
         birth = "978.1.1" #unknown
     }
@@ -950,7 +950,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal
     religion = "catholic"
     culture = "welsh"
-    father = 40503 #Cynfyn ap Gwerstan
+    assign_historic_father_as_other_mother = { daddy = 40503 }#Cynfyn ap Gwerstan
     mother = 40501 #Angharad of Gwynedd
     trait = education_martial_2
     1025.1.1 = {
@@ -968,7 +968,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal
     religion = "catholic"
     culture = "welsh"
-    father = 40503 #Cynfyn ap Gwerstan
+    assign_historic_father_as_other_mother = { daddy = 40503 }#Cynfyn ap Gwerstan
     mother = 40501 #Angharad of Gwynedd
     1023.1.1 = {
         birth = "1023.1.1"
@@ -986,7 +986,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 40504 #Rhiwallon ap Cynfyn
+    assign_historic_father_as_other_mother = { daddy = 40504 }#Rhiwallon ap Cynfyn
     1049.1.1 = {
         birth = "1049.1.1" #unknown
     }
@@ -1017,7 +1017,7 @@
     dynasty_house = house_british_isles_tegainl #Tegaingl
     religion = "catholic"
     culture = "welsh"
-    father = 138482 #Goronwy ap Einion
+    assign_historic_father_as_other_mother = { daddy = 138482 }#Goronwy ap Einion
     1014.1.1 = {
         birth = "1014.1.1" #unknown
     }
@@ -1039,7 +1039,7 @@
     stewardship = 9
     religion = "catholic"
     culture = "welsh"
-    father = 159107
+    assign_historic_father_as_other_mother = { daddy = 159107 }
     trait = education_martial_2
     950.1.2 = {
         birth = "950.1.2"
@@ -1060,7 +1060,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = education_martial_2
-    father = 40510
+    assign_historic_father_as_other_mother = { daddy = 40510 }
     968.1.2 = {
         birth = "968.1.2"
     }
@@ -1080,7 +1080,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = education_martial_2
-    father = 40510
+    assign_historic_father_as_other_mother = { daddy = 40510 }
     969.1.2 = {
         birth = "969.1.2"
     }
@@ -1095,7 +1095,7 @@
     dynasty_house = house_british_isles_morgannwg #Morgan
     religion = "catholic"
     culture = "welsh"
-    father = 40512
+    assign_historic_father_as_other_mother = { daddy = 40512 }
     1000.1.1 = {
         birth = "1000.1.1"
     }
@@ -1116,7 +1116,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = education_martial_2
-    father = 40510
+    assign_historic_father_as_other_mother = { daddy = 40510 }
     970.1.2 = {
         birth = "970.1.2"
     }
@@ -1131,7 +1131,7 @@
     dynasty_house = house_british_isles_morgannwg #Morgan
     religion = "catholic"
     culture = "welsh"
-    father = 40514 #Ithel Ddu ap Owain
+    assign_historic_father_as_other_mother = { daddy = 40514 }#Ithel Ddu ap Owain
     1010.1.1 = {
         birth = "1010.1.1"
     }
@@ -1169,7 +1169,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = education_stewardship_2
-    father = 6376
+    assign_historic_father_as_other_mother = { daddy = 6376 }
     mother = 40516
     1061.1.2 = {
         birth = "1061.1.2"
@@ -1189,7 +1189,7 @@
     stewardship = 5
     religion = "catholic"
     culture = "welsh"
-    father = 6376
+    assign_historic_father_as_other_mother = { daddy = 6376 }
     mother = 40516
     1062.1.2 = {
         birth = "1062.1.2"
@@ -1209,7 +1209,7 @@
     stewardship = 5
     religion = "catholic"
     culture = "welsh"
-    father = 6376
+    assign_historic_father_as_other_mother = { daddy = 6376 }
     mother = 40516
     1063.1.2 = {
         birth = "1063.1.2"
@@ -1229,7 +1229,7 @@
     stewardship = 5
     religion = "catholic"
     culture = "welsh"
-    father = 6376
+    assign_historic_father_as_other_mother = { daddy = 6376 }
     mother = 40516
     1064.1.2 = {
         birth = "1064.1.2"
@@ -1249,7 +1249,7 @@
     stewardship = 5
     religion = "catholic"
     culture = "welsh"
-    father = 6376
+    assign_historic_father_as_other_mother = { daddy = 6376 }
     mother = 40516
     1065.1.2 = {
         birth = "1065.1.2"
@@ -1271,7 +1271,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = education_intrigue_1
-    father = 40515
+    assign_historic_father_as_other_mother = { daddy = 40515 }
     1047.1.2 = {
         birth = "1047.1.2"
     }
@@ -1291,7 +1291,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = education_diplomacy_1
-    father = 40515
+    assign_historic_father_as_other_mother = { daddy = 40515 }
     1049.1.2 = {
         birth = "1049.1.2"
     }
@@ -1306,7 +1306,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 214714 #Llywelyn ab Iorwerth
+    assign_historic_father_as_other_mother = { daddy = 214714 }#Llywelyn ab Iorwerth
     trait = bastard
     1204.1.1 = {
         birth = "1204.1.1"
@@ -1322,7 +1322,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 420000 #Gruffydd ap Llywelyn
+    assign_historic_father_as_other_mother = { daddy = 420000 }#Gruffydd ap Llywelyn
     1234.1.1 = {
         birth = "1234.1.1"
     }
@@ -1340,7 +1340,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 420000 #Gruffydd ap Llywelyn
+    assign_historic_father_as_other_mother = { daddy = 420000 }#Gruffydd ap Llywelyn
     1235.1.1 = {
         birth = "1235.1.1"
     }
@@ -1357,7 +1357,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 420000 #Gruffydd ap Llywelyn
+    assign_historic_father_as_other_mother = { daddy = 420000 }#Gruffydd ap Llywelyn
     1221.1.1 = {
         birth = "1221.1.1"
     }
@@ -1374,7 +1374,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 420000 #Gruffydd ap Llywelyn
+    assign_historic_father_as_other_mother = { daddy = 420000 }#Gruffydd ap Llywelyn
     1231.1.1 = {
         birth = "1231.1.1"
     }
@@ -1390,7 +1390,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 420004 #Rhodri ap Gruffyd
+    assign_historic_father_as_other_mother = { daddy = 420004 }#Rhodri ap Gruffyd
     1300.1.1 = {
         birth = "1300.1.1"
     }
@@ -1406,7 +1406,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 420005 #Tomas ap Gruffyd
+    assign_historic_father_as_other_mother = { daddy = 420005 }#Tomas ap Gruffyd
     1330.1.1 = {
         birth = "1330.1.1"
     }
@@ -1422,7 +1422,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 214720 #Owain Cyfelloig ap Gruffydd
+    assign_historic_father_as_other_mother = { daddy = 214720 }#Owain Cyfelloig ap Gruffydd
     mother = 214721 #Gwenllian ferch Owain ap Gruffydd
     1162.1.1 = {
         birth = "1162.1.1"
@@ -1440,7 +1440,7 @@
     dynasty = 200069
     religion = "catholic"
     culture = "welsh"
-    father = 420007 #Gwenwynwyn ab Owain
+    assign_historic_father_as_other_mother = { daddy = 420007 }#Gwenwynwyn ab Owain
     1212.1.1 = {
         birth = "1212.1.1"
     }
@@ -1457,7 +1457,7 @@
     dynasty = 200069
     religion = "catholic"
     culture = "welsh"
-    father = 420008 #Gruffydd ap Gwenwynwyn
+    assign_historic_father_as_other_mother = { daddy = 420008 }#Gruffydd ap Gwenwynwyn
     1257.1.1 = {
         birth = "1257.1.1"
     }
@@ -1474,7 +1474,7 @@
     dynasty = 200069
     religion = "catholic"
     culture = "welsh"
-    father = 420009 #Owain ap Gruffydd
+    assign_historic_father_as_other_mother = { daddy = 420009 }#Owain ap Gruffydd
     1285.1.1 = {
         birth = "1285.1.1"
     }
@@ -1493,7 +1493,7 @@
     dynasty = 200069
     religion = "catholic"
     culture = "welsh"
-    father = 420009 #Owain ap Gruffydd
+    assign_historic_father_as_other_mother = { daddy = 420009 }#Owain ap Gruffydd
     1290.7.25 = {
         birth = "1290.7.25"
     }
@@ -1509,7 +1509,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 40503 #Cynfyn ap Gwerstan
+    assign_historic_father_as_other_mother = { daddy = 40503 }#Cynfyn ap Gwerstan
     mother = 40501 #Angharad of Gwynedd
     trait = lustful
     1025.1.1 = {
@@ -1542,7 +1542,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal
     religion = "catholic"
     culture = "welsh"
-    father = 6358 #Bleddyn ap Cynfyn
+    assign_historic_father_as_other_mother = { daddy = 6358 }#Bleddyn ap Cynfyn
     mother = 40507 #Haer Efionydd
     trait = education_martial_3
     1047.1.1 = {
@@ -1561,7 +1561,7 @@
     dynasty_house = house_british_isles_morgannwg #Morgan
     religion = "catholic"
     culture = "welsh"
-    father = 40513 #Meurig ap Hywel
+    assign_historic_father_as_other_mother = { daddy = 40513 }#Meurig ap Hywel
     1042.1.1 = {
         birth = "1042.1.1"
     }
@@ -1585,7 +1585,7 @@
     trait = greedy
     trait = calm
     trait = education_diplomacy_3
-    father = 8189
+    assign_historic_father_as_other_mother = { daddy = 8189 }
     1036.1.2 = {
         birth = "1036.1.2"
     }
@@ -1600,7 +1600,7 @@
     dynasty_house = house_british_isles_morgannwg #Morgan
     religion = "catholic"
     culture = "welsh"
-    father = 40515 #Gwrgant ap Ithel Ddu
+    assign_historic_father_as_other_mother = { daddy = 40515 }#Gwrgant ap Ithel Ddu
     1045.1.1 = {
         birth = "1045.1.1"
     }
@@ -1618,7 +1618,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 6358 #Bleddyn ap Cynfyn
+    assign_historic_father_as_other_mother = { daddy = 6358 }#Bleddyn ap Cynfyn
     mother = 81849 #Brandwen Nwrcelyn
     trait = education_martial_3
     trait = lustful
@@ -1646,7 +1646,7 @@
     stewardship = 7
     religion = "catholic"
     culture = "welsh"
-    father = 40513 #Meurig ap Hywel
+    assign_historic_father_as_other_mother = { daddy = 40513 }#Meurig ap Hywel
     trait = diligent
     trait = zealous
     trait = education_learning_2
@@ -1683,7 +1683,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 81825 #Iago ap Idwal
+    assign_historic_father_as_other_mother = { daddy = 81825 }#Iago ap Idwal
     1014.1.1 = {
         birth = "1014.1.1"
     }
@@ -1701,7 +1701,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 81030 # Cynan ap Iago
+    assign_historic_father_as_other_mother = { daddy = 81030 }# Cynan ap Iago
     mother = 1029 #Ragnhild erv Olav
     1055.1.1 = {
         birth = "1055.1.1"
@@ -1752,7 +1752,7 @@
     trait = calm
     trait = honest
     trait = education_learning_3
-    father = 81811
+    assign_historic_father_as_other_mother = { daddy = 81811 }
     1045.1.2 = {
         birth = "1045.1.2"
     }
@@ -1774,7 +1774,7 @@
     trait = diligent
     trait = honest
     trait = education_learning_3
-    father = 81811
+    assign_historic_father_as_other_mother = { daddy = 81811 }
     1050.1.2 = {
         birth = "1050.1.2"
     }
@@ -1789,7 +1789,7 @@
     dynasty_house = house_british_isles_dinefwr #Dinefrw
     religion = "catholic"
     culture = "welsh"
-    father = 214810 #Gruffydd ap Rhys
+    assign_historic_father_as_other_mother = { daddy = 214810 }#Gruffydd ap Rhys
     1130.1.1 = {
         birth = "1130.1.1"
     }
@@ -1804,7 +1804,7 @@
     dynasty_house = house_british_isles_dinefwr #Dinefrw
     religion = "catholic"
     culture = "welsh"
-    father = 138494 #Owain ap Edwin
+    assign_historic_father_as_other_mother = { daddy = 138494 }#Owain ap Edwin
     1011.1.1 = {
         birth = "1011.1.1" #unknown
     }
@@ -1820,7 +1820,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = generous
-    father = 138488 #Tewdwr ap Cadell
+    assign_historic_father_as_other_mother = { daddy = 138488 }#Tewdwr ap Cadell
     997.1.1 = {
         birth = "997.1.1" #unknown
     }
@@ -1838,7 +1838,7 @@
     dynasty_house = house_british_isles_tegainl #Tegaingl
     religion = "catholic"
     culture = "welsh"
-    father = 214815 #Owain ap Edwin ap Goronwy
+    assign_historic_father_as_other_mother = { daddy = 214815 }#Owain ap Edwin ap Goronwy
     1064.1.1 = {
         birth = "1064.1.1" #unknown
     }
@@ -1853,7 +1853,7 @@
     dynasty_house = house_british_isles_tegainl #Tegaingl
     religion = "catholic"
     culture = "welsh"
-    father = 40508 #Edwin ap Goronwy
+    assign_historic_father_as_other_mother = { daddy = 40508 }#Edwin ap Goronwy
     1040.1.1 = {
         birth = "1040.1.1"
     }
@@ -1868,7 +1868,7 @@
     dynasty_house = house_british_isles_dinefwr #Dinefrw
     religion = "catholic"
     culture = "welsh"
-    father = 81823 #Hywel Dda
+    assign_historic_father_as_other_mother = { daddy = 81823 }#Hywel Dda
     mother = 159355 #Elen of Dyfed
     906.1.1 = {
         birth = "906.1.1"
@@ -1884,7 +1884,7 @@
     dynasty_house = house_british_isles_seisyll #Seisyll
     religion = "catholic"
     culture = "welsh"
-    father = 159055 #Ednywain ap Pyll
+    assign_historic_father_as_other_mother = { daddy = 159055 }#Ednywain ap Pyll
     940.1.1 = {
         birth = "940.1.1" #unknown
     }
@@ -1902,7 +1902,7 @@
     dynasty_house = house_british_isles_dinefwr #Dinefwr
     religion = "catholic"
     culture = "welsh"
-    father = 81822 #Owain of Deheubarth
+    assign_historic_father_as_other_mother = { daddy = 81822 }#Owain of Deheubarth
     920.1.1 = {
         birth = "920.1.1"
     }
@@ -1917,7 +1917,7 @@
     dynasty_house = house_british_isles_dinefwr #Dinefrw
     religion = "catholic"
     culture = "welsh"
-    father = 81823 #Hywel Dda
+    assign_historic_father_as_other_mother = { daddy = 81823 }#Hywel Dda
     mother = 159355 #Elen of Dyfed
     905.1.1 = {
         birth = "905.1.1"
@@ -1934,7 +1934,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = just
-    father = 81824 #Cadell ap Rhodri
+    assign_historic_father_as_other_mother = { daddy = 81824 }#Cadell ap Rhodri
     880.1.1 = {
         birth = "880.1.1"
         give_nickname = nick_the_good
@@ -1953,7 +1953,7 @@
     dynasty_house = house_british_isles_aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 81831 #Rhodri Mawr
+    assign_historic_father_as_other_mother = { daddy = 81831 }#Rhodri Mawr
     mother = 159802
     853.1.1 = {
         birth = "853.1.1"	#unknown
@@ -1972,7 +1972,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 81826 #Idwal ap Meuric
+    assign_historic_father_as_other_mother = { daddy = 81826 }#Idwal ap Meuric
     970.1.1 = {
         birth = "970.1.1"	#unknown
     }
@@ -1987,7 +1987,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 81827 # Meuric ap Idwal
+    assign_historic_father_as_other_mother = { daddy = 81827 }# Meuric ap Idwal
     940.1.1 = {
         birth = "940.1.1"	#unknown
     }
@@ -2003,7 +2003,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 138466 #Idwal ap Rhodri
+    assign_historic_father_as_other_mother = { daddy = 138466 }#Idwal ap Rhodri
     920.1.1 = {
         birth = "920.1.1"	#unknown
     }
@@ -2018,7 +2018,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 81829 #Idwal Foel
+    assign_historic_father_as_other_mother = { daddy = 81829 }#Idwal Foel
     921.1.1 = {
         birth = "921.1.1"
     }
@@ -2034,7 +2034,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 81830 #Anarawd ap Rhodri
+    assign_historic_father_as_other_mother = { daddy = 81830 }#Anarawd ap Rhodri
     885.1.1 = {
         birth = "885.1.1"	#unknown
     }
@@ -2049,7 +2049,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 81831 #Rhodri Mawr
+    assign_historic_father_as_other_mother = { daddy = 81831 }#Rhodri Mawr
     mother = 159802
 
     trait = education_martial_3
@@ -2077,7 +2077,7 @@
     #was dynasty_house = house_british_isles_manaw
     religion = "catholic"
     culture = "welsh"
-    father = 159027
+    assign_historic_father_as_other_mother = { daddy = 159027 }
     mother = 159088
 
     diplomacy = 8
@@ -2133,7 +2133,7 @@
     culture = "welsh"
     trait = ambitious
     trait = education_stewardship_2
-    father = 40502
+    assign_historic_father_as_other_mother = { daddy = 40502 }
     mother = 123
     1053.1.2 = {
         add_pressed_claim = title:d_gwynedd
@@ -2159,7 +2159,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = education_martial_2
-    father = 40502
+    assign_historic_father_as_other_mother = { daddy = 40502 }
     mother = 123
     1054.1.2 = {
         add_pressed_claim = title:d_gwynedd
@@ -2186,7 +2186,7 @@
     culture = "welsh"
     trait = calm
     trait = education_learning_2
-    father = 40502
+    assign_historic_father_as_other_mother = { daddy = 40502 }
     mother = 123
     1055.1.2 = {
         birth = "1055.1.2"
@@ -2202,7 +2202,7 @@
     dynasty_house = house_british_isles_gwynllwg #Gwynllwg
     religion = "catholic"
     culture = "welsh"
-    father = 81862 #Gruffydd ap Rhydderch
+    assign_historic_father_as_other_mother = { daddy = 81862 }#Gruffydd ap Rhydderch
     1046.1.1 = {
         birth = "1046.1.1"
     }
@@ -2217,7 +2217,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 6358 #Bleddyn ap Cynfyn
+    assign_historic_father_as_other_mother = { daddy = 6358 }#Bleddyn ap Cynfyn
     1043.1.1 = {
         birth = "1043.1.1" #unknown
     }
@@ -2232,7 +2232,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 6358 #Bleddyn ap Cynfyn
+    assign_historic_father_as_other_mother = { daddy = 6358 }#Bleddyn ap Cynfyn
     1043.1.1 = {
         birth = "1043.1.1" #unknown
     }
@@ -2262,7 +2262,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 6358 #Bleddyn ap Cynfyn
+    assign_historic_father_as_other_mother = { daddy = 6358 }#Bleddyn ap Cynfyn
     mother = 81849 #Brandwen Nwrcelyn
     1042.1.1 = {
         birth = "1042.1.1" #unknown
@@ -2279,7 +2279,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 214718 #Madog ap Maredudd
+    assign_historic_father_as_other_mother = { daddy = 214718 }#Madog ap Maredudd
     #mother Susann of Gwynedd
     1130.1.1 = {
         birth = "1130.1.1"
@@ -2312,7 +2312,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 214718 #Madog ap Maredudd
+    assign_historic_father_as_other_mother = { daddy = 214718 }#Madog ap Maredudd
     #mother Susann of Gwynedd
     1154.1.1 = {
         birth = "1154.1.1"
@@ -2329,7 +2329,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 81857 #Iorwerth ap Bleddyn
+    assign_historic_father_as_other_mother = { daddy = 81857 }#Iorwerth ap Bleddyn
     1100.1.1 = {
         birth = "1100.1.1" #unknown
     }
@@ -2344,7 +2344,7 @@
     dynasty_house = house_british_isles_maelienydd #Maelienydd
     religion = "catholic"
     culture = "welsh"
-    father = 8187
+    assign_historic_father_as_other_mother = { daddy = 8187 }
     1036.1.1 = {
         birth = "1036.1.1" #unknown
     }
@@ -2359,7 +2359,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal
     religion = "catholic"
     culture = "welsh"
-    father = 6358 #Bleddyn ap Cynfyn
+    assign_historic_father_as_other_mother = { daddy = 6358 }#Bleddyn ap Cynfyn
     mother = 81856 #Morien Maelienydd
     1053.1.1 = {
         birth = "1053.1.1"
@@ -2376,7 +2376,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 40504 #Rhiwallon ap Cynfyn
+    assign_historic_father_as_other_mother = { daddy = 40504 }#Rhiwallon ap Cynfyn
     1047.1.1 = {
         birth = "1047.1.1" #unknown
     }
@@ -2391,7 +2391,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 40504 #Rhiwallon ap Cynfyn
+    assign_historic_father_as_other_mother = { daddy = 40504 }#Rhiwallon ap Cynfyn
     1048.1.1 = {
         birth = "1048.1.1" #unknown
     }
@@ -2412,7 +2412,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = education_martial_2
-    father = 81846
+    assign_historic_father_as_other_mother = { daddy = 81846 }
     1066.1.2 = {
         birth = "1066.1.2"
     }
@@ -2432,7 +2432,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = humble
-    father = 81863
+    assign_historic_father_as_other_mother = { daddy = 81863 }
     1030.1.2 = {
         birth = "1030.1.2"
     }
@@ -2452,7 +2452,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = humble
-    father = 159003
+    assign_historic_father_as_other_mother = { daddy = 159003 }
     1003.1.1 = {
         birth = "1003.1.1"
     }
@@ -2472,7 +2472,7 @@
     stewardship = 5
     religion = "catholic"
     culture = "welsh"
-    father = 81863
+    assign_historic_father_as_other_mother = { daddy = 81863 }
     1020.1.2 = {
         birth = "1020.1.2"
     }
@@ -2493,7 +2493,7 @@
     culture = "welsh"
     trait = calm
     trait = temperate
-    father = 81863
+    assign_historic_father_as_other_mother = { daddy = 81863 }
     1022.1.2 = {
         birth = "1022.1.2"
     }
@@ -2514,7 +2514,7 @@
     culture = "welsh"
     trait = arbitrary
     trait = education_intrigue_2
-    father = 81863
+    assign_historic_father_as_other_mother = { daddy = 81863 }
     1023.1.2 = {
         birth = "1023.1.2"
     }
@@ -2534,7 +2534,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = education_stewardship_2
-    father = 81866
+    assign_historic_father_as_other_mother = { daddy = 81866 }
     1055.1.2 = {
         birth = "1055.1.2"
     }
@@ -2555,7 +2555,7 @@
     culture = "welsh"
     trait = honest
     trait = education_martial_2
-    father = 81863
+    assign_historic_father_as_other_mother = { daddy = 81863 }
     1024.1.2 = {
         birth = "1024.1.2"
     }
@@ -2576,7 +2576,7 @@
     culture = "welsh"
     trait = lustful
     trait = education_martial_2
-    father = 81868
+    assign_historic_father_as_other_mother = { daddy = 81868 }
     1044.1.2 = {
         birth = "1044.1.2"
     }
@@ -2589,7 +2589,7 @@
     female = yes
     name = "Idnerth" #ap Cadwgon
     dynasty_house = house_british_isles_maelienydd #Maelienydd
-    father = 184126 #Cadwgon ap Elystan
+    assign_historic_father_as_other_mother = { daddy = 184126 }#Cadwgon ap Elystan
     religion = "catholic"
     culture = "welsh"
     1017.1.1 = {
@@ -2633,7 +2633,7 @@
     stewardship = 8
     religion = "catholic"
     culture = "welsh"
-    father = 81871
+    assign_historic_father_as_other_mother = { daddy = 81871 }
     mother = 40522
     1064.1.2 = {
         birth = "1064.1.2"
@@ -2650,7 +2650,7 @@
     culture = "welsh"
     trait = bastard
     dynasty_house = house_british_isles_arwystli
-    father = 81820 #Seisyll of Gwynedd
+    assign_historic_father_as_other_mother = { daddy = 81820 }#Seisyll of Gwynedd
     985.1.1 = {
         birth = "985.1.1"
     }
@@ -2685,7 +2685,7 @@
     culture = "welsh"
     trait = calm
     trait = education_learning_3
-    father = 81911
+    assign_historic_father_as_other_mother = { daddy = 81911 }
     1045.1.2 = {
         birth = "1045.1.2"
     }
@@ -2706,7 +2706,7 @@
     culture = "welsh"
     trait = diligent
     trait = education_learning_3
-    father = 81911
+    assign_historic_father_as_other_mother = { daddy = 81911 }
     1050.1.2 = {
         birth = "1050.1.2"
     }
@@ -2721,7 +2721,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 6358 #Bleddyn ap Cynfyn
+    assign_historic_father_as_other_mother = { daddy = 6358 }#Bleddyn ap Cynfyn
     mother = 81849 #Brandwen Nwrcelyn
     1042.1.1 = {
         birth = "1042.1.1"
@@ -2738,7 +2738,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 159076
+    assign_historic_father_as_other_mother = { daddy = 159076 }
     954.1.1 = {
         birth = "954.1.1"
     }
@@ -2753,7 +2753,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 214718 #Madog ap Maredudd
+    assign_historic_father_as_other_mother = { daddy = 214718 }#Madog ap Maredudd
     #mother Susann of Gwynedd
     1155.1.1 = {
         birth = "1155.1.1"
@@ -2770,7 +2770,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 81848 #Rhirid ap Bleddyn
+    assign_historic_father_as_other_mother = { daddy = 81848 }#Rhirid ap Bleddyn
     1075.1.1 = {
         birth = "1075.1.1"
     }
@@ -2792,7 +2792,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 81848 #Rhirid ap Bleddyn
+    assign_historic_father_as_other_mother = { daddy = 81848 }#Rhirid ap Bleddyn
     1076.1.1 = {
         birth = "1076.1.1"
     }
@@ -2807,7 +2807,7 @@
     female = yes
     religion = "catholic"
     culture = "welsh"
-    father = 81031 #Gruffyd ap Cynan
+    assign_historic_father_as_other_mother = { daddy = 81031 }#Gruffyd ap Cynan
     mother = 214814 #Angharad ferch Owain
     1110.1.1 = {
         birth = "1110.1.1"
@@ -2824,7 +2824,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 6378 #Cadwgan ap Bleddyn
+    assign_historic_father_as_other_mother = { daddy = 6378 }#Cadwgan ap Bleddyn
     1057.1.1 = {
         birth = "1057.1.1"
     }
@@ -2839,7 +2839,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 6378 #Cadwgan ap Bleddyn
+    assign_historic_father_as_other_mother = { daddy = 6378 }#Cadwgan ap Bleddyn
     trait = ambitious
     trait = education_diplomacy_4
     trait = callous
@@ -2859,7 +2859,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 6378 #Cadwgan ap Bleddyn
+    assign_historic_father_as_other_mother = { daddy = 6378 }#Cadwgan ap Bleddyn
     #mother Sanan
     1085.1.1 = {
         birth = "1085.1.1"
@@ -2875,7 +2875,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 6378 #Cadwgan ap Bleddyn
+    assign_historic_father_as_other_mother = { daddy = 6378 }#Cadwgan ap Bleddyn
     mother = 81853 #Gwenllian ferch Gruffydd
     1098.1.1 = {
         birth = "1098.1.1"
@@ -2891,7 +2891,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 6378 #Cadwgan ap Bleddyn
+    assign_historic_father_as_other_mother = { daddy = 6378 }#Cadwgan ap Bleddyn
     #Euron daughter of Hoedlyw ap Cadwgan
     1105.1.1 = {
         birth = "1105.1.1"
@@ -2907,7 +2907,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 6378 #Cadwgan ap Bleddyn
+    assign_historic_father_as_other_mother = { daddy = 6378 }#Cadwgan ap Bleddyn
     #Euron daughter of Hoedlyw ap Cadwgan
     1106.1.1 = {
         birth = "1106.1.1"
@@ -2927,7 +2927,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 214724 #Madog ap Gruffydd Maelor ap Madog
+    assign_historic_father_as_other_mother = { daddy = 214724 }#Madog ap Gruffydd Maelor ap Madog
     #mother Angharad of Gwynedd
     1200.1.1 = {
         birth = "1200.1.1"
@@ -2944,7 +2944,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 81829 #Idwal Foel
+    assign_historic_father_as_other_mother = { daddy = 81829 }#Idwal Foel
     920.1.1 = {
         birth = "920.1.1"
     }
@@ -2959,7 +2959,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 81831 #Rhodri Mawr
+    assign_historic_father_as_other_mother = { daddy = 81831 }#Rhodri Mawr
     trait = legitimized_bastard
     865.1.1 = {
         birth = "865.1.1"
@@ -2975,7 +2975,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 81031 #Gruffydd ap Cynan
+    assign_historic_father_as_other_mother = { daddy = 81031 }#Gruffydd ap Cynan
     trait = bastard
     1095.1.1 = {
         birth = "1095.1.1"
@@ -2991,7 +2991,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 81031 #Gruffyd ap Cynan
+    assign_historic_father_as_other_mother = { daddy = 81031 }#Gruffyd ap Cynan
     mother = 214814 #Angharad ferch Owain
     1102.1.1 = {
         birth = "1102.1.1"
@@ -3008,7 +3008,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 81825 #Iago ap Idwal
+    assign_historic_father_as_other_mother = { daddy = 81825 }#Iago ap Idwal
     1014.1.1 = {
         birth = "1014.1.1"
     }
@@ -3023,7 +3023,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 138472 #Gruffydd ap Iago
+    assign_historic_father_as_other_mother = { daddy = 138472 }#Gruffydd ap Iago
     1033.1.1 = {
         birth = "1033.1.1"
         add_pressed_claim = title:d_gwynedd
@@ -3039,7 +3039,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 138474 #Caradog ap Gruffydd
+    assign_historic_father_as_other_mother = { daddy = 138474 }#Caradog ap Gruffydd
     1050.1.1 = {
         birth = "1050.1.1"
     }
@@ -3057,7 +3057,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 138476 # Trahaiarn ap Caradog
+    assign_historic_father_as_other_mother = { daddy = 138476 }# Trahaiarn ap Caradog
     1070.1.1 = {
         birth = "1070.1.1"
     }
@@ -3072,7 +3072,7 @@
     dynasty_house = house_british_isles_tegainl #Tegaingl
     religion = "catholic"
     culture = "welsh"
-    father = 138484 #Einion ap Owain
+    assign_historic_father_as_other_mother = { daddy = 138484 }#Einion ap Owain
     975.1.1 = {
         birth = "975.1.1"
     }
@@ -3087,7 +3087,7 @@
     dynasty_house = house_british_isles_dinefwr #Dinefrw
     religion = "catholic"
     culture = "welsh"
-    father = 81822 #Owain ap Hywel
+    assign_historic_father_as_other_mother = { daddy = 81822 }#Owain ap Hywel
     930.1.1 = {
         birth = "930.1.1" #unknown
     }
@@ -3102,7 +3102,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 214714 #Llywelyn ab Iorwerth
+    assign_historic_father_as_other_mother = { daddy = 214714 }#Llywelyn ab Iorwerth
     mother = 138451 #Joan of England
     1208.1.1 = {
         birth = "1208.1.1"
@@ -3128,7 +3128,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 214714 #Llywelyn ab Iorwerth
+    assign_historic_father_as_other_mother = { daddy = 214714 }#Llywelyn ab Iorwerth
     mother = 138451 #Joan of England
     1206.1.1 = {
         birth = "1206.1.1"
@@ -3146,7 +3146,7 @@
     dynasty_house = house_british_isles_dinefwr #Dinefrw
     religion = "catholic"
     culture = "welsh"
-    father = 138484 #Einion ap Owain
+    assign_historic_father_as_other_mother = { daddy = 138484 }#Einion ap Owain
     953.1.1 = {
         birth = "953.1.1"
     }
@@ -3161,7 +3161,7 @@
     dynasty_house = house_british_isles_dinefwr #Dinefrw
     religion = "catholic"
     culture = "welsh"
-    father = 138490 #Cadell ap Einion
+    assign_historic_father_as_other_mother = { daddy = 138490 }#Cadell ap Einion
     975.1.1 = {
         birth = "975.1.1" #unknown
         give_nickname = "nick_the_great"
@@ -3177,7 +3177,7 @@
     dynasty_house = house_british_isles_dinefwr #Dinefrw
     religion = "catholic"
     culture = "welsh"
-    father = 138484 #Einion ap Owain
+    assign_historic_father_as_other_mother = { daddy = 138484 }#Einion ap Owain
     954.1.1 = {
         birth = "954.1.1" #unknown
     }
@@ -3192,7 +3192,7 @@
     dynasty_house = house_british_isles_dinefwr #Dinefrw
     religion = "catholic"
     culture = "welsh"
-    father = 138484 #Einion ap Owain
+    assign_historic_father_as_other_mother = { daddy = 138484 }#Einion ap Owain
     974.1.1 = {
         birth = "974.1.1" #unknown
     }
@@ -3207,7 +3207,7 @@
     dynasty_house = house_british_isles_dinefwr #Dinefrw
     religion = "catholic"
     culture = "welsh"
-    father = 138494 #Owain ap Edwin
+    assign_historic_father_as_other_mother = { daddy = 138494 }#Owain ap Edwin
     1010.1.1 = {
         birth = "1010.1.1" #unknown
     }
@@ -3222,7 +3222,7 @@
     dynasty_house = house_british_isles_dinefwr #Dinefrw
     religion = "catholic"
     culture = "welsh"
-    father = 214810 #Gruffydd ap Rhys
+    assign_historic_father_as_other_mother = { daddy = 214810 }#Gruffydd ap Rhys
     trait = bastard
     1110.1.1 = {
         birth = "1110.1.1" #unknown
@@ -3239,7 +3239,7 @@
     dynasty_house = house_british_isles_dinefwr #Dinefrw
     religion = "catholic"
     culture = "welsh"
-    father = 214810 #Gruffydd ap Rhys
+    assign_historic_father_as_other_mother = { daddy = 214810 }#Gruffydd ap Rhys
     trait = bastard
     1112.1.1 = {
         birth = "1112.1.1" #unknown
@@ -3259,7 +3259,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 159004 # Iago ap Idwal
+    assign_historic_father_as_other_mother = { daddy = 159004 }# Iago ap Idwal
     938.1.1 = {
         birth = "938.1.1"	#unknown
     }
@@ -3274,7 +3274,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 159000 # Hywel ap Iago
+    assign_historic_father_as_other_mother = { daddy = 159000 }# Hywel ap Iago
     955.1.1 = {
         birth = "955.1.1"	#unknown
     }
@@ -3306,7 +3306,7 @@
     dynasty_house = house_british_isles_morgannwg #Morgan
     religion = "catholic"
     culture = "welsh"
-    father = 40510 # Owain ap Morgan Hen
+    assign_historic_father_as_other_mother = { daddy = 40510 }# Owain ap Morgan Hen
     975.1.1 = {
         birth = "975.1.1"	#unknown
     }
@@ -3320,7 +3320,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 81829 # Idwal Foel
+    assign_historic_father_as_other_mother = { daddy = 81829 }# Idwal Foel
     920.1.1 = {
         birth = "920.1.1"	#unknown
     }
@@ -3334,7 +3334,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 81828 #Idwal Ieuaf
+    assign_historic_father_as_other_mother = { daddy = 81828 }#Idwal Ieuaf
     940.1.1 = {
         birth = "940.1.1"
     }
@@ -3348,7 +3348,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 81828 #Idwal Ieuaf
+    assign_historic_father_as_other_mother = { daddy = 81828 }#Idwal Ieuaf
     941.1.1 = {
         birth = "941.1.1"
     }
@@ -3362,7 +3362,7 @@
     dynasty_house = house_british_isles_gwynedd #Gwynedd
     religion = "catholic"
     culture = "welsh"
-    father = 159009
+    assign_historic_father_as_other_mother = { daddy = 159009 }
     350.1.1 = {
         birth = "350.1.1"
     }
@@ -3379,7 +3379,7 @@
     dynasty_house = house_british_isles_gwynedd #Gwynedd
     religion = "catholic"
     culture = "welsh"
-    father = 159010
+    assign_historic_father_as_other_mother = { daddy = 159010 }
     mother = 159039
     390.1.1 = {
         birth = "390.1.1"
@@ -3394,7 +3394,7 @@
     dynasty_house = house_british_isles_gwynedd #Gwynedd
     religion = "catholic"
     culture = "welsh"
-    father = 159011
+    assign_historic_father_as_other_mother = { daddy = 159011 }
     440.1.1 = {
         birth = "440.1.1"
     }
@@ -3408,7 +3408,7 @@
     dynasty_house = house_british_isles_gwynedd #Gwynedd
     religion = "catholic"
     culture = "welsh"
-    father = 159012 # Cadwallon
+    assign_historic_father_as_other_mother = { daddy = 159012 }# Cadwallon
     481.1.1 = {
         birth = "481.1.1"
     }
@@ -3422,7 +3422,7 @@
     dynasty_house = house_british_isles_gwynedd #Gwynedd
     religion = "catholic"
     culture = "welsh"
-    father = 159013 # Cadwallon
+    assign_historic_father_as_other_mother = { daddy = 159013 }# Cadwallon
     510.1.1 = {
         birth = "510.1.1"
     }
@@ -3436,7 +3436,7 @@
     dynasty_house = house_british_isles_gwynedd #Gwynedd
     religion = "catholic"
     culture = "welsh"
-    father = 159014 # Rhun
+    assign_historic_father_as_other_mother = { daddy = 159014 }# Rhun
     527.1.1 = {
         birth = "527.1.1"
     }
@@ -3450,7 +3450,7 @@
     dynasty_house = house_british_isles_gwynedd #Gwynedd
     religion = "catholic"
     culture = "welsh"
-    father = 159015 # Beli
+    assign_historic_father_as_other_mother = { daddy = 159015 }# Beli
     560.1.1 = {
         birth = "560.1.1"
     }
@@ -3464,7 +3464,7 @@
     dynasty_house = house_british_isles_gwynedd #Gwynedd
     religion = "catholic"
     culture = "welsh"
-    father = 159016 # Iago
+    assign_historic_father_as_other_mother = { daddy = 159016 }# Iago
     580.1.1 = {
         birth = "580.1.1"
     }
@@ -3478,7 +3478,7 @@
     dynasty_house = house_british_isles_gwynedd #Gwynedd
     religion = "catholic"
     culture = "welsh"
-    father = 159017 # Cadfan
+    assign_historic_father_as_other_mother = { daddy = 159017 }# Cadfan
     600.1.1 = {
         birth = "600.1.1"
     }
@@ -3492,7 +3492,7 @@
     dynasty_house = house_british_isles_gwynedd #Gwynedd
     religion = "catholic"
     culture = "welsh"
-    father = 159018 # Cadwallon
+    assign_historic_father_as_other_mother = { daddy = 159018 }# Cadwallon
     630.1.1 = {
         birth = "630.1.1"
     }
@@ -3506,7 +3506,7 @@
     dynasty_house = house_british_isles_gwynedd #Gwynedd
     religion = "catholic"
     culture = "welsh"
-    father = 159019 # Cadwaladr
+    assign_historic_father_as_other_mother = { daddy = 159019 }# Cadwaladr
     670.1.1 = {
         birth = "670.1.1"
     }
@@ -3523,7 +3523,7 @@
     dynasty_house = house_british_isles_gwynedd #Gwynedd
     religion = "catholic"
     culture = "welsh"
-    father = 159020 # Idwal
+    assign_historic_father_as_other_mother = { daddy = 159020 }# Idwal
     mother = 160047 #Agatha of Brittany
     700.1.1 = {
         birth = "700.1.1"
@@ -3537,7 +3537,7 @@
     female = yes
     name = "Caradog" # ap Meirchion
     dynasty_house = house_british_isles_rhos #Rhos
-    father = 160046
+    assign_historic_father_as_other_mother = { daddy = 160046 }
     religion = "catholic"
     culture = "welsh"
     730.1.1 = {
@@ -3553,7 +3553,7 @@
     dynasty_house = house_british_isles_gwynedd #Gwynedd
     religion = "catholic"
     culture = "welsh"
-    father = 159021 # Rhodri
+    assign_historic_father_as_other_mother = { daddy = 159021 }# Rhodri
     trait = ambitious
     740.1.1 = {
         birth = "740.1.1"
@@ -3568,7 +3568,7 @@
     dynasty_house = house_british_isles_gwynedd #Gwynedd
     religion = "catholic"
     culture = "welsh"
-    father = 159021 # Rhodri
+    assign_historic_father_as_other_mother = { daddy = 159021 }# Rhodri
     750.1.1 = {
         birth = "750.1.1"
     }
@@ -3582,7 +3582,7 @@
     female = yes
     religion = "catholic"
     culture = "welsh"
-    father = 159023 # Cynan
+    assign_historic_father_as_other_mother = { daddy = 159023 }# Cynan
     770.1.1 = {
         birth = "770.1.1"
     }
@@ -3600,7 +3600,7 @@
     dynasty_house = house_british_isles_manaw #Manaw
     religion = "catholic"
     culture = "welsh"
-    father = 159028 # Elidyr
+    assign_historic_father_as_other_mother = { daddy = 159028 }# Elidyr
     760.1.1 = {
         birth = "760.1.1"
     }
@@ -3618,7 +3618,7 @@
     dynasty_house = house_british_isles_manaw #Manaw
     religion = "catholic"
     culture = "welsh"
-    father = 159026 # Gwriad
+    assign_historic_father_as_other_mother = { daddy = 159026 }# Gwriad
     mother = 159025 # Esyllt
     790.1.1 = {
         birth = "790.1.1"
@@ -3640,7 +3640,7 @@
     dynasty_house = house_british_isles_manaw #Manaw
     religion = "catholic"
     culture = "welsh"
-    father = 159029 # Sandde
+    assign_historic_father_as_other_mother = { daddy = 159029 }# Sandde
     mother = 159933 # Celeinion
 
     730.1.1 = {
@@ -3657,7 +3657,7 @@
     dynasty_house = house_british_isles_gwynedd #Gwynedd
     religion = "catholic"
     culture = "welsh"
-    father = 159019 # Cadwaladr
+    assign_historic_father_as_other_mother = { daddy = 159019 }# Cadwaladr
     660.1.1 = {
         birth = "660.1.1"
     }
@@ -3672,7 +3672,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 81829 # Cadwaladr
+    assign_historic_father_as_other_mother = { daddy = 81829 }# Cadwaladr
     906.1.1 = {
         birth = "906.1.1"
     }
@@ -3687,7 +3687,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 159041 # Elisedd
+    assign_historic_father_as_other_mother = { daddy = 159041 }# Elisedd
     942.1.1 = {
         birth = "942.1.1"
     }
@@ -3705,7 +3705,7 @@
     dynasty_house = house_british_isles_arllechwydd #Arllechwydd
     religion = "catholic"
     culture = "welsh"
-    father = 159011
+    assign_historic_father_as_other_mother = { daddy = 159011 }
     450.1.1 = {
         birth = "450.1.1"
     }
@@ -3719,7 +3719,7 @@
     dynasty_house = house_british_isles_arllechwydd #Arllechwydd
     religion = "catholic"
     culture = "welsh"
-    father = 159043
+    assign_historic_father_as_other_mother = { daddy = 159043 }
     480.1.1 = {
         birth = "480.1.1"
     }
@@ -3733,7 +3733,7 @@
     dynasty_house = house_british_isles_arllechwydd #Arllechwydd
     religion = "catholic"
     culture = "welsh"
-    father = 159044
+    assign_historic_father_as_other_mother = { daddy = 159044 }
     520.1.1 = {
         birth = "520.1.1"
     }
@@ -3747,7 +3747,7 @@
     dynasty_house = house_british_isles_arllechwydd #Arllechwydd
     religion = "catholic"
     culture = "welsh"
-    father = 159045
+    assign_historic_father_as_other_mother = { daddy = 159045 }
     560.1.1 = {
         birth = "560.1.1"
     }
@@ -3761,7 +3761,7 @@
     dynasty_house = house_british_isles_arllechwydd #Arllechwydd
     religion = "catholic"
     culture = "welsh"
-    father = 159046
+    assign_historic_father_as_other_mother = { daddy = 159046 }
     600.1.1 = {
         birth = "600.1.1"
     }
@@ -3775,7 +3775,7 @@
     dynasty_house = house_british_isles_arllechwydd #Arllechwydd
     religion = "catholic"
     culture = "welsh"
-    father = 159047
+    assign_historic_father_as_other_mother = { daddy = 159047 }
     640.1.1 = {
         birth = "640.1.1"
     }
@@ -3789,7 +3789,7 @@
     dynasty_house = house_british_isles_arllechwydd #Arllechwydd
     religion = "catholic"
     culture = "welsh"
-    father = 159048
+    assign_historic_father_as_other_mother = { daddy = 159048 }
     680.1.1 = {
         birth = "680.1.1"
     }
@@ -3803,7 +3803,7 @@
     dynasty_house = house_british_isles_arllechwydd #Arllechwydd
     religion = "catholic"
     culture = "welsh"
-    father = 159049
+    assign_historic_father_as_other_mother = { daddy = 159049 }
     720.1.1 = {
         birth = "720.1.1"
     }
@@ -3817,7 +3817,7 @@
     dynasty_house = house_british_isles_arllechwydd #Arllechwydd
     religion = "catholic"
     culture = "welsh"
-    father = 159050
+    assign_historic_father_as_other_mother = { daddy = 159050 }
     760.1.1 = {
         birth = "760.1.1"
     }
@@ -3831,7 +3831,7 @@
     dynasty_house = house_british_isles_arllechwydd #Arllechwydd
     religion = "catholic"
     culture = "welsh"
-    father = 159051
+    assign_historic_father_as_other_mother = { daddy = 159051 }
     800.1.1 = {
         birth = "800.1.1"
     }
@@ -3845,7 +3845,7 @@
     dynasty_house = house_british_isles_arllechwydd #Arllechwydd
     religion = "catholic"
     culture = "welsh"
-    father = 159052
+    assign_historic_father_as_other_mother = { daddy = 159052 }
     840.1.1 = {
         birth = "840.1.1"
     }
@@ -3859,7 +3859,7 @@
     dynasty_house = house_british_isles_arllechwydd #Arllechwydd
     religion = "catholic"
     culture = "welsh"
-    father = 159053
+    assign_historic_father_as_other_mother = { daddy = 159053 }
     880.1.1 = {
         birth = "880.1.1"
     }
@@ -3873,7 +3873,7 @@
     dynasty_house = house_british_isles_arllechwydd #Arllechwydd
     religion = "catholic"
     culture = "welsh"
-    father = 159054
+    assign_historic_father_as_other_mother = { daddy = 159054 }
     920.1.1 = {
         birth = "920.1.1"
     }
@@ -3887,7 +3887,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159945
+    assign_historic_father_as_other_mother = { daddy = 159945 }
     350.1.1 = {
         birth = "350.1.1"
     }
@@ -3904,7 +3904,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159056
+    assign_historic_father_as_other_mother = { daddy = 159056 }
     mother = 159810
     375.1.1 = {
         birth = "375.1.1"
@@ -3922,7 +3922,7 @@
     dynasty = 1029133 #Powys
     religion = "catholic"
     culture = "welsh"
-    father = 159948
+    assign_historic_father_as_other_mother = { daddy = 159948 }
     400.1.1 = {
         birth = "400.1.1"
     }
@@ -3936,7 +3936,7 @@
     dynasty = 1029133 #Powys
     religion = "catholic"
     culture = "welsh"
-    father = 159058
+    assign_historic_father_as_other_mother = { daddy = 159058 }
     425.1.1 = {
         birth = "425.1.1"
     }
@@ -3953,7 +3953,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159059
+    assign_historic_father_as_other_mother = { daddy = 159059 }
     mother = 159950
     450.1.1 = {
         birth = "450.1.1"
@@ -3968,7 +3968,7 @@
     dynasty_house = house_british_isles_ternyllwg #Ternyllwg
     religion = "catholic"
     culture = "welsh"
-    father = 159057
+    assign_historic_father_as_other_mother = { daddy = 159057 }
     421.1.1 = {
         birth = "421.1.1"
     }
@@ -3982,7 +3982,7 @@
     dynasty_house = house_british_isles_ternyllwg #Ternyllwg
     religion = "catholic"
     culture = "welsh"
-    father = 159061
+    assign_historic_father_as_other_mother = { daddy = 159061 }
     470.1.1 = {
         birth = "470.1.1"
     }
@@ -3996,7 +3996,7 @@
     dynasty_house = house_british_isles_ternyllwg #Ternyllwg
     religion = "catholic"
     culture = "welsh"
-    father = 159062
+    assign_historic_father_as_other_mother = { daddy = 159062 }
     510.1.1 = {
         birth = "510.1.1"
     }
@@ -4010,7 +4010,7 @@
     dynasty_house = house_british_isles_ternyllwg #Ternyllwg
     religion = "catholic"
     culture = "welsh"
-    father = 159063
+    assign_historic_father_as_other_mother = { daddy = 159063 }
     550.1.1 = {
         birth = "550.1.1"
     }
@@ -4024,7 +4024,7 @@
     dynasty_house = house_british_isles_ternyllwg #Ternyllwg
     religion = "catholic"
     culture = "welsh"
-    father = 159064
+    assign_historic_father_as_other_mother = { daddy = 159064 }
     600.1.1 = {
         birth = "600.1.1"
     }
@@ -4038,7 +4038,7 @@
     dynasty_house = house_british_isles_ternyllwg #Ternyllwg
     religion = "catholic"
     culture = "welsh"
-    father = 159065
+    assign_historic_father_as_other_mother = { daddy = 159065 }
     630.1.1 = {
         birth = "630.1.1"
     }
@@ -4052,7 +4052,7 @@
     dynasty_house = house_british_isles_ternyllwg #Ternyllwg
     religion = "catholic"
     culture = "welsh"
-    father = 159066
+    assign_historic_father_as_other_mother = { daddy = 159066 }
     670.1.1 = {
         birth = "670.1.1"
     }
@@ -4066,7 +4066,7 @@
     dynasty_house = house_british_isles_ternyllwg #Ternyllwg
     religion = "catholic"
     culture = "welsh"
-    father = 159067
+    assign_historic_father_as_other_mother = { daddy = 159067 }
     700.1.1 = {
         birth = "700.1.1"
     }
@@ -4080,7 +4080,7 @@
     dynasty_house = house_british_isles_ternyllwg #Ternyllwg
     religion = "catholic"
     culture = "welsh"
-    father = 159068
+    assign_historic_father_as_other_mother = { daddy = 159068 }
     740.1.1 = {
         birth = "740.1.1"
     }
@@ -4094,7 +4094,7 @@
     dynasty_house = house_british_isles_ternyllwg #Ternyllwg
     religion = "catholic"
     culture = "welsh"
-    father = 159069
+    assign_historic_father_as_other_mother = { daddy = 159069 }
     760.1.1 = {
         birth = "760.1.1"
     }
@@ -4108,7 +4108,7 @@
     dynasty_house = house_british_isles_ternyllwg #Ternyllwg
     religion = "catholic"
     culture = "welsh"
-    father = 159070
+    assign_historic_father_as_other_mother = { daddy = 159070 }
     783.1.1 = {
         birth = "783.1.1"
     }
@@ -4122,7 +4122,7 @@
     dynasty_house = house_british_isles_ternyllwg #Ternyllwg
     religion = "catholic"
     culture = "welsh"
-    father = 159071
+    assign_historic_father_as_other_mother = { daddy = 159071 }
     810.1.1 = {
         birth = "810.1.1"
     }
@@ -4136,7 +4136,7 @@
     dynasty_house = house_british_isles_ternyllwg #Ternyllwg
     religion = "catholic"
     culture = "welsh"
-    father = 159072
+    assign_historic_father_as_other_mother = { daddy = 159072 }
     842.1.1 = {
         birth = "842.1.1"
     }
@@ -4150,7 +4150,7 @@
     dynasty_house = house_british_isles_ternyllwg #Ternyllwg
     religion = "catholic"
     culture = "welsh"
-    father = 159073
+    assign_historic_father_as_other_mother = { daddy = 159073 }
     873.1.1 = {
         birth = "873.1.1"
     }
@@ -4164,7 +4164,7 @@
     dynasty_house = house_british_isles_ternyllwg #Ternyllwg
     religion = "catholic"
     culture = "welsh"
-    father = 159074
+    assign_historic_father_as_other_mother = { daddy = 159074 }
     894.1.1 = {
         birth = "894.1.1"
     }
@@ -4178,7 +4178,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 159075
+    assign_historic_father_as_other_mother = { daddy = 159075 }
     924.1.1 = {
         birth = "924.1.1"
     }
@@ -4192,7 +4192,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159060
+    assign_historic_father_as_other_mother = { daddy = 159060 }
     470.1.1 = {
         birth = "470.1.1"
     }
@@ -4206,7 +4206,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159077
+    assign_historic_father_as_other_mother = { daddy = 159077 }
     500.1.1 = {
         birth = "500.1.1"
     }
@@ -4220,7 +4220,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159078
+    assign_historic_father_as_other_mother = { daddy = 159078 }
     530.1.1 = {
         birth = "530.1.1"
     }
@@ -4234,7 +4234,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159079
+    assign_historic_father_as_other_mother = { daddy = 159079 }
     575.1.1 = {
         birth = "575.1.1"
     }
@@ -4249,7 +4249,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159080
+    assign_historic_father_as_other_mother = { daddy = 159080 }
     610.1.1 = {
         birth = "610.1.1"
     }
@@ -4264,7 +4264,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159081
+    assign_historic_father_as_other_mother = { daddy = 159081 }
     635.1.1 = {
         birth = "635.1.1"
     }
@@ -4279,7 +4279,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159082
+    assign_historic_father_as_other_mother = { daddy = 159082 }
     660.1.1 = {
         birth = "660.1.1"
     }
@@ -4293,7 +4293,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159083
+    assign_historic_father_as_other_mother = { daddy = 159083 }
     695.1.1 = {
         birth = "695.1.1"
     }
@@ -4307,7 +4307,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159084
+    assign_historic_father_as_other_mother = { daddy = 159084 }
     720.1.1 = {
         birth = "720.1.1"
     }
@@ -4321,7 +4321,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159084
+    assign_historic_father_as_other_mother = { daddy = 159084 }
     750.1.1 = {
         birth = "750.1.1"
     }
@@ -4335,7 +4335,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159086
+    assign_historic_father_as_other_mother = { daddy = 159086 }
     770.1.1 = {
         birth = "770.1.1"
     }
@@ -4349,7 +4349,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159086
+    assign_historic_father_as_other_mother = { daddy = 159086 }
     790.1.1 = {
         birth = "790.1.1"
     }
@@ -4366,7 +4366,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159077
+    assign_historic_father_as_other_mother = { daddy = 159077 }
     490.1.1 = {
         birth = yes
     }
@@ -4380,7 +4380,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159089
+    assign_historic_father_as_other_mother = { daddy = 159089 }
     507.1.1 = {
         birth = "500.1.1"
     }
@@ -4394,7 +4394,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159087
+    assign_historic_father_as_other_mother = { daddy = 159087 }
     790.1.1 = {
         birth = "790.1.1"
     }
@@ -4408,7 +4408,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159091
+    assign_historic_father_as_other_mother = { daddy = 159091 }
     820.1.1 = {
         birth = "820.1.1"
     }
@@ -4422,7 +4422,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159092
+    assign_historic_father_as_other_mother = { daddy = 159092 }
     850.1.1 = {
         birth = "850.1.1"
     }
@@ -4436,7 +4436,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159093
+    assign_historic_father_as_other_mother = { daddy = 159093 }
     880.1.1 = {
         birth = "880.1.1"
     }
@@ -4450,7 +4450,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159094
+    assign_historic_father_as_other_mother = { daddy = 159094 }
     910.1.1 = {
         birth = "910.1.1"
     }
@@ -4464,7 +4464,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159095
+    assign_historic_father_as_other_mother = { daddy = 159095 }
     945.1.1 = {
         birth = "945.1.1"
     }
@@ -4478,7 +4478,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159096
+    assign_historic_father_as_other_mother = { daddy = 159096 }
     975.1.1 = {
         birth = "975.1.1"
     }
@@ -4492,7 +4492,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159097
+    assign_historic_father_as_other_mother = { daddy = 159097 }
     995.1.1 = {
         birth = "995.1.1"
     }
@@ -4506,7 +4506,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159098
+    assign_historic_father_as_other_mother = { daddy = 159098 }
     1040.1.1 = {
         birth = "1040.1.1"
     }
@@ -4520,7 +4520,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159096
+    assign_historic_father_as_other_mother = { daddy = 159096 }
     980.1.1 = {
         birth = "980.1.1"
     }
@@ -4534,7 +4534,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159100
+    assign_historic_father_as_other_mother = { daddy = 159100 }
     1015.1.1 = {
         birth = "1015.1.1"
     }
@@ -4549,7 +4549,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159101
+    assign_historic_father_as_other_mother = { daddy = 159101 }
     1050.1.1 = {
         birth = "1050.1.1"
     }
@@ -4564,7 +4564,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159099
+    assign_historic_father_as_other_mother = { daddy = 159099 }
     1075.1.1 = {
         birth = "1075.1.1"
     }
@@ -4579,7 +4579,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159099
+    assign_historic_father_as_other_mother = { daddy = 159099 }
     1080.1.1 = {
         birth = "1080.1.1"
     }
@@ -4594,7 +4594,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159102
+    assign_historic_father_as_other_mother = { daddy = 159102 }
     1080.1.1 = {
         birth = "1080.1.1"
     }
@@ -4609,7 +4609,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159102
+    assign_historic_father_as_other_mother = { daddy = 159102 }
     1080.10.1 = {
         birth = "1080.10.1"
     }
@@ -4624,7 +4624,7 @@
     dynasty_house = house_british_isles_morgannwg #Morgan
     religion = "catholic"
     culture = "welsh"
-    father = 159108
+    assign_historic_father_as_other_mother = { daddy = 159108 }
     mother = 159375
     874.1.1 = {
         birth = "874.1.1"
@@ -4643,7 +4643,7 @@
     dynasty_house = house_british_isles_morgannwg #Morgan
     religion = "catholic"
     culture = "welsh"
-    father = 159109
+    assign_historic_father_as_other_mother = { daddy = 159109 }
     850.1.1 = {
         birth = "850.1.1"
     }
@@ -4661,7 +4661,7 @@
     dynasty_house = house_british_isles_morgannwg #Morgan
     religion = "catholic"
     culture = "welsh"
-    father = 159110
+    assign_historic_father_as_other_mother = { daddy = 159110 }
     830.1.1 = {
         birth = "830.1.1"
     }
@@ -4676,7 +4676,7 @@
     dynasty_house = house_british_isles_morgannwg #Morgan
     religion = "catholic"
     culture = "welsh"
-    father = 159111
+    assign_historic_father_as_other_mother = { daddy = 159111 }
     789.1.1 = {
         birth = yes
     }
@@ -4691,7 +4691,7 @@
     dynasty_house = house_british_isles_morgannwg #Morgan
     religion = "catholic"
     culture = "welsh"
-    father = 159112
+    assign_historic_father_as_other_mother = { daddy = 159112 }
     775.1.1 = {
         birth = yes
     }
@@ -4706,7 +4706,7 @@
     dynasty_house = house_british_isles_morgannwg #Morgan
     religion = "catholic"
     culture = "welsh"
-    father = 159113
+    assign_historic_father_as_other_mother = { daddy = 159113 }
     750.1.1 = {
         birth = "750.1.1"
     }
@@ -4721,7 +4721,7 @@
     dynasty_house = house_british_isles_morgannwg #Morgan
     religion = "catholic"
     culture = "welsh"
-    father = 159114
+    assign_historic_father_as_other_mother = { daddy = 159114 }
     730.1.1 = {
         birth = "730.1.1"
     }
@@ -4736,7 +4736,7 @@
     dynasty_house = house_british_isles_morgannwg #Morgan
     religion = "catholic"
     culture = "welsh"
-    father = 159115
+    assign_historic_father_as_other_mother = { daddy = 159115 }
     709.1.1 = {
         birth = "709.1.1"
     }
@@ -4751,7 +4751,7 @@
     dynasty_house = house_british_isles_morgannwg #Morgan
     religion = "catholic"
     culture = "welsh"
-    father = 159116
+    assign_historic_father_as_other_mother = { daddy = 159116 }
     675.1.1 = {
         birth = "675.1.1"
     }
@@ -4766,7 +4766,7 @@
     dynasty_house = house_british_isles_morgannwg #Morgan
     religion = "catholic"
     culture = "welsh"
-    father = 159835
+    assign_historic_father_as_other_mother = { daddy = 159835 }
     634.1.1 = {
         birth = "634.1.1"
     }
@@ -4783,7 +4783,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = bastard
-    father = 214714 #Llywelyn ab Iorwerth
+    assign_historic_father_as_other_mother = { daddy = 214714 }#Llywelyn ab Iorwerth
     1210.1.1 = {
         birth = "1210.1.1"
     }
@@ -4799,7 +4799,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = generous
-    father = 138488 #Tewdwr ap Cadell
+    assign_historic_father_as_other_mother = { daddy = 138488 }#Tewdwr ap Cadell
     1014.1.1 = {
         birth = "1014.1.1" #unknown
     }
@@ -4819,7 +4819,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = education_martial_2
-    father = 159291
+    assign_historic_father_as_other_mother = { daddy = 159291 }
     mother = 159290
     1030.1.1 = {
         birth = "1030.1.1"
@@ -4843,7 +4843,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = education_martial_2
-    father = 159292
+    assign_historic_father_as_other_mother = { daddy = 159292 }
     mother = 159520
     1066.1.1 = {
         birth = "1066.1.1"
@@ -4864,7 +4864,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = education_martial_2
-    father = 159293
+    assign_historic_father_as_other_mother = { daddy = 159293 }
     1090.1.1 = {
         birth = "1090.1.1"
     }
@@ -4884,7 +4884,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = education_martial_2
-    father = 159293
+    assign_historic_father_as_other_mother = { daddy = 159293 }
     1094.1.1 = {
         birth = "1094.1.1"
     }
@@ -4904,7 +4904,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = education_martial_2
-    father = 159293
+    assign_historic_father_as_other_mother = { daddy = 159293 }
     1095.1.1 = {
         birth = "1095.1.1"
     }
@@ -4919,7 +4919,7 @@
     dynasty = 1047020 #Manceinion
     religion = "catholic"
     culture = "welsh"
-    father = 159035
+    assign_historic_father_as_other_mother = { daddy = 159035 }
     505.1.1 = {
         birth = "505.1.1"
     }
@@ -4933,7 +4933,7 @@
     dynasty = 1047020 #Manceinion
     religion = "catholic"
     culture = "welsh"
-    father = 159297
+    assign_historic_father_as_other_mother = { daddy = 159297 }
     530.1.1 = {
         birth = "530.1.1"
     }
@@ -4948,7 +4948,7 @@
     dynasty = 1047020 #Manceinion
     religion = "catholic"
     culture = "welsh"
-    father = 159298
+    assign_historic_father_as_other_mother = { daddy = 159298 }
     560.1.1 = {
         birth = "560.1.1"
     }
@@ -4963,7 +4963,7 @@
     dynasty = 1047020 #Manceinion
     religion = "catholic"
     culture = "welsh"
-    father = 159299
+    assign_historic_father_as_other_mother = { daddy = 159299 }
     590.1.1 = {
         birth = "590.1.1"
     }
@@ -4978,7 +4978,7 @@
     dynasty = 1047020 #Manceinion
     religion = "catholic"
     culture = "welsh"
-    father = 159300
+    assign_historic_father_as_other_mother = { daddy = 159300 }
     620.1.1 = {
         birth = "620.1.1"
     }
@@ -4993,7 +4993,7 @@
     dynasty = 1047020 #Manceinion
     religion = "catholic"
     culture = "welsh"
-    father = 159301
+    assign_historic_father_as_other_mother = { daddy = 159301 }
     650.1.1 = {
         birth = "650.1.1"
     }
@@ -5008,7 +5008,7 @@
     dynasty = 1047020 #Manceinion
     religion = "catholic"
     culture = "welsh"
-    father = 159302
+    assign_historic_father_as_other_mother = { daddy = 159302 }
     680.1.1 = {
         birth = "680.1.1"
     }
@@ -5023,7 +5023,7 @@
     dynasty = 1047020 #Manceinion
     religion = "catholic"
     culture = "welsh"
-    father = 159303
+    assign_historic_father_as_other_mother = { daddy = 159303 }
     710.1.1 = {
         birth = "710.1.1"
     }
@@ -5038,7 +5038,7 @@
     dynasty = 1047020 #Manceinion
     religion = "catholic"
     culture = "welsh"
-    father = 159304
+    assign_historic_father_as_other_mother = { daddy = 159304 }
     750.1.1 = {
         birth = "750.1.1"
     }
@@ -5053,7 +5053,7 @@
     dynasty = 1047020 #Manceinion
     religion = "catholic"
     culture = "welsh"
-    father = 159305
+    assign_historic_father_as_other_mother = { daddy = 159305 }
     790.1.1 = {
         birth = "790.1.1"
     }
@@ -5068,7 +5068,7 @@
     dynasty = 1047020 #Manceinion
     religion = "catholic"
     culture = "welsh"
-    father = 159306
+    assign_historic_father_as_other_mother = { daddy = 159306 }
     830.1.1 = {
         birth = "830.1.1"
     }
@@ -5083,7 +5083,7 @@
     dynasty = 1047020 #Manceinion
     religion = "catholic"
     culture = "welsh"
-    father = 159307
+    assign_historic_father_as_other_mother = { daddy = 159307 }
     860.1.1 = {
         birth = "860.1.1"
     }
@@ -5098,7 +5098,7 @@
     dynasty = 1047020 #Manceinion
     religion = "catholic"
     culture = "welsh"
-    father = 159308
+    assign_historic_father_as_other_mother = { daddy = 159308 }
     900.1.1 = {
         birth = "900.1.1"
     }
@@ -5113,7 +5113,7 @@
     dynasty = 1047020 #Manceinion
     religion = "catholic"
     culture = "welsh"
-    father = 159309
+    assign_historic_father_as_other_mother = { daddy = 159309 }
     930.1.1 = {
         birth = "930.1.1"
     }
@@ -5128,7 +5128,7 @@
     dynasty = 1047020 #Manceinion
     religion = "catholic"
     culture = "welsh"
-    father = 159310
+    assign_historic_father_as_other_mother = { daddy = 159310 }
     960.1.1 = {
         birth = "960.1.1"
     }
@@ -5146,7 +5146,7 @@
     dynasty = 1047020 #Manceinion
     religion = "catholic"
     culture = "welsh"
-    father = 159311
+    assign_historic_father_as_other_mother = { daddy = 159311 }
     mother = 159313
     998.1.1 = {
         birth = "998.1.1"
@@ -5165,7 +5165,7 @@
     female = yes
     religion = "catholic"
     culture = "welsh"
-    father = 81826
+    assign_historic_father_as_other_mother = { daddy = 81826 }
     960.1.1 = {
         birth = "960.1.1"
     }
@@ -5183,7 +5183,7 @@
     dynasty = 1042817 #Brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 131704
+    assign_historic_father_as_other_mother = { daddy = 131704 }
     1066.1.1 = {
         birth = "1066.1.1"
     }
@@ -5198,7 +5198,7 @@
     dynasty = 1042817 #Brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 159314
+    assign_historic_father_as_other_mother = { daddy = 159314 }
     1086.1.1 = {
         birth = "1086.1.1"
     }
@@ -5213,7 +5213,7 @@
     dynasty_house = house_british_isles_dinefwr
     religion = "catholic"
     culture = "welsh"
-    father = 138488
+    assign_historic_father_as_other_mother = { daddy = 138488 }
     1000.1.1 = {
         birth = "1000.1.1"
     }
@@ -5231,7 +5231,7 @@
     dynasty_house = house_british_isles_dinefwr
     religion = "catholic"
     culture = "welsh"
-    father = 159231
+    assign_historic_father_as_other_mother = { daddy = 159231 }
     mother = 81850 #Hunydd ferch Bleddyn
     1070.1.1 = {
         birth = "1070.1.1"
@@ -5247,7 +5247,7 @@
     dynasty_house = house_british_isles_dinefwr
     religion = "catholic"
     culture = "welsh"
-    father = 159231
+    assign_historic_father_as_other_mother = { daddy = 159231 }
     mother = 81850 #Hunydd ferch Bleddyn
     1071.1.1 = {
         birth = "1071.1.1"
@@ -5263,7 +5263,7 @@
     female = yes
     religion = "catholic"
     culture = "welsh"
-    father = 6358 #Bleddyn ap Cynfyn
+    assign_historic_father_as_other_mother = { daddy = 6358 }#Bleddyn ap Cynfyn
     mother = 40507 #Haer Efionydd
     1049.1.1 = {
         birth = "1049.1.1"
@@ -5279,7 +5279,7 @@
     dynasty = 1029032 #1st Brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 159320
+    assign_historic_father_as_other_mother = { daddy = 159320 }
     mother = 159815
     415.1.1 = {
         birth = "415.1.1"
@@ -5297,7 +5297,7 @@
     dynasty_house = house_british_isles_dyfed #Dyfed
     religion = "catholic"
     culture = "welsh"
-    father = 159322
+    assign_historic_father_as_other_mother = { daddy = 159322 }
     455.1.1 = {
         birth = "455.1.1"
     }
@@ -5311,7 +5311,7 @@
     dynasty = 1029032 #1st Brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 159323
+    assign_historic_father_as_other_mother = { daddy = 159323 }
     mother = 159932
     435.1.1 = {
         birth = "435.1.1"
@@ -5327,7 +5327,7 @@
     dynasty = 1029032 #1st Brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 159325
+    assign_historic_father_as_other_mother = { daddy = 159325 }
     460.1.1 = {
         birth = "460.1.1"
     }
@@ -5341,7 +5341,7 @@
     dynasty = 1029032 #1st Brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 159326
+    assign_historic_father_as_other_mother = { daddy = 159326 }
     500.1.1 = {
         birth = "500.1.1"
     }
@@ -5355,7 +5355,7 @@
     dynasty = 1029032 #1st Brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 159327
+    assign_historic_father_as_other_mother = { daddy = 159327 }
     540.1.1 = {
         birth = "540.1.1"
     }
@@ -5369,7 +5369,7 @@
     dynasty = 1029032 #1st Brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 159328
+    assign_historic_father_as_other_mother = { daddy = 159328 }
     570.1.1 = {
         birth = "570.1.1"
     }
@@ -5383,7 +5383,7 @@
     dynasty = 1029032 #1st Brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 159329
+    assign_historic_father_as_other_mother = { daddy = 159329 }
     600.1.1 = {
         birth = "600.1.1"
     }
@@ -5400,7 +5400,7 @@
     dynasty_house = house_british_isles_dyfed #Dyfed
     religion = "catholic"
     culture = "welsh"
-    father = 159324
+    assign_historic_father_as_other_mother = { daddy = 159324 }
     500.1.1 = {
         birth = "500.1.1"
     }
@@ -5414,7 +5414,7 @@
     dynasty_house = house_british_isles_dyfed #Dyfed
     religion = "catholic"
     culture = "welsh"
-    father = 159340
+    assign_historic_father_as_other_mother = { daddy = 159340 }
     530.1.1 = {
         birth = "530.1.1"
     }
@@ -5428,7 +5428,7 @@
     dynasty_house = house_british_isles_dyfed #Dyfed
     religion = "catholic"
     culture = "welsh"
-    father = 159341
+    assign_historic_father_as_other_mother = { daddy = 159341 }
     550.1.1 = {
         birth = "550.1.1"
     }
@@ -5442,7 +5442,7 @@
     dynasty_house = house_british_isles_dyfed #Dyfed
     religion = "catholic"
     culture = "welsh"
-    father = 159342
+    assign_historic_father_as_other_mother = { daddy = 159342 }
     565.1.1 = {
         birth = "565.1.1"
     }
@@ -5459,7 +5459,7 @@
     dynasty_house = house_british_isles_dyfed #Dyfed
     religion = "catholic"
     culture = "welsh"
-    father = 159343
+    assign_historic_father_as_other_mother = { daddy = 159343 }
     590.1.1 = {
         birth = "590.1.1"
     }
@@ -5476,7 +5476,7 @@
     dynasty_house = house_british_isles_dyfed #Dyfed
     religion = "catholic"
     culture = "welsh"
-    father = 159344
+    assign_historic_father_as_other_mother = { daddy = 159344 }
     mother = 159330
     625.1.1 = {
         birth = "625.1.1"
@@ -5491,7 +5491,7 @@
     dynasty_house = house_british_isles_dyfed #Dyfed
     religion = "catholic"
     culture = "welsh"
-    father = 159345
+    assign_historic_father_as_other_mother = { daddy = 159345 }
     650.1.1 = {
         birth = "650.1.1"
     }
@@ -5505,7 +5505,7 @@
     dynasty_house = house_british_isles_dyfed #Dyfed
     religion = "catholic"
     culture = "welsh"
-    father = 159346
+    assign_historic_father_as_other_mother = { daddy = 159346 }
     670.1.1 = {
         birth = "670.1.1"
     }
@@ -5519,7 +5519,7 @@
     dynasty_house = house_british_isles_dyfed #Dyfed
     religion = "catholic"
     culture = "welsh"
-    father = 159347
+    assign_historic_father_as_other_mother = { daddy = 159347 }
     700.1.1 = {
         birth = "700.1.1"
     }
@@ -5533,7 +5533,7 @@
     dynasty_house = house_british_isles_dyfed #Dyfed
     religion = "catholic"
     culture = "welsh"
-    father = 159348
+    assign_historic_father_as_other_mother = { daddy = 159348 }
     730.1.1 = {
         birth = "730.1.1"
     }
@@ -5547,7 +5547,7 @@
     dynasty_house = house_british_isles_dyfed #Dyfed
     religion = "catholic"
     culture = "welsh"
-    father = 159349
+    assign_historic_father_as_other_mother = { daddy = 159349 }
     760.1.1 = {
         birth = "760.1.1"
     }
@@ -5561,7 +5561,7 @@
     dynasty_house = house_british_isles_dyfed #Dyfed
     religion = "catholic"
     culture = "welsh"
-    father = 159350
+    assign_historic_father_as_other_mother = { daddy = 159350 }
     790.1.1 = {
         birth = "790.1.1"
     }
@@ -5592,7 +5592,7 @@
     dynasty = welsh_ap_bleddri
     religion = "catholic"
     culture = "welsh"
-    father = 159352
+    assign_historic_father_as_other_mother = { daddy = 159352 }
     mother = 159351
     830.1.1 = {
         birth = "810.1.1"
@@ -5607,7 +5607,7 @@
     dynasty = welsh_ap_bleddri
     religion = "catholic"
     culture = "welsh"
-    father = 159353
+    assign_historic_father_as_other_mother = { daddy = 159353 }
     850.1.1 = {
         birth = "850.1.1"
     }
@@ -5621,7 +5621,7 @@
     dynasty = welsh_ap_bleddri
     religion = "catholic"
     culture = "welsh"
-    father = 159354
+    assign_historic_father_as_other_mother = { daddy = 159354 }
     880.1.1 = {
         birth = "880.1.1"
     }
@@ -5638,7 +5638,7 @@
     dynasty_house = house_british_isles_dyfed #Dyfed
     religion = "catholic"
     culture = "welsh"
-    father = 159349
+    assign_historic_father_as_other_mother = { daddy = 159349 }
     755.1.1 = {
         birth = "755.1.1"
     }
@@ -5652,7 +5652,7 @@
     dynasty_house = house_british_isles_dyfed #Dyfed
     religion = "catholic"
     culture = "welsh"
-    father = 159356
+    assign_historic_father_as_other_mother = { daddy = 159356 }
     770.1.1 = {
         birth = "770.1.1"
     }
@@ -5666,7 +5666,7 @@
     dynasty_house = house_british_isles_dyfed #Dyfed
     religion = "catholic"
     culture = "welsh"
-    father = 159346
+    assign_historic_father_as_other_mother = { daddy = 159346 }
     680.1.1 = {
         birth = "680.1.1"
     }
@@ -5680,7 +5680,7 @@
     dynasty_house = house_british_isles_dyfed #Dyfed
     religion = "catholic"
     culture = "welsh"
-    father = 159358
+    assign_historic_father_as_other_mother = { daddy = 159358 }
     710.1.1 = {
         birth = "710.1.1"
     }
@@ -5694,7 +5694,7 @@
     dynasty_house = house_british_isles_dyfed #Dyfed
     religion = "catholic"
     culture = "welsh"
-    father = 159347
+    assign_historic_father_as_other_mother = { daddy = 159347 }
     701.1.1 = {
         birth = "701.1.1"
     }
@@ -5708,7 +5708,7 @@
     dynasty = welsh_ap_bleddri
     religion = "catholic"
     culture = "welsh"
-    father = 159353
+    assign_historic_father_as_other_mother = { daddy = 159353 }
     851.1.1 = {
         birth = "851.1.1"
     }
@@ -5722,7 +5722,7 @@
     dynasty_house = house_british_isles_dinefwr #Dinefrw
     religion = "catholic"
     culture = "welsh"
-    father = 81823 #Hywel Dda
+    assign_historic_father_as_other_mother = { daddy = 81823 }#Hywel Dda
     mother = 159355 #Elen of Dyfed
     905.1.1 = {
         birth = "905.1.1"
@@ -5737,7 +5737,7 @@
     dynasty_house = house_british_isles_brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 159360
+    assign_historic_father_as_other_mother = { daddy = 159360 }
     721.1.1 = {
         birth = "721.1.1"
     }
@@ -5751,7 +5751,7 @@
     dynasty_house = house_british_isles_brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 159363
+    assign_historic_father_as_other_mother = { daddy = 159363 }
     750.1.1 = {
         birth = "750.1.1"
     }
@@ -5765,7 +5765,7 @@
     dynasty_house = house_british_isles_brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 159364
+    assign_historic_father_as_other_mother = { daddy = 159364 }
     780.1.1 = {
         birth = "780.1.1"
     }
@@ -5779,7 +5779,7 @@
     dynasty_house = house_british_isles_brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 159365
+    assign_historic_father_as_other_mother = { daddy = 159365 }
     810.1.1 = {
         birth = "810.1.1"
     }
@@ -5793,7 +5793,7 @@
     dynasty_house = house_british_isles_brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 159366
+    assign_historic_father_as_other_mother = { daddy = 159366 }
     850.1.1 = {
         birth = "850.1.1"
     }
@@ -5807,7 +5807,7 @@
     dynasty_house = house_british_isles_brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 159367
+    assign_historic_father_as_other_mother = { daddy = 159367 }
     870.1.1 = {
         birth = "870.1.1"
     }
@@ -5821,7 +5821,7 @@
     dynasty_house = house_british_isles_brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 159368
+    assign_historic_father_as_other_mother = { daddy = 159368 }
     900.1.1 = {
         birth = "900.1.1"
     }
@@ -5835,7 +5835,7 @@
     dynasty_house = house_british_isles_brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 159369
+    assign_historic_father_as_other_mother = { daddy = 159369 }
     930.1.1 = {
         birth = "930.1.1"
     }
@@ -5849,7 +5849,7 @@
     dynasty_house = house_british_isles_brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 159370
+    assign_historic_father_as_other_mother = { daddy = 159370 }
     960.1.1 = {
         birth = "960.1.1"
     }
@@ -5863,7 +5863,7 @@
     dynasty_house = house_british_isles_brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 159371
+    assign_historic_father_as_other_mother = { daddy = 159371 }
     980.1.1 = {
         birth = "980.1.1"
     }
@@ -5877,7 +5877,7 @@
     dynasty_house = house_british_isles_brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 159372
+    assign_historic_father_as_other_mother = { daddy = 159372 }
     1000.1.1 = {
         birth = "1000.1.1"
     }
@@ -5891,7 +5891,7 @@
     dynasty_house = house_british_isles_brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 159373
+    assign_historic_father_as_other_mother = { daddy = 159373 }
     1020.1.1 = {
         birth = "1020.1.1"
     }
@@ -5909,7 +5909,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 81831 #Rhodri Mawr
+    assign_historic_father_as_other_mother = { daddy = 81831 }#Rhodri Mawr
     855.1.1 = {
         birth = "855.1.1"	#unknown
     }
@@ -5927,7 +5927,7 @@
     stewardship = 5
     religion = "catholic"
     culture = "welsh"
-    father = 159312
+    assign_historic_father_as_other_mother = { daddy = 159312 }
     mother = 159374
     trait = zealous
     trait = education_martial_2
@@ -5944,7 +5944,7 @@
     dynasty = 1042817
     religion = "catholic"
     culture = "welsh"
-    father = 159519
+    assign_historic_father_as_other_mother = { daddy = 159519 }
     1050.1.1 = {
         birth = "1050.1.1"	#unknown
     }
@@ -5974,7 +5974,7 @@
     religion = "catholic"
     culture = "welsh"
     dynasty = 545 #Caradoc
-    father = 159424
+    assign_historic_father_as_other_mother = { daddy = 159424 }
     257.1.1 = {
         birth = "257.1.1"
     }
@@ -5988,7 +5988,7 @@
     religion = "catholic"
     culture = "welsh"
     dynasty = 545 #Caradoc
-    father = 159424
+    assign_historic_father_as_other_mother = { daddy = 159424 }
     275.1.1 = {
         birth = "275.1.1"
     }
@@ -6002,7 +6002,7 @@
     religion = "catholic"
     culture = "welsh"
     dynasty = 545 #Caradoc
-    father = 159426
+    assign_historic_father_as_other_mother = { daddy = 159426 }
     291.1.1 = {
         birth = "291.1.1"
     }
@@ -6029,7 +6029,7 @@
     religion = "catholic"
     culture = "welsh"
     dynasty = 1029001 #Prydain
-    father = 159428
+    assign_historic_father_as_other_mother = { daddy = 159428 }
     261.1.1 = {
         birth = "261.1.1"
     }
@@ -6043,7 +6043,7 @@
     religion = "catholic"
     culture = "welsh"
     dynasty = 1029001 #Prydain
-    father = 159429
+    assign_historic_father_as_other_mother = { daddy = 159429 }
     325.1.1 = {
         birth = yes
     }
@@ -6060,7 +6060,7 @@
     religion = "catholic"
     culture = "welsh"
     dynasty_house = house_british_isles_dyfnaint #Dyfnaint
-    father = 159472
+    assign_historic_father_as_other_mother = { daddy = 159472 }
     290.1.1 = {
         birth = "290.1.1"
     }
@@ -6074,7 +6074,7 @@
     religion = "catholic"
     culture = "welsh"
     dynasty_house = house_british_isles_dyfnaint #Dyfnaint
-    father = 159431
+    assign_historic_father_as_other_mother = { daddy = 159431 }
     mother = 159427
     310.1.1 = {
         birth = "310.1.1"
@@ -6089,7 +6089,7 @@
     religion = "catholic"
     culture = "welsh"
     dynasty = 1029001 #Prydain
-    father = 159428
+    assign_historic_father_as_other_mother = { daddy = 159428 }
     265.1.1 = {
         birth = "265.1.1"
     }
@@ -6103,7 +6103,7 @@
     religion = "catholic"
     culture = "welsh"
     dynasty_house = house_british_isles_dyfnaint #Dyfnaint
-    father = 159432
+    assign_historic_father_as_other_mother = { daddy = 159432 }
     330.1.1 = {
         birth = "330.1.1"
     }
@@ -6117,7 +6117,7 @@
     religion = "catholic"
     culture = "welsh"
     dynasty_house = house_british_isles_dyfnaint #Dyfnaint
-    father = 159435
+    assign_historic_father_as_other_mother = { daddy = 159435 }
     360.1.1 = {
         birth = "360.1.1"
     }
@@ -6135,7 +6135,7 @@
     religion = "catholic"
     culture = "welsh"
     dynasty_house = house_british_isles_dyfnaint #Dyfnaint
-    father = 159436
+    assign_historic_father_as_other_mother = { daddy = 159436 }
     mother = 159811
     380.1.1 = {
         birth = "380.1.1"
@@ -6151,7 +6151,7 @@
     religion = "catholic"
     culture = "welsh"
     dynasty_house = house_british_isles_dyfnaint #Dyfnaint
-    father = 159437
+    assign_historic_father_as_other_mother = { daddy = 159437 }
     410.1.1 = {
         birth = "410.1.1"
     }
@@ -6165,7 +6165,7 @@
     religion = "catholic"
     culture = "welsh"
     dynasty_house = house_british_isles_dyfnaint #Dyfnaint
-    father = 159438
+    assign_historic_father_as_other_mother = { daddy = 159438 }
     430.1.1 = {
         birth = "430.1.1"
     }
@@ -6179,7 +6179,7 @@
     religion = "catholic"
     culture = "welsh"
     dynasty_house = house_british_isles_dyfnaint #Dyfnaint
-    father = 159439
+    assign_historic_father_as_other_mother = { daddy = 159439 }
     450.1.1 = {
         birth = "450.1.1"
     }
@@ -6196,7 +6196,7 @@
     religion = "catholic"
     culture = "welsh"
     dynasty_house = house_british_isles_dyfnaint #Dyfnaint
-    father = 159440
+    assign_historic_father_as_other_mother = { daddy = 159440 }
     mother = 159753
     475.1.1 = {
         birth = "475.1.1"
@@ -6211,7 +6211,7 @@
     religion = "catholic"
     culture = "welsh"
     dynasty_house = house_british_isles_dyfnaint #Dyfnaint
-    father = 159441
+    assign_historic_father_as_other_mother = { daddy = 159441 }
     500.1.1 = {
         birth = "500.1.1"
     }
@@ -6227,7 +6227,7 @@
     religion = "catholic"
     culture = "welsh"
     dynasty_house = house_british_isles_dyfnaint #Dyfnaint
-    father = 159442
+    assign_historic_father_as_other_mother = { daddy = 159442 }
     530.1.1 = {
         birth = "530.1.1"
     }
@@ -6246,7 +6246,7 @@
     religion = "catholic"
     culture = "welsh"
     dynasty_house = house_british_isles_dyfnaint #Dyfnaint
-    father = 159442
+    assign_historic_father_as_other_mother = { daddy = 159442 }
     535.1.1 = {
         birth = "531.1.1"
     }
@@ -6266,7 +6266,7 @@
     religion = "catholic"
     culture = "welsh"
     dynasty_house = house_british_isles_dyfnaint #Dyfnaint
-    father = 159442
+    assign_historic_father_as_other_mother = { daddy = 159442 }
     540.1.1 = {
         birth = "540.1.1"
     }
@@ -6285,7 +6285,7 @@
     religion = "catholic"
     culture = "welsh"
     dynasty_house = house_british_isles_dyfnaint #Dyfnaint
-    father = 159442
+    assign_historic_father_as_other_mother = { daddy = 159442 }
     543.1.1 = {
         birth = "543.1.1"
     }
@@ -6317,7 +6317,7 @@
     religion = "catholic"
     culture = "welsh"
     dynasty_house = house_british_isles_dyfnaint #Dyfnaint
-    father = 159439
+    assign_historic_father_as_other_mother = { daddy = 159439 }
     452.1.1 = {
         birth = "452.1.1"
     }
@@ -6331,7 +6331,7 @@
     religion = "catholic"
     culture = "welsh"
     dynasty_house = house_british_isles_dyfnaint #Dyfnaint
-    father = 159439
+    assign_historic_father_as_other_mother = { daddy = 159439 }
     454.1.1 = {
         birth = "454.1.1"
     }
@@ -6345,7 +6345,7 @@
     religion = "catholic"
     culture = "welsh"
     dynasty_house = house_british_isles_dyfed #Dyfed
-    father = 159349
+    assign_historic_father_as_other_mother = { daddy = 159349 }
     760.1.1 = {
         birth = "760.1.1"
     }
@@ -6376,7 +6376,7 @@
     dynasty = 1029129 #Gwent
     religion = "catholic"
     culture = "welsh"
-    father = 159807
+    assign_historic_father_as_other_mother = { daddy = 159807 }
     mother = 159430
     360.1.1 = {
         birth = "360.1.1"
@@ -6394,7 +6394,7 @@
     dynasty = 1029129 #Gwent
     religion = "catholic"
     culture = "welsh"
-    father = 159807
+    assign_historic_father_as_other_mother = { daddy = 159807 }
     mother = 159430
     361.1.1 = {
         birth = "361.1.1"
@@ -6413,7 +6413,7 @@
     dynasty = 1029129 #Gwent
     religion = "catholic"
     culture = "welsh"
-    father = 159807
+    assign_historic_father_as_other_mother = { daddy = 159807 }
     mother = 159430
     340.1.1 = {
         birth = yes
@@ -6428,7 +6428,7 @@
     dynasty = 1029129 #Gwent
     religion = "catholic"
     culture = "welsh"
-    father = 159808
+    assign_historic_father_as_other_mother = { daddy = 159808 }
     355.1.1 = {
         birth = yes
     }
@@ -6442,7 +6442,7 @@
     dynasty = 1029129 #Gwent
     religion = "catholic"
     culture = "welsh"
-    father = 159813
+    assign_historic_father_as_other_mother = { daddy = 159813 }
     377.1.1 = {
         birth = "377.1.1"
     }
@@ -6456,7 +6456,7 @@
     dynasty = 1029129 #Gwent
     religion = "catholic"
     culture = "welsh"
-    father = 159814
+    assign_historic_father_as_other_mother = { daddy = 159814 }
     393.1.1 = {
         birth = "393.1.1"
     }
@@ -6473,7 +6473,7 @@
     dynasty = 1029129 #Gwent
     religion = "catholic"
     culture = "welsh"
-    father = 159808
+    assign_historic_father_as_other_mother = { daddy = 159808 }
     363.1.1 = {
         birth = "379.1.1"
     }
@@ -6487,7 +6487,7 @@
     dynasty = 1029134 #Dyfed
     religion = "catholic"
     culture = "welsh"
-    father = 159816
+    assign_historic_father_as_other_mother = { daddy = 159816 }
     389.1.1 = {
         birth = "389.1.1"
     }
@@ -6501,7 +6501,7 @@
     dynasty = 1029134 #Dyfed
     religion = "catholic"
     culture = "welsh"
-    father = 159817
+    assign_historic_father_as_other_mother = { daddy = 159817 }
     405.1.1 = {
         birth = "405.1.1"
     }
@@ -6515,7 +6515,7 @@
     dynasty = 1029134 #Dyfed
     religion = "catholic"
     culture = "welsh"
-    father = 159818
+    assign_historic_father_as_other_mother = { daddy = 159818 }
     422.1.1 = {
         birth = "422.1.1"
     }
@@ -6529,7 +6529,7 @@
     dynasty = 1029134 #Dyfed
     religion = "catholic"
     culture = "welsh"
-    father = 159818
+    assign_historic_father_as_other_mother = { daddy = 159818 }
     421.1.1 = {
         birth = "421.1.1"
     }
@@ -6543,7 +6543,7 @@
     dynasty = 1029129 #Gwent
     religion = "catholic"
     culture = "welsh"
-    father = 159816
+    assign_historic_father_as_other_mother = { daddy = 159816 }
     388.1.1 = {
         birth = "388.1.1"
     }
@@ -6557,7 +6557,7 @@
     dynasty = 1029129 #Gwent
     religion = "catholic"
     culture = "welsh"
-    father = 159821
+    assign_historic_father_as_other_mother = { daddy = 159821 }
     430.1.1 = {
         birth = "430.1.1"
     }
@@ -6574,7 +6574,7 @@
     dynasty = 1029129 #Gwent
     religion = "catholic"
     culture = "welsh"
-    father = 159822
+    assign_historic_father_as_other_mother = { daddy = 159822 }
     mother = 159837
     470.1.1 = {
         birth = "470.1.1"
@@ -6592,7 +6592,7 @@
     dynasty = 1029129 #Gwent
     religion = "catholic"
     culture = "welsh"
-    father = 159823
+    assign_historic_father_as_other_mother = { daddy = 159823 }
     mother = 159960
     492.1.1 = {
         birth = "492.1.1"
@@ -6610,7 +6610,7 @@
     dynasty = 1029129 #Gwent
     religion = "catholic"
     culture = "welsh"
-    father = 159824
+    assign_historic_father_as_other_mother = { daddy = 159824 }
     mother = 159829
     508.1.1 = {
         birth = "508.1.1"
@@ -6625,7 +6625,7 @@
     dynasty = 1029130 #Cernyw
     religion = "catholic"
     culture = "welsh"
-    father = 159807
+    assign_historic_father_as_other_mother = { daddy = 159807 }
     357.1.1 = {
         birth = "357.1.1"
     }
@@ -6639,7 +6639,7 @@
     dynasty = 1029130 #Cernyw
     religion = "catholic"
     culture = "welsh"
-    father = 159809
+    assign_historic_father_as_other_mother = { daddy = 159809 }
     378.1.1 = {
         birth = "378.1.1"
     }
@@ -6653,7 +6653,7 @@
     dynasty = 1029130 #Cernyw
     religion = "catholic"
     culture = "welsh"
-    father = 159826
+    assign_historic_father_as_other_mother = { daddy = 159826 }
     398.1.1 = {
         birth = "398.1.1"
     }
@@ -6667,7 +6667,7 @@
     dynasty = 1029130 #Cernyw
     religion = "catholic"
     culture = "welsh"
-    father = 159827
+    assign_historic_father_as_other_mother = { daddy = 159827 }
     435.1.1 = {
         birth = "435.1.1"
     }
@@ -6681,7 +6681,7 @@
     dynasty = 1029130 #Cernyw
     religion = "catholic"
     culture = "welsh"
-    father = 159828
+    assign_historic_father_as_other_mother = { daddy = 159828 }
     486.1.1 = {
         birth = "486.1.1"
     }
@@ -6698,7 +6698,7 @@
     dynasty = 1029129 #Gwent
     religion = "catholic"
     culture = "welsh"
-    father = 159825
+    assign_historic_father_as_other_mother = { daddy = 159825 }
     524.1.1 = {
         birth = "524.1.1"
     }
@@ -6712,7 +6712,7 @@
     dynasty = 1029129 #Gwent
     religion = "catholic"
     culture = "welsh"
-    father = 159830
+    assign_historic_father_as_other_mother = { daddy = 159830 }
     540.1.1 = {
         birth = "540.1.1"
     }
@@ -6726,7 +6726,7 @@
     dynasty = 1029129 #Gwent
     religion = "catholic"
     culture = "welsh"
-    father = 159834
+    assign_historic_father_as_other_mother = { daddy = 159834 }
     576.1.1 = {
         birth = "576.1.1"
     }
@@ -6741,7 +6741,7 @@
     dynasty = 1029129 #Gwent
     religion = "catholic"
     culture = "welsh"
-    father = 159832
+    assign_historic_father_as_other_mother = { daddy = 159832 }
     596.1.1 = {
         birth = "596.1.1"
     }
@@ -6758,7 +6758,7 @@
     dynasty = 1029129 #Gwent
     religion = "catholic"
     culture = "welsh"
-    father = 159831
+    assign_historic_father_as_other_mother = { daddy = 159831 }
     560.1.1 = {
         birth = "560.1.1"
     }
@@ -6772,7 +6772,7 @@
     dynasty = 1029129 #Gwent
     religion = "catholic"
     culture = "welsh"
-    father = 159833
+    assign_historic_father_as_other_mother = { daddy = 159833 }
     mother = 159964
     620.1.1 = {
         birth = "620.1.1"
@@ -6787,7 +6787,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159056
+    assign_historic_father_as_other_mother = { daddy = 159056 }
     mother = 159810
     376.1.1 = {
         birth = "376.1.1"
@@ -6803,7 +6803,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159836
+    assign_historic_father_as_other_mother = { daddy = 159836 }
     430.1.1 = {
         birth = "430.1.1"
     }
@@ -6823,7 +6823,7 @@
     dynasty = 1029129 #Gwent
     religion = "catholic"
     culture = "welsh"
-    father = 159807
+    assign_historic_father_as_other_mother = { daddy = 159807 }
     mother = 159430
     361.1.1 = {
         birth = "361.1.1"
@@ -6839,7 +6839,7 @@
     religion = "catholic"
     culture = "welsh"
     dynasty_house = house_british_isles_dyfnaint #Dyfnaint
-    father = 159436
+    assign_historic_father_as_other_mother = { daddy = 159436 }
     mother = 159811
     406.1.1 = {
         birth = "406.1.1"
@@ -6858,7 +6858,7 @@
     dynasty = 1029131 #Manaw
     religion = "catholic"
     culture = "welsh"
-    father = 159934
+    assign_historic_father_as_other_mother = { daddy = 159934 }
     685.1.1 = {
         birth = "685.1.1"
     }
@@ -6875,7 +6875,7 @@
     dynasty = 1029131 #Manaw
     religion = "catholic"
     culture = "welsh"
-    father = 159943
+    assign_historic_father_as_other_mother = { daddy = 159943 }
     654.1.1 = {
         birth = "654.1.1"
     }
@@ -6889,7 +6889,7 @@
     dynasty = 1029131 #Manaw
     religion = "catholic"
     culture = "welsh"
-    father = 159813
+    assign_historic_father_as_other_mother = { daddy = 159813 }
     401.1.1 = {
         birth = "401.1.1"
     }
@@ -6903,7 +6903,7 @@
     dynasty = 1029131 #Manaw
     religion = "catholic"
     culture = "welsh"
-    father = 159935
+    assign_historic_father_as_other_mother = { daddy = 159935 }
     441.1.1 = {
         birth = "441.1.1"
     }
@@ -6917,7 +6917,7 @@
     dynasty = 1029131 #Manaw
     religion = "catholic"
     culture = "welsh"
-    father = 159936
+    assign_historic_father_as_other_mother = { daddy = 159936 }
     480.1.1 = {
         birth = "480.1.1"
     }
@@ -6931,7 +6931,7 @@
     dynasty = 1029131 #Manaw
     religion = "catholic"
     culture = "welsh"
-    father = 159937
+    assign_historic_father_as_other_mother = { daddy = 159937 }
     512.1.1 = {
         birth = "512.1.1"
     }
@@ -6945,7 +6945,7 @@
     dynasty = 1029131 #Manaw
     religion = "catholic"
     culture = "welsh"
-    father = 159938
+    assign_historic_father_as_other_mother = { daddy = 159938 }
     537.1.1 = {
         birth = "537.1.1"
     }
@@ -6959,7 +6959,7 @@
     dynasty = 1029131 #Manaw
     religion = "catholic"
     culture = "welsh"
-    father = 159939
+    assign_historic_father_as_other_mother = { daddy = 159939 }
     562.1.1 = {
         birth = "562.1.1"
     }
@@ -6973,7 +6973,7 @@
     dynasty = 1029131 #Manaw
     religion = "catholic"
     culture = "welsh"
-    father = 159940
+    assign_historic_father_as_other_mother = { daddy = 159940 }
     587.1.1 = {
         birth = "587.1.1"
     }
@@ -6987,7 +6987,7 @@
     dynasty = 1029131 #Manaw
     religion = "catholic"
     culture = "welsh"
-    father = 159941
+    assign_historic_father_as_other_mother = { daddy = 159941 }
     610.1.1 = {
         birth = "610.1.1"
     }
@@ -7001,7 +7001,7 @@
     dynasty = 1029131 #Manaw
     religion = "catholic"
     culture = "welsh"
-    father = 159942
+    assign_historic_father_as_other_mother = { daddy = 159942 }
     632.1.1 = {
         birth = "632.1.1"
     }
@@ -7028,7 +7028,7 @@
     dynasty = 1029132 #Caerloyw
     religion = "catholic"
     culture = "welsh"
-    father = 159944
+    assign_historic_father_as_other_mother = { daddy = 159944 }
     305.1.1 = {
         birth = "305.1.1"
     }
@@ -7042,7 +7042,7 @@
     dynasty = 1029132 #Caerloyw
     religion = "catholic"
     culture = "welsh"
-    father = 159945
+    assign_historic_father_as_other_mother = { daddy = 159945 }
     321.1.1 = {
         birth = "321.1.1"
     }
@@ -7056,7 +7056,7 @@
     dynasty = 1029132 #Caerloyw
     religion = "catholic"
     culture = "welsh"
-    father = 159946
+    assign_historic_father_as_other_mother = { daddy = 159946 }
     340.1.1 = {
         birth = "340.1.1"
     }
@@ -7070,7 +7070,7 @@
     dynasty = 1029133 #Powys
     religion = "catholic"
     culture = "welsh"
-    father = 159947
+    assign_historic_father_as_other_mother = { daddy = 159947 }
     360.1.1 = {
         birth = "360.1.1"
     }
@@ -7084,7 +7084,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159056
+    assign_historic_father_as_other_mother = { daddy = 159056 }
     mother = 159810
     390.1.1 = {
         birth = "390.1.1"
@@ -7099,7 +7099,7 @@
     dynasty_house = house_british_isles_gwerthrynion #Gwerthrynion
     religion = "catholic"
     culture = "welsh"
-    father = 159949
+    assign_historic_father_as_other_mother = { daddy = 159949 }
     430.1.1 = {
         birth = "430.1.1"
     }
@@ -7114,7 +7114,7 @@
     religion = "catholic"
     culture = "welsh"
     dynasty_house = house_british_isles_dyfnaint #Dyfnaint
-    father = 159432
+    assign_historic_father_as_other_mother = { daddy = 159432 }
     345.1.1 = {
         birth = "345.1.1"
     }
@@ -7132,7 +7132,7 @@
     dynasty = 1029032 #1st Brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 159323
+    assign_historic_father_as_other_mother = { daddy = 159323 }
     mother = 159932
     430.1.1 = {
         birth = "430.1.1"
@@ -7147,7 +7147,7 @@
     dynasty = 1029032 #1st Brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 159956
+    assign_historic_father_as_other_mother = { daddy = 159956 }
     460.1.1 = {
         birth = "460.1.1"
     }
@@ -7166,7 +7166,7 @@
     dynasty = 20037 #Ergyng
     religion = "catholic"
     culture = "welsh"
-    father = 159830
+    assign_historic_father_as_other_mother = { daddy = 159830 }
     545.1.1 = {
         birth = "545.1.1"
     }
@@ -7180,7 +7180,7 @@
     dynasty = 20037 #Ergyng
     religion = "catholic"
     culture = "welsh"
-    father = 159961
+    assign_historic_father_as_other_mother = { daddy = 159961 }
     566.1.1 = {
         birth = "566.1.1"
     }
@@ -7194,7 +7194,7 @@
     dynasty = 20037 #Ergyng
     religion = "catholic"
     culture = "welsh"
-    father = 159962
+    assign_historic_father_as_other_mother = { daddy = 159962 }
     586.1.1 = {
         birth = "586.1.1"
     }
@@ -7208,7 +7208,7 @@
     dynasty = 20037 #Ergyng
     religion = "catholic"
     culture = "welsh"
-    father = 159963
+    assign_historic_father_as_other_mother = { daddy = 159963 }
     603.1.1 = {
         birth = "603.1.1"
     }
@@ -7225,7 +7225,7 @@
     dynasty_house = house_british_isles_dyfed #Dyfed
     religion = "catholic"
     culture = "welsh"
-    father = 159321
+    assign_historic_father_as_other_mother = { daddy = 159321 }
     mother = 159820
     437.1.1 = {
         birth = "437.1.1"
@@ -7241,7 +7241,7 @@
     dynasty_house = house_british_isles_ceredigion #Ceredigion
     religion = "catholic"
     culture = "welsh"
-    father = 159010
+    assign_historic_father_as_other_mother = { daddy = 159010 }
     mother = 159039
     395.1.1 = {
         birth = "395.1.1"
@@ -7256,7 +7256,7 @@
     dynasty_house = house_british_isles_ceredigion #Ceredigion
     religion = "catholic"
     culture = "welsh"
-    father = 159791
+    assign_historic_father_as_other_mother = { daddy = 159791 }
     420.1.1 = {
         birth = "420.1.1"
     }
@@ -7270,7 +7270,7 @@
     dynasty_house = house_british_isles_ceredigion #Ceredigion
     religion = "catholic"
     culture = "welsh"
-    father = 159792
+    assign_historic_father_as_other_mother = { daddy = 159792 }
     450.1.1 = {
         birth = "450.1.1"
     }
@@ -7284,7 +7284,7 @@
     dynasty_house = house_british_isles_ceredigion #Ceredigion
     religion = "catholic"
     culture = "welsh"
-    father = 159793
+    assign_historic_father_as_other_mother = { daddy = 159793 }
     480.1.1 = {
         birth = "480.1.1"
     }
@@ -7298,7 +7298,7 @@
     dynasty_house = house_british_isles_ceredigion #Ceredigion
     religion = "catholic"
     culture = "welsh"
-    father = 159794
+    assign_historic_father_as_other_mother = { daddy = 159794 }
     520.1.1 = {
         birth = "520.1.1"
     }
@@ -7312,7 +7312,7 @@
     dynasty_house = house_british_isles_ceredigion #Ceredigion
     religion = "catholic"
     culture = "welsh"
-    father = 159795
+    assign_historic_father_as_other_mother = { daddy = 159795 }
     550.1.1 = {
         birth = "550.1.1"
     }
@@ -7326,7 +7326,7 @@
     dynasty_house = house_british_isles_ceredigion #Ceredigion
     religion = "catholic"
     culture = "welsh"
-    father = 159796
+    assign_historic_father_as_other_mother = { daddy = 159796 }
     590.1.1 = {
         birth = "590.1.1"
     }
@@ -7340,7 +7340,7 @@
     dynasty = 14255 # Seisyllwg
     religion = "catholic"
     culture = "welsh"
-    father = 159797
+    assign_historic_father_as_other_mother = { daddy = 159797 }
     660.1.1 = {
         birth = "660.1.1"
     }
@@ -7354,7 +7354,7 @@
     dynasty = 14255 # Seisyllwg
     religion = "catholic"
     culture = "welsh"
-    father = 159798
+    assign_historic_father_as_other_mother = { daddy = 159798 }
     690.1.1 = {
         birth = "690.1.1"
     }
@@ -7368,7 +7368,7 @@
     dynasty = 14255 # Seisyllwg
     religion = "catholic"
     culture = "welsh"
-    father = 159806
+    assign_historic_father_as_other_mother = { daddy = 159806 }
     780.1.1 = {
         birth = "780.1.1"
     }
@@ -7382,7 +7382,7 @@
     dynasty = 14255 # Seisyllwg
     religion = "catholic"
     culture = "welsh"
-    father = 159800
+    assign_historic_father_as_other_mother = { daddy = 159800 }
     825.1.1 = {
         birth = "825.1.1"
     }
@@ -7397,7 +7397,7 @@
     dynasty = 14255 # Seisyllwg
     religion = "catholic"
     culture = "welsh"
-    father = 159800
+    assign_historic_father_as_other_mother = { daddy = 159800 }
     822.1.1 = {
         birth = "822.1.1"
     }
@@ -7415,7 +7415,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 81831 #Rhodri Mawr
+    assign_historic_father_as_other_mother = { daddy = 81831 }#Rhodri Mawr
     mother = 159802
     854.1.1 = {
         birth = "854.1.1"
@@ -7430,7 +7430,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 81831 #Rhodri Mawr
+    assign_historic_father_as_other_mother = { daddy = 81831 }#Rhodri Mawr
     mother = 159802
     859.1.1 = {
         birth = "859.1.1"
@@ -7445,7 +7445,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 81831 #Rhodri Mawr
+    assign_historic_father_as_other_mother = { daddy = 81831 }#Rhodri Mawr
     mother = 159802
     852.1.1 = {
         birth = "852.1.1"
@@ -7461,7 +7461,7 @@
     dynasty = 14255 # Seisyllwg
     religion = "catholic"
     culture = "welsh"
-    father = 159799
+    assign_historic_father_as_other_mother = { daddy = 159799 }
     740.1.1 = {
         birth = "740.1.1"
     }
@@ -7476,7 +7476,7 @@
     dynasty_house = house_british_isles_rhos #Rhos
     religion = "catholic"
     culture = "welsh"
-    father = 159011
+    assign_historic_father_as_other_mother = { daddy = 159011 }
     455.1.1 = {
         birth = "455.1.1"
     }
@@ -7490,7 +7490,7 @@
     dynasty_house = house_british_isles_rhos #Rhos
     religion = "catholic"
     culture = "welsh"
-    father = 160038
+    assign_historic_father_as_other_mother = { daddy = 160038 }
     480.1.1 = {
         birth = "480.1.1"
     }
@@ -7504,7 +7504,7 @@
     dynasty_house = house_british_isles_rhos #Rhos
     religion = "catholic"
     culture = "welsh"
-    father = 160039
+    assign_historic_father_as_other_mother = { daddy = 160039 }
     500.1.1 = {
         birth = "500.1.1"
     }
@@ -7519,7 +7519,7 @@
     dynasty_house = house_british_isles_rhos #Rhos
     religion = "catholic"
     culture = "welsh"
-    father = 160040
+    assign_historic_father_as_other_mother = { daddy = 160040 }
     535.1.1 = {
         birth = "535.1.1"
     }
@@ -7533,7 +7533,7 @@
     dynasty_house = house_british_isles_rhos #Rhos
     religion = "catholic"
     culture = "welsh"
-    father = 160041
+    assign_historic_father_as_other_mother = { daddy = 160041 }
     570.1.1 = {
         birth = "570.1.1"
     }
@@ -7547,7 +7547,7 @@
     dynasty_house = house_british_isles_rhos #Rhos
     religion = "catholic"
     culture = "welsh"
-    father = 160042
+    assign_historic_father_as_other_mother = { daddy = 160042 }
     600.1.1 = {
         birth = "600.1.1"
     }
@@ -7561,7 +7561,7 @@
     dynasty_house = house_british_isles_rhos #Rhos
     religion = "catholic"
     culture = "welsh"
-    father = 160043
+    assign_historic_father_as_other_mother = { daddy = 160043 }
     630.1.1 = {
         birth = "630.1.1"
     }
@@ -7575,7 +7575,7 @@
     dynasty_house = house_british_isles_rhos #Rhos
     religion = "catholic"
     culture = "welsh"
-    father = 160044
+    assign_historic_father_as_other_mother = { daddy = 160044 }
     660.1.1 = {
         birth = "660.1.1"
     }
@@ -7589,7 +7589,7 @@
     dynasty_house = house_british_isles_rhos #Rhos
     religion = "catholic"
     culture = "welsh"
-    father = 160045
+    assign_historic_father_as_other_mother = { daddy = 160045 }
     690.1.1 = {
         birth = "690.1.1"
     }
@@ -7603,7 +7603,7 @@
     female = yes
     religion = "catholic"
     culture = "welsh"
-    father = 159013 #
+    assign_historic_father_as_other_mother = { daddy = 159013 }#
     502.1.1 = {
         birth = "502.1.1"
     }
@@ -7621,7 +7621,7 @@
     dynasty_house = house_british_isles_ternyllwg #Ternyllwg
     religion = "catholic"
     culture = "welsh"
-    father = 159068 #Tegonwy Gruffyd of Powys
+    assign_historic_father_as_other_mother = { daddy = 159068 }#Tegonwy Gruffyd of Powys
     740.1.1 = {
         birth = "740.1.1"
     }
@@ -7639,7 +7639,7 @@
     dynasty_house = house_british_isles_ternyllwg #Ternyllwg
     religion = "catholic"
     culture = "welsh"
-    father = 184119
+    assign_historic_father_as_other_mother = { daddy = 184119 }
     mother = 184135
     760.1.1 = {
         birth = "760.1.1"
@@ -7657,7 +7657,7 @@
     dynasty_house = house_british_isles_maelienydd #Maelienydd
     religion = "catholic"
     culture = "welsh"
-    father = 184120
+    assign_historic_father_as_other_mother = { daddy = 184120 }
     800.1.1 = {
         birth = "800.1.1"
     }
@@ -7671,7 +7671,7 @@
     dynasty_house = house_british_isles_maelienydd #Maelienydd
     religion = "catholic"
     culture = "welsh"
-    father = 184121
+    assign_historic_father_as_other_mother = { daddy = 184121 }
     830.1.1 = {
         birth = "830.1.1"
     }
@@ -7685,7 +7685,7 @@
     dynasty_house = house_british_isles_maelienydd #Maelienydd
     religion = "catholic"
     culture = "welsh"
-    father = 184122
+    assign_historic_father_as_other_mother = { daddy = 184122 }
     860.1.1 = {
         birth = "860.1.1"
     }
@@ -7699,7 +7699,7 @@
     dynasty_house = house_british_isles_maelienydd #Maelienydd
     religion = "catholic"
     culture = "welsh"
-    father = 184123
+    assign_historic_father_as_other_mother = { daddy = 184123 }
     890.1.1 = {
         birth = "890.1.1"
     }
@@ -7713,7 +7713,7 @@
     dynasty_house = house_british_isles_maelienydd #Maelienydd
     religion = "catholic"
     culture = "welsh"
-    father = 184123
+    assign_historic_father_as_other_mother = { daddy = 184123 }
     920.1.1 = {
         birth = "920.1.1"
     }
@@ -7725,7 +7725,7 @@
     female = yes
     name = "Cadwgon" #ap Elystan
     dynasty_house = house_british_isles_maelienydd #Maelienydd
-    father = 131701
+    assign_historic_father_as_other_mother = { daddy = 131701 }
     religion = "catholic"
     culture = "welsh"
     1000.1.1 = {
@@ -7739,7 +7739,7 @@
     female = yes
     name = "Maelgwn" #ap Cadwgon
     dynasty_house = house_british_isles_maelienydd #Maelienydd
-    father = 131703
+    assign_historic_father_as_other_mother = { daddy = 131703 }
     #	mother = 138445
     religion = "catholic"
     culture = "welsh"
@@ -7757,7 +7757,7 @@
     female = yes
     name = "Maredudd" #ap Maelgwn
     dynasty_house = house_british_isles_maelienydd #Maelienydd
-    father = 184127
+    assign_historic_father_as_other_mother = { daddy = 184127 }
     religion = "catholic"
     culture = "welsh"
     1195.1.1 = {
@@ -7771,7 +7771,7 @@
     female = yes
     name = "Madog" #ap Maredudd
     dynasty_house = house_british_isles_maelienydd #Maelienydd
-    father = 184128
+    assign_historic_father_as_other_mother = { daddy = 184128 }
     religion = "catholic"
     culture = "welsh"
     1250.1.1 = {
@@ -7788,7 +7788,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = legitimized_bastard
-    father = 159328 #Idwallon
+    assign_historic_father_as_other_mother = { daddy = 159328 }#Idwallon
     580.1.1 = {
         birth = "580.1.1"
     }
@@ -7802,7 +7802,7 @@
     dynasty = 1029032 #1st Brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 184130
+    assign_historic_father_as_other_mother = { daddy = 184130 }
     610.1.1 = {
         birth = "610.1.1"
     }
@@ -7816,7 +7816,7 @@
     dynasty = 1029032 #1st Brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 184131
+    assign_historic_father_as_other_mother = { daddy = 184131 }
     640.1.1 = {
         birth = "640.1.1"
     }
@@ -7830,7 +7830,7 @@
     dynasty = 1029032 #1st Brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 184132
+    assign_historic_father_as_other_mother = { daddy = 184132 }
     670.1.1 = {
         birth = "670.1.1"
     }
@@ -7844,7 +7844,7 @@
     dynasty = 1029032 #1st Brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 184133
+    assign_historic_father_as_other_mother = { daddy = 184133 }
     710.1.1 = {
         birth = "710.1.1"
     }
@@ -7858,7 +7858,7 @@
     female = yes
     religion = "catholic"
     culture = "welsh"
-    father = 184134
+    assign_historic_father_as_other_mother = { daddy = 184134 }
     740.1.1 = {
         birth = "740.1.1"
     }
@@ -7873,7 +7873,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 138462 #Gruffydd Maelor II
+    assign_historic_father_as_other_mother = { daddy = 138462 }#Gruffydd Maelor II
     1230.1.1 = {
         birth = "1230.1.1"
     }
@@ -7888,7 +7888,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 138462 #Gruffydd Maelor II
+    assign_historic_father_as_other_mother = { daddy = 138462 }#Gruffydd Maelor II
     1240.1.1 = {
         birth = "1240.1.1"
     }
@@ -7902,7 +7902,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 184084 #Gruffydd Fychan
+    assign_historic_father_as_other_mother = { daddy = 184084 }#Gruffydd Fychan
     1275.1.1 = {
         birth = "1275.1.1"
     }
@@ -7916,7 +7916,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 184085 #Madog Crypl
+    assign_historic_father_as_other_mother = { daddy = 184085 }#Madog Crypl
     1298.1.1 = {
         birth = "1298.1.1"
     }
@@ -7930,7 +7930,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 184086 #Gruffydd of Rhuddalt
+    assign_historic_father_as_other_mother = { daddy = 184086 }#Gruffydd of Rhuddalt
     1320.1.1 = {
         birth = "1320.1.1"
     }
@@ -7944,7 +7944,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw for tree appearance
     religion = "catholic"
     culture = "welsh"
-    father = 81831 #Rhodri Mawr
+    assign_historic_father_as_other_mother = { daddy = 81831 }#Rhodri Mawr
     865.1.1 = {
         birth = "865.1.1"	#unknown
     }
@@ -7958,7 +7958,7 @@
     dynasty_house = house_british_isles_aberffraw #Aberffraw for tree appearance
     religion = "catholic"
     culture = "welsh"
-    father = 184089
+    assign_historic_father_as_other_mother = { daddy = 184089 }
     890.1.1 = {
         birth = "890.1.1"	#unknown
     }
@@ -7973,7 +7973,7 @@
     dynasty = 1042815
     religion = "catholic"
     culture = "welsh"
-    father = 214718 #Madog ap Maredudd
+    assign_historic_father_as_other_mother = { daddy = 214718 }#Madog ap Maredudd
     #mother Susann of Gwynedd
     trait = bastard_founder
     1155.1.1 = {
@@ -7990,7 +7990,7 @@
     dynasty = 1042815
     religion = "catholic"
     culture = "welsh"
-    father = 184091 #Owain ap Madog
+    assign_historic_father_as_other_mother = { daddy = 184091 }#Owain ap Madog
     1195.1.1 = {
         birth = "1195.1.1"
     }
@@ -8007,7 +8007,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 420007 #Gwenwynwyn ab Owain
+    assign_historic_father_as_other_mother = { daddy = 420007 }#Gwenwynwyn ab Owain
     1201.1.1 = {
         birth = "1201.1.1"
     }
@@ -8021,7 +8021,7 @@
     dynasty_house = house_british_isles_mathrafal #Mathrafal (Powys)
     religion = "catholic"
     culture = "welsh"
-    father = 184093 #Madog
+    assign_historic_father_as_other_mother = { daddy = 184093 }#Madog
     1217.1.1 = {
         birth = "1217.1.1"
     }
@@ -8035,7 +8035,7 @@
     dynasty = 1042815
     religion = "catholic"
     culture = "welsh"
-    father = 184092
+    assign_historic_father_as_other_mother = { daddy = 184092 }
     mother = 184094
     1235.1.1 = {
         birth = "1235.1.1"
@@ -8050,7 +8050,7 @@
     dynasty = 1042815
     religion = "catholic"
     culture = "welsh"
-    father = 184095
+    assign_historic_father_as_other_mother = { daddy = 184095 }
     1285.1.1 = {
         birth = "1285.1.1"
     }
@@ -8100,7 +8100,7 @@
     culture = "welsh"
     trait = just
     trait = education_diplomacy_3
-    father = 183161
+    assign_historic_father_as_other_mother = { daddy = 183161 }
     mother = 214802
     1200.1.1 = {
         birth = "1200.1.1"
@@ -8124,7 +8124,7 @@
     trait = strong
     trait = brave
     trait = education_martial_2
-    father = 183162
+    assign_historic_father_as_other_mother = { daddy = 183162 }
     1245.1.1 = {
         birth = "1245.1.1"
     }
@@ -8143,7 +8143,7 @@
     trait = honest
     trait = brave
     trait = education_martial_2
-    father = 183163
+    assign_historic_father_as_other_mother = { daddy = 183163 }
     1280.1.1 = {
         birth = "1280.1.1"
     }
@@ -8162,7 +8162,7 @@
     trait = shy
     trait = trusting
     trait = education_learning_1
-    father = 183164
+    assign_historic_father_as_other_mother = { daddy = 183164 }
     1305.1.1 = {
         birth = "1305.1.1"
     }
@@ -8181,7 +8181,7 @@
     trait = wrathful
     trait = cynical
     trait = education_martial_2
-    father = 183164
+    assign_historic_father_as_other_mother = { daddy = 183164 }
     1310.1.1 = {
         birth = "1310.1.1"
     }
@@ -8200,7 +8200,7 @@
     trait = cynical
     trait = greedy
     trait = education_diplomacy_2
-    father = 183161
+    assign_historic_father_as_other_mother = { daddy = 183161 }
     mother = 214802
     1195.1.1 = {
         birth = "1195.1.1"
@@ -8220,7 +8220,7 @@
     trait = beauty_good_1
     trait = twin
     trait = education_diplomacy_1
-    father = 183161
+    assign_historic_father_as_other_mother = { daddy = 183161 }
     mother = 214802
     1208.1.1 = {
         birth = "1208.1.1"
@@ -8240,7 +8240,7 @@
     trait = beauty_good_1
     trait = twin
     trait = education_intrigue_1
-    father = 183161
+    assign_historic_father_as_other_mother = { daddy = 183161 }
     mother = 214802
     1208.1.1 = {
         birth = "1208.1.1"
@@ -8260,7 +8260,7 @@
     trait = greedy
     trait = bastard
     trait = education_intrigue_2
-    father = 183161
+    assign_historic_father_as_other_mother = { daddy = 183161 }
     1240.1.1 = {
         birth = "1240.1.1"
     }
@@ -8278,7 +8278,7 @@
     culture = "welsh"
     trait = leper
     trait = education_learning_1
-    father = 183161
+    assign_historic_father_as_other_mother = { daddy = 183161 }
     1213.1.1 = {
         birth = "1213.1.1"
     }
@@ -8296,7 +8296,7 @@
     culture = "welsh"
     trait = craven
     trait = education_martial_1
-    father = 183161
+    assign_historic_father_as_other_mother = { daddy = 183161 }
     1211.1.1 = {
         birth = "1211.1.1"
     }
@@ -8314,7 +8314,7 @@
     culture = "welsh"
     trait = diligent
     trait = education_stewardship_2
-    father = 183161
+    assign_historic_father_as_other_mother = { daddy = 183161 }
     1206.1.1 = {
         birth = "1206.1.1"
     }
@@ -8332,7 +8332,7 @@
     culture = "welsh"
     trait = zealous
     trait = education_learning_3
-    father = 183161
+    assign_historic_father_as_other_mother = { daddy = 183161 }
     1198.1.1 = {
         birth = "1198.1.1"
     }
@@ -8350,7 +8350,7 @@
     culture = "welsh"
     trait = brave
     trait = education_martial_1
-    father = 183161
+    assign_historic_father_as_other_mother = { daddy = 183161 }
     1207.1.1 = {
         birth = "1207.1.1"
     }
@@ -8368,7 +8368,7 @@
     culture = "welsh"
     trait = intellect_good_1
     trait = education_diplomacy_3
-    father = 183161
+    assign_historic_father_as_other_mother = { daddy = 183161 }
     1204.1.1 = {
         birth = "1204.1.1"
     }
@@ -8386,7 +8386,7 @@
     culture = "welsh"
     trait = honest
     trait = education_martial_2
-    father = 183162
+    assign_historic_father_as_other_mother = { daddy = 183162 }
     1251.1.1 = {
         birth = "1251.1.1"
     }
@@ -8404,7 +8404,7 @@
     culture = "welsh"
     trait = just
     trait = education_stewardship_2
-    father = 183162
+    assign_historic_father_as_other_mother = { daddy = 183162 }
     1255.1.1 = {
         birth = "1255.1.1"
     }
@@ -8422,7 +8422,7 @@
     culture = "welsh"
     trait = cynical
     trait = education_stewardship_1
-    father = 183162
+    assign_historic_father_as_other_mother = { daddy = 183162 }
     1257.1.1 = {
         birth = "1257.1.1"
     }
@@ -8439,7 +8439,7 @@
     religion = "catholic"
     culture = "welsh"
     trait = education_martial_1
-    father = 183162
+    assign_historic_father_as_other_mother = { daddy = 183162 }
     1261.1.1 = {
         birth = "1261.1.1"
     }
@@ -8458,7 +8458,7 @@
     trait = callous
     trait = greedy
     trait = education_diplomacy_1
-    father = 183164
+    assign_historic_father_as_other_mother = { daddy = 183164 }
     1312.1.1 = {
         birth = "1312.1.1"
     }
@@ -8476,7 +8476,7 @@
     culture = "welsh"
     trait = ill
     trait = education_stewardship_1
-    father = 183164
+    assign_historic_father_as_other_mother = { daddy = 183164 }
     1314.1.1 = {
         birth = "1314.1.1"
     }
@@ -8494,7 +8494,7 @@
     culture = "welsh"
     trait = beauty_bad_2
     trait = education_diplomacy_1
-    father = 183164
+    assign_historic_father_as_other_mother = { daddy = 183164 }
     1319.1.1 = {
         birth = "1319.1.1"
     }
@@ -8512,7 +8512,7 @@
     culture = "welsh"
     trait = craven
     trait = education_intrigue_1
-    father = 183164
+    assign_historic_father_as_other_mother = { daddy = 183164 }
     1323.1.1 = {
         birth = "1323.1.1"
     }
@@ -8531,7 +8531,7 @@
     trait = callous
     trait = strong
     trait = education_martial_2
-    father = 183163
+    assign_historic_father_as_other_mother = { daddy = 183163 }
     1282.1.1 = {
         birth = "1282.1.1"
     }
@@ -8550,7 +8550,7 @@
     trait = wrathful
     trait = arrogant
     trait = education_martial_2
-    father = 183163
+    assign_historic_father_as_other_mother = { daddy = 183163 }
     1286.1.1 = {
         birth = "1286.1.1"
     }
@@ -8569,7 +8569,7 @@
     trait = lisping
     trait = shy
     trait = education_learning_1
-    father = 183163
+    assign_historic_father_as_other_mother = { daddy = 183163 }
     1289.1.1 = {
         birth = "1289.1.1"
     }
@@ -8585,7 +8585,7 @@
     dynasty = 200069
     religion = "catholic"
     culture = "welsh"
-    father = 420008 #Gruffydd ap Gwenwynwyn
+    assign_historic_father_as_other_mother = { daddy = 420008 }#Gruffydd ap Gwenwynwyn
     1258.1.1 = {
         birth = "1258.1.1"
     }
@@ -8601,7 +8601,7 @@
     dynasty = 200069
     religion = "catholic"
     culture = "welsh"
-    father = 420008 #Gruffydd ap Gwenwynwyn
+    assign_historic_father_as_other_mother = { daddy = 420008 }#Gruffydd ap Gwenwynwyn
     1255.1.1 = {
         birth = "1255.1.1"
     }
@@ -8617,7 +8617,7 @@
     dynasty = 200069
     religion = "catholic"
     culture = "welsh"
-    father = 420008 #Gruffydd ap Gwenwynwyn
+    assign_historic_father_as_other_mother = { daddy = 420008 }#Gruffydd ap Gwenwynwyn
     1261.1.1 = {
         birth = "1261.1.1"
     }
@@ -8633,7 +8633,7 @@
     dynasty = 200069
     religion = "catholic"
     culture = "welsh"
-    father = 420008 #Gruffydd ap Gwenwynwyn
+    assign_historic_father_as_other_mother = { daddy = 420008 }#Gruffydd ap Gwenwynwyn
     1263.1.1 = {
         birth = "1263.1.1"
     }
@@ -8649,7 +8649,7 @@
     dynasty = 200069
     religion = "catholic"
     culture = "welsh"
-    father = 420008 #Gruffydd ap Gwenwynwyn
+    assign_historic_father_as_other_mother = { daddy = 420008 }#Gruffydd ap Gwenwynwyn
     1268.1.1 = {
         birth = "1268.1.1"
     }
@@ -8665,7 +8665,7 @@
     dynasty = 200069
     religion = "catholic"
     culture = "welsh"
-    father = 420008 #Gruffydd ap Gwenwynwyn
+    assign_historic_father_as_other_mother = { daddy = 420008 }#Gruffydd ap Gwenwynwyn
     1271.1.1 = {
         birth = "1271.1.1"
     }
@@ -8681,7 +8681,7 @@
     dynasty = 200069
     religion = "catholic"
     culture = "welsh"
-    father = 183190 #Llywelyn ap Gruffydd
+    assign_historic_father_as_other_mother = { daddy = 183190 }#Llywelyn ap Gruffydd
     1288.1.1 = {
         birth = "1288.1.1"
     }
@@ -8697,7 +8697,7 @@
     dynasty = 200069
     religion = "catholic"
     culture = "welsh"
-    father = 183193 #Gwilym ap Gruffydd
+    assign_historic_father_as_other_mother = { daddy = 183193 }#Gwilym ap Gruffydd
     1292.1.1 = {
         birth = "1292.1.1"
     }
@@ -8713,7 +8713,7 @@
     dynasty = 200069
     religion = "catholic"
     culture = "welsh"
-    father = 183197 #Gruffydd ap Gwilym
+    assign_historic_father_as_other_mother = { daddy = 183197 }#Gruffydd ap Gwilym
     1332.1.1 = {
         birth = "1332.1.1"
     }
@@ -8728,7 +8728,7 @@
     dynasty_house = house_british_isles_morgannwg #Morgan
     religion = "catholic"
     culture = "welsh"
-    father = 159109
+    assign_historic_father_as_other_mother = { daddy = 159109 }
     849.1.1 = {
         birth = "849.1.1"
     }
@@ -8742,7 +8742,7 @@
     dynasty_house = house_british_isles_morgannwg #Morgan
     religion = "catholic"
     culture = "welsh"
-    father = 159109
+    assign_historic_father_as_other_mother = { daddy = 159109 }
     851.1.1 = {
         birth = "851.1.1"
     }
@@ -8756,7 +8756,7 @@
     dynasty_house = house_british_isles_morgannwg #Morgan
     religion = "catholic"
     culture = "welsh"
-    father = 159110
+    assign_historic_father_as_other_mother = { daddy = 159110 }
     835.1.1 = {
         birth = "835.1.1"
     }
@@ -8770,7 +8770,7 @@
     dynasty_house = house_british_isles_morgannwg #Morgan
     religion = "catholic"
     culture = "welsh"
-    father = 159111
+    assign_historic_father_as_other_mother = { daddy = 159111 }
     800.1.1= {
         birth = yes
     }
@@ -8784,7 +8784,7 @@
     dynasty_house = house_british_isles_morgannwg #Morgan
     religion = "catholic"
     culture = "welsh"
-    father = 160258
+    assign_historic_father_as_other_mother = { daddy = 160258 }
     835.1.1 = {
         birth = "835.1.1"
     }
@@ -8798,7 +8798,7 @@
     dynasty_house = house_british_isles_morgannwg #Morgan
     religion = "catholic"
     culture = "welsh"
-    father = 160258
+    assign_historic_father_as_other_mother = { daddy = 160258 }
     837.1.1 = {
         birth = "837.1.1"
     }
@@ -8811,7 +8811,7 @@
     female = yes
     name = "Hywel" # ap Caradog
     dynasty_house = house_british_isles_rhos #Rhos
-    father = 159022
+    assign_historic_father_as_other_mother = { daddy = 159022 }
     religion = "catholic"
     culture = "welsh"
     750.1.1 = {
@@ -8827,7 +8827,7 @@
     dynasty = 1029129 #Gwent
     religion = "catholic"
     culture = "welsh"
-    father = 159831
+    assign_historic_father_as_other_mother = { daddy = 159831 }
     561.1.1 = {
         birth = "561.1.1"
     }
@@ -8841,7 +8841,7 @@
     dynasty = 1029032 #1st Brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 184130
+    assign_historic_father_as_other_mother = { daddy = 184130 }
     611.1.1 = {
         birth = "611.1.1"
     }
@@ -8855,7 +8855,7 @@
     dynasty_house = house_british_isles_dyfed #Dyfed
     religion = "catholic"
     culture = "welsh"
-    father = 159347
+    assign_historic_father_as_other_mother = { daddy = 159347 }
     703.1.1 = {
         birth = yes
     }
@@ -8870,7 +8870,7 @@
     dynasty_house = house_british_isles_dyfed #Dyfed
     religion = "catholic"
     culture = "welsh"
-    father = 159347
+    assign_historic_father_as_other_mother = { daddy = 159347 }
     705.1.1 = {
         birth = yes
     }
@@ -8884,7 +8884,7 @@
     dynasty_house = house_british_isles_brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 159366
+    assign_historic_father_as_other_mother = { daddy = 159366 }
     848.1.1 = {
         birth = yes
     }
@@ -8899,7 +8899,7 @@
     dynasty = 1029032 #1066 Brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 301022
+    assign_historic_father_as_other_mother = { daddy = 301022 }
     mother = 301023
     1045.1.1 = {
         birth = "1045.1.1"
@@ -8917,7 +8917,7 @@
     dynasty = 1029032 #1066 Brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 301020
+    assign_historic_father_as_other_mother = { daddy = 301020 }
     mother = 301024
     1065.1.1 = {
         birth = "1065.1.1"
@@ -8977,7 +8977,7 @@
     dynasty = 1029032 #1066 Brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 301022
+    assign_historic_father_as_other_mother = { daddy = 301022 }
     mother = 301023
     1045.1.1 = {
         birth = "1045.1.1"
@@ -8992,7 +8992,7 @@
     dynasty = 1029032 #1066 Brycheiniog
     religion = "catholic"
     culture = "welsh"
-    father = 301022
+    assign_historic_father_as_other_mother = { daddy = 301022 }
     mother = 301023
     1055.1.1 = {
         birth = "1055.1.1"
@@ -9020,7 +9020,7 @@
     name = "Idnerth" # ab Edryd
     dynasty = brynffenigl1234 #Proto-Tudor
     religion = "catholic"
-    father = 308004
+    assign_historic_father_as_other_mother = { daddy = 308004 }
     culture = "welsh"
     1035.1.1 = {
         birth = "1035.1.1"
@@ -9037,7 +9037,7 @@
     name = "Gwgan" # ab Idnerth
     dynasty = brynffenigl1234 #Proto-Tudor
     religion = "catholic"
-    father = 308005
+    assign_historic_father_as_other_mother = { daddy = 308005 }
     culture = "welsh"
     1060.1.1 = {
         birth = "1060.1.1"
@@ -9051,7 +9051,7 @@
     name = "Ithel" # ab Edryd
     dynasty = brynffenigl1234 #Proto-Tudor
     religion = "catholic"
-    father = 308004
+    assign_historic_father_as_other_mother = { daddy = 308004 }
     culture = "welsh"
     1036.1.1 = {
         birth = "1036.1.1"
@@ -9065,7 +9065,7 @@
     name = "Hoedliew" # ab Ithel
     dynasty = brynffenigl1234 #Proto-Tudor
     religion = "catholic"
-    father = 308007
+    assign_historic_father_as_other_mother = { daddy = 308007 }
     culture = "welsh"
     1050.1.1 = {
         birth = "1050.1.1"
@@ -9081,7 +9081,7 @@ aberffraw_1 = {
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = 214710
+    assign_historic_father_as_other_mother = { daddy = 214710 }
     trait = bastard
     1134.1.1 = {
         birth = yes
@@ -9097,7 +9097,7 @@ aberffraw_2 = {
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = aberffraw_1
+    assign_historic_father_as_other_mother = { daddy = aberffraw_1 }
     1154.1.1 = {
         birth = yes
     }
@@ -9112,7 +9112,7 @@ aberffraw_3 = {
     dynasty_house = house_british_isles_aberffraw #Aberffraw
     religion = "catholic"
     culture = "welsh"
-    father = aberffraw_1
+    assign_historic_father_as_other_mother = { daddy = aberffraw_1 }
     1155.1.1 = {
         birth = yes
     }
@@ -9127,7 +9127,7 @@ gwynllwg_1 = {
     dynasty_house = house_british_isles_gwynllwg #Gwynllwg
     religion = "catholic"
     culture = "welsh"
-    father = 81861
+    assign_historic_father_as_other_mother = { daddy = 81861 }
     1096.1.1 = {
         birth = yes
     }
@@ -9142,7 +9142,7 @@ gwynllwg_2 = {
     dynasty_house = house_british_isles_gwynllwg #Gwynllwg
     religion = "catholic"
     culture = "welsh"
-    father = 81861
+    assign_historic_father_as_other_mother = { daddy = 81861 }
     1106.1.1 = {
         birth = yes
     }

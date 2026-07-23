@@ -18,7 +18,7 @@ dali_duan_1 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_0
+    assign_historic_father_as_other_mother = { daddy = dali_duan_0 }
     864.1.1 = {
         birth = yes
     }
@@ -33,7 +33,7 @@ dali_duan_10 = { # Emperor Shangming of Dali
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_8 #NAMEME
+    assign_historic_father_as_other_mother = { daddy = dali_duan_8 }#NAMEME
     1054.1.1 = {
         birth = yes
     }
@@ -49,7 +49,7 @@ dali_duan_11 = { # Emperor Zhidao of Dali
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_15 #Sizhou
+    assign_historic_father_as_other_mother = { daddy = dali_duan_15 }#Sizhou
     915.1.1 = {
         birth = yes
     }
@@ -66,7 +66,7 @@ dali_duan_12 = { # Emperor Shizong of Dali
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_27 #Sizhi_601D_667A
+    assign_historic_father_as_other_mother = { daddy = dali_duan_27 }#Sizhi_601D_667A
     diplomacy = 6
     martial = 2
     stewardship = 4
@@ -92,7 +92,7 @@ dali_duan_13 = { # Emperor Taizu of Dali
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_1 #Baolong
+    assign_historic_father_as_other_mother = { daddy = dali_duan_1 }#Baolong
     894.1.1 = {
         birth = yes
     }
@@ -108,7 +108,7 @@ dali_duan_14 = { # Emperor Wenjing of Dali
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_13 #Siping
+    assign_historic_father_as_other_mother = { daddy = dali_duan_13 }#Siping
     910.1.1 = {
         birth = yes
     }
@@ -124,7 +124,7 @@ dali_duan_15 = { # Emperor Shengciwenwu of Dali
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_1 #Baolong
+    assign_historic_father_as_other_mother = { daddy = dali_duan_1 }#Baolong
     895.1.1 = {
         birth = yes
     }
@@ -140,7 +140,7 @@ dali_duan_16 = { # Emperor Xuansu of Dali
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_20 #Suying
+    assign_historic_father_as_other_mother = { daddy = dali_duan_20 }#Suying
     975.1.1 = {
         birth = yes
     }
@@ -156,7 +156,7 @@ dali_duan_17 = { # Emperor Bingyi of Dali
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_6 #NAMEME
+    assign_historic_father_as_other_mother = { daddy = dali_duan_6 }#NAMEME
     996.1.1 = {
         birth = yes
     }
@@ -172,7 +172,7 @@ dali_duan_18 = { # Emperor Yingdao of Dali
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_11 #Sicong
+    assign_historic_father_as_other_mother = { daddy = dali_duan_11 }#Sicong
     935.1.1 = {
         birth = yes
     }
@@ -188,7 +188,7 @@ dali_duan_19 = { # Emperor Tianming of Dali
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_7 #NAMEME
+    assign_historic_father_as_other_mother = { daddy = dali_duan_7 }#NAMEME
     1035.1.1 = {
         birth = yes
     }
@@ -204,7 +204,7 @@ dali_duan_2 = { # Emperor Xuanren of Dali
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_23 #Zhengchun
+    assign_historic_father_as_other_mother = { daddy = dali_duan_23 }#Zhengchun
     1083.1.1 = {
         birth = yes
     }
@@ -220,7 +220,7 @@ dali_duan_20 = { # Emperor Zhaoming of Dali
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_18 #Sushun
+    assign_historic_father_as_other_mother = { daddy = dali_duan_18 }#Sushun
     955.1.1 = {
         birth = yes
     }
@@ -236,7 +236,7 @@ dali_duan_21 = { # Emperor Shengde of Dali
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_16 #Sulian
+    assign_historic_father_as_other_mother = { daddy = dali_duan_16 }#Sulian
     995.1.1 = {
         birth = yes
     }
@@ -252,7 +252,7 @@ dali_duan_22 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_30 #Ziangxing
+    assign_historic_father_as_other_mother = { daddy = dali_duan_30 }#Ziangxing
     1237.1.1 = {
         birth = yes
     }
@@ -267,7 +267,7 @@ dali_duan_23 = { # Emperor Wen'an of Dali
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_9 #NAMEME
+    assign_historic_father_as_other_mother = { daddy = dali_duan_9 }#NAMEME
     1057.1.1 = {
         birth = yes
     }
@@ -283,7 +283,7 @@ dali_duan_24 = { # Emperor Baoding of Dali
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_9 #NAMEME
+    assign_historic_father_as_other_mother = { daddy = dali_duan_9 }#NAMEME
     1056.1.1 = {
         birth = yes
     }
@@ -299,7 +299,7 @@ dali_duan_25 = { # Emperor Jingzong of Dali
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_2 #Heyu
+    assign_historic_father_as_other_mother = { daddy = dali_duan_2 }#Heyu
     1117.1.1 = {
         birth = yes
     }
@@ -315,7 +315,7 @@ dali_duan_26 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_29 #Zhixing
+    assign_historic_father_as_other_mother = { daddy = dali_duan_29 }#Zhixing
     1178.1.1 = {
         birth = yes
     }
@@ -330,7 +330,7 @@ dali_duan_27 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_5 #NAMEME
+    assign_historic_father_as_other_mother = { daddy = dali_duan_5 }#NAMEME
     975.1.1 = {
         birth = yes
     }
@@ -345,7 +345,7 @@ dali_duan_28 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_29 #Zhixing
+    assign_historic_father_as_other_mother = { daddy = dali_duan_29 }#Zhixing
     1177.1.1 = {
         birth = yes
     }
@@ -360,7 +360,7 @@ dali_duan_29 = { # Emperor Gongji of Dali
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_25 #Zhengxing
+    assign_historic_father_as_other_mother = { daddy = dali_duan_25 }#Zhengxing
     1147.1.1 = {
         birth = yes
     }
@@ -376,7 +376,7 @@ dali_duan_3 = { # Emperor Shangde of Dali
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_12 #Silian
+    assign_historic_father_as_other_mother = { daddy = dali_duan_12 }#Silian
     1035.1.1 = {
         birth = yes
     }
@@ -392,7 +392,7 @@ dali_duan_30 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_28 #Zhixiang
+    assign_historic_father_as_other_mother = { daddy = dali_duan_28 }#Zhixiang
     1207.1.1 = {
         birth = yes
     }
@@ -407,7 +407,7 @@ dali_duan_4 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_13 #Siping
+    assign_historic_father_as_other_mother = { daddy = dali_duan_13 }#Siping
     915.1.1 = {
         birth = yes
     }
@@ -422,7 +422,7 @@ dali_duan_5 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_4 #NAMEME
+    assign_historic_father_as_other_mother = { daddy = dali_duan_4 }#NAMEME
     945.1.1 = {
         birth = yes
     }
@@ -437,7 +437,7 @@ dali_duan_6 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_20 #Suying
+    assign_historic_father_as_other_mother = { daddy = dali_duan_20 }#Suying
     976.1.1 = {
         birth = yes
     }
@@ -452,7 +452,7 @@ dali_duan_7 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_21 #Suzhen
+    assign_historic_father_as_other_mother = { daddy = dali_duan_21 }#Suzhen
     1015.1.1 = {
         birth = yes
     }
@@ -467,7 +467,7 @@ dali_duan_8 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_12 #Silian
+    assign_historic_father_as_other_mother = { daddy = dali_duan_12 }#Silian
     1034.1.1 = {
         birth = yes
     }
@@ -482,7 +482,7 @@ dali_duan_9 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_12 #Silian
+    assign_historic_father_as_other_mother = { daddy = dali_duan_12 }#Silian
     1036.1.1 = {
         birth = yes
     }
@@ -497,7 +497,7 @@ dali_duan_31 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_25 #Zhengxing
+    assign_historic_father_as_other_mother = { daddy = dali_duan_25 }#Zhengxing
     1144.1.1 = {
         birth = yes
     }
@@ -512,7 +512,7 @@ dali_duan_32 = { # wife of Gao Guanyinmiao
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_25 #Zhengxing
+    assign_historic_father_as_other_mother = { daddy = dali_duan_25 }#Zhengxing
     1141.1.1 = {
         birth = yes
     }
@@ -527,7 +527,7 @@ dali_duan_33 = { # wife of Gao Liangcheng
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_25 #Zhengxing
+    assign_historic_father_as_other_mother = { daddy = dali_duan_25 }#Zhengxing
     1150.1.1 = {
         birth = yes
     }
@@ -542,7 +542,7 @@ dali_duan_34 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_duan #Duan
-    father = dali_duan_2 #Heyu
+    assign_historic_father_as_other_mother = { daddy = dali_duan_2 }#Heyu
     1120.1.1 = {
         birth = yes
     }
@@ -560,7 +560,7 @@ dali_gao_1 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_29 #Yuchengguang
+    assign_historic_father_as_other_mother = { daddy = dali_gao_29 }#Yuchengguang
     1167.1.1 = {
         birth = yes
     }
@@ -575,7 +575,7 @@ dali_gao_10 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_12 #Mingliang
+    assign_historic_father_as_other_mother = { daddy = dali_gao_12 }#Mingliang
     1101.1.1 = {
         birth = yes
     }
@@ -590,7 +590,7 @@ dali_gao_11 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_28 #Xiangming
+    assign_historic_father_as_other_mother = { daddy = dali_gao_28 }#Xiangming
     1089.1.1 = {
         birth = yes
     }
@@ -605,7 +605,7 @@ dali_gao_12 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_23 #Taiming
+    assign_historic_father_as_other_mother = { daddy = dali_gao_23 }#Taiming
     1080.1.1 = {
         birth = yes
     }
@@ -620,7 +620,7 @@ dali_gao_13 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_23 #Taiming
+    assign_historic_father_as_other_mother = { daddy = dali_gao_23 }#Taiming
     1081.1.1 = {
         birth = yes
     }
@@ -635,7 +635,7 @@ dali_gao_14 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_23 #Taiming
+    assign_historic_father_as_other_mother = { daddy = dali_gao_23 }#Taiming
     1079.1.1 = {
         birth = yes
     }
@@ -650,7 +650,7 @@ dali_gao_15 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_26 #Wenqing
+    assign_historic_father_as_other_mother = { daddy = dali_gao_26 }#Wenqing
     990.1.1 = {
         birth = yes
     }
@@ -665,7 +665,7 @@ dali_gao_16 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_4 #Furen
+    assign_historic_father_as_other_mother = { daddy = dali_gao_4 }#Furen
     950.1.1 = {
         birth = yes
     }
@@ -680,7 +680,7 @@ dali_gao_17 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_2 #Chengsheng
+    assign_historic_father_as_other_mother = { daddy = dali_gao_2 }#Chengsheng
     1168.1.1 = {
         birth = yes
     }
@@ -695,7 +695,7 @@ dali_gao_18 = { # Emperor Fuyoushengdebiaozheng of Dali
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_34 #Zhisheng
+    assign_historic_father_as_other_mother = { daddy = dali_gao_34 }#Zhisheng
     1033.1.1 = {
         birth = yes
     }
@@ -711,7 +711,7 @@ dali_gao_19 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_34 #Zhisheng
+    assign_historic_father_as_other_mother = { daddy = dali_gao_34 }#Zhisheng
     1034.1.1 = {
         birth = yes
     }
@@ -726,7 +726,7 @@ dali_gao_2 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_8 #Jiancheng
+    assign_historic_father_as_other_mother = { daddy = dali_gao_8 }#Jiancheng
     1133.1.1 = {
         birth = yes
     }
@@ -741,7 +741,7 @@ dali_gao_20 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_56
+    assign_historic_father_as_other_mother = { daddy = dali_gao_56 }
     1143.1.1 = {
         birth = yes
     }
@@ -756,7 +756,7 @@ dali_gao_21 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_14 #Mingshun
+    assign_historic_father_as_other_mother = { daddy = dali_gao_14 }#Mingshun
     1103.1.1 = {
         birth = yes
     }
@@ -771,7 +771,7 @@ dali_gao_22 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_30 #Yuchenglong
+    assign_historic_father_as_other_mother = { daddy = dali_gao_30 }#Yuchenglong
     1186.1.1 = {
         birth = yes
     }
@@ -786,7 +786,7 @@ dali_gao_23 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_18 #Shengtai
+    assign_historic_father_as_other_mother = { daddy = dali_gao_18 }#Shengtai
     1057.1.1 = {
         birth = yes
     }
@@ -801,7 +801,7 @@ dali_gao_24 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_30 #Yuchenglong
+    assign_historic_father_as_other_mother = { daddy = dali_gao_30 }#Yuchenglong
     1185.1.1 = {
         birth = yes
     }
@@ -816,7 +816,7 @@ dali_gao_25 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_18 #Shengtai
+    assign_historic_father_as_other_mother = { daddy = dali_gao_18 }#Shengtai
     1059.1.1 = {
         birth = yes
     }
@@ -831,7 +831,7 @@ dali_gao_26 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_16 #Renwen
+    assign_historic_father_as_other_mother = { daddy = dali_gao_16 }#Renwen
     970.1.1 = {
         birth = yes
     }
@@ -846,7 +846,7 @@ dali_gao_27 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_19 #Shengxiang
+    assign_historic_father_as_other_mother = { daddy = dali_gao_19 }#Shengxiang
     1058.1.1 = {
         birth = yes
     }
@@ -861,7 +861,7 @@ dali_gao_28 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_19 #Shengxiang
+    assign_historic_father_as_other_mother = { daddy = dali_gao_19 }#Shengxiang
     1057.1.1 = {
         birth = yes
     }
@@ -876,7 +876,7 @@ dali_gao_29 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_31 #Yuchengsheng
+    assign_historic_father_as_other_mother = { daddy = dali_gao_31 }#Yuchengsheng
     1135.1.1 = {
         birth = yes
     }
@@ -891,7 +891,7 @@ dali_gao_3 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_35
+    assign_historic_father_as_other_mother = { daddy = dali_gao_35 }
     890.1.1 = {
         birth = yes
     }
@@ -906,7 +906,7 @@ dali_gao_35 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_36
+    assign_historic_father_as_other_mother = { daddy = dali_gao_36 }
     850.1.1 = {
         birth = yes
     }
@@ -921,7 +921,7 @@ dali_gao_36 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_37
+    assign_historic_father_as_other_mother = { daddy = dali_gao_37 }
     810.1.1 = {
         birth = yes
     }
@@ -936,7 +936,7 @@ dali_gao_37 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_38
+    assign_historic_father_as_other_mother = { daddy = dali_gao_38 }
     770.1.1 = {
         birth = yes
     }
@@ -951,7 +951,7 @@ dali_gao_38 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_39
+    assign_historic_father_as_other_mother = { daddy = dali_gao_39 }
     730.1.1 = {
         birth = yes
     }
@@ -966,7 +966,7 @@ dali_gao_39 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_40
+    assign_historic_father_as_other_mother = { daddy = dali_gao_40 }
     690.1.1 = {
         birth = yes
     }
@@ -981,7 +981,7 @@ dali_gao_40 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_41
+    assign_historic_father_as_other_mother = { daddy = dali_gao_41 }
     650.1.1 = {
         birth = yes
     }
@@ -996,7 +996,7 @@ dali_gao_41 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_42
+    assign_historic_father_as_other_mother = { daddy = dali_gao_42 }
     610.1.1 = {
         birth = yes
     }
@@ -1011,7 +1011,7 @@ dali_gao_42 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_43
+    assign_historic_father_as_other_mother = { daddy = dali_gao_43 }
     570.1.1 = {
         birth = yes
     }
@@ -1026,7 +1026,7 @@ dali_gao_43 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_44
+    assign_historic_father_as_other_mother = { daddy = dali_gao_44 }
     530.1.1 = {
         birth = yes
     }
@@ -1041,7 +1041,7 @@ dali_gao_44 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_45
+    assign_historic_father_as_other_mother = { daddy = dali_gao_45 }
     490.1.1 = {
         birth = yes
     }
@@ -1056,7 +1056,7 @@ dali_gao_45 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_46
+    assign_historic_father_as_other_mother = { daddy = dali_gao_46 }
     450.1.1 = {
         birth = yes
     }
@@ -1071,7 +1071,7 @@ dali_gao_46 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_47
+    assign_historic_father_as_other_mother = { daddy = dali_gao_47 }
     410.1.1 = {
         birth = yes
     }
@@ -1086,7 +1086,7 @@ dali_gao_47 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_48
+    assign_historic_father_as_other_mother = { daddy = dali_gao_48 }
     370.1.1 = {
         birth = yes
     }
@@ -1101,7 +1101,7 @@ dali_gao_48 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_49
+    assign_historic_father_as_other_mother = { daddy = dali_gao_49 }
     330.1.1 = {
         birth = yes
     }
@@ -1116,7 +1116,7 @@ dali_gao_49 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_50
+    assign_historic_father_as_other_mother = { daddy = dali_gao_50 }
     290.1.1 = {
         birth = yes
     }
@@ -1131,7 +1131,7 @@ dali_gao_50 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_51
+    assign_historic_father_as_other_mother = { daddy = dali_gao_51 }
     250.1.1 = {
         birth = yes
     }
@@ -1146,7 +1146,7 @@ dali_gao_51 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_52
+    assign_historic_father_as_other_mother = { daddy = dali_gao_52 }
     210.1.1 = {
         birth = yes
     }
@@ -1175,7 +1175,7 @@ dali_gao_53 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_18 #Shengtai
+    assign_historic_father_as_other_mother = { daddy = dali_gao_18 }#Shengtai
     1050.1.1 = {
         birth = yes
     }
@@ -1190,7 +1190,7 @@ dali_gao_54 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_53
+    assign_historic_father_as_other_mother = { daddy = dali_gao_53 }
     1070.1.1 = {
         birth = yes
     }
@@ -1205,7 +1205,7 @@ dali_gao_55 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_53
+    assign_historic_father_as_other_mother = { daddy = dali_gao_53 }
     1075.1.1 = {
         birth = yes
     }
@@ -1220,7 +1220,7 @@ dali_gao_56 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_55
+    assign_historic_father_as_other_mother = { daddy = dali_gao_55 }
     1115.1.1 = {
         birth = yes
     }
@@ -1235,7 +1235,7 @@ dali_gao_57 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_20
+    assign_historic_father_as_other_mother = { daddy = dali_gao_20 }
     1160.1.1 = {
         birth = yes
     }
@@ -1250,7 +1250,7 @@ dali_gao_58 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_18 #Shengtai
+    assign_historic_father_as_other_mother = { daddy = dali_gao_18 }#Shengtai
     1058.1.1 = {
         birth = yes
     }
@@ -1265,7 +1265,7 @@ dali_gao_30 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_31 #Yuchengsheng
+    assign_historic_father_as_other_mother = { daddy = dali_gao_31 }#Yuchengsheng
     1150.1.1 = {
         birth = yes
     }
@@ -1280,7 +1280,7 @@ dali_gao_31 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_13 #Mingqing
+    assign_historic_father_as_other_mother = { daddy = dali_gao_13 }#Mingqing
     1104.1.1 = {
         birth = yes
     }
@@ -1295,7 +1295,7 @@ dali_gao_32 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_21 #Shunzhen
+    assign_historic_father_as_other_mother = { daddy = dali_gao_21 }#Shunzhen
     1125.1.1 = {
         birth = yes
     }
@@ -1310,7 +1310,7 @@ dali_gao_33 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_21 #Shunzhen
+    assign_historic_father_as_other_mother = { daddy = dali_gao_21 }#Shunzhen
     1124.1.1 = {
         birth = yes
     }
@@ -1325,7 +1325,7 @@ dali_gao_34 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_15 #Qingzhi
+    assign_historic_father_as_other_mother = { daddy = dali_gao_15 }#Qingzhi
     1010.1.1 = {
         birth = yes
     }
@@ -1340,7 +1340,7 @@ dali_gao_4 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_9 #Junfu
+    assign_historic_father_as_other_mother = { daddy = dali_gao_9 }#Junfu
     930.1.1 = {
         birth = yes
     }
@@ -1355,7 +1355,7 @@ dali_gao_5 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_11 #Mingguanyin
+    assign_historic_father_as_other_mother = { daddy = dali_gao_11 }#Mingguanyin
     1118.1.1 = {
         birth = yes
     }
@@ -1370,7 +1370,7 @@ dali_gao_6 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_5 #Guanyinlong
+    assign_historic_father_as_other_mother = { daddy = dali_gao_5 }#Guanyinlong
     1149.1.1 = {
         birth = yes
     }
@@ -1385,7 +1385,7 @@ dali_gao_7 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_5 #Guanyinlong
+    assign_historic_father_as_other_mother = { daddy = dali_gao_5 }#Guanyinlong
     1150.1.1 = {
         birth = yes
     }
@@ -1400,7 +1400,7 @@ dali_gao_8 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_27 #Xiangjian
+    assign_historic_father_as_other_mother = { daddy = dali_gao_27 }#Xiangjian
     1098.1.1 = {
         birth = yes
     }
@@ -1415,7 +1415,7 @@ dali_gao_9 = {
     culture = "bai"
     faith = "acharya"
     dynasty = dali_gao #Gao
-    father = dali_gao_3 #Fang
+    assign_historic_father_as_other_mother = { daddy = dali_gao_3 }#Fang
     910.1.1 = {
         birth = yes
     }
@@ -1432,7 +1432,7 @@ nanzhao_meng_1 = { # King Jingzhuang of Nanzhao
     culture = "yi"
     faith = "mahayana"
     dynasty = bai_meng
-    father = nanzhao_meng_2 # Fengyou_4E30_7950
+    assign_historic_father_as_other_mother = { daddy = nanzhao_meng_2 }# Fengyou_4E30_7950
     844.1.1 = {
         birth = yes
     }
@@ -1448,7 +1448,7 @@ nanzhao_meng_2 = { # King Zhaocheng of Nanzhao
     culture = "yi"
     faith = "mahayana"
     dynasty = bai_meng
-    father = nanzhao_meng_3 # King Xiaohui
+    assign_historic_father_as_other_mother = { daddy = nanzhao_meng_3 }# King Xiaohui
     809.1.1 = {
         birth = yes
     }
@@ -1464,7 +1464,7 @@ nanzhao_meng_3 = { # King Xiaohui of Nanzhao
     culture = "yi"
     faith = "mahayana"
     dynasty = bai_meng
-    father = nanzhao_meng_16 # King Xiaohuan
+    assign_historic_father_as_other_mother = { daddy = nanzhao_meng_16 }# King Xiaohuan
     778.1.1 = {
         birth = yes
     }
@@ -1480,7 +1480,7 @@ nanzhao_meng_4 = { # King Wuxuan of Nanzhao
     culture = "yi"
     faith = "mahayana"
     dynasty = bai_meng
-    father = nanzhao_meng_1 # Shilong_4E16_9686
+    assign_historic_father_as_other_mother = { daddy = nanzhao_meng_1 }# Shilong_4E16_9686
     861.1.1 = {
         birth = yes
     }
@@ -1496,7 +1496,7 @@ nanzhao_meng_5 = { # King You of Nanzhao
     culture = "yi"
     faith = "mahayana"
     dynasty = bai_meng
-    father = nanzhao_meng_3 # King Xiaohui
+    assign_historic_father_as_other_mother = { daddy = nanzhao_meng_3 }# King Xiaohui
     798.1.1 = {
         birth = yes
     }
@@ -1512,7 +1512,7 @@ nanzhao_meng_6 = { # King Jing of Nanzhao
     culture = "yi"
     faith = "mahayana"
     dynasty = bai_meng
-    father = nanzhao_meng_3 # King Xiaohui
+    assign_historic_father_as_other_mother = { daddy = nanzhao_meng_3 }# King Xiaohui
     802.1.1 = {
         birth = yes
     }
@@ -1528,7 +1528,7 @@ nanzhao_meng_7 = { # King Xiaoai of Nanzhao
     culture = "yi"
     faith = "mahayana"
     dynasty = bai_meng
-    father = nanzhao_meng_4 # Longshun_9686_821C
+    assign_historic_father_as_other_mother = { daddy = nanzhao_meng_4 }# Longshun_9686_821C
     877.1.1 = {
         birth = yes
     }
@@ -1544,7 +1544,7 @@ nanzhao_meng_8 = {
     culture = "yi"
     faith = "mahayana"
     dynasty = bai_yang_hecun # Hecun Yang
-    father = nanzhao_meng_4 # King Wuxuan
+    assign_historic_father_as_other_mother = { daddy = nanzhao_meng_4 }# King Wuxuan
     mother = bai_lowborn_1 # Muli
     trait = wild_oat
     896.1.1 = {
@@ -1562,7 +1562,7 @@ nanzhao_meng_9 = {
     culture = "yi"
     faith = "mahayana"
     dynasty = bai_yang_hecun # Hecun Yang
-    father = bai_yang_hecun_1 #
+    assign_historic_father_as_other_mother = { daddy = bai_yang_hecun_1 }#
     mother = bai_lowborn_1 # Muli
     900.1.1 = {
         birth = yes
@@ -1593,7 +1593,7 @@ nanzhao_meng_11 = { # King Xingzong of Mengshe Zhao
     culture = "yi"
     faith = "mahayana"
     dynasty = bai_meng
-    father = nanzhao_meng_10 # King Qijia
+    assign_historic_father_as_other_mother = { daddy = nanzhao_meng_10 }# King Qijia
     634.1.1 = {
         birth = yes
     }
@@ -1609,7 +1609,7 @@ nanzhao_meng_12 = { # King Weicheng of Mengshe Zhao
     culture = "yi"
     faith = "mahayana"
     dynasty = bai_meng
-    father = nanzhao_meng_11 # King Xingzong
+    assign_historic_father_as_other_mother = { daddy = nanzhao_meng_11 }# King Xingzong
     673.1.1 = {
         birth = yes
     }
@@ -1625,7 +1625,7 @@ nanzhao_meng_13 = { # King Guiyi of Nanzhao
     culture = "yi"
     faith = "mahayana"
     dynasty = bai_meng
-    father = nanzhao_meng_12 # King Weicheng
+    assign_historic_father_as_other_mother = { daddy = nanzhao_meng_12 }# King Weicheng
     698.1.1 = {
         birth = yes
     }
@@ -1641,7 +1641,7 @@ nanzhao_meng_14 = { # King Shenwu of Nanzhao
     culture = "yi"
     faith = "mahayana"
     dynasty = bai_meng
-    father = nanzhao_meng_13 # King Guiyi
+    assign_historic_father_as_other_mother = { daddy = nanzhao_meng_13 }# King Guiyi
     712.1.1 = {
         birth = yes
     }
@@ -1657,7 +1657,7 @@ nanzhao_meng_15 = {
     culture = "yi"
     faith = "mahayana"
     dynasty = bai_meng
-    father = nanzhao_meng_14 # King Shenwu
+    assign_historic_father_as_other_mother = { daddy = nanzhao_meng_14 }# King Shenwu
     738.1.1 = {
         birth = yes
     }
@@ -1672,7 +1672,7 @@ nanzhao_meng_16 = { # King Xiaohuan of Nanzhao
     culture = "yi"
     faith = "mahayana"
     dynasty = bai_meng
-    father = nanzhao_meng_15 # Prince Fengjiayi
+    assign_historic_father_as_other_mother = { daddy = nanzhao_meng_15 }# Prince Fengjiayi
     754.1.1 = {
         birth = yes
     }
@@ -1722,7 +1722,7 @@ bai_zheng_2 = {
     culture = "bai"
     faith = "mahayana"
     dynasty = bai_zheng
-    father = bai_zheng_1 #
+    assign_historic_father_as_other_mother = { daddy = bai_zheng_1 }#
     861.1.1 = {
         birth = yes
     }
@@ -1738,7 +1738,7 @@ bai_zheng_3 = { # King Suwen
     culture = "bai"
     faith = "mahayana"
     dynasty = bai_zheng
-    father = bai_zheng_2 # Maisi
+    assign_historic_father_as_other_mother = { daddy = bai_zheng_2 }# Maisi
     889.1.1 = {
         birth = yes
     }
@@ -1754,7 +1754,7 @@ bai_zheng_4 = {
     culture = "bai"
     faith = "mahayana"
     dynasty = bai_zheng
-    father = bai_zheng_2 # Maisi
+    assign_historic_father_as_other_mother = { daddy = bai_zheng_2 }# Maisi
     915.1.1 = {
         birth = yes
     }
@@ -1788,7 +1788,7 @@ bai_yang_2 = { # Emperor Guang'an of Dali
     culture = bai
     faith = acharya
     dynasty = bai_yang # Yang
-    father = bai_yang_1 # Yunxian
+    assign_historic_father_as_other_mother = { daddy = bai_yang_1 }# Yunxian
     trait = ambitious
     trait = deceitful
     trait = callous
@@ -1857,7 +1857,7 @@ bai_yang_3_2 = {
     dynasty = bai_yang
     culture = bai
     faith = acharya
-    father = bai_yang_3_1
+    assign_historic_father_as_other_mother = { daddy = bai_yang_3_1 }
     835.1.1 = {
         birth = yes
     }
@@ -1928,7 +1928,7 @@ bai_dong_10 = {
     dynasty = bai_dong
     faith = acharya
     culture = bai
-    father = bai_dong_9
+    assign_historic_father_as_other_mother = { daddy = bai_dong_9 }
     988.1.1 = {
         birth = yes
     }
@@ -1943,7 +1943,7 @@ bai_dong_11 = {
     dynasty = bai_dong
     faith = acharya
     culture = bai
-    father = bai_dong_10
+    assign_historic_father_as_other_mother = { daddy = bai_dong_10 }
     1017.1.1 = {
         birth = yes
     }
@@ -1958,7 +1958,7 @@ bai_dong_12 = {
     dynasty = bai_dong
     faith = acharya
     culture = bai
-    father = bai_dong_11
+    assign_historic_father_as_other_mother = { daddy = bai_dong_11 }
     1036.1.1 = {
         birth = yes
     }
@@ -1973,7 +1973,7 @@ bai_dong_13 = {
     dynasty = bai_dong
     faith = acharya
     culture = bai
-    father = bai_dong_12
+    assign_historic_father_as_other_mother = { daddy = bai_dong_12 }
     1075.1.1 = {
         birth = yes
     }
@@ -1988,7 +1988,7 @@ bai_dong_14 = {
     dynasty = bai_dong
     faith = acharya
     culture = bai
-    father = bai_dong_13
+    assign_historic_father_as_other_mother = { daddy = bai_dong_13 }
     1106.1.1 = {
         birth = yes
     }
@@ -2003,7 +2003,7 @@ bai_dong_15 = {
     dynasty = bai_dong
     faith = acharya
     culture = bai
-    father = bai_dong_14
+    assign_historic_father_as_other_mother = { daddy = bai_dong_14 }
     1136.1.1 = {
         birth = yes
     }
@@ -2018,7 +2018,7 @@ bai_dong_16 = {
     dynasty = bai_dong
     faith = acharya
     culture = bai
-    father = bai_dong_15
+    assign_historic_father_as_other_mother = { daddy = bai_dong_15 }
     1165.1.1 = {
         birth = yes
     }
@@ -2033,7 +2033,7 @@ bai_dong_2 = {
     dynasty = bai_dong
     faith = acharya
     culture = bai
-    father = bai_dong_1
+    assign_historic_father_as_other_mother = { daddy = bai_dong_1 }
     742.1.1 = {
         birth = yes
     }
@@ -2048,7 +2048,7 @@ bai_dong_3 = {
     dynasty = bai_dong
     faith = acharya
     culture = bai
-    father = bai_dong_2
+    assign_historic_father_as_other_mother = { daddy = bai_dong_2 }
     774.1.1 = {
         birth = yes
     }
@@ -2063,7 +2063,7 @@ bai_dong_4 = {
     dynasty = bai_dong
     faith = acharya
     culture = bai
-    father = bai_dong_3
+    assign_historic_father_as_other_mother = { daddy = bai_dong_3 }
     807.1.1 = {
         birth = yes
     }
@@ -2078,7 +2078,7 @@ bai_dong_5 = {
     dynasty = bai_dong
     faith = acharya
     culture = bai
-    father = bai_dong_4
+    assign_historic_father_as_other_mother = { daddy = bai_dong_4 }
     838.1.1 = {
         birth = yes
     }
@@ -2093,7 +2093,7 @@ bai_dong_6 = {
     dynasty = bai_dong
     faith = acharya
     culture = bai
-    father = bai_dong_5
+    assign_historic_father_as_other_mother = { daddy = bai_dong_5 }
     868.1.1 = {
         birth = yes
     }
@@ -2108,7 +2108,7 @@ bai_dong_7 = {
     dynasty = bai_dong
     faith = acharya
     culture = bai
-    father = bai_dong_6
+    assign_historic_father_as_other_mother = { daddy = bai_dong_6 }
     899.1.1 = {
         birth = yes
     }
@@ -2123,7 +2123,7 @@ bai_dong_8 = {
     dynasty = bai_dong
     faith = acharya
     culture = bai
-    father = bai_dong_7
+    assign_historic_father_as_other_mother = { daddy = bai_dong_7 }
     929.1.1 = {
         birth = yes
     }
@@ -2138,7 +2138,7 @@ bai_dong_9 = {
     dynasty = bai_dong
     faith = acharya
     culture = bai
-    father = bai_dong_8
+    assign_historic_father_as_other_mother = { daddy = bai_dong_8 }
     958.1.1 = {
         birth = yes
     }

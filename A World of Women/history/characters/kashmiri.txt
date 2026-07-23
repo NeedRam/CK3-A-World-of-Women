@@ -1357,7 +1357,7 @@ darada_king_2 = {
     dynasty=kashmiri_darada_dynasty
     religion="mahayana"
     culture="kashmiri" #Dardic
-    father = darada_king_1
+    assign_historic_father_as_other_mother = { daddy = darada_king_1 }
     1030.1.1={
         birth=yes
     }
