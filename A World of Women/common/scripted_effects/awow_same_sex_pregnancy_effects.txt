@@ -3,14 +3,14 @@
 
 awow_start_same_sex_pregnancy_effect = {
     set_variable = { name = awow_pregnancy_active value = yes }
-    debug_log = "AWOW SS-PREG: starting pregnancy effect"
+    # debug_log = "AWOW SS-PREG: starting pregnancy effect"
     carn_start_custom_pregnancy_effect = {
         PREGNANCY_TYPE = awow_same_sex
         DAYS_UNTIL_NEXT_STAGE = 280
         CAN_BE_ABORTED = yes
     }
     add_trait_force_tooltip = pregnant
-    debug_log = "AWOW SS-PREG: pregnant trait assigned"
+    # debug_log = "AWOW SS-PREG: pregnant trait assigned"
     awow_roll_multiple_children_chance_effect = yes
     trigger_event = {
         id = awow_pregnancy.0001
@@ -26,20 +26,20 @@ awow_try_same_sex_pregnancy_effect = {
     if = {
         limit = {
             awow_same_sex_can_bear_trigger = yes
-            debug_log = "AWOW SS-PREG: Can try Bear"
+            # debug_log = "AWOW SS-PREG: Can try Bear"
             awow_has_ai_female_partner_trigger = yes
-            debug_log = "AWOW SS-PREG: try spouse is AI"
+            # debug_log = "AWOW SS-PREG: try spouse is AI"
         }
         random_spouse = {
             limit = { awow_same_sex_can_bear_trigger = yes }
-            debug_log = "AWOW SS-PREG: random spouse can bear"
+            # debug_log = "AWOW SS-PREG: random spouse can bear"
             save_scope_as = awow_partner
         }
         if = {
             limit = { NOT = { exists = scope:awow_partner } }
             random_consort = {
                 limit = { awow_same_sex_can_bear_trigger = yes }
-                debug_log = "AWOW SS-PREG: random consort can bear"
+                # debug_log = "AWOW SS-PREG: random consort can bear"
                 save_scope_as = awow_partner
             }
         }
@@ -48,7 +48,7 @@ awow_try_same_sex_pregnancy_effect = {
             save_scope_as = awow_root
             random_list = {
                 50 = {
-                    debug_log = "AWOW SS-PREG: root is mother"
+                    # debug_log = "AWOW SS-PREG: root is mother"
                     save_scope_as = mother
                     scope:awow_partner = { save_scope_as = father }
                     scope:awow_partner = { save_scope_as = awow_other_mother }
@@ -63,7 +63,7 @@ awow_try_same_sex_pregnancy_effect = {
                 }
                 50 = {
                     scope:awow_partner = {
-                        debug_log = "AWOW SS-PREG: root is other_mother"
+                        # debug_log = "AWOW SS-PREG: root is other_mother"
                         save_scope_as = mother
                         scope:awow_root = { save_scope_as = father }
                         scope:awow_root = { save_scope_as = awow_other_mother }
@@ -108,17 +108,17 @@ awow_pregnancy_pulse_effect = {
     if = {
         limit = {
             awow_same_sex_can_bear_trigger = yes
-            debug_log = "AWOW SS-PREG: Can Bear"
+            # debug_log = "AWOW SS-PREG: Can Bear"
             awow_has_ai_female_partner_trigger = yes
-            debug_log = "AWOW SS-PREG: spouse is AI"
+            # debug_log = "AWOW SS-PREG: spouse is AI"
         }
-        debug_log = "AWOW SS-PREG: Trying for pregnancy"
+        # debug_log = "AWOW SS-PREG: Trying for pregnancy"
         awow_try_same_sex_pregnancy_effect = yes
     }
 }
 
 awow_monthly_pregnancy_tick_effect = {
-    debug_log = "AWOW SS-PREG: Tick START"
+    # debug_log = "AWOW SS-PREG: Tick START"
     trigger_event = {
         id = awow_pregnancy.0010
     }
