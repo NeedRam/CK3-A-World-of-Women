@@ -175,11 +175,10 @@ awow_pregnancy.0010 = {
     type = character_event
     hidden = yes
 
-    debug_log = "AWOW SS-PREG: Loop Cooldown START"
     immediate = {
         trigger_event = {
             id = awow_pregnancy.0020
-            days = 69
+            days = 369
         }
     }
 }
@@ -189,17 +188,14 @@ awow_pregnancy.0020 = {
     type = character_event
     hidden = yes
 
-    debug_log = "AWOW SS-PREG: Loop Cooldown END"
     immediate = {
-        
         every_living_character = {
             awow_pregnancy_pulse_effect = yes
         }
         trigger_event = {
-            id = awow_pregnancy.0020
+            id = awow_pregnancy.0010
         }
     }
-    debug_log = "AWOW SS-PREG: Looping"
 }
 
 # 0030 - Start Pregnancy
@@ -207,7 +203,6 @@ awow_pregnancy.0030 = {
     type = character_event
     hidden = yes
 
-    debug_log = "AWOW SS-PREG: Starting Preg EVENT"
     immediate = {
         awow_start_same_sex_pregnancy_effect = yes
     }
