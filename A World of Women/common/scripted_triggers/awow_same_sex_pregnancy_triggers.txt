@@ -1,35 +1,10 @@
 ﻿# AWOW same-sex (female-female) pregnancy triggers
 
 awow_same_sex_can_bear_trigger = {
-    AND = {
-        is_alive = yes
-        is_female = yes
-        is_adult = yes
-        NOT = { is_pregnant = yes }
-        NOT = { has_variable = awow_pregnancy_active }
-    }
-}
-
-# Does the character have a female AI spouse or concubine?
-# Uses CK3 dedicated iterators (any_spouse / any_consort), NOT any_relation
-# with type=spouse (spouse is not a relation type in CK3).
-awow_has_ai_female_partner_trigger = {
-    OR = {
-        any_spouse = {
-            is_female = yes
-            is_ai = yes
-        }
-        any_consort = {
-            is_female = yes
-            is_ai = yes
-        }
-    }
-}
-
-# Diagnostic: spouse-only variant (no concubines) for comparison in logs.
-awow_has_spouse_partner_trigger = {
-    any_spouse = {
-        is_female = yes
-        is_ai = yes
-    }
+    is_alive = yes
+    is_female = yes
+    is_adult = yes
+    NOT = { is_pregnant = yes }
+    NOT = { has_variable = awow_pregnancy_active }
+    NOT = { has_character_flag = tried_same_sex_preg }
 }

@@ -25,8 +25,8 @@ awow_pregnancy.0001 = {
                 save_scope_as = child
                 after_creation = {
                     if = {
-                        limit = { scope:mother = { is_ruler = yes } }
-                        scope:mother = { add_courtier = scope:child }
+                        limit = { scope:awow_mother = { is_ruler = yes } }
+                        scope:awow_mother = { add_courtier = scope:child }
                     }
                     else_if = {
                         limit = {
@@ -36,7 +36,7 @@ awow_pregnancy.0001 = {
                         scope:awow_other_mother = { add_courtier = scope:child }
                     }
                     else = {
-                        scope:mother = { add_courtier = scope:child }
+                        scope:awow_mother = { add_courtier = scope:child }
                     }
                     scope:child = {
                         awow_assign_scripted_relations_effect = yes
@@ -67,8 +67,8 @@ awow_pregnancy.0001 = {
                 save_scope_as = childsr
                 after_creation = {
                     if = {
-                        limit = { scope:mother = { is_ruler = yes } }
-                        scope:mother = { add_courtier = scope:childsr }
+                        limit = { scope:awow_mother = { is_ruler = yes } }
+                        scope:awow_mother = { add_courtier = scope:childsr }
                     }
                     else_if = {
                         limit = {
@@ -78,7 +78,7 @@ awow_pregnancy.0001 = {
                         scope:awow_other_mother = { add_courtier = scope:childsr }
                     }
                     else = {
-                        scope:mother = { add_courtier = scope:childsr }
+                        scope:awow_mother = { add_courtier = scope:childsr }
                     }
                     scope:childsr = {
                         awow_assign_scripted_relations_effect = yes
@@ -109,8 +109,8 @@ awow_pregnancy.0001 = {
                 save_scope_as = childssr
                 after_creation = {
                     if = {
-                        limit = { scope:mother = { is_ruler = yes } }
-                        scope:mother = { add_courtier = scope:childssr }
+                        limit = { scope:awow_mother = { is_ruler = yes } }
+                        scope:awow_mother = { add_courtier = scope:childssr }
                     }
                     else_if = {
                         limit = {
@@ -120,7 +120,7 @@ awow_pregnancy.0001 = {
                         scope:awow_other_mother = { add_courtier = scope:childssr }
                     }
                     else = {
-                        scope:mother = { add_courtier = scope:childssr }
+                        scope:awow_mother = { add_courtier = scope:childssr }
                     }
                     scope:childssr = {
                         awow_assign_scripted_relations_effect = yes
