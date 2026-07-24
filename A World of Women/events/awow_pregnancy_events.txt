@@ -13,21 +13,36 @@ awow_pregnancy.0001 = {
     immediate = {
         # debug_log = "AWOW SS-PREG: borning child"
         awow_baby_female_chance_effect = yes
-        create_character = {
-            age = 0
-            random_traits = no
-            culture = root.culture
-            faith = root.faith
-            dynasty = inherit
-            location = root.location
-            mother = root
-            gender_female_chance = var:awow_baby_female_chance
-            save_scope_as = child
-        }
-
-        scope:child = {
-            awow_assign_scripted_relations_effect = yes
-        }
+            create_character = {
+                age = 0
+                random_traits = no
+                culture = root.culture
+                faith = root.faith
+                dynasty = inherit
+                location = root.location
+                mother = root
+                gender_female_chance = var:awow_baby_female_chance
+                save_scope_as = child
+                after_creation = {
+                    if = {
+                        limit = { scope:mother = { is_ruler = yes } }
+                        scope:mother = { add_courtier = scope:child }
+                    }
+                    else_if = {
+                        limit = {
+                            exists = scope:awow_other_mother
+                            scope:awow_other_mother = { is_ruler = yes }
+                        }
+                        scope:awow_other_mother = { add_courtier = scope:child }
+                    }
+                    else = {
+                        scope:mother = { add_courtier = scope:child }
+                    }
+                    scope:child = {
+                        awow_assign_scripted_relations_effect = yes
+                    }
+                }
+            }
 
         create_character_memory = {
             type = child_born
@@ -50,10 +65,25 @@ awow_pregnancy.0001 = {
                 mother = root
                 gender_female_chance = var:awow_baby_female_chance
                 save_scope_as = childsr
-            }
-
-            scope:childsr = {
-                awow_assign_scripted_relations_effect = yes
+                after_creation = {
+                    if = {
+                        limit = { scope:mother = { is_ruler = yes } }
+                        scope:mother = { add_courtier = scope:childsr }
+                    }
+                    else_if = {
+                        limit = {
+                            exists = scope:awow_other_mother
+                            scope:awow_other_mother = { is_ruler = yes }
+                        }
+                        scope:awow_other_mother = { add_courtier = scope:childsr }
+                    }
+                    else = {
+                        scope:mother = { add_courtier = scope:childsr }
+                    }
+                    scope:childsr = {
+                        awow_assign_scripted_relations_effect = yes
+                    }
+                }
             }
 
             create_character_memory = {
@@ -77,10 +107,25 @@ awow_pregnancy.0001 = {
                 mother = root
                 gender_female_chance = var:awow_baby_female_chance
                 save_scope_as = childssr
-            }
-
-            scope:childssr = {
-                awow_assign_scripted_relations_effect = yes
+                after_creation = {
+                    if = {
+                        limit = { scope:mother = { is_ruler = yes } }
+                        scope:mother = { add_courtier = scope:childssr }
+                    }
+                    else_if = {
+                        limit = {
+                            exists = scope:awow_other_mother
+                            scope:awow_other_mother = { is_ruler = yes }
+                        }
+                        scope:awow_other_mother = { add_courtier = scope:childssr }
+                    }
+                    else = {
+                        scope:mother = { add_courtier = scope:childssr }
+                    }
+                    scope:childssr = {
+                        awow_assign_scripted_relations_effect = yes
+                    }
+                }
             }
 
             create_character_memory = {
