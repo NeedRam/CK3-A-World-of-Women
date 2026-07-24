@@ -11,7 +11,7 @@ awow_pregnancy.0001 = {
         has_variable = awow_pregnancy_active
     }
     immediate = {
-        debug_log = "AWOW SS-PREG: borning child"
+        # debug_log = "AWOW SS-PREG: borning child"
         awow_baby_female_chance_effect = yes
         create_character = {
             age = 0
@@ -36,7 +36,7 @@ awow_pregnancy.0001 = {
             }
         }
 
-        debug_log = "AWOW SS-PREG: child borned"
+        # debug_log = "AWOW SS-PREG: child borned"
 
         if = {
             limit = { has_character_flag = awow_pregnancy_will_be_twins_flag }
@@ -62,7 +62,7 @@ awow_pregnancy.0001 = {
                     child = scope:childsr
                 }
             }
-            debug_log = "AWOW SS-PREG: another child borned"
+            # debug_log = "AWOW SS-PREG: another child borned"
         }
 
         if = {
@@ -89,7 +89,7 @@ awow_pregnancy.0001 = {
                     child = scope:childssr
                 }
             }
-            debug_log = "AWOW SS-PREG: many childs born"
+            # debug_log = "AWOW SS-PREG: many childs born"
         }
 
         remove_trait = pregnant
@@ -98,7 +98,7 @@ awow_pregnancy.0001 = {
         remove_character_flag = awow_pregnancy_will_be_triplets_flag
         carn_end_custom_pregnancy_effect = yes
 
-        debug_log = "AWOW SS-PREG: removed traits and flags child borned"
+        # debug_log = "AWOW SS-PREG: removed traits and flags child borned"
 
         ######### REDO EVENT POPUPS #########
         if = {
@@ -120,12 +120,12 @@ awow_pregnancy.0001 = {
             }
             scope:awow_other_mother = {
                 trigger_event = {
-                    id = awow_pregnancy.0004
+                    id = awow_pregnancy.0003
                 }
             }
         }
         clear_saved_scope = awow_other_mother
-        debug_log = "AWOW SS-PREG: not ai popups sent"
+        # debug_log = "AWOW SS-PREG: not ai popups sent"
     }
 }
 
@@ -149,21 +149,9 @@ awow_pregnancy.0002 = {
     }
 }
 
-# 0003 - Low-frequency scheduler pulse. Iterates all living women once per year and
-# reschedules itself. The pregnancy itself still lasts 280 days.
-awow_pregnancy.0003 = {
-    type = character_event
-    hidden = yes
-
-    immediate = {
-        awow_pregnancy_pulse_effect = yes
-        awow_monthly_pregnancy_tick_effect = yes
-    }
-}
-
-# 0004 - Visible birth announcement for the non-carrying player mother (co-mother).
+# 0003 - Visible birth announcement for the non-carrying player mother (co-mother).
 # Fires only if the non-carrying mother is alive and is the player character.
-awow_pregnancy.0004 = {
+awow_pregnancy.0003 = {
     type = character_event
     hidden = no
     theme = pregnancy
@@ -173,12 +161,55 @@ awow_pregnancy.0004 = {
         is_female = yes
     }
 
-    title = awow_pregnancy_0004_t
-    desc = awow_pregnancy_0004_d
+    title = awow_pregnancy_0003_t
+    desc = awow_pregnancy_0003_d
 
     option = {
-        name = awow_pregnancy_0004_ok
+        name = awow_pregnancy_0003_ok
         trigger = { always = yes }
+    }
+}
+
+# 0010 - Preg Pulse scheduler
+awow_pregnancy.0010 = {
+    type = character_event
+    hidden = yes
+
+    debug_log = "AWOW SS-PREG: Loop Cooldown START"
+    immediate = {
+        trigger_event = {
+            id = awow_pregnancy.0020
+            days = 69
+        }
+    }
+}
+
+# 0020 - Preg Pulse
+awow_pregnancy.0020 = {
+    type = character_event
+    hidden = yes
+
+    debug_log = "AWOW SS-PREG: Loop Cooldown END"
+    immediate = {
+        
+        every_living_character = {
+            awow_pregnancy_pulse_effect = yes
+        }
+        trigger_event = {
+            id = awow_pregnancy.0020
+        }
+    }
+    debug_log = "AWOW SS-PREG: Looping"
+}
+
+# 0030 - Start Pregnancy
+awow_pregnancy.0030 = {
+    type = character_event
+    hidden = yes
+
+    debug_log = "AWOW SS-PREG: Starting Preg EVENT"
+    immediate = {
+        awow_start_same_sex_pregnancy_effect = yes
     }
 }
 

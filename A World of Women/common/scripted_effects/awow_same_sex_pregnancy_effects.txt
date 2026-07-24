@@ -1,9 +1,9 @@
 ﻿# AWOW autonomous female-female pregnancy system.
 # Carnalitas supplies the pregnancy portrait support
 
-awow_start_same_sex_pregnancy_effect = { # requires PARTNER
+awow_start_same_sex_pregnancy_effect = {
     set_variable = { name = awow_pregnancy_active value = yes }
-    debug_log = "AWOW SS-PREG: starting pregnancy"
+    debug_log = "AWOW SS-PREG: starting pregnancy effect"
     carn_start_custom_pregnancy_effect = {
         PREGNANCY_TYPE = awow_same_sex
         DAYS_UNTIL_NEXT_STAGE = 280
@@ -55,7 +55,9 @@ awow_try_same_sex_pregnancy_effect = {
                     random = {
                         chance = awow_impregnation_chance_value
                         scope:mother = {
-                            awow_start_same_sex_pregnancy_effect = yes
+                            trigger_event = {
+                                id = awow_pregnancy.0030
+                            }
                         }
                     }
                 }
@@ -68,7 +70,9 @@ awow_try_same_sex_pregnancy_effect = {
                         random = {
                             chance = awow_impregnation_chance_value
                             scope:mother = {
-                                awow_start_same_sex_pregnancy_effect = yes
+                                trigger_event = {
+                                    id = awow_pregnancy.0030
+                                }
                             }
                         }
                     }
@@ -100,28 +104,23 @@ awow_roll_multiple_children_chance_effect = {
     }
 }
 
-
 awow_pregnancy_pulse_effect = {
-    every_living_character = {
-        if = {
-            limit = {
-                awow_same_sex_can_bear_trigger = yes
-                debug_log = "AWOW SS-PREG: Can Bear"
-                awow_has_ai_female_partner_trigger = yes
-                debug_log = "AWOW SS-PREG: spouse is AI"
-            }
-            debug_log = "AWOW SS-PREG: Trying for pregnancy"
-            awow_try_same_sex_pregnancy_effect = yes
+    if = {
+        limit = {
+            awow_same_sex_can_bear_trigger = yes
+            debug_log = "AWOW SS-PREG: Can Bear"
+            awow_has_ai_female_partner_trigger = yes
+            debug_log = "AWOW SS-PREG: spouse is AI"
         }
+        debug_log = "AWOW SS-PREG: Trying for pregnancy"
+        awow_try_same_sex_pregnancy_effect = yes
     }
 }
 
 awow_monthly_pregnancy_tick_effect = {
-    debug_log = "AWOW SS-PREG: Tick"
+    debug_log = "AWOW SS-PREG: Tick START"
     trigger_event = {
-        debug_log = "AWOW SS-PREG: Looping"
-        id = awow_pregnancy.0003
-        days = var:awow_pregnancy_scheduler_days_value
+        id = awow_pregnancy.0010
     }
 }
 
