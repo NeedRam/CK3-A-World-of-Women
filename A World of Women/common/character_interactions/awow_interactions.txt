@@ -298,5 +298,31 @@ awow_test_has_relation = {
     }
 }
 
+awow_test_set_designated_heir_unsafe_to_parent_to_child = {
+    category = interaction_category_uncategorized
+    icon = debug_chars
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+    common_interaction = yes
+    auto_accept = yes
 
+    is_shown = {
+        scope:recipient = { is_alive = yes }
+        scope:actor = {
+            has_relation_awow_child = scope:recipient
+        }
+    }
 
+    is_valid = {
+        scope:recipient = { is_alive = yes }
+        scope:actor = {
+            has_relation_awow_child = scope:recipient
+        }
+    }
+
+    on_accept = {
+        scope:actor = {
+            set_designated_heir_unsafe = scope:recipient
+        }
+    }
+}
