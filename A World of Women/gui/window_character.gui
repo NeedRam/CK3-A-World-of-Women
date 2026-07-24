@@ -2285,12 +2285,12 @@ window = {
 
                             blockoverride "remaining_items"
                             {
-                                visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetChildren), '(int32)7' )]"
-                                text = "[GetNumberAbove_int32( GetDataModelSize(CharacterWindow.GetChildren), '(int32)7' )|=]"
+                                visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetRelationsOfType( GetRelation( 'awow_child' ) )), '(int32)7' )]"
+                                text = "[GetNumberAbove_int32( GetDataModelSize(CharacterWindow.GetRelationsOfType( GetRelation( 'awow_child' ) )), '(int32)7' )|=]"
                             }
 
                             blockoverride "expand_button_inside" {
-                                visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetChildren), '(int32)7' )]"
+                                visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetRelationsOfType( GetRelation( 'awow_child' ) )), '(int32)7' )]"
                                 onclick = "[CharacterWindow.ToggleExpandedRelation( 'children' )]"
                             }
                         }
@@ -2317,12 +2317,12 @@ window = {
 
                             blockoverride "remaining_items"
                             {
-                                visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetSiblings), '(int32)7' )]"
-                                text = "[GetNumberAbove_int32( GetDataModelSize(CharacterWindow.GetSiblings), '(int32)7' )|=]"
+                                visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetRelationsOfType( GetRelation( 'awow_sibling' ) )), '(int32)7' )]"
+                                text = "[GetNumberAbove_int32( GetDataModelSize(CharacterWindow.GetRelationsOfType( GetRelation( 'awow_sibling' ) )), '(int32)7' )|=]"
                             }
 
                             blockoverride "expand_button_inside" {
-                                visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetSiblings), '(int32)7' )]"
+                                visible = "[GreaterThan_int32( GetDataModelSize(CharacterWindow.GetRelationsOfType( GetRelation( 'awow_sibling' ) )), '(int32)7' )]"
                                 onclick = "[CharacterWindow.ToggleExpandedRelation( 'siblings' )]"
                             }
                         }
@@ -2345,7 +2345,7 @@ window = {
 
 
                             blockoverride "portrait_datamodel" {
-                                datamodel = "[CharacterWindow.GetSiblings]"
+                                datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'awow_sibling' ) )]"
                             }
 
                             blockoverride "header_text"
@@ -2376,7 +2376,7 @@ window = {
                             spacing = 5
 
                             blockoverride "portrait_datamodel" {
-                                datamodel = "[CharacterWindow.GetChildren]"
+                                datamodel = "[CharacterWindow.GetRelationsOfType( GetRelation( 'awow_child' ) )]"
                             }
 
                             blockoverride "header_text"
