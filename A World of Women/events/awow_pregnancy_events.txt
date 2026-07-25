@@ -38,9 +38,19 @@ awow_pregnancy.0001 = {
                     else = {
                         scope:awow_mother = { add_courtier = scope:child }
                     }
+
                     scope:child = {
                         awow_assign_scripted_relations_effect = yes
                     }
+
+                    if = {
+                        limit = {
+                            NOT = { exists = scope:awow_mother.dynasty}
+                            exists = scope:awow_other_mother.dynasty
+                        }
+                        set_house = scope:awow_other_mother.house
+                    }
+
                 }
             }
 
@@ -80,8 +90,17 @@ awow_pregnancy.0001 = {
                     else = {
                         scope:awow_mother = { add_courtier = scope:childsr }
                     }
+
                     scope:childsr = {
                         awow_assign_scripted_relations_effect = yes
+                    }
+
+                    if = {
+                        limit = {
+                            NOT = { exists = scope:awow_mother.dynasty}
+                            exists = scope:awow_other_mother.dynasty
+                        }
+                        set_house = scope:awow_other_mother.house
                     }
                 }
             }
@@ -122,8 +141,17 @@ awow_pregnancy.0001 = {
                     else = {
                         scope:awow_mother = { add_courtier = scope:childssr }
                     }
+
                     scope:childssr = {
                         awow_assign_scripted_relations_effect = yes
+                    }
+
+                    if = {
+                        limit = {
+                            NOT = { exists = scope:awow_mother.dynasty}
+                            exists = scope:awow_other_mother.dynasty
+                        }
+                        set_house = scope:awow_other_mother.house
                     }
                 }
             }
