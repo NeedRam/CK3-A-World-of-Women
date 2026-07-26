@@ -11,158 +11,23 @@ awow_pregnancy.0001 = {
         has_variable = awow_pregnancy_active
     }
     immediate = {
-        # debug_log = "AWOW SS-PREG: borning child"
+
+        # debug_log = "AWOW SS-PREG: borning childs"
         awow_baby_female_chance_effect = yes
-            create_character = {
-                age = 0
-                random_traits = no
-                culture = root.culture
-                faith = root.faith
-                dynasty = inherit
-                location = root.location
-                mother = root
-                gender_female_chance = var:awow_baby_female_chance
-                save_scope_as = child
-                after_creation = {
-                    if = {
-                        limit = { scope:awow_mother = { is_ruler = yes } }
-                        scope:awow_mother = { add_courtier = scope:child }
-                    }
-                    else_if = {
-                        limit = {
-                            exists = scope:awow_other_mother
-                            scope:awow_other_mother = { is_ruler = yes }
-                        }
-                        scope:awow_other_mother = { add_courtier = scope:child }
-                    }
-                    else = {
-                        scope:awow_mother = { add_courtier = scope:child }
-                    }
 
-                    scope:child = {
-                        awow_assign_scripted_relations_effect = yes
-                    }
-
-                    if = {
-                        limit = {
-                            NOT = { exists = scope:awow_mother.dynasty}
-                            exists = scope:awow_other_mother.dynasty
-                        }
-                        set_house = scope:awow_other_mother.house
-                    }
-
-                }
-            }
-
-        create_character_memory = {
-            type = child_born
-            participants = {
-                child = scope:child
-            }
-        }
-
-        # debug_log = "AWOW SS-PREG: child borned"
+        awow_born_child_effect = yes
+        # debug_log = "AWOW SS-PREG: 1th child borned"
 
         if = {
             limit = { has_character_flag = awow_pregnancy_will_be_twins_flag }
-            create_character = {
-                age = 0
-                random_traits = no
-                culture = root.culture
-                faith = root.faith
-                dynasty = inherit
-                location = root.location
-                mother = root
-                gender_female_chance = var:awow_baby_female_chance
-                save_scope_as = childsr
-                after_creation = {
-                    if = {
-                        limit = { scope:awow_mother = { is_ruler = yes } }
-                        scope:awow_mother = { add_courtier = scope:childsr }
-                    }
-                    else_if = {
-                        limit = {
-                            exists = scope:awow_other_mother
-                            scope:awow_other_mother = { is_ruler = yes }
-                        }
-                        scope:awow_other_mother = { add_courtier = scope:childsr }
-                    }
-                    else = {
-                        scope:awow_mother = { add_courtier = scope:childsr }
-                    }
-
-                    scope:childsr = {
-                        awow_assign_scripted_relations_effect = yes
-                    }
-
-                    if = {
-                        limit = {
-                            NOT = { exists = scope:awow_mother.dynasty}
-                            exists = scope:awow_other_mother.dynasty
-                        }
-                        set_house = scope:awow_other_mother.house
-                    }
-                }
-            }
-
-            create_character_memory = {
-                type = child_born
-                participants = {
-                    child = scope:childsr
-                }
-            }
+            awow_born_child_effect = yes
             # debug_log = "AWOW SS-PREG: another child borned"
         }
 
         if = {
             limit = { has_character_flag = awow_pregnancy_will_be_triplets_flag }
-            create_character = {
-                age = 0
-                random_traits = no
-                culture = root.culture
-                faith = root.faith
-                dynasty = inherit
-                location = root.location
-                mother = root
-                gender_female_chance = var:awow_baby_female_chance
-                save_scope_as = childssr
-                after_creation = {
-                    if = {
-                        limit = { scope:awow_mother = { is_ruler = yes } }
-                        scope:awow_mother = { add_courtier = scope:childssr }
-                    }
-                    else_if = {
-                        limit = {
-                            exists = scope:awow_other_mother
-                            scope:awow_other_mother = { is_ruler = yes }
-                        }
-                        scope:awow_other_mother = { add_courtier = scope:childssr }
-                    }
-                    else = {
-                        scope:awow_mother = { add_courtier = scope:childssr }
-                    }
-
-                    scope:childssr = {
-                        awow_assign_scripted_relations_effect = yes
-                    }
-
-                    if = {
-                        limit = {
-                            NOT = { exists = scope:awow_mother.dynasty}
-                            exists = scope:awow_other_mother.dynasty
-                        }
-                        set_house = scope:awow_other_mother.house
-                    }
-                }
-            }
-
-            create_character_memory = {
-                type = child_born
-                participants = {
-                    child = scope:childssr
-                }
-            }
-            # debug_log = "AWOW SS-PREG: many childs born"
+            awow_born_child_effect = yes
+            # debug_log = "AWOW SS-PREG: 3st childs born"
         }
 
         remove_trait = pregnant
@@ -197,6 +62,8 @@ awow_pregnancy.0001 = {
                 }
             }
         }
+
+        clear_saved_scope = awow_mother
         clear_saved_scope = awow_other_mother
         # debug_log = "AWOW SS-PREG: not ai popups sent"
     }

@@ -1,0 +1,77 @@
+﻿# AWOW scripted same sex child birth
+awow_born_child_effect = {
+    create_character = {
+        age = 0
+        random_traits = no
+        culture = root.culture
+        faith = root.faith
+        dynasty = inherit
+        location = root.location
+        mother = root
+        gender_female_chance = var:awow_baby_female_chance
+        save_scope_as = child
+        after_creation = {
+            awow_assign_scripted_relations_effect = yes
+            awow_assign_baby_to_court_effect = yes
+            awow_assign_baby_to_house_effect = yes
+            awow_assign_twin_trait_to_baby_effect = yes
+            awow_trigger_on_birth_on_action_effect = yes
+        }
+    }
+
+    create_character_memory = {
+        type = child_born
+        participants = {
+            child = scope:child
+        }
+    }
+
+    clear_saved_scope = child
+}
+
+awow_assign_baby_to_court_effect = {
+    if = {
+        limit = { scope:awow_mother = { is_ruler = yes } }
+        scope:awow_mother = { add_courtier = scope:child }
+    }
+    else_if = {
+        limit = {
+            exists = scope:awow_other_mother
+            scope:awow_other_mother = { is_ruler = yes }
+        }
+        scope:awow_other_mother = { add_courtier = scope:child }
+    }
+    else = {
+        scope:awow_mother = { add_courtier = scope:child }
+    }
+}
+
+awow_assign_baby_to_house_effect = {
+    if = {
+        limit = {
+            NOT = { exists = scope:awow_mother.dynasty}
+            exists = scope:awow_other_mother.dynasty
+        }
+        set_house = scope:awow_other_mother.house
+    }
+}
+
+awow_assign_twin_trait_to_baby_effect = {
+    if = {
+        limit = { 
+            OR = {
+                scope:awow_mother = { has_character_flag = awow_pregnancy_will_be_twins_flag }
+                scope:awow_mother = { has_character_flag = awow_pregnancy_will_be_triplets_flag }
+            }
+        }
+        add_trait_force_tooltip = twin
+    }
+}
+
+awow_trigger_on_birth_on_action_effect = {
+    scope:awow_mother = { save_scope_as = mother }
+    scope:awow_other_mother = { save_scope_as = father }
+    scope:child = { trigger_event = { on_action = on_birth } }
+}
+
+
