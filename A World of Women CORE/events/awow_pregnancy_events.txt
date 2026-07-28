@@ -161,3 +161,59 @@ awow_pregnancy.1000 = {
         awow_convert_vanilla_relations_to_scripted_effect = yes
     }
 }
+
+
+# Birth gender assignment event
+# Fires on_pregnancy, checks game rules to set the unborn child's gender.
+awow_pregnancy.2000 = {
+    type = character_event
+    hidden = yes
+
+    immediate = {
+        scope:real_father = { save_scope_as = real_father }
+        # Player baby gender
+        if = {
+            limit = {
+                OR = {
+                    # Checks if the player is the mother or father
+                    is_ai = no
+                    scope:real_father = { is_ai = no }
+                }
+            }
+            awow_birth_gender_player_roll = yes
+        }
+        # Player Dynasty baby gender
+        else_if = {
+            limit = {
+                AND = {
+                    # Ensures both parents are AI
+                    is_ai = yes
+                    scope:real_father = { is_ai = yes }
+                }
+                OR = {
+                    # Mother is in a player dynasty
+                    AND = {
+                        exists = dynasty
+                        any_player = {
+                            dynasty = prev.dynasty
+                        }
+                    }
+                    # Father is in a player dynasty
+                    scope:real_father = {
+                        AND = {
+                            exists = dynasty
+                            any_player = {
+                                dynasty = prev.dynasty
+                            }
+                        }
+                    }
+                }
+            }
+            awow_birth_gender_dynasty_roll = yes
+        }
+        # Non-player / non-player-dynasty baby gender
+        else = {
+            awow_birth_gender_world_roll = yes
+        }
+    }
+}

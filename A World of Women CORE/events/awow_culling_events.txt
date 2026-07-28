@@ -1,7 +1,7 @@
-﻿namespace = awow
+﻿namespace = awow_culling
 
 # Startup setup event - runs immediately, sets up variables and schedules first cull
-awow.1000 = {
+awow_culling.1000 = {
     type = character_event
     hidden = yes
 
@@ -34,7 +34,7 @@ awow.1000 = {
 
 # Initial cull - The Vanishing (with narrative popup)
 # Fires 30 days after game start
-awow.1001 = {
+awow_culling.1001 = {
     type = character_event
 
     title = awow.1001.title
@@ -89,7 +89,7 @@ awow.1001 = {
 # Regular culling event (hidden - replaced by bottom-right interface message)
 # The actual culling is performed once, globally, by awow.1002
 # before the interface message is shown, so awow_cull_count already holds the total.
-awow.0002 = {
+awow_culling.0002 = {
     type = character_event
     hidden = yes
 
@@ -105,7 +105,7 @@ awow.0002 = {
 
 # Recurring monthly culling pulse
 # Runs every ~30 days, checks if a cull is due, and sends a bottom-right alert instead of a popup.
-awow.1002 = {
+awow_culling.1002 = {
     type = character_event
     hidden = yes
 
@@ -145,7 +145,7 @@ awow.1002 = {
 }
 
 # Interaction notification - Flagged for exclusion
-awow.0010 = {
+awow_culling.0010 = {
     type = character_event
     hidden = yes
 
@@ -158,7 +158,7 @@ awow.0010 = {
 }
 
 # Interaction notification - Removed from exclusion
-awow.0011 = {
+awow_culling.0011 = {
     type = character_event
     hidden = yes
 
@@ -167,60 +167,5 @@ awow.0011 = {
 
     option = {
         name = awow.0011.a
-    }
-}
-
-# Birth gender assignment event
-# Fires on_pregnancy, checks game rules to set the unborn child's gender.
-awow.0020 = {
-    type = character_event
-    hidden = yes
-
-    immediate = {
-        scope:real_father = { save_scope_as = real_father }
-        # Player baby gender
-        if = {
-            limit = {
-                OR = {
-                    # Checks if the player is the mother or father
-                    is_ai = no
-                    scope:real_father = { is_ai = no }
-                }
-            }
-            awow_birth_gender_player_roll = yes
-        }
-        # Player Dynasty baby gender
-        else_if = {
-            limit = {
-                AND = {
-                    # Ensures both parents are AI
-                    is_ai = yes
-                    scope:real_father = { is_ai = yes }
-                }
-                OR = {
-                    # Mother is in a player dynasty
-                    AND = {
-                        exists = dynasty
-                        any_player = {
-                            dynasty = prev.dynasty
-                        }
-                    }
-                    # Father is in a player dynasty
-                    scope:real_father = {
-                        AND = {
-                            exists = dynasty
-                            any_player = {
-                                dynasty = prev.dynasty
-                            }
-                        }
-                    }
-                }
-            }
-            awow_birth_gender_dynasty_roll = yes
-        }
-        # Non-player / non-player-dynasty baby gender
-        else = {
-            awow_birth_gender_world_roll = yes
-        }
     }
 }
