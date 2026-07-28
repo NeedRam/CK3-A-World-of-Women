@@ -76,6 +76,7 @@ awow_test_same_sex_pregnancy_interaction = {
     auto_accept = yes
 
     is_shown = {
+        debug_only = yes
         scope:recipient = {
             is_alive = yes
             is_female = yes
@@ -124,6 +125,7 @@ awow_test_set_me_as_parent_of = {
 
 
     is_shown = {
+        debug_only = yes
         scope:recipient = {
             is_alive = yes
         }
@@ -155,6 +157,7 @@ awow_test_set_me_as_mother_of = {
 
 
     is_shown = {
+        debug_only = yes
         scope:recipient = {
             is_alive = yes
         }
@@ -183,6 +186,7 @@ awow_test_set_me_as_father_of = {
 
 
     is_shown = {
+        debug_only = yes
         scope:recipient = {
             is_alive = yes
         }
@@ -210,6 +214,7 @@ awow_test_set_me_as_child_of = {
     auto_accept = yes
 
     is_shown = {
+        debug_only = yes
         scope:recipient = {
             is_alive = yes
         }
@@ -237,6 +242,7 @@ awow_test_has_relation = {
     auto_accept = yes
 
     is_shown = {
+        debug_only = yes
         scope:recipient = {
             is_alive = yes
             OR = {
@@ -307,6 +313,7 @@ awow_test_set_designated_heir_unsafe_to_parent_to_child = {
     auto_accept = yes
 
     is_shown = {
+        debug_only = yes
         scope:recipient = { is_alive = yes }
         scope:actor = {
             has_relation_awow_child = scope:recipient
