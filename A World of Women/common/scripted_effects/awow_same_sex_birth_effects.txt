@@ -71,7 +71,7 @@ awow_assign_twin_trait_to_baby_effect = {
 awow_trigger_on_birth_on_action_effect = {
     scope:awow_mother = { save_scope_as = mother }
     scope:awow_other_mother = { save_scope_as = father }
-    scope:child = { trigger_event = { on_action = on_birth } }
+    scope:child = { trigger_event = { on_action = on_birth_child } }
 }
 
 
