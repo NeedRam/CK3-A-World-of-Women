@@ -1,20 +1,25 @@
 # Ignore everything by default
 *
 
-# Unignore specific directories and their contents
+# File associations
 !.vscode/
 !.vscode/**
 
-!A World of Women/
-!A World of Women/**
+# AWOW Folders
+!A World of Women CORE/
+!A World of Women CORE/**
+!A World of Women Vanilla OVERRIDES/
+!A World of Women Vanilla OVERRIDES/**
+!A World of Women History OVERRIDES/
+!A World of Women History OVERRIDES/**
 
 !script docs/
 !script docs/**
 !logs/
 !logs/**
 
-# Unignore the mod file
-!A World of Women.mod
+# .mod files
+!**.mod
 
 # Unignore this file itself
 !.gitignore

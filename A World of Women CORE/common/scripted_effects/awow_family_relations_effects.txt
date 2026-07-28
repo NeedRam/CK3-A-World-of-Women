@@ -30,7 +30,7 @@ awow_set_child_effect = {
     }
 }
 
-# Depreciated #############################
+# Deprecated #############################
 awow_set_father_of_child_effect = {
     if = {
         limit = {
@@ -44,7 +44,7 @@ awow_set_father_of_child_effect = {
     }
 }
 
-# Depreciated #############################
+# Deprecated #############################
 awow_set_mother_of_child_effect = {
     if = {
         limit = {
@@ -255,43 +255,4 @@ awow_assign_grandparent_relations_abstracted_effect = {
             }
         }
     }
-}
-
-############################################
-# --------- Game Start Backfill ---------- #
-############################################
-
-awow_mass_vanilla_relations_to_scripted_relations_conversion_effect = {
-    every_living_character = {
-
-        limit = { NOT = { has_character_flag = awow_relations_backfilled } }
-        # debug_log = "AWOW RELATIONS: scope child"
-        awow_convert_vanilla_relations_to_scripted_effect = yes
-        add_character_flag = awow_relations_backfilled
-    }
-    debug_log = "AWOW RELATIONS: Starting BackBACKFILL"
-    every_living_character = {
-        limit = { NOT = { has_character_flag = awow_relations_frontfilled } }
-        # debug_log = "AWOW RELATIONS: scope child again "
-        awow_backfill_2nd_pass_effect = yes
-        add_character_flag = awow_relations_frontfilled
-    }
-}
-
-awow_backfill_2nd_pass_effect = {
-    save_scope_as = awow_child
-    every_relation = {
-        type = awow_parent
-        save_scope_as = awow_parent
-        # debug_log = "AWOW RELATIONS: in mother again"
-        awow_assign_siblings_effect = yes
-        awow_assign_grandparent_relations_effect = yes
-    }
-    clear_saved_scope = awow_child
-    clear_saved_scope = awow_parent
-}
-
-awow_assign_historic_father_as_other_mother = {
-    # debug_log = "AWOW RELATIONS: going in other_mother for history"
-    awow_assign_other_mother_relations_effect = yes
 }

@@ -1,0 +1,14 @@
+﻿on_game_start_after_lobby = {
+    on_actions = { awow_history_game_start_setup }
+}
+
+awow_history_game_start_setup = {
+    effect = {
+        debug_log = "AWOW HOM: Assigning all Historic other Mothers START"
+        awow_assign_all_character_history_after_effects = yes
+        debug_log = "AWOW HOM: Assigning all Historic other Mothers DONE"
+        debug_log = "AWOW Backfill: START"
+        awow_mass_vanilla_relations_to_scripted_relations_conversion_effect = yes
+        debug_log = "AWOW Backfill DONE"
+    }
+}

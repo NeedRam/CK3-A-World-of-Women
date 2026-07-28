@@ -55,19 +55,3 @@
     # Debug trace - check Documents/Paradox Interactive/Crusader Kings III/logs for this line.
     debug_log = "AWOW: cull complete"
 }
-
-awow_all_girls_should_be_bi = {
-    every_living_character = {
-        limit = {
-            OR = {
-                has_sexuality = asexual
-                has_sexuality = heterosexual
-                has_sexuality = none
-            }
-            is_adult = yes
-            if_female = yes
-        }
-        set_sexuality = bisexual
-    }
-}
-

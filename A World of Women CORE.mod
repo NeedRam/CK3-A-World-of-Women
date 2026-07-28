@@ -1,4 +1,4 @@
-﻿version="1.0"
+version="1.0"
 tags={
 	"Utilities"
 	"Decisions"
@@ -6,6 +6,6 @@ tags={
 	"Fixes"
 	"Gameplay"
 }
-name="A World of Women"
+name="A World of Women CORE"
 supported_version="1.*.*"
-path="D:/Documents/GitHub/CK3mod1/A World of Women"
+path="D:/Documents/GitHub/CK3mod1/A World of Women CORE"
