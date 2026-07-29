@@ -1,0 +1,13 @@
+﻿awow_either_parent_has_trait_trigger = {
+	OR = {
+		scope:awow_mother = { has_trait = $TRAIT$ }
+		scope:awow_other_mother = { has_trait = $TRAIT$ }
+	}
+}
+
+awow_both_parents_have_trait_trigger = {
+	AND = {
+		scope:awow_mother = { has_trait = $TRAIT$ }
+		scope:awow_other_mother = { has_trait = $TRAIT$ }
+	}
+}

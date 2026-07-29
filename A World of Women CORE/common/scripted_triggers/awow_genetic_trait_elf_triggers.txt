@@ -1,0 +1,252 @@
+﻿##################################
+# ----------- Beauty ----------- #
+##################################
+
+awow_has_beauty_trait_elf_trigger = {
+	OR = {
+		awow_has_generic_beauty_trait_elf_trigger = yes
+		awow_has_exotic_beauty_trait_elf_trigger = yes
+		awow_has_unconventional_beauty_trait_elf_trigger = yes
+	}
+}
+
+awow_either_parent_has_beauty_trait_elf_trigger = {
+	OR = {
+		scope:awow_mother = { awow_has_beauty_trait_elf_trigger = yes }
+		scope:awow_other_mother = { awow_has_beauty_trait_elf_trigger = yes }
+	}
+}
+
+awow_both_parent_have_beauty_trait_elf_trigger = {
+	AND = {
+		scope:awow_mother = { awow_has_beauty_trait_elf_trigger = yes }
+		scope:awow_other_mother = { awow_has_beauty_trait_elf_trigger = yes }
+	}
+}
+
+# ----------- Generic Beauty ----------- #
+awow_has_generic_beauty_trait_elf_trigger = {
+	OR = {
+		has_trait = beauty_good_4
+		awow_has_beauty_trait_vanilla_trigger = yes
+	}
+}
+
+awow_either_parent_has_generic_beauty_trait_elf_trigger = {
+	OR = {
+		scope:awow_mother = { awow_has_generic_beauty_trait_elf_trigger = yes }
+		scope:awow_other_mother = { awow_has_generic_beauty_trait_elf_trigger = yes }
+	}
+}
+
+awow_both_parent_have_generic_beauty_trait_elf_trigger = {
+	AND = {
+		scope:awow_mother = { awow_has_generic_beauty_trait_elf_trigger = yes }
+		scope:awow_other_mother = { awow_has_generic_beauty_trait_elf_trigger = yes }
+	}
+}
+
+# ----------- Exotic Beauty ----------- #
+awow_has_exotic_beauty_trait_elf_trigger = {
+	OR = {
+		has_trait = exotic_beauty_good_1
+		has_trait = exotic_beauty_good_2
+		has_trait = exotic_beauty_good_3
+	}
+}
+
+awow_either_parent_has_exotic_beauty_trait_elf_trigger = {
+	OR = {
+		scope:awow_mother = { awow_has_exotic_beauty_trait_elf_trigger = yes }
+		scope:awow_other_mother = { awow_has_exotic_beauty_trait_elf_trigger = yes }
+	}
+}
+
+awow_both_parent_have_exotic_beauty_trait_elf_trigger = {
+	AND = {
+		scope:awow_mother = { awow_has_exotic_beauty_trait_elf_trigger = yes }
+		scope:awow_other_mother = { awow_has_exotic_beauty_trait_elf_trigger = yes }
+	}
+}
+
+# ----------- Unconventional Beauty ----------- #
+awow_has_unconventional_beauty_trait_elf_trigger = {
+	OR = {
+		has_trait = unconventional_beauty_good_1
+		has_trait = unconventional_beauty_good_2
+		has_trait = unconventional_beauty_good_3
+	}
+}
+
+awow_either_parent_has_unconventionalc_beauty_trait_elf_trigger = {
+	OR = {
+		scope:awow_mother = { awow_has_unconventional_beauty_trait_elf_trigger = yes }
+		scope:awow_other_mother = { awow_has_unconventional_beauty_trait_elf_trigger = yes }
+	}
+}
+
+awow_both_parent_have_unconventional_beauty_trait_elf_trigger = {
+	AND = {
+		scope:awow_mother = { awow_has_unconventional_beauty_trait_elf_trigger = yes }
+		scope:awow_other_mother = { awow_has_unconventional_beauty_trait_elf_trigger = yes }
+	}
+}
+
+#####################################
+# ----------- Intellect ----------- #
+#####################################
+
+awow_has_intellect_trait_elf_trigger = {
+	OR = {
+		has_trait = intellect_good_4
+		awow_has_intellect_trait_vanilla_trigger = yes
+	}
+}
+
+awow_either_parent_has_intellect_trait_elf_trigger = {
+	OR = {
+		scope:awow_mother = { awow_has_intellect_trait_elf_trigger = yes }
+		scope:awow_other_mother = { awow_has_intellect_trait_elf_trigger = yes }
+	}
+}
+
+awow_both_parent_have_intellect_trait_elf_trigger = {
+	AND = {
+		scope:awow_mother = { awow_has_intellect_trait_elf_trigger = yes }
+		scope:awow_other_mother = { awow_has_intellect_trait_elf_trigger = yes }
+	}
+}
+
+####################################
+# ----------- Physique ----------- #
+####################################
+
+awow_has_physique_trait_elf_trigger = {
+	OR = {
+		has_trait = physique_good_4
+		awow_has_physique_trait_vanilla_trigger = yes
+	}
+}
+
+awow_either_parent_has_physique_trait_elf_trigger = {
+	OR = {
+		scope:awow_mother = { awow_has_physique_trait_elf_trigger = yes }
+		scope:awow_other_mother = { awow_has_physique_trait_elf_trigger = yes }
+	}
+}
+
+awow_both_parent_have_physique_trait_elf_trigger = {
+	AND = {
+		scope:awow_mother = { awow_has_physique_trait_elf_trigger = yes }
+		scope:awow_other_mother = { awow_has_physique_trait_elf_trigger = yes }
+	}
+}
+
+######################################
+# ----------- Pure Blood ----------- #
+######################################
+
+awow_has_pure_blood_trait_group_elf_trigger = {
+	OR = {
+		has_trait = pure_blooded
+		has_trait = purer_blooded
+		has_trait = purest_blooded
+	}
+}
+
+#####################################
+# ----------- Bloodline ----------- #
+#####################################
+
+awow_has_bloodline_trait_elf_trigger = {
+	OR = {
+		has_trait = royal_elf_valerith
+		has_trait = royal_elf_serelion
+		has_trait = royal_elf_gwynthorn
+		has_trait = royal_elf_thundarael
+		has_trait = royal_elf_daelurin
+		has_trait = royal_elf_lormelis
+	}
+}
+
+awow_either_parent_has_bloodline_trait_elf_trigger = {
+	OR = {
+		scope:awow_mother = { awow_has_bloodline_trait_elf_trigger = yes }
+		scope:awow_other_mother = { awow_has_bloodline_trait_elf_trigger = yes }
+	}
+}
+
+awow_both_parent_have_bloodline_trait_elf_trigger = {
+	AND = {
+		scope:awow_mother = { awow_has_bloodline_trait_elf_trigger = yes }
+		scope:awow_other_mother = { awow_has_bloodline_trait_elf_trigger = yes }
+	}
+}
+
+awow_has_all_bloodline_trait_elf_trigger = {
+	AND = {
+		has_trait = royal_elf_valerith
+		has_trait = royal_elf_serelion
+		has_trait = royal_elf_gwynthorn
+		has_trait = royal_elf_thundarael
+		has_trait = royal_elf_daelurin
+		has_trait = royal_elf_lormelis
+	}
+}
+
+awow_either_parent_has_all_bloodline_trait_elf_trigger = {
+	OR = {
+		scope:awow_mother = { awow_has_all_bloodline_trait_elf_trigger = yes }
+		scope:awow_other_mother = { awow_has_all_bloodline_trait_elf_trigger = yes }
+	}
+}
+
+awow_both_parent_have_all_bloodline_trait_elf_trigger = {
+	AND = {
+		scope:awow_mother = { awow_has_all_bloodline_trait_elf_trigger = yes }
+		scope:awow_other_mother = { awow_has_all_bloodline_trait_elf_trigger = yes }
+	}
+}
+
+########################################
+# ----------- Spark Gifted ----------- #
+########################################
+
+awow_is_spark_gifted_elf_trigger = {
+	OR = {
+		has_trait = magic_talent_1
+		has_trait = magic_talent_2
+		has_trait = magic_talent_3
+	}
+}
+
+#####################################
+# ----------- Automaton ----------- #
+#####################################
+
+awow_is_automaton_elf_trigger = {
+	OR = {
+		has_trait = stone_automaton
+		has_trait = marble_automaton
+		has_trait = spiritual_projection
+	}
+}
+
+awow_either_parent_has_spark_trait_elf_trigger = {
+	OR = {
+		scope:awow_mother = { awow_is_spark_gifted_elf_trigger = yes }
+		scope:awow_other_mother = { awow_is_spark_gifted_elf_trigger = yes }
+	}
+}
+
+awow_both_parent_have_spark_trait_elf_trigger = {
+	AND = {
+		scope:awow_mother = { awow_is_spark_gifted_elf_trigger = yes }
+		scope:awow_other_mother = { awow_is_spark_gifted_elf_trigger = yes }
+	}
+}
+
+
+
+
+

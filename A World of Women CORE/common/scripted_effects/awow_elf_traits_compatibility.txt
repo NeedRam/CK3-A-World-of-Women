@@ -1,0 +1,750 @@
+﻿awow_assign_elf_congenital_traits_effect = {
+    awow_assign_elf_traits_from_parents_effect = yes
+    awow_assign_random_genetic_traits_elf_effect = yes
+    awow_upgrade_tiered_traits_elf_effect = yes
+}
+
+############################################################
+########### ----------- FROM PARENTS ----------- ###########
+############################################################
+
+awow_assign_elf_traits_from_parents_effect = {
+    awow_assign_flat_elf_traits_from_parents_effect = yes
+    awow_assign_elf_tiered_traits_from_parents_effect = yes
+}
+
+#######################################################
+# ----------- Non - Tiered Genetic Traits ----------- #
+#######################################################
+
+awow_assign_flat_elf_traits_from_parents_effect = {
+    awow_assign_elf_bloodline_traits_from_parents_effect = yes
+}
+
+awow_assign_elf_bloodline_traits_from_parents_effect = {
+    if = {
+        limit = { awow_either_parent_has_bloodline_trait_elf_trigger = yes }
+        awow_assign_elf_bloodline_traits_from_parents_abstracted_effect = yes
+    }
+}
+
+awow_assign_elf_bloodline_traits_from_parents_abstracted_effect = {
+    awow_assign_flat_traits_from_parents_abstracted_effect = { TRAIT = royal_elf_valerith }
+    awow_assign_flat_traits_from_parents_abstracted_effect = { TRAIT = royal_elf_serelion }
+    awow_assign_flat_traits_from_parents_abstracted_effect = { TRAIT = royal_elf_gwynthorn }
+    awow_assign_flat_traits_from_parents_abstracted_effect = { TRAIT = royal_elf_thundarael }
+    awow_assign_flat_traits_from_parents_abstracted_effect = { TRAIT = royal_elf_daelurin }
+    awow_assign_flat_traits_from_parents_abstracted_effect = { TRAIT = royal_elf_lormelis }
+}
+
+#################################################
+# ----------- Tiered Genetic Traits ----------- #
+#################################################
+
+awow_assign_elf_tiered_traits_from_parents_effect = {
+    awow_assign_elf_tiered_traits_from_parents_same_levels_effect = yes
+    awow_assign_elf_tiered_traits_parents_different_levels_effect = yes
+}
+
+# ----------- Catch Same Tier ----------- #
+
+awow_assign_elf_tiered_traits_from_parents_same_levels_effect = {
+    awow_assign_elf_beauty_trait_from_parents_same_levels_effect = yes
+    awow_assign_elf_intellect_trait_from_parents_same_levels_effect = yes
+    awow_assign_elf_intellect_trait_from_parents_same_levels_effect = yes
+    awow_assign_elf_spark_gifted_trait_from_parents_same_levels_effect = yes
+    awow_assign_elf_pure_blood_trait_from_parents_same_levels_effect = yes
+}
+
+awow_assign_elf_beauty_trait_from_parents_same_levels_effect = {
+    awow_assign_elf_tiered_traits_from_parents_same_levels_abstracted_effect = { GROUP = beauty }
+    awow_assign_tiered_traits_from_parents_same_levels_tiers_abstracted_effect = { GROUP = exotic_beauty TYPE = good }
+    awow_assign_tiered_traits_from_parents_same_levels_tiers_abstracted_effect = { GROUP = unconventional_beauty TYPE = good }
+}
+
+awow_assign_elf_intellect_trait_from_parents_same_levels_effect = {
+    awow_assign_elf_tiered_traits_from_parents_same_levels_abstracted_effect = { GROUP = intellect }
+}
+
+awow_assign_elf_physique_trait_from_parents_same_levels_effect = {
+    awow_assign_elf_tiered_traits_from_parents_same_levels_abstracted_effect = { GROUP = physique }
+}
+
+awow_assign_elf_tiered_traits_from_parents_same_levels_abstracted_effect = {
+    awow_assign_tiered_traits_from_parents_same_levels_effect = { GROUP = $GROUP$ TYPE = good TIER = 4 }
+    awow_assign_tiered_traits_from_parents_same_levels_types_abstracted_effect = { GROUP = $GROUP$ }
+}
+
+awow_assign_elf_spark_gifted_trait_from_parents_same_levels_effect = {
+    awow_assign_tiered_traits_from_parents_same_levels_tiers_abstracted_effect = { GROUP = magic TYPE = talent }
+}
+
+awow_assign_elf_pure_blood_trait_from_parents_same_levels_effect = {
+    if = {
+        limit = { awow_both_parents_have_trait_trigger = { TRAIT = purest_blooded } }
+        random_list = {
+            90 = { add_trait = purest_blooded }
+            9 = { add_trait = purer_blooded }
+            1  = { add_trait = pure_blooded }
+        }
+    }
+    else_if = {
+        limit = { awow_both_parents_have_trait_trigger = { TRAIT = purer_blooded } }
+        random_list = {
+            20 = { add_trait = purest_blooded }
+            75 = { add_trait = purer_blooded }
+            5  = { add_trait = pure_blooded }
+        }
+    }
+    else_if = {
+        limit = { awow_both_parents_have_trait_trigger = { TRAIT = pure_blooded } }
+        random_list = {
+            1 = { add_trait = purest_blooded }
+            20 = { add_trait = purer_blooded }
+            69 = { add_trait = pure_blooded }
+            10 = { }
+        }
+    }
+}
+
+
+# ----------- Different Tiers ----------- #
+
+awow_assign_elf_tiered_traits_parents_different_levels_effect = {
+    awow_assign_elf_tiered_traits_parents_different_levels_beauty_effect = yes
+    awow_assign_elf_tiered_traits_parents_different_levels_intellect_effect = yes
+    awow_assign_elf_tiered_traits_parents_different_levels_physique_effect = yes
+    awow_assign_elf_tiered_traits_parents_different_levels_spark_gifted_effect = yes
+    awow_assign_elf_pure_blood_group_trait_from_parents_different_levels_effect = yes
+}
+
+# >>>>>>>>>> Main Groups <<<<<<<<<< #
+
+awow_assign_elf_tiered_traits_parents_different_levels_beauty_effect = {
+    if = {
+        limit = { awow_either_parent_has_generic_beauty_trait_elf_trigger = yes }
+        awow_assign_tiered_traits_parents_different_levels_elf_effect = { GROUP = beauty }
+    }
+    else_if = {
+        limit = { awow_either_parent_has_exotic_beauty_trait_elf_trigger = yes }
+        awow_assign_tiered_traits_parents_different_levels_elf_beauty_effect = { GROUP = exotic_beauty }
+    }
+    else_if = {
+        limit = { awow_either_parent_has_unconventionalc_beauty_trait_elf_trigger = yes }
+        awow_assign_tiered_traits_parents_different_levels_elf_beauty_effect = { GROUP = unconventional_beauty }
+    }  
+}
+
+awow_assign_elf_tiered_traits_parents_different_levels_intellect_effect = {
+    awow_assign_tiered_traits_parents_different_levels_elf_effect = { GROUP = intellect }
+}
+
+awow_assign_elf_tiered_traits_parents_different_levels_physique_effect = {
+    awow_assign_tiered_traits_parents_different_levels_elf_effect = { GROUP = physique }
+}
+
+awow_assign_tiered_traits_parents_different_levels_elf_effect = {
+    if = {
+        limit = { awow_either_parent_has_trait_trigger = { TRAIT = $GROUP$_good_4 } }
+        random_list = {
+            60 = { add_trait = $GROUP$_good_4 }
+            30 = { add_trait = $GROUP$_good_3 }
+            10 = { add_trait = $GROUP$_good_2 }
+        }
+    }
+    else = { awow_assign_tiered_traits_parents_different_levels_effect = yes }
+}
+
+awow_assign_tiered_traits_parents_different_levels_elf_beauty_effect = {
+    if = {
+        limit = { awow_either_parent_has_trait_trigger = { TRAIT = $GROUP$_good_3 } }
+        random_list = {
+            60 = { add_trait = $GROUP$_good_3 }
+            30 = { add_trait = $GROUP$_good_2 }
+            10 = { add_trait = $GROUP$_good_1 }
+        }
+    }
+    else_if = {
+        limit = { awow_either_parent_has_trait_trigger = { TRAIT = $GROUP$_good_2 } }
+        random_list = {
+            10 = { add_trait = $GROUP$_good_3 }
+            60 = { add_trait = $GROUP$_good_2 }
+            30 = { add_trait = $GROUP$_good_1 }
+        }
+    }
+    else_if = {
+        limit = { awow_either_parent_has_trait_trigger = { TRAIT = $GROUP$_good_1 } }
+        random_list = {
+            5 = { add_trait = $GROUP$_good_3 }
+            20 = { add_trait = $GROUP$_good_2 }
+            60 = { add_trait = $GROUP$_good_1 }
+            15 = { }
+        }
+    }
+}
+
+# >>>>>>>>>> Spark Gifted <<<<<<<<<< #
+
+awow_assign_elf_tiered_traits_parents_different_levels_spark_gifted_effect = {
+    if = {
+        limit = { awow_either_parent_has_trait_trigger = { TRAIT = magic_talent_3 } }
+        random_list = {
+            60 = { add_trait = magic_talent_3 }
+            30 = { add_trait = magic_talent_2 }
+            10 = { add_trait = magic_talent_1 }
+        }
+    }
+    else_if = {
+        limit = { awow_either_parent_has_trait_trigger = { TRAIT = magic_talent_2 } }
+        random_list = {
+            10 = { add_trait = magic_talent_3 }
+            60 = { add_trait = magic_talent_2 }
+            30 = { add_trait = magic_talent_1 }
+        }
+    }
+    else_if = {
+        limit = { awow_either_parent_has_trait_trigger = { TRAIT = magic_talent_1 } }
+        random_list = {
+            5 = { add_trait = magic_talent_3 }
+            15 = { add_trait = magic_talent_2 }
+            60 = { add_trait = magic_talent_1 }
+            20 = { }
+        }
+    }
+}
+
+# >>>>>>>>>> Pure Blood <<<<<<<<<< #
+
+awow_assign_elf_pure_blood_group_trait_from_parents_different_levels_effect = {
+    if = {
+        limit = { awow_either_parent_has_trait_trigger = { TRAIT = purest_blooded } }
+        awow_assign_elf_purest_blood__trait_from_parents_different_levels_effect = yes
+    }
+    else_if = {
+        limit = { awow_either_parent_has_trait_trigger = { TRAIT = purer_blooded } }
+        awow_assign_elf_purer_blood__trait_from_parents_different_levels_effect = yes
+    }
+    else_if = {
+        limit = { awow_either_parent_has_trait_trigger = { TRAIT = pure_blooded } }
+        awow_assign_elf_pure_blood__trait_from_parents_different_levels_effect = yes
+    }
+}
+
+awow_assign_elf_purest_blood__trait_from_parents_different_levels_effect = {
+    if = { 
+        limit = { awow_either_parent_has_trait_trigger = { TRAIT = purer_blooded } }
+        random_list = {
+            75 = { add_trait = purest_blooded }
+            20 = { add_trait = purer_blooded }
+            5  = { add_trait = pure_blooded }
+        }
+    }
+    else_if = {
+        limit = { awow_either_parent_has_trait_trigger = { TRAIT = pure_blooded } }
+        random_list = {
+            60 = { add_trait = purest_blooded }
+            30 = { add_trait = purer_blooded }
+            10 = { add_trait = pure_blooded }
+        }
+    }
+    else = {
+        random_list = {
+            40 = { add_trait = purest_blooded }
+            30 = { add_trait = purer_blooded }
+            20 = { add_trait = pure_blooded }
+            10 = { }
+        }
+    }
+}
+
+awow_assign_elf_purer_blood__trait_from_parents_different_levels_effect = {
+    if = {
+        limit = { awow_either_parent_has_trait_trigger = { TRAIT = pure_blooded } }
+        random_list = {
+            5 = { add_trait = purest_blooded }
+            70 = { add_trait = purer_blooded }
+            25 = { add_trait = pure_blooded }
+        }
+    }
+    else = {
+        random_list = {
+            1 = { add_trait = purest_blooded }
+            69 = { add_trait = purer_blooded }
+            25 = { add_trait = pure_blooded }
+            5 = { }
+        }
+    }
+}
+
+awow_assign_elf_pure_blood__trait_from_parents_different_levels_effect = {
+    random_list = {
+        1 = { add_trait = purest_blooded }
+        10 = { add_trait = purer_blooded }
+        69 = { add_trait = pure_blooded }
+        20 = { }
+    }
+}
+
+
+
+#########################################################################################
+########### ----------- RANDOM on_birth Genetic Trait Assignments ----------- ###########
+#########################################################################################
+
+awow_assign_random_genetic_traits_elf_effect = {
+    awow_assign_random_flat_genetic_traits_elf_effect = yes
+    awow_assign_random_tiered_genetic_traits_elf_effect = yes
+}
+
+#####################################################
+# ----------- Non-Tiered Genetic Traits ----------- #
+#####################################################
+
+awow_assign_random_flat_genetic_traits_elf_effect = {
+    awow_assign_random_bloodline_trait_elf_effect = yes
+}
+
+awow_assign_random_bloodline_trait_elf_effect = {
+    if = {
+        limit = { awow_has_bloodline_trait_elf_trigger = yes }
+        awow_assign_random_bloodline_trait_has_none_elf_effect = yes
+    }
+    else = { awow_assign_random_bloodline_trait_has_some_elf_effect }
+}
+
+awow_assign_random_bloodline_trait_has_none_elf_effect = {
+    random_list = {
+        95 = { }
+        5 = {
+            random_list = {
+                20 = { add_trait = royal_elf_valerith }
+                15 = { add_trait = royal_elf_serelion }
+                20 = { add_trait = royal_elf_gwynthorn }
+                10 = { add_trait = royal_elf_thundarael }
+                10 = { add_trait = royal_elf_daelurin }
+                25 = { add_trait = royal_elf_lormelis }
+            }
+            awow_assign_random_bloodline_trait_has_some_elf_effect = yes
+        }
+    }
+}
+
+awow_assign_random_bloodline_trait_has_some_elf_effect = {
+    if = { 
+        limit = { NOT = { has_trait = royal_elf_valerith } }
+        random = {
+            chance = 0.5
+            add_trait = royal_elf_valerith
+        }
+    }
+    if = { 
+        limit = { NOT = { has_trait = royal_elf_serelion } }
+        random = {
+            chance = 0.75
+            add_trait = royal_elf_serelion
+        }
+    }
+    if = { 
+        limit = { NOT = { has_trait = royal_elf_gwynthorn } }
+        random = {
+            chance = 0.5
+            add_trait = royal_elf_gwynthorn
+        }
+    }
+    if = { 
+        limit = { NOT = { has_trait = royal_elf_thundarael } }
+        random = {
+            chance = 1
+            add_trait = royal_elf_thundarael
+        }
+    }
+    if = { 
+        limit = { NOT = { has_trait = royal_elf_daelurin } }
+        random = {
+            chance = 1
+            add_trait = royal_elf_daelurin
+        }
+    }
+    if = { 
+        limit = { NOT = { has_trait = royal_elf_lormelis } }
+        random = {
+            chance = 0.25
+            add_trait = royal_elf_lormelis
+        }
+    }
+    if = {
+        limit = { NOT = { awow_has_all_bloodline_trait_elf_trigger = yes } }
+        random = {
+            chance = 0.1
+            awow_assign_random_bloodline_trait_has_some_elf_effect = yes
+        }
+    }
+}
+
+#################################################
+# ----------- Tiered Genetic Traits ----------- #
+#################################################
+
+awow_assign_random_tiered_genetic_traits_elf_effect = {
+    awow_assign_random_beauty_trait_elf_effect = yes
+    awow_assign_random_intellect_trait_elf_effect = yes
+    awow_assign_random_physique_trait_elf_effect = yes
+    awow_assign_random_pure_blood_trait_elf_effect = yes
+    awow_assign_random_spark_gifted_trait_elf_effect = yes
+}
+
+# ----------- Beauty ----------- #
+awow_assign_random_beauty_trait_elf_effect = {
+    if = {
+        limit = { NOT = { awow_has_beauty_trait_elf_trigger = yes } }
+        random_list = {
+            10 = { } # 10% Chance for no beauty trait
+            10 = {
+                random_list = {
+                    60 = { add_trait = unconventional_beauty_good_1 } # 6% chance
+                    40 = {
+                        random_list = {
+                            60 = { add_trait = unconventional_beauty_good_2 } # 2.4% chance
+                            40 = { add_trait = unconventional_beauty_good_3 } # 1.6% chance
+                        }
+                    }
+                }
+            }
+            20 = {
+                random_list = {
+                    30 = { add_trait = exotic_beauty_good_1 } # 6% chance
+                    70 = {
+                        random_list = {
+                            30 = { add_trait = exotic_beauty_good_2 } # 4.2% chance
+                            70 = { add_trait = exotic_beauty_good_3 } # 9.8% chance
+                        }
+                    }
+                }
+            }
+            60 = { 
+                random_list = {
+                    10 = { 
+                        random_list = {
+                            10 = { add_trait = beauty_bad_3 } # 0.6% chance
+                            30 = { add_trait = beauty_bad_2 } # 1.8% chance
+                            60 = { add_trait = beauty_bad_1 } # 3.6% chance
+                        }
+                    }
+                    40 = { add_trait = beauty_good_1 } # 24% chance
+                    50 = {
+                        random_list = {
+                            60 = { add_trait = beauty_good_2 } # 18% chance
+                            40 = {
+                                random_list = {
+                                    70 = { add_trait = beauty_good_3 } # 8.4% chance
+                                    30 = { add_trait = beauty_good_4 } # 3.6% chance
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+# ----------- Intellect ----------- #
+awow_assign_random_intellect_trait_elf_effect = {
+    if = {
+        limit = { NOT = { awow_has_intellect_trait_elf_trigger = yes } }
+        awow_assign_random_tiered_trait_elf_abstracted_effect = { GROUP = intellect }
+    }
+}
+
+# ----------- Physique ----------- #
+awow_assign_random_physique_trait_elf_effect = {
+    if = {
+        limit = { NOT = { awow_has_physique_trait_elf_trigger = yes } }
+        awow_assign_random_tiered_trait_elf_abstracted_effect = { GROUP = physique }
+    }
+}
+
+# ----------- Random Tail ----------- #
+awow_assign_random_tiered_trait_elf_abstracted_effect = {
+    random_list = {
+        20 = { } # 20% chance no trait
+        80 = { 
+            random_list = {
+                10 = { 
+                    random_list = {
+                        10 = { add_trait = $GROUP$_bad_3 } # 0.8% chance
+                        30 = { add_trait = $GROUP$_bad_2 } # 2.4% chance
+                        60 = { add_trait = $GROUP$_bad_1 } # 4.8% chance
+                    }
+                }
+                40 = { add_trait = $GROUP$_good_1 } # 32% chance
+                50 = {
+                    random_list = {
+                        60 = { add_trait = $GROUP$_good_2 } # 24% chance
+                        40 = {
+                            random_list = {
+                                70 = { add_trait = $GROUP$_good_3 } # 11.2% chance
+                                30 = { add_trait = $GROUP$_good_4 } # 4.8% chance
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+# ----------- Pure Blooded ----------- #
+awow_assign_random_pure_blood_trait_elf_effect = {
+    if = {
+        limit = { NOT = { awow_has_pure_blood_trait_group_elf_trigger = yes} }
+        random_list = {
+            90 = { } # 90% chance no trait
+            10 = {
+                random_list = {
+                    80 = { add_trait = pure_blooded } # 8% chance
+                    20 = {
+                        random_list = {
+                            90 = { add_trait = purer_blooded } # 1.8% chance
+                            10 = { add_trait = purest_blooded } # 0.2% chance
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+# ----------- Spark Gifted ----------- #
+awow_assign_random_spark_gifted_trait_elf_effect = {
+    if = {
+        limit = {
+            OR = {
+                scope:awow_mother = { is_any_real_elf_type = yes }
+                scope:awow_other_mother = { is_any_real_elf_type = yes }
+                is_any_elf_type = yes 
+            }
+        }
+        awow_assign_random_spark_gifted_trait_elf_effect = yes
+    }
+    else = { awow_assign_random_spark_gifted_trait_human_effect = yes }
+}
+
+awow_assign_random_spark_gifted_trait_elf_effect = { 
+    if = {
+        limit = { NOT = { awow_is_spark_gifted_elf_trigger = yes} }
+        random_list = {
+            30 = { } # 30% chance no trait
+            70 = {
+                random_list = {
+                    70 = { add_trait = magic_talent_1 } # 49% chance
+                    30 = {
+                        random_list = {
+                            80 = { add_trait = magic_talent_2 } # 16.8% chance
+                            20 = { add_trait = magic_talent_3 } # 4.2% chance
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+awow_assign_random_spark_gifted_trait_human_effect = {
+    if = {
+        limit = { NOT = { awow_is_spark_gifted_elf_trigger = yes} }
+        random_list = {
+            80 = { } # 90% chance no trait
+            20 = {
+                random_list = {
+                    70 = { add_trait = magic_talent_1 } # 14% chance
+                    30 = {
+                        random_list = {
+                            70 = { add_trait = magic_talent_2 } # 4.2% chance
+                            30 = { add_trait = magic_talent_3 } # 1.8% chance
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#####################################################################
+########### ----------- Upgrade Tiered Traits ----------- ###########
+#####################################################################
+
+awow_upgrade_tiered_traits_elf_effect = {
+    awow_upgrade_tiered_beauty_traits_elf_effect = yes
+    awow_upgrade_tiered_intellect_traits_elf_effect = yes
+    awow_upgrade_tiered_physique_traits_elf_effect = yes
+    awow_upgrade_tiered_pure_blood_group_traits_elf_effect = yes
+    awow_upgrade_tiered_spark_gifted_traits_elf_effect = yes
+}
+
+# ----------- Beauty ----------- #
+awow_upgrade_tiered_beauty_traits_elf_effect = {
+    if = {
+        limit = { awow_has_generic_beauty_trait_elf_trigger = yes }
+        awow_upgrade_tiered_traits_elf_abstracted_effect = { GROUP = beauty }
+    }
+    else_if = {
+        limit = { awow_has_exotic_beauty_trait_elf_trigger = yes }
+        awow_upgrade_alt_beauty_traits_elf_abstracted_effect = { GROUP = exotic_beauty }
+    }
+    else_if = {
+        limit = { awow_has_unconventional_beauty_trait_elf_trigger = yes }
+        awow_upgrade_alt_beauty_traits_elf_abstracted_effect = { GROUP = unconventional_beauty }
+    }
+}
+
+awow_upgrade_alt_beauty_traits_elf_abstracted_effect = {
+    if = {
+        limit = { has_trait = $GROUP$_good_2 }
+        remove_trait = $GROUP$_good_2
+        random_list = {
+            20 = { add_trait = $GROUP$_good_3 }
+            80 = { add_trait = $GROUP$_good_2 }
+        }
+    }
+    else_if = {
+        limit = { has_trait = $GROUP$_good_1 }
+        remove_trait = $GROUP$_good_1
+        random_list = {
+            5 = { add_trait = $GROUP$_good_3 }
+            25 = { add_trait = $GROUP$_good_2 }
+            70 = { add_trait = $GROUP$_good_1 }
+        }
+    }
+}
+
+# ----------- Intellect ----------- #
+awow_upgrade_tiered_intellect_traits_elf_effect = {
+   if = {
+        limit = { awow_has_intellect_trait_elf_trigger = yes }
+        awow_upgrade_tiered_traits_elf_abstracted_effect = { GROUP = intellect }
+    }
+}
+
+# ----------- Physique ----------- #
+awow_upgrade_tiered_physique_traits_elf_effect = {
+    if = {
+        limit = { awow_has_physique_trait_elf_trigger = yes }
+        awow_upgrade_tiered_traits_elf_abstracted_effect = { GROUP = physique }
+    }
+}
+
+# ----------- Random Tail ----------- #
+awow_upgrade_tiered_traits_elf_abstracted_effect = {
+    if = {
+        limit = { has_trait = $GROUP$_good_3 }
+        remove_trait = $GROUP$_good_3
+        random_list = {
+            5 = { add_trait = $GROUP$_good_4 }
+            95 = { add_trait = $GROUP$_good_3 }
+        }
+    }
+    else_if = {
+        limit = { has_trait = $GROUP$_good_2 }
+        remove_trait = $GROUP$_good_2
+        random_list = {
+            4 = { add_trait = $GROUP$_good_4 }
+            16 = { add_trait = $GROUP$_good_3 }
+            80 = { add_trait = $GROUP$_good_2 }
+        }
+    }
+    else_if = {
+        limit = { has_trait = $GROUP$_good_1 }
+        remove_trait = $GROUP$_good_1
+        random_list = {
+            3 = { add_trait = $GROUP$_good_4 }
+            7 = { add_trait = $GROUP$_good_3 }
+            20 = { add_trait = $GROUP$_good_2 }
+            70 = { add_trait = $GROUP$_good_1 }
+        }
+    }
+    else_if = {
+        limit = { has_trait = $GROUP$_bad_1 }
+        remove_trait = $GROUP$_bad_1
+        random_list = {
+            2 = { add_trait = $GROUP$_good_4 }
+            5 = { add_trait = $GROUP$_good_3 }
+            13 = { add_trait = $GROUP$_good_2 }
+            25 = { add_trait = $GROUP$_good_1 }
+            55 = { add_trait = $GROUP$_bad_1 }
+        }
+    }
+    else_if = {
+        limit = { has_trait = $GROUP$_bad_2 }
+        remove_trait = $GROUP$_bad_2
+        random_list = {
+            1 = { add_trait = $GROUP$_good_4 }
+            3 = { add_trait = $GROUP$_good_3 }
+            6 = { add_trait = $GROUP$_good_2 }
+            10 = { add_trait = $GROUP$_good_1 }
+            30 = { add_trait = $GROUP$_bad_1 }
+            50 = { add_trait = $GROUP$_bad_2 }
+        }
+    }
+    else_if = {
+        limit = { has_trait = $GROUP$_bad_3 }
+        remove_trait = $GROUP$_bad_3
+        random_list = {
+            1 = { add_trait = $GROUP$_good_4 }
+            2 = { add_trait = $GROUP$_good_3 }
+            3 = { add_trait = $GROUP$_good_2 }
+            5 = { add_trait = $GROUP$_good_1 }
+            15 = { add_trait = $GROUP$_bad_1 }
+            34 = { add_trait = $GROUP$_bad_2 }
+            40 = { add_trait = $GROUP$_bad_3 }
+        }
+    }
+}
+
+# ----------- Pure Blooded ----------- #
+awow_upgrade_tiered_pure_blood_group_traits_elf_effect = {
+    if = {
+        limit = { awow_has_pure_blood_trait_group_elf_trigger = yes }
+        if = {
+            limit = { has_trait = purer_blooded }
+            remove_trait = purer_blooded
+            random_list = {
+                5 = { add_trait = purest_blooded }
+                95 = { add_trait = purer_blooded }
+            }
+        }
+        else_if = {
+            limit = { has_trait = pure_blooded }
+            remove_trait = pure_blooded
+            random_list = {
+                1 = { add_trait = purest_blooded }
+                13 = { add_trait = purer_blooded }
+                86 = { add_trait = pure_blooded }
+            }
+        }
+    }
+}
+
+# ----------- Spark Gifted ----------- #
+awow_upgrade_tiered_spark_gifted_traits_elf_effect = {
+    if = {
+        limit = { awow_is_spark_gifted_elf_trigger = yes }
+        if = {
+            limit = { has_trait = magic_talent_2 }
+            remove_trait = magic_talent_2
+            random_list = {
+                10 = { add_trait = magic_talent_3 }
+                90 = { add_trait = magic_talent_2 }
+            }
+        }
+        else_if = {
+            limit = { has_trait = magic_talent_1 }
+            remove_trait = pure_blooded
+            random_list = {
+                3 = { add_trait = magic_talent_3 }
+                17 = { add_trait = magic_talent_2 }
+                80 = { add_trait = magic_talent_1 }
+            }
+        }
+    }
+}
