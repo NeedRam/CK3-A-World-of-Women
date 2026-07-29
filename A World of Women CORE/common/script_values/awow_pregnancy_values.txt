@@ -19,6 +19,28 @@ awow_impregnation_chance_value = {
         # If both have 100% fertility it should be ~29% chance
 		multiply = 28.812
 	}
+    # Try to give rulers heir if low 
+    if = {
+        limit = { is_ruler = yes }
+        add = 100
+        every_child = {
+            if = {
+                limit = { is_alive = yes }
+                add = -40
+            }
+        }
+    }
+    if = {
+        limit = { awow_using_elf_destiny_trigger = yes }
+        if = {
+            limit = { is_any_real_elf_type = yes }
+            add = 21.609 # 75% more children from elves
+        }
+        else_if = {
+            limit = { is_any_elf_type = yes }
+            add = 11.525 # 40% more children from half elves
+        }
+    }
     round = yes
     min = 0
     max = 95
