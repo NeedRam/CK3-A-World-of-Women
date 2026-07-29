@@ -9,7 +9,7 @@
 awow_assign_vanilla_congenital_traits_effect = {
     awow_assign_vanilla_traits_from_parents_effect = yes
     awow_assign_random_vanilla_genetic_traits_effect = yes
-    awow_upgrade_tiered_traits_vanilla_effect = yes
+    awow_mutate_up_tiered_traits_vanilla_effect = yes
 }
 
 ############################################################
@@ -258,34 +258,34 @@ awow_assign_random_tiered_trait_vanilla_abstracted_effect = {
 ########### ----------- Upgrade Tiered Traits ----------- ###########
 #####################################################################
 
-awow_upgrade_tiered_traits_vanilla_effect = {
-    awow_upgrade_tiered_beauty_traits_vanilla_effect = yes
-    awow_upgrade_tiered_intellect_traits_vanilla_effect = yes
-    awow_upgrade_tiered_physique_traits_vanilla_effect = yes
+awow_mutate_up_tiered_traits_vanilla_effect = {
+    awow_mutate_up_tiered_beauty_traits_vanilla_effect = yes
+    awow_mutate_up_tiered_intellect_traits_vanilla_effect = yes
+    awow_mutate_up_tiered_physique_traits_vanilla_effect = yes
 }
 
-awow_upgrade_tiered_beauty_traits_vanilla_effect = {
+awow_mutate_up_tiered_beauty_traits_vanilla_effect = {
     if = {
         limit = { awow_has_beauty_trait_vanilla_trigger = yes }
-        awow_upgrade_tiered_traits_vanilla_abstracted_effect = { GROUP = beauty }
+        awow_mutate_up_tiered_traits_vanilla_abstracted_effect = { GROUP = beauty }
     }
 }
 
-awow_upgrade_tiered_intellect_traits_vanilla_effect = {
+awow_mutate_up_tiered_intellect_traits_vanilla_effect = {
    if = {
         limit = { awow_has_intellect_trait_vanilla_trigger = yes }
-        awow_upgrade_tiered_traits_vanilla_abstracted_effect = { GROUP = intellect }
+        awow_mutate_up_tiered_traits_vanilla_abstracted_effect = { GROUP = intellect }
     }
 }
 
-awow_upgrade_tiered_physique_traits_vanilla_effect = {
+awow_mutate_up_tiered_physique_traits_vanilla_effect = {
     if = {
         limit = { awow_has_physique_trait_vanilla_trigger = yes }
-        awow_upgrade_tiered_traits_vanilla_abstracted_effect = { GROUP = physique }
+        awow_mutate_up_tiered_traits_vanilla_abstracted_effect = { GROUP = physique }
     }
 }
 
-awow_upgrade_tiered_traits_vanilla_abstracted_effect = {
+awow_mutate_up_tiered_traits_vanilla_abstracted_effect = {
     if = {
         limit = { has_trait = $GROUP$_good_2 }
         remove_trait = $GROUP$_good_2
@@ -337,68 +337,3 @@ awow_upgrade_tiered_traits_vanilla_abstracted_effect = {
         }
     }
 }
-
-###################################################################################
-########### ----------- Remove Tiered Genetic Trait Helpers ----------- ###########
-###################################################################################
-
-# I had planned to use these for the upgrades but realised they were super unnecessary
-# Leaving them in. Might be useful one day
-
-awow_remove_all_genetic_traits_effect = {
-    if = {
-		limit = {
-			scope:child = {
-				has_trait = pure_blooded
-			}
-		}
-		scope:child = {
-			remove_trait = pure_blooded
-		}
-	}
-    awow_remove_all_tiered_genetic_trait_groups_effect = yes
-}
-
-awow_remove_all_tiered_genetic_trait_groups_effect = {
-    awow_remove_beauty_trait_effect = yes
-    awow_remove_intellect_trait_effect = yes
-    awow_remove_physique_trait_effect = yes
-}
-
-awow_remove_beauty_trait_effect = {
-    awow_remove_all_genetic_traits_types_abstracted_effect = { GROUP = beauty }
-}
-
-awow_remove_intellect_trait_effect = {
-    awow_remove_all_genetic_traits_types_abstracted_effect = { GROUP = intellect }
-}
-
-awow_remove_physique_trait_effect = {
-    awow_remove_all_genetic_traits_types_abstracted_effect = { GROUP = physique }
-}
-
-awow_remove_all_genetic_traits_types_abstracted_effect = {
-    awow_remove_all_genetic_traits_tiers_abstracted_effect = { GROUP = $GROUP$ TYPE = good }
-    awow_remove_all_genetic_traits_tiers_abstracted_effect = { GROUP = $GROUP$ TYPE = bad }
-}
-
-awow_remove_all_genetic_traits_tiers_abstracted_effect = {
-    awow_remove_any_tiered_genetic_trait_effect = { GROUP = $GROUP$ TYPE = $TYPE$ TIER = 1 }
-    awow_remove_any_tiered_genetic_trait_effect = { GROUP = $GROUP$ TYPE = $TYPE$ TIER = 2 }
-    awow_remove_any_tiered_genetic_trait_effect = { GROUP = $GROUP$ TYPE = $TYPE$ TIER = 3 }
-}
-
-awow_remove_any_tiered_genetic_trait_effect = {
-    if = {
-		limit = {
-			scope:child = {
-				has_trait = $GROUP$_$TYPE$_$TIER$
-			}
-		}
-		scope:child = {
-			remove_trait = $GROUP$_$TYPE$_$TIER$
-		}
-	}
-}
-
-

@@ -1,7 +1,7 @@
 ﻿awow_assign_elf_congenital_traits_effect = {
     awow_assign_elf_traits_from_parents_effect = yes
     awow_assign_random_genetic_traits_elf_effect = yes
-    awow_upgrade_tiered_traits_elf_effect = yes
+    awow_mutate_up_tiered_traits_elf_effect = yes
 }
 
 ############################################################
@@ -574,31 +574,31 @@ awow_assign_random_spark_gifted_trait_human_effect = {
 ########### ----------- Upgrade Tiered Traits ----------- ###########
 #####################################################################
 
-awow_upgrade_tiered_traits_elf_effect = {
-    awow_upgrade_tiered_beauty_traits_elf_effect = yes
-    awow_upgrade_tiered_intellect_traits_elf_effect = yes
-    awow_upgrade_tiered_physique_traits_elf_effect = yes
-    awow_upgrade_tiered_pure_blood_group_traits_elf_effect = yes
-    awow_upgrade_tiered_spark_gifted_traits_elf_effect = yes
+awow_mutate_up_tiered_traits_elf_effect = {
+    awow_mutate_up_tiered_beauty_traits_elf_effect = yes
+    awow_mutate_up_tiered_intellect_traits_elf_effect = yes
+    awow_mutate_up_tiered_physique_traits_elf_effect = yes
+    awow_mutate_up_tiered_pure_blood_group_traits_elf_effect = yes
+    awow_mutate_up_tiered_spark_gifted_traits_elf_effect = yes
 }
 
 # ----------- Beauty ----------- #
-awow_upgrade_tiered_beauty_traits_elf_effect = {
+awow_mutate_up_tiered_beauty_traits_elf_effect = {
     if = {
         limit = { awow_has_generic_beauty_trait_elf_trigger = yes }
-        awow_upgrade_tiered_traits_elf_abstracted_effect = { GROUP = beauty }
+        awow_mutate_up_tiered_traits_elf_abstracted_effect = { GROUP = beauty }
     }
     else_if = {
         limit = { awow_has_exotic_beauty_trait_elf_trigger = yes }
-        awow_upgrade_alt_beauty_traits_elf_abstracted_effect = { GROUP = exotic_beauty }
+        awow_mutate_up_alt_beauty_traits_elf_abstracted_effect = { GROUP = exotic_beauty }
     }
     else_if = {
         limit = { awow_has_unconventional_beauty_trait_elf_trigger = yes }
-        awow_upgrade_alt_beauty_traits_elf_abstracted_effect = { GROUP = unconventional_beauty }
+        awow_mutate_up_alt_beauty_traits_elf_abstracted_effect = { GROUP = unconventional_beauty }
     }
 }
 
-awow_upgrade_alt_beauty_traits_elf_abstracted_effect = {
+awow_mutate_up_alt_beauty_traits_elf_abstracted_effect = {
     if = {
         limit = { has_trait = $GROUP$_good_2 }
         remove_trait = $GROUP$_good_2
@@ -619,23 +619,23 @@ awow_upgrade_alt_beauty_traits_elf_abstracted_effect = {
 }
 
 # ----------- Intellect ----------- #
-awow_upgrade_tiered_intellect_traits_elf_effect = {
+awow_mutate_up_tiered_intellect_traits_elf_effect = {
    if = {
         limit = { awow_has_intellect_trait_elf_trigger = yes }
-        awow_upgrade_tiered_traits_elf_abstracted_effect = { GROUP = intellect }
+        awow_mutate_up_tiered_traits_elf_abstracted_effect = { GROUP = intellect }
     }
 }
 
 # ----------- Physique ----------- #
-awow_upgrade_tiered_physique_traits_elf_effect = {
+awow_mutate_up_tiered_physique_traits_elf_effect = {
     if = {
         limit = { awow_has_physique_trait_elf_trigger = yes }
-        awow_upgrade_tiered_traits_elf_abstracted_effect = { GROUP = physique }
+        awow_mutate_up_tiered_traits_elf_abstracted_effect = { GROUP = physique }
     }
 }
 
 # ----------- Random Tail ----------- #
-awow_upgrade_tiered_traits_elf_abstracted_effect = {
+awow_mutate_up_tiered_traits_elf_abstracted_effect = {
     if = {
         limit = { has_trait = $GROUP$_good_3 }
         remove_trait = $GROUP$_good_3
@@ -702,7 +702,7 @@ awow_upgrade_tiered_traits_elf_abstracted_effect = {
 }
 
 # ----------- Pure Blooded ----------- #
-awow_upgrade_tiered_pure_blood_group_traits_elf_effect = {
+awow_mutate_up_tiered_pure_blood_group_traits_elf_effect = {
     if = {
         limit = { awow_has_pure_blood_trait_group_elf_trigger = yes }
         if = {
@@ -726,7 +726,7 @@ awow_upgrade_tiered_pure_blood_group_traits_elf_effect = {
 }
 
 # ----------- Spark Gifted ----------- #
-awow_upgrade_tiered_spark_gifted_traits_elf_effect = {
+awow_mutate_up_tiered_spark_gifted_traits_elf_effect = {
     if = {
         limit = { awow_is_spark_gifted_elf_trigger = yes }
         if = {
