@@ -31,7 +31,6 @@
                 value = scope:actor
             }
         }
-        trigger_event = awow_culling.0010
     }
 }
 
@@ -67,6 +66,5 @@ awow_flag_include_interaction = {
             remove_character_flag = awow_excluded_from_culling
             remove_variable = awow_culling_protection_owner
         }
-        trigger_event = awow_culling.0011
     }
 }

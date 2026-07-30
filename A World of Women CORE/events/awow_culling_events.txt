@@ -94,23 +94,6 @@ awow_culling.1003 = {
     }
 }
 
-# Regular culling event (hidden - replaced by bottom-right interface message)
-# The actual culling is performed once, globally, by awow_culling.1002
-# before the interface message is shown, so awow_cull_count already holds the total.
-awow_culling.0002 = {
-    type = character_event
-    hidden = yes
-
-    title = awow_culling.0002.title
-    desc = awow_culling.0002.desc
-
-    theme = death
-
-    option = {
-        name = awow_culling.0002.a
-    }
-}
-
 # Recurring monthly culling pulse
 # Runs every ~30 days, checks if a cull is due, and sends a bottom-right alert instead of a popup.
 awow_culling.1002 = {
@@ -153,31 +136,5 @@ awow_culling.1002 = {
 
     option = {
         name = awow_culling.1002.a
-    }
-}
-
-# Interaction notification - Flagged for exclusion
-awow_culling.0010 = {
-    type = character_event
-    hidden = yes
-
-    immediate = {
-    }
-
-    option = {
-        name = awow_culling.0010.a
-    }
-}
-
-# Interaction notification - Removed from exclusion
-awow_culling.0011 = {
-    type = character_event
-    hidden = yes
-
-    immediate = {
-    }
-
-    option = {
-        name = awow_culling.0011.a
     }
 }
