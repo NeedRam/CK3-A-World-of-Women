@@ -15,22 +15,21 @@
         }
     }
 
-    # Spare the player's dynasty (if that rule is enabled).
-    # Flag every living character who shares a player's dynasty, using root.dynasty
-    # while scoped inside every_player (root is unambiguous there).
+    # Spare every player dynasty (if that rule is enabled).
+    # This is one world pass: each character is flagged if they share a dynasty
+    # with any current player. Do not wrap this in every_player, which would
+    # repeat the same global scan once per player.
     if = {
         limit = {
             has_game_rule = awow_exclude_player_dynasty
         }
-        every_player = {
-            every_living_character = {
-                limit = {
-                    any_player = {
-                        dynasty = prev.dynasty
-                    }
+        every_living_character = {
+            limit = {
+                any_player = {
+                    dynasty = prev.dynasty
                 }
-                add_character_flag = awow_excluded_from_culling
             }
+            add_character_flag = awow_excluded_from_culling
         }
     }
 

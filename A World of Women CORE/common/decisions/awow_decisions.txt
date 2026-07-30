@@ -118,3 +118,46 @@
 
     ai_check_interval = 0
 }
+
+awow_toggle_culling_notifications_decision = {
+    picture = {
+        reference = "gfx/interface/illustrations/activity_splash_screens/tour_arrival_tribal_neutral.dds"
+    }
+    title = awow_toggle_culling_notifications_decision_title
+    desc = awow_toggle_culling_notifications_decision_desc
+    selection_tooltip = awow_toggle_culling_notifications_decision_tooltip
+
+    ai_goal = no
+
+    is_shown = {
+        is_ai = no
+    }
+
+    is_valid_showing_failures_only = {
+        is_ai = no
+    }
+
+    effect = {
+        if = {
+            limit = { has_character_flag = awow_culling_notifications_muted }
+            remove_character_flag = awow_culling_notifications_muted
+            custom_tooltip = awow_culling_notifications_unmuted_tooltip
+        }
+        else = {
+            add_character_flag = awow_culling_notifications_muted
+            custom_tooltip = awow_culling_notifications_muted_tooltip
+        }
+    }
+
+    ai_potential = {
+        always = no
+    }
+
+    ai_will_do = {
+        base = 0
+    }
+
+    confirm_text = awow_toggle_culling_notifications_decision_confirm
+
+    ai_check_interval = 0
+}
