@@ -4,11 +4,53 @@
 # pairs. This system uses variables + flags instead, and calls
 # marry_same_sex directly at fulfillment.
 
-# ============================================
-# Fulfillment pulse (called yearly)
-# ============================================
+#########################################
+# --------- Fulfillment Pulse --------- #
+#########################################
 
 awow_betrothal_fulfillment_effect = {
+
+    awow_cleanup_broken_betrothals_effect = yes
+
+    # Fulfill adult betrothals with marry_same_sex
+    every_living_character = {
+        limit = {
+            awow_can_marry_betrothed_trigger = yes
+            var:awow_betrothed_to ?= {
+                is_alive = yes
+                awow_can_marry_betrothed_trigger = yes
+            }
+            NOT = { has_character_flag = awow_betrothal_processing }
+        }
+        add_character_flag = awow_betrothal_processing
+
+        # Remove our custom betrothal opinion from both sides
+        remove_opinion = {
+            target = var:awow_betrothed_to
+            modifier = awow_betrothed_opinion
+        }
+
+        # Marry them
+        var:awow_betrothed_to = {
+            marry_same_sex = prev
+
+            # Remove the other side's opinion
+            remove_opinion = {
+                target = prev
+                modifier = awow_betrothed_opinion
+            }
+            # Clean up the betrothed partner's flags/variables
+            remove_variable = awow_betrothed_to
+            remove_character_flag = awow_same_sex_betrothal
+        }
+        remove_variable = awow_betrothed_to
+        remove_character_flag = awow_same_sex_betrothal
+        remove_character_flag = awow_betrothal_processing
+    }
+}
+
+awow_cleanup_broken_betrothals_effect = {
+
     # Clean up stale processing flags from interrupted/crashed runs
     every_living_character = {
         limit = { has_character_flag = awow_betrothal_processing }
@@ -21,7 +63,7 @@ awow_betrothal_fulfillment_effect = {
             has_character_flag = awow_same_sex_betrothal
             var:awow_betrothed_to ?= { NOT = { is_alive = yes } }
         }
-        awow_cleanup_custom_betrothal_effect = {
+        awow_cleanup_betrothal_effect = {
             CHARACTER = root
             BETROTHED = var:awow_betrothed_to
         }
@@ -43,50 +85,54 @@ awow_betrothal_fulfillment_effect = {
                 }
             }
         }
-        awow_cleanup_custom_betrothal_effect = {
+        awow_cleanup_betrothal_effect = {
             CHARACTER = root
             BETROTHED = var:awow_betrothed_to
         }
     }
+}
 
-    # Fulfill adult betrothals with marry_same_sex
-    every_living_character = {
-        limit = {
-            has_character_flag = awow_same_sex_betrothal
-            is_adult = yes
-            is_married = no
-            is_betrothed = no
-            var:awow_betrothed_to ?= {
-                is_alive = yes
-                is_adult = yes
-                is_married = no
-                is_betrothed = no
-                has_character_flag = awow_same_sex_betrothal
-                can_marry_character_trigger = { CHARACTER = prev }
-            }
-            can_marry_character_trigger = { CHARACTER = var:awow_betrothed_to }
-            NOT = { has_character_flag = awow_betrothal_processing }
-        }
-        add_character_flag = awow_betrothal_processing
-        # Remove our custom betrothal opinion from both sides
-        remove_opinion = {
-            target = var:awow_betrothed_to
-            modifier = awow_betrothed_opinion
-        }
-        var:awow_betrothed_to = {
-            marry_same_sex = prev
-            # Remove the other side's opinion of us
-            remove_opinion = {
-                target = prev
-                modifier = awow_betrothed_opinion
-            }
-            # Clean up the betrothed partner's flags/variables
-            remove_variable = awow_betrothed_to
-            remove_character_flag = awow_same_sex_betrothal
-        }
+# ============================================
+# No-penalty cleanup effect
+# ============================================
+
+awow_cleanup_betrothal_effect = {
+    $CHARACTER$ = {
         remove_variable = awow_betrothed_to
         remove_character_flag = awow_same_sex_betrothal
-        remove_character_flag = awow_betrothal_processing
+        remove_opinion = {
+            target = $BETROTHED$
+            modifier = awow_betrothed_opinion
+        }
+    }
+    $BETROTHED$ = {
+        remove_variable = awow_betrothed_to
+        remove_character_flag = awow_same_sex_betrothal
+        remove_opinion = {
+            target = $CHARACTER$
+            modifier = awow_betrothed_opinion
+        }
+    }
+    $CHARACTER$ = {
+        if = {
+            limit = { exists = liege }
+            liege = { save_scope_as = character_liege }
+        }
+    }
+    $BETROTHED$ = {
+        if = {
+            limit = { exists = liege }
+            liege = { save_scope_as = betrothed_liege }
+        }
+    }
+    if = {
+        limit = {
+            exists = scope:character_liege
+            exists = scope:betrothed_liege
+        }
+        scope:character_liege = {
+            break_alliance = scope:betrothed_liege
+        }
     }
 }
 
@@ -94,7 +140,7 @@ awow_betrothal_fulfillment_effect = {
 # Break effect (with prestige cost)
 # Reserved for future intentional-break interactions.
 # Currently unused because all cleanup paths use the
-# no-penalty awow_cleanup_custom_betrothal_effect.
+# no-penalty awow_cleanup_betrothal_effect.
 # ============================================
 
 awow_break_custom_betrothal_effect = {
@@ -193,54 +239,5 @@ awow_break_custom_betrothal_effect = {
     $BETROTHED$ = {
         remove_variable = awow_betrothed_to
         remove_character_flag = awow_same_sex_betrothal
-    }
-}
-
-# ============================================
-# No-penalty cleanup effect
-# ============================================
-
-awow_cleanup_custom_betrothal_effect = {
-    $CHARACTER$ = {
-        remove_variable = awow_betrothed_to
-        remove_character_flag = awow_same_sex_betrothal
-        remove_opinion = {
-            target = $BETROTHED$
-            modifier = awow_betrothed_opinion
-        }
-    }
-    $BETROTHED$ = {
-        remove_variable = awow_betrothed_to
-        remove_character_flag = awow_same_sex_betrothal
-        remove_opinion = {
-            target = $CHARACTER$
-            modifier = awow_betrothed_opinion
-        }
-    }
-    # Break alliance between the rulers who arranged the betrothal.
-    # Safe to do here because if this cleanup runs due to our own fulfillment,
-    # marry_same_sex will reform the alliance via vanilla's on_marriage.
-    # If this runs because vanilla married our betrothed, the old alliance
-    # should be broken since the diplomatic arrangement is superseded.
-    $CHARACTER$ = {
-        if = {
-            limit = { exists = liege }
-            liege = { save_scope_as = character_liege }
-        }
-    }
-    $BETROTHED$ = {
-        if = {
-            limit = { exists = liege }
-            liege = { save_scope_as = betrothed_liege }
-        }
-    }
-    if = {
-        limit = {
-            exists = scope:character_liege
-            exists = scope:betrothed_liege
-        }
-        scope:character_liege = {
-            break_alliance = scope:betrothed_liege
-        }
     }
 }
