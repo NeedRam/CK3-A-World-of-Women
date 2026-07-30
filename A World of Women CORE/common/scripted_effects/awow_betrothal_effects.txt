@@ -1,0 +1,208 @@
+# Custom same-sex betrothal system.
+# Vanilla betrothals use create_betrothal / create_betrothal_matrilineal,
+# but fulfillment calls marry / marry_matrilineal, which crash on same-sex
+# pairs. This system uses variables + flags instead, and calls
+# marry_same_sex directly at fulfillment.
+
+# ============================================
+# Fulfillment pulse (called yearly)
+# ============================================
+
+awow_betrothal_fulfillment_effect = {
+    # Clean up orphaned betrothals where the target died (no penalties)
+    every_living_character = {
+        limit = {
+            has_character_flag = awow_same_sex_betrothal
+            var:awow_betrothed_to ?= { NOT = { is_alive = yes } }
+        }
+        awow_cleanup_custom_betrothal_effect = {
+            CHARACTER = root
+            BETROTHED = var:awow_betrothed_to
+        }
+    }
+
+    # Clean up betrothals where either party got a vanilla betrothal or marriage
+    every_living_character = {
+        limit = {
+            has_character_flag = awow_same_sex_betrothal
+            OR = {
+                is_betrothed = yes
+                is_married = yes
+                var:awow_betrothed_to ?= {
+                    is_alive = yes
+                    OR = {
+                        is_betrothed = yes
+                        is_married = yes
+                    }
+                }
+            }
+        }
+        awow_cleanup_custom_betrothal_effect = {
+            CHARACTER = root
+            BETROTHED = var:awow_betrothed_to
+        }
+    }
+
+    # Fulfill adult betrothals with marry_same_sex
+    every_living_character = {
+        limit = {
+            has_character_flag = awow_same_sex_betrothal
+            is_adult = yes
+            is_married = no
+            is_betrothed = no
+            var:awow_betrothed_to ?= {
+                is_alive = yes
+                is_adult = yes
+                is_married = no
+                is_betrothed = no
+                has_character_flag = awow_same_sex_betrothal
+                can_marry_character_trigger = { CHARACTER = prev }
+            }
+            can_marry_character_trigger = { CHARACTER = var:awow_betrothed_to }
+            NOT = { has_character_flag = awow_betrothal_processing }
+        }
+        add_character_flag = awow_betrothal_processing
+        # Remove our custom betrothal opinion from both sides
+        remove_opinion = {
+            target = var:awow_betrothed_to
+            modifier = awow_betrothed_opinion
+        }
+        var:awow_betrothed_to = {
+            prev = {
+                marry_same_sex = root
+            }
+            # Remove the other side's opinion of us
+            remove_opinion = {
+                target = prev
+                modifier = awow_betrothed_opinion
+            }
+        }
+        remove_variable = awow_betrothed_to
+        remove_character_flag = awow_same_sex_betrothal
+        remove_character_flag = awow_betrothal_processing
+    }
+}
+
+# ============================================
+# Break effect (with prestige cost)
+# ============================================
+
+awow_break_custom_betrothal_effect = {
+    # Prestige cost based on title tier (mirrors vanilla break_betrothal)
+    add_prestige_level = -1
+
+    if = {
+        limit = {
+            OR = {
+                $BETROTHED$ = { highest_held_title_tier >= tier_empire }
+                $CHARACTER$ = { highest_held_title_tier >= tier_empire }
+            }
+        }
+        add_prestige = monumental_prestige_loss
+    }
+    else_if = {
+        limit = {
+            OR = {
+                $BETROTHED$ = { highest_held_title_tier = tier_kingdom }
+                $CHARACTER$ = { highest_held_title_tier = tier_kingdom }
+            }
+        }
+        add_prestige = massive_prestige_loss
+    }
+    else_if = {
+        limit = {
+            OR = {
+                $BETROTHED$ = { highest_held_title_tier = tier_duchy }
+                $CHARACTER$ = { highest_held_title_tier = tier_duchy }
+            }
+        }
+        add_prestige = major_prestige_loss
+    }
+    else_if = {
+        limit = {
+            OR = {
+                $BETROTHED$ = { highest_held_title_tier = tier_county }
+                $CHARACTER$ = { highest_held_title_tier = tier_county }
+            }
+        }
+        add_prestige = medium_prestige_loss
+    }
+    else_if = {
+        limit = {
+            OR = {
+                $BETROTHED$ = { highest_held_title_tier = tier_barony }
+                $CHARACTER$ = { highest_held_title_tier = tier_barony }
+            }
+        }
+        add_prestige = minor_prestige_loss
+    }
+    else = { add_prestige = miniscule_prestige_loss }
+
+    # Remove opinion modifiers
+    $CHARACTER$ = {
+        remove_opinion = {
+            target = $BETROTHED$
+            modifier = awow_betrothed_opinion
+        }
+    }
+    $BETROTHED$ = {
+        remove_opinion = {
+            target = $CHARACTER$
+            modifier = awow_betrothed_opinion
+        }
+    }
+
+    # Break alliance between the rulers who arranged the betrothal
+    $CHARACTER$ = {
+        liege = { save_scope_as = character_liege }
+    }
+    $BETROTHED$ = {
+        liege = { save_scope_as = betrothed_liege }
+    }
+    scope:character_liege = {
+        break_alliance = scope:betrothed_liege
+    }
+
+    # Clean up betrothal flags and variables
+    $CHARACTER$ = {
+        remove_variable = awow_betrothed_to
+        remove_character_flag = awow_same_sex_betrothal
+    }
+    $BETROTHED$ = {
+        remove_variable = awow_betrothed_to
+        remove_character_flag = awow_same_sex_betrothal
+    }
+}
+
+# ============================================
+# No-penalty cleanup effect
+# ============================================
+
+awow_cleanup_custom_betrothal_effect = {
+    $CHARACTER$ = {
+        remove_variable = awow_betrothed_to
+        remove_character_flag = awow_same_sex_betrothal
+        remove_opinion = {
+            target = $BETROTHED$
+            modifier = awow_betrothed_opinion
+        }
+    }
+    $BETROTHED$ = {
+        remove_variable = awow_betrothed_to
+        remove_character_flag = awow_same_sex_betrothal
+        remove_opinion = {
+            target = $CHARACTER$
+            modifier = awow_betrothed_opinion
+        }
+    }
+    # Break alliance between the rulers who arranged the betrothal
+    $CHARACTER$ = {
+        liege = { save_scope_as = character_liege }
+    }
+    $BETROTHED$ = {
+        liege = { save_scope_as = betrothed_liege }
+    }
+    scope:character_liege = {
+        break_alliance = scope:betrothed_liege
+    }
+}
