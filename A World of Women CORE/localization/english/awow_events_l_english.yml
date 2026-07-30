@@ -1,12 +1,12 @@
 ﻿l_english:
   # Initial Cull Event - The Vanishing
   awow_culling.1001.title: "The Vanishing"
-  awow_culling.1001.desc: "It began without warning. One morning, a strange and ethereal mist rolled across the known world, carrying with it a haunting silence. When the fog lifted, something had changed — something fundamental.\n\nThroughout courts, cottages, and castles across the realm, every man of noble blood and common birth alike was gone. Vanished as if they had never been. Their clothes lay folded, their swords still sheathed, their thrones still warm — but the men themselves had simply... ceased to be.\n\nIn total, [GetGlobalVariable('awow_cull_count').GetValue] souls have been claimed by the cataclysm. Scholars whisper of divine judgment. Mystics speak of cosmic balance finally tipping. But one truth is undeniable: this is now a world of women. The old order has crumbled, and a new age must rise from its ashes."
+  awow_culling.1001.desc: "It began without warning. One morning, an ethereal mist swept across the known world, carrying a haunting silence. When it lifted, something fundamental had changed.\n\nIn courts, cottages, and castles across the realm, men of every station were gone—vanished as though they had never been. Their clothes lay folded, their swords remained sheathed, and their thrones still held their warmth.\n\nThe cataclysm has claimed [GetGlobalVariable('awow_cull_count').GetValue] souls. Scholars whisper of divine judgment, while mystics speak of cosmic balance finally tipping. One truth is undeniable: this is now a world of women. The old order has crumbled, and a new age must rise from its ashes."
   awow_culling.1001.a: "So it begins... a new age."
   awow_cull_count_tooltip: "[GetGlobalVariable('awow_cull_count').GetValue] souls have been claimed by the cataclysm."
   
   awow_culling_message_title: "The Culling"
-  awow_culling_message_desc: "The culling has claimed its latest victims. [GetGlobalVariable('awow_cull_count').GetValue] males have been taken, preserving the natural order of this world."
+  awow_culling_message_desc: "The latest culling has claimed [GetGlobalVariable('awow_cull_count').GetValue] male characters."
   
   # Same-sex (female-female) pregnancy birth announcement
   awow_pregnancy_0002_t: "A Child is Born"
