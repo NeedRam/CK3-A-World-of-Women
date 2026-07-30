@@ -32,11 +32,7 @@ awow_game_start_setup = {
             }          
         }
         debug_log = "AWOW World Maintenance: START"
-        every_living_character = {
-            awow_assign_horny_traits_effect = yes
-            awow_assign_world_sexualities_effect = yes
-            awow_maintain_weight_effect = yes
-        }
+        awow_apply_world_maintenance_effect = yes
         debug_log = "AWOW World Maintenance: DONE"
     }
 }
