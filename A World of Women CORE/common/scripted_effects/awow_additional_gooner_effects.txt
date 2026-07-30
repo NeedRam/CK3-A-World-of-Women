@@ -6,14 +6,20 @@
 
 awow_assign_lustful_effect = {
     if = {
-        limit = { NOT = { has_trait = lustful } }
+        limit = { 
+            NOT = { has_trait = lustful }
+            is_adult = yes
+        }
         add_trait = lustful
     }
 }
 
 awow_assign_fecund_effect = {
     if = {
-        limit = { NOT = { has_trait = fecund } }
+        limit = { 
+            NOT = { has_trait = fecund }
+            is_adult = yes
+        }
         add_trait = fecund
     }
 }
