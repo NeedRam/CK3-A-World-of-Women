@@ -1,8 +1,10 @@
 ﻿namespace = awow_culling
 
-# Startup setup event - runs immediately, sets up variables and schedules first cull
+# Scope-free scheduler setup. All scheduling and culling state is global, so this
+# event chain cannot be cancelled by the death or replacement of a player ruler.
 awow_culling.1000 = {
     type = character_event
+    scope = none
     hidden = yes
 
     immediate = {
@@ -32,22 +34,12 @@ awow_culling.1000 = {
     }
 }
 
-# Initial cull - The Vanishing (with narrative popup)
-# Fires 30 days after game start
+# Initial cull. Fires 30 days after game start, then sends the presentation-only
+# popup to each player character.
 awow_culling.1001 = {
     type = character_event
-
-    title = awow_culling.1001.title
-    desc = awow_culling.1001.desc
-
-    left_portrait = {
-        character = root
-        animation = shock
-        camera = camera_event_center_pointing_right
-    }
-    theme = death
-    override_background = activity_witch_ritual
-    override_effect_2d = { reference = fog }
+    scope = none
+    hidden = yes
 
     immediate = {
         # Initialize cull count
@@ -65,21 +57,37 @@ awow_culling.1001 = {
             value = yes
         }
 
-        # Schedule the recurring monthly pulse (only once, from the first player to reach here)
-        if = {
-            limit = {
-                NOT = { has_global_variable = awow_pulse_scheduled }
-            }
-            set_global_variable = {
-                name = awow_pulse_scheduled
-                value = yes
-            }
+        # The culling has completed globally. Player events are presentation only.
+        every_player = {
             trigger_event = {
-                id = awow_culling.1002
-                days = 30
+                id = awow_culling.1003
             }
         }
+
+        # Continue as a scope-free event chain.
+        trigger_event = {
+            id = awow_culling.1002
+            days = 30
+        }
     }
+}
+
+# Presentation-only initial cull popup. This is the only part of the culling
+# flow that has a character scope, because CK3 needs one to display a portrait.
+awow_culling.1003 = {
+    type = character_event
+
+    title = awow_culling.1001.title
+    desc = awow_culling.1001.desc
+
+    left_portrait = {
+        character = root
+        animation = shock
+        camera = camera_event_center_pointing_right
+    }
+    theme = death
+    override_background = activity_witch_ritual
+    override_effect_2d = { reference = fog }
 
     option = {
         name = awow_culling.1001.a
@@ -107,6 +115,7 @@ awow_culling.0002 = {
 # Runs every ~30 days, checks if a cull is due, and sends a bottom-right alert instead of a popup.
 awow_culling.1002 = {
     type = character_event
+    scope = none
     hidden = yes
 
     immediate = {
