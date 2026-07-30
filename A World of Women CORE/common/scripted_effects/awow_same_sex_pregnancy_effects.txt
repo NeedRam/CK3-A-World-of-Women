@@ -21,20 +21,33 @@ awow_pregnancy_pulse_effect = {
 
 awow_try_preg_all_partners_effect = {
     save_scope_as = awow_root
-    # debug_log = "AWOW SS-PREG: Checking all Partner"
-    every_consort = {
+    # Partner priority is deliberate: spouses, then concubines, then lovers.
+    # Within each tier, prefer the partner with the fewest children.
+    ordered_spouse = {
+        order_by = awow_number_of_children_value
         save_scope_as = awow_partner
-        # debug_log = "AWOW SS-PREG: Checking next Partner"
-        # debug_log_scopes = yes 
         awow_decide_same_sex_mother_effect = yes
         clear_saved_scope = awow_partner
     }
-    every_relation = {
+    ordered_concubine = {
+        order_by = awow_number_of_children_value
+        save_scope_as = awow_partner
+        awow_decide_same_sex_mother_effect = yes
+        clear_saved_scope = awow_partner
+    }
+    ordered_relation = {
         type = lover
         type = soulmate
+        order_by = awow_number_of_children_value
+        # A spouse or concubine can also be a lover. They belong only in their
+        # higher-priority tier and must not receive a duplicate attempt here.
+        limit = {
+            NOR = {
+                is_spouse_of = scope:awow_root
+                is_concubine_of = scope:awow_root
+            }
+        }
         save_scope_as = awow_partner
-        # debug_log = "AWOW SS-PREG: Checking next Lover"
-        # debug_log_scopes = yes
         awow_decide_same_sex_mother_effect = yes
         clear_saved_scope = awow_partner
     }
