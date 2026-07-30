@@ -71,8 +71,31 @@ awow_assign_twin_trait_to_baby_effect = {
 
 awow_trigger_on_birth_on_action_effect = {
     scope:awow_mother = { save_scope_as = mother }
-    scope:awow_other_mother = { save_scope_as = father }
+    # The engine only accepts a male character in its actual father and
+    # real_father parent slots. For the on_action context, however, the
+    # co-mother is intentionally supplied as both father targets so every
+    # birth-hook consumer sees both parents.
+    scope:awow_other_mother = {
+        save_scope_as = father
+        save_scope_as = real_father
+    }
+    # on_birth_child branches on this value. AWOW custom births have a known
+    # co-mother and should not be routed through vanilla bastard handling.
+    save_scope_value_as = { name = is_bastard value = no }
+
+    # Birth integrations expect each parent hook to execute with its parent as
+    # root. This also satisfies Carnalitas' requirement to notify both sides.
+    scope:awow_mother = {
+        trigger_event = { on_action = on_birth_mother }
+    }
+    scope:awow_other_mother = {
+        trigger_event = { on_action = on_birth_father }
+    }
     scope:child = { trigger_event = { on_action = on_birth_child } }
+    clear_saved_scope = mother
+    clear_saved_scope = father
+    clear_saved_scope = real_father
+    clear_saved_scope = is_bastard
 }
 
 

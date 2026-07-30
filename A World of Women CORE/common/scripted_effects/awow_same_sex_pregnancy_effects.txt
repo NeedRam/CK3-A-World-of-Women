@@ -123,6 +123,10 @@ awow_start_same_sex_pregnancy_effect = {
             CAN_BE_ABORTED = no
         }
         add_trait_force_tooltip = pregnant
+        # Custom pregnancies do not reach the engine's vanilla pregnancy hook.
+        # Supply the same parent context as a normal pregnancy: the co-mother
+        # stands in for both father targets only for the on_action payload.
+        awow_trigger_on_pregnancy_mother_on_action_effect = yes
         # debug_log = "AWOW SS-PREG: pregnant trait assigned"
         awow_roll_multiple_children_chance_effect = yes
         trigger_event = {
@@ -130,6 +134,27 @@ awow_start_same_sex_pregnancy_effect = {
             days = { 250 300 }
         }
     }
+}
+
+# Calls the vanilla pregnancy hook for an AWOW custom pregnancy. This effect
+# runs on the carrying mother, and deliberately does not alter the child's
+# biological parent slots.
+awow_trigger_on_pregnancy_mother_on_action_effect = {
+    save_scope_as = mother
+    scope:awow_other_mother = {
+        save_scope_as = father
+        save_scope_as = real_father
+    }
+    trigger_event = { on_action = on_pregnancy_mother }
+    # Vanilla currently has no baseline father events here, but other mods can
+    # extend this hook. Run it from the co-mother just as the engine does for
+    # the assumed father of a normal pregnancy.
+    scope:awow_other_mother = {
+        trigger_event = { on_action = on_pregnancy_father }
+    }
+    clear_saved_scope = mother
+    clear_saved_scope = father
+    clear_saved_scope = real_father
 }
 
 awow_roll_multiple_children_chance_effect = {
