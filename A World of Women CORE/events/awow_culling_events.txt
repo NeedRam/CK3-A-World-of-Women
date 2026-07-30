@@ -133,8 +133,11 @@ awow_culling.1002 = {
             # Perform the world-wide cull exactly once
             awow_perform_culling = yes
 
-            # Show a single bottom-right alert to each human player
+            # Send a single bottom-right alert to each player who has not muted it.
             every_player = {
+                limit = {
+                    NOT = { has_character_flag = awow_culling_notifications_muted }
+                }
                 send_interface_message = {
                     type = awow_culling_message
                 }
