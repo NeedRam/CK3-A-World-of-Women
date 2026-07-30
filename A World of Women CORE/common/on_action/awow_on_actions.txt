@@ -31,21 +31,9 @@ awow_game_start_setup = {
                 debug_log = "AWOW SS-PREG: Prep DONE"
             }          
         }
-        debug_log = "AWOW Assigning Horny Traits START"
-        every_living_character = {
-            awow_assign_horny_traits_effect = yes
-        }
-        debug_log = "AWOW Assigning Horny Traits DONE"
-        debug_log = "AWOW Assigning Sexualities START"
-        every_living_character = {
-            awow_assign_world_sexualities_effect = yes
-        }
-        debug_log = "AWOW Assigning Sexualities DONE"
-        debug_log = "AWOW Maintaining Weights START"
-        every_living_character = {
-            awow_maintain_weight_effect = yes
-        }
-        debug_log = "AWOW Maintaining Weights DONE"
+        debug_log = "AWOW World Maintenance: START"
+        awow_apply_world_maintenance_effect = yes
+        debug_log = "AWOW World Maintenance: DONE"
     }
 }
 

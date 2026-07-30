@@ -6,47 +6,104 @@
 
 awow_assign_lustful_effect = {
     if = {
-        limit = { NOT = { has_trait = lustful } }
+        limit = {
+            NOT = { has_trait = lustful }
+            is_adult = yes
+        }
         add_trait = lustful
     }
 }
 
 awow_assign_fecund_effect = {
     if = {
-        limit = { NOT = { has_trait = fecund } }
+        limit = {
+            NOT = { has_trait = fecund }
+            is_adult = yes
+        }
         add_trait = fecund
     }
 }
 
-awow_assign_world_sexualities_effect = {
+# Every woman is bisexual. The culling setting only changes which males are
+# protected from the otherwise universal AI-male homosexual assignment.
+awow_assign_world_sexualities_cull_all_effect = {
     if = {
-        limit = { 
-            is_male = yes
-            is_ai = yes
+        limit = {
+            is_female = yes
+            NOT = { has_sexuality = bisexual }
         }
-        if = {
-            limit = { any_player = { dynasty = prev.dynasty } }
-            set_sexuality = heterosexual
-        }
-        else = {
-            set_sexuality = homosexual
-        }
+        set_sexuality = bisexual
     }
     else_if = {
         limit = {
             is_ai = yes
-            is_alive = yes
-            is_female = yes
-            OR = {
-                NOT = { has_sexuality = bisexual }
-                has_sexuality = homosexual
-                has_sexuality = heterosexual
-                has_sexuality = asexual
-                has_sexuality = none
-            }
+            is_male = yes
+            NOT = { has_sexuality = homosexual }
         }
-        set_sexuality = bisexual
+        set_sexuality = homosexual
+    }
+}
 
+# Used when the player character alone is spared from the cull.
+awow_assign_world_sexualities_player_effect = {
+    if = {
+        limit = {
+            is_ai = no
+            is_male = yes
+            NOT = { has_sexuality = heterosexual }
+        }
+        set_sexuality = heterosexual
+    }
+    else = {
+        awow_assign_world_sexualities_cull_all_effect = yes
+    }
+}
+
+# Used when the player and every member of a player dynasty are spared.
+awow_assign_world_sexualities_player_dynasty_effect = {
+    if = {
+        limit = {
+            is_male = yes
+            OR = {
+                is_ai = no
+                AND = {
+                    exists = dynasty
+                    any_player = { dynasty = prev.dynasty }
+                }
+            }
+            NOT = { has_sexuality = heterosexual }
+        }
+        set_sexuality = heterosexual
+    }
+    else = {
+        awow_assign_world_sexualities_cull_all_effect = yes
+    }
+}
+
+# Scope: none. Keep the selection here because has_game_rule is a scope-none trigger.
+awow_apply_world_maintenance_effect = {
+    if = {
+        limit = { has_game_rule = awow_exclude_player_dynasty }
+        every_living_character = {
+            awow_assign_horny_traits_effect = yes
+            awow_assign_world_sexualities_player_dynasty_effect = yes
+            awow_maintain_weight_effect = yes
+        }
+    }
+    else_if = {
+        limit = { has_game_rule = awow_exclude_player }
+        every_living_character = {
+            awow_assign_horny_traits_effect = yes
+            awow_assign_world_sexualities_player_effect = yes
+            awow_maintain_weight_effect = yes
+        }
+    }
+    else = {
+        every_living_character = {
+            awow_assign_horny_traits_effect = yes
+            awow_assign_world_sexualities_cull_all_effect = yes
+            awow_maintain_weight_effect = yes
+        }
     }
 }
 
@@ -59,11 +116,33 @@ awow_maintain_weight_effect = {
             OR = {
                 current_weight > 10
                 current_weight < -10
-                target_weight > 10
-                target_weight < -10
+                target_weight != 0
             }
         }
-        change_current_weight = 0
-        change_target_weight = 0
+        # Move both values gradually toward average rather than snapping them.
+        if = {
+            limit = { current_weight > 10 }
+            change_current_weight = -10
+        }
+        else_if = {
+            limit = { current_weight < -10 }
+            change_current_weight = 10
+        }
+        if = {
+            limit = { target_weight > 10 }
+            change_target_weight = -10
+        }
+        else_if = {
+            limit = { target_weight < -10 }
+            change_target_weight = 10
+        }
+        else_if = {
+            limit = { target_weight != 0 }
+            # Apply the inverse of the remaining value to land exactly on zero.
+            change_target_weight = {
+                value = target_weight
+                multiply = -1
+            }
+        }
     }
 }

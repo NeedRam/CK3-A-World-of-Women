@@ -2,11 +2,7 @@
 # Root does not exist
 yearly_global_pulse = {
     effect = {
-        every_living_character = {
-            awow_assign_horny_traits_effect = yes
-            awow_assign_world_sexualities_effect = yes
-            awow_maintain_weight_effect = yes
-        }
+        awow_apply_world_maintenance_effect = yes
     }
     on_actions = {
         awow_yearly_ruler_marriage_pulse
