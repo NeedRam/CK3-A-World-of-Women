@@ -1,27 +1,19 @@
 namespace = awow_ai_marriage
 
 # Fires once per year from awow_yearly_ruler_marriage_pulse for each eligible AI ruler.
-# Unmarried adult AI rulers attempt to find spouses and arrange marriages
-# through multiple diplomatic channels: courtiers, other rulers, and children.
-# Underage children may also be betrothed via a custom same-sex system
+# Unmarried adult AI rulers attempt to find spouses and arrange marriages and betrothals for children
 # (variables + flags), fulfilled at adulthood by awow_betrothal_fulfillment_pulse.
-awow_ai_ruler_marriage.0001 = {
+awow_ai_marriage.0001 = {
     type = character_event
     hidden = yes
     trigger = {
-        is_alive = yes
         is_adult = yes
         is_ai = yes
-        is_married = no
-        is_betrothed = no
-        NOT = { has_character_flag = awow_same_sex_betrothal }
-        can_marry_trigger = yes
+        awow_can_marry_trigger = yes
     }
-    mean_time_to_happen = {
-        days = 1
-    }
-    option = {
-        name = awow_ai_ruler_marriage_find_spouse
+    immediate = {
         awow_ai_ruler_find_spouse_effect = yes
+        awow_ai_ruler_find_spouse_for_child_effect = yes
+        awow_betrothe_child_effect = yes
     }
 }

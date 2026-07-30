@@ -74,9 +74,7 @@ awow_betrothal_fulfillment_effect = {
             modifier = awow_betrothed_opinion
         }
         var:awow_betrothed_to = {
-            prev = {
-                marry_same_sex = root
-            }
+            marry_same_sex = prev
             # Remove the other side's opinion of us
             remove_opinion = {
                 target = prev
@@ -166,13 +164,25 @@ awow_break_custom_betrothal_effect = {
 
     # Break alliance between the rulers who arranged the betrothal
     $CHARACTER$ = {
-        liege = { save_scope_as = character_liege }
+        if = {
+            limit = { exists = liege }
+            liege = { save_scope_as = character_liege }
+        }
     }
     $BETROTHED$ = {
-        liege = { save_scope_as = betrothed_liege }
+        if = {
+            limit = { exists = liege }
+            liege = { save_scope_as = betrothed_liege }
+        }
     }
-    scope:character_liege = {
-        break_alliance = scope:betrothed_liege
+    if = {
+        limit = {
+            exists = scope:character_liege
+            exists = scope:betrothed_liege
+        }
+        scope:character_liege = {
+            break_alliance = scope:betrothed_liege
+        }
     }
 
     # Clean up betrothal flags and variables
@@ -213,12 +223,24 @@ awow_cleanup_custom_betrothal_effect = {
     # If this runs because vanilla married our betrothed, the old alliance
     # should be broken since the diplomatic arrangement is superseded.
     $CHARACTER$ = {
-        liege = { save_scope_as = character_liege }
+        if = {
+            limit = { exists = liege }
+            liege = { save_scope_as = character_liege }
+        }
     }
     $BETROTHED$ = {
-        liege = { save_scope_as = betrothed_liege }
+        if = {
+            limit = { exists = liege }
+            liege = { save_scope_as = betrothed_liege }
+        }
     }
-    scope:character_liege = {
-        break_alliance = scope:betrothed_liege
+    if = {
+        limit = {
+            exists = scope:character_liege
+            exists = scope:betrothed_liege
+        }
+        scope:character_liege = {
+            break_alliance = scope:betrothed_liege
+        }
     }
 }
