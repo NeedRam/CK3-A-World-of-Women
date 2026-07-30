@@ -59,11 +59,33 @@ awow_maintain_weight_effect = {
             OR = {
                 current_weight > 10
                 current_weight < -10
-                target_weight > 10
-                target_weight < -10
+                target_weight != 0
             }
         }
-        change_current_weight = 0
-        change_target_weight = 0
+        # Move both values gradually toward average rather than snapping them.
+        if = {
+            limit = { current_weight > 10 }
+            change_current_weight = -10
+        }
+        else_if = {
+            limit = { current_weight < -9 }
+            change_current_weight = 10
+        }
+        if = {
+            limit = { target_weight > 10 }
+            change_target_weight = -10
+        }
+        else_if = {
+            limit = { target_weight < -9 }
+            change_target_weight = 10
+        }
+        else_if = {
+            limit = { target_weight != 0 }
+            # Apply the inverse of the remaining value to land exactly on zero.
+            change_target_weight = {
+                value = target_weight
+                multiply = -1
+            }
+        }
     }
 }
