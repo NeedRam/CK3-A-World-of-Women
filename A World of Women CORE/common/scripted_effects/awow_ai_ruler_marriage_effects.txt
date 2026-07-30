@@ -38,25 +38,25 @@ awow_ai_ruler_find_spouse_effect = {
         }
     }
     else = {
-            # 1b. Other rulers (direct alliance marriage)
-            random_playable_character = {
-                limit = {
-                    this != root
-                    is_alive = yes
-                    is_adult = yes
-                    is_married = no
-                    is_betrothed = no
-                    NOT = { has_character_flag = awow_same_sex_betrothal }
-                    can_marry_trigger = yes
-                    can_marry_character_trigger = { CHARACTER = root }
-                    in_diplomatic_range = root
-                    OR = {
-                        top_liege = root.top_liege
-                        is_allied_to = root
-                    }
+        # 1b. Other rulers (direct alliance marriage)
+        random_playable_character = {
+            limit = {
+                this != root
+                is_alive = yes
+                is_adult = yes
+                is_married = no
+                is_betrothed = no
+                NOT = { has_character_flag = awow_same_sex_betrothal }
+                can_marry_trigger = yes
+                can_marry_character_trigger = { CHARACTER = root }
+                in_diplomatic_range = root
+                OR = {
+                    top_liege = root.top_liege
+                    is_allied_to = root
                 }
-                save_temporary_scope_as = awow_spouse
             }
+            save_temporary_scope_as = awow_spouse
+        }
         if = {
             limit = { exists = scope:awow_spouse }
             run_interaction = {
@@ -197,74 +197,75 @@ awow_ai_ruler_find_spouse_effect = {
         save_temporary_scope_as = awow_child
         random = {
             chance = 30
-                random_playable_character = {
-                    limit = {
-                        this != root
+            random_playable_character = {
+                limit = {
+                    this != root
+                    is_alive = yes
+                    in_diplomatic_range = root
+                    OR = {
+                        top_liege = root.top_liege
+                        is_allied_to = root
+                    }
+                    any_child = {
                         is_alive = yes
-                        in_diplomatic_range = root
-                        OR = {
-                            top_liege = root.top_liege
-                            is_allied_to = root
-                        }
-                        any_child = {
-                            is_alive = yes
-                            is_adult = no
-                            is_married = no
-                            is_betrothed = no
-                            can_marry_trigger = yes
-                            can_marry_character_trigger = { CHARACTER = scope:awow_child }
-                        }
-                    }
-                    save_temporary_scope_as = awow_target_ruler
-                    random_child = {
-                        limit = {
-                            is_alive = yes
-                            is_adult = no
-                            is_married = no
-                            is_betrothed = no
-                            can_marry_trigger = yes
-                            can_marry_character_trigger = { CHARACTER = scope:awow_child }
-                        }
-                        save_scope_as = awow_match
+                        is_adult = no
+                        is_married = no
+                        is_betrothed = no
+                        can_marry_trigger = yes
+                        can_marry_character_trigger = { CHARACTER = scope:awow_child }
                     }
                 }
+                save_temporary_scope_as = awow_target_ruler
+                random_child = {
+                    limit = {
+                        is_alive = yes
+                        is_adult = no
+                        is_married = no
+                        is_betrothed = no
+                        NOT = { has_character_flag = awow_same_sex_betrothal }
+                        can_marry_trigger = yes
+                        can_marry_character_trigger = { CHARACTER = scope:awow_child }
+                    }
+                    save_scope_as = awow_match
+                }
+            }
+            if = {
+                limit = { exists = scope:awow_match }
+                scope:awow_child = {
+                    set_variable = {
+                        name = awow_betrothed_to
+                        value = scope:awow_match
+                    }
+                    add_character_flag = awow_same_sex_betrothal
+                    add_opinion = {
+                        target = scope:awow_match
+                        modifier = awow_betrothed_opinion
+                    }
+                }
+                scope:awow_match = {
+                    set_variable = {
+                        name = awow_betrothed_to
+                        value = scope:awow_child
+                    }
+                    add_character_flag = awow_same_sex_betrothal
+                    add_opinion = {
+                        target = scope:awow_child
+                        modifier = awow_betrothed_opinion
+                    }
+                }
+                # Create alliance between the two rulers who arranged the betrothal
                 if = {
-                    limit = { exists = scope:awow_match }
-                    scope:awow_child = {
-                        set_variable = {
-                            name = awow_betrothed_to
-                            value = scope:awow_match
-                        }
-                        add_character_flag = awow_same_sex_betrothal
-                        add_opinion = {
-                            target = scope:awow_match
-                            modifier = awow_betrothed_opinion
-                        }
+                    limit = {
+                        scope:awow_target_ruler = { is_alive = yes }
+                        NOT = { is_allied_to = scope:awow_target_ruler }
                     }
-                    scope:awow_match = {
-                        set_variable = {
-                            name = awow_betrothed_to
-                            value = scope:awow_child
-                        }
-                        add_character_flag = awow_same_sex_betrothal
-                        add_opinion = {
-                            target = scope:awow_child
-                            modifier = awow_betrothed_opinion
-                        }
-                    }
-                    # Create alliance between the two rulers who arranged the betrothal
-                    if = {
-                        limit = {
-                            scope:awow_target_ruler = { is_alive = yes }
-                            NOT = { is_allied_to = scope:awow_target_ruler }
-                        }
-                        create_alliance = {
-                            target = scope:awow_target_ruler
-                            allied_through_owner = scope:awow_child
-                            allied_through_target = scope:awow_match
-                        }
+                    create_alliance = {
+                        target = scope:awow_target_ruler
+                        allied_through_owner = scope:awow_child
+                        allied_through_target = scope:awow_match
                     }
                 }
+            }
         }
     }
 }

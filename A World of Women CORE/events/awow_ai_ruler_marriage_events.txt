@@ -14,6 +14,7 @@ awow_ai_ruler_marriage.0001 = {
 		is_ai = yes
 		is_married = no
 		is_betrothed = no
+		NOT = { has_character_flag = awow_same_sex_betrothal }
 		can_marry_trigger = yes
 	}
 	mean_time_to_happen = {
