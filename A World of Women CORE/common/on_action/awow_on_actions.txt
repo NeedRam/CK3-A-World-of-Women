@@ -9,9 +9,9 @@ awow_game_start_setup = {
         # The culling scheduler is a scope = none event chain. Do not start it
         # from a player character: the chain must survive any ruler's death.
         if = {
-            limit = { NOT = { has_global_variable = awow_culling_initalized } }
+            limit = { NOT = { has_global_variable = awow_culling_initialized } }
             set_global_variable = {
-                name = awow_culling_initalized
+                name = awow_culling_initialized
                 value = yes
             }
             debug_log = "AWOW Culling: Prep START"
@@ -21,9 +21,9 @@ awow_game_start_setup = {
         
         every_player = {
             if = {
-                limit = { NOT = { has_global_variable = awow_preg_pulse_initalized } }
+                limit = { NOT = { has_global_variable = awow_preg_pulse_initialized } }
                 set_global_variable = {
-                    name = awow_preg_pulse_initalized
+                    name = awow_preg_pulse_initialized
                     value = yes
                 }
                 debug_log = "AWOW SS-PREG: Prep START"
