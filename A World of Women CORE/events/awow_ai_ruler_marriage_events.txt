@@ -6,22 +6,22 @@ namespace = awow_ai_marriage
 # Underage children may also be betrothed via a custom same-sex system
 # (variables + flags), fulfilled at adulthood by awow_betrothal_fulfillment_pulse.
 awow_ai_ruler_marriage.0001 = {
-	type = character_event
-	hidden = yes
-	trigger = {
-		is_alive = yes
-		is_adult = yes
-		is_ai = yes
-		is_married = no
-		is_betrothed = no
-		NOT = { has_character_flag = awow_same_sex_betrothal }
-		can_marry_trigger = yes
-	}
-	mean_time_to_happen = {
-		days = 1
-	}
-	option = {
-		name = awow_ai_ruler_marriage_find_spouse
-		awow_ai_ruler_find_spouse_effect = yes
-	}
+    type = character_event
+    hidden = yes
+    trigger = {
+        is_alive = yes
+        is_adult = yes
+        is_ai = yes
+        is_married = no
+        is_betrothed = no
+        NOT = { has_character_flag = awow_same_sex_betrothal }
+        can_marry_trigger = yes
+    }
+    mean_time_to_happen = {
+        days = 1
+    }
+    option = {
+        name = awow_ai_ruler_marriage_find_spouse
+        awow_ai_ruler_find_spouse_effect = yes
+    }
 }

@@ -12,7 +12,7 @@ awow_ai_ruler_find_spouse_effect = {
     # ============================================
 
     # 1a. Own courtiers first (fast, no diplomatic cost)
-    every_courtier = {
+    random_courtier = {
         limit = {
             is_alive = yes
             is_adult = yes
@@ -122,7 +122,7 @@ awow_ai_ruler_find_spouse_effect = {
     # Arrange marriages for unmarried adult children
     # ============================================
 
-    every_child = {
+    random_child = {
         limit = {
             is_alive = yes
             is_adult = yes
@@ -186,12 +186,13 @@ awow_ai_ruler_find_spouse_effect = {
     # Fulfilled at adulthood by awow_betrothal_fulfillment_pulse.
     # ============================================
 
-    every_child = {
+    random_child = {
         limit = {
             is_alive = yes
             is_adult = no
             is_married = no
             is_betrothed = no
+            NOT = { has_character_flag = awow_same_sex_betrothal }
             can_marry_trigger = yes
         }
         save_temporary_scope_as = awow_child
@@ -211,6 +212,7 @@ awow_ai_ruler_find_spouse_effect = {
                         is_adult = no
                         is_married = no
                         is_betrothed = no
+                        NOT = { has_character_flag = awow_same_sex_betrothal }
                         can_marry_trigger = yes
                         can_marry_character_trigger = { CHARACTER = scope:awow_child }
                     }

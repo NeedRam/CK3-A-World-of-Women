@@ -9,6 +9,12 @@
 # ============================================
 
 awow_betrothal_fulfillment_effect = {
+    # Clean up stale processing flags from interrupted/crashed runs
+    every_living_character = {
+        limit = { has_character_flag = awow_betrothal_processing }
+        remove_character_flag = awow_betrothal_processing
+    }
+
     # Clean up orphaned betrothals where the target died (no penalties)
     every_living_character = {
         limit = {
@@ -76,6 +82,9 @@ awow_betrothal_fulfillment_effect = {
                 target = prev
                 modifier = awow_betrothed_opinion
             }
+            # Clean up the betrothed partner's flags/variables
+            remove_variable = awow_betrothed_to
+            remove_character_flag = awow_same_sex_betrothal
         }
         remove_variable = awow_betrothed_to
         remove_character_flag = awow_same_sex_betrothal
@@ -85,6 +94,9 @@ awow_betrothal_fulfillment_effect = {
 
 # ============================================
 # Break effect (with prestige cost)
+# Reserved for future intentional-break interactions.
+# Currently unused because all cleanup paths use the
+# no-penalty awow_cleanup_custom_betrothal_effect.
 # ============================================
 
 awow_break_custom_betrothal_effect = {
@@ -195,7 +207,11 @@ awow_cleanup_custom_betrothal_effect = {
             modifier = awow_betrothed_opinion
         }
     }
-    # Break alliance between the rulers who arranged the betrothal
+    # Break alliance between the rulers who arranged the betrothal.
+    # Safe to do here because if this cleanup runs due to our own fulfillment,
+    # marry_same_sex will reform the alliance via vanilla's on_marriage.
+    # If this runs because vanilla married our betrothed, the old alliance
+    # should be broken since the diplomatic arrangement is superseded.
     $CHARACTER$ = {
         liege = { save_scope_as = character_liege }
     }
