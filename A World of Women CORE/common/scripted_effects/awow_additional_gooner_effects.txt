@@ -125,7 +125,7 @@ awow_maintain_weight_effect = {
             change_current_weight = -10
         }
         else_if = {
-            limit = { current_weight < -9 }
+            limit = { current_weight < -10 }
             change_current_weight = 10
         }
         if = {
@@ -133,7 +133,7 @@ awow_maintain_weight_effect = {
             change_target_weight = -10
         }
         else_if = {
-            limit = { target_weight < -9 }
+            limit = { target_weight < -10 }
             change_target_weight = 10
         }
         else_if = {
