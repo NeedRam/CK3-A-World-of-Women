@@ -145,7 +145,26 @@ awow_pregnancy.0030 = {
     hidden = yes
 
     immediate = {
-        awow_start_same_sex_pregnancy_effect = yes
+        # The scheduler queues a possible conception, not a successful one.
+        # Revalidate here because a normal or custom pregnancy may have begun
+        # during the 0-365 day delay.
+        if = {
+            limit = {
+                awow_same_sex_can_start_pregnancy_trigger = yes
+                exists = var:awow_pending_other_mother
+                var:awow_pending_other_mother = { is_alive = yes }
+            }
+            save_scope_as = awow_mother
+            var:awow_pending_other_mother = {
+                save_scope_as = awow_other_mother
+            }
+            random = {
+                chance = awow_impregnation_chance_value
+                awow_start_same_sex_pregnancy_effect = yes
+            }
+        }
+        remove_variable = awow_pending_other_mother
+        remove_character_flag = awow_same_sex_pregnancy_pending
     }
 }
 

@@ -76,12 +76,19 @@ awow_decide_same_sex_mother_effect = {
 }
 
 awow_try_same_sex_pregnancy_effect = {
-    # debug_log = "AWOW SS-PREG: trying to impregnate"
-    # debug_log_scopes = yes
-    random = {
-        chance = awow_impregnation_chance_value
-        scope:awow_mother = {
-            # debug_log = "AWOW SS-PREG: impregnating"
+    # Queue the conception attempt. Fertility is intentionally rolled by the
+    # delayed event, after it has revalidated the carrier's pregnancy state.
+    scope:awow_mother = {
+        if = {
+            limit = { awow_same_sex_can_queue_pregnancy_trigger = yes }
+            set_variable = {
+                name = awow_pending_other_mother
+                value = scope:awow_other_mother
+            }
+            add_character_flag = {
+                flag = awow_same_sex_pregnancy_pending
+                days = 366
+            }
             trigger_event = {
                 id = awow_pregnancy.0030
                 days = { 0 365 }
@@ -91,19 +98,24 @@ awow_try_same_sex_pregnancy_effect = {
 }
 
 awow_start_same_sex_pregnancy_effect = {
-    set_variable = { name = awow_pregnancy_active value = yes }
-    # debug_log = "AWOW SS-PREG: starting pregnancy effect"
-    carn_start_custom_pregnancy_effect = {
-        PREGNANCY_TYPE = awow_same_sex
-        DAYS_UNTIL_NEXT_STAGE = 280
-        CAN_BE_ABORTED = no
-    }
-    add_trait_force_tooltip = pregnant
-    # debug_log = "AWOW SS-PREG: pregnant trait assigned"
-    awow_roll_multiple_children_chance_effect = yes
-    trigger_event = {
-        id = awow_pregnancy.0001
-        days = { 250 300 }
+    # This effect is also used by the debug interaction, so it repeats the
+    # no-overwrite guard rather than relying on its caller.
+    if = {
+        limit = { awow_same_sex_can_start_pregnancy_trigger = yes }
+        set_variable = { name = awow_pregnancy_active value = yes }
+        # debug_log = "AWOW SS-PREG: starting pregnancy effect"
+        carn_start_custom_pregnancy_effect = {
+            PREGNANCY_TYPE = awow_same_sex
+            DAYS_UNTIL_NEXT_STAGE = 280
+            CAN_BE_ABORTED = no
+        }
+        add_trait_force_tooltip = pregnant
+        # debug_log = "AWOW SS-PREG: pregnant trait assigned"
+        awow_roll_multiple_children_chance_effect = yes
+        trigger_event = {
+            id = awow_pregnancy.0001
+            days = { 250 300 }
+        }
     }
 }
 

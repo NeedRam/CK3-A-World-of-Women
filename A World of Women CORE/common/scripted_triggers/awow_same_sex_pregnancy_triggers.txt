@@ -1,10 +1,20 @@
 ﻿# AWOW same-sex (female-female) pregnancy triggers
 
-awow_same_sex_can_bear_trigger = {
+awow_same_sex_can_start_pregnancy_trigger = {
     is_alive = yes
     is_female = yes
     is_adult = yes
     NOT = { is_pregnant = yes }
     NOT = { has_variable = awow_pregnancy_active }
+    NOT = { carn_has_any_custom_pregnancy_trigger = yes }
+}
+
+awow_same_sex_can_queue_pregnancy_trigger = {
+    awow_same_sex_can_start_pregnancy_trigger = yes
+    NOT = { has_character_flag = awow_same_sex_pregnancy_pending }
+}
+
+awow_same_sex_can_bear_trigger = {
+    awow_same_sex_can_queue_pregnancy_trigger = yes
     NOT = { has_character_flag = tried_same_sex_preg }
 }
