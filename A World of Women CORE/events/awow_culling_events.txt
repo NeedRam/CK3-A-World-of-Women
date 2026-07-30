@@ -26,7 +26,7 @@ awow_culling.1000 = {
 
         # Schedule first cull in 30 days
         trigger_event = {
-            id = awow.1001
+            id = awow_culling.1001
             days = 30
         }
     }
@@ -37,8 +37,8 @@ awow_culling.1000 = {
 awow_culling.1001 = {
     type = character_event
 
-    title = awow.1001.title
-    desc = awow.1001.desc
+    title = awow_culling.1001.title
+    desc = awow_culling.1001.desc
 
     left_portrait = {
         character = root
@@ -75,31 +75,31 @@ awow_culling.1001 = {
                 value = yes
             }
             trigger_event = {
-                id = awow.1002
+                id = awow_culling.1002
                 days = 30
             }
         }
     }
 
     option = {
-        name = awow.1001.a
+        name = awow_culling.1001.a
     }
 }
 
 # Regular culling event (hidden - replaced by bottom-right interface message)
-# The actual culling is performed once, globally, by awow.1002
+# The actual culling is performed once, globally, by awow_culling.1002
 # before the interface message is shown, so awow_cull_count already holds the total.
 awow_culling.0002 = {
     type = character_event
     hidden = yes
 
-    title = awow.0002.title
-    desc = awow.0002.desc
+    title = awow_culling.0002.title
+    desc = awow_culling.0002.desc
 
     theme = death
 
     option = {
-        name = awow.0002.a
+        name = awow_culling.0002.a
     }
 }
 
@@ -134,13 +134,13 @@ awow_culling.1002 = {
 
         # Schedule the next pulse in ~30 days
         trigger_event = {
-            id = awow.1002
+            id = awow_culling.1002
             days = 30
         }
     }
 
     option = {
-        name = awow.1002.a
+        name = awow_culling.1002.a
     }
 }
 
@@ -153,7 +153,7 @@ awow_culling.0010 = {
     }
 
     option = {
-        name = awow.0010.a
+        name = awow_culling.0010.a
     }
 }
 
@@ -166,6 +166,6 @@ awow_culling.0011 = {
     }
 
     option = {
-        name = awow.0011.a
+        name = awow_culling.0011.a
     }
 }

@@ -14,7 +14,7 @@ awow_game_start_setup = {
                     value = yes
                 }
                 debug_log = "AWOW Culling: Prep START"
-                trigger_event = awow.1000
+                trigger_event = awow_culling.1000
                 debug_log = "AWOW Culling: Prep DONE"
             }          
         }

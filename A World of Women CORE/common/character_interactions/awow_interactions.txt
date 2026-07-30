@@ -27,7 +27,7 @@
         scope:recipient = {
             add_character_flag = awow_excluded_from_culling
         }
-        trigger_event = awow.0010
+        trigger_event = awow_culling.0010
     }
 }
 
@@ -60,7 +60,7 @@ awow_flag_include_interaction = {
         scope:recipient = {
             remove_character_flag = awow_excluded_from_culling
         }
-        trigger_event = awow.0011
+        trigger_event = awow_culling.0011
     }
 }
 
