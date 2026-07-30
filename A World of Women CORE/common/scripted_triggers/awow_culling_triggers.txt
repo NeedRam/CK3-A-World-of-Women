@@ -8,3 +8,22 @@ has_first_cull_happened = {
 	has_global_variable = awow_initial_cull_done
 	global_var:awow_initial_cull_done = yes
 }
+
+# Manual culling protection belongs to the character who granted it.
+# Automatic rule protection has no owner: only the protected player, or a
+# player of that protected dynasty, may remove it.
+awow_can_revoke_culling_protection_trigger = {
+	OR = {
+		var:awow_culling_protection_owner ?= { this = scope:actor }
+		AND = {
+			NOT = { has_variable = awow_culling_protection_owner }
+			has_game_rule = awow_exclude_player
+			this = scope:actor
+		}
+		AND = {
+			NOT = { has_variable = awow_culling_protection_owner }
+			has_game_rule = awow_exclude_player_dynasty
+			scope:actor = { dynasty = scope:recipient.dynasty }
+		}
+	}
+}

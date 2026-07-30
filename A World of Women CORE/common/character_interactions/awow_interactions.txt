@@ -26,6 +26,10 @@
     on_accept = {
         scope:recipient = {
             add_character_flag = awow_excluded_from_culling
+            set_variable = {
+                name = awow_culling_protection_owner
+                value = scope:actor
+            }
         }
         trigger_event = awow_culling.0010
     }
@@ -45,6 +49,7 @@ awow_flag_include_interaction = {
             is_alive = yes
             is_female = no
             has_character_flag = awow_excluded_from_culling
+            awow_can_revoke_culling_protection_trigger = yes
         }
     }
 
@@ -53,12 +58,14 @@ awow_flag_include_interaction = {
             is_alive = yes
             is_female = no
             has_character_flag = awow_excluded_from_culling
+            awow_can_revoke_culling_protection_trigger = yes
         }
     }
 
     on_accept = {
         scope:recipient = {
             remove_character_flag = awow_excluded_from_culling
+            remove_variable = awow_culling_protection_owner
         }
         trigger_event = awow_culling.0011
     }
