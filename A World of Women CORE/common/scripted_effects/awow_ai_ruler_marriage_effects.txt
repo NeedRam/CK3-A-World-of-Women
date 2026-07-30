@@ -1,35 +1,175 @@
-# AWOW AI ruler same-sex marriage pulse effect.
+# AWOW AI ruler marriage pulse effect.
 # Scoped to an unmarried adult AI ruler.
-# Finds an unmarried adult courtier in the same realm and arranges a matrilineal marriage.
+# Attempts to find a spouse through multiple diplomatic channels:
+# 1. Own courtiers (fast, no diplomatic cost)
+# 2. Other rulers in the same realm or allied (direct alliance)
+# 3. Family members of other rulers (indirect alliance)
+# 4. Arranges marriages for unmarried adult children (future alliances)
 
 awow_ai_ruler_find_spouse_effect = {
-	random = {
-		chance = 40
-		every_courtier = {
-			limit = {
-				is_alive = yes
-				is_adult = yes
-				is_married = no
-				is_betrothed = no
-				is_concubine = no
-				is_claimant = no
-				can_marry_trigger = yes
-				can_marry_character_trigger = { CHARACTER = root }
-			}
-			save_temporary_scope_as = awow_spouse
-		}
-		if = {
-			limit = {
-				exists = scope:awow_spouse
-			}
-			run_interaction = {
-				interaction = arrange_marriage_interaction
-				actor = root
-				recipient = root
-				secondary_actor = root
-				secondary_recipient = scope:awow_spouse
-				execute_threshold = accept
-			}
-		}
-	}
+    # ============================================
+    # PHASE 1: Self-marriage
+    # ============================================
+
+    # 1a. Own courtiers first (fast, no diplomatic cost)
+    every_courtier = {
+        limit = {
+            is_alive = yes
+            is_adult = yes
+            is_married = no
+            is_betrothed = no
+            is_concubine = no
+            is_claimant = no
+            can_marry_trigger = yes
+            can_marry_character_trigger = { CHARACTER = root }
+        }
+        save_temporary_scope_as = awow_spouse
+    }
+    if = {
+        limit = { exists = scope:awow_spouse }
+        run_interaction = {
+            interaction = arrange_marriage_interaction
+            actor = root
+            recipient = root
+            secondary_actor = root
+            secondary_recipient = scope:awow_spouse
+            execute_threshold = accept
+        }
+    }
+    else = {
+            # 1b. Other rulers (direct alliance marriage)
+            random_playable_character = {
+                limit = {
+                    this != root
+                    is_alive = yes
+                    is_adult = yes
+                    is_married = no
+                    is_betrothed = no
+                    can_marry_trigger = yes
+                    can_marry_character_trigger = { CHARACTER = root }
+                    in_diplomatic_range = root
+                    OR = {
+                        top_liege = root.top_liege
+                        is_allied_to = root
+                    }
+                }
+                save_temporary_scope_as = awow_spouse
+            }
+        if = {
+            limit = { exists = scope:awow_spouse }
+            run_interaction = {
+                interaction = arrange_marriage_interaction
+                actor = root
+                recipient = scope:awow_spouse
+                secondary_actor = root
+                secondary_recipient = scope:awow_spouse
+                execute_threshold = accept
+            }
+        }
+        else = {
+            # 1c. Family members of other rulers (indirect alliance)
+            random_playable_character = {
+                limit = {
+                    this != root
+                    is_alive = yes
+                    in_diplomatic_range = root
+                    OR = {
+                        top_liege = root.top_liege
+                        is_allied_to = root
+                    }
+                    any_close_family_member = {
+                        is_alive = yes
+                        is_adult = yes
+                        is_married = no
+                        is_betrothed = no
+                        can_marry_trigger = yes
+                        can_marry_character_trigger = { CHARACTER = root }
+                    }
+                }
+                save_temporary_scope_as = awow_target_ruler
+                random_close_family_member = {
+                    limit = {
+                        is_alive = yes
+                        is_adult = yes
+                        is_married = no
+                        is_betrothed = no
+                        can_marry_trigger = yes
+                        can_marry_character_trigger = { CHARACTER = root }
+                    }
+                    save_scope_as = awow_spouse
+                }
+            }
+            if = {
+                limit = { exists = scope:awow_spouse }
+                run_interaction = {
+                    interaction = arrange_marriage_interaction
+                    actor = root
+                    recipient = scope:awow_spouse
+                    secondary_actor = root
+                    secondary_recipient = scope:awow_spouse
+                    execute_threshold = accept
+                }
+            }
+        }
+    }
+
+    # ============================================
+    # PHASE 2: Child diplomacy
+    # Arrange marriages for unmarried adult children
+    # ============================================
+
+    every_child = {
+        limit = {
+            is_alive = yes
+            is_adult = yes
+            is_married = no
+            is_betrothed = no
+            can_marry_trigger = yes
+        }
+        save_temporary_scope_as = awow_child
+        random = {
+            chance = 50
+            random_playable_character = {
+                limit = {
+                    this != root
+                    is_alive = yes
+                    in_diplomatic_range = root
+                    OR = {
+                        top_liege = root.top_liege
+                        is_allied_to = root
+                    }
+                    any_child = {
+                        is_alive = yes
+                        is_adult = yes
+                        is_married = no
+                        is_betrothed = no
+                        can_marry_trigger = yes
+                        can_marry_character_trigger = { CHARACTER = scope:awow_child }
+                    }
+                }
+                random_child = {
+                    limit = {
+                        is_alive = yes
+                        is_adult = yes
+                        is_married = no
+                        is_betrothed = no
+                        can_marry_trigger = yes
+                        can_marry_character_trigger = { CHARACTER = scope:awow_child }
+                    }
+                    save_scope_as = awow_match
+                }
+            }
+            if = {
+                limit = { exists = scope:awow_match }
+                run_interaction = {
+                    interaction = arrange_marriage_interaction
+                    actor = root
+                    recipient = scope:awow_match
+                    secondary_actor = scope:awow_child
+                    secondary_recipient = scope:awow_match
+                    execute_threshold = accept
+                }
+            }
+        }
+    }
 }
