@@ -8,4 +8,28 @@ yearly_global_pulse = {
 			awow_maintain_weight_effect = yes
 		}
 	}
+	on_actions = {
+		awow_yearly_ruler_marriage_pulse
+	}
+}
+
+awow_yearly_ruler_marriage_pulse = {
+	trigger = {
+		exists = any_player
+	}
+	effect = {
+		every_playable_character = {
+			limit = {
+				is_ai = yes
+				is_adult = yes
+				is_married = no
+				is_betrothed = no
+				can_marry_trigger = yes
+			}
+			trigger_event = {
+				id = awow_ai_ruler_marriage.0001
+				days = 1
+			}
+		}
+	}
 }

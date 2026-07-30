@@ -1,0 +1,23 @@
+namespace = awow_ai_marriage
+
+# Fires once per year from awow_yearly_ruler_marriage_pulse for each eligible AI ruler.
+# Unmarried adult AI rulers attempt to find a same-sex spouse from their court.
+awow_ai_ruler_marriage.0001 = {
+	type = character_event
+	hidden = yes
+	trigger = {
+		is_alive = yes
+		is_adult = yes
+		is_ai = yes
+		is_married = no
+		is_betrothed = no
+		can_marry_trigger = yes
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = awow_ai_ruler_marriage_find_spouse
+		awow_ai_ruler_find_spouse_effect = yes
+	}
+}

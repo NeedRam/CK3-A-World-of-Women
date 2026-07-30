@@ -1,0 +1,35 @@
+# AWOW AI ruler same-sex marriage pulse effect.
+# Scoped to an unmarried adult AI ruler.
+# Finds an unmarried adult courtier in the same realm and arranges a matrilineal marriage.
+
+awow_ai_ruler_find_spouse_effect = {
+	random = {
+		chance = 40
+		every_courtier = {
+			limit = {
+				is_alive = yes
+				is_adult = yes
+				is_married = no
+				is_betrothed = no
+				is_concubine = no
+				is_claimant = no
+				can_marry_trigger = yes
+				can_marry_character_trigger = { CHARACTER = root }
+			}
+			save_temporary_scope_as = awow_spouse
+		}
+		if = {
+			limit = {
+				exists = scope:awow_spouse
+			}
+			run_interaction = {
+				interaction = arrange_marriage_interaction
+				actor = root
+				recipient = root
+				secondary_actor = root
+				secondary_recipient = scope:awow_spouse
+				execute_threshold = accept
+			}
+		}
+	}
+}
