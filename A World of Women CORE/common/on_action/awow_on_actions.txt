@@ -39,12 +39,12 @@ awow_game_start_setup = {
 
 on_pregnancy_mother = {
     events = {
-        awow_pregnancy.1000
+        awow_pregnancy.2000
     }
 }
 
 on_birth_child = {
     events = {
-        awow_pregnancy.2000
+        awow_pregnancy.1000
     }
 }
