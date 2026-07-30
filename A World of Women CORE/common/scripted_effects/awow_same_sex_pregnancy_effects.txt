@@ -136,6 +136,16 @@ awow_start_same_sex_pregnancy_effect = {
     }
 }
 
+# Clears only state owned by an active AWOW custom pregnancy. This is shared
+# by the normal scripted birth and Carnalitas' custom-pregnancy end hook, so a
+# replacement or external cancellation cannot leave the carrier locked out.
+awow_clear_same_sex_pregnancy_state_effect = {
+    remove_trait = pregnant
+    remove_variable = awow_pregnancy_active
+    remove_character_flag = awow_pregnancy_will_be_twins_flag
+    remove_character_flag = awow_pregnancy_will_be_triplets_flag
+}
+
 # Calls the vanilla pregnancy hook for an AWOW custom pregnancy. This effect
 # runs on the carrying mother, and deliberately does not alter the child's
 # biological parent slots.

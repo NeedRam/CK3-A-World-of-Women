@@ -48,3 +48,11 @@ on_birth_child = {
         awow_pregnancy.1000
     }
 }
+
+# Carnalitas invokes this immediately before clearing its custom-pregnancy
+# variables. The event filters on AWOW's own pregnancy type.
+carn_on_end_custom_pregnancy = {
+    events = {
+        awow_pregnancy.0040
+    }
+}

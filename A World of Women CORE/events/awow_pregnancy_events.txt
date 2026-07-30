@@ -30,10 +30,7 @@ awow_pregnancy.0001 = {
             # debug_log = "AWOW SS-PREG: 3st childs born"
         }
 
-        remove_trait = pregnant
-        remove_variable = awow_pregnancy_active
-        remove_character_flag = awow_pregnancy_will_be_twins_flag
-        remove_character_flag = awow_pregnancy_will_be_triplets_flag
+        awow_clear_same_sex_pregnancy_state_effect = yes
         carn_end_custom_pregnancy_effect = yes
 
         # debug_log = "AWOW SS-PREG: removed traits and flags child borned"
@@ -165,6 +162,26 @@ awow_pregnancy.0030 = {
         }
         remove_variable = awow_pending_other_mother
         remove_character_flag = awow_same_sex_pregnancy_pending
+    }
+}
+
+# 0040 - Carnalitas ends a custom pregnancy.
+# Carnalitas fires this hook before it removes its pregnancy-type variable, so
+# verify that the ending pregnancy is AWOW's before clearing AWOW-only state.
+# Any already-queued AWOW birth event then fails its active-state trigger.
+awow_pregnancy.0040 = {
+    type = character_event
+    hidden = yes
+
+    trigger = {
+        has_variable = awow_pregnancy_active
+        carn_has_custom_pregnancy_type_trigger = {
+            PREGNANCY_TYPE = awow_same_sex
+        }
+    }
+
+    immediate = {
+        awow_clear_same_sex_pregnancy_state_effect = yes
     }
 }
 
