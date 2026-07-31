@@ -19,19 +19,6 @@ awow_game_start_setup = {
             debug_log = "AWOW Culling: Prep DONE"
         }
         
-        # Like culling, the pregnancy pulse owns only global state and scans
-        # the world itself. Start it from a scope-free event chain rather than
-        # binding it to whichever player character happens to be iterated first.
-        if = {
-            limit = { NOT = { has_global_variable = awow_preg_pulse_initialized } }
-            set_global_variable = {
-                name = awow_preg_pulse_initialized
-                value = yes
-            }
-            debug_log = "AWOW SS-PREG: Prep START"
-            trigger_event = awow_pregnancy.0010
-            debug_log = "AWOW SS-PREG: Prep DONE"
-        }
         debug_log = "AWOW World Maintenance: START"
         awow_apply_world_maintenance_effect = yes
         debug_log = "AWOW World Maintenance: DONE"
@@ -55,5 +42,20 @@ on_birth_child = {
 carn_on_end_custom_pregnancy = {
     events = {
         awow_pregnancy.0040
+    }
+}
+
+# CK3 distributes this pulse randomly across the year for every character.
+# Keeping AWOW's partner checks here avoids a single annual
+# every_living_character burst.
+random_yearly_everyone_pulse = {
+    on_actions = {
+        awow_random_yearly_pregnancy_pulse
+    }
+}
+
+awow_random_yearly_pregnancy_pulse = {
+    events = {
+        awow_pregnancy.0021
     }
 }

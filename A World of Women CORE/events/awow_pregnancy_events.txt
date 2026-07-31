@@ -137,35 +137,32 @@ awow_pregnancy.0003 = {
     }
 }
 
-# 0010 - Scope-free pregnancy-pulse scheduler.
-# The scheduler holds no character state, so it must not be cancelled when a
-# player ruler dies or is replaced.
+# 0010 and 0020 are retained as no-ops for saves that have either former
+# scheduler event queued. New games use random_yearly_everyone_pulse instead,
+# which distributes each character's check over the year.
 awow_pregnancy.0010 = {
     type = character_event
     scope = none
     hidden = yes
-
-    immediate = {
-        trigger_event = {
-            id = awow_pregnancy.0020
-            days = 369
-        }
-    }
 }
 
-# 0020 - Scope-free pregnancy pulse
 awow_pregnancy.0020 = {
     type = character_event
     scope = none
     hidden = yes
+}
+
+# 0021 - Per-character pregnancy pulse, invoked at a randomized point each year.
+awow_pregnancy.0021 = {
+    type = character_event
+    hidden = yes
+
+    trigger = {
+        awow_same_sex_can_bear_trigger = yes
+    }
 
     immediate = {
-        every_living_character = {
-            awow_pregnancy_pulse_effect = yes
-        }
-        trigger_event = {
-            id = awow_pregnancy.0010
-        }
+        awow_pregnancy_pulse_effect = yes
     }
 }
 
