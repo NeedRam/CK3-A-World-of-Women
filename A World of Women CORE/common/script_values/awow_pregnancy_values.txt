@@ -4,25 +4,22 @@ awow_pregnancy_scheduler_days_value = {
 }
 
 awow_impregnation_chance_value = {
-	# get base fertility multiplier	
-	value = 0
-	if = {
-		limit = {
-			NOR = {
-				scope:awow_mother.fertility < 0.1
-				scope:awow_other_mother.fertility < 0.1
-			}
-        }
-        add = { value = scope:awow_mother.fertility }
-		add = { value = scope:awow_other_mother.fertility }
-		# ( ( ( 4.75 * 12 ) / 365 ) * 369 ) / 2 | ( ( ( vanilla monthly pulse preg chance * 12 ) / 365 ) * scripted preg pulse cooldown ) / 2
-        # If both have 100% fertility it should be ~29% chance
-		multiply = 28.812
-	}
-    # Try to give rulers heir if low 
+    # Both partners are revalidated before this value is rolled. Average their
+    # fertility rather than adding it outright: two 100% fertile women produce
+    # a ~29% conception chance on the 369-day pulse.
+    value = scope:awow_mother.fertility
+    add = { value = scope:awow_other_mother.fertility }
+    # ( ( ( 4.75 * 12 ) / 365 ) * 369 ) / 2
+    multiply = 14.406
+
+    # Give a couple with a ruler a deterministic heir adjustment. It must not
+    # depend on which woman won the 50/50 carrier roll.
     if = {
         limit = { is_ruler = yes }
         add = 100
+    }
+    if = {
+        limit = { is_ruler = yes }
         every_child = {
             if = {
                 limit = { is_alive = yes }
@@ -42,7 +39,7 @@ awow_impregnation_chance_value = {
         }
     }
     round = yes
-    min = 0
+    min = 15
     max = 95
 }
 

@@ -4,6 +4,11 @@ awow_same_sex_can_start_pregnancy_trigger = {
     is_alive = yes
     is_female = yes
     is_adult = yes
+    # Match vanilla's practical fertility gate: hard trait blocks, a minimum
+    # fertility contribution, and the female fertility age cutoff.
+    can_have_children = yes
+    fertility >= 0.1
+    effective_age < marriage_female_fertility_cutoff_age_value
     NOT = { is_pregnant = yes }
     NOT = { has_variable = awow_pregnancy_active }
     NOT = { carn_has_any_custom_pregnancy_trigger = yes }
