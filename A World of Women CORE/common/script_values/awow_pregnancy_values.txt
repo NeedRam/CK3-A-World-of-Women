@@ -44,19 +44,22 @@ awow_impregnation_chance_value = {
 }
 
 awow_pregnancy_twin_chance_value = {
+    # Fecund carriers remain more likely to have twins, while especially
+    # fertile conceptions receive a small additional chance.
     value = 2
     add = {
         value = awow_impregnation_chance_value
         subtract = 50
+        multiply = 0.05
         min = 0
     }
     if = {
         limit = { scope:awow_mother = { has_trait = fecund } }
-        add = 10
+        add = 3
     }
     if = {
         limit = { scope:awow_mother = { has_trait = infertile } }
-        subtract = 25
+        subtract = 5
     }
     round = yes
     min = 0
@@ -64,6 +67,7 @@ awow_pregnancy_twin_chance_value = {
 }
 
 awow_pregnancy_triplet_chance_value = {
+    # Preserve wedding-fertility variation at one tenth of the old rates.
     value = 0
     if = {
         limit = {
@@ -72,7 +76,7 @@ awow_pregnancy_triplet_chance_value = {
                 scope:awow_other_mother = { has_relation_wedding_very_good_fertility = scope:awow_mother }
             }
         }
-        add = 20
+        add = 2
     }
     else_if = {
         limit = {
@@ -81,7 +85,7 @@ awow_pregnancy_triplet_chance_value = {
                 scope:awow_other_mother = { has_relation_wedding_good_fertility = scope:awow_mother }
             }
         }
-        add = 10
+        add = 1
     }
     round = yes
     min = 0
