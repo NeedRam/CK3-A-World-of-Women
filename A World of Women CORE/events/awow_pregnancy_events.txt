@@ -16,17 +16,20 @@ awow_pregnancy.0001 = {
         awow_baby_female_chance_effect = yes
 
         awow_born_child_effect = yes
+        scope:child = { save_scope_as = awow_first_newborn }
         # debug_log = "AWOW SS-PREG: 1th child borned"
 
         if = {
             limit = { has_character_flag = awow_pregnancy_will_be_twins_flag }
             awow_born_child_effect = yes
+            scope:child = { save_scope_as = awow_second_newborn }
             # debug_log = "AWOW SS-PREG: another child borned"
         }
 
         if = {
             limit = { has_character_flag = awow_pregnancy_will_be_triplets_flag }
             awow_born_child_effect = yes
+            scope:child = { save_scope_as = awow_third_newborn }
             # debug_log = "AWOW SS-PREG: 3st childs born"
         }
 
@@ -35,14 +38,12 @@ awow_pregnancy.0001 = {
 
         # debug_log = "AWOW SS-PREG: removed traits and flags child borned"
 
-        # TODO
-        ######### REDO EVENT POPUPS #########
+        # Keep each newborn available until both player notifications have
+        # been sent, so twin and triplet announcements name every child.
         if = {
             limit = { is_ai = no }
-            scope:child = {
-                trigger_event = {
-                    id = awow_pregnancy.0002
-                }
+            trigger_event = {
+                id = awow_pregnancy.0002
             }
         }
 
@@ -61,6 +62,10 @@ awow_pregnancy.0001 = {
             }
         }
 
+        clear_saved_scope = child
+        clear_saved_scope = awow_first_newborn
+        clear_saved_scope = awow_second_newborn
+        clear_saved_scope = awow_third_newborn
         clear_saved_scope = awow_mother
         clear_saved_scope = awow_other_mother
         # debug_log = "AWOW SS-PREG: not ai popups sent"
@@ -79,7 +84,19 @@ awow_pregnancy.0002 = {
     }
 
     title = awow_pregnancy_0002_t
-    desc = awow_pregnancy_0002_d
+    desc = {
+        first_valid = {
+            triggered_desc = {
+                trigger = { exists = scope:awow_third_newborn }
+                desc = awow_pregnancy_0002_triplets_d
+            }
+            triggered_desc = {
+                trigger = { exists = scope:awow_second_newborn }
+                desc = awow_pregnancy_0002_twins_d
+            }
+            desc = awow_pregnancy_0002_d
+        }
+    }
 
     option = {
         name = awow_pregnancy_0002_ok
@@ -100,7 +117,19 @@ awow_pregnancy.0003 = {
     }
 
     title = awow_pregnancy_0003_t
-    desc = awow_pregnancy_0003_d
+    desc = {
+        first_valid = {
+            triggered_desc = {
+                trigger = { exists = scope:awow_third_newborn }
+                desc = awow_pregnancy_0003_triplets_d
+            }
+            triggered_desc = {
+                trigger = { exists = scope:awow_second_newborn }
+                desc = awow_pregnancy_0003_twins_d
+            }
+            desc = awow_pregnancy_0003_d
+        }
+    }
 
     option = {
         name = awow_pregnancy_0003_ok
