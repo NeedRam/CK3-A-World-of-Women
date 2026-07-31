@@ -80,30 +80,29 @@ awow_assign_world_sexualities_player_dynasty_effect = {
     }
 }
 
-# Scope: none. Keep the selection here because has_game_rule is a scope-none trigger.
-awow_apply_world_maintenance_effect = {
+# Scope: character. Called at each character's randomized yearly pulse.
+# Vanilla and AWOW both use has_game_rule directly from character scopes.
+awow_apply_world_maintenance_to_character_effect = {
+    awow_assign_horny_traits_effect = yes
     if = {
         limit = { has_game_rule = awow_exclude_player_dynasty }
-        every_living_character = {
-            awow_assign_horny_traits_effect = yes
-            awow_assign_world_sexualities_player_dynasty_effect = yes
-            awow_maintain_weight_effect = yes
-        }
+        awow_assign_world_sexualities_player_dynasty_effect = yes
     }
     else_if = {
         limit = { has_game_rule = awow_exclude_player }
-        every_living_character = {
-            awow_assign_horny_traits_effect = yes
-            awow_assign_world_sexualities_player_effect = yes
-            awow_maintain_weight_effect = yes
-        }
+        awow_assign_world_sexualities_player_effect = yes
     }
     else = {
-        every_living_character = {
-            awow_assign_horny_traits_effect = yes
-            awow_assign_world_sexualities_cull_all_effect = yes
-            awow_maintain_weight_effect = yes
-        }
+        awow_assign_world_sexualities_cull_all_effect = yes
+    }
+    awow_maintain_weight_effect = yes
+}
+
+# Scope: none. Retained for the one-time game-start application so existing
+# characters receive their selected world setup immediately.
+awow_apply_world_maintenance_effect = {
+    every_living_character = {
+        awow_apply_world_maintenance_to_character_effect = yes
     }
 }
 

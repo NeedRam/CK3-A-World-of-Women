@@ -1,8 +1,9 @@
 namespace = awow_ai_marriage
 
-# Fires once per year from awow_yearly_ruler_marriage_pulse for each eligible AI ruler.
+# Fires once per year from AWOW's randomized yearly character pulse for each
+# eligible AI ruler.
 # Unmarried adult AI rulers attempt to find spouses and arrange marriages and betrothals for children
-# (variables + flags), fulfilled at adulthood by awow_betrothal_fulfillment_pulse.
+# (variables + flags), fulfilled at adulthood by randomized betrothal maintenance.
 awow_ai_marriage.0001 = {
     type = character_event
     hidden = yes

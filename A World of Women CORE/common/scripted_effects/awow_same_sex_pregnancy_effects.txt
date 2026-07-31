@@ -1,13 +1,6 @@
 ﻿# AWOW autonomous female-female pregnancy system.
 # Carnalitas supplies the pregnancy portrait support
 
-awow_monthly_pregnancy_tick_effect = {
-    # debug_log = "AWOW SS-PREG: Tick START"
-    trigger_event = {
-        id = awow_pregnancy.0010
-    }
-}
-
 awow_pregnancy_pulse_effect = {
     if = {
         limit = {
@@ -21,67 +14,145 @@ awow_pregnancy_pulse_effect = {
 
 awow_try_preg_all_partners_effect = {
     save_scope_as = awow_root
-    # debug_log = "AWOW SS-PREG: Checking all Partner"
-    every_consort = {
+    # Partner priority is deliberate: spouses, then concubines, then lovers.
+    # Within each tier, prefer the partner with the fewest children.
+    ordered_spouse = {
+        order_by = awow_number_of_children_value
         save_scope_as = awow_partner
-        # debug_log = "AWOW SS-PREG: Checking next Partner"
-        # debug_log_scopes = yes 
         awow_decide_same_sex_mother_effect = yes
         clear_saved_scope = awow_partner
     }
-    every_relation = {
+    ordered_concubine = {
+        order_by = awow_number_of_children_value
+        save_scope_as = awow_partner
+        awow_decide_same_sex_mother_effect = yes
+        clear_saved_scope = awow_partner
+    }
+    ordered_relation = {
         type = lover
         type = soulmate
+        order_by = awow_number_of_children_value
+        # A spouse or concubine can also be a lover. They belong only in their
+        # higher-priority tier and must not receive a duplicate attempt here.
+        limit = {
+            NOR = {
+                is_spouse_of = scope:awow_root
+                scope:awow_root = { is_concubine_of = prev }
+                is_concubine_of = scope:awow_root
+            }
+        }
         save_scope_as = awow_partner
-        # debug_log = "AWOW SS-PREG: Checking next Lover"
-        # debug_log_scopes = yes
         awow_decide_same_sex_mother_effect = yes
         clear_saved_scope = awow_partner
     }
-    add_character_flag = {
-        flag = tried_same_sex_preg
-        days = 69
+    # A queued conception has already reserved both mothers for the full
+    # annual cycle. Keep the shorter retry delay only when no queue was made.
+    if = {
+        limit = { NOT = { has_character_flag = tried_same_sex_preg } }
+        add_character_flag = {
+            flag = tried_same_sex_preg
+            days = 69
+        }
     }
     clear_saved_scope = awow_root
 }
 
 awow_decide_same_sex_mother_effect = {
     if = {
-        limit = { awow_same_sex_can_bear_trigger = yes }
-        add_character_flag = {
-            flag = tried_same_sex_preg
-            days = 69
+        limit = {
+            awow_same_sex_can_bear_trigger = yes
+            scope:awow_root = {
+                # Once either woman has queued a conception, do not continue
+                # through this root's remaining partners in the same pulse.
+                awow_same_sex_can_bear_trigger = yes
+                awow_same_sex_can_conceive_with_trigger = {
+                    PARTNER = scope:awow_partner
+                }
+            }
+            OR = {
+                awow_same_sex_can_queue_pregnancy_trigger = yes
+                scope:awow_root = {
+                    awow_same_sex_can_queue_pregnancy_trigger = yes
+                }
+            }
         }
         # debug_log = "AWOW SS-PREG: picking mother"
         # debug_log_scopes = yes
-        random_list = {
-            50 = {
-                # debug_log = "AWOW SS-PREG: partner is mother"
-                save_scope_as = awow_mother
-                scope:awow_root = { save_scope_as = awow_other_mother }
-                # debug_log_scopes = yes
-                awow_try_same_sex_pregnancy_effect = yes
-            }
-            50 = {
+        if = {
+            limit = {
+                awow_same_sex_can_queue_pregnancy_trigger = yes
                 scope:awow_root = {
-                    # debug_log = "AWOW SS-PREG: root is mother"
+                    awow_same_sex_can_queue_pregnancy_trigger = yes
+                }
+            }
+            random_list = {
+                50 = {
+                    # debug_log = "AWOW SS-PREG: partner is mother"
                     save_scope_as = awow_mother
-                    scope:awow_partner = { save_scope_as = awow_other_mother }
+                    scope:awow_root = { save_scope_as = awow_other_mother }
                     # debug_log_scopes = yes
                     awow_try_same_sex_pregnancy_effect = yes
                 }
+                50 = {
+                    scope:awow_root = {
+                        # debug_log = "AWOW SS-PREG: root is mother"
+                        save_scope_as = awow_mother
+                        scope:awow_partner = { save_scope_as = awow_other_mother }
+                        # debug_log_scopes = yes
+                        awow_try_same_sex_pregnancy_effect = yes
+                    }
+                }
+            }
+        }
+        else_if = {
+            limit = { awow_same_sex_can_queue_pregnancy_trigger = yes }
+            # The root already has a pending start, so only the partner can
+            # carry this pregnancy. Do not spend half the attempts on a
+            # carrier that is deliberately reserved.
+            save_scope_as = awow_mother
+            scope:awow_root = { save_scope_as = awow_other_mother }
+            awow_try_same_sex_pregnancy_effect = yes
+        }
+        else = {
+            # Likewise, a pending partner may still be the non-carrying
+            # mother while the root carries this relationship's attempt.
+            scope:awow_root = {
+                save_scope_as = awow_mother
+                scope:awow_partner = { save_scope_as = awow_other_mother }
+                awow_try_same_sex_pregnancy_effect = yes
             }
         }
     }
 }
 
 awow_try_same_sex_pregnancy_effect = {
-    # debug_log = "AWOW SS-PREG: trying to impregnate"
-    # debug_log_scopes = yes
-    random = {
-        chance = awow_impregnation_chance_value
-        scope:awow_mother = {
-            # debug_log = "AWOW SS-PREG: impregnating"
+    # Queue the conception attempt. Fertility is intentionally rolled by the
+    # delayed event, after it has revalidated the carrier's pregnancy state.
+    scope:awow_mother = {
+        if = {
+            limit = { awow_same_sex_can_queue_pregnancy_trigger = yes }
+            set_variable = {
+                name = awow_pending_other_mother
+                value = scope:awow_other_mother
+            }
+            add_character_flag = {
+                flag = awow_same_sex_pregnancy_pending
+                days = 366
+            }
+            # Reserve both women until their next randomized annual pulses.
+            # This prevents the reverse partner pulse from queuing a second
+            # pregnancy for the same pair, and keeps a polyamorous root from
+            # queueing several simultaneous pregnancies.
+            add_character_flag = {
+                flag = tried_same_sex_preg
+                days = 366
+            }
+            scope:awow_other_mother = {
+                add_character_flag = {
+                    flag = tried_same_sex_preg
+                    days = 366
+                }
+            }
             trigger_event = {
                 id = awow_pregnancy.0030
                 days = { 0 365 }
@@ -91,20 +162,60 @@ awow_try_same_sex_pregnancy_effect = {
 }
 
 awow_start_same_sex_pregnancy_effect = {
-    set_variable = { name = awow_pregnancy_active value = yes }
-    # debug_log = "AWOW SS-PREG: starting pregnancy effect"
-    carn_start_custom_pregnancy_effect = {
-        PREGNANCY_TYPE = awow_same_sex
-        DAYS_UNTIL_NEXT_STAGE = 280
-        CAN_BE_ABORTED = no
+    # This effect is also used by the debug interaction, so it repeats the
+    # no-overwrite guard rather than relying on its caller.
+    if = {
+        limit = { awow_same_sex_can_start_pregnancy_trigger = yes }
+        set_variable = { name = awow_pregnancy_active value = yes }
+        # debug_log = "AWOW SS-PREG: starting pregnancy effect"
+        carn_start_custom_pregnancy_effect = {
+            PREGNANCY_TYPE = awow_same_sex
+            DAYS_UNTIL_NEXT_STAGE = 280
+            CAN_BE_ABORTED = no
+        }
+        add_trait_force_tooltip = pregnant
+        # Custom pregnancies do not reach the engine's vanilla pregnancy hook.
+        # Supply the same parent context as a normal pregnancy: the co-mother
+        # stands in for both father targets only for the on_action payload.
+        awow_trigger_on_pregnancy_mother_on_action_effect = yes
+        # debug_log = "AWOW SS-PREG: pregnant trait assigned"
+        awow_roll_multiple_children_chance_effect = yes
+        trigger_event = {
+            id = awow_pregnancy.0001
+            days = { 250 300 }
+        }
     }
-    add_trait_force_tooltip = pregnant
-    # debug_log = "AWOW SS-PREG: pregnant trait assigned"
-    awow_roll_multiple_children_chance_effect = yes
-    trigger_event = {
-        id = awow_pregnancy.0001
-        days = { 250 300 }
+}
+
+# Clears only state owned by an active AWOW custom pregnancy. This is shared
+# by the normal scripted birth and Carnalitas' custom-pregnancy end hook, so a
+# replacement or external cancellation cannot leave the carrier locked out.
+awow_clear_same_sex_pregnancy_state_effect = {
+    remove_trait = pregnant
+    remove_variable = awow_pregnancy_active
+    remove_character_flag = awow_pregnancy_will_be_twins_flag
+    remove_character_flag = awow_pregnancy_will_be_triplets_flag
+}
+
+# Calls the vanilla pregnancy hook for an AWOW custom pregnancy. This effect
+# runs on the carrying mother, and deliberately does not alter the child's
+# biological parent slots.
+awow_trigger_on_pregnancy_mother_on_action_effect = {
+    save_scope_as = mother
+    scope:awow_other_mother = {
+        save_scope_as = father
+        save_scope_as = real_father
     }
+    trigger_event = { on_action = on_pregnancy_mother }
+    # Vanilla currently has no baseline father events here, but other mods can
+    # extend this hook. Run it from the co-mother just as the engine does for
+    # the assumed father of a normal pregnancy.
+    scope:awow_other_mother = {
+        trigger_event = { on_action = on_pregnancy_father }
+    }
+    clear_saved_scope = mother
+    clear_saved_scope = father
+    clear_saved_scope = real_father
 }
 
 awow_roll_multiple_children_chance_effect = {

@@ -1,6 +1,6 @@
-﻿# TEST interaction: force a same-sex pregnancy with the chosen female partner,
-# bypassing the fertility roll. Reuses the exact same start logic as the AI path.
-# Usable by any female character on a female spouse/concubine. For debugging only.
+# TEST interaction: queue a same-sex conception attempt with the chosen partner.
+# It now queues the production carrier-selection and delayed-conception path,
+# rather than directly starting a pregnancy or bypassing fertility.
 awow_test_same_sex_pregnancy_interaction = {
     category = interaction_category_uncategorized
     icon = debug_chars
@@ -11,6 +11,9 @@ awow_test_same_sex_pregnancy_interaction = {
 
     is_shown = {
         debug_only = yes
+        scope:actor = {
+            is_female = yes
+        }
         scope:recipient = {
             is_alive = yes
             is_female = yes
@@ -22,30 +25,24 @@ awow_test_same_sex_pregnancy_interaction = {
     }
 
     is_valid = {
-        scope:recipient = {
-            is_alive = yes
-            is_female = yes
-            can_have_children = yes
-            age <= 45
-            NOT = { is_pregnant = yes }
-            carn_has_any_custom_pregnancy_trigger = no
-            OR = {
-                is_spouse_of = scope:actor
-                is_concubine_of = scope:actor
+        scope:actor = {
+            awow_same_sex_can_conceive_with_trigger = {
+                PARTNER = scope:recipient
             }
         }
     }
 
     on_accept = {
-        debug_log = "AWOW SS-PREG TEST: the player forced pregnancy on their spouse"
+        debug_log = "AWOW SS-PREG TEST: queued the production conception path"
         scope:actor = {
-            save_scope_as = father
-            save_scope_as = awow_other_mother
+            save_scope_as = awow_root
         }
         scope:recipient = {
-            save_scope_as = mother
-            awow_start_same_sex_pregnancy_effect = yes
+            save_scope_as = awow_partner
+            awow_decide_same_sex_mother_effect = yes
         }
+        clear_saved_scope = awow_partner
+        clear_saved_scope = awow_root
     }
 }
 
@@ -287,7 +284,7 @@ awow_test_betrothal = {
 
     on_accept = {
         scope:actor = {
-            any_child = {
+            every_child = {
                 create_betrothal = scope:recipient
             }
         }
@@ -313,7 +310,7 @@ awow_test_betrothal_mat = {
 
     on_accept = {
         scope:actor = {
-            any_child = {
+            every_child = {
                 create_betrothal_matrilineal = scope:recipient
             }
         }

@@ -4,30 +4,33 @@ awow_pregnancy_scheduler_days_value = {
 }
 
 awow_impregnation_chance_value = {
-	# get base fertility multiplier	
-	value = 0
-	if = {
-		limit = {
-			NOR = {
-				scope:awow_mother.fertility < 0.1
-				scope:awow_other_mother.fertility < 0.1
-			}
-        }
-        add = { value = scope:awow_mother.fertility }
-		add = { value = scope:awow_other_mother.fertility }
-		# ( ( ( 4.75 * 12 ) / 365 ) * 369 ) / 2 | ( ( ( vanilla monthly pulse preg chance * 12 ) / 365 ) * scripted preg pulse cooldown ) / 2
-        # If both have 100% fertility it should be ~29% chance
-		multiply = 28.812
-	}
-    # Try to give rulers heir if low 
+    # Both partners are revalidated before this value is rolled. Average their
+    # fertility rather than adding it outright: two 100% fertile women produce
+    # a ~29% conception chance on the 369-day pulse.
+    value = scope:awow_mother.fertility
+    add = { value = scope:awow_other_mother.fertility }
+    # ( ( ( 4.75 * 12 ) / 365 ) * 369 ) / 2
+    multiply = 14.406
+
+    # Give a ruler mother without a living child a deterministic heir
+    # adjustment. All mothers then receive the same per-child reduction.
     if = {
-        limit = { is_ruler = yes }
-        add = 100
-        every_child = {
-            if = {
-                limit = { is_alive = yes }
-                add = -40
+        limit = {
+            scope:awow_mother = {
+                is_ruler = yes
+                NOT = {
+                    any_child = {
+                        is_alive = yes
+                    }
+                }
             }
+        }
+        add = 100
+    }
+    every_child = {
+        if = {
+            limit = { is_alive = yes }
+            add = -40
         }
     }
     if = {
@@ -42,24 +45,27 @@ awow_impregnation_chance_value = {
         }
     }
     round = yes
-    min = 0
+    min = 15
     max = 95
 }
 
 awow_pregnancy_twin_chance_value = {
+    # Fecund carriers remain more likely to have twins, while especially
+    # fertile conceptions receive a small additional chance.
     value = 2
     add = {
         value = awow_impregnation_chance_value
         subtract = 50
+        multiply = 0.05
         min = 0
     }
     if = {
         limit = { scope:awow_mother = { has_trait = fecund } }
-        add = 10
+        add = 3
     }
     if = {
         limit = { scope:awow_mother = { has_trait = infertile } }
-        subtract = 25
+        subtract = 5
     }
     round = yes
     min = 0
@@ -67,6 +73,7 @@ awow_pregnancy_twin_chance_value = {
 }
 
 awow_pregnancy_triplet_chance_value = {
+    # Preserve wedding-fertility variation at one tenth of the old rates.
     value = 0
     if = {
         limit = {
@@ -75,7 +82,7 @@ awow_pregnancy_triplet_chance_value = {
                 scope:awow_other_mother = { has_relation_wedding_very_good_fertility = scope:awow_mother }
             }
         }
-        add = 20
+        add = 2
     }
     else_if = {
         limit = {
@@ -84,7 +91,7 @@ awow_pregnancy_triplet_chance_value = {
                 scope:awow_other_mother = { has_relation_wedding_good_fertility = scope:awow_mother }
             }
         }
-        add = 10
+        add = 1
     }
     round = yes
     min = 0

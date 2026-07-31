@@ -207,7 +207,11 @@ awow_assign_siblings_abstracted_effect = {
     if = {
         limit = {
             NOT = { this = scope:awow_child }
-            this.mother = scope:awow_parent
+            # Include children of a non-carrying co-mother through AWOW parentage.
+            OR = {
+                this.mother = scope:awow_parent
+                has_relation_awow_parent = scope:awow_parent
+            }
         }
         save_scope_as = awow_sibling
         # debug_log = "AWOW RELATIONS: in sibling"

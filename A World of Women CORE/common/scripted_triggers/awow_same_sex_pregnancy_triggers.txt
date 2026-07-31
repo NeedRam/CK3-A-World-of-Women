@@ -1,10 +1,57 @@
 ﻿# AWOW same-sex (female-female) pregnancy triggers
 
-awow_same_sex_can_bear_trigger = {
+awow_same_sex_can_start_pregnancy_trigger = {
     is_alive = yes
     is_female = yes
     is_adult = yes
+    # Match vanilla's practical fertility gate: hard trait blocks, a minimum
+    # fertility contribution, and the female fertility age cutoff.
+    can_have_children = yes
+    fertility >= 0.1
+    effective_age < marriage_female_fertility_cutoff_age_value
+    is_incapable = no
+    is_imprisoned = no
+    is_travelling = no
+    # A participant can be at an activity's location without being available
+    # to conceive. Do not create pregnancies while either mother is involved.
+    NOT = { exists = involved_activity }
     NOT = { is_pregnant = yes }
     NOT = { has_variable = awow_pregnancy_active }
+    NOT = { carn_has_any_custom_pregnancy_trigger = yes }
+}
+
+awow_same_sex_can_queue_pregnancy_trigger = {
+    awow_same_sex_can_start_pregnancy_trigger = yes
+    NOT = { has_character_flag = awow_same_sex_pregnancy_pending }
+}
+
+awow_same_sex_can_bear_trigger = {
+    # A queued start reserves the carrying role only. Until it actually
+    # starts, this woman can still be the non-carrying mother for another
+    # partner, so the pulse must not skip her whole relationship list.
+    awow_same_sex_can_start_pregnancy_trigger = yes
     NOT = { has_character_flag = tried_same_sex_preg }
+}
+
+# Requires PARTNER = <character scope>. The caller and partner must remain
+# physically available and in an eligible relationship at the exact time of
+# conception; the delayed conception event calls this again.
+awow_same_sex_can_conceive_with_trigger = {
+    awow_same_sex_can_start_pregnancy_trigger = yes
+    is_at_same_location = $PARTNER$
+    is_attracted_to_gender_of = $PARTNER$
+
+    OR = {
+        is_spouse_of = $PARTNER$
+        is_concubine_of = $PARTNER$
+        $PARTNER$ = { is_concubine_of = prev }
+        has_relation_lover = $PARTNER$
+        has_relation_soulmate = $PARTNER$
+    }
+
+    $PARTNER$ = {
+        awow_same_sex_can_start_pregnancy_trigger = yes
+        is_at_same_location = prev
+        is_attracted_to_gender_of = prev
+    }
 }

@@ -1,0 +1,8 @@
+# The iterator's current scope is the candidate partner. Count every child,
+# including deceased children, so the least-prolific partner is considered first.
+awow_number_of_children_value = {
+    every_child = {
+        even_if_dead = yes
+        add = 1
+    }
+}

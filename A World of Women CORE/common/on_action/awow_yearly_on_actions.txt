@@ -1,40 +1,41 @@
-﻿# Called every Jan 1st
-# Root does not exist
-yearly_global_pulse = {
-    effect = {
-        awow_apply_world_maintenance_effect = yes
-    }
+# CK3 invokes this once per character on individually randomized dates. These
+# handlers replace the former January 1 global scans.
+random_yearly_everyone_pulse = {
     on_actions = {
-        awow_yearly_ruler_marriage_pulse
-        awow_betrothal_fulfillment_pulse
+        awow_random_yearly_ruler_marriage_pulse
+        awow_random_yearly_betrothal_maintenance_pulse
+        awow_random_yearly_world_maintenance_pulse
     }
 }
 
-awow_yearly_ruler_marriage_pulse = {
+awow_random_yearly_ruler_marriage_pulse = {
     trigger = {
         exists = any_player
+        is_ai = yes
+        is_adult = yes
+        is_playable_character = yes
+        awow_can_marry_trigger = yes
     }
-    effect = {
-        every_living_character = {
-            limit = {
-                is_ai = yes
-                is_adult = yes
-                is_playable_character = yes
-                awow_can_marry_trigger = yes
-            }
-            trigger_event = {
-                id = awow_ai_marriage.0001
-                days = { 1 360 }
-            }
+    events = {
+        awow_ai_marriage.0001
+    }
+}
+
+awow_random_yearly_betrothal_maintenance_pulse = {
+    trigger = {
+        exists = any_player
+        OR = {
+            has_character_flag = awow_same_sex_betrothal
+            has_character_flag = awow_betrothal_processing
         }
     }
+    effect = {
+        awow_betrothal_maintenance_effect = yes
+    }
 }
 
-awow_betrothal_fulfillment_pulse = {
-    trigger = {
-        exists = any_player
-    }
+awow_random_yearly_world_maintenance_pulse = {
     effect = {
-        awow_betrothal_fulfillment_effect = yes
+        awow_apply_world_maintenance_to_character_effect = yes
     }
 }
