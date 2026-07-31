@@ -26,13 +26,8 @@ awow_test_same_sex_pregnancy_interaction = {
 
     is_valid = {
         scope:actor = {
-            awow_same_sex_can_bear_trigger = yes
-        }
-        scope:recipient = {
-            awow_same_sex_can_bear_trigger = yes
-            OR = {
-                is_spouse_of = scope:actor
-                is_concubine_of = scope:actor
+            awow_same_sex_can_conceive_with_trigger = {
+                PARTNER = scope:recipient
             }
         }
     }

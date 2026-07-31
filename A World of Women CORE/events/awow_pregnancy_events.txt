@@ -178,10 +178,10 @@ awow_pregnancy.0030 = {
             limit = {
                 awow_same_sex_can_start_pregnancy_trigger = yes
                 exists = var:awow_pending_other_mother
-                # The co-mother's fertility can change during the delayed
-                # conception window too, so require the same eligibility.
-                var:awow_pending_other_mother = {
-                    awow_same_sex_can_start_pregnancy_trigger = yes
+                # The queued partner may no longer be nearby, available, or
+                # related to the carrier when the delayed conception resolves.
+                awow_same_sex_can_conceive_with_trigger = {
+                    PARTNER = var:awow_pending_other_mother
                 }
             }
             save_scope_as = awow_mother

@@ -60,7 +60,14 @@ awow_try_preg_all_partners_effect = {
 
 awow_decide_same_sex_mother_effect = {
     if = {
-        limit = { awow_same_sex_can_bear_trigger = yes }
+        limit = {
+            awow_same_sex_can_bear_trigger = yes
+            scope:awow_root = {
+                awow_same_sex_can_conceive_with_trigger = {
+                    PARTNER = scope:awow_partner
+                }
+            }
+        }
         add_character_flag = {
             flag = tried_same_sex_preg
             days = 69
