@@ -41,18 +41,32 @@ awow_assign_baby_to_court_effect = {
         }
         scope:awow_other_mother = { add_courtier = scope:child }
     }
-    else = {
-        scope:awow_mother = { add_courtier = scope:child }
+    else_if = {
+        limit = {
+            exists = scope:awow_mother.employer
+        }
+        scope:awow_mother.employer = { add_courtier = scope:child }
+    }
+    else_if = {
+        limit = {
+            exists = scope:awow_other_mother
+            exists = scope:awow_other_mother.employer
+        }
+        scope:awow_other_mother.employer = { add_courtier = scope:child }
     }
 }
 
 awow_assign_baby_to_house_effect = {
     if = {
         limit = {
-            NOT = { exists = scope:awow_mother.dynasty}
-            exists = scope:awow_other_mother.dynasty
+            NOT = { exists = scope:awow_mother.dynasty }
+            exists = scope:awow_other_mother
+            exists = scope:awow_other_mother.house
+            exists = scope:child
         }
-        set_house = scope:awow_other_mother.house
+        scope:child = {
+            set_house = scope:awow_other_mother.house
+        }
     }
 }
 
