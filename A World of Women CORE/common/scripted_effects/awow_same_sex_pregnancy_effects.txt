@@ -1,13 +1,6 @@
 ﻿# AWOW autonomous female-female pregnancy system.
 # Carnalitas supplies the pregnancy portrait support
 
-awow_monthly_pregnancy_tick_effect = {
-    # debug_log = "AWOW SS-PREG: Tick START"
-    trigger_event = {
-        id = awow_pregnancy.0010
-    }
-}
-
 awow_pregnancy_pulse_effect = {
     if = {
         limit = {

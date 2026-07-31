@@ -137,9 +137,12 @@ awow_pregnancy.0003 = {
     }
 }
 
-# 0010 - Preg Pulse scheduler
+# 0010 - Scope-free pregnancy-pulse scheduler.
+# The scheduler holds no character state, so it must not be cancelled when a
+# player ruler dies or is replaced.
 awow_pregnancy.0010 = {
     type = character_event
+    scope = none
     hidden = yes
 
     immediate = {
@@ -150,9 +153,10 @@ awow_pregnancy.0010 = {
     }
 }
 
-# 0020 - Preg Pulse
+# 0020 - Scope-free pregnancy pulse
 awow_pregnancy.0020 = {
     type = character_event
+    scope = none
     hidden = yes
 
     immediate = {

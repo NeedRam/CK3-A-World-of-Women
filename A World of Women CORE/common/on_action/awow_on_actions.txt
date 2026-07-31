@@ -19,17 +19,18 @@ awow_game_start_setup = {
             debug_log = "AWOW Culling: Prep DONE"
         }
         
-        every_player = {
-            if = {
-                limit = { NOT = { has_global_variable = awow_preg_pulse_initialized } }
-                set_global_variable = {
-                    name = awow_preg_pulse_initialized
-                    value = yes
-                }
-                debug_log = "AWOW SS-PREG: Prep START"
-                awow_monthly_pregnancy_tick_effect = yes
-                debug_log = "AWOW SS-PREG: Prep DONE"
-            }          
+        # Like culling, the pregnancy pulse owns only global state and scans
+        # the world itself. Start it from a scope-free event chain rather than
+        # binding it to whichever player character happens to be iterated first.
+        if = {
+            limit = { NOT = { has_global_variable = awow_preg_pulse_initialized } }
+            set_global_variable = {
+                name = awow_preg_pulse_initialized
+                value = yes
+            }
+            debug_log = "AWOW SS-PREG: Prep START"
+            trigger_event = awow_pregnancy.0010
+            debug_log = "AWOW SS-PREG: Prep DONE"
         }
         debug_log = "AWOW World Maintenance: START"
         awow_apply_world_maintenance_effect = yes
