@@ -26,7 +26,10 @@ awow_same_sex_can_queue_pregnancy_trigger = {
 }
 
 awow_same_sex_can_bear_trigger = {
-    awow_same_sex_can_queue_pregnancy_trigger = yes
+    # A queued start reserves the carrying role only. Until it actually
+    # starts, this woman can still be the non-carrying mother for another
+    # partner, so the pulse must not skip her whole relationship list.
+    awow_same_sex_can_start_pregnancy_trigger = yes
     NOT = { has_character_flag = tried_same_sex_preg }
 }
 

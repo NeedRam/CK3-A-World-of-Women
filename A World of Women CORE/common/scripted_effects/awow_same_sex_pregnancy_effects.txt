@@ -44,6 +44,7 @@ awow_try_preg_all_partners_effect = {
         limit = {
             NOR = {
                 is_spouse_of = scope:awow_root
+                scope:awow_root = { is_concubine_of = prev }
                 is_concubine_of = scope:awow_root
             }
         }
@@ -67,29 +68,57 @@ awow_decide_same_sex_mother_effect = {
                     PARTNER = scope:awow_partner
                 }
             }
-        }
-        add_character_flag = {
-            flag = tried_same_sex_preg
-            days = 69
+            OR = {
+                awow_same_sex_can_queue_pregnancy_trigger = yes
+                scope:awow_root = {
+                    awow_same_sex_can_queue_pregnancy_trigger = yes
+                }
+            }
         }
         # debug_log = "AWOW SS-PREG: picking mother"
         # debug_log_scopes = yes
-        random_list = {
-            50 = {
-                # debug_log = "AWOW SS-PREG: partner is mother"
-                save_scope_as = awow_mother
-                scope:awow_root = { save_scope_as = awow_other_mother }
-                # debug_log_scopes = yes
-                awow_try_same_sex_pregnancy_effect = yes
-            }
-            50 = {
+        if = {
+            limit = {
+                awow_same_sex_can_queue_pregnancy_trigger = yes
                 scope:awow_root = {
-                    # debug_log = "AWOW SS-PREG: root is mother"
+                    awow_same_sex_can_queue_pregnancy_trigger = yes
+                }
+            }
+            random_list = {
+                50 = {
+                    # debug_log = "AWOW SS-PREG: partner is mother"
                     save_scope_as = awow_mother
-                    scope:awow_partner = { save_scope_as = awow_other_mother }
+                    scope:awow_root = { save_scope_as = awow_other_mother }
                     # debug_log_scopes = yes
                     awow_try_same_sex_pregnancy_effect = yes
                 }
+                50 = {
+                    scope:awow_root = {
+                        # debug_log = "AWOW SS-PREG: root is mother"
+                        save_scope_as = awow_mother
+                        scope:awow_partner = { save_scope_as = awow_other_mother }
+                        # debug_log_scopes = yes
+                        awow_try_same_sex_pregnancy_effect = yes
+                    }
+                }
+            }
+        }
+        else_if = {
+            limit = { awow_same_sex_can_queue_pregnancy_trigger = yes }
+            # The root already has a pending start, so only the partner can
+            # carry this pregnancy. Do not spend half the attempts on a
+            # carrier that is deliberately reserved.
+            save_scope_as = awow_mother
+            scope:awow_root = { save_scope_as = awow_other_mother }
+            awow_try_same_sex_pregnancy_effect = yes
+        }
+        else = {
+            # Likewise, a pending partner may still be the non-carrying
+            # mother while the root carries this relationship's attempt.
+            scope:awow_root = {
+                save_scope_as = awow_mother
+                scope:awow_partner = { save_scope_as = awow_other_mother }
+                awow_try_same_sex_pregnancy_effect = yes
             }
         }
     }
