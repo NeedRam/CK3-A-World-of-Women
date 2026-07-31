@@ -103,6 +103,7 @@ awow_trigger_on_birth_on_action_effect = {
     }
     scope:awow_other_mother = {
         trigger_event = { on_action = on_birth_father }
+        trigger_event = { on_action = on_birth_real_father }
     }
     scope:child = { trigger_event = { on_action = on_birth_child } }
     clear_saved_scope = mother

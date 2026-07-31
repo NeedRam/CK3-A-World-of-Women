@@ -12,19 +12,25 @@ awow_impregnation_chance_value = {
     # ( ( ( 4.75 * 12 ) / 365 ) * 369 ) / 2
     multiply = 14.406
 
-    # Give a couple with a ruler a deterministic heir adjustment. It must not
-    # depend on which woman won the 50/50 carrier roll.
+    # Give a ruler mother without a living child a deterministic heir
+    # adjustment. All mothers then receive the same per-child reduction.
     if = {
-        limit = { is_ruler = yes }
+        limit = {
+            scope:awow_mother = {
+                is_ruler = yes
+                NOT = {
+                    any_child = {
+                        is_alive = yes
+                    }
+                }
+            }
+        }
         add = 100
     }
-    if = {
-        limit = { is_ruler = yes }
-        every_child = {
-            if = {
-                limit = { is_alive = yes }
-                add = -40
-            }
+    every_child = {
+        if = {
+            limit = { is_alive = yes }
+            add = -40
         }
     }
     if = {

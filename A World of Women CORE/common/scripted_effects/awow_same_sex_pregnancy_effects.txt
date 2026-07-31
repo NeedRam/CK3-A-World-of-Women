@@ -45,9 +45,14 @@ awow_try_preg_all_partners_effect = {
         awow_decide_same_sex_mother_effect = yes
         clear_saved_scope = awow_partner
     }
-    add_character_flag = {
-        flag = tried_same_sex_preg
-        days = 69
+    # A queued conception has already reserved both mothers for the full
+    # annual cycle. Keep the shorter retry delay only when no queue was made.
+    if = {
+        limit = { NOT = { has_character_flag = tried_same_sex_preg } }
+        add_character_flag = {
+            flag = tried_same_sex_preg
+            days = 69
+        }
     }
     clear_saved_scope = awow_root
 }
@@ -57,6 +62,9 @@ awow_decide_same_sex_mother_effect = {
         limit = {
             awow_same_sex_can_bear_trigger = yes
             scope:awow_root = {
+                # Once either woman has queued a conception, do not continue
+                # through this root's remaining partners in the same pulse.
+                awow_same_sex_can_bear_trigger = yes
                 awow_same_sex_can_conceive_with_trigger = {
                     PARTNER = scope:awow_partner
                 }
@@ -130,6 +138,20 @@ awow_try_same_sex_pregnancy_effect = {
             add_character_flag = {
                 flag = awow_same_sex_pregnancy_pending
                 days = 366
+            }
+            # Reserve both women until their next randomized annual pulses.
+            # This prevents the reverse partner pulse from queuing a second
+            # pregnancy for the same pair, and keeps a polyamorous root from
+            # queueing several simultaneous pregnancies.
+            add_character_flag = {
+                flag = tried_same_sex_preg
+                days = 366
+            }
+            scope:awow_other_mother = {
+                add_character_flag = {
+                    flag = tried_same_sex_preg
+                    days = 366
+                }
             }
             trigger_event = {
                 id = awow_pregnancy.0030
