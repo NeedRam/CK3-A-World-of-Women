@@ -166,36 +166,28 @@ awow_pregnancy.0021 = {
     }
 }
 
-# 0030 - Start Pregnancy
+# 0030 - Revalidate and resolve a same-sex conception attempt.
+# Invoked immediately from the randomized annual pulse.
 awow_pregnancy.0030 = {
     type = character_event
     hidden = yes
 
     immediate = {
-        # The scheduler queues a possible conception, not a successful one.
-        # Revalidate here because a normal or custom pregnancy may have begun
-        # during the 0-365 day delay.
+        # Revalidate the saved mother scopes before the fertility roll.
         if = {
             limit = {
                 awow_same_sex_can_start_pregnancy_trigger = yes
-                exists = var:awow_pending_other_mother
-                # The queued partner may no longer be nearby, available, or
-                # related to the carrier when the delayed conception resolves.
+                exists = scope:awow_other_mother
                 awow_same_sex_can_conceive_with_trigger = {
-                    PARTNER = var:awow_pending_other_mother
+                    PARTNER = scope:awow_other_mother
                 }
             }
             save_scope_as = awow_mother
-            var:awow_pending_other_mother = {
-                save_scope_as = awow_other_mother
-            }
             random = {
                 chance = awow_impregnation_chance_value
                 awow_start_same_sex_pregnancy_effect = yes
             }
         }
-        remove_variable = awow_pending_other_mother
-        remove_character_flag = awow_same_sex_pregnancy_pending
     }
 }
 

@@ -4,9 +4,9 @@ awow_pregnancy_scheduler_days_value = {
 }
 
 awow_impregnation_chance_value = {
-    # Both partners are revalidated before this value is rolled. Average their
+    # Both partners are checked immediately before this value is rolled. Average their
     # fertility rather than adding it outright: two 100% fertile women produce
-    # a ~29% conception chance on the 369-day pulse.
+    # a ~29% conception chance on the randomized annual pulse.
     value = scope:awow_mother.fertility
     add = { value = scope:awow_other_mother.fertility }
     # ( ( ( 4.75 * 12 ) / 365 ) * 369 ) / 2

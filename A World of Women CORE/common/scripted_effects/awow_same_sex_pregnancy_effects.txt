@@ -45,8 +45,7 @@ awow_try_preg_all_partners_effect = {
         awow_decide_same_sex_mother_effect = yes
         clear_saved_scope = awow_partner
     }
-    # A queued conception has already reserved both mothers for the full
-    # annual cycle. Keep the shorter retry delay only when no queue was made.
+    # The short retry delay applies after every pass.
     if = {
         limit = { NOT = { has_character_flag = tried_same_sex_preg } }
         add_character_flag = {
@@ -62,101 +61,43 @@ awow_decide_same_sex_mother_effect = {
         limit = {
             awow_same_sex_can_bear_trigger = yes
             scope:awow_root = {
-                # Once either woman has queued a conception, do not continue
-                # through this root's remaining partners in the same pulse.
                 awow_same_sex_can_bear_trigger = yes
                 awow_same_sex_can_conceive_with_trigger = {
                     PARTNER = scope:awow_partner
                 }
             }
-            OR = {
-                awow_same_sex_can_queue_pregnancy_trigger = yes
-                scope:awow_root = {
-                    awow_same_sex_can_queue_pregnancy_trigger = yes
-                }
-            }
         }
         # debug_log = "AWOW SS-PREG: picking mother"
         # debug_log_scopes = yes
-        if = {
-            limit = {
-                awow_same_sex_can_queue_pregnancy_trigger = yes
-                scope:awow_root = {
-                    awow_same_sex_can_queue_pregnancy_trigger = yes
-                }
+        random_list = {
+            50 = {
+                # debug_log = "AWOW SS-PREG: partner is mother"
+                save_scope_as = awow_mother
+                scope:awow_root = { save_scope_as = awow_other_mother }
+                # debug_log_scopes = yes
+                awow_try_same_sex_pregnancy_effect = yes
             }
-            random_list = {
-                50 = {
-                    # debug_log = "AWOW SS-PREG: partner is mother"
+            50 = {
+                scope:awow_root = {
+                    # debug_log = "AWOW SS-PREG: root is mother"
                     save_scope_as = awow_mother
-                    scope:awow_root = { save_scope_as = awow_other_mother }
+                    scope:awow_partner = { save_scope_as = awow_other_mother }
                     # debug_log_scopes = yes
                     awow_try_same_sex_pregnancy_effect = yes
                 }
-                50 = {
-                    scope:awow_root = {
-                        # debug_log = "AWOW SS-PREG: root is mother"
-                        save_scope_as = awow_mother
-                        scope:awow_partner = { save_scope_as = awow_other_mother }
-                        # debug_log_scopes = yes
-                        awow_try_same_sex_pregnancy_effect = yes
-                    }
-                }
-            }
-        }
-        else_if = {
-            limit = { awow_same_sex_can_queue_pregnancy_trigger = yes }
-            # The root already has a pending start, so only the partner can
-            # carry this pregnancy. Do not spend half the attempts on a
-            # carrier that is deliberately reserved.
-            save_scope_as = awow_mother
-            scope:awow_root = { save_scope_as = awow_other_mother }
-            awow_try_same_sex_pregnancy_effect = yes
-        }
-        else = {
-            # Likewise, a pending partner may still be the non-carrying
-            # mother while the root carries this relationship's attempt.
-            scope:awow_root = {
-                save_scope_as = awow_mother
-                scope:awow_partner = { save_scope_as = awow_other_mother }
-                awow_try_same_sex_pregnancy_effect = yes
             }
         }
     }
 }
 
 awow_try_same_sex_pregnancy_effect = {
-    # Queue the conception attempt. Fertility is intentionally rolled by the
-    # delayed event, after it has revalidated the carrier's pregnancy state.
+    # The randomized annual pulse has already distributed this attempt over
+    # the year. Dispatch the immediate fertility roll through the shared
+    # pregnancy-start event using the saved mother scopes.
     scope:awow_mother = {
         if = {
-            limit = { awow_same_sex_can_queue_pregnancy_trigger = yes }
-            set_variable = {
-                name = awow_pending_other_mother
-                value = scope:awow_other_mother
-            }
-            add_character_flag = {
-                flag = awow_same_sex_pregnancy_pending
-                days = 366
-            }
-            # Reserve both women until their next randomized annual pulses.
-            # This prevents the reverse partner pulse from queuing a second
-            # pregnancy for the same pair, and keeps a polyamorous root from
-            # queueing several simultaneous pregnancies.
-            add_character_flag = {
-                flag = tried_same_sex_preg
-                days = 366
-            }
-            scope:awow_other_mother = {
-                add_character_flag = {
-                    flag = tried_same_sex_preg
-                    days = 366
-                }
-            }
-            trigger_event = {
-                id = awow_pregnancy.0030
-                days = { 0 365 }
-            }
+            limit = { awow_same_sex_can_start_pregnancy_trigger = yes }
+            trigger_event = awow_pregnancy.0030
         }
     }
 }

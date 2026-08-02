@@ -20,22 +20,14 @@ awow_same_sex_can_start_pregnancy_trigger = {
     NOT = { carn_has_any_custom_pregnancy_trigger = yes }
 }
 
-awow_same_sex_can_queue_pregnancy_trigger = {
-    awow_same_sex_can_start_pregnancy_trigger = yes
-    NOT = { has_character_flag = awow_same_sex_pregnancy_pending }
-}
-
 awow_same_sex_can_bear_trigger = {
-    # A queued start reserves the carrying role only. Until it actually
-    # starts, this woman can still be the non-carrying mother for another
-    # partner, so the pulse must not skip her whole relationship list.
     awow_same_sex_can_start_pregnancy_trigger = yes
     NOT = { has_character_flag = tried_same_sex_preg }
 }
 
 # Requires PARTNER = <character scope>. The caller and partner must remain
 # physically available and in an eligible relationship at the exact time of
-# conception; the delayed conception event calls this again.
+# conception.
 awow_same_sex_can_conceive_with_trigger = {
     awow_same_sex_can_start_pregnancy_trigger = yes
     is_at_same_location = $PARTNER$
