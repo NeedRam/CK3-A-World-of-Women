@@ -1,13 +1,9 @@
-﻿# AWOW autonomous female-female pregnancy system.
-# Carnalitas supplies the pregnancy portrait support
+﻿# AWOW autonomous female-female pregnancy policy.
+# CK3 and AGP own native pregnancy state, birth, and parent data.
 
 awow_pregnancy_pulse_effect = {
     if = {
-        limit = {
-            awow_same_sex_can_bear_trigger = yes
-            # debug_log = "AWOW SS-PREG: Can Bear"
-        }
-        # debug_log = "AWOW SS-PREG: Trying for pregnancy"
+        limit = { awow_same_sex_can_bear_trigger = yes }
         awow_try_preg_all_partners_effect = yes
     }
 }
@@ -67,22 +63,16 @@ awow_decide_same_sex_mother_effect = {
                 }
             }
         }
-        # debug_log = "AWOW SS-PREG: picking mother"
-        # debug_log_scopes = yes
         random_list = {
             50 = {
-                # debug_log = "AWOW SS-PREG: partner is mother"
                 save_scope_as = awow_mother
                 scope:awow_root = { save_scope_as = awow_other_mother }
-                # debug_log_scopes = yes
                 awow_try_same_sex_pregnancy_effect = yes
             }
             50 = {
                 scope:awow_root = {
-                    # debug_log = "AWOW SS-PREG: root is mother"
                     save_scope_as = awow_mother
                     scope:awow_partner = { save_scope_as = awow_other_mother }
-                    # debug_log_scopes = yes
                     awow_try_same_sex_pregnancy_effect = yes
                 }
             }
@@ -91,191 +81,31 @@ awow_decide_same_sex_mother_effect = {
 }
 
 awow_try_same_sex_pregnancy_effect = {
-    # The randomized annual pulse has already distributed this attempt over
-    # the year. Dispatch the immediate fertility roll through the shared
-    # pregnancy-start event using the saved mother scopes.
+    # The annual pulse already distributes attempts across the year. Resolve
+    # the fertility roll immediately through the shared revalidation event.
     scope:awow_mother = {
         if = {
             limit = { awow_same_sex_can_start_pregnancy_trigger = yes }
             trigger_event = awow_pregnancy.0030
         }
     }
+    clear_saved_scope = awow_mother
+    clear_saved_scope = awow_other_mother
 }
 
 awow_start_same_sex_pregnancy_effect = {
-    # This effect is also used by the debug interaction, so it repeats the
-    # no-overwrite guard rather than relying on its caller.
-    if = {
-        limit = { awow_same_sex_can_start_pregnancy_trigger = yes }
-        set_variable = { name = awow_pregnancy_active value = yes }
-        # debug_log = "AWOW SS-PREG: starting pregnancy effect"
-        carn_start_custom_pregnancy_effect = {
-            PREGNANCY_TYPE = awow_same_sex
-            DAYS_UNTIL_NEXT_STAGE = 280
-            CAN_BE_ABORTED = no
-        }
-        add_trait_force_tooltip = pregnant
-        # Custom pregnancies do not reach the engine's vanilla pregnancy hook.
-        # Supply the same parent context as a normal pregnancy: the co-mother
-        # stands in for both father targets only for the on_action payload.
-        awow_trigger_on_pregnancy_mother_on_action_effect = yes
-        # debug_log = "AWOW SS-PREG: pregnant trait assigned"
-        awow_roll_multiple_children_chance_effect = yes
-        trigger_event = {
-            id = awow_pregnancy.0001
-            days = { 250 300 }
-        }
-    }
-}
-
-# Clears only state owned by an active AWOW custom pregnancy. This is shared
-# by the normal scripted birth and Carnalitas' custom-pregnancy end hook, so a
-# replacement or external cancellation cannot leave the carrier locked out.
-awow_clear_same_sex_pregnancy_state_effect = {
-    remove_trait = pregnant
-    remove_variable = awow_pregnancy_active
-    remove_character_flag = awow_pregnancy_will_be_twins_flag
-    remove_character_flag = awow_pregnancy_will_be_triplets_flag
-}
-
-# Calls the vanilla pregnancy hook for an AWOW custom pregnancy. This effect
-# runs on the carrying mother, and deliberately does not alter the child's
-# biological parent slots.
-awow_trigger_on_pregnancy_mother_on_action_effect = {
-    save_scope_as = mother
-    scope:awow_other_mother = {
-        save_scope_as = father
-        save_scope_as = real_father
-    }
-    trigger_event = { on_action = on_pregnancy_mother }
-    # Vanilla currently has no baseline father events here, but other mods can
-    # extend this hook. Run it from the co-mother just as the engine does for
-    # the assumed father of a normal pregnancy.
-    scope:awow_other_mother = {
-        trigger_event = { on_action = on_pregnancy_father }
-    }
-    clear_saved_scope = mother
-    clear_saved_scope = father
-    clear_saved_scope = real_father
-}
-
-awow_roll_multiple_children_chance_effect = {
+    # The carrying mother is root. AGP permits the other woman to occupy CK3's
+    # native father role, after which the engine owns the full birth lifecycle.
     if = {
         limit = {
-            NOR = {
-                has_character_flag = awow_pregnancy_will_be_twins_flag
-                has_character_flag = awow_pregnancy_will_be_triplets_flag
+            awow_same_sex_can_start_pregnancy_trigger = yes
+            exists = scope:awow_other_mother
+            awow_same_sex_can_conceive_with_trigger = {
+                PARTNER = scope:awow_other_mother
             }
         }
-        random = {
-            chance = awow_pregnancy_twin_chance_value
-            add_character_flag = awow_pregnancy_will_be_twins_flag
+        make_pregnant = {
+            father = scope:awow_other_mother
         }
-    }
-    if = {
-        limit = { NOT = { has_character_flag = awow_pregnancy_will_be_twins_flag } }
-        random = {
-            chance = awow_pregnancy_triplet_chance_value
-            add_character_flag = awow_pregnancy_will_be_triplets_flag
-        }
-    }
-}
-
-# Reads awow_birth_gender_<RULE>_<N> and stores the selected female percentage.
-awow_pick_female_chance_effect = { # requires RULE = player|dynasty|world
-    if = {
-        limit = { has_game_rule = awow_birth_gender_$RULE$_100 }
-        set_variable = { name = awow_baby_female_chance value = 100 }
-    }
-    else_if = {
-        limit = { has_game_rule = awow_birth_gender_$RULE$_99 }
-        set_variable = { name = awow_baby_female_chance value = 99 }
-    }
-    else_if = {
-        limit = { has_game_rule = awow_birth_gender_$RULE$_95 }
-        set_variable = { name = awow_baby_female_chance value = 95 }
-    }
-    else_if = {
-        limit = { has_game_rule = awow_birth_gender_$RULE$_90 }
-        set_variable = { name = awow_baby_female_chance value = 90 }
-    }
-    else_if = {
-        limit = { has_game_rule = awow_birth_gender_$RULE$_80 }
-        set_variable = { name = awow_baby_female_chance value = 80 }
-    }
-    else_if = {
-        limit = { has_game_rule = awow_birth_gender_$RULE$_75 }
-        set_variable = { name = awow_baby_female_chance value = 75 }
-    }
-    else_if = {
-        limit = { has_game_rule = awow_birth_gender_$RULE$_67 }
-        set_variable = { name = awow_baby_female_chance value = 67 }
-    }
-    else_if = {
-        limit = { has_game_rule = awow_birth_gender_$RULE$_50 }
-        set_variable = { name = awow_baby_female_chance value = 50 }
-    }
-    else_if = {
-        limit = { has_game_rule = awow_birth_gender_$RULE$_33 }
-        set_variable = { name = awow_baby_female_chance value = 33 }
-    }
-    else_if = {
-        limit = { has_game_rule = awow_birth_gender_$RULE$_25 }
-        set_variable = { name = awow_baby_female_chance value = 25 }
-    }
-    else_if = {
-        limit = { has_game_rule = awow_birth_gender_$RULE$_20 }
-        set_variable = { name = awow_baby_female_chance value = 20 }
-    }
-    else_if = {
-        limit = { has_game_rule = awow_birth_gender_$RULE$_10 }
-        set_variable = { name = awow_baby_female_chance value = 10 }
-    }
-    else_if = {
-        limit = { has_game_rule = awow_birth_gender_$RULE$_5 }
-        set_variable = { name = awow_baby_female_chance value = 5 }
-    }
-    else_if = {
-        limit = { has_game_rule = awow_birth_gender_$RULE$_1 }
-        set_variable = { name = awow_baby_female_chance value = 1 }
-    }
-    else = {
-        set_variable = { name = awow_baby_female_chance value = 0 }
-    }
-}
-
-awow_baby_female_chance_effect = {
-    if = {
-        limit = {
-            OR = {
-                is_ai = no
-                scope:awow_other_mother = { is_ai = no }
-            }
-        }
-        awow_pick_female_chance_effect = { RULE = player }
-    }
-    else_if = {
-        limit = {
-            AND = {
-                is_ai = yes
-                scope:awow_other_mother = { is_ai = yes }
-                OR = {
-                    AND = {
-                        exists = dynasty
-                        any_player = { dynasty = prev.dynasty }
-                    }
-                    scope:awow_other_mother = {
-                        AND = {
-                            exists = dynasty
-                            any_player = { dynasty = prev.dynasty }
-                        }
-                    }
-                }
-            }
-        }
-        awow_pick_female_chance_effect = { RULE = dynasty }
-    }
-    else = {
-        awow_pick_female_chance_effect = { RULE = world }
     }
 }

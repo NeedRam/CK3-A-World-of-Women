@@ -26,22 +26,14 @@ awow_game_start_setup = {
 }
 
 on_pregnancy_mother = {
-    events = {
-        awow_pregnancy.2000
+    on_actions = {
+        awow_on_pregnancy_mother
     }
 }
 
-on_birth_child = {
-    events = {
-        awow_pregnancy.1000
-    }
-}
-
-# Carnalitas invokes this immediately before clearing its custom-pregnancy
-# variables. The event filters on AWOW's own pregnancy type.
-carn_on_end_custom_pregnancy = {
-    events = {
-        awow_pregnancy.0040
+awow_on_pregnancy_mother = {
+    effect = {
+        awow_apply_birth_gender_effect = yes
     }
 }
 

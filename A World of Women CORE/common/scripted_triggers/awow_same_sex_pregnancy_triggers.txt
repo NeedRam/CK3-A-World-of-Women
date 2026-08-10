@@ -16,8 +16,6 @@ awow_same_sex_can_start_pregnancy_trigger = {
     # to conceive. Do not create pregnancies while either mother is involved.
     NOT = { exists = involved_activity }
     NOT = { is_pregnant = yes }
-    NOT = { has_variable = awow_pregnancy_active }
-    NOT = { carn_has_any_custom_pregnancy_trigger = yes }
 }
 
 awow_same_sex_can_bear_trigger = {

@@ -1,4 +1,4 @@
-# AWOW AI ruler marriage pulse effect.
+﻿# AWOW AI ruler marriage pulse effect.
 # Scoped to an unmarried adult AI ruler.
 # Attempts to find a spouse through multiple diplomatic channels:
 
@@ -74,7 +74,7 @@ awow_find_spouse_effect = {
             save_scope_as = awow_potential_spouse
             random = {
                 chance = 5
-                marry_same_sex = scope:awow_potential_spouse
+                marry = scope:awow_potential_spouse
             }
             clear_saved_scope = awow_potential_spouse
         }
@@ -250,7 +250,7 @@ awow_find_betrothal_try_ruler_effect = {
 }
 
 # Children
-awow_find_spouse_try_child_of_ruler_effect = {
+awow_find_betrothal_try_child_of_ruler_effect = {
 
     # Try their child
     if = {
@@ -271,7 +271,7 @@ awow_find_spouse_try_child_of_ruler_effect = {
 }
 
 # Family
-awow_find_spouse_try_family_of_ruler_effect = {
+awow_find_betrothal_try_family_of_ruler_effect = {
 
     # Try their family
     if = {
@@ -283,12 +283,12 @@ awow_find_spouse_try_family_of_ruler_effect = {
         }
         random_close_family_member = {
             limit = { awow_can_marry_trigger = yes }
-            save_scope_as = awow_potential_spouse
+            save_scope_as = awow_potential_betrothal
             random = {
                 chance = 0.1
                 awow_same_sex_betrothal_effect = yes
             }
-            clear_saved_scope = awow_potential_spouse
+            clear_saved_scope = awow_potential_betrothal
         }
     }
 }

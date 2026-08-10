@@ -1,0 +1,113 @@
+﻿# Debug test for AWOW's production carrier selection and fertility roll.
+awow_test_native_pregnancy_production_interaction = {
+    category = interaction_category_uncategorized
+    icon = debug_chars
+    common_interaction = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+    auto_accept = yes
+
+    is_shown = {
+        debug_only = yes
+        scope:actor = { is_female = yes }
+        scope:recipient = {
+            is_alive = yes
+            is_female = yes
+            OR = {
+                is_spouse_of = scope:actor
+                is_concubine_of = scope:actor
+                scope:actor = { is_concubine_of = prev }
+                has_relation_lover = scope:actor
+                has_relation_soulmate = scope:actor
+            }
+        }
+    }
+
+    is_valid = {
+        scope:actor = {
+            awow_same_sex_can_conceive_with_trigger = {
+                PARTNER = scope:recipient
+            }
+        }
+    }
+
+    on_accept = {
+        scope:actor = { save_scope_as = awow_root }
+        scope:recipient = {
+            save_scope_as = awow_partner
+            awow_decide_same_sex_mother_effect = yes
+        }
+        clear_saved_scope = awow_partner
+        clear_saved_scope = awow_root
+    }
+}
+
+# Deterministic native handoff: the actor carries as awow_mother.
+awow_test_native_pregnancy_actor_mother_interaction = {
+    category = interaction_category_uncategorized
+    icon = debug_chars
+    common_interaction = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+    auto_accept = yes
+
+    is_shown = {
+        debug_only = yes
+        scope:actor = { is_female = yes }
+        scope:recipient = {
+            is_alive = yes
+            is_female = yes
+        }
+    }
+
+    is_valid = {
+        scope:actor = {
+            awow_same_sex_can_conceive_with_trigger = {
+                PARTNER = scope:recipient
+            }
+        }
+    }
+
+    on_accept = {
+        scope:actor = { save_scope_as = awow_mother }
+        scope:recipient = { save_scope_as = awow_other_mother }
+        scope:awow_mother = { awow_start_same_sex_pregnancy_effect = yes }
+        clear_saved_scope = awow_mother
+        clear_saved_scope = awow_other_mother
+    }
+}
+
+# Deterministic reciprocal handoff: the recipient carries as awow_mother.
+awow_test_native_pregnancy_recipient_mother_interaction = {
+    category = interaction_category_uncategorized
+    icon = debug_chars
+    common_interaction = yes
+    use_diplomatic_range = no
+    ignores_pending_interaction_block = yes
+    auto_accept = yes
+
+    is_shown = {
+        debug_only = yes
+        scope:actor = { is_female = yes }
+        scope:recipient = {
+            is_alive = yes
+            is_female = yes
+        }
+    }
+
+    is_valid = {
+        scope:actor = {
+            awow_same_sex_can_conceive_with_trigger = {
+                PARTNER = scope:recipient
+            }
+        }
+    }
+
+    on_accept = {
+        scope:recipient = { save_scope_as = awow_mother }
+        scope:actor = { save_scope_as = awow_other_mother }
+        scope:awow_mother = { awow_start_same_sex_pregnancy_effect = yes }
+        clear_saved_scope = awow_mother
+        clear_saved_scope = awow_other_mother
+    }
+}
