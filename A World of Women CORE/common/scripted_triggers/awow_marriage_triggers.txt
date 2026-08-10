@@ -4,12 +4,4 @@
     is_betrothed = no
     is_concubine = no
     can_marry_trigger = yes
-    NOT = { has_character_flag = awow_same_sex_betrothal }
-}
-
-awow_can_marry_betrothed_trigger = {
-    has_character_flag = awow_same_sex_betrothal
-    is_adult = yes
-    is_married = no
-    is_betrothed = no
 }

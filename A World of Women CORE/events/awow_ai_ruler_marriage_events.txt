@@ -2,8 +2,8 @@
 
 # Fires once per year from AWOW's randomized yearly character pulse for each
 # eligible AI ruler.
-# Unmarried adult AI rulers attempt to find spouses and arrange marriages and betrothals for children
-# (variables + flags), fulfilled at adulthood by randomized betrothal maintenance.
+# Unmarried adult AI rulers attempt to find spouses for themselves and their
+# adult children.
 awow_ai_marriage.0001 = {
     type = character_event
     hidden = yes
@@ -15,6 +15,5 @@ awow_ai_marriage.0001 = {
     immediate = {
         awow_ai_ruler_find_spouse_effect = yes
         awow_ai_ruler_find_spouse_for_child_effect = yes
-        awow_betrothe_child_effect = yes
     }
 }

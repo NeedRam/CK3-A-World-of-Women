@@ -3,7 +3,6 @@
 random_yearly_everyone_pulse = {
     on_actions = {
         awow_random_yearly_ruler_marriage_pulse
-        awow_random_yearly_betrothal_maintenance_pulse
         awow_random_yearly_world_maintenance_pulse
     }
 }
@@ -17,18 +16,6 @@ awow_random_yearly_ruler_marriage_pulse = {
     }
     events = {
         awow_ai_marriage.0001
-    }
-}
-
-awow_random_yearly_betrothal_maintenance_pulse = {
-    trigger = {
-        OR = {
-            has_character_flag = awow_same_sex_betrothal
-            has_character_flag = awow_betrothal_processing
-        }
-    }
-    effect = {
-        awow_betrothal_maintenance_effect = yes
     }
 }
 
