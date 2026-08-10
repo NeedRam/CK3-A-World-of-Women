@@ -6,6 +6,6 @@ tags={
 	"Fixes"
 	"Gameplay"
 }
-name="A World of Women Vanilla OVERRIDES"
+name="AWOW Vanilla Male Source OVERRIDES"
 supported_version="1.*.*"
-path="D:/Documents/GitHub/CK3mod1/A World of Women Vanilla OVERRIDES"
+path="D:/Documents/GitHub/CK3mod1/AWOW Vanilla Male Source OVERRIDES"
