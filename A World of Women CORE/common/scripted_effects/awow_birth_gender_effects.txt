@@ -97,6 +97,62 @@ awow_birth_gender_roll_100 = {
     set_pregnancy_gender = female
 }
 
+# Runs from on_pregnancy_mother. The native pregnancy supplies the carrying
+# mother as root and the other parent through father/real_father scopes.
+awow_apply_birth_gender_effect = {
+    save_scope_as = awow_mother
+    if = {
+        limit = { exists = scope:real_father }
+        scope:real_father = { save_scope_as = awow_other_mother }
+    }
+    else_if = {
+        limit = { exists = scope:father }
+        scope:father = { save_scope_as = awow_other_mother }
+    }
+
+    if = {
+        limit = {
+            OR = {
+                is_ai = no
+                AND = {
+                    exists = scope:awow_other_mother
+                    scope:awow_other_mother = { is_ai = no }
+                }
+            }
+        }
+        awow_birth_gender_player_roll = yes
+    }
+    else_if = {
+        limit = {
+            is_ai = yes
+            OR = {
+                NOT = { exists = scope:awow_other_mother }
+                scope:awow_other_mother = { is_ai = yes }
+            }
+            OR = {
+                AND = {
+                    exists = dynasty
+                    any_player = { dynasty = prev.dynasty }
+                }
+                AND = {
+                    exists = scope:awow_other_mother
+                    scope:awow_other_mother = {
+                        exists = dynasty
+                        any_player = { dynasty = prev.dynasty }
+                    }
+                }
+            }
+        }
+        awow_birth_gender_dynasty_roll = yes
+    }
+    else = {
+        awow_birth_gender_world_roll = yes
+    }
+
+    clear_saved_scope = awow_mother
+    clear_saved_scope = awow_other_mother
+}
+
 awow_birth_gender_player_roll = {
     if = {
         limit = { has_game_rule = awow_birth_gender_player_100 }

@@ -1,4 +1,4 @@
-# CK3 invokes this once per character on individually randomized dates. These
+﻿# CK3 invokes this once per character on individually randomized dates. These
 # handlers replace the former January 1 global scans.
 random_yearly_everyone_pulse = {
     on_actions = {
@@ -10,7 +10,6 @@ random_yearly_everyone_pulse = {
 
 awow_random_yearly_ruler_marriage_pulse = {
     trigger = {
-        exists = any_player
         is_ai = yes
         is_adult = yes
         is_playable_character = yes
@@ -23,7 +22,6 @@ awow_random_yearly_ruler_marriage_pulse = {
 
 awow_random_yearly_betrothal_maintenance_pulse = {
     trigger = {
-        exists = any_player
         OR = {
             has_character_flag = awow_same_sex_betrothal
             has_character_flag = awow_betrothal_processing

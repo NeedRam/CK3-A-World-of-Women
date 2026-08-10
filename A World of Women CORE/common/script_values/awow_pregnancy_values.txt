@@ -1,9 +1,4 @@
-﻿# Deprecated #############################
-awow_pregnancy_scheduler_days_value = {
-    value = 69
-}
-
-awow_impregnation_chance_value = {
+﻿awow_impregnation_chance_value = {
     # Both partners are checked immediately before this value is rolled. Average their
     # fertility rather than adding it outright: two 100% fertile women produce
     # a ~29% conception chance on the randomized annual pulse.
@@ -46,54 +41,5 @@ awow_impregnation_chance_value = {
     }
     round = yes
     min = 15
-    max = 95
-}
-
-awow_pregnancy_twin_chance_value = {
-    # Fecund carriers remain more likely to have twins, while especially
-    # fertile conceptions receive a small additional chance.
-    value = 2
-    add = {
-        value = awow_impregnation_chance_value
-        subtract = 50
-        multiply = 0.05
-        min = 0
-    }
-    if = {
-        limit = { scope:awow_mother = { has_trait = fecund } }
-        add = 3
-    }
-    if = {
-        limit = { scope:awow_mother = { has_trait = infertile } }
-        subtract = 5
-    }
-    round = yes
-    min = 0
-    max = 95
-}
-
-awow_pregnancy_triplet_chance_value = {
-    # Preserve wedding-fertility variation at one tenth of the old rates.
-    value = 0
-    if = {
-        limit = {
-            OR = {
-                scope:awow_mother = { has_relation_wedding_very_good_fertility = scope:awow_other_mother }
-                scope:awow_other_mother = { has_relation_wedding_very_good_fertility = scope:awow_mother }
-            }
-        }
-        add = 2
-    }
-    else_if = {
-        limit = {
-            OR = {
-                scope:awow_mother = { has_relation_wedding_good_fertility = scope:awow_other_mother }
-                scope:awow_other_mother = { has_relation_wedding_good_fertility = scope:awow_mother }
-            }
-        }
-        add = 1
-    }
-    round = yes
-    min = 0
     max = 95
 }

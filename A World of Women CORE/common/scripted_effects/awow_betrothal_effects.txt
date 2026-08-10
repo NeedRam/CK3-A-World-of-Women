@@ -1,8 +1,7 @@
-# Custom same-sex betrothal system.
+﻿# Custom same-sex betrothal system.
 # Vanilla betrothals use create_betrothal / create_betrothal_matrilineal,
-# but fulfillment calls marry / marry_matrilineal, which crash on same-sex
-# pairs. This system uses variables + flags instead, and calls
-# marry_same_sex directly at fulfillment.
+# but AWOW retains variables and flags so it can apply its own maintenance and
+# alliance cleanup. Native CK3 now accepts the same-sex marriage at fulfillment.
 
 #########################################
 # --------- Fulfillment Pulse --------- #
@@ -56,7 +55,7 @@ awow_betrothal_maintenance_effect = {
             modifier = awow_betrothed_opinion
         }
         var:awow_betrothed_to = {
-            marry_same_sex = prev
+            marry = prev
             remove_opinion = {
                 target = prev
                 modifier = awow_betrothed_opinion
