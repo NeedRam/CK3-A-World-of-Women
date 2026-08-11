@@ -296,9 +296,13 @@ game_rule_inversed_gender_equality_effect = {
             if = {
                 limit = { has_doctrine = doctrine_gender_male_dominated }
                 remove_doctrine = doctrine_gender_male_dominated
-                add_doctrine = doctrine_clerical_gender_female_only
+                add_doctrine = doctrine_gender_female_dominated
             }
-            #Else: equal, do nothing
+            else_if = {
+                limit = { has_doctrine = doctrine_gender_equal }
+                remove_doctrine = doctrine_gender_equal
+                add_doctrine = doctrine_gender_female_dominated
+            }
 
             ## DOCTRINE_CLERICAL_GENDER
             if = {
@@ -306,7 +310,11 @@ game_rule_inversed_gender_equality_effect = {
                 remove_doctrine = doctrine_clerical_gender_male_only
                 add_doctrine = doctrine_clerical_gender_female_only
             }
-            #Else: either, do nothing
+            else_if = {
+                limit = { has_doctrine = doctrine_clerical_gender_either }
+                remove_doctrine = doctrine_clerical_gender_either
+                add_doctrine = doctrine_clerical_gender_female_only
+            }
 
             ## DOCTRINE_ADULTERY_MEN & DOCTRINE_ADULTERY_WOMEN
             # Men and women swap doctrine
