@@ -58,4 +58,7 @@
 
     pool = faith
     court = yes
+    # City titles can retain male_only_law in Republics
+    # Use the supported clergy policy so fallback generation follows AWOW's female-only clerical doctrine instead of the title law.
+    gender = clergy
 }
