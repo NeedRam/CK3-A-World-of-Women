@@ -1,0 +1,49 @@
+﻿ufg_native_history_explicit_male = {
+	name = ufg_native_name_explicit_male_history
+	female = no
+	culture = "irish"
+	religion = "catholic"
+	1000.1.1 = { birth = "1000.1.1" }
+	1025.1.1 = { add_spouse = ufg_native_history_ordinary_spouse }
+}
+
+ufg_native_history_ordinary_spouse = {
+	name = ufg_native_name_ordinary_spouse
+	female = no
+	culture = "irish"
+	religion = "catholic"
+	1002.1.1 = { birth = "1002.1.1" }
+}
+
+ufg_native_history_unspecified = {
+	name = ufg_native_name_unspecified_history
+	culture = "irish"
+	religion = "catholic"
+	1004.1.1 = { birth = "1004.1.1" }
+	1027.1.1 = { add_matrilineal_spouse = ufg_native_history_matrilineal_spouse }
+}
+
+ufg_native_history_matrilineal_spouse = {
+	name = ufg_native_name_matrilineal_spouse
+	female = no
+	culture = "irish"
+	religion = "catholic"
+	1006.1.1 = { birth = "1006.1.1" }
+}
+
+ufg_native_history_same_sex_baseline = {
+	name = ufg_native_name_same_sex_baseline
+	female = no
+	culture = "irish"
+	religion = "catholic"
+	1008.1.1 = { birth = "1008.1.1" }
+	1030.1.1 = { add_same_sex_spouse = ufg_native_history_same_sex_spouse }
+}
+
+ufg_native_history_same_sex_spouse = {
+	name = ufg_native_name_same_sex_spouse
+	female = no
+	culture = "irish"
+	religion = "catholic"
+	1010.1.1 = { birth = "1010.1.1" }
+}

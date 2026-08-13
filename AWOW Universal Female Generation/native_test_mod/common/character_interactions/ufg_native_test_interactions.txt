@@ -1,0 +1,172 @@
+﻿ufg_native_run_history_test_interaction = {
+	category = interaction_category_uncategorized
+	icon = debug_chars
+	common_interaction = yes
+	use_diplomatic_range = no
+	ignores_pending_interaction_block = yes
+	auto_accept = yes
+
+	is_shown = {
+		debug_only = yes
+		scope:actor = scope:recipient
+	}
+
+	on_accept = {
+		hidden_effect = {
+		if = {
+			limit = {
+				character:ufg_native_history_explicit_male = {
+					is_female = yes
+					is_spouse_of = character:ufg_native_history_ordinary_spouse
+				}
+			}
+			debug_log = "UFG_NATIVE_TEST_PASS: Explicit-male history and add_spouse resolved to a female-female marriage."
+		}
+		else = {
+			debug_log = "UFG_NATIVE_TEST_FAIL: Explicit-male history or add_spouse result is incorrect."
+		}
+		if = {
+			limit = {
+				character:ufg_native_history_unspecified = {
+					is_female = yes
+					is_spouse_of = character:ufg_native_history_matrilineal_spouse
+				}
+			}
+			debug_log = "UFG_NATIVE_TEST_PASS: Unspecified history and add_matrilineal_spouse resolved to a female-female marriage."
+		}
+		else = {
+			debug_log = "UFG_NATIVE_TEST_FAIL: Unspecified history or add_matrilineal_spouse result is incorrect."
+		}
+		if = {
+			limit = {
+				character:ufg_native_history_same_sex_baseline = {
+					is_female = yes
+					is_spouse_of = character:ufg_native_history_same_sex_spouse
+				}
+			}
+			debug_log = "UFG_NATIVE_TEST_PASS: Existing add_same_sex_spouse history behavior remains valid."
+		}
+		else = {
+			debug_log = "UFG_NATIVE_TEST_FAIL: Existing add_same_sex_spouse history behavior is incorrect."
+		}
+		}
+	}
+}
+
+ufg_native_run_runtime_test_interaction = {
+	category = interaction_category_uncategorized
+	icon = debug_chars
+	common_interaction = yes
+	use_diplomatic_range = no
+	ignores_pending_interaction_block = yes
+	auto_accept = yes
+
+	is_shown = {
+		debug_only = yes
+		scope:actor = scope:recipient
+	}
+
+	on_accept = {
+		hidden_effect = {
+			create_character = {
+				name = "UFG Explicit Male Unrelated"
+				gender = male
+				age = 30
+				random_traits = no
+				culture = scope:actor.culture
+				faith = scope:actor.faith
+				dynasty = none
+				employer = scope:actor
+				save_scope_as = ufg_native_explicit_male_unrelated
+			}
+			create_character = {
+				name = "UFG Chance Male Unrelated"
+				gender_female_chance = 0
+				age = 30
+				random_traits = no
+				culture = scope:actor.culture
+				faith = scope:actor.faith
+				dynasty = none
+				employer = scope:actor
+				save_scope_as = ufg_native_default_unrelated
+			}
+			create_character = {
+				name = "UFG Template Male Unrelated"
+				template = ufg_native_test_male_template
+				gender = male
+				culture = scope:actor.culture
+				faith = scope:actor.faith
+				dynasty = none
+				employer = scope:actor
+				save_scope_as = ufg_native_template_unrelated
+			}
+			create_character = {
+				name = "UFG Player Dynasty Male"
+				gender = male
+				age = 30
+				random_traits = no
+				culture = scope:actor.culture
+				faith = scope:actor.faith
+				dynasty_house = scope:actor.house
+				employer = scope:actor
+				save_scope_as = ufg_native_player_dynasty_male
+			}
+
+			if = {
+				limit = {
+					scope:ufg_native_explicit_male_unrelated ?= { is_female = yes }
+					scope:ufg_native_default_unrelated ?= { is_female = yes }
+					scope:ufg_native_template_unrelated ?= { is_female = yes }
+				}
+				debug_log = "UFG_NATIVE_TEST_PASS: Explicit-male, zero-female-chance, and template unrelated NPCs resolved female."
+			}
+			else = {
+				debug_log = "UFG_NATIVE_TEST_FAIL: One or more unrelated runtime NPCs did not resolve female."
+			}
+			if = {
+				limit = {
+					scope:ufg_native_player_dynasty_male ?= {
+						is_female = no
+						house = scope:actor.house
+					}
+				}
+				debug_log = "UFG_NATIVE_TEST_PASS: Explicit-male current-player-dynasty character remained male."
+			}
+			else = {
+				debug_log = "UFG_NATIVE_TEST_FAIL: Current-player-dynasty exemption failed or the requested house was not assigned in time."
+			}
+		}
+	}
+}
+
+ufg_native_prepare_forced_male_child_birth_test_interaction = {
+	category = interaction_category_uncategorized
+	icon = debug_chars
+	common_interaction = yes
+	use_diplomatic_range = no
+	ignores_pending_interaction_block = yes
+	auto_accept = yes
+
+	is_shown = {
+		debug_only = yes
+		scope:actor = {
+			is_female = yes
+			is_pregnant = no
+		}
+		scope:recipient = {
+			is_alive = yes
+			is_adult = yes
+		}
+	}
+
+	on_accept = {
+		hidden_effect = {
+			scope:actor = {
+				add_character_flag = ufg_native_forced_male_child_birth_test_mother
+				make_pregnant_no_checks = { father = scope:recipient }
+				set_pregnancy_gender = male
+			}
+			debug_log = "UFG_NATIVE_TEST_INFO: Female actor is pregnant with a forced-male child; on_birth_child will score the child's gender."
+		}
+	}
+}
