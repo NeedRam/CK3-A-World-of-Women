@@ -1,0 +1,165 @@
+﻿# AWOW same-sex marriage compatibility override
+# Vanilla source: common/character_interactions/00_marriage_interactions.txt
+# Generated for CK3 1.19.0.6; source SHA256: 681a9b669e5a16642a197b6fe16085193dfbb99a398d0e20e86173f5ac6de219
+# Opposite-sex logic is preserved; only same-sex-specific scoring blocks are removed.
+
+ai_make_concubine_interaction = {
+	hidden = yes
+
+	ai_targets = {
+		ai_recipients = prisoners
+	}
+	ai_targets = {
+		ai_recipients = courtiers
+		max = 10
+	}
+	ai_target_quick_trigger = {
+		adult = yes
+		owner_attracted = yes # Not optimal, but saves a lot of performance
+	}
+	ai_frequency_by_tier = {
+		barony = 0
+		county = 60
+		duchy = 12
+		kingdom = 12
+		empire = 12
+		hegemony = 3
+	}
+
+	ai_potential = {
+		is_playable_character = yes
+		is_adult = yes
+		fertility > 0
+		allowed_more_concubines = yes
+		NOR = {
+			has_trait = chaste
+			has_trait = celibate
+			has_sexuality = asexual
+		}
+	}
+
+	is_shown = {
+		make_concubine_is_shown_trigger = yes
+	}
+
+	is_valid_showing_failures_only = {
+		make_concubine_is_valid_trigger = yes
+	}
+
+	auto_accept = yes
+
+	ai_will_do = {
+		base = 0
+
+		modifier = { # Basic Filtering
+			add = 100
+			scope:actor = {
+				number_of_concubines < number_of_desired_concubines
+			}
+			scope:recipient = {
+				can_have_children_with = { CHARACTER = scope:actor } # Only if you can have kids since this is about fertility and genetic traits
+				fertility > 0.2
+				is_young_character = yes
+			}
+		}
+
+		modifier = {
+			add = 100
+			scope:recipient = {
+				is_imprisoned_by = scope:actor
+				can_have_children_with = { CHARACTER = scope:actor } # Only if you can have kids since this is about fertility and genetic traits
+				OR = {
+					is_lowborn = no
+					num_of_good_genetic_traits > 0
+				}
+				fertility > 0.1
+				trigger_if = {
+					limit = {
+						is_female = yes
+					}
+					is_aging_character = no
+				}
+			}
+		}
+
+
+
+
+		# Unity modifiers
+		evaluate_action_increasing_house_unity = {
+			VALUE = 100
+		}
+
+		modifier = { # Incest Filtering: Hard NO!
+			factor = 0
+			scope:actor = {
+				relation_with_character_is_incestuous_in_my_faith_trigger = { CHARACTER = scope:recipient }
+				NOR = {
+					accepts_incest_with_trigger = { CHARACTER = scope:recipient }
+					sexually_liberal_trigger = yes
+					AND = {
+						primary_heir ?= { dynasty != root.dynasty	}
+						NOT = {
+							primary_title = {
+								any_title_heir = {	dynasty = root.dynasty 	}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		modifier = { # Incest Filtering: Not likely, but keep the door open...
+			factor = 0.2
+			scope:actor = {
+				relation_with_character_is_incestuous_in_my_faith_trigger = { CHARACTER = scope:recipient }
+				OR = {
+					accepts_incest_with_trigger = { CHARACTER = scope:recipient }
+					sexually_liberal_trigger = yes
+					AND = {
+						primary_heir ?= { dynasty != root.dynasty	}
+						NOT = {
+							primary_title = {
+								any_title_heir = {	dynasty = root.dynasty 	}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		modifier = { # Less likely if married to a player and the target is the player heir
+			factor = 0.4
+			scope:actor = {
+				any_spouse = {
+					is_ai = no
+					scope:recipient = {
+						OR = {
+							is_primary_heir_of = prev
+							is_heir_of = prev
+						}
+					}
+				}
+			}
+		}
+	}
+
+	on_accept = {
+		scope:actor = {
+			save_scope_as = secondary_actor
+		}
+		scope:recipient = {
+			save_scope_as = secondary_recipient
+		}
+		concubine_on_accept_effect = yes
+
+		# If we're a clan this interaction affects unity
+		add_clan_unity_interaction_effect = {
+			CHARACTER = scope:actor
+			TARGET = scope:recipient
+			VALUE = minor_unity_gain
+			DESC = clan_unity_concubinage.desc
+			REVERSE_NON_HOUSE_TARGET = no
+		}
+	}
+}

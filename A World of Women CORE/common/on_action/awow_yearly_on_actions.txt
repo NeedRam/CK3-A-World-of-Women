@@ -12,10 +12,11 @@ awow_random_yearly_ruler_marriage_pulse = {
         is_ai = yes
         is_adult = yes
         is_playable_character = yes
-        awow_can_marry_trigger = yes
+        highest_held_title_tier >= tier_county
     }
     events = {
         awow_ai_marriage.0001
+        awow_ai_marriage.0002
     }
 }
 

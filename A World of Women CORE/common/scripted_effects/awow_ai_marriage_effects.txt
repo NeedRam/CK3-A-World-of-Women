@@ -28,6 +28,7 @@ awow_ai_ruler_find_spouse_for_child_effect = {
     save_scope_as = awow_ruler
     random_child = {
         limit = {
+            is_ai = yes
             is_adult = yes
             awow_can_marry_trigger = yes
         }
@@ -48,12 +49,11 @@ awow_find_spouse_effect = {
 
     # Try Ruler > Child > Family
     # Prefer Realm / Ally
-    every_living_character = {
+    every_ruler = {
         limit = {
             this != root
-            is_adult = yes
+            is_ai = yes
             in_diplomatic_range = scope:awow_ruler
-            awow_can_marry_trigger = yes
             is_playable_character = yes
         }
         save_scope_as = awow_other_ruler
@@ -63,7 +63,7 @@ awow_find_spouse_effect = {
     }
 
     if = {
-        limit = { is_married = no }
+        limit = { awow_can_marry_trigger = yes }
 
         # Try a Courtier
         random_courtier = {
@@ -91,20 +91,38 @@ awow_find_spouse_walk_effect = {
 # Ruler
 awow_find_spouse_try_ruler_effect = {
     save_scope_as = awow_potential_spouse
-    random = {
-        chance = {
-            value = 1
-            if = {
-                limit = {
-                    OR = { # in realm/ally
-                        top_liege = scope:awow_ruler.top_liege
-                        is_allied_to = scope:awow_ruler
-                    }
-                }
-                add = 0.5
-            }
+    if = {
+        limit = {
+            is_adult = yes
+            awow_can_marry_trigger = yes
+            scope:awow_single_gal = { awow_can_marry_trigger = yes }
         }
-        awow_try_marriage_interaction_effect = yes
+        random = {
+            chance = {
+                value = 1
+                if = {
+                    limit = {
+                        OR = { # in realm/ally
+                            top_liege = scope:awow_ruler.top_liege
+                            is_allied_to = scope:awow_ruler
+                        }
+                    }
+                    add = 1
+                }
+                if = {
+                    limit = { scope:awow_single_gal = { is_ruler = no } }
+                    add = 5
+                }
+                if = {
+                    limit = {
+                        scope:awow_single_gal = { is_ruler = no }
+                        top_liege = scope:awow_ruler
+                    }
+                    add = 23
+                }
+            }
+            awow_try_marriage_interaction_effect = yes
+        }
     }
     clear_saved_scope = awow_potential_spouse
 }
@@ -115,7 +133,7 @@ awow_find_spouse_try_child_of_ruler_effect = {
     # Try their child
     if = {
         limit = {
-            scope:awow_ruler = { is_married = no }
+            scope:awow_single_gal = { awow_can_marry_trigger = yes }
             any_child = {
                 is_adult = yes
                 awow_can_marry_trigger = yes
@@ -129,7 +147,7 @@ awow_find_spouse_try_child_of_ruler_effect = {
             save_scope_as = awow_potential_spouse
             random = {
                 chance = {
-                    value = 1
+                    value = 5
                     if = {
                         limit = {
                             OR = { # in realm/ally
@@ -137,7 +155,23 @@ awow_find_spouse_try_child_of_ruler_effect = {
                                 is_allied_to = scope:awow_ruler
                             }
                         }
-                        add = 1
+                        add = 5
+                    }
+                    if = {
+                        limit = {
+                            scope:awow_single_gal = { is_ruler = yes }
+                            OR = { # in realm/ally
+                                top_liege = scope:awow_ruler.top_liege
+                                is_allied_to = scope:awow_ruler
+                            }
+                        }
+                        add = 10
+                    }
+                    if = {
+                        limit = {
+                            top_liege = scope:awow_single_gal
+                        }
+                        add = 10
                     }
                 }
                 awow_try_marriage_interaction_effect = yes
@@ -153,7 +187,7 @@ awow_find_spouse_try_family_of_ruler_effect = {
     # Try their family
     if = {
         limit = {
-            scope:awow_ruler = { is_married = no }
+            scope:awow_single_gal = { awow_can_marry_trigger = yes }
             any_close_family_member = {
                 is_adult = yes
                 awow_can_marry_trigger = yes
@@ -167,7 +201,7 @@ awow_find_spouse_try_family_of_ruler_effect = {
             save_scope_as = awow_potential_spouse
             random = {
                 chance = {
-                    value = 0.25
+                    value = 2
                     if = {
                         limit = {
                             OR = { # in realm/ally
@@ -175,7 +209,17 @@ awow_find_spouse_try_family_of_ruler_effect = {
                                 is_allied_to = scope:awow_ruler
                             }
                         }
-                        add = 0.75
+                        add = 3
+                    }
+                    if = {
+                        limit = {
+                            scope:awow_single_gal = { is_ruler = no }
+                            OR = { # in realm/ally
+                                top_liege = scope:awow_ruler.top_liege
+                                is_allied_to = scope:awow_ruler
+                            }
+                        }
+                        add = 5
                     }
                 }
                 awow_try_marriage_interaction_effect = yes
@@ -190,6 +234,8 @@ awow_try_marriage_interaction_effect = {
     if = {
         # run_interaction logs an error when the fully populated proposal is invalid.
         limit = {
+            scope:awow_single_gal = { awow_can_marry_trigger = yes }
+            scope:awow_potential_spouse = { awow_can_marry_trigger = yes }
             scope:awow_ruler = {
                 is_character_interaction_potentially_accepted = {
                     interaction = arrange_marriage_interaction

@@ -8,12 +8,26 @@ awow_ai_marriage.0001 = {
     type = character_event
     hidden = yes
     trigger = {
-        is_adult = yes
-        is_ai = yes
         awow_can_marry_trigger = yes
     }
     immediate = {
         awow_ai_ruler_find_spouse_effect = yes
+    }
+}
+
+awow_ai_marriage.0002 = {
+    type = character_event
+    hidden = yes
+    trigger = {
+        any_child = {
+            is_adult = yes
+            awow_can_marry_trigger = yes
+        }
+    }
+    immediate = {
         awow_ai_ruler_find_spouse_for_child_effect = yes
     }
 }
+
+
+
