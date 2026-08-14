@@ -229,3 +229,24 @@ awow_birth_gender_player = {
     }
 
 }
+
+awow_ai_matchmaking_mode = {
+    categories = {
+        tweaks
+        game_rule_category_awow
+    }
+
+    default = awow_ai_matchmaking_yearly_distributed
+
+    awow_ai_matchmaking_disabled = {
+
+    }
+
+    awow_ai_matchmaking_yearly_distributed = {
+
+    }
+
+    awow_ai_matchmaking_yearly_burst = {
+
+    }
+}

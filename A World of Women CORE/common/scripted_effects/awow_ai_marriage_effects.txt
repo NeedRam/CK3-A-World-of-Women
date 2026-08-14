@@ -5,6 +5,18 @@
 #########################################################
 ########### ----------- MARRIAGES ----------- ###########
 #########################################################
+awow_ai_matchmaking_burst_effect = {
+    every_living_character = {
+        limit = {
+            is_ai = yes
+            is_adult = yes
+            is_playable_character = yes
+            highest_held_title_tier >= tier_county
+        }
+        trigger_event = awow_ai_marriage.0001
+        trigger_event = awow_ai_marriage.0002
+    }
+}
 
 #######################################
 # --------- Ruler Marriage --------- #
@@ -232,10 +244,10 @@ awow_find_spouse_try_family_of_ruler_effect = {
 # --------- Marriage Interaction --------- #
 awow_try_marriage_interaction_effect = {
     if = {
-        # run_interaction logs an error when the fully populated proposal is invalid.
         limit = {
             scope:awow_single_gal = { awow_can_marry_trigger = yes }
             scope:awow_potential_spouse = { awow_can_marry_trigger = yes }
+            # run_interaction logs an error when the fully populated proposal is invalid.
             scope:awow_ruler = {
                 is_character_interaction_potentially_accepted = {
                     interaction = arrange_marriage_interaction
