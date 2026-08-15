@@ -5,3 +5,73 @@
     is_concubine = no
     can_marry_trigger = yes
 }
+
+# Every AI ruler in diplomatic range may contribute valid potential spouses to the weighted matchmaking pool.
+awow_valid_other_ruler_trigger = {
+    this != scope:awow_ruler
+    is_ai = yes
+    is_ruler = yes
+    in_diplomatic_range = scope:awow_ruler
+}
+
+# Exclusive relationship categories rank direct liege/vassal above fellow vassal above ally.
+awow_other_ruler_direct_vassal_trigger = {
+    OR = {
+        is_vassal_of = scope:awow_ruler
+        scope:awow_ruler = {
+            is_vassal_of = scope:awow_other_ruler
+        }
+    }
+}
+
+awow_other_ruler_fellow_vassal_trigger = {
+    this != scope:awow_ruler
+    NOT = { awow_other_ruler_direct_vassal_trigger = yes }
+    exists = liege
+    scope:awow_ruler = { exists = liege }
+    liege = scope:awow_ruler.liege
+}
+
+awow_other_ruler_allied_trigger = {
+    this != scope:awow_ruler
+    is_allied_to = scope:awow_ruler
+    NOR = {
+        awow_other_ruler_direct_vassal_trigger = yes
+        awow_other_ruler_fellow_vassal_trigger = yes
+    }
+}
+
+# Two landed rulers are never paired, while an unlanded character may marry a landed ruler to create a new alliance.
+awow_matchmaking_potential_spouse_trigger = {
+    save_temporary_scope_as = awow_potential_spouse
+    is_adult = yes
+    awow_can_marry_trigger = yes
+    scope:awow_single_gal = {
+        can_marry_character_trigger = {
+            CHARACTER = scope:awow_potential_spouse
+        }
+    }
+    OR = {
+        is_landed = no
+        scope:awow_single_gal = { is_landed = no }
+    }
+}
+
+# Full proposal validity keeps rejected arrange-marriage proposals out of the weighted draw.
+awow_valid_marriage_interaction_trigger = {
+    save_temporary_scope_as = awow_potential_spouse
+    scope:awow_ruler = {
+        is_character_interaction_potentially_accepted = {
+            interaction = arrange_marriage_interaction
+            recipient = scope:awow_other_ruler
+            secondary_actor = scope:awow_single_gal
+            secondary_recipient = scope:awow_potential_spouse
+            required_response = yes
+        }
+    }
+}
+
+awow_weighted_potential_spouse_trigger = {
+    awow_matchmaking_potential_spouse_trigger = yes
+    awow_valid_marriage_interaction_trigger = yes
+}

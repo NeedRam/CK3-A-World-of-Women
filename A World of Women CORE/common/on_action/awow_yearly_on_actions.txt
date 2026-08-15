@@ -1,5 +1,4 @@
-﻿# CK3 invokes this once per character on individually randomized dates. These
-# handlers replace the former January 1 global scans.
+﻿# CK3 invokes this once per character on individually randomized dates instead of a January 2 global scan.
 random_yearly_everyone_pulse = {
     on_actions = {
         awow_random_yearly_ruler_marriage_pulse
@@ -13,7 +12,13 @@ awow_random_yearly_ruler_marriage_pulse = {
         is_ai = yes
         is_adult = yes
         is_playable_character = yes
-        highest_held_title_tier >= tier_county
+        OR = {
+            is_landless_adventurer = yes
+            AND = {
+                is_landed = yes
+                highest_held_title_tier >= tier_county
+            }
+        }
     }
     events = {
         awow_ai_marriage.0001
@@ -27,8 +32,7 @@ awow_random_yearly_world_maintenance_pulse = {
     }
 }
 
-# The burst setting intentionally evaluates all eligible rulers together on
-# January 1. The distributed setting above remains the default.
+# The optional burst setting evaluates all eligible rulers together on January 2; distributed scheduling remains the default.
 yearly_global_pulse = {
     on_actions = {
         awow_yearly_burst_ai_matchmaking_pulse

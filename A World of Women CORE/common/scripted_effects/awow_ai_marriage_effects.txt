@@ -1,7 +1,4 @@
-﻿# AWOW AI ruler marriage pulse effect.
-# Scoped to an unmarried adult AI ruler.
-# Attempts to find a spouse through multiple diplomatic channels:
-
+﻿# AWOW AI marriage effects for unmarried adult rulers and their children.
 #########################################################
 ########### ----------- MARRIAGES ----------- ###########
 #########################################################
@@ -11,7 +8,13 @@ awow_ai_matchmaking_burst_effect = {
             is_ai = yes
             is_adult = yes
             is_playable_character = yes
-            highest_held_title_tier >= tier_county
+            OR = {
+                is_landless_adventurer = yes
+                AND = {
+                    is_landed = yes
+                    highest_held_title_tier >= tier_county
+                }
+            }
         }
         trigger_event = awow_ai_marriage.0001
         trigger_event = awow_ai_marriage.0002
@@ -58,186 +61,309 @@ awow_ai_ruler_find_spouse_for_child_effect = {
 
 # --------- Spouse Finder --------- #
 awow_find_spouse_effect = {
+    awow_collect_ruler_courtier_potential_spouses_effect = yes
+    awow_build_weighted_potential_spouse_pool_effect = yes
+    awow_select_weighted_potential_spouse_effect = yes
+}
 
-    # Try Ruler > Child > Family
-    # Prefer Realm / Ally
-    every_ruler = {
-        limit = {
-            this != root
-            is_ai = yes
-            in_diplomatic_range = scope:awow_ruler
-            is_playable_character = yes
-        }
+# --------- Weight Builder --------- #
+awow_collect_ruler_courtier_potential_spouses_effect = {
+    scope:awow_ruler = {
         save_scope_as = awow_other_ruler
-        awow_find_spouse_walk_effect = yes
+        every_courtier = {
+            limit = { awow_weighted_potential_spouse_trigger = yes }
+            awow_store_tertiary_potential_spouse_effect = yes
+        }
         clear_saved_scope = awow_other_ruler
-
     }
+}
 
+awow_build_weighted_potential_spouse_pool_effect = {
+    every_ruler = {
+        limit = { awow_valid_other_ruler_trigger = yes }
+        save_scope_as = awow_other_ruler
+
+        awow_collect_potential_spouses_effect = yes
+
+        clear_saved_scope = awow_other_ruler
+    }
+}
+
+awow_collect_potential_spouses_effect = {
     if = {
-        limit = { awow_can_marry_trigger = yes }
-
-        # Try a Courtier
-        random_courtier = {
-            limit = {
-                is_adult = yes
-                awow_can_marry_trigger = yes
-            }
-            save_scope_as = awow_potential_spouse
-            random = {
-                chance = 5
-                marry = scope:awow_potential_spouse
-            }
-            clear_saved_scope = awow_potential_spouse
-        }
+        limit = { scope:awow_single_gal = scope:awow_ruler }
+        awow_collect_ruler_potential_spouses_effect = yes
+    }
+    else = {
+        awow_collect_child_potential_spouses_effect = yes
     }
 }
 
-# --------- Walk through Ruler > Children > Family --------- #
-awow_find_spouse_walk_effect = {
-    awow_find_spouse_try_ruler_effect = yes
-    awow_find_spouse_try_child_of_ruler_effect = yes
-    awow_find_spouse_try_family_of_ruler_effect = yes
+awow_collect_ruler_potential_spouses_effect = {
+    if = {
+        limit = { awow_weighted_potential_spouse_trigger = yes }
+        awow_store_tertiary_potential_spouse_effect = yes
+    }
+    every_child = {
+        limit = { awow_weighted_potential_spouse_trigger = yes }
+        awow_store_primary_potential_spouse_effect = yes
+    }
+    every_close_family_member = {
+        limit = {
+            NOT = { is_child_of = scope:awow_other_ruler }
+            awow_weighted_potential_spouse_trigger = yes
+        }
+        awow_store_secondary_potential_spouse_effect = yes
+    }
 }
 
-# Ruler
-awow_find_spouse_try_ruler_effect = {
-    save_scope_as = awow_potential_spouse
+awow_collect_child_potential_spouses_effect = {
     if = {
         limit = {
-            is_adult = yes
-            awow_can_marry_trigger = yes
-            scope:awow_single_gal = { awow_can_marry_trigger = yes }
+            is_landed = yes
+            awow_weighted_potential_spouse_trigger = yes
         }
-        random = {
-            chance = {
-                value = 1
-                if = {
-                    limit = {
-                        OR = { # in realm/ally
-                            top_liege = scope:awow_ruler.top_liege
-                            is_allied_to = scope:awow_ruler
-                        }
-                    }
-                    add = 1
-                }
-                if = {
-                    limit = { scope:awow_single_gal = { is_ruler = no } }
-                    add = 5
-                }
-                if = {
-                    limit = {
-                        scope:awow_single_gal = { is_ruler = no }
-                        top_liege = scope:awow_ruler
-                    }
-                    add = 23
-                }
-            }
-            awow_try_marriage_interaction_effect = yes
-        }
+        awow_store_primary_potential_spouse_effect = yes
     }
-    clear_saved_scope = awow_potential_spouse
-}
-
-# Children
-awow_find_spouse_try_child_of_ruler_effect = {
-
-    # Try their child
-    if = {
+    every_child = {
+        limit = { awow_weighted_potential_spouse_trigger = yes }
+        awow_store_secondary_potential_spouse_effect = yes
+    }
+    every_close_family_member = {
         limit = {
-            scope:awow_single_gal = { awow_can_marry_trigger = yes }
-            any_child = {
-                is_adult = yes
-                awow_can_marry_trigger = yes
-            }
+            NOT = { is_child_of = scope:awow_other_ruler }
+            awow_weighted_potential_spouse_trigger = yes
         }
-        random_child = {
-            limit = {
-                is_adult = yes
-                awow_can_marry_trigger = yes
-            }
-            save_scope_as = awow_potential_spouse
-            random = {
-                chance = {
-                    value = 5
-                    if = {
-                        limit = {
-                            OR = { # in realm/ally
-                                top_liege = scope:awow_ruler.top_liege
-                                is_allied_to = scope:awow_ruler
-                            }
-                        }
-                        add = 5
-                    }
-                    if = {
-                        limit = {
-                            scope:awow_single_gal = { is_ruler = yes }
-                            OR = { # in realm/ally
-                                top_liege = scope:awow_ruler.top_liege
-                                is_allied_to = scope:awow_ruler
-                            }
-                        }
-                        add = 10
-                    }
-                    if = {
-                        limit = {
-                            top_liege = scope:awow_single_gal
-                        }
-                        add = 10
-                    }
-                }
-                awow_try_marriage_interaction_effect = yes
-            }
-            clear_saved_scope = awow_potential_spouse
-        }
+        awow_store_tertiary_potential_spouse_effect = yes
     }
 }
 
-# Family
-awow_find_spouse_try_family_of_ruler_effect = {
+# --------- Priority Weights --------- #
+awow_store_primary_potential_spouse_effect = {
+    scope:awow_ruler = {
+        set_variable = {
+            name = awow_potential_spouse_weight
+            value = 2000
+        }
+    }
+    awow_apply_other_ruler_relationship_weight_effect = yes
+    awow_store_best_potential_spouse_effect = yes
+}
 
-    # Try their family
+awow_store_secondary_potential_spouse_effect = {
+    scope:awow_ruler = {
+        set_variable = {
+            name = awow_potential_spouse_weight
+            value = 500
+        }
+    }
+    awow_apply_other_ruler_relationship_weight_effect = yes
+    awow_store_best_potential_spouse_effect = yes
+}
+
+awow_store_tertiary_potential_spouse_effect = {
+    scope:awow_ruler = {
+        set_variable = {
+            name = awow_potential_spouse_weight
+            value = 100
+        }
+    }
+    awow_apply_other_ruler_relationship_weight_effect = yes
+    awow_store_best_potential_spouse_effect = yes
+}
+
+awow_apply_other_ruler_relationship_weight_effect = {
+    awow_apply_potential_spouse_age_gap_weight_effect = yes
     if = {
         limit = {
-            scope:awow_single_gal = { awow_can_marry_trigger = yes }
-            any_close_family_member = {
-                is_adult = yes
-                awow_can_marry_trigger = yes
+            scope:awow_other_ruler = { awow_other_ruler_direct_vassal_trigger = yes }
+        }
+        awow_apply_direct_vassal_tier_weight_effect = yes
+    }
+    else_if = {
+        limit = {
+            scope:awow_other_ruler = { awow_other_ruler_fellow_vassal_trigger = yes }
+        }
+        scope:awow_ruler = {
+            change_variable = {
+                name = awow_potential_spouse_weight
+                multiply = 3
             }
         }
-        random_close_family_member = {
-            limit = {
-                is_adult = yes
-                awow_can_marry_trigger = yes
+    }
+    else_if = {
+        limit = {
+            scope:awow_other_ruler = { awow_other_ruler_allied_trigger = yes }
+        }
+        scope:awow_ruler = {
+            change_variable = {
+                name = awow_potential_spouse_weight
+                multiply = 2
             }
-            save_scope_as = awow_potential_spouse
-            random = {
-                chance = {
-                    value = 2
-                    if = {
-                        limit = {
-                            OR = { # in realm/ally
-                                top_liege = scope:awow_ruler.top_liege
-                                is_allied_to = scope:awow_ruler
-                            }
-                        }
-                        add = 3
-                    }
-                    if = {
-                        limit = {
-                            scope:awow_single_gal = { is_ruler = no }
-                            OR = { # in realm/ally
-                                top_liege = scope:awow_ruler.top_liege
-                                is_allied_to = scope:awow_ruler
-                            }
-                        }
-                        add = 5
-                    }
+        }
+    }
+    else = {
+        awow_apply_foreign_other_ruler_tier_gap_weight_effect = yes
+    }
+}
+
+# Direct-vassal weight scales by the actual subordinate's highest held title tier: barony x1, county x3, duchy x6, kingdom x9, empire x15.
+awow_apply_direct_vassal_tier_weight_effect = {
+    scope:awow_ruler = {
+        change_variable = {
+            name = awow_potential_spouse_weight
+            multiply = 3
+        }
+    }
+    if = {
+        limit = {
+            scope:awow_other_ruler = { is_vassal_of = scope:awow_ruler }
+        }
+        scope:awow_other_ruler = { save_temporary_scope_as = awow_direct_vassal }
+    }
+    else_if = {
+        limit = {
+            scope:awow_ruler = { is_vassal_of = scope:awow_other_ruler }
+        }
+        scope:awow_ruler = { save_temporary_scope_as = awow_direct_vassal }
+    }
+    if = {
+        limit = { exists = scope:awow_direct_vassal }
+        if = {
+            limit = { scope:awow_direct_vassal = { highest_held_title_tier = tier_barony } }
+            scope:awow_ruler = {
+                change_variable = {
+                    name = awow_potential_spouse_weight
+                    divide = 3
                 }
-                awow_try_marriage_interaction_effect = yes
             }
-            clear_saved_scope = awow_potential_spouse
         }
+        else_if = {
+            limit = { scope:awow_direct_vassal = { highest_held_title_tier >= tier_empire } }
+            scope:awow_ruler = {
+                change_variable = {
+                    name = awow_potential_spouse_weight
+                    multiply = 5
+                }
+            }
+        }
+        else_if = {
+            limit = { scope:awow_direct_vassal = { highest_held_title_tier >= tier_kingdom } }
+            scope:awow_ruler = {
+                change_variable = {
+                    name = awow_potential_spouse_weight
+                    multiply = 3
+                }
+            }
+        }
+        else_if = {
+            limit = { scope:awow_direct_vassal = { highest_held_title_tier >= tier_duchy } }
+            scope:awow_ruler = {
+                change_variable = {
+                    name = awow_potential_spouse_weight
+                    multiply = 2
+                }
+            }
+        }
+    }
+}
+
+awow_apply_potential_spouse_age_gap_weight_effect = {
+    while = {
+        count = {
+            value = scope:awow_single_gal.age
+            subtract = age
+            abs = yes
+            floor = yes
+        }
+        scope:awow_ruler = {
+            change_variable = {
+                name = awow_potential_spouse_weight
+                multiply = 0.95
+            }
+        }
+    }
+}
+
+# Makes a potential spouse from a foreign ruler less likely to be selected if the tier gap is large, but does not prevent it entirely.
+awow_apply_foreign_other_ruler_tier_gap_weight_effect = {
+    while = {
+        count = {
+            value = scope:awow_ruler.highest_held_title_tier
+            subtract = scope:awow_other_ruler.highest_held_title_tier
+            abs = yes
+            floor = yes
+        }
+        scope:awow_ruler = {
+            change_variable = {
+                name = awow_potential_spouse_weight
+                divide = 3
+            }
+        }
+    }
+}
+
+awow_store_best_potential_spouse_effect = {
+    if = {
+        limit = {
+            NOT = { is_in_list = awow_weighted_potential_spouses }
+        }
+        set_variable = {
+            name = awow_potential_spouse_weight
+            value = scope:awow_ruler.var:awow_potential_spouse_weight
+        }
+        set_variable = {
+            name = awow_potential_spouse_other_ruler
+            value = scope:awow_other_ruler
+        }
+        add_to_list = awow_weighted_potential_spouses
+    }
+    else_if = {
+        limit = {
+            scope:awow_ruler.var:awow_potential_spouse_weight > var:awow_potential_spouse_weight
+        }
+        set_variable = {
+            name = awow_potential_spouse_weight
+            value = scope:awow_ruler.var:awow_potential_spouse_weight
+        }
+        set_variable = {
+            name = awow_potential_spouse_other_ruler
+            value = scope:awow_other_ruler
+        }
+    }
+    scope:awow_ruler = { remove_variable = awow_potential_spouse_weight }
+}
+
+# --------- Select Random Spouse --------- #
+awow_select_weighted_potential_spouse_effect = {
+    random_in_list = {
+        list = awow_weighted_potential_spouses
+        weight = {
+            base = 0
+            modifier = {
+                add = {
+                    add = var:awow_potential_spouse_weight
+                }
+            }
+        }
+        save_scope_as = awow_potential_spouse
+        var:awow_potential_spouse_other_ruler = {
+            save_scope_as = awow_other_ruler
+        }
+        awow_try_marriage_interaction_effect = yes
+        clear_saved_scope = awow_other_ruler
+        clear_saved_scope = awow_potential_spouse
+    }
+    awow_clear_weighted_potential_spouse_pool_effect = yes
+}
+
+# --------- Clear Weights --------- #
+awow_clear_weighted_potential_spouse_pool_effect = {
+    every_in_list = {
+        list = awow_weighted_potential_spouses
+        remove_variable = awow_potential_spouse_weight
+        remove_variable = awow_potential_spouse_other_ruler
+        remove_from_list = awow_weighted_potential_spouses
     }
 }
 
@@ -246,16 +372,9 @@ awow_try_marriage_interaction_effect = {
     if = {
         limit = {
             scope:awow_single_gal = { awow_can_marry_trigger = yes }
-            scope:awow_potential_spouse = { awow_can_marry_trigger = yes }
-            # run_interaction logs an error when the fully populated proposal is invalid.
-            scope:awow_ruler = {
-                is_character_interaction_potentially_accepted = {
-                    interaction = arrange_marriage_interaction
-                    recipient = scope:awow_other_ruler
-                    secondary_actor = scope:awow_single_gal
-                    secondary_recipient = scope:awow_potential_spouse
-                    required_response = yes
-                }
+            scope:awow_potential_spouse = {
+                awow_matchmaking_potential_spouse_trigger = yes
+                awow_valid_marriage_interaction_trigger = yes
             }
         }
         run_interaction = {

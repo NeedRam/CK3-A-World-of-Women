@@ -1,9 +1,6 @@
 ﻿namespace = awow_ai_marriage
 
-# Fires from the selected AWOW AI matchmaking scheduler for each eligible AI
-# ruler.
-# Unmarried adult AI rulers attempt to find spouses for themselves and their
-# adult children.
+# Fires from the selected AWOW AI matchmaking scheduler so unmarried adult AI rulers find spouses for themselves and their adult children.
 awow_ai_marriage.0001 = {
     type = character_event
     hidden = yes
