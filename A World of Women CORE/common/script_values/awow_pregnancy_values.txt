@@ -5,7 +5,7 @@
     value = scope:awow_mother.fertility
     add = { value = scope:awow_other_mother.fertility }
     # ( ( ( 4.75 * 12 ) / 365 ) * 369 ) / 2
-    multiply = 14.406
+    multiply = 28.812
 
     # Give a ruler mother without a living child a deterministic heir
     # adjustment. All mothers then receive the same per-child reduction.
@@ -22,24 +22,37 @@
         }
         add = 100
     }
-    every_child = {
-        if = {
-            limit = { is_alive = yes }
-            add = -40
+    if = {
+        limit = {
+            scope:awow_mother = {
+                is_ruler = yes
+                NOT = {
+                    any_child = {
+                        is_alive = yes
+                    }
+                }
+            }
+        }
+        every_child = {
+            if = {
+                limit = { is_alive = yes }
+                add = -20
+            }
         }
     }
+
     if = {
         limit = { awow_using_elf_destiny_trigger = yes }
         if = {
             limit = { is_any_real_elf_type = yes }
-            add = 21.609 # 75% more children from elves
+            add = 28.812 # 100% more children from elves
         }
         else_if = {
             limit = { is_any_elf_type = yes }
-            add = 11.525 # 40% more children from half elves
+            add = 14.406 # 50% more children from half elves
         }
     }
     round = yes
-    min = 15
+    min = 25
     max = 95
 }

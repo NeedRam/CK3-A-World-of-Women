@@ -1,0 +1,120 @@
+﻿# Vanilla treats only opposite-sex pairs as capable of having children. AGP
+# permits either character to occupy either native parent role, so preserve the
+# vanilla opposite-sex case and add same-sex couples without allowing self-pairs.
+can_have_children_with = {
+	OR = {
+		sex_opposite_of = $CHARACTER$
+		sex_same_as = $CHARACTER$
+	}
+}
+
+# Same-sex acceptance removes the implicit self-exclusion supplied by
+# sex_opposite_of in vanilla, so make that exclusion explicit.
+allowed_to_marry_character_gender_trigger = {
+	this != $CHARACTER$
+	OR = {
+		AND = {
+			allowed_to_marry_same_sex_trigger = yes
+			sex_same_as = $CHARACTER$
+		}
+		sex_opposite_of = $CHARACTER$
+	}
+}
+
+# Vanilla object with an explicit self-pair guard added. The vanilla clause at
+# the end only rejects characters who are already spouses of one another.
+could_marry_character_trigger = {
+	save_temporary_scope_as = can_marry_check
+	this != $CHARACTER$
+	can_marry_common_trigger = yes
+	$CHARACTER$ = { can_marry_common_trigger = yes }
+	#Opposite genders if you don't have accepted same-sex marriage game rule enabled and your faith supports it
+	trigger_if = {
+		limit = {
+			$CHARACTER$ = { allowed_to_marry_same_sex_trigger = no }
+		}
+		sex_opposite_of = $CHARACTER$
+	}
+	#Have you recently divorced this character?
+	NOT = {
+		has_opinion_modifier = {
+			modifier = divorced_me_opinion
+			target = $CHARACTER$
+		}
+	}
+	#Faith hostility & consanguinity
+	trigger_if = {
+		limit = { NOT = { is_courtier_of = $CHARACTER$ } } #If you're someone's courtier, your liege can marry you anyway
+		faith = {
+			faith_allows_marriage_consanguinity_trigger = {
+				CHARACTER_1 = scope:can_marry_check
+				CHARACTER_2 = $CHARACTER$
+			}
+			#faith_hostility_level = {
+			#	target = $CHARACTER$.faith
+			#	value < faith_hostility_prevents_marriage_level
+			#}
+		}
+	}
+	trigger_if = {
+		limit = { $CHARACTER$ = { NOT = { is_courtier_of = scope:can_marry_check } } } #If you're someone's courtier, your liege can marry you anyway
+		$CHARACTER$.faith = {
+			faith_allows_marriage_consanguinity_trigger = {
+				CHARACTER_1 = scope:can_marry_check
+				CHARACTER_2 = $CHARACTER$
+			}
+			#faith_hostility_level = {
+			#	target = scope:can_marry_check.faith
+			#	value < faith_hostility_prevents_marriage_level
+			#}
+		}
+	}
+	NOT = {
+		scope:can_marry_check = { is_spouse_of = $CHARACTER$ }
+	}
+}
+
+# Same trigger as above with the exception of the recent divorce trigger.
+can_take_as_concubine_character_trigger = {
+	save_temporary_scope_as = can_marry_check
+	this != $CHARACTER$
+	can_marry_common_trigger = yes
+	$CHARACTER$ = { can_marry_common_trigger = yes }
+	#Opposite genders if you don't have accepted same-sex marriage game rule enabled and your faith supports it
+	trigger_if = {
+		limit = {
+			$CHARACTER$ = { allowed_to_marry_same_sex_trigger = no }
+		}
+		sex_opposite_of = $CHARACTER$
+	}
+	#Faith hostility & consanguinity
+	trigger_if = {
+		limit = { NOT = { is_courtier_of = $CHARACTER$ } } #If you're someone's courtier, your liege can marry you anyway
+		faith = {
+			faith_allows_marriage_consanguinity_trigger = {
+				CHARACTER_1 = scope:can_marry_check
+				CHARACTER_2 = $CHARACTER$
+			}
+			#faith_hostility_level = {
+			#	target = $CHARACTER$.faith
+			#	value < faith_hostility_prevents_marriage_level
+			#}
+		}
+	}
+	trigger_if = {
+		limit = { $CHARACTER$ = { NOT = { is_courtier_of = scope:can_marry_check } } } #If you're someone's courtier, your liege can marry you anyway
+		$CHARACTER$.faith = {
+			faith_allows_marriage_consanguinity_trigger = {
+				CHARACTER_1 = scope:can_marry_check
+				CHARACTER_2 = $CHARACTER$
+			}
+			#faith_hostility_level = {
+			#	target = scope:can_marry_check.faith
+			#	value < faith_hostility_prevents_marriage_level
+			#}
+		}
+	}
+	NOT = {
+		scope:can_marry_check = { is_spouse_of = $CHARACTER$ }
+	}
+}

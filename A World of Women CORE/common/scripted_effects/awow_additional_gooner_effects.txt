@@ -1,61 +1,45 @@
-﻿awow_assign_horny_traits_effect = {
-    awow_assign_lustful_effect = yes
-    awow_assign_fecund_effect = yes
-    
-}
-
-awow_assign_lustful_effect = {
-    if = {
-        limit = {
-            NOT = { has_trait = lustful }
-            is_adult = yes
-        }
-        add_trait = lustful
+﻿# Scope: none. Retained for the one-time game-start application so existing
+# characters receive their selected world setup immediately.
+awow_apply_world_maintenance_effect = {
+    every_living_character = {
+        awow_apply_world_maintenance_to_character_effect = yes
     }
 }
 
-awow_assign_fecund_effect = {
+# Scope: character. Called at each character's randomized yearly pulse.
+# Vanilla and AWOW both use has_game_rule directly from character scopes.
+awow_apply_world_maintenance_to_character_effect = {
+    awow_assign_horny_traits_effect = yes
     if = {
-        limit = {
-            NOT = { has_trait = fecund }
-            is_adult = yes
-        }
-        add_trait = fecund
+        limit = { awow_using_carn_trigger = yes }
+        awow_correct_carn_traits_effect = yes
     }
-}
-
-# Every woman is bisexual. The culling setting only changes which males are
-# protected from the otherwise universal AI-male homosexual assignment.
-awow_assign_world_sexualities_cull_all_effect = {
     if = {
-        limit = {
-            is_female = yes
-            NOT = { has_sexuality = bisexual }
-        }
-        set_sexuality = bisexual
+        limit = { has_game_rule = awow_exclude_player_dynasty }
+        awow_assign_world_sexualities_player_dynasty_effect = yes
     }
     else_if = {
-        limit = {
-            is_ai = yes
-            is_male = yes
-            NOT = { has_sexuality = homosexual }
-        }
-        set_sexuality = homosexual
-    }
-}
-
-# Used when the player character alone is spared from the cull.
-awow_assign_world_sexualities_player_effect = {
-    if = {
-        limit = {
-            is_ai = no
-            is_male = yes
-            NOT = { has_sexuality = heterosexual }
-        }
-        set_sexuality = heterosexual
+        limit = { has_game_rule = awow_exclude_player }
+        awow_assign_world_sexualities_player_effect = yes
     }
     else = {
         awow_assign_world_sexualities_cull_all_effect = yes
+    }
+    awow_maintain_weight_effect = yes
+}
+
+awow_assign_horny_traits_effect = {
+    awow_assign_horny_trait_effect = { HTRAIT = lustful }
+    awow_assign_horny_trait_effect = { HTRAIT = fecund }
+}
+
+awow_assign_horny_trait_effect = {
+    if = {
+        limit = {
+            NOT = { has_trait = $HTRAIT$ }
+            is_adult = yes
+        }
+        add_trait = $HTRAIT$
     }
 }
 
@@ -80,29 +64,38 @@ awow_assign_world_sexualities_player_dynasty_effect = {
     }
 }
 
-# Scope: character. Called at each character's randomized yearly pulse.
-# Vanilla and AWOW both use has_game_rule directly from character scopes.
-awow_apply_world_maintenance_to_character_effect = {
-    awow_assign_horny_traits_effect = yes
+# Used when the player character alone is spared from the cull.
+awow_assign_world_sexualities_player_effect = {
     if = {
-        limit = { has_game_rule = awow_exclude_player_dynasty }
-        awow_assign_world_sexualities_player_dynasty_effect = yes
-    }
-    else_if = {
-        limit = { has_game_rule = awow_exclude_player }
-        awow_assign_world_sexualities_player_effect = yes
+        limit = {
+            is_ai = no
+            is_male = yes
+            NOT = { has_sexuality = heterosexual }
+        }
+        set_sexuality = heterosexual
     }
     else = {
         awow_assign_world_sexualities_cull_all_effect = yes
     }
-    awow_maintain_weight_effect = yes
 }
 
-# Scope: none. Retained for the one-time game-start application so existing
-# characters receive their selected world setup immediately.
-awow_apply_world_maintenance_effect = {
-    every_living_character = {
-        awow_apply_world_maintenance_to_character_effect = yes
+# Every woman is bisexual. The culling setting only changes which males are
+# protected from the otherwise universal AI-male homosexual assignment.
+awow_assign_world_sexualities_cull_all_effect = {
+    if = {
+        limit = {
+            is_female = yes
+            NOT = { has_sexuality = bisexual }
+        }
+        set_sexuality = bisexual
+    }
+    else_if = {
+        limit = {
+            is_ai = yes
+            is_male = yes
+            NOT = { has_sexuality = homosexual }
+        }
+        set_sexuality = homosexual
     }
 }
 

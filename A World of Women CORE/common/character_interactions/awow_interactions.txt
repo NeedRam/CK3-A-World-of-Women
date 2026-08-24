@@ -45,7 +45,6 @@ awow_flag_include_interaction = {
     is_shown = {
         scope:recipient = {
             is_alive = yes
-            is_female = no
             has_character_flag = awow_excluded_from_culling
             awow_can_revoke_culling_protection_trigger = yes
         }
@@ -54,7 +53,6 @@ awow_flag_include_interaction = {
     is_valid = {
         scope:recipient = {
             is_alive = yes
-            is_female = no
             has_character_flag = awow_excluded_from_culling
             awow_can_revoke_culling_protection_trigger = yes
         }
