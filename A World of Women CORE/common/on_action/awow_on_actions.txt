@@ -37,17 +37,32 @@ awow_on_pregnancy_mother = {
     }
 }
 
-# CK3 distributes this pulse randomly across the year for every character.
-# Keeping AWOW's partner checks here avoids a single annual
-# every_living_character burst.
-random_yearly_everyone_pulse = {
-    on_actions = {
-        awow_random_yearly_pregnancy_pulse
-    }
-}
-
 awow_random_yearly_pregnancy_pulse = {
     events = {
         awow_pregnancy.0021
+    }
+}
+
+awow_random_yearly_world_maintenance_pulse = {
+    effect = {
+        awow_apply_world_maintenance_to_character_effect = yes
+    }
+}
+
+awow_allow_ss_global_action = {
+    effect = {
+        game_rule_accepted_same_sex_relations_effect = yes
+    }
+}
+
+awow_ai_matchmaking_burst_action = {
+    effect = {
+        awow_ai_matchmaking_burst_effect = yes
+    }
+}
+
+awow_ai_matchmaking_distributed_action = {
+     effect = {
+        awow_ai_matchmaking_effect = yes
     }
 }

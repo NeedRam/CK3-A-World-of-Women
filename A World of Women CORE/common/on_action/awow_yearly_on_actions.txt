@@ -1,49 +1,24 @@
 ﻿# CK3 invokes this once per character on individually randomized dates instead of a January 2 global scan.
 random_yearly_everyone_pulse = {
     on_actions = {
-        awow_random_yearly_ruler_marriage_pulse
         awow_random_yearly_world_maintenance_pulse
+        awow_random_yearly_pregnancy_pulse
     }
 }
 
-awow_random_yearly_ruler_marriage_pulse = {
+random_yearly_playable_pulse = {
     trigger = {
         has_game_rule = awow_ai_matchmaking_yearly_distributed
-        is_ai = yes
-        is_adult = yes
-        is_playable_character = yes
-        OR = {
-            is_landless_adventurer = yes
-            AND = {
-                is_landed = yes
-                highest_held_title_tier >= tier_county
-            }
-        }
     }
-    events = {
-        awow_ai_marriage.0001
-        awow_ai_marriage.0002
+    on_actions = {
+        awow_ai_matchmaking_distributed_action
     }
 }
 
-awow_random_yearly_world_maintenance_pulse = {
-    effect = {
-        awow_apply_world_maintenance_to_character_effect = yes
-    }
-}
-
-# The optional burst setting evaluates all eligible rulers together on January 2; distributed scheduling remains the default.
+# The optional burst setting evaluates all eligible rulers together on January 2
 yearly_global_pulse = {
     on_actions = {
-        awow_yearly_burst_ai_matchmaking_pulse
-    }
-}
-
-awow_yearly_burst_ai_matchmaking_pulse = {
-    trigger = {
-        has_game_rule = awow_ai_matchmaking_yearly_burst
-    }
-    effect = {
-        awow_ai_matchmaking_burst_effect = yes
+        awow_allow_ss_global_action
+        awow_ai_matchmaking_burst_action
     }
 }
