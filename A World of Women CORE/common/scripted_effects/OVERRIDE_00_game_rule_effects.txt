@@ -1,0 +1,115 @@
+﻿game_rule_inversed_gender_equality_effect = {
+    enable_and_run_succession_calculation = yes
+
+    every_religion_global = {
+        every_faith = {
+            ## DOCTRINE_GENDER
+            if = {
+                limit = { has_doctrine = doctrine_gender_male_dominated }
+                remove_doctrine = doctrine_gender_male_dominated
+                add_doctrine = doctrine_gender_female_dominated
+            }
+            # else_if = {
+            #     limit = { has_doctrine = doctrine_gender_equal }
+            #     remove_doctrine = doctrine_gender_equal
+            #     add_doctrine = doctrine_gender_female_dominated
+            # }
+
+            ## DOCTRINE_CLERICAL_GENDER
+            if = {
+                limit = { has_doctrine = doctrine_clerical_gender_male_only }
+                remove_doctrine = doctrine_clerical_gender_male_only
+                add_doctrine = doctrine_clerical_gender_female_only
+            }
+            else_if = {
+                limit = { has_doctrine = doctrine_clerical_gender_either }
+                remove_doctrine = doctrine_clerical_gender_either
+                add_doctrine = doctrine_clerical_gender_female_only
+            }
+        }
+    }
+
+    ## REALM LAW
+    every_ruler = {
+        # trigger changed during processing so can not add this in limit
+        if = {
+            limit = {
+                NOT = { has_character_flag = gender_reversed }
+            }
+            # Take care of any titles with their own title laws.
+            every_held_title = {
+                limit = { can_title_have_law_general_trigger = yes }
+                # Invert male-only.
+                if = {
+                    limit = { has_title_law = male_only_law }
+                    remove_title_law = male_only_law
+                    add_title_law = female_only_law
+                }
+            }
+            # Now realm law.
+            if = {
+                limit = { has_realm_law = male_only_law }
+                add_realm_law = female_only_law
+                if = {
+                    limit = {
+                        highest_held_title_tier >= tier_county
+                        is_male = yes
+                        is_ai = yes
+                        any_heir = { is_female = yes }
+                    }
+                    every_heir = {
+                        limit = { is_female = yes }
+                        add_character_flag = { flag = gender_reversed days = 1 }
+                    }
+                    depose = yes
+                }
+            }
+            else_if = {
+                limit = { has_realm_law = male_preference_law }
+                add_realm_law = female_only_law
+                if = {
+                    limit = {
+                        highest_held_title_tier >= tier_county
+                        is_male = yes
+                        is_ai = yes
+                        any_heir = { is_female = yes }
+                    }
+                    every_heir = {
+                        limit = { is_female = yes }
+                        add_character_flag = { flag = gender_reversed days = 1 }
+                    }
+                    depose = yes
+                }
+            }
+            else_if = {
+                limit = { has_realm_law = female_preference_law }
+                add_realm_law = female_only_law
+            }
+            #Else: equal, nothing changes
+        }
+    }
+
+    # We handle religious titles here because title law overlaps with faith law in weird ways otherwise.
+    ## Take care of first-generation HoFs.
+    every_religion_global = {
+		every_faith = {
+			if = {
+				limit = {
+					has_doctrine = doctrine_clerical_gender_female_only
+					religious_head ?= { is_male = yes }
+				}
+				religious_head = { depose = yes }
+			}
+		}
+	}
+
+    ## CULTURES - MARTIAL CUSTOM
+    every_culture_global = {
+        if = {
+            limit = { has_cultural_pillar = martial_custom_male_only }
+            set_culture_pillar = martial_custom_female_only
+        }
+    }
+
+    disable_succession_calculation = yes
+}
