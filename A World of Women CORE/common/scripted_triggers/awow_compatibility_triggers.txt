@@ -4,3 +4,17 @@
 		has_game_rule = elf_dest_debug_menu_turned_on
 	}
 }
+
+awow_using_carn_trigger = {
+	OR = {
+		has_game_rule = carn_dt_disabled
+		has_game_rule = carn_dt_enabled
+	}
+}
+
+awow_using_phaze_degen_trigger = {
+	OR = {
+		has_game_rule = bodyhair_enabled
+		has_game_rule = bodyhair_disabled
+	}
+}

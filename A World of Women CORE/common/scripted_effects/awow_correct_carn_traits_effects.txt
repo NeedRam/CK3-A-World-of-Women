@@ -1,0 +1,149 @@
+﻿awow_correct_carn_traits_effect = {
+    awow_correct_carn_traits_female_effect = yes
+    awow_correct_carn_traits_male_effect = yes
+}
+
+awow_correct_carn_traits_female_effect = {
+    if = {
+        limit = {
+            is_female = yes
+            NOR = {
+                has_trait = futa
+                has_trait = futa_genetic
+            }
+        }
+        awow_correct_carn_traits_female_size_effect = { TSIZE = small }
+        awow_correct_carn_traits_female_size_effect = { TSIZE = big }
+        awow_correct_phaze_degen_traits_female_effect = yes
+    }
+}
+
+awow_correct_carn_traits_female_size_effect = {
+    awow_correct_carn_traits_female_good_bad_effect = { TSIZE = $TSIZE$ TGOODBAD = good }
+    awow_correct_carn_traits_female_good_bad_effect = { TSIZE = $TSIZE$ TGOODBAD = bad }
+}
+
+awow_correct_carn_traits_female_good_bad_effect = {
+    awow_correct_carn_traits_female_tier_effect = { TSIZE = $TSIZE$ TGOODBAD = $TGOODBAD$ TTIER = 1 }
+    awow_correct_carn_traits_female_tier_effect = { TSIZE = $TSIZE$ TGOODBAD = $TGOODBAD$ TTIER = 2 }
+    awow_correct_carn_traits_female_tier_effect = { TSIZE = $TSIZE$ TGOODBAD = $TGOODBAD$ TTIER = 3 }
+}
+
+awow_correct_carn_traits_female_tier_effect = {
+    if = {
+        limit = { has_trait = dick_$TSIZE$_$TGOODBAD$_$TTIER$ }
+        remove_trait = dick_$TSIZE$_$TGOODBAD$_$TTIER$
+        awow_replace_carn_traits_female_effect = { TSIZE = $TSIZE$ TTIER = $TTIER$ }
+    }
+}
+
+awow_replace_carn_traits_female_effect = {
+    if = {
+        limit = { has_game_rule = carn_dt_tits_$TSIZE$_good }
+        add_trait = tits_$TSIZE$_good_$TTIER$
+    }
+    else_if = {
+        limit = { has_game_rule = carn_dt_tits_$TSIZE$_bad }
+        add_trait = tits_$TSIZE$_bad_$TTIER$
+    }
+}
+
+awow_correct_phaze_degen_traits_female_effect = {
+    if = {
+        limit = { awow_using_phaze_degen_trigger = yes }
+        if = {
+            limit = { has_trait = dick_big_good_4 }
+            remove_trait = dick_big_good_4
+            add_trait = tits_big_good_4
+        }
+        awow_remove_phaze_degen_traits_untiered_effect = { DTRAIT = hairy_cock }
+        awow_remove_phaze_degen_traits_untiered_effect = { DTRAIT = degen_prized_stud }
+    }
+}
+
+awow_correct_carn_traits_male_effect = {
+    if = {
+        limit = {
+            is_male = yes
+            NOR = {
+                has_trait = futa
+                has_trait = futa_genetic
+            }
+        }
+        awow_correct_carn_traits_male_size_effect = { DSIZE = small }
+        awow_correct_carn_traits_male_size_effect = { DSIZE = big }
+        awow_correct_phaze_degen_traits_male_effect = yes
+    }
+}
+
+awow_correct_carn_traits_male_size_effect = {
+    awow_correct_carn_traits_male_good_bad_effect = { DSIZE = $DSIZE$ DGOODBAD = good }
+    awow_correct_carn_traits_male_good_bad_effect = { DSIZE = $DSIZE$ DGOODBAD = bad }
+}
+
+awow_correct_carn_traits_male_good_bad_effect = {
+    awow_correct_carn_traits_male_tier_effect = { DSIZE = $DSIZE$ DGOODBAD = $DGOODBAD$ DTIER = 1 }
+    awow_correct_carn_traits_male_tier_effect = { DSIZE = $DSIZE$ DGOODBAD = $DGOODBAD$ DTIER = 2 }
+    awow_correct_carn_traits_male_tier_effect = { DSIZE = $DSIZE$ DGOODBAD = $DGOODBAD$ DTIER = 3 }
+}
+
+awow_correct_carn_traits_male_tier_effect = {
+    if = {
+        limit = { has_trait = tits_$DSIZE$_$DGOODBAD$_$DTIER$ }
+        remove_trait = tits_$DSIZE$_$DGOODBAD$_$DTIER$
+        awow_replace_carn_traits_male_effect = { DSIZE = $DSIZE$ DTIER = $DTIER$ }
+    }
+}
+
+awow_replace_carn_traits_male_effect = {
+    if = {
+        limit = { has_game_rule = carn_dt_dick_$DSIZE$_good }
+        add_trait = dick_$DSIZE$_good_$DTIER$
+    }
+    else_if = {
+        limit = { has_game_rule = carn_dt_dick_$DSIZE$_bad }
+        add_trait = dick_$DSIZE$_bad_$DTIER$
+    }
+}
+
+awow_correct_phaze_degen_traits_male_effect = {
+    if = {
+        limit = { awow_using_phaze_degen_trigger = yes }
+        if = {
+            limit = { has_trait = tits_big_good_4 }
+            remove_trait = tits_big_good_4
+            add_trait = dick_big_good_4
+        }
+        awow_remove_phaze_degen_traits_tiered_effect = { DTRAIT = ass_big_good DTIER = 1 }
+        awow_remove_phaze_degen_traits_tiered_effect = { DTRAIT = ass_big_good DTIER = 2 }
+        awow_remove_phaze_degen_traits_tiered_effect = { DTRAIT = ass_big_good DTIER = 3 }
+        awow_remove_phaze_degen_traits_tiered_effect = { DTRAIT = ass_big_good DTIER = 4 }
+        awow_remove_phaze_degen_traits_tiered_effect = { DTRAIT = ass_small_bad DTIER = 1 }
+        awow_remove_phaze_degen_traits_tiered_effect = { DTRAIT = degen_hucow DTIER = 1 }
+        awow_remove_phaze_degen_traits_tiered_effect = { DTRAIT = degen_hucow DTIER = 2 }
+        awow_remove_phaze_degen_traits_tiered_effect = { DTRAIT = degen_hucow DTIER = 3 }
+        awow_remove_phaze_degen_traits_tiered_effect = { DTRAIT = thigh_big_good DTIER = 1 }
+        awow_remove_phaze_degen_traits_tiered_effect = { DTRAIT = thigh_big_good DTIER = 2 }
+        awow_remove_phaze_degen_traits_untiered_effect = { DTRAIT = puffy_anus }
+        awow_remove_phaze_degen_traits_untiered_effect = { DTRAIT = puffy_labia }
+        awow_remove_phaze_degen_traits_untiered_effect = { DTRAIT = big_squirter }
+        awow_remove_phaze_degen_traits_untiered_effect = { DTRAIT = degen_mommy_milkers }
+        awow_remove_phaze_degen_traits_untiered_effect = { DTRAIT = degen_inverted_nipples }
+        awow_remove_phaze_degen_traits_untiered_effect = { DTRAIT = puffy_anus }
+
+    }
+}
+
+awow_remove_phaze_degen_traits_tiered_effect = {
+    if = {
+        limit = { has_trait = $DTRAIT$_$DTIER$ }
+        remove_trait = $DTRAIT$_$DTIER$
+    }
+}
+
+awow_remove_phaze_degen_traits_untiered_effect = {
+    if = {
+        limit = { has_trait = $DTRAIT$ }
+        remove_trait = $DTRAIT$
+    }
+}
