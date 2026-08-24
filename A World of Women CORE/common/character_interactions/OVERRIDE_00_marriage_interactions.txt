@@ -1,9 +1,4 @@
-﻿# AWOW same-sex marriage compatibility override
-# Vanilla source: common/character_interactions/00_marriage_interactions.txt
-# Generated for CK3 1.19.0.6; source SHA256: 681a9b669e5a16642a197b6fe16085193dfbb99a398d0e20e86173f5ac6de219
-# Opposite-sex logic is preserved; only same-sex-specific scoring blocks are removed.
-
-ai_make_concubine_interaction = {
+﻿ai_make_concubine_interaction = {
 	hidden = yes
 
 	ai_targets = {
