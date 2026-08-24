@@ -25,12 +25,23 @@
         }
         every_living_character = {
             limit = {
+                is_male = yes
                 any_player = {
                     dynasty = prev.dynasty
                 }
             }
             add_character_flag = awow_excluded_from_culling
         }
+    }
+
+
+    every_living_character = {
+        limit = {
+            is_female = yes
+            has_character_flag = awow_excluded_from_culling
+        }
+        remove_character_flag = awow_excluded_from_culling
+        remove_variable = awow_culling_protection_owner
     }
 
     # Cull: every living male that can be culled is killed and counted.
