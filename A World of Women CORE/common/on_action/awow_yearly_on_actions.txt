@@ -7,9 +7,6 @@ random_yearly_everyone_pulse = {
 }
 
 random_yearly_playable_pulse = {
-    trigger = {
-        has_game_rule = awow_ai_matchmaking_yearly_distributed
-    }
     on_actions = {
         awow_ai_matchmaking_distributed_action
     }

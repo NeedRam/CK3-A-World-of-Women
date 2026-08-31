@@ -23,11 +23,8 @@ awow_ai_matchmaking_effect = {
 }
 
 awow_ai_matchmaking_burst_effect = {
-    if = {
-        limit = { has_game_rule = awow_ai_matchmaking_yearly_burst }
-        every_living_character = {
-            awow_ai_matchmaking_effect = yes
-        }
+    every_living_character = {
+        awow_ai_matchmaking_effect = yes
     }
 }
 

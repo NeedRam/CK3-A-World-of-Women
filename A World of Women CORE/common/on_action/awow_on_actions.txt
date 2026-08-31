@@ -56,13 +56,19 @@ awow_allow_ss_global_action = {
 }
 
 awow_ai_matchmaking_burst_action = {
+    trigger = {
+        has_game_rule = awow_ai_matchmaking_yearly_burst
+    }
     effect = {
         awow_ai_matchmaking_burst_effect = yes
     }
 }
 
 awow_ai_matchmaking_distributed_action = {
-     effect = {
+    trigger = {
+        has_game_rule = awow_ai_matchmaking_yearly_distributed
+    }
+    effect = {
         awow_ai_matchmaking_effect = yes
     }
 }
