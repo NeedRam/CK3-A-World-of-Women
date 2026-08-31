@@ -7,5 +7,4 @@ tags={
 	"Gameplay"
 }
 name="A World of Women CORE"
-supported_version="1.*.*"
-path="D:/Documents/GitHub/CK3mod1/A World of Women CORE"
+supported_version="1.19.*"
