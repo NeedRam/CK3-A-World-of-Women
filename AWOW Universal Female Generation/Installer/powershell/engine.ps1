@@ -23,6 +23,18 @@ function Get-FullPath([string]$Path) {
     return [IO.Path]::GetFullPath($Path)
 }
 
+function Get-Sha256([string]$Path) {
+    $algorithm = [Security.Cryptography.SHA256]::Create()
+    $stream = [IO.File]::Open($Path, [IO.FileMode]::Open, [IO.FileAccess]::Read, [IO.FileShare]::ReadWrite)
+    try {
+        return ([BitConverter]::ToString($algorithm.ComputeHash($stream))).Replace('-', '').ToLowerInvariant()
+    }
+    finally {
+        $stream.Dispose()
+        $algorithm.Dispose()
+    }
+}
+
 function Get-CanonicalRelative([string]$Path) {
     return ($Path -replace '\\', '/')
 }
@@ -77,7 +89,7 @@ function Get-Observation([hashtable]$Context, [string]$RelativePath) {
     if ($item.PSIsContainer) {
         return [ordered]@{ exists = $true; kind = 'directory'; is_reparse_point = $false }
     }
-    $hash = (Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLowerInvariant()
+    $hash = Get-Sha256 $path
     return [ordered]@{ exists = $true; kind = 'file'; sha256 = $hash; size_bytes = [int64]$item.Length; is_reparse_point = $false }
 }
 
@@ -188,7 +200,7 @@ function Test-ManagedState([hashtable]$Context, $State, $Candidate) {
         }
     }
     $agpState = Get-ContainedPath $Context 'AGP Native Hook/agp-install-state.json'
-    $agpHash = if (Test-Path -LiteralPath $agpState) { (Get-FileHash -LiteralPath $agpState -Algorithm SHA256).Hash.ToLowerInvariant() } else { 'absent' }
+    $agpHash = if (Test-Path -LiteralPath $agpState) { Get-Sha256 $agpState } else { 'absent' }
     if (-not $agpRebasedProxyOnly -and ([string]$State.agp_dependency.state_sha256).ToLowerInvariant() -ne $agpHash) { return $false }
     foreach ($item in @($State.managed_files)) {
         $obs = Get-Observation $Context ([string]$item.relative_path)
@@ -218,7 +230,7 @@ function New-Context {
         PackageRoot = $package
         Manifest = $manifest
         ManifestPath = $manifestPath
-        ManifestHash = (Get-FileHash -LiteralPath $manifestPath -Algorithm SHA256).Hash.ToLowerInvariant()
+        ManifestHash = Get-Sha256 $manifestPath
         Build = $build
         State = $null
         StateValid = $false
@@ -245,7 +257,7 @@ function New-Context {
         $source = Join-Path $package ([string]$artifact.relative_path -replace '/', '\')
         if (-not (Test-Path -LiteralPath $source -PathType Leaf)) { $source = Join-Path $package ([string]$artifact.source_relative_path -replace '/', '\') }
         if (-not (Test-Path -LiteralPath $source -PathType Leaf)) { Fail "Missing UFG package artifact: $($artifact.relative_path)" }
-        $hash = (Get-FileHash -LiteralPath $source -Algorithm SHA256).Hash.ToLowerInvariant()
+        $hash = Get-Sha256 $source
         if ($hash -ne ([string]$artifact.sha256).ToLowerInvariant()) { Fail "Package artifact hash mismatch: $($artifact.relative_path)" }
         $ctx.ArtifactSources[[string]$artifact.id] = $source
     }
@@ -461,7 +473,7 @@ function Stage-Install([hashtable]$Context) {
         $stagePath = Get-ContainedPath $Context $stageRel
         New-Item -ItemType Directory -Path (Split-Path -Parent $stagePath) -Force | Out-Null
         Copy-Item -LiteralPath $Context.ArtifactSources[[string]$artifact.id] -Destination $stagePath -Force
-        $hash = (Get-FileHash -LiteralPath $stagePath -Algorithm SHA256).Hash.ToLowerInvariant()
+        $hash = Get-Sha256 $stagePath
         if ($hash -ne ([string]$artifact.sha256).ToLowerInvariant()) { Fail "Staged artifact hash mismatch: $($artifact.relative_path)" }
     }
 }
@@ -479,7 +491,7 @@ function New-UfgState([hashtable]$Context, $Candidate, [string]$Status, [string]
     $original = Get-Observation $Context ([string]$Context.Manifest.target.original_dxcompiler_relative_path)
     $exe = Get-Observation $Context 'ck3.exe'
     $agpState = Get-ContainedPath $Context 'AGP Native Hook/agp-install-state.json'
-    $agpHash = if (Test-Path -LiteralPath $agpState) { (Get-FileHash -LiteralPath $agpState -Algorithm SHA256).Hash.ToLowerInvariant() } else { 'absent' }
+    $agpHash = if (Test-Path -LiteralPath $agpState) { Get-Sha256 $agpState } else { 'absent' }
     $now = [DateTime]::UtcNow.ToString('o')
     $release = [ordered]@{ id = [string]$Context.Manifest.release.id; version = [string]$Context.Manifest.release.version; manifest_sha256 = $Context.ManifestHash }
     $proxyHash = ([string]$Context.Manifest.artifacts[0].sha256).ToLowerInvariant()

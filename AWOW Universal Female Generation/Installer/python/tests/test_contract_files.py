@@ -104,6 +104,11 @@ class ContractFileTests(unittest.TestCase):
         self.assertIn("MessageBoxDefaultButton]::Button2", powershell)
         self.assertNotIn("Read-Host", powershell)
 
+    def test_powershell_engine_hashing_does_not_depend_on_module_autoloading(self) -> None:
+        powershell = (ROOT / "Installer" / "powershell" / "engine.ps1").read_text(encoding="utf-8")
+        self.assertIn("[Security.Cryptography.SHA256]::Create()", powershell)
+        self.assertNotIn("Get-FileHash", powershell)
+
 
 if __name__ == "__main__":
     unittest.main()
