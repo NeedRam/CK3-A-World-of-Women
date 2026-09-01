@@ -1,0 +1,347 @@
+{
+  "$schema": "./spec/release-manifest.schema.json",
+  "schema_version": 1,
+  "kind": "ufg_release_manifest",
+  "release": {
+    "id": "awow-ufg",
+    "version": "1.0.0",
+    "channel": "stable",
+    "unsigned": true,
+    "source_repo": "https://github.com/NeedRam/CK3mod1",
+    "license": "MIT"
+  },
+  "target": {
+    "platform": "windows",
+    "architecture": "x64",
+    "steam_app_id": 1158310,
+    "game_id": "crusader_kings_iii",
+    "supported_builds": [
+      {
+        "id": "1.19.0.6",
+        "executable_sha256": "2d00ff3101ef70b566f2fcbae292f09263199c80e9dc8f139b82d7d96f83db86",
+        "original_dxcompiler_sha256": "40e381d1d0ccf3bd725e30914b07d3d0cdaa907900e4d194da0e9cbd41d06e65",
+        "notes": "The native UFG payload targets this exact CK3 executable build."
+      }
+    ],
+    "binaries_relative_path": "binaries",
+    "executable_relative_path": "ck3.exe",
+    "active_dxcompiler_relative_path": "dxcompiler.dll",
+    "original_dxcompiler_relative_path": "dxcompiler_original.dll",
+    "state_relative_path": "AWOW Universal Female Generation/ufg-install-state.json",
+    "journal_relative_directory": "AWOW Universal Female Generation/.ufg-journal",
+    "quarantine_relative_directory": "AWOW Universal Female Generation/.ufg-quarantine",
+    "logs": [
+      {
+        "relative_path": "awow_ufg_dxcompiler_loader.log",
+        "owner": "ufg_runtime",
+        "uninstall_policy": "remove"
+      },
+      {
+        "relative_path": "awow_ufg.log",
+        "owner": "ufg_runtime",
+        "uninstall_policy": "remove"
+      }
+    ]
+  },
+  "package": {
+    "id": "awow-ufg-v1.0.0-win-x64",
+    "manifest_relative_path": "Installer/release-manifest.json",
+    "managed_files": [
+      {
+        "relative_path": "dxcompiler.dll",
+        "role": "ufg_proxy",
+        "required": true,
+        "phase": 1,
+        "artifact_id": "ufg-proxy"
+      },
+      {
+        "relative_path": "AWOW Universal Female Generation/awow_ufg.dll",
+        "role": "ufg_payload",
+        "required": true,
+        "phase": 1,
+        "artifact_id": "ufg-payload"
+      }
+    ],
+    "preserved_files": [
+      {
+        "relative_path": "dxcompiler_original.dll",
+        "owner": "steam",
+        "install_policy": "never_overwrite_existing",
+        "uninstall_policy": "leave_unchanged"
+      },
+      {
+        "relative_path": "AGP Native Hook/agp_parenthook.dll",
+        "owner": "agp_dependency",
+        "install_policy": "never_touch",
+        "uninstall_policy": "leave_unchanged"
+      },
+      {
+        "relative_path": "AGP Native Hook/agp-install-state.json",
+        "owner": "agp_dependency",
+        "install_policy": "never_touch",
+        "uninstall_policy": "leave_unchanged"
+      }
+    ],
+    "diagnostic_files": [
+      "awow_ufg_dxcompiler_loader.log",
+      "awow_ufg.log"
+    ],
+    "forbidden_paths": [
+      "native_test_mod",
+      "src",
+      "build",
+      "dist",
+      "tests",
+      "fixtures",
+      "__pycache__",
+      ".git",
+      ".github",
+      "A World of Women CORE",
+      "AWOW Vanilla History OVERRIDES",
+      "AWOW Vanilla Male Source OVERRIDES"
+    ],
+    "entrypoints": [
+      {
+        "relative_path": "Install UFG.bat",
+        "role": "bat_entrypoint",
+        "required": true,
+        "phase": 2
+      },
+      {
+        "relative_path": "Uninstall UFG.bat",
+        "role": "bat_entrypoint",
+        "required": true,
+        "phase": 2
+      },
+      {
+        "relative_path": "Installer/install.ps1",
+        "role": "powershell_engine",
+        "required": true,
+        "phase": 2
+      },
+      {
+        "relative_path": "Installer/uninstall.ps1",
+        "role": "powershell_engine",
+        "required": true,
+        "phase": 2
+      },
+      {
+        "relative_path": "UFG-Installer.exe",
+        "role": "exe_frontend",
+        "required": true,
+        "phase": 2
+      },
+      {
+        "relative_path": "UFG-Uninstaller.exe",
+        "role": "exe_frontend",
+        "required": true,
+        "phase": 2
+      },
+      {
+        "relative_path": "Installer/python",
+        "role": "python_engine",
+        "required": true,
+        "phase": 2
+      }
+    ]
+  },
+  "artifacts": [
+    {
+      "id": "ufg-proxy",
+      "relative_path": "dxcompiler.dll",
+      "role": "ufg_proxy",
+      "sha256": "d77967b199e828d9805b3eba1a85cc394308451f255f2f145b2956f2e5e4cc36",
+      "size_bytes": 136704,
+      "size_is_informational": true,
+      "source_relative_path": "build/dxcompiler.dll"
+    },
+    {
+      "id": "ufg-payload",
+      "relative_path": "AWOW Universal Female Generation/awow_ufg.dll",
+      "role": "ufg_payload",
+      "sha256": "b75013a3b996e11fecc3264a0cb502a88ab46e212a652d2a2946678fcf374200",
+      "size_bytes": 133632,
+      "size_is_informational": true,
+      "source_relative_path": "build/AWOW Universal Female Generation/awow_ufg.dll"
+    }
+  ],
+  "compatible_agp_builds": [
+    {
+      "id": "agp-v1.0.1",
+      "version": "1.0.1",
+      "executable_sha256": "2d00ff3101ef70b566f2fcbae292f09263199c80e9dc8f139b82d7d96f83db86",
+      "proxy_relative_path": "dxcompiler.dll",
+      "proxy_sha256": "4605b91a033668375cfd47ff1f64b005816bc40bc1438d72721d379011821cfa",
+      "payload_relative_path": "AGP Native Hook/agp_parenthook.dll",
+      "payload_sha256": "3fb1a1a113bd2ae6780de30983046659ca8cca41ca1bc1a88c0c7856994f9f38",
+      "original_dxcompiler_sha256": "40e381d1d0ccf3bd725e30914b07d3d0cdaa907900e4d194da0e9cbd41d06e65",
+      "state_relative_path": "AGP Native Hook/agp-install-state.json",
+      "state_policy": "absent_or_valid_managed_agp"
+    }
+  ],
+  "compatibility": {
+    "fallback_state": "unknown_conflicting",
+    "seeds": [
+      {
+        "id": "agp-v1.0.1-ready",
+        "state": "agp_ready",
+        "confidence": "exact_hash",
+        "match": {
+          "state_file": "absent_or_valid",
+          "required_files": [
+            {
+              "relative_path": "dxcompiler.dll",
+              "kind": "file",
+              "sha256": "4605b91a033668375cfd47ff1f64b005816bc40bc1438d72721d379011821cfa",
+              "size_bytes": 109568
+            },
+            {
+              "relative_path": "dxcompiler_original.dll",
+              "kind": "file",
+              "sha256": "40e381d1d0ccf3bd725e30914b07d3d0cdaa907900e4d194da0e9cbd41d06e65",
+              "size_bytes": 20291584
+            },
+            {
+              "relative_path": "AGP Native Hook/agp_parenthook.dll",
+              "kind": "file",
+              "sha256": "3fb1a1a113bd2ae6780de30983046659ca8cca41ca1bc1a88c0c7856994f9f38",
+              "size_bytes": 135680
+            }
+          ],
+          "required_paths": [],
+          "absent_paths": [
+            "AWOW Universal Female Generation/ufg-install-state.json",
+            "AWOW Universal Female Generation/awow_ufg.dll"
+          ]
+        },
+        "description": "Official AGP v1.0.1 proxy, payload, and canonical Steam original match exact SHA-256 values."
+      },
+      {
+        "id": "ufg-v1.0.0-manual-layout",
+        "state": "manual_ufg",
+        "confidence": "exact_hash",
+        "match": {
+          "state_file": "absent",
+          "required_files": [
+            {
+              "relative_path": "dxcompiler.dll",
+              "kind": "file",
+              "sha256": "d77967b199e828d9805b3eba1a85cc394308451f255f2f145b2956f2e5e4cc36",
+              "size_bytes": 136704
+            },
+            {
+              "relative_path": "dxcompiler_original.dll",
+              "kind": "file",
+              "sha256": "40e381d1d0ccf3bd725e30914b07d3d0cdaa907900e4d194da0e9cbd41d06e65",
+              "size_bytes": 20291584
+            },
+            {
+              "relative_path": "AWOW Universal Female Generation/awow_ufg.dll",
+              "kind": "file",
+              "sha256": "b75013a3b996e11fecc3264a0cb502a88ab46e212a652d2a2946678fcf374200",
+              "size_bytes": 133632
+            },
+            {
+              "relative_path": "AGP Native Hook/agp_parenthook.dll",
+              "kind": "file",
+              "sha256": "3fb1a1a113bd2ae6780de30983046659ca8cca41ca1bc1a88c0c7856994f9f38",
+              "size_bytes": 135680
+            }
+          ],
+          "required_paths": [
+            {
+              "relative_path": "AWOW Universal Female Generation",
+              "kind": "directory"
+            }
+          ],
+          "absent_paths": [
+            "AWOW Universal Female Generation/ufg-install-state.json"
+          ]
+        },
+        "description": "Exact manual UFG layout eligible for explicit state adoption."
+      },
+      {
+        "id": "ufg-managed-state-v1",
+        "state": "managed_ufg",
+        "confidence": "derived_from_state",
+        "match": {
+          "state_file": "valid",
+          "required_files": [],
+          "required_paths": [
+            {
+              "relative_path": "AWOW Universal Female Generation/ufg-install-state.json",
+              "kind": "path_marker"
+            }
+          ],
+          "absent_paths": []
+        },
+        "description": "A valid UFG state records exact ownership and every managed hash matches."
+      },
+      {
+        "id": "ufg-proxy-only-state-v1",
+        "state": "ufg_proxy_only",
+        "confidence": "derived_from_state",
+        "match": {
+          "state_file": "valid",
+          "required_files": [
+            {
+              "relative_path": "dxcompiler.dll",
+              "kind": "file",
+              "sha256": "d77967b199e828d9805b3eba1a85cc394308451f255f2f145b2956f2e5e4cc36",
+              "size_bytes": 136704
+            },
+            {
+              "relative_path": "dxcompiler_original.dll",
+              "kind": "file",
+              "sha256": "40e381d1d0ccf3bd725e30914b07d3d0cdaa907900e4d194da0e9cbd41d06e65",
+              "size_bytes": 20291584
+            },
+            {
+              "relative_path": "AGP Native Hook/agp_parenthook.dll",
+              "kind": "file",
+              "sha256": "3fb1a1a113bd2ae6780de30983046659ca8cca41ca1bc1a88c0c7856994f9f38",
+              "size_bytes": 135680
+            }
+          ],
+          "required_paths": [],
+          "absent_paths": [
+            "AWOW Universal Female Generation/awow_ufg.dll"
+          ]
+        },
+        "description": "UFG payload is intentionally absent while the active UFG proxy remains in place and AGP continues to load."
+      }
+    ]
+  },
+  "safety": {
+    "preflight_guards": [
+      "ck3_not_running",
+      "target_is_existing_directory",
+      "target_is_not_reparse_point",
+      "target_ancestors_are_not_reparse_points",
+      "all_manifest_paths_are_relative_and_contained",
+      "state_and_journal_are_schema_valid",
+      "all_hashes_are_read_before_mutation",
+      "active_and_original_dxcompiler_are_distinct_paths",
+      "compatible_agp_build_is_exactly_hashed"
+    ],
+    "fresh_install_requires": "compatible_agp_builds_exact_sha256",
+    "managed_upgrade_confirmation": "UPGRADE_UFG_IN_PLACE",
+    "manual_layout_adoption_confirmation": "ADOPT_UFG_LAYOUT",
+    "proxy_only_reenable_confirmation": "RE_ENABLE_UFG",
+    "unknown_conflict_confirmation": "I_UNDERSTAND_UNKNOWN_CONFLICT",
+    "never_modify_on_install": [
+      "dxcompiler_original.dll",
+      "AGP Native Hook/agp_parenthook.dll",
+      "AGP Native Hook/agp-install-state.json"
+    ],
+    "uninstall_policy": {
+      "active_dxcompiler": "leave_byte_for_byte_unchanged",
+      "original_dxcompiler": "leave_unchanged",
+      "agp_payload": "leave_unchanged",
+      "agp_state": "leave_unchanged",
+      "ufg_payload": "remove_exact_hash_only",
+      "ufg_logs": "remove_exact_named_logs",
+      "state_after_uninstall": "ufg_proxy_only"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "kind": "ufg_native_toolchain",
+  "github_actions_runner": "windows-2022",
+  "visual_studio_version_range": "[17.0,18.0)",
+  "vc_tools_version": "14.44.35207",
+  "windows_sdk_version": "10.0.22621.0",
+  "host_architecture": "x64",
+  "target_architecture": "x64",
+  "vcvars_architecture": "amd64",
+  "notes": "Native build authority for the unsigned UFG v1 release."
+}

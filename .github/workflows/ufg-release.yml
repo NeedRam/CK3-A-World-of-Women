@@ -1,0 +1,133 @@
+name: AWOW UFG release
+
+'on':
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Release version (must match Installer/release-manifest.json)
+        required: true
+        default: 1.0.0
+  push:
+    tags:
+      - 'ufg-v*'
+
+permissions:
+  contents: write
+  id-token: write
+  attestations: write
+  artifact-metadata: write
+
+jobs:
+  release:
+    runs-on: windows-2022
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Require a main-line release commit
+        shell: pwsh
+        run: |
+          git fetch --no-tags origin main
+          git merge-base --is-ancestor HEAD origin/main
+          if ($LASTEXITCODE -ne 0) {
+            throw 'UFG release builds must use a commit reachable from main.'
+          }
+
+      - name: Resolve and validate release version
+        id: release
+        shell: pwsh
+        env:
+          DISPATCH_VERSION: ${{ inputs.version }}
+        run: |
+          $manifestPath = 'AWOW Universal Female Generation/Installer/release-manifest.json'
+          if (-not (Test-Path -LiteralPath $manifestPath -PathType Leaf)) {
+            throw "Release manifest is missing: $manifestPath"
+          }
+          $manifest = Get-Content -LiteralPath $manifestPath -Raw | ConvertFrom-Json
+          $manifestVersion = [string]$manifest.release.version
+          if ($manifestVersion -notmatch '^[0-9]+\.[0-9]+\.[0-9]+$') {
+            throw "Invalid checked-in UFG manifest version: $manifestVersion"
+          }
+
+          if ($env:GITHUB_EVENT_NAME -eq 'push') {
+            if ($env:GITHUB_REF -notmatch '^refs/tags/ufg-v[0-9]+\.[0-9]+\.[0-9]+$') {
+              throw "UFG release workflow received an invalid tag ref: $env:GITHUB_REF"
+            }
+            $releaseVersion = $env:GITHUB_REF_NAME -replace '^ufg-v', ''
+          } elseif ($env:GITHUB_EVENT_NAME -eq 'workflow_dispatch') {
+            $releaseVersion = [string]$env:DISPATCH_VERSION
+            if ([string]::IsNullOrWhiteSpace($releaseVersion)) {
+              $releaseVersion = $manifestVersion
+            }
+          } else {
+            throw "UFG release workflow received unsupported event: $env:GITHUB_EVENT_NAME"
+          }
+
+          if ($releaseVersion -notmatch '^[0-9]+\.[0-9]+\.[0-9]+$') {
+            throw "Invalid UFG release version: $releaseVersion"
+          }
+          if ($releaseVersion -ne $manifestVersion) {
+            throw "UFG release version $releaseVersion does not match checked-in manifest version $manifestVersion."
+          }
+          "version=$releaseVersion" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install installer build and test dependencies
+        shell: pwsh
+        run: python -m pip install --disable-pip-version-check -r 'AWOW Universal Female Generation/Installer/python/requirements-build.txt'
+
+      - name: Build native UFG proxy and payload
+        shell: pwsh
+        run: ./build.ps1
+        working-directory: AWOW Universal Female Generation
+
+      - name: Build UFG installer executables
+        shell: pwsh
+        run: python 'AWOW Universal Female Generation/Installer/python/build.py'
+
+      - name: Run UFG contract and cross-engine tests
+        shell: pwsh
+        run: python -m unittest discover -s 'AWOW Universal Female Generation/Installer/python/tests' -v
+
+      - name: Assemble canonical unsigned release
+        shell: pwsh
+        run: >-
+          & 'AWOW Universal Female Generation/release/build-release.ps1'
+          -Version '${{ steps.release.outputs.version }}'
+          -SkipNativeBuild
+          -RequireCanonicalCi
+          -OutputDirectory "$env:GITHUB_WORKSPACE/release-out"
+
+      - name: Attest ZIP provenance
+        uses: actions/attest@v4
+        with:
+          subject-path: release-out/AWOW-Universal-Female-Generation-v${{ steps.release.outputs.version }}-win64.zip
+
+      - name: Upload release evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: awow-ufg-${{ steps.release.outputs.version }}-release
+          path: |
+            release-out/*.zip
+            release-out/*.sha256
+            release-out/*-provenance.json
+          if-no-files-found: error
+
+      - name: Publish draft GitHub release for tagged builds
+        if: startsWith(github.ref, 'refs/tags/ufg-v')
+        shell: pwsh
+        run: >-
+          gh release create "$env:GITHUB_REF_NAME"
+          --draft
+          --title "AWOW Universal Female Generation v${{ steps.release.outputs.version }}"
+          --notes-file 'AWOW Universal Female Generation/release/RELEASE_NOTES.md'
+          release-out/*.zip release-out/*.zip.sha256 release-out/*-provenance.json
+        env:
+          GH_TOKEN: ${{ github.token }}

@@ -1,0 +1,207 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://awow-ufg.invalid/schema/release-manifest-v1.json",
+  "title": "AWOW Universal Female Generation release manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schema_version", "kind", "release", "target", "package", "artifacts", "compatible_agp_builds", "compatibility", "safety"],
+  "properties": {
+    "$schema": {"const": "./spec/release-manifest.schema.json"},
+    "schema_version": {"const": 1},
+    "kind": {"const": "ufg_release_manifest"},
+    "release": {"$ref": "#/$defs/release"},
+    "target": {"$ref": "#/$defs/target"},
+    "package": {"$ref": "#/$defs/package"},
+    "artifacts": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/artifact"}},
+    "compatible_agp_builds": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/compatibleAgp"}},
+    "compatibility": {"$ref": "#/$defs/compatibility"},
+    "safety": {"$ref": "#/$defs/safety"}
+  },
+  "$defs": {
+    "relativePath": {
+      "type": "string",
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.{1,2}(?:/|$))(?!.*:)[^\\\\/:*?\"<>|\\x00-\\x1F]+(?:/[^\\\\/:*?\"<>|\\x00-\\x1F]+)*$"
+    },
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$"},
+    "release": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "version", "channel", "unsigned", "source_repo", "license"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "channel": {"enum": ["draft", "stable"]},
+        "unsigned": {"const": true},
+        "source_repo": {"type": "string", "minLength": 1},
+        "license": {"const": "MIT"}
+      }
+    },
+    "supportedBuild": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "executable_sha256", "original_dxcompiler_sha256"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "executable_sha256": {"$ref": "#/$defs/sha256"},
+        "original_dxcompiler_sha256": {"$ref": "#/$defs/sha256"},
+        "notes": {"type": "string"}
+      }
+    },
+    "log": {
+      "type": "object", "additionalProperties": false,
+      "required": ["relative_path", "owner", "uninstall_policy"],
+      "properties": {
+        "relative_path": {"$ref": "#/$defs/relativePath"},
+        "owner": {"const": "ufg_runtime"},
+        "uninstall_policy": {"const": "remove"}
+      }
+    },
+    "target": {
+      "type": "object", "additionalProperties": false,
+      "required": ["platform", "architecture", "steam_app_id", "game_id", "supported_builds", "binaries_relative_path", "executable_relative_path", "active_dxcompiler_relative_path", "original_dxcompiler_relative_path", "state_relative_path", "journal_relative_directory", "quarantine_relative_directory", "logs"],
+      "properties": {
+        "platform": {"const": "windows"},
+        "architecture": {"const": "x64"},
+        "steam_app_id": {"const": 1158310},
+        "game_id": {"const": "crusader_kings_iii"},
+        "supported_builds": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/supportedBuild"}},
+        "binaries_relative_path": {"const": "binaries"},
+        "executable_relative_path": {"const": "ck3.exe"},
+        "active_dxcompiler_relative_path": {"const": "dxcompiler.dll"},
+        "original_dxcompiler_relative_path": {"const": "dxcompiler_original.dll"},
+        "state_relative_path": {"const": "AWOW Universal Female Generation/ufg-install-state.json"},
+        "journal_relative_directory": {"const": "AWOW Universal Female Generation/.ufg-journal"},
+        "quarantine_relative_directory": {"const": "AWOW Universal Female Generation/.ufg-quarantine"},
+        "logs": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/log"}}
+      }
+    },
+    "artifact": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "relative_path", "role", "sha256", "size_bytes", "size_is_informational", "source_relative_path"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "relative_path": {"$ref": "#/$defs/relativePath"},
+        "role": {"enum": ["ufg_proxy", "ufg_payload"]},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "size_bytes": {"type": "integer", "minimum": 0},
+        "size_is_informational": {"const": true},
+        "source_relative_path": {"$ref": "#/$defs/relativePath"}
+      }
+    },
+    "packageFile": {
+      "type": "object", "additionalProperties": false,
+      "required": ["relative_path", "role", "required", "phase"],
+      "properties": {
+        "relative_path": {"$ref": "#/$defs/relativePath"},
+        "role": {"enum": ["ufg_proxy", "ufg_payload", "contract", "bat_entrypoint", "powershell_engine", "python_engine", "exe_frontend", "documentation", "checksum"]},
+        "required": {"type": "boolean"},
+        "phase": {"enum": [1, 2]},
+        "artifact_id": {"$ref": "#/$defs/id"}
+      }
+    },
+    "preservedFile": {
+      "type": "object", "additionalProperties": false,
+      "required": ["relative_path", "owner", "install_policy", "uninstall_policy"],
+      "properties": {
+        "relative_path": {"$ref": "#/$defs/relativePath"},
+        "owner": {"enum": ["steam", "agp_dependency"]},
+        "install_policy": {"enum": ["never_overwrite_existing", "never_touch"]},
+        "uninstall_policy": {"const": "leave_unchanged"}
+      }
+    },
+    "package": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "manifest_relative_path", "managed_files", "preserved_files", "diagnostic_files", "forbidden_paths", "entrypoints"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "manifest_relative_path": {"const": "Installer/release-manifest.json"},
+        "managed_files": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/packageFile"}},
+        "preserved_files": {"type": "array", "items": {"$ref": "#/$defs/preservedFile"}},
+        "diagnostic_files": {"type": "array", "items": {"$ref": "#/$defs/relativePath"}},
+        "forbidden_paths": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/relativePath"}},
+        "entrypoints": {"type": "array", "minItems": 7, "items": {"$ref": "#/$defs/packageFile"}}
+      }
+    },
+    "compatibleAgp": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "version", "executable_sha256", "proxy_relative_path", "proxy_sha256", "payload_relative_path", "payload_sha256", "original_dxcompiler_sha256", "state_relative_path", "state_policy"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+        "executable_sha256": {"$ref": "#/$defs/sha256"},
+        "proxy_relative_path": {"const": "dxcompiler.dll"},
+        "proxy_sha256": {"$ref": "#/$defs/sha256"},
+        "payload_relative_path": {"const": "AGP Native Hook/agp_parenthook.dll"},
+        "payload_sha256": {"$ref": "#/$defs/sha256"},
+        "original_dxcompiler_sha256": {"$ref": "#/$defs/sha256"},
+        "state_relative_path": {"const": "AGP Native Hook/agp-install-state.json"},
+        "state_policy": {"const": "absent_or_valid_managed_agp"}
+      }
+    },
+    "requiredFile": {
+      "type": "object", "additionalProperties": false,
+      "required": ["relative_path", "kind", "sha256", "size_bytes"],
+      "properties": {
+        "relative_path": {"$ref": "#/$defs/relativePath"},
+        "kind": {"const": "file"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "size_bytes": {"type": "integer", "minimum": 0}
+      }
+    },
+    "requiredPath": {
+      "type": "object", "additionalProperties": false,
+      "required": ["relative_path", "kind"],
+      "properties": {"relative_path": {"$ref": "#/$defs/relativePath"}, "kind": {"enum": ["directory", "path_marker"]}}
+    },
+    "seed": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "state", "confidence", "match", "description"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "state": {"enum": ["agp_ready", "manual_ufg", "managed_ufg", "ufg_proxy_only"]},
+        "confidence": {"enum": ["exact_hash", "derived_from_state"]},
+        "match": {
+          "type": "object", "additionalProperties": false,
+          "required": ["state_file", "required_files", "required_paths", "absent_paths"],
+          "properties": {
+            "state_file": {"enum": ["absent", "valid", "absent_or_valid"]},
+            "required_files": {"type": "array", "items": {"$ref": "#/$defs/requiredFile"}},
+            "required_paths": {"type": "array", "items": {"$ref": "#/$defs/requiredPath"}},
+            "absent_paths": {"type": "array", "items": {"$ref": "#/$defs/relativePath"}}
+          }
+        },
+        "description": {"type": "string", "minLength": 1}
+      }
+    },
+    "compatibility": {
+      "type": "object", "additionalProperties": false,
+      "required": ["fallback_state", "seeds"],
+      "properties": {"fallback_state": {"const": "unknown_conflicting"}, "seeds": {"type": "array", "minItems": 3, "items": {"$ref": "#/$defs/seed"}}}
+    },
+    "safety": {
+      "type": "object", "additionalProperties": false,
+      "required": ["preflight_guards", "fresh_install_requires", "managed_upgrade_confirmation", "manual_layout_adoption_confirmation", "proxy_only_reenable_confirmation", "unknown_conflict_confirmation", "never_modify_on_install", "uninstall_policy"],
+      "properties": {
+        "preflight_guards": {"type": "array", "minItems": 8, "items": {"type": "string"}},
+        "fresh_install_requires": {"const": "compatible_agp_builds_exact_sha256"},
+        "managed_upgrade_confirmation": {"const": "UPGRADE_UFG_IN_PLACE"},
+        "manual_layout_adoption_confirmation": {"const": "ADOPT_UFG_LAYOUT"},
+        "proxy_only_reenable_confirmation": {"const": "RE_ENABLE_UFG"},
+        "unknown_conflict_confirmation": {"const": "I_UNDERSTAND_UNKNOWN_CONFLICT"},
+        "never_modify_on_install": {"type": "array", "minItems": 3, "items": {"$ref": "#/$defs/relativePath"}},
+        "uninstall_policy": {
+          "type": "object", "additionalProperties": false,
+          "required": ["active_dxcompiler", "original_dxcompiler", "agp_payload", "agp_state", "ufg_payload", "ufg_logs", "state_after_uninstall"],
+          "properties": {
+            "active_dxcompiler": {"const": "leave_byte_for_byte_unchanged"},
+            "original_dxcompiler": {"const": "leave_unchanged"},
+            "agp_payload": {"const": "leave_unchanged"},
+            "agp_state": {"const": "leave_unchanged"},
+            "ufg_payload": {"const": "remove_exact_hash_only"},
+            "ufg_logs": {"const": "remove_exact_named_logs"},
+            "state_after_uninstall": {"const": "ufg_proxy_only"}
+          }
+        }
+      }
+    }
+  }
+}

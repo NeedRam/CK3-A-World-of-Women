@@ -59,7 +59,8 @@ AWOW Universal Female Generation\
 Requirements:
 
 - Windows x64
-- Visual Studio 2022 Community x64 build tools at the path configured in `build.ps1`
+- Visual Studio 2022 x64 C++ build tools
+- The exact MSVC and Windows SDK versions declared in `toolchain.json`
 - The UFG Native Hook source tree
 
 From this directory, run:
@@ -67,6 +68,10 @@ From this directory, run:
 ```powershell
 .\build.ps1
 ```
+
+The script selects Visual Studio through `vswhere` (or an explicit
+`-VcVarsAllPath`), passes the pinned versions to `vcvarsall.bat`, and fails if
+the resulting MSVC or Windows SDK environment differs from `toolchain.json`.
 
 The build produces:
 
@@ -79,7 +84,7 @@ The script builds all payload translation units as one DLL, builds the DXCompile
 
 ## Installation for maintainer testing
 
-Install Any-Gender Parenthook first, then close CK3 before changing the game binaries. The CK3 `binaries` directory must already contain the untouched original DXCompiler and AGP payload:
+Install Any-Gender Parenthook first, then close CK3 before changing the game binaries. For the packaged workflow, run `UFG-Installer.exe` (or `Install UFG.bat`) from the release package; it verifies the exact CK3, Steam-original, AGP proxy, and AGP payload hashes before changing anything. The CK3 `binaries` directory must already contain the untouched original DXCompiler and AGP payload:
 
 ```text
 Crusader Kings III\binaries\
@@ -102,7 +107,17 @@ Installing UFG replaces only AGP's proxy `dxcompiler.dll`. Do not replace `dxcom
 
 UFG has no launcher descriptor and is not enabled in a CK3 playset. Disable **AWOW Vanilla History OVERRIDES** and **AWOW Vanilla Male Source OVERRIDES** while UFG is installed.
 
-To uninstall UFG while keeping AGP, close CK3, remove the UFG payload directory, and reinstall AGP's `dxcompiler.dll` proxy.
+To disable UFG while keeping AGP, close CK3 and run `UFG-Uninstaller.exe` (or `Uninstall UFG.bat`). The transactional uninstaller removes only the UFG payload and named UFG logs, leaves the active UFG proxy byte-for-byte unchanged, and records the `ufg_proxy_only` state so AGP continues loading by itself.
+
+For a UFG-only upgrade against the same compatible AGP pairing, use the new
+UFG installer, review its short upgrade explanation, and choose **OK**. To change AGP versions,
+disable UFG first, run the new release's `AGP-Installer.exe` so its standalone
+proxy replaces the old UFG proxy, then install the UFG release whose manifest lists the new
+CK3/AGP hashes. AGP v1.0.1 predates the UFG v1.0.0 proxy hash and therefore
+classifies that proxy-only handoff as `unknown_conflicting`; after verifying the
+UFG payload is absent and the preserved compiler/AGP payload hashes are intact,
+use AGP's displayed `I_UNDERSTAND_UNKNOWN_CONFLICT` confirmation to restore its
+standalone proxy. Do not preserve an old UFG proxy across an AGP upgrade.
 
 ## Logs and failure handling
 

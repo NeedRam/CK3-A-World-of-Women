@@ -1,0 +1,40 @@
+{
+  "$schema": "https://awow-ufg.invalid/schema/state-transitions-v1.json",
+  "schema_version": 1,
+  "kind": "ufg_state_transition_contract",
+  "states": [
+    {"id": "agp_ready", "safe_to_mutate": true, "definition": "Exact compatible AGP proxy, payload, and Steam original hashes are present; no UFG state or payload is present.", "default_decision": "proceed"},
+    {"id": "manual_ufg", "safe_to_mutate": false, "definition": "Exact UFG manual layout is present without UFG state.", "default_decision": "prompt"},
+    {"id": "managed_ufg", "safe_to_mutate": true, "definition": "UFG state is valid and all UFG-owned files match recorded hashes; AGP dependency remains exact.", "default_decision": "prompt"},
+    {"id": "ufg_proxy_only", "safe_to_mutate": true, "definition": "UFG state records an intentionally removed payload while either its exact state-owned proxy remains active or an exact incoming compatible standalone AGP proxy has replaced it.", "default_decision": "prompt"},
+    {"id": "unknown_conflicting", "safe_to_mutate": false, "definition": "No exact UFG or AGP compatibility interpretation covers the observed files.", "default_decision": "reject"},
+    {"id": "manual_recovery_required", "safe_to_mutate": false, "definition": "An incomplete transaction or unverifiable rollback exists.", "default_decision": "reject"}
+  ],
+  "preflight_guards": [
+    {"id": "ck3_not_running", "failure_decision": "reject", "mutation_allowed": false},
+    {"id": "target_and_ancestors_not_reparse", "failure_decision": "reject", "mutation_allowed": false},
+    {"id": "paths_are_relative_and_contained", "failure_decision": "reject", "mutation_allowed": false},
+    {"id": "state_and_journal_parse_as_schema_v1", "failure_decision": "reject", "mutation_allowed": false},
+    {"id": "all_expected_hashes_read_before_mutation", "failure_decision": "reject", "mutation_allowed": false},
+    {"id": "active_and_original_names_are_distinct", "failure_decision": "reject", "mutation_allowed": false},
+    {"id": "compatible_agp_hashes_are_exact", "failure_decision": "reject", "mutation_allowed": false}
+  ],
+  "transitions": [
+    {"id": "install_fresh_with_agp", "operation": "install", "from": ["agp_ready"], "confirmation": "none", "decision": "proceed", "to": "managed_ufg", "mutation_scope": ["install_ufg_proxy", "install_ufg_payload", "write_ufg_state_last"], "must_preserve": ["ck3.exe", "dxcompiler_original.dll", "AGP Native Hook/agp_parenthook.dll", "AGP Native Hook/agp-install-state.json", "all_unknown_paths"], "rollback": "restore_ufg_snapshot"},
+    {"id": "install_managed_upgrade", "operation": "install", "from": ["managed_ufg"], "confirmation": "UPGRADE_UFG_IN_PLACE", "decision": "proceed", "on_missing_confirmation": "abort_without_mutation", "to": "managed_ufg", "mutation_scope": ["replace_only_hash_matching_ufg_files", "write_ufg_state_last"], "must_preserve": ["dxcompiler_original.dll", "AGP Native Hook/agp_parenthook.dll", "AGP Native Hook/agp-install-state.json", "all_unknown_paths"], "rollback": "restore_ufg_snapshot"},
+    {"id": "install_manual_adoption", "operation": "install", "from": ["manual_ufg"], "confirmation": "ADOPT_UFG_LAYOUT", "decision": "proceed", "on_missing_confirmation": "abort_without_mutation", "to": "managed_ufg", "mutation_scope": ["write_ufg_state_after_exact_hash_verification"], "must_preserve": ["all_existing_paths"], "rollback": "restore_ufg_snapshot"},
+    {"id": "install_proxy_only_reenable", "operation": "install", "from": ["ufg_proxy_only"], "confirmation": "RE_ENABLE_UFG", "decision": "proceed", "on_missing_confirmation": "abort_without_mutation", "to": "managed_ufg", "mutation_scope": ["install_ufg_payload", "write_ufg_state_last", "leave_active_proxy_unchanged"], "must_preserve": ["dxcompiler.dll", "dxcompiler_original.dll", "AGP Native Hook/agp_parenthook.dll", "AGP Native Hook/agp-install-state.json", "all_unknown_paths"], "rollback": "restore_ufg_snapshot"},
+    {"id": "install_proxy_only_cross_release", "operation": "install", "from": ["ufg_proxy_only"], "confirmation": "UPGRADE_UFG_IN_PLACE", "decision": "proceed", "on_missing_confirmation": "abort_without_mutation", "to": "managed_ufg", "mutation_scope": ["replace_state_owned_ufg_proxy", "install_ufg_payload", "write_ufg_state_last"], "must_preserve": ["dxcompiler_original.dll", "AGP Native Hook/agp_parenthook.dll", "AGP Native Hook/agp-install-state.json", "all_unknown_paths"], "rollback": "restore_ufg_snapshot"},
+    {"id": "install_after_compatible_agp_replacement", "operation": "install", "from": ["ufg_proxy_only"], "confirmation": "RE_ENABLE_UFG", "decision": "proceed", "on_missing_confirmation": "abort_without_mutation", "to": "managed_ufg", "mutation_scope": ["replace_exact_incoming_agp_proxy_with_ufg_proxy", "install_ufg_payload", "write_ufg_state_last"], "must_preserve": ["dxcompiler_original.dll", "AGP Native Hook/agp_parenthook.dll", "AGP Native Hook/agp-install-state.json", "all_unknown_paths"], "rollback": "restore_ufg_snapshot"},
+    {"id": "install_unknown_refusal", "operation": "install", "from": ["unknown_conflicting", "manual_recovery_required"], "confirmation": "none", "decision": "reject", "to": "unknown_conflicting", "mutation_scope": []},
+    {"id": "uninstall_managed_to_proxy_only", "operation": "uninstall", "from": ["managed_ufg"], "confirmation": "none", "decision": "proceed", "to": "ufg_proxy_only", "mutation_scope": ["remove_only_hash_matching_ufg_payload", "remove_exact_ufg_logs", "leave_active_proxy_unchanged", "write_proxy_only_state_last"], "must_preserve": ["dxcompiler.dll", "dxcompiler_original.dll", "AGP Native Hook/agp_parenthook.dll", "AGP Native Hook/agp-install-state.json", "all_unknown_paths"], "rollback": "restore_ufg_snapshot"},
+    {"id": "uninstall_proxy_only_noop", "operation": "uninstall", "from": ["ufg_proxy_only"], "confirmation": "none", "decision": "no_op", "to": "ufg_proxy_only", "mutation_scope": []},
+    {"id": "uninstall_not_installed_noop", "operation": "uninstall", "from": ["agp_ready"], "confirmation": "none", "decision": "no_op", "to": "agp_ready", "mutation_scope": []},
+    {"id": "uninstall_unknown_refusal", "operation": "uninstall", "from": ["manual_ufg", "unknown_conflicting", "manual_recovery_required"], "confirmation": "none", "decision": "reject", "to": "unknown_conflicting", "mutation_scope": []}
+  ],
+  "failure_rules": [
+    {"id": "any_mutation_failure", "when": "write_or_verify_fails_before_commit", "action": "rollback", "commit_state": false, "retain_journal_until": "rollback_verified"},
+    {"id": "rollback_failure", "when": "rollback_cannot_be_verified", "action": "mark_manual_recovery_required", "commit_state": false, "retain_journal": true, "delete_nothing_further": true},
+    {"id": "active_proxy_invariant", "when": "uninstall_would_change_active_proxy", "action": "reject", "commit_state": false, "delete_nothing_further": true}
+  ]
+}

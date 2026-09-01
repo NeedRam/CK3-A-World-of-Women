@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://awow-ufg.invalid/schema/install-journal-v1.json",
+  "title": "AWOW Universal Female Generation transaction journal v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schema_version", "kind", "transaction_id", "operation", "source_state", "target_state", "phase", "target", "entries"],
+  "properties": {
+    "$schema": {"const": "https://awow-ufg.invalid/schema/install-journal-v1.json"},
+    "schema_version": {"const": 1},
+    "kind": {"const": "ufg_install_journal"},
+    "transaction_id": {"$ref": "#/$defs/uuid"},
+    "operation": {"enum": ["install", "uninstall"]},
+    "source_state": {"enum": ["agp_ready", "manual_ufg", "managed_ufg", "ufg_proxy_only", "unknown_conflicting"]},
+    "target_state": {"enum": ["managed_ufg", "ufg_proxy_only", "manual_recovery_required", "unknown_conflicting"]},
+    "phase": {"enum": ["validate", "stage", "journal", "mutate", "verify", "commit", "rollback", "failed"]},
+    "target": {"$ref": "#/$defs/target"},
+    "entries": {"type": "array", "items": {"$ref": "#/$defs/entry"}},
+    "preserved_agp": {"type": "object"}
+  },
+  "$defs": {
+    "relativePath": {"type": "string", "pattern": "^(?!/)(?!.*(?:^|/)\\.{1,2}(?:/|$))(?!.*:)[^\\\\/:*?\"<>|\\x00-\\x1F]+(?:/[^\\\\/:*?\"<>|\\x00-\\x1F]+)*$"},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "uuid": {"type": "string", "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"},
+    "target": {"type": "object", "additionalProperties": false, "required": ["game_id", "build_id", "binaries_relative_path", "target_root_kind"], "properties": {"game_id": {"const": "crusader_kings_iii"}, "build_id": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+$"}, "binaries_relative_path": {"const": "binaries"}, "target_root_kind": {"const": "steam_game_binaries"}}},
+    "observation": {"type": "object", "additionalProperties": false, "required": ["exists", "kind"], "properties": {"exists": {"type": "boolean"}, "kind": {"enum": ["file", "directory", "absent"]}, "sha256": {"$ref": "#/$defs/sha256"}, "size_bytes": {"type": "integer", "minimum": 0}, "is_reparse_point": {"const": false}}},
+    "entry": {"type": "object", "additionalProperties": false, "required": ["relative_path", "kind", "operation", "before", "staged_relative_path"], "properties": {"relative_path": {"$ref": "#/$defs/relativePath"}, "kind": {"enum": ["file", "directory"]}, "operation": {"enum": ["create", "replace", "remove", "verify_only"]}, "before": {"$ref": "#/$defs/observation"}, "staged_relative_path": {"$ref": "#/$defs/relativePath"}, "ownership": {"enum": ["managed", "steam", "agp_dependency"]}, "after_sha256": {"$ref": "#/$defs/sha256"}}}
+  }
+}

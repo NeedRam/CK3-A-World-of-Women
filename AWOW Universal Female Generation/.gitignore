@@ -1,0 +1,7 @@
+# Local build and smoke-test outputs are not release inputs.
+/Installer/python/build/
+/Installer/python/dist/
+/Installer/python/.venv/
+/**/__pycache__/
+/release/out*/
+/release/*.log
