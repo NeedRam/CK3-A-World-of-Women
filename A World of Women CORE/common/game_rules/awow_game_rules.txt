@@ -250,3 +250,54 @@ awow_ai_matchmaking_mode = {
 
     }
 }
+
+awow_make_everyone_lustful = {
+    categories = {
+        tweaks
+        game_rule_category_awow
+    }
+
+    default = awow_make_everyone_lustful_enabled
+
+    awow_make_everyone_lustful_enabled = {
+
+    }
+
+    awow_make_everyone_lustful_disabled = {
+
+    }
+}
+
+awow_make_everyone_fecund = {
+    categories = {
+        tweaks
+        game_rule_category_awow
+    }
+
+    default = awow_make_everyone_fecund_enabled
+
+    awow_make_everyone_fecund_enabled = {
+
+    }
+
+    awow_make_everyone_fecund_disabled = {
+
+    }
+}
+
+awow_maintain_all_ai_character_weight = {
+    categories = {
+        tweaks
+        game_rule_category_awow
+    }
+
+    default = awow_maintain_all_ai_character_weight_enabled
+
+    awow_maintain_all_ai_character_weight_enabled = {
+
+    }
+
+    awow_maintain_all_ai_character_weight_disabled = {
+
+    }
+}

@@ -9,7 +9,14 @@ awow_apply_world_maintenance_effect = {
 # Scope: character. Called at each character's randomized yearly pulse.
 # Vanilla and AWOW both use has_game_rule directly from character scopes.
 awow_apply_world_maintenance_to_character_effect = {
-    awow_assign_horny_traits_effect = yes
+    if = {
+        limit = { has_game_rule = awow_make_everyone_lustful_enabled }
+        awow_assign_horny_trait_effect = { HTRAIT = lustful }
+    }
+    if = {
+        limit = { has_game_rule = awow_make_everyone_fecund_enabled }
+        awow_assign_horny_trait_effect = { HTRAIT = fecund }
+    }
     if = {
         limit = { awow_using_carn_trigger = yes }
         awow_correct_carn_traits_effect = yes
@@ -25,12 +32,10 @@ awow_apply_world_maintenance_to_character_effect = {
     else = {
         awow_assign_world_sexualities_cull_all_effect = yes
     }
-    awow_maintain_weight_effect = yes
-}
-
-awow_assign_horny_traits_effect = {
-    awow_assign_horny_trait_effect = { HTRAIT = lustful }
-    awow_assign_horny_trait_effect = { HTRAIT = fecund }
+    if = {
+        limit = { has_game_rule = awow_maintain_all_ai_character_weight_enabled }
+        awow_maintain_weight_effect = yes
+    }
 }
 
 awow_assign_horny_trait_effect = {
@@ -104,7 +109,6 @@ awow_maintain_weight_effect = {
         limit = {
             is_ai = yes
             is_alive = yes
-            is_female = yes
             OR = {
                 current_weight > 10
                 current_weight < -10

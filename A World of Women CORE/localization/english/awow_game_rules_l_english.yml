@@ -118,3 +118,22 @@
   setting_awow_ai_matchmaking_yearly_distributed_desc: "Spreads AI matchmaking across the year for a more natural distribution. #warning WARNING:#! Speeds 4/5 may slow for the first 3 years while many thousands of rulers find matches."
   setting_awow_ai_matchmaking_yearly_burst: "Yearly — January Burst"
   setting_awow_ai_matchmaking_yearly_burst_desc: "Runs all AI matchmaking on January 1st. #warning WARNING:#! Expect an #warning EXTREME#! lag spike on January 2nd for the first 3 years but no lag or slowdown during the rest of the year."
+
+  # Additional Gooner Effects Rules
+  rule_awow_make_everyone_lustful: "A World of Women: Make Everyone Lustful"
+  setting_awow_make_everyone_lustful_enabled: "On"
+  setting_awow_make_everyone_lustful_enabled_desc: "Adds the Lustful trait to every adult character at game start and restores it during yearly maintenance."
+  setting_awow_make_everyone_lustful_disabled: "Off"
+  setting_awow_make_everyone_lustful_disabled_desc: "Does not add or restore the Lustful trait."
+
+  rule_awow_make_everyone_fecund: "A World of Women: Make Everyone Fecund"
+  setting_awow_make_everyone_fecund_enabled: "On"
+  setting_awow_make_everyone_fecund_enabled_desc: "Adds the Fecund trait to every adult character at game start and restores it during yearly maintenance."
+  setting_awow_make_everyone_fecund_disabled: "Off"
+  setting_awow_make_everyone_fecund_disabled_desc: "Does not add or restore the Fecund trait."
+
+  rule_awow_maintain_all_ai_character_weight: "A World of Women: Maintain All AI Character's Weight"
+  setting_awow_maintain_all_ai_character_weight_enabled: "On"
+  setting_awow_maintain_all_ai_character_weight_enabled_desc: "Gradually keeps every AI character's current weight between -10 and 10 and moves their target weight toward 0 during yearly maintenance."
+  setting_awow_maintain_all_ai_character_weight_disabled: "Off"
+  setting_awow_maintain_all_ai_character_weight_disabled_desc: "Does not adjust AI characters' current or target weight."
