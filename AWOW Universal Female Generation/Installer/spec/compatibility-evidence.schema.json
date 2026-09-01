@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://awow-ufg.invalid/schema/compatibility-evidence-v1.json",
+  "title": "AWOW UFG compatibility evidence v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schema_version", "kind", "observed_utc", "compatible_agp_builds", "observations"],
+  "properties": {
+    "$schema": {"const": "../spec/compatibility-evidence.schema.json"},
+    "schema_version": {"const": 1},
+    "kind": {"const": "ufg_compatibility_evidence"},
+    "observed_utc": {"type": "string", "format": "date-time"},
+    "compatible_agp_builds": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/agp"}},
+    "observations": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/observation"}},
+    "absence_checks": {"type": "array", "items": {"$ref": "#/$defs/check"}},
+    "presence_checks": {"type": "array", "items": {"$ref": "#/$defs/check"}}
+  },
+  "$defs": {
+    "path": {"type": "string", "pattern": "^(?!/)(?!.*(?:^|/)\\.{1,2}(?:/|$))(?!.*:)[^\\\\/:*?\"<>|\\x00-\\x1F]+(?:/[^\\\\/:*?\"<>|\\x00-\\x1F]+)*$"},
+    "sha": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "agp": {"type": "object", "additionalProperties": false, "required": ["id", "version", "executable_sha256", "proxy_sha256", "payload_sha256", "original_dxcompiler_sha256"], "properties": {"id": {"type": "string", "minLength": 1}, "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"}, "executable_sha256": {"$ref": "#/$defs/sha"}, "proxy_sha256": {"$ref": "#/$defs/sha"}, "payload_sha256": {"$ref": "#/$defs/sha"}, "original_dxcompiler_sha256": {"$ref": "#/$defs/sha"}}},
+    "observation": {"type": "object", "additionalProperties": false, "required": ["source", "root_kind", "relative_path", "role"], "properties": {"source": {"enum": ["repository", "installed_ck3"]}, "root_kind": {"type": "string", "minLength": 1}, "root_display": {"type": "string"}, "relative_path": {"$ref": "#/$defs/path"}, "role": {"type": "string", "minLength": 1}, "kind": {"enum": ["file", "directory"]}, "sha256": {"$ref": "#/$defs/sha"}, "size_bytes": {"type": "integer", "minimum": 0}}},
+    "check": {"type": "object", "additionalProperties": false, "required": ["source", "root_kind", "relative_path", "expected"], "properties": {"source": {"const": "installed_ck3"}, "root_kind": {"type": "string", "minLength": 1}, "relative_path": {"$ref": "#/$defs/path"}, "expected": {"enum": ["absent", "present_and_hashed"]}}}
+  }
+}

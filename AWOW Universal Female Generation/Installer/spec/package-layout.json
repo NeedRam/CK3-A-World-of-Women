@@ -1,0 +1,47 @@
+{
+  "$schema": "https://awow-ufg.invalid/schema/package-layout-v1.json",
+  "schema_version": 1,
+  "kind": "ufg_package_layout",
+  "package_id": "awow-ufg-v1.0.0-win-x64",
+  "root_entries": [
+    {"relative_path": "dxcompiler.dll", "role": "ufg_proxy", "required": true, "phase": 1, "artifact_id": "ufg-proxy"},
+    {"relative_path": "AWOW Universal Female Generation/awow_ufg.dll", "role": "ufg_payload", "required": true, "phase": 1, "artifact_id": "ufg-payload"},
+    {"relative_path": "Installer/release-manifest.json", "role": "contract", "required": true, "phase": 1},
+    {"relative_path": "Install UFG.bat", "role": "bat_entrypoint", "required": true, "phase": 2},
+    {"relative_path": "Uninstall UFG.bat", "role": "bat_entrypoint", "required": true, "phase": 2},
+    {"relative_path": "Installer/install.ps1", "role": "powershell_engine", "required": true, "phase": 2},
+    {"relative_path": "Installer/uninstall.ps1", "role": "powershell_engine", "required": true, "phase": 2},
+    {"relative_path": "UFG-Installer.exe", "role": "exe_frontend", "required": true, "phase": 2},
+    {"relative_path": "UFG-Uninstaller.exe", "role": "exe_frontend", "required": true, "phase": 2},
+    {"relative_path": "Installer/python", "role": "python_engine", "required": true, "phase": 2},
+    {"relative_path": "README.md", "role": "end_user_documentation", "required": true, "phase": 2},
+    {"relative_path": "PRIVACY.md", "role": "privacy_policy", "required": true, "phase": 2},
+    {"relative_path": "SECURITY.md", "role": "security_policy", "required": true, "phase": 2},
+    {"relative_path": "SIGNING.md", "role": "signing_policy", "required": true, "phase": 2},
+    {"relative_path": "BUILD_TOOLCHAIN.json", "role": "native_toolchain_contract", "required": true, "phase": 2}
+  ],
+  "package_exclusions": [
+    {"relative_path": "native_test_mod", "reason": "Disposable maintainer fixture; never ship in the end-user package."},
+    {"relative_path": "src", "reason": "Native source is not an end-user runtime artifact."},
+    {"relative_path": "build", "reason": "Build staging is not copied into the package."},
+    {"relative_path": ".git", "reason": "Repository metadata is never packaged."}
+  ],
+  "target_layout": {
+    "root_kind": "steam_game_binaries",
+    "required_target_files": [
+      {"relative_path": "ck3.exe", "role": "game_executable", "owner": "steam"},
+      {"relative_path": "dxcompiler.dll", "role": "active_dxcompiler", "owner": "agp_dependency_or_ufg_managed"},
+      {"relative_path": "dxcompiler_original.dll", "role": "preserved_dxcompiler", "owner": "steam"},
+      {"relative_path": "AGP Native Hook/agp_parenthook.dll", "role": "agp_payload", "owner": "agp_dependency"}
+    ],
+    "ufg_state": {"relative_path": "AWOW Universal Female Generation/ufg-install-state.json", "statuses": ["managed_ufg", "ufg_proxy_only"], "owner": "ufg_installer"},
+    "transaction_journal": {"relative_directory": "AWOW Universal Female Generation/.ufg-journal", "owner": "ufg_installer", "remove_only_after_commit_or_verified_rollback": true},
+    "unknown_quarantine": {"relative_directory": "AWOW Universal Female Generation/.ufg-quarantine", "owner": "ufg_installer", "preserve_until_explicit_user_removal": true},
+    "runtime_logs": [
+      {"relative_path": "awow_ufg_dxcompiler_loader.log", "owner": "ufg_runtime", "uninstall_policy": "remove_exact_path"},
+      {"relative_path": "awow_ufg.log", "owner": "ufg_runtime", "uninstall_policy": "remove_exact_path"}
+    ],
+    "agp_preservation": {"paths": ["dxcompiler.dll", "dxcompiler_original.dll", "AGP Native Hook/agp_parenthook.dll", "AGP Native Hook/agp-install-state.json"], "policy": "verify_and_leave_unchanged_as_dependency"}
+  },
+  "path_rules": {"separator": "/", "reject_absolute_paths": true, "reject_drive_qualified_paths": true, "reject_dot_segments": true, "reject_reparse_targets_and_ancestors": true, "resolve_and_verify_containment_before_each_mutation": true}
+}

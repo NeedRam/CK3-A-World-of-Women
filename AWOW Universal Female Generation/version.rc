@@ -1,0 +1,37 @@
+#include <windows.h>
+
+#ifdef UFG_PROXY
+#define UFG_FILE_DESCRIPTION "AWOW UFG DXCompiler proxy"
+#define UFG_ORIGINAL_FILENAME "dxcompiler.dll"
+#else
+#define UFG_FILE_DESCRIPTION "AWOW Universal Female Generation payload"
+#define UFG_ORIGINAL_FILENAME "awow_ufg.dll"
+#endif
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,0
+ PRODUCTVERSION 1,0,0,0
+ FILEFLAGSMASK VS_FFI_FILEFLAGSMASK
+ FILEFLAGS 0
+ FILEOS VOS_NT_WINDOWS32
+ FILETYPE VFT_DLL
+ FILESUBTYPE VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "NeedRam\0"
+            VALUE "FileDescription", UFG_FILE_DESCRIPTION "\0"
+            VALUE "FileVersion", "1.0.0.0\0"
+            VALUE "LegalCopyright", "Copyright (c) 2026 NeedRam\0"
+            VALUE "OriginalFilename", UFG_ORIGINAL_FILENAME "\0"
+            VALUE "ProductName", "AWOW Universal Female Generation\0"
+            VALUE "ProductVersion", "1.0.0.0\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0409, 1200
+    END
+END
