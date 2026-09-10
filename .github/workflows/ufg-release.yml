@@ -108,7 +108,7 @@ jobs:
       - name: Attest ZIP provenance
         uses: actions/attest@v4
         with:
-          subject-path: release-out/AWOW-Universal-Female-Generation-v${{ steps.release.outputs.version }}-win64.zip
+          subject-path: release-out/*.zip
 
       - name: Upload release evidence
         uses: actions/upload-artifact@v4
@@ -120,12 +120,11 @@ jobs:
             release-out/*-provenance.json
           if-no-files-found: error
 
-      - name: Publish draft GitHub release for tagged builds
+      - name: Publish GitHub release for tagged builds
         if: startsWith(github.ref, 'refs/tags/ufg-v')
         shell: pwsh
         run: >-
           gh release create "$env:GITHUB_REF_NAME"
-          --draft
           --title "AWOW Universal Female Generation v${{ steps.release.outputs.version }}"
           --notes-file 'AWOW Universal Female Generation/release/RELEASE_NOTES.md'
           release-out/*.zip release-out/*.zip.sha256 release-out/*-provenance.json

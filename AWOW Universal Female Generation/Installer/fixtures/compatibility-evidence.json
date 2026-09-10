@@ -2,7 +2,7 @@
   "$schema": "../spec/compatibility-evidence.schema.json",
   "schema_version": 1,
   "kind": "ufg_compatibility_evidence",
-  "observed_utc": "2026-08-31T00:00:00Z",
+  "observed_utc": "2026-09-10T00:00:00Z",
   "compatible_agp_builds": [
     {
       "id": "agp-v1.0.1",
@@ -11,6 +11,14 @@
       "proxy_sha256": "4605b91a033668375cfd47ff1f64b005816bc40bc1438d72721d379011821cfa",
       "payload_sha256": "3fb1a1a113bd2ae6780de30983046659ca8cca41ca1bc1a88c0c7856994f9f38",
       "original_dxcompiler_sha256": "40e381d1d0ccf3bd725e30914b07d3d0cdaa907900e4d194da0e9cbd41d06e65"
+    },
+    {
+      "id": "agp-v1.0.2-repackaged",
+      "version": "1.0.2",
+      "executable_sha256": "2d00ff3101ef70b566f2fcbae292f09263199c80e9dc8f139b82d7d96f83db86",
+      "proxy_sha256": "7c266520db764c7c334a610b8d975241671273c45a90157548a47ec2af732bb0",
+      "payload_sha256": "9a75b00582261e3af75d262e68dbd858a88e20888e81b127b84dc2e87348ee52",
+      "original_dxcompiler_sha256": "40e381d1d0ccf3bd725e30914b07d3d0cdaa907900e4d194da0e9cbd41d06e65"
     }
   ],
   "observations": [
@@ -18,6 +26,8 @@
     {"source": "repository", "root_kind": "ufg_repository", "relative_path": "build/AWOW Universal Female Generation/awow_ufg.dll", "role": "ufg_payload_artifact", "sha256": "b75013a3b996e11fecc3264a0cb502a88ab46e212a652d2a2946678fcf374200", "size_bytes": 133632},
     {"source": "repository", "root_kind": "agp_repository_release", "relative_path": "dxcompiler.dll", "role": "agp_proxy_dependency", "sha256": "4605b91a033668375cfd47ff1f64b005816bc40bc1438d72721d379011821cfa", "size_bytes": 109568},
     {"source": "repository", "root_kind": "agp_repository_release", "relative_path": "AGP Native Hook/agp_parenthook.dll", "role": "agp_payload_dependency", "sha256": "3fb1a1a113bd2ae6780de30983046659ca8cca41ca1bc1a88c0c7856994f9f38", "size_bytes": 135680},
+    {"source": "repository", "root_kind": "agp_v1.0.2_repackaged_release", "relative_path": "dxcompiler.dll", "role": "agp_proxy_dependency", "sha256": "7c266520db764c7c334a610b8d975241671273c45a90157548a47ec2af732bb0", "size_bytes": 109568},
+    {"source": "repository", "root_kind": "agp_v1.0.2_repackaged_release", "relative_path": "AGP Native Hook/agp_parenthook.dll", "role": "agp_payload_dependency", "sha256": "9a75b00582261e3af75d262e68dbd858a88e20888e81b127b84dc2e87348ee52", "size_bytes": 135680},
     {"source": "installed_ck3", "root_kind": "steam_standard_ck3_binaries", "relative_path": "ck3.exe", "role": "game_executable", "sha256": "2d00ff3101ef70b566f2fcbae292f09263199c80e9dc8f139b82d7d96f83db86", "size_bytes": 95206008},
     {"source": "installed_ck3", "root_kind": "steam_standard_ck3_binaries", "relative_path": "dxcompiler_original.dll", "role": "preserved_steam_dxcompiler", "sha256": "40e381d1d0ccf3bd725e30914b07d3d0cdaa907900e4d194da0e9cbd41d06e65", "size_bytes": 20291584}
   ],

@@ -84,7 +84,13 @@ The script builds all payload translation units as one DLL, builds the DXCompile
 
 ## Installation for maintainer testing
 
-Install Any-Gender Parenthook first, then close CK3 before changing the game binaries. For the packaged workflow, run `UFG-Installer.exe` (or `Install UFG.bat`) from the release package; it verifies the exact CK3, Steam-original, AGP proxy, and AGP payload hashes before changing anything. The CK3 `binaries` directory must already contain the untouched original DXCompiler and AGP payload:
+Install Any-Gender Parenthook first, then close CK3 before changing the game
+binaries. Download `AWOW UFG v1.0.0 EXE Installer.zip`, `AWOW UFG v1.0.0
+Batch File Installer.zip`, or `AWOW UFG v1.0.0 Base Files (Manual
+Install).zip`. The EXE and batch installers verify the exact CK3,
+Steam-original, AGP proxy, and AGP payload hashes before changing anything.
+The CK3 `binaries` directory must already contain the untouched original
+DXCompiler and AGP payload:
 
 ```text
 Crusader Kings III\binaries\
@@ -113,11 +119,9 @@ For a UFG-only upgrade against the same compatible AGP pairing, use the new
 UFG installer, review its short upgrade explanation, and choose **OK**. To change AGP versions,
 disable UFG first, run the new release's `AGP-Installer.exe` so its standalone
 proxy replaces the old UFG proxy, then install the UFG release whose manifest lists the new
-CK3/AGP hashes. AGP v1.0.1 predates the UFG v1.0.0 proxy hash and therefore
-classifies that proxy-only handoff as `unknown_conflicting`; after verifying the
-UFG payload is absent and the preserved compiler/AGP payload hashes are intact,
-use AGP's displayed `I_UNDERSTAND_UNKNOWN_CONFLICT` confirmation to restore its
-standalone proxy. Do not preserve an old UFG proxy across an AGP upgrade.
+CK3/AGP hashes. Current AGP releases recognize the UFG handoff and provide a
+separately confirmed conversion back to the standalone AGP proxy. Do not
+preserve an old UFG proxy across an AGP upgrade.
 
 ## Logs and failure handling
 

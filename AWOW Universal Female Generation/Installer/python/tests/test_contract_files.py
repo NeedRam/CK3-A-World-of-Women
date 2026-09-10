@@ -42,8 +42,8 @@ class ContractFileTests(unittest.TestCase):
 
     def test_package_entrypoints_are_top_level_in_layout(self) -> None:
         layout = json.loads((CONTRACT / "spec" / "package-layout.json").read_text(encoding="utf-8"))
-        paths = {item["relative_path"] for item in layout["root_entries"]}
-        self.assertTrue({"UFG-Installer.exe", "UFG-Uninstaller.exe", "Install UFG.bat", "Uninstall UFG.bat", "PRIVACY.md", "SECURITY.md", "SIGNING.md", "BUILD_TOOLCHAIN.json"}.issubset(paths))
+        paths = {item["relative_path"] for item in layout["available_entries"]}
+        self.assertTrue({"UFG-Installer.exe", "UFG-Uninstaller.exe", "Install UFG.bat", "Uninstall UFG.bat", "README.md", "LICENSE"}.issubset(paths))
         self.assertFalse(any(path.startswith("Installer/UFG") for path in paths))
 
     def test_batch_launchers_do_not_end_quoted_package_root_with_backslash(self) -> None:
@@ -79,20 +79,25 @@ class ContractFileTests(unittest.TestCase):
         self.assertIn('VALUE "OriginalFilename", UFG_ORIGINAL_FILENAME', version_resource)
         self.assertIn('VALUE "ProductVersion", "1.0.0.0', version_resource)
 
-    def test_release_builder_excludes_development_content_and_packages_policies(self) -> None:
+    def test_release_builder_excludes_development_content_and_splits_packages(self) -> None:
         builder = (ROOT / "release" / "build-release.ps1").read_text(encoding="utf-8")
-        for policy in ("PRIVACY.md", "SECURITY.md", "SIGNING.md"):
-            self.assertIn(policy, builder)
-            self.assertTrue((ROOT / policy).is_file())
+        for package_id in ("manual", "batch", "exe"):
+            self.assertIn("Id = '" + package_id + "'", builder)
+        self.assertIn("LICENSE", builder)
         for excluded in ("tests", "fixtures", "build.py", "requirements-build.txt"):
             self.assertIn(excluded, builder)
 
-    def test_end_user_upgrade_handoff_documents_agp_v101_confirmation(self) -> None:
-        readme = (ROOT / "release" / "END_USER_README.md").read_text(encoding="utf-8")
-        self.assertIn("I_UNDERSTAND_UNKNOWN_CONFLICT", readme)
-        self.assertIn("AGP v1.0.1 predates this UFG v1.0.0 proxy hash", readme)
-        for ufg_token in ("UPGRADE_UFG_IN_PLACE", "ADOPT_UFG_LAYOUT", "RE_ENABLE_UFG"):
-            self.assertNotIn(ufg_token, readme)
+    def test_focused_end_user_readmes_hide_internal_confirmation_tokens(self) -> None:
+        for name in ("README_MANUAL.md", "README_BATCH.md", "README_EXE.md"):
+            readme = (ROOT / "release" / name).read_text(encoding="utf-8")
+            for token in ("UPGRADE_UFG_IN_PLACE", "ADOPT_UFG_LAYOUT", "RE_ENABLE_UFG", "I_UNDERSTAND_UNKNOWN_CONFLICT"):
+                self.assertNotIn(token, readme)
+
+    def test_current_agp_v102_dependency_hashes_are_declared(self) -> None:
+        manifest = json.loads((CONTRACT / "release-manifest.json").read_text(encoding="utf-8"))
+        candidate = next(item for item in manifest["compatible_agp_builds"] if item["id"] == "agp-v1.0.2-repackaged")
+        self.assertEqual(candidate["proxy_sha256"], "7c266520db764c7c334a610b8d975241671273c45a90157548a47ec2af732bb0")
+        self.assertEqual(candidate["payload_sha256"], "9a75b00582261e3af75d262e68dbd858a88e20888e81b127b84dc2e87348ee52")
 
     def test_interactive_ufg_frontends_use_two_button_confirmations(self) -> None:
         gui = (ROOT / "Installer" / "python" / "ufg_installer" / "gui.py").read_text(encoding="utf-8")

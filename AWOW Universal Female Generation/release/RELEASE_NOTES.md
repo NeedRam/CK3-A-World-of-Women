@@ -1,5 +1,9 @@
 # AWOW Universal Female Generation v1.0.0
 
+The release is available as three separate downloads: Base Files (Manual
+Install), Batch File Installer, and EXE Installer. Each ZIP contains only the
+files required for that installation method.
+
 - Added an independent Python/Tkinter and PowerShell transactional installer.
 - Fresh install now requires exact hashes for the compatible AGP proxy,
   payload, and Steam original declared in `compatible_agp_builds`.
@@ -16,6 +20,8 @@
   questions in both graphical and BAT installer flows.
 - Canonicalized displayed default paths to the filesystem's proper Windows,
   Steam, and Crusader Kings III capitalization.
+- Added exact compatibility for the current canonical AGP v1.0.2 package
+  hashes while retaining the earlier compatible AGP build.
 - Pinned and enforced the native MSVC/Windows SDK toolchain, added PE identity
   metadata, canonical main-line provenance attestation, and packaged security,
   privacy, and signing policies.

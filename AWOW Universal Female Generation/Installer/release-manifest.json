@@ -177,6 +177,18 @@
       "original_dxcompiler_sha256": "40e381d1d0ccf3bd725e30914b07d3d0cdaa907900e4d194da0e9cbd41d06e65",
       "state_relative_path": "AGP Native Hook/agp-install-state.json",
       "state_policy": "absent_or_valid_managed_agp"
+    },
+    {
+      "id": "agp-v1.0.2-repackaged",
+      "version": "1.0.2",
+      "executable_sha256": "2d00ff3101ef70b566f2fcbae292f09263199c80e9dc8f139b82d7d96f83db86",
+      "proxy_relative_path": "dxcompiler.dll",
+      "proxy_sha256": "7c266520db764c7c334a610b8d975241671273c45a90157548a47ec2af732bb0",
+      "payload_relative_path": "AGP Native Hook/agp_parenthook.dll",
+      "payload_sha256": "9a75b00582261e3af75d262e68dbd858a88e20888e81b127b84dc2e87348ee52",
+      "original_dxcompiler_sha256": "40e381d1d0ccf3bd725e30914b07d3d0cdaa907900e4d194da0e9cbd41d06e65",
+      "state_relative_path": "AGP Native Hook/agp-install-state.json",
+      "state_policy": "absent_or_valid_managed_agp"
     }
   ],
   "compatibility": {
@@ -215,6 +227,40 @@
           ]
         },
         "description": "Official AGP v1.0.1 proxy, payload, and canonical Steam original match exact SHA-256 values."
+      },
+      {
+        "id": "agp-v1.0.2-repackaged-ready",
+        "state": "agp_ready",
+        "confidence": "exact_hash",
+        "match": {
+          "state_file": "absent_or_valid",
+          "required_files": [
+            {
+              "relative_path": "dxcompiler.dll",
+              "kind": "file",
+              "sha256": "7c266520db764c7c334a610b8d975241671273c45a90157548a47ec2af732bb0",
+              "size_bytes": 109568
+            },
+            {
+              "relative_path": "dxcompiler_original.dll",
+              "kind": "file",
+              "sha256": "40e381d1d0ccf3bd725e30914b07d3d0cdaa907900e4d194da0e9cbd41d06e65",
+              "size_bytes": 20291584
+            },
+            {
+              "relative_path": "AGP Native Hook/agp_parenthook.dll",
+              "kind": "file",
+              "sha256": "9a75b00582261e3af75d262e68dbd858a88e20888e81b127b84dc2e87348ee52",
+              "size_bytes": 135680
+            }
+          ],
+          "required_paths": [],
+          "absent_paths": [
+            "AWOW Universal Female Generation/ufg-install-state.json",
+            "AWOW Universal Female Generation/awow_ufg.dll"
+          ]
+        },
+        "description": "Canonical repackaged AGP v1.0.2 proxy, payload, and Steam original match exact SHA-256 values."
       },
       {
         "id": "ufg-v1.0.0-manual-layout",

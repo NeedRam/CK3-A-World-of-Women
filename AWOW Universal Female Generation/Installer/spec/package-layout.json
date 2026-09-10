@@ -1,24 +1,26 @@
 {
-  "$schema": "https://awow-ufg.invalid/schema/package-layout-v1.json",
-  "schema_version": 1,
+  "$schema": "https://awow-ufg.invalid/schema/package-layout-v2.json",
+  "schema_version": 2,
   "kind": "ufg_package_layout",
   "package_id": "awow-ufg-v1.0.0-win-x64",
-  "root_entries": [
-    {"relative_path": "dxcompiler.dll", "role": "ufg_proxy", "required": true, "phase": 1, "artifact_id": "ufg-proxy"},
-    {"relative_path": "AWOW Universal Female Generation/awow_ufg.dll", "role": "ufg_payload", "required": true, "phase": 1, "artifact_id": "ufg-payload"},
-    {"relative_path": "Installer/release-manifest.json", "role": "contract", "required": true, "phase": 1},
-    {"relative_path": "Install UFG.bat", "role": "bat_entrypoint", "required": true, "phase": 2},
-    {"relative_path": "Uninstall UFG.bat", "role": "bat_entrypoint", "required": true, "phase": 2},
-    {"relative_path": "Installer/install.ps1", "role": "powershell_engine", "required": true, "phase": 2},
-    {"relative_path": "Installer/uninstall.ps1", "role": "powershell_engine", "required": true, "phase": 2},
-    {"relative_path": "UFG-Installer.exe", "role": "exe_frontend", "required": true, "phase": 2},
-    {"relative_path": "UFG-Uninstaller.exe", "role": "exe_frontend", "required": true, "phase": 2},
-    {"relative_path": "Installer/python", "role": "python_engine", "required": true, "phase": 2},
-    {"relative_path": "README.md", "role": "end_user_documentation", "required": true, "phase": 2},
-    {"relative_path": "PRIVACY.md", "role": "privacy_policy", "required": true, "phase": 2},
-    {"relative_path": "SECURITY.md", "role": "security_policy", "required": true, "phase": 2},
-    {"relative_path": "SIGNING.md", "role": "signing_policy", "required": true, "phase": 2},
-    {"relative_path": "BUILD_TOOLCHAIN.json", "role": "native_toolchain_contract", "required": true, "phase": 2}
+  "package_variants": [
+    {"id": "manual", "archive_name": "AWOW UFG v1.0.0 Base Files (Manual Install).zip", "entrypoints": []},
+    {"id": "batch", "archive_name": "AWOW UFG v1.0.0 Batch File Installer.zip", "entrypoints": ["Install UFG.bat", "Uninstall UFG.bat"]},
+    {"id": "exe", "archive_name": "AWOW UFG v1.0.0 EXE Installer.zip", "entrypoints": ["UFG-Installer.exe", "UFG-Uninstaller.exe"]}
+  ],
+  "available_entries": [
+    {"relative_path": "dxcompiler.dll", "role": "ufg_proxy", "variants": ["manual", "batch", "exe"], "artifact_id": "ufg-proxy"},
+    {"relative_path": "AWOW Universal Female Generation/awow_ufg.dll", "role": "ufg_payload", "variants": ["manual", "batch", "exe"], "artifact_id": "ufg-payload"},
+    {"relative_path": "Installer/release-manifest.json", "role": "contract", "variants": ["batch", "exe"]},
+    {"relative_path": "Install UFG.bat", "role": "bat_entrypoint", "variants": ["batch"]},
+    {"relative_path": "Uninstall UFG.bat", "role": "bat_entrypoint", "variants": ["batch"]},
+    {"relative_path": "Installer/install.ps1", "role": "powershell_engine", "variants": ["batch"]},
+    {"relative_path": "Installer/uninstall.ps1", "role": "powershell_engine", "variants": ["batch"]},
+    {"relative_path": "Installer/powershell/engine.ps1", "role": "powershell_engine", "variants": ["batch"]},
+    {"relative_path": "UFG-Installer.exe", "role": "exe_frontend", "variants": ["exe"]},
+    {"relative_path": "UFG-Uninstaller.exe", "role": "exe_frontend", "variants": ["exe"]},
+    {"relative_path": "README.md", "role": "variant_instructions", "variants": ["manual", "batch", "exe"]},
+    {"relative_path": "LICENSE", "role": "license", "variants": ["manual", "batch", "exe"]}
   ],
   "package_exclusions": [
     {"relative_path": "native_test_mod", "reason": "Disposable maintainer fixture; never ship in the end-user package."},
