@@ -92,7 +92,19 @@ Expected Scope: character
 
 --------------------
 
+task_republic_market_oversight_side_effects:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 tgp_confusion_of_tongues:
+From Code: No
+Expected Scope: none
+
+--------------------
+
+gdp_market_investment:
 From Code: No
 Expected Scope: none
 
@@ -152,6 +164,12 @@ Expected Scope: character
 
 --------------------
 
+study_scripture_success:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 on_confederation_leave:
 From Code: No
 Expected Scope: none
@@ -182,6 +200,12 @@ Expected Scope: character
 
 --------------------
 
+on_province_size_level_decreased:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
 on_hostage_depart_travel_planner_exit:
 From Code: No
 Expected Scope: none
@@ -197,6 +221,12 @@ Expected Scope: none
 on_artifact_claim_lost:
 From Code: Yes
 Expected Scope: none
+
+--------------------
+
+faith_rite_additional_growth_chance_pulse:
+From Code: No
+Expected Scope: faith
 
 --------------------
 
@@ -242,6 +272,12 @@ Expected Scope: none
 
 --------------------
 
+merchant_challenge_competitor_trade_opportunity_scheme_on_going_events:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 ongoing_admin_eunuch_reaction_events:
 From Code: No
 Expected Scope: character
@@ -251,6 +287,18 @@ Expected Scope: character
 on_building_started:
 From Code: Yes
 Expected Scope: none
+
+--------------------
+
+gdp_republic_popular_opinion_mild_pos:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+gdp_merchant_pool_pulse:
+From Code: No
+Expected Scope: character
 
 --------------------
 
@@ -284,15 +332,9 @@ Expected Scope: faith
 
 --------------------
 
-on_great_building_rebuilt:
-From Code: Yes
-Expected Scope: none
-
---------------------
-
-awow_monthly_culling_pulse:
+generic_intrigue_owner_ongoing:
 From Code: No
-Expected Scope: none
+Expected Scope: character
 
 --------------------
 
@@ -304,6 +346,12 @@ Expected Scope: character
 
 petition_liege_0401:
 From Code: No
+Expected Scope: none
+
+--------------------
+
+on_faith_holy_site_removed:
+From Code: Yes
 Expected Scope: none
 
 --------------------
@@ -470,6 +518,12 @@ Expected Scope: character
 
 --------------------
 
+gdp_republic_popular_opinion_mild_neg:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 pledge_loyalty_to_liege_start:
 From Code: No
 Expected Scope: none
@@ -536,15 +590,21 @@ Expected Scope: character
 
 --------------------
 
+merchant_alleviate_upheaval_trade_opportunity_scheme_on_going_events:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 on_hook_used:
 From Code: Yes
 Expected Scope: none
 
 --------------------
 
-awow_game_start_setup:
+generic_intrigue_agents_ongoing:
 From Code: No
-Expected Scope: none
+Expected Scope: character
 
 --------------------
 
@@ -632,6 +692,12 @@ Expected Scope: character
 
 --------------------
 
+merchant_silk_road_caravan_trade_opportunity_scheme_on_going_events:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 organize_levies_monthly_on_action:
 From Code: No
 Expected Scope: character
@@ -710,9 +776,27 @@ Expected Scope: character
 
 --------------------
 
+pam_study_faith_personal_tenet_on_action:
+From Code: No
+Expected Scope: none
+
+--------------------
+
+gdp_menagerie_acquisition:
+From Code: No
+Expected Scope: none
+
+--------------------
+
 dynastic_cycle_monthly_pulse:
 From Code: No
 Expected Scope: none
+
+--------------------
+
+patrician_stroll_on_action:
+From Code: No
+Expected Scope: character
 
 --------------------
 
@@ -830,8 +914,8 @@ Expected Scope: none
 
 --------------------
 
-silk_road_market_visit_travel_planner_cancel_on_action:
-From Code: No
+on_character_holy_site_created:
+From Code: Yes
 Expected Scope: none
 
 --------------------
@@ -857,6 +941,12 @@ Expected Scope: character
 ep3_wartime_measures:
 From Code: No
 Expected Scope: none
+
+--------------------
+
+study_faith_success:
+From Code: No
+Expected Scope: character
 
 --------------------
 
@@ -902,6 +992,12 @@ Expected Scope: character
 
 --------------------
 
+on_trade_monopoly_invalidated:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
 on_alliance_added:
 From Code: Yes
 Expected Scope: none
@@ -932,6 +1028,12 @@ Expected Scope: character
 
 --------------------
 
+natural_primitivism_on_16th_birthday:
+From Code: No
+Expected Scope: none
+
+--------------------
+
 coronation_failed_oath_on_action:
 From Code: No
 Expected Scope: none
@@ -940,6 +1042,12 @@ Expected Scope: none
 
 pilgrimage_arrival_events:
 From Code: No
+Expected Scope: character
+
+--------------------
+
+on_rite_change:
+From Code: Yes
 Expected Scope: character
 
 --------------------
@@ -953,12 +1061,6 @@ Expected Scope: none
 on_set_relation_nemesis:
 From Code: No
 Expected Scope: none
-
---------------------
-
-faith_fervor_events_pulse:
-From Code: No
-Expected Scope: faith
 
 --------------------
 
@@ -992,6 +1094,18 @@ Expected Scope: character
 
 --------------------
 
+gg_replace_ruler_ongoing:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+pam_mountain_travel_personal_tenet_on_action:
+From Code: No
+Expected Scope: none
+
+--------------------
+
 on_yearly_invisible_events:
 From Code: No
 Expected Scope: character
@@ -1001,6 +1115,12 @@ Expected Scope: character
 on_set_relation_rival:
 From Code: No
 Expected Scope: none
+
+--------------------
+
+gg_align_undecided_ongoing:
+From Code: No
+Expected Scope: character
 
 --------------------
 
@@ -1029,6 +1149,12 @@ Expected Scope: character
 --------------------
 
 contest_bout_joust_pivotal_pulse:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+merchant_sabotage_competition_trade_opportunity_scheme_on_going_events:
 From Code: No
 Expected Scope: character
 
@@ -1094,6 +1220,12 @@ Expected Scope: character
 
 --------------------
 
+merchant_seek_debtors_trade_opportunity_scheme_on_going_events:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 stress_loss_athletic:
 From Code: No
 Expected Scope: character
@@ -1109,6 +1241,12 @@ Expected Scope: character
 travel_laamps_provisions_on_action:
 From Code: No
 Expected Scope: character
+
+--------------------
+
+gdp_merchant_company_debt_pulse:
+From Code: No
+Expected Scope: none
 
 --------------------
 
@@ -1148,7 +1286,19 @@ Expected Scope: none
 
 --------------------
 
+gdp_incite_unrest_scheme_discovered:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 on_stress_level_3:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+gdp_merchant_yearly_events:
 From Code: No
 Expected Scope: character
 
@@ -1250,6 +1400,12 @@ Expected Scope: none
 
 --------------------
 
+gdp_merchant_company_debt_grace_pulse:
+From Code: No
+Expected Scope: none
+
+--------------------
+
 coronation_first_phase_guest_events:
 From Code: No
 Expected Scope: character
@@ -1268,12 +1424,6 @@ Expected Scope: character
 
 --------------------
 
-stress_pulse:
-From Code: No
-Expected Scope: none
-
---------------------
-
 on_action_mandala_realm_contract_0025:
 From Code: No
 Expected Scope: none
@@ -1289,6 +1439,12 @@ Expected Scope: character
 on_hostage_invalidated:
 From Code: Yes
 Expected Scope: none
+
+--------------------
+
+merchant_silk_road_network_trade_opportunity_scheme_on_going_events:
+From Code: No
+Expected Scope: character
 
 --------------------
 
@@ -1318,6 +1474,12 @@ Expected Scope: character
 
 wanderer_lifestyle_unavailable_events:
 From Code: No
+Expected Scope: none
+
+--------------------
+
+on_great_district_rebuilt:
+From Code: Yes
 Expected Scope: none
 
 --------------------
@@ -1358,6 +1520,12 @@ Expected Scope: none
 
 --------------------
 
+task_republic_trade_logistics_side_effects:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 norse_arrival_events:
 From Code: No
 Expected Scope: character
@@ -1382,7 +1550,19 @@ Expected Scope: character
 
 --------------------
 
+on_term_ended:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
 stewardship_lifestyle_uncommon_events:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+merchant_negotiate_tolls_trade_opportunity_scheme_on_going_events:
 From Code: No
 Expected Scope: character
 
@@ -1412,6 +1592,18 @@ Expected Scope: none
 
 --------------------
 
+gdp_merchant_ai_trade_monopoly_pulse:
+From Code: No
+Expected Scope: none
+
+--------------------
+
+gdp_sabotage_competition:
+From Code: No
+Expected Scope: none
+
+--------------------
+
 on_yearly_events:
 From Code: No
 Expected Scope: character
@@ -1421,6 +1613,12 @@ Expected Scope: character
 on_birthday_adulthood:
 From Code: No
 Expected Scope: character
+
+--------------------
+
+lifestyle_progress_pulse:
+From Code: No
+Expected Scope: none
 
 --------------------
 
@@ -1442,7 +1640,25 @@ Expected Scope: character
 
 --------------------
 
+pam_personal_tenet_status_change_fulfillment_on_action:
+From Code: No
+Expected Scope: none
+
+--------------------
+
 task_exploit_area_on_action:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+faith_rite_growth_pulse:
+From Code: No
+Expected Scope: faith
+
+--------------------
+
+gdp_tgf_travelling_merchant_pulse:
 From Code: No
 Expected Scope: character
 
@@ -1455,6 +1671,12 @@ Expected Scope: none
 --------------------
 
 on_tour_travel:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+generic_intrigue_target_ongoing:
 From Code: No
 Expected Scope: character
 
@@ -1490,6 +1712,12 @@ Expected Scope: character
 
 --------------------
 
+on_trade_route_created:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
 on_hostage_depart_for_home_court:
 From Code: No
 Expected Scope: none
@@ -1511,6 +1739,12 @@ Expected Scope: character
 wanderer_lifestyle_progress_pulse:
 From Code: No
 Expected Scope: none
+
+--------------------
+
+merchant_support_guilds_trade_opportunity_scheme_on_going_events:
+From Code: No
+Expected Scope: character
 
 --------------------
 
@@ -1553,6 +1787,12 @@ Expected Scope: character
 pilgrimage_travel_events:
 From Code: No
 Expected Scope: character
+
+--------------------
+
+gdp_exploit_upheaval:
+From Code: No
+Expected Scope: none
 
 --------------------
 
@@ -1682,6 +1922,12 @@ Expected Scope: character
 
 --------------------
 
+gdp_republic_unrest_severity_3:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 hunt_random_pulse:
 From Code: No
 Expected Scope: character
@@ -1700,6 +1946,18 @@ Expected Scope: none
 
 --------------------
 
+ep5_09_wearer_of_many_hats_achievement_pulse:
+From Code: No
+Expected Scope: none
+
+--------------------
+
+burgher_autonomy_demand_self_rule:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 spouse_councillor_default_on_action:
 From Code: No
 Expected Scope: character
@@ -1714,6 +1972,12 @@ Expected Scope: none
 
 on_join_court:
 From Code: Yes
+Expected Scope: character
+
+--------------------
+
+merchant_promote_goods_trade_opportunity_scheme_on_going_events:
+From Code: No
 Expected Scope: character
 
 --------------------
@@ -1751,6 +2015,12 @@ Expected Scope: character
 on_raid_loot_delivered:
 From Code: Yes
 Expected Scope: army
+
+--------------------
+
+gdp_challenge_competitor:
+From Code: No
+Expected Scope: none
 
 --------------------
 
@@ -1832,6 +2102,12 @@ Expected Scope: character
 
 --------------------
 
+republic_promote_candidate_scheme_success:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 task_help_herders_side_effects:
 From Code: No
 Expected Scope: character
@@ -1858,6 +2134,12 @@ Expected Scope: character
 
 on_title_gain:
 From Code: Yes
+Expected Scope: character
+
+--------------------
+
+gdp_republic_popular_opinion_severe_neg:
+From Code: No
 Expected Scope: character
 
 --------------------
@@ -1937,6 +2219,12 @@ Expected Scope: character
 on_artifact_broken_through_effect:
 From Code: Yes
 Expected Scope: artifact
+
+--------------------
+
+pam_ecumenical_council_debate_doctrines_events:
+From Code: No
+Expected Scope: character
 
 --------------------
 
@@ -2084,6 +2372,12 @@ Expected Scope: none
 
 --------------------
 
+update_main_rite_action:
+From Code: No
+Expected Scope: none
+
+--------------------
+
 stewardship_road_building_chain:
 From Code: No
 Expected Scope: character
@@ -2117,6 +2411,12 @@ Expected Scope: character
 stewardship_lifestyle_rare_events:
 From Code: No
 Expected Scope: character
+
+--------------------
+
+gdp_trade_envoys_resume_pulse:
+From Code: No
+Expected Scope: none
 
 --------------------
 
@@ -2171,6 +2471,24 @@ Expected Scope: none
 fp2_struggle_council_toledo_fallback:
 From Code: No
 Expected Scope: character
+
+--------------------
+
+burgher_autonomy_demand_privileges:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+abduct_specific_ongoing:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+on_personal_tenet_gain:
+From Code: Yes
+Expected Scope: none
 
 --------------------
 
@@ -2264,6 +2582,12 @@ Expected Scope: none
 
 --------------------
 
+gdp_republic_unrest_severity_1:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 on_perks_refunded:
 From Code: Yes
 Expected Scope: none
@@ -2294,9 +2618,27 @@ Expected Scope: none
 
 --------------------
 
+overthrow_government_failure_outcome:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+study_faith_ongoing:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 random_survey_mid_event_pulse:
 From Code: No
 Expected Scope: character
+
+--------------------
+
+on_holy_site_artifact_removed:
+From Code: Yes
+Expected Scope: none
 
 --------------------
 
@@ -2312,6 +2654,12 @@ Expected Scope: none
 
 --------------------
 
+yearly_holy_order_pulse:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
 tribute_mission_start:
 From Code: No
 Expected Scope: none
@@ -2320,7 +2668,7 @@ Expected Scope: none
 
 on_faith_created:
 From Code: Yes
-Expected Scope: character
+Expected Scope: none
 
 --------------------
 
@@ -2333,6 +2681,18 @@ Expected Scope: none
 task_develop_county_side_effects:
 From Code: No
 Expected Scope: character
+
+--------------------
+
+merchant_patron_hobnob_patron_contract_scheme_ongoing_events:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+on_rite_yearly:
+From Code: Yes
+Expected Scope: none
 
 --------------------
 
@@ -2363,6 +2723,12 @@ Expected Scope: none
 chivalry_task_on_action:
 From Code: No
 Expected Scope: character
+
+--------------------
+
+on_trade_route_destroyed:
+From Code: Yes
+Expected Scope: none
 
 --------------------
 
@@ -2414,6 +2780,12 @@ Expected Scope: none
 
 --------------------
 
+faith_monastic_order_land_acquisition_pulse:
+From Code: No
+Expected Scope: faith
+
+--------------------
+
 on_noble_family_title_created:
 From Code: Yes
 Expected Scope: none
@@ -2456,6 +2828,12 @@ Expected Scope: none
 
 --------------------
 
+gdp_republic_unrest_severity_2:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 on_action_mandala_realm_contract_0032:
 From Code: No
 Expected Scope: none
@@ -2468,7 +2846,19 @@ Expected Scope: none
 
 --------------------
 
+pam_tax_nonbelievers_faith_conversion_on_action:
+From Code: No
+Expected Scope: none
+
+--------------------
+
 contest_bout_duel_pivotal_pulse:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+merchant_base_trade_opportunity_scheme_on_going_events:
 From Code: No
 Expected Scope: character
 
@@ -2477,12 +2867,6 @@ Expected Scope: character
 imperial_examination_opening_on_action:
 From Code: No
 Expected Scope: none
-
---------------------
-
-on_character_faith_change:
-From Code: Yes
-Expected Scope: character
 
 --------------------
 
@@ -2501,6 +2885,18 @@ Expected Scope: character
 faith_holy_order_land_acquisition_pulse:
 From Code: No
 Expected Scope: faith
+
+--------------------
+
+petition_head_of_faith_travel_planner_exit:
+From Code: No
+Expected Scope: none
+
+--------------------
+
+on_rite_edited:
+From Code: Yes
+Expected Scope: none
 
 --------------------
 
@@ -2546,6 +2942,12 @@ Expected Scope: character
 
 --------------------
 
+on_artifact_changed_holy_site_owner:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
 tournament_locale_settlement_events:
 From Code: No
 Expected Scope: character
@@ -2582,6 +2984,12 @@ Expected Scope: character
 
 --------------------
 
+gdp_republic_popular_opinion_strong_pos:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 learn_language_ongoing:
 From Code: No
 Expected Scope: character
@@ -2612,6 +3020,12 @@ Expected Scope: combat_side
 
 --------------------
 
+carnival_random_pulse:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 on_accolade_acclaimed_death:
 From Code: Yes
 Expected Scope: none
@@ -2624,6 +3038,24 @@ Expected Scope: character
 
 --------------------
 
+ecumenical_council_summons_events:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+on_gdp_trader_arrived_at_market:
+From Code: No
+Expected Scope: none
+
+--------------------
+
+pam_sanctity_of_nature_building_completed_on_action:
+From Code: No
+Expected Scope: none
+
+--------------------
+
 on_house_in_admin_realm_became_powerful:
 From Code: Yes
 Expected Scope: none
@@ -2632,6 +3064,12 @@ Expected Scope: none
 
 on_court_type_changed:
 From Code: Yes
+Expected Scope: none
+
+--------------------
+
+gdp_trade_route_maturity_pulse:
+From Code: No
 Expected Scope: none
 
 --------------------
@@ -2660,6 +3098,12 @@ Expected Scope: none
 
 --------------------
 
+child_personality_gain_east_asian:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 feast_new_event_selection_tombola:
 From Code: No
 Expected Scope: character
@@ -2681,6 +3125,12 @@ Expected Scope: character
 on_remove_relation_guardian:
 From Code: No
 Expected Scope: none
+
+--------------------
+
+child_personality_gain_standard:
+From Code: No
+Expected Scope: character
 
 --------------------
 
@@ -2732,6 +3182,12 @@ Expected Scope: character
 
 --------------------
 
+on_trait_gained:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
 random_survey_first_event_pulse:
 From Code: No
 Expected Scope: character
@@ -2744,9 +3200,21 @@ Expected Scope: none
 
 --------------------
 
+on_toll_exception_changed:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
 on_culture_era_changed:
 From Code: Yes
 Expected Scope: none
+
+--------------------
+
+gdp_menagerie_acquisition_wilds_pool_start:
+From Code: No
+Expected Scope: character
 
 --------------------
 
@@ -2834,6 +3302,24 @@ Expected Scope: character
 
 --------------------
 
+merchant_smuggle_goods_trade_opportunity_scheme_on_going_events:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+gg_switch_sides_ongoing:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+on_rite_updated:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
 tournament_locale_visitor_camp_events:
 From Code: No
 Expected Scope: character
@@ -2918,6 +3404,18 @@ Expected Scope: none
 
 --------------------
 
+on_county_rite_change:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
+pam_dulia_personal_sainthood_convert:
+From Code: No
+Expected Scope: none
+
+--------------------
+
 on_courtier_ready_to_move_to_pool:
 From Code: Yes
 Expected Scope: character
@@ -2951,6 +3449,12 @@ Expected Scope: character
 diarchy_mandate_promote_authority_random:
 From Code: No
 Expected Scope: character
+
+--------------------
+
+on_trade_route_edited:
+From Code: Yes
+Expected Scope: none
 
 --------------------
 
@@ -3062,6 +3566,12 @@ Expected Scope: character
 
 --------------------
 
+overthrow_government_success_outcome:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 on_6th_birthday:
 From Code: No
 Expected Scope: character
@@ -3098,6 +3608,12 @@ Expected Scope: none
 
 --------------------
 
+gdp_merchant_population_global_pulse:
+From Code: No
+Expected Scope: none
+
+--------------------
+
 claim_throne_succeeded:
 From Code: No
 Expected Scope: character
@@ -3116,15 +3632,33 @@ Expected Scope: character
 
 --------------------
 
+generic_intrigue_lifestyle_ongoing:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 mpo_generic_nomadic_region_yearly_pulse:
 From Code: No
 Expected Scope: none
 
 --------------------
 
+on_clerical_region_faith_mismatch:
+From Code: Yes
+Expected Scope: character
+
+--------------------
+
 stewardship_duty_special_2000_mediation_stage_1:
 From Code: No
 Expected Scope: character
+
+--------------------
+
+gdp_patron_hobnob:
+From Code: No
+Expected Scope: none
 
 --------------------
 
@@ -3218,9 +3752,21 @@ Expected Scope: none
 
 --------------------
 
+gdp_republic_popular_opinion_pulse:
+From Code: No
+Expected Scope: none
+
+--------------------
+
 jain_arrival_events:
 From Code: No
 Expected Scope: character
+
+--------------------
+
+gdp_entrepot_buy:
+From Code: No
+Expected Scope: none
 
 --------------------
 
@@ -3232,6 +3778,12 @@ Expected Scope: none
 
 fp2_lyonese_monk_events_cycle_no_valid_events_fallback:
 From Code: No
+Expected Scope: none
+
+--------------------
+
+on_market_changed_toll_level:
+From Code: Yes
 Expected Scope: none
 
 --------------------
@@ -3248,7 +3800,25 @@ Expected Scope: character
 
 --------------------
 
+gdp_disrupt_charter:
+From Code: No
+Expected Scope: none
+
+--------------------
+
+gdp_merchant_company_debt_monthly_pulse:
+From Code: No
+Expected Scope: none
+
+--------------------
+
 pilgrimage_generic_arrival_events:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+gdp_republic_unrest_demand:
 From Code: No
 Expected Scope: character
 
@@ -3332,6 +3902,12 @@ Expected Scope: none
 
 --------------------
 
+gdp_smuggle_goods:
+From Code: No
+Expected Scope: none
+
+--------------------
+
 on_adoptee_depart_travel_planner_exit:
 From Code: No
 Expected Scope: none
@@ -3357,6 +3933,12 @@ Expected Scope: character
 --------------------
 
 spawn_celestial_military_governance_contract_on_action:
+From Code: No
+Expected Scope: none
+
+--------------------
+
+influence_house_ambition_success:
 From Code: No
 Expected Scope: none
 
@@ -3446,6 +4028,12 @@ Expected Scope: none
 
 --------------------
 
+on_rite_created:
+From Code: Yes
+Expected Scope: character
+
+--------------------
+
 friendship_quarterly_pulse:
 From Code: No
 Expected Scope: character
@@ -3524,6 +4112,18 @@ Expected Scope: character
 
 --------------------
 
+gdp_silk_road_network:
+From Code: No
+Expected Scope: none
+
+--------------------
+
+on_province_size_level_increased:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
 stress_threshold_level_2_event:
 From Code: No
 Expected Scope: character
@@ -3590,9 +4190,21 @@ Expected Scope: character
 
 --------------------
 
+merchant_base_patron_contract_scheme_on_going_events:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 seduce_ongoing_milestone_2:
 From Code: No
 Expected Scope: character
+
+--------------------
+
+spawn_trade_opportunity_contract_on_action:
+From Code: No
+Expected Scope: none
 
 --------------------
 
@@ -3608,9 +4220,27 @@ Expected Scope: none
 
 --------------------
 
+pam_cathedral_great_project_yearly_owner_events_on_action:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+pam_christian_yearly_events:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 murder_success_child_event_list_on_action:
 From Code: No
 Expected Scope: character
+
+--------------------
+
+gdp_trade_league_ai_trade_monopoly_pulse:
+From Code: No
+Expected Scope: none
 
 --------------------
 
@@ -3632,6 +4262,12 @@ Expected Scope: character
 
 --------------------
 
+on_assembly_vote_started:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
 petition_liege_start:
 From Code: No
 Expected Scope: none
@@ -3641,6 +4277,18 @@ Expected Scope: none
 on_hostage_released:
 From Code: Yes
 Expected Scope: character
+
+--------------------
+
+on_gdp_trader_continue_activity:
+From Code: No
+Expected Scope: none
+
+--------------------
+
+sun_worship_desert_travel_personal_tenet_on_action:
+From Code: No
+Expected Scope: none
 
 --------------------
 
@@ -3722,6 +4370,12 @@ Expected Scope: none
 
 --------------------
 
+gdp_merchant_ai_prestige_purchase_pulse:
+From Code: No
+Expected Scope: none
+
+--------------------
+
 on_vassal_change:
 From Code: Yes
 Expected Scope: none
@@ -3740,9 +4394,33 @@ Expected Scope: character
 
 --------------------
 
+murder_specific_ongoing:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+on_term_ended_events:
+From Code: No
+Expected Scope: none
+
+--------------------
+
+on_assembly_vote_ended:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
 murder_failure_incapable_event_list_on_action:
 From Code: No
 Expected Scope: character
+
+--------------------
+
+on_player_character_change:
+From Code: Yes
+Expected Scope: none
 
 --------------------
 
@@ -3824,6 +4502,12 @@ Expected Scope: character
 
 --------------------
 
+generic_intrigue_other_ongoing:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 hunt_sighting_on_action:
 From Code: No
 Expected Scope: character
@@ -3848,6 +4532,12 @@ Expected Scope: character
 
 --------------------
 
+pam_cathedral_great_project_yearly_on_action:
+From Code: No
+Expected Scope: none
+
+--------------------
+
 tgp_quaking_in_panic:
 From Code: No
 Expected Scope: none
@@ -3868,6 +4558,12 @@ Expected Scope: none
 
 tgp_minister_manage_talent_on_action:
 From Code: No
+Expected Scope: none
+
+--------------------
+
+on_trade_good_category_level_down:
+From Code: Yes
 Expected Scope: none
 
 --------------------
@@ -3896,6 +4592,12 @@ Expected Scope: none
 
 --------------------
 
+republic_promote_candidate_scheme_failure:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 on_accolade_glory_change:
 From Code: Yes
 Expected Scope: none
@@ -3911,6 +4613,12 @@ Expected Scope: none
 harm_events_pulse:
 From Code: No
 Expected Scope: character
+
+--------------------
+
+story_cycle_pet_dog_removal:
+From Code: No
+Expected Scope: none
 
 --------------------
 
@@ -3944,7 +4652,25 @@ Expected Scope: none
 
 --------------------
 
+influence_house_ambition_failure:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+gdp_merchant_company_debt_direction_pulse:
+From Code: No
+Expected Scope: none
+
+--------------------
+
 on_death_relation_nemesis:
+From Code: No
+Expected Scope: none
+
+--------------------
+
+gdp_promote_goods:
 From Code: No
 Expected Scope: none
 
@@ -3953,6 +4679,12 @@ Expected Scope: none
 fp2_iberian_struggle_random_events:
 From Code: No
 Expected Scope: character
+
+--------------------
+
+gdp_league_focus_on_title_lost:
+From Code: No
+Expected Scope: none
 
 --------------------
 
@@ -4010,6 +4742,12 @@ Expected Scope: character
 
 --------------------
 
+gdp_menagerie_acquisition_random_pool_start:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 on_action_mandala_realm_contract_0019:
 From Code: No
 Expected Scope: none
@@ -4028,6 +4766,12 @@ Expected Scope: character
 
 --------------------
 
+pam_the_christian_church_yearly_on_action:
+From Code: No
+Expected Scope: none
+
+--------------------
+
 on_15th_birthday:
 From Code: No
 Expected Scope: character
@@ -4035,6 +4779,12 @@ Expected Scope: character
 --------------------
 
 on_game_start_after_lobby:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
+on_betrothal:
 From Code: Yes
 Expected Scope: none
 
@@ -4070,6 +4820,12 @@ Expected Scope: artifact
 
 --------------------
 
+on_challenger_removed:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
 on_birth_mother:
 From Code: Yes
 Expected Scope: character
@@ -4094,9 +4850,21 @@ Expected Scope: character
 
 --------------------
 
+merchant_exploit_upheaval_trade_opportunity_scheme_on_going_events:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 tgp_irregular_accounting:
 From Code: No
 Expected Scope: none
+
+--------------------
+
+study_faith_failure:
+From Code: No
+Expected Scope: character
 
 --------------------
 
@@ -4107,6 +4875,24 @@ Expected Scope: character
 --------------------
 
 on_action_mandala_realm_contract_0029:
+From Code: No
+Expected Scope: none
+
+--------------------
+
+on_personal_tenet_loss:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
+on_toll_exception_ended:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
+ce3_theocrat_dynasty_chain_succession:
 From Code: No
 Expected Scope: none
 
@@ -4124,6 +4910,18 @@ Expected Scope: none
 
 --------------------
 
+gdp_incite_unrest_scheme_failure:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+on_trade_good_category_level_up:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
 contest_bout_wrestling_outcome_pulse:
 From Code: No
 Expected Scope: character
@@ -4132,6 +4930,30 @@ Expected Scope: character
 
 on_kurultai_succession_stable:
 From Code: Yes
+Expected Scope: none
+
+--------------------
+
+pam_sanctity_of_nature_travel_on_action:
+From Code: No
+Expected Scope: none
+
+--------------------
+
+on_trait_lost:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
+on_character_created:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
+pam_propagate_word_of_my_sainthood_convert:
+From Code: No
 Expected Scope: none
 
 --------------------
@@ -4193,6 +5015,24 @@ Expected Scope: character
 tgp_china_yearly_events:
 From Code: No
 Expected Scope: character
+
+--------------------
+
+merchant_entrepot_sell_trade_opportunity_scheme_on_going_events:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+merchant_build_category_connections_trade_opportunity_scheme_on_going_events:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+on_holy_site_artifact_enshrined:
+From Code: Yes
+Expected Scope: none
 
 --------------------
 
@@ -4352,9 +5192,21 @@ Expected Scope: none
 
 --------------------
 
+trade_opportunity_push_for_advantages_events:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 on_culture_created:
 From Code: Yes
 Expected Scope: none
+
+--------------------
+
+gg_claim_leadership_ongoing:
+From Code: No
+Expected Scope: character
 
 --------------------
 
@@ -4400,6 +5252,18 @@ Expected Scope: character
 
 --------------------
 
+pam_auspicious_birthright_birth_on_action:
+From Code: No
+Expected Scope: none
+
+--------------------
+
+gdp_seek_debtors:
+From Code: No
+Expected Scope: none
+
+--------------------
+
 on_barter_action_weekly:
 From Code: Yes
 Expected Scope: none
@@ -4442,13 +5306,31 @@ Expected Scope: none
 
 --------------------
 
+study_scripture_failure:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 learning_lifestyle_uncommon_events:
 From Code: No
 Expected Scope: character
 
 --------------------
 
+on_trader_assigned:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
 stewardship_road_building_events:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+task_republic_assembly_preparation_side_effects:
 From Code: No
 Expected Scope: character
 
@@ -4484,15 +5366,39 @@ Expected Scope: none
 
 --------------------
 
+trade_opportunity_arrival_events:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+merchant_market_investment_trade_opportunity_scheme_on_going_events:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 learning_lifestyle_unavailable_events:
 From Code: No
 Expected Scope: none
 
 --------------------
 
+pam_cathedral_great_project_yearly_founder_events_on_action:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 on_set_relation_friend:
 From Code: No
 Expected Scope: none
+
+--------------------
+
+child_personality_gain_imprisoned:
+From Code: No
+Expected Scope: character
 
 --------------------
 
@@ -4580,6 +5486,18 @@ Expected Scope: none
 
 --------------------
 
+gdp_build_category_connections:
+From Code: No
+Expected Scope: none
+
+--------------------
+
+gdp_civic_agitation_scheme_failure:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 on_join_war_as_secondary:
 From Code: Yes
 Expected Scope: character
@@ -4616,6 +5534,12 @@ Expected Scope: none
 
 --------------------
 
+on_liberation_siege_completion:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
 bishop_ongoing:
 From Code: No
 Expected Scope: character
@@ -4631,6 +5555,12 @@ Expected Scope: character
 on_explicit_claim_lost:
 From Code: Yes
 Expected Scope: none
+
+--------------------
+
+burgher_autonomy_demand:
+From Code: No
+Expected Scope: character
 
 --------------------
 
@@ -4671,6 +5601,12 @@ Expected Scope: none
 --------------------
 
 contest_ongoing_event_archery_outcome_pulse:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+merchant_disrupt_charter_trade_opportunity_scheme_on_going_events:
 From Code: No
 Expected Scope: character
 
@@ -4790,9 +5726,21 @@ Expected Scope: character
 
 --------------------
 
+influence_house_ambition_ongoing:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 ongoing_harrying_owner_events:
 From Code: No
 Expected Scope: character
+
+--------------------
+
+gdp_support_guilds:
+From Code: No
+Expected Scope: none
 
 --------------------
 
@@ -4827,6 +5775,12 @@ Expected Scope: none
 --------------------
 
 ep3_miraculous_healing:
+From Code: No
+Expected Scope: none
+
+--------------------
+
+petition_head_of_faith_start:
 From Code: No
 Expected Scope: none
 
@@ -4898,8 +5852,20 @@ Expected Scope: character
 
 --------------------
 
+ludwig_german_salzburg_to_karlmann:
+From Code: No
+Expected Scope: none
+
+--------------------
+
 on_domicile_building_started:
 From Code: Yes
+Expected Scope: none
+
+--------------------
+
+spawn_luxury_contract_on_action:
+From Code: No
 Expected Scope: none
 
 --------------------
@@ -4916,9 +5882,21 @@ Expected Scope: character
 
 --------------------
 
+gdp_civic_agitation_scheme_success:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 fp2_iberian_struggle_starting_events:
 From Code: No
 Expected Scope: struggle
+
+--------------------
+
+county_corruption_escalation_pulse:
+From Code: No
+Expected Scope: none
 
 --------------------
 
@@ -4941,6 +5919,12 @@ Expected Scope: none
 --------------------
 
 study_confucian_classics_success:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+gdp_republic_unrest_severity_4:
 From Code: No
 Expected Scope: character
 
@@ -4994,6 +5978,24 @@ Expected Scope: character
 
 --------------------
 
+gdp_merchant_legacy_3_company_direction_on_action:
+From Code: No
+Expected Scope: none
+
+--------------------
+
+spawn_unity_contract_on_action:
+From Code: No
+Expected Scope: none
+
+--------------------
+
+gdp_negotiate_tolls:
+From Code: No
+Expected Scope: none
+
+--------------------
+
 on_remove_relation_grudge:
 From Code: No
 Expected Scope: none
@@ -5042,6 +6044,18 @@ Expected Scope: character
 
 --------------------
 
+merchant_entrepot_buy_trade_opportunity_scheme_on_going_events:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+gdp_find_curio:
+From Code: No
+Expected Scope: none
+
+--------------------
+
 five_year_playable_pulse:
 From Code: Yes
 Expected Scope: character
@@ -5072,6 +6086,12 @@ Expected Scope: character
 
 --------------------
 
+gdp_republic_ai_trade_monopoly_pulse:
+From Code: No
+Expected Scope: none
+
+--------------------
+
 on_guardian_depart_travel_planner_exit:
 From Code: No
 Expected Scope: none
@@ -5081,6 +6101,12 @@ Expected Scope: none
 fabricate_hook_method_success_outcome:
 From Code: No
 Expected Scope: character
+
+--------------------
+
+gdp_league_focus_on_title_gain:
+From Code: No
+Expected Scope: none
 
 --------------------
 
@@ -5108,6 +6134,12 @@ Expected Scope: character
 
 --------------------
 
+gdp_incite_unrest_ongoing:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 escape_from_prison:
 From Code: No
 Expected Scope: character
@@ -5117,6 +6149,12 @@ Expected Scope: character
 on_artifact_succession:
 From Code: Yes
 Expected Scope: artifact
+
+--------------------
+
+burgher_autonomy_demand_lesser_privileges:
+From Code: No
+Expected Scope: character
 
 --------------------
 
@@ -5135,6 +6173,12 @@ Expected Scope: character
 mpo_tributary_check_pulse:
 From Code: No
 Expected Scope: none
+
+--------------------
+
+gdp_minority_merchant_pool_pulse:
+From Code: No
+Expected Scope: character
 
 --------------------
 
@@ -5168,6 +6212,18 @@ Expected Scope: character
 
 --------------------
 
+pam_ecumenical_council_debate_tenets_events:
+From Code: No
+Expected Scope: character
+
+--------------------
+
+on_faith_holy_site_eminence_changed:
+From Code: Yes
+Expected Scope: none
+
+--------------------
+
 on_tour_festival_vassal:
 From Code: No
 Expected Scope: character
@@ -5175,6 +6231,12 @@ Expected Scope: character
 --------------------
 
 on_action_mandala_realm_contract_0022:
+From Code: No
+Expected Scope: none
+
+--------------------
+
+gdp_unity_irregularities:
 From Code: No
 Expected Scope: none
 
@@ -5194,6 +6256,12 @@ Expected Scope: character
 
 petition_ceremonial_liege_ghosted:
 From Code: No
+Expected Scope: none
+
+--------------------
+
+on_faith_holy_site_added:
+From Code: Yes
 Expected Scope: none
 
 --------------------
@@ -5246,6 +6314,12 @@ Expected Scope: character
 
 --------------------
 
+gdp_incite_unrest_scheme_success:
+From Code: No
+Expected Scope: character
+
+--------------------
+
 seduce_ongoing_milestone_1:
 From Code: No
 Expected Scope: character
@@ -5285,3 +6359,9 @@ Expected Scope: none
 on_guardian_arrive_at_home:
 From Code: No
 Expected Scope: none
+
+--------------------
+
+wounded_recovery_pulse_schedule:
+From Code: No
+Expected Scope: character
