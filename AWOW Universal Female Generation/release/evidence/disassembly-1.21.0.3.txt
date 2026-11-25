@@ -1,0 +1,201 @@
+direct_gender: function 0x2ddbc50-0x2ddbcf7, site 0x2ddbccf
+02ddbcbf: 48 8b 0d 6a cc ac 03           mov rcx, qword ptr [rip + 0x3accc6a]
+02ddbcc6: 80 b9 a5 01 00 00 00           cmp byte ptr [rcx + 0x1a5], 0
+02ddbccd: 75 0b                          jne 0x142ddbcda
+02ddbccf: 41 0f b6 46 08                 movzx eax, byte ptr [r14 + 8]
+02ddbcd4: 88 81 a1 01 00 00              mov byte ptr [rcx + 0x1a1], al
+02ddbcda: 48 8b 5c 24 30                 mov rbx, qword ptr [rsp + 0x30]
+02ddbcdf: 48 8b 74 24 38                 mov rsi, qword ptr [rsp + 0x38]
+02ddbce4: 48 8b 7c 24 40                 mov rdi, qword ptr [rsp + 0x40]
+02ddbce9: c6 81 a5 01 00 00 01           mov byte ptr [rcx + 0x1a5], 1
+02ddbcf0: 48 83 c4 20                    add rsp, 0x20
+02ddbcf4: 41 5e                          pop r14
+02ddbcf6: c3                             ret
+template_gender: function 0x2e11c10-0x2e127c5, site 0x2e11efa
+02e11eec: e8 4f d5 f7 ff                 call 0x142d8f440
+02e11ef1: 80 bb a5 01 00 00 00           cmp byte ptr [rbx + 0x1a5], 0
+02e11ef8: 75 0d                          jne 0x142e11f07
+02e11efa: 0f b6 86 b4 00 00 00           movzx eax, byte ptr [rsi + 0xb4]
+02e11f01: 88 83 a1 01 00 00              mov byte ptr [rbx + 0x1a1], al
+02e11f07: 48 8b 15 12 57 c5 03           mov rdx, qword ptr [rip + 0x3c55712]
+02e11f0e: 48 85 d2                       test rdx, rdx
+02e11f11: 74 2d                          je 0x142e11f40
+02e11f13: 44 8b 86 a0 00 00 00           mov r8d, dword ptr [rsi + 0xa0]
+02e11f1a: 41 8b c0                       mov eax, r8d
+02e11f1d: 25 ff ff ff 00                 and eax, 0xffffff
+02e11f22: 3b 42 2c                       cmp eax, dword ptr [rdx + 0x2c]
+02e11f25: 73 19                          jae 0x142e11f40
+02e11f27: 8b c8                          mov ecx, eax
+02e11f29: 48 8b 42 20                    mov rax, qword ptr [rdx + 0x20]
+02e11f2d: 48 03 c9                       add rcx, rcx
+02e11f30: 48 8b 7c c8 08                 mov rdi, qword ptr [rax + rcx*8 + 8]
+02e11f35: 48 85 ff                       test rdi, rdi
+history_gender: function 0x2e2e710-0x2e2ee08, site 0x2e2e82f
+02e2e820: 48 83 7a 18 0f                 cmp qword ptr [rdx + 0x18], 0xf
+02e2e825: 76 03                          jbe 0x142e2e82a
+02e2e827: 48 8b 12                       mov rdx, qword ptr [rdx]
+02e2e82a: e8 81 83 a6 fd                 call 0x140896bb0
+02e2e82f: 0f b6 8b 79 01 00 00           movzx ecx, byte ptr [rbx + 0x179]
+02e2e836: 48 8b 45 7f                    mov rax, qword ptr [rbp + 0x7f]
+02e2e83a: 44 38 b8 a5 01 00 00           cmp byte ptr [rax + 0x1a5], r15b
+02e2e841: 75 06                          jne 0x142e2e849
+02e2e843: 88 88 a1 01 00 00              mov byte ptr [rax + 0x1a1], cl
+02e2e849: 48 8b 3d e0 a0 a7 03           mov rdi, qword ptr [rip + 0x3a7a0e0]
+02e2e850: 4c 8b f7                       mov r14, rdi
+02e2e853: 4c 89 65 97                    mov qword ptr [rbp - 0x69], r12
+02e2e857: 48 8d 45 7f                    lea rax, [rbp + 0x7f]
+02e2e85b: 48 89 45 9f                    mov qword ptr [rbp - 0x61], rax
+02e2e85f: 48 89 5d a7                    mov qword ptr [rbp - 0x59], rbx
+02e2e863: 48 8b 93 48 01 00 00           mov rdx, qword ptr [rbx + 0x148]
+02e2e86a: 48 85 d2                       test rdx, rdx
+history_spouse: function 0x2e2cd80-0x2e2d2c7, site 0x2e2cd80
+02e2cd80: 48 89 5c 24 08                 mov qword ptr [rsp + 8], rbx
+02e2cd85: 48 89 74 24 10                 mov qword ptr [rsp + 0x10], rsi
+02e2cd8a: 48 89 7c 24 18                 mov qword ptr [rsp + 0x18], rdi
+02e2cd8f: 4c 89 64 24 20                 mov qword ptr [rsp + 0x20], r12
+02e2cd94: 55                             push rbp
+02e2cd95: 41 56                          push r14
+02e2cd97: 41 57                          push r15
+02e2cd99: 48 8d 6c 24 b9                 lea rbp, [rsp - 0x47]
+02e2cd9e: 48 81 ec 90 00 00 00           sub rsp, 0x90
+02e2cda5: 41 8b f1                       mov esi, r9d
+02e2cda8: 48 8b fa                       mov rdi, rdx
+02e2cdab: 4c 8b f1                       mov r14, rcx
+02e2cdae: 48 8b 05 db 52 a8 03           mov rax, qword ptr [rip + 0x3a852db]
+02e2cdb5: 48 8b 88 a0 00 00 00           mov rcx, qword ptr [rax + 0xa0]
+gender_lock_direct: function 0x2ddbc50-0x2ddbcf7, site 0x2ddbcc6
+02ddbcb8: 74 05                          je 0x142ddbcbf
+02ddbcba: 39 71 18                       cmp dword ptr [rcx + 0x18], esi
+02ddbcbd: 74 07                          je 0x142ddbcc6
+02ddbcbf: 48 8b 0d 6a cc ac 03           mov rcx, qword ptr [rip + 0x3accc6a]
+02ddbcc6: 80 b9 a5 01 00 00 00           cmp byte ptr [rcx + 0x1a5], 0
+02ddbccd: 75 0b                          jne 0x142ddbcda
+02ddbccf: 41 0f b6 46 08                 movzx eax, byte ptr [r14 + 8]
+02ddbcd4: 88 81 a1 01 00 00              mov byte ptr [rcx + 0x1a1], al
+02ddbcda: 48 8b 5c 24 30                 mov rbx, qword ptr [rsp + 0x30]
+02ddbcdf: 48 8b 74 24 38                 mov rsi, qword ptr [rsp + 0x38]
+02ddbce4: 48 8b 7c 24 40                 mov rdi, qword ptr [rsp + 0x40]
+02ddbce9: c6 81 a5 01 00 00 01           mov byte ptr [rcx + 0x1a5], 1
+02ddbcf0: 48 83 c4 20                    add rsp, 0x20
+02ddbcf4: 41 5e                          pop r14
+02ddbcf6: c3                             ret
+gender_lock_template: function 0x2e11c10-0x2e127c5, site 0x2e11ef1
+02e11ee5: 48 8b cb                       mov rcx, rbx
+02e11ee8: 48 89 43 60                    mov qword ptr [rbx + 0x60], rax
+02e11eec: e8 4f d5 f7 ff                 call 0x142d8f440
+02e11ef1: 80 bb a5 01 00 00 00           cmp byte ptr [rbx + 0x1a5], 0
+02e11ef8: 75 0d                          jne 0x142e11f07
+02e11efa: 0f b6 86 b4 00 00 00           movzx eax, byte ptr [rsi + 0xb4]
+02e11f01: 88 83 a1 01 00 00              mov byte ptr [rbx + 0x1a1], al
+02e11f07: 48 8b 15 12 57 c5 03           mov rdx, qword ptr [rip + 0x3c55712]
+02e11f0e: 48 85 d2                       test rdx, rdx
+02e11f11: 74 2d                          je 0x142e11f40
+02e11f13: 44 8b 86 a0 00 00 00           mov r8d, dword ptr [rsi + 0xa0]
+02e11f1a: 41 8b c0                       mov eax, r8d
+02e11f1d: 25 ff ff ff 00                 and eax, 0xffffff
+02e11f22: 3b 42 2c                       cmp eax, dword ptr [rdx + 0x2c]
+02e11f25: 73 19                          jae 0x142e11f40
+02e11f27: 8b c8                          mov ecx, eax
+02e11f29: 48 8b 42 20                    mov rax, qword ptr [rdx + 0x20]
+requested_house: function 0x2e11c10-0x2e127c5, site 0x2e11fe6
+02e11fd6: e8 c5 55 b7 ff                 call 0x1429875a0
+02e11fdb: 48 8b d0                       mov rdx, rax
+02e11fde: 48 8b cb                       mov rcx, rbx
+02e11fe1: e8 1a 2f f8 ff                 call 0x142d94f00
+02e11fe6: 48 8b 15 53 46 c5 03           mov rdx, qword ptr [rip + 0x3c54653]
+02e11fed: 48 85 d2                       test rdx, rdx
+02e11ff0: 74 2d                          je 0x142e1201f
+02e11ff2: 44 8b 86 a8 00 00 00           mov r8d, dword ptr [rsi + 0xa8]
+02e11ff9: 41 8b c0                       mov eax, r8d
+02e11ffc: 25 ff ff ff 00                 and eax, 0xffffff
+02e12001: 3b 42 2c                       cmp eax, dword ptr [rdx + 0x2c]
+02e12004: 73 19                          jae 0x142e1201f
+02e12006: 8b c8                          mov ecx, eax
+02e12008: 48 8b 42 20                    mov rax, qword ptr [rdx + 0x20]
+02e1200c: 48 03 c9                       add rcx, rcx
+02e1200f: 48 8b 54 c8 08                 mov rdx, qword ptr [rax + rcx*8 + 8]
+02e12014: 48 85 d2                       test rdx, rdx
+02e12017: 74 06                          je 0x142e1201f
+02e12019: 44 39 42 10                    cmp dword ptr [rdx + 0x10], r8d
+02e1201d: 74 07                          je 0x142e12026
+02e1201f: 48 8b 15 0a 46 c5 03           mov rdx, qword ptr [rip + 0x3c5460a]
+house_character_id: function 0x2d96590-0x2d96944, site 0x2d965cf
+02d965c3: 4c 8b 0d 76 00 cd 03           mov r9, qword ptr [rip + 0x3cd0076]
+02d965ca: 4d 85 c9                       test r9, r9
+02d965cd: 74 2c                          je 0x142d965fb
+02d965cf: 8b 91 58 01 00 00              mov edx, dword ptr [rcx + 0x158]
+02d965d5: 8b c2                          mov eax, edx
+02d965d7: 25 ff ff ff 00                 and eax, 0xffffff
+02d965dc: 41 3b 41 2c                    cmp eax, dword ptr [r9 + 0x2c]
+02d965e0: 73 19                          jae 0x142d965fb
+02d965e2: 8b c8                          mov ecx, eax
+02d965e4: 48 03 c9                       add rcx, rcx
+02d965e7: 49 8b 41 20                    mov rax, qword ptr [r9 + 0x20]
+02d965eb: 4c 8b 74 c8 08                 mov r14, qword ptr [rax + rcx*8 + 8]
+02d965f0: 4d 85 f6                       test r14, r14
+02d965f3: 74 06                          je 0x142d965fb
+02d965f5: 41 39 56 10                    cmp dword ptr [r14 + 0x10], edx
+02d965f9: 74 07                          je 0x142d96602
+02d965fb: 4c 8b 35 2e 00 cd 03           mov r14, qword ptr [rip + 0x3cd002e]
+02d96602: 41 8b 47 10                    mov eax, dword ptr [r15 + 0x10]
+02d96606: 41 39 46 10                    cmp dword ptr [r14 + 0x10], eax
+02d9660a: 0f 84 16 03 00 00              je 0x142d96926
+house_dynasty: function 0x2d96590-0x2d96944, site 0x2d96733
+02d96726: 48 85 c0                       test rax, rax
+02d96729: 74 05                          je 0x142d96730
+02d9672b: 39 50 10                       cmp dword ptr [rax + 0x10], edx
+02d9672e: 74 03                          je 0x142d96733
+02d96730: 49 8b c1                       mov rax, r9
+02d96733: 8b 40 2c                       mov eax, dword ptr [rax + 0x2c]
+02d96736: 4d 85 c0                       test r8, r8
+02d96739: 74 2f                          je 0x142d9676a
+02d9673b: 44 8b 95 58 01 00 00           mov r10d, dword ptr [rbp + 0x158]
+02d96742: 41 8b ca                       mov ecx, r10d
+02d96745: 81 e1 ff ff ff 00              and ecx, 0xffffff
+02d9674b: 41 3b 48 2c                    cmp ecx, dword ptr [r8 + 0x2c]
+02d9674f: 73 19                          jae 0x142d9676a
+02d96751: 8b d1                          mov edx, ecx
+02d96753: 48 03 d2                       add rdx, rdx
+02d96756: 49 8b 48 20                    mov rcx, qword ptr [r8 + 0x20]
+02d9675a: 48 8b 4c d1 08                 mov rcx, qword ptr [rcx + rdx*8 + 8]
+02d9675f: 48 85 c9                       test rcx, rcx
+02d96762: 74 06                          je 0x142d9676a
+02d96764: 44 39 51 10                    cmp dword ptr [rcx + 0x10], r10d
+02d96768: 74 03                          je 0x142d9676d
+02d9676a: 49 8b c9                       mov rcx, r9
+02d9676d: 3b 41 2c                       cmp eax, dword ptr [rcx + 0x2c]
+current_players: function 0x30cf5b0-0x30cf60b, site 0x30cf5c6
+030cf5b6: 48 8b 05 d3 2a 7e 03           mov rax, qword ptr [rip + 0x37e2ad3]
+030cf5bd: 4c 8d 44 24 30                 lea r8, [rsp + 0x30]
+030cf5c2: 89 4c 24 30                    mov dword ptr [rsp + 0x30], ecx
+030cf5c6: 48 8b 98 a0 00 00 00           mov rbx, qword ptr [rax + 0xa0]
+030cf5cd: 48 8b 8b c8 6f 02 00           mov rcx, qword ptr [rbx + 0x26fc8]
+030cf5d4: 48 63 83 d4 6f 02 00           movsxd rax, dword ptr [rbx + 0x26fd4]
+030cf5db: 48 8d 14 81                    lea rdx, [rcx + rax*4]
+030cf5df: e8 5c 57 a4 fd                 call 0x140b14d40
+030cf5e4: 48 8b 8b c8 6f 02 00           mov rcx, qword ptr [rbx + 0x26fc8]
+030cf5eb: 48 63 93 d4 6f 02 00           movsxd rdx, dword ptr [rbx + 0x26fd4]
+030cf5f2: 4c 8d 04 91                    lea r8, [rcx + rdx*4]
+030cf5f6: 33 c9                          xor ecx, ecx
+030cf5f8: 49 3b c0                       cmp rax, r8
+030cf5fb: 48 0f 44 c1                    cmove rax, rcx
+030cf5ff: 48 85 c0                       test rax, rax
+history_spouse_mode: function 0x2e2cd80-0x2e2d2c7, site 0x2e2cdf1
+02e2cde5: 48 8d 55 f7                    lea rdx, [rbp - 9]
+02e2cde9: e8 82 73 2b ff                 call 0x1420e4170
+02e2cdee: 48 8b d8                       mov rbx, rax
+02e2cdf1: 44 0f b6 bf a1 01 00 00        movzx r15d, byte ptr [rdi + 0x1a1]
+02e2cdf9: 44 0f b6 a0 a1 01 00 00        movzx r12d, byte ptr [rax + 0x1a1]
+02e2ce01: 33 d2                          xor edx, edx
+02e2ce03: 8b ca                          mov ecx, edx
+02e2ce05: 45 3a fc                       cmp r15b, r12b
+02e2ce08: 0f 94 c1                       sete cl
+02e2ce0b: 83 fe 02                       cmp esi, 2
+02e2ce0e: 0f 94 c2                       sete dl
+02e2ce11: 3b ca                          cmp ecx, edx
+02e2ce13: 0f 84 bd 00 00 00              je 0x142e2ced6
+02e2ce19: 49 8d 8e b0 00 00 00           lea rcx, [r14 + 0xb0]
+02e2ce20: 48 8d 55 f7                    lea rdx, [rbp - 9]
+02e2ce24: e8 87 e3 6e 01                 call 0x14451b1b0
+02e2ce29: 48 8b f0                       mov rsi, rax
+02e2ce2c: 48 8d 55 27                    lea rdx, [rbp + 0x27]

@@ -1,0 +1,49 @@
+Pinned native toolchain: runner windows-2022, MSVC 14.44.35207, Windows SDK 10.0.22621.0, x64
+GitHub Actions output is the canonical release artifact; local output is for verification and smoke testing.
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.21
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+[vcvarsall.bat] Environment initialized for: 'x64'
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.21
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+[vcvarsall.bat] Environment initialized for: 'x64'
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.21
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+[vcvarsall.bat] Environment initialized for: 'x64'
+ufg_generation_hook.cpp
+ufg_build_profile.cpp
+ufg_patch_runtime.cpp
+ufg_generation.cpp
+ufg_history.cpp
+Generating Code...
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.21
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+[vcvarsall.bat] Environment initialized for: 'x64'
+ufg_dxcompiler_loader.cpp
+ufg_build_profile.cpp
+ufg_patch_runtime.cpp
+Generating Code...
+   Creating library D:\Documents\GitHub\CK3mod1\AWOW Universal Female Generation\build\dxcompiler.lib and object D:\Documents\GitHub\CK3mod1\AWOW Universal Female Generation\build\dxcompiler.exp
+Built D:\Documents\GitHub\CK3mod1\AWOW Universal Female Generation\build\dxcompiler.dll (157696 bytes, SHA-256
+989aed11ff81ec1d3ba7195e5520d456ad805090370cfe61e5ce0e5fad2ba16d)
+Built D:\Documents\GitHub\CK3mod1\AWOW Universal Female Generation\build\AWOW Universal Female Generation\awow_ufg.dll
+(195584 bytes, SHA-256 ec0f7c9d0f66f26dd3e9469d071c4d6ed5c80623d377d52478c081b9d71aa751)
+**********************************************************************
+** Visual Studio 2022 Developer Command Prompt v17.14.21
+** Copyright (c) 2025 Microsoft Corporation
+**********************************************************************
+[vcvarsall.bat] Environment initialized for: 'x64'
+native_tests.cpp
+ufg_generation.cpp
+ufg_history.cpp
+ufg_build_profile.cpp
+ufg_patch_runtime.cpp
+Generating Code...
+PASS: 145 native checks, including 4 generation and 7 history executed-relay cases.

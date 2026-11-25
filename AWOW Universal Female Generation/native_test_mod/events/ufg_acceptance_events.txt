@@ -1,0 +1,81 @@
+﻿namespace = ufg_acceptance
+ufg_acceptance.1 = {
+ type = character_event
+ orphan = yes
+ title = ufg_acceptance_title_1
+ desc = { first_valid = { triggered_desc = { trigger = { var:ufg_acceptance_ok = 1 } desc = ufg_acceptance_success } desc = ufg_acceptance_failure } }
+ immediate = { save_scope_as = ufg_native_actor set_variable = { name = ufg_acceptance_ok value = 1 } ufg_native_run_history_test_effect = yes }
+ option = { name = ufg_acceptance_close }
+}
+
+ufg_acceptance.2 = {
+ type = character_event
+ orphan = yes
+ title = ufg_acceptance_title_2
+ desc = { first_valid = { triggered_desc = { trigger = { var:ufg_acceptance_ok = 1 } desc = ufg_acceptance_success } desc = ufg_acceptance_failure } }
+ immediate = { save_scope_as = ufg_native_actor set_variable = { name = ufg_acceptance_ok value = 1 } ufg_native_run_runtime_test_effect = yes }
+ option = { name = ufg_acceptance_close }
+}
+
+ufg_acceptance.3 = {
+ type = character_event
+ orphan = yes
+ title = ufg_acceptance_title_3
+ desc = { first_valid = { triggered_desc = { trigger = { var:ufg_acceptance_ok = 1 } desc = ufg_acceptance_success } desc = ufg_acceptance_failure } }
+ immediate = { save_scope_as = ufg_native_actor set_variable = { name = ufg_acceptance_ok value = 1 } ufg_native_baseline_setup_effect = yes }
+ option = { name = ufg_acceptance_close }
+}
+
+ufg_acceptance.4 = {
+ type = character_event
+ orphan = yes
+ title = ufg_acceptance_title_4
+ desc = { first_valid = { triggered_desc = { trigger = { var:ufg_acceptance_ok = 1 } desc = ufg_acceptance_success } desc = ufg_acceptance_failure } }
+ immediate = { save_scope_as = ufg_native_actor set_variable = { name = ufg_acceptance_ok value = 1 } ufg_native_baseline_check_effect = yes }
+ option = { name = ufg_acceptance_close }
+}
+
+ufg_acceptance.5 = {
+ type = character_event
+ orphan = yes
+ title = ufg_acceptance_title_5
+ desc = { first_valid = { triggered_desc = { trigger = { var:ufg_acceptance_ok = 1 } desc = ufg_acceptance_success } desc = ufg_acceptance_failure } }
+ immediate = { save_scope_as = ufg_native_actor set_variable = { name = ufg_acceptance_ok value = 1 } ufg_native_persistence_setup_effect = yes }
+ option = { name = ufg_acceptance_close }
+}
+
+ufg_acceptance.6 = {
+ type = character_event
+ orphan = yes
+ title = ufg_acceptance_title_6
+ desc = { first_valid = { triggered_desc = { trigger = { var:ufg_acceptance_ok = 1 } desc = ufg_acceptance_success } desc = ufg_acceptance_failure } }
+ immediate = { save_scope_as = ufg_native_actor set_variable = { name = ufg_acceptance_ok value = 1 } ufg_native_reload_check_effect = yes }
+ option = { name = ufg_acceptance_close }
+}
+
+ufg_acceptance.7 = {
+ type = character_event
+ orphan = yes
+ title = ufg_acceptance_title_7
+ desc = { first_valid = { triggered_desc = { trigger = { var:ufg_acceptance_ok = 1 } desc = ufg_acceptance_success } desc = ufg_acceptance_failure } }
+ immediate = { save_scope_as = ufg_native_actor set_variable = { name = ufg_acceptance_ok value = 1 } ufg_native_birth_setup_effect = yes }
+ option = { name = ufg_acceptance_close }
+}
+
+ufg_acceptance.8 = {
+ type = character_event
+ orphan = yes
+ title = ufg_acceptance_title_8
+ desc = { first_valid = { triggered_desc = { trigger = { var:ufg_acceptance_ok = 1 } desc = ufg_acceptance_success } desc = ufg_acceptance_failure } }
+ immediate = { save_scope_as = ufg_native_actor set_variable = { name = ufg_acceptance_ok value = 1 } ufg_native_birth_check_effect = yes }
+ option = { name = ufg_acceptance_close }
+}
+
+ufg_acceptance.9 = {
+ type = character_event
+ orphan = yes
+ title = ufg_acceptance_title_9
+ desc = { first_valid = { triggered_desc = { trigger = { var:ufg_acceptance_ok = 1 } desc = ufg_acceptance_success } desc = ufg_acceptance_failure } }
+ immediate = { save_scope_as = ufg_native_actor set_variable = { name = ufg_acceptance_ok value = 1 } ufg_native_ruler_designer_check_effect = yes }
+ option = { name = ufg_acceptance_close }
+}

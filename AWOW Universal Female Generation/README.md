@@ -19,11 +19,11 @@ AWOW CORE remains responsible for birth gender and culling. UFG does not require
 
 ## Compatibility
 
-The current signatures and absolute code addresses target the 64-bit CK3 `1.19.0.6` executable with SHA-256 `2D00FF3101EF70B566F2FCBAE292F09263199C80E9DC8F139B82D7D96F83DB86`. Treat other CK3 versions as unsupported until the signatures and hardcoded addresses have been re-verified.
+UFG v1.1.0 targets the exact Windows x64 CK3 `1.21.0.3` executable and published AGP `1.1.0` hashes in `profiles/ck3-1.21.0.3.json`. All 12 required gameplay scenarios passed; native binary auditing, automated checks, and archived runtime evidence are tracked in `release/validation.json`. Compatibility follows file identities rather than storefront metadata. The previous UFG release remains separate for CK3 1.19.0.6.
 
 UFG requires the unchanged Any-Gender Parenthook payload. Its loader starts `AGP Native Hook\agp_parenthook.dll`, waits for every expected AGP patch, and loads UFG only after AGP is ready. A missing UFG payload leaves AGP active. A missing, timed-out, or partially patched AGP installation prevents UFG from loading.
 
-The payload performs a signature preflight before writing patches. If a preflight check fails, it logs the failure and makes no patch writes. A failure during the write phase can leave the process partially patched; do not continue a session after a reported write failure.
+The payload performs a signature preflight before writing patches. If a preflight check fails, it logs the failure and makes no patch writes. Native writes are staged together and rolled back on a commit failure; original bytes are checked again before commit. A rollback failure is reported distinctly. Exit without saving after any native patch transaction failure.
 
 ## Runtime architecture
 
@@ -85,10 +85,10 @@ The script builds all payload translation units as one DLL, builds the DXCompile
 ## Installation for maintainer testing
 
 Install Any-Gender Parenthook first, then close CK3 before changing the game
-binaries. Download `AWOW UFG v1.0.0 EXE Installer.zip`, `AWOW UFG v1.0.0
-Batch File Installer.zip`, or `AWOW UFG v1.0.0 Base Files (Manual
+binaries. Download `AWOW UFG v1.1.0 EXE Installer.zip`, `AWOW UFG v1.1.0
+Batch File Installer.zip`, or `AWOW UFG v1.1.0 Base Files (Manual
 Install).zip`. The EXE and batch installers verify the exact CK3,
-Steam-original, AGP proxy, and AGP payload hashes before changing anything.
+game-original, AGP proxy, and AGP payload hashes before changing anything.
 The CK3 `binaries` directory must already contain the untouched original
 DXCompiler and AGP payload:
 
@@ -119,8 +119,8 @@ For a UFG-only upgrade against the same compatible AGP pairing, use the new
 UFG installer, review its short upgrade explanation, and choose **OK**. To change AGP versions,
 disable UFG first, run the new release's `AGP-Installer.exe` so its standalone
 proxy replaces the old UFG proxy, then install the UFG release whose manifest lists the new
-CK3/AGP hashes. Current AGP releases recognize the UFG handoff and provide a
-separately confirmed conversion back to the standalone AGP proxy. Do not
+CK3/AGP hashes. AGP releases recognize only the UFG hashes explicitly recorded in their manifests.
+Recognition of this new UFG release is a separate follow-up. Do not
 preserve an old UFG proxy across an AGP upgrade.
 
 ## Logs and failure handling
@@ -157,3 +157,51 @@ For a new CK3 build or a substantial payload change:
 4. Run the history, runtime-generation, player-dynasty, birth, and Ruler Designer checks.
 5. Save, reload, and repeat the generation and preserved-male checks.
 6. Record the exact CK3 executable version before publishing.
+
+### Ruler Designer porting requirement
+
+Preserve the nested wrapper-caller exclusion when updating the generation hook.
+This protection already existed in the 1.19.0.6 build and was initially omitted
+from the 1.21 port: a custom male ruler was converted to female before play began.
+Ruler Designer enters the same creation wrapper as ordinary NPCs before the new
+character joins either the player roster or the Designer-character list.
+Human-player and dynasty checks cannot replace this early exclusion.
+
+For each new CK3 executable:
+
+1. Trace **Designer -> shared wrapper -> character constructor** and record both
+   return addresses in the versioned profile. On 1.21.0.3, those are `0x2eaba44`
+   and `0x2de53f1`; the separate direct caller `0x2eaca4c` does not cover this path.
+2. Recalculate the outer return-slot offset from the audited constructor frame,
+   wrapper frame, and relay saves. Do not reuse an old stack offset after changing
+   register saves or argument space. The current sixth argument points at relay
+   `RSP + 0x238`, and the callback reads it only for the shared-wrapper origin.
+3. Verify the call target, unique wrapper-frame context, and post-call Designer
+   registration context before patching. Keep the exclusion ahead of empty-roster
+   conversion and preserve the character's requested gender.
+4. Run the protection and executed-relay regression checks in
+   `tests/native_tests.cpp`, then create a **new male custom ruler** in-game and
+   verify him after starting play. Also verify female Designer requests and that
+   ordinary court/pool NPC requests still convert. Loading a previously converted
+   custom ruler does not test the fix or repair that ruler.
+
+The investigation and legacy comparison are recorded in
+[`release/evidence/ruler-designer-wrapper-fix-1.21.0.3.txt`](release/evidence/ruler-designer-wrapper-fix-1.21.0.3.txt).
+
+## Port validation and release gating
+
+Run `test.ps1` for native tests and `python -m unittest discover -s Installer/python/tests -v`
+for installer/profile tests. `tools/audit_binary.py <ck3.exe>` is a read-only audit.
+The build generates native constants from the checked-in profile and needs no game files.
+
+`release/check-release.py` requires matching native/installer identities and archived
+runtime acceptance. Incomplete candidates require the local-only
+`-AllowIncompleteValidation` option; canonical CI rejects incomplete acceptance.
+The release builder emits final UFG hashes in an AGP compatibility handoff document.
+
+AGP's current public installers do not recognize this version's new UFG files.
+Use UFG's own uninstaller to disable its payload; the retained proxy continues
+loading AGP. AGP installer recognition will be updated separately after UFG's
+canonical artifact hashes are final. This work does not modify AGP.
+
+The legacy direct-gender site is manager restoration rather than live NPC generation; it is audited but left unpatched. Both explicit non-template script requests and named templates use the audited live generation constructor.

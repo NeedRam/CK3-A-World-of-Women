@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "ck3_version": "1.21.0.3",
+  "required_scenarios": [
+    "history_gender_and_spouses",
+    "direct_chance_and_template_generation",
+    "engine_generated_npcs",
+    "player_and_dynasty_exclusions",
+    "male_ruler_designer",
+    "forced_male_birth",
+    "preexisting_save_males",
+    "agp_parent_role_coexistence",
+    "text_save_menu_reload",
+    "compressed_save_process_restart",
+    "normal_exit_autosave",
+    "disabled_ufg_agp_only"
+  ],
+  "profiles": {
+    "ck3-1.21.0.3-x64": {
+      "scenarios": {
+        "history_gender_and_spouses": "pass",
+        "direct_chance_and_template_generation": "pass",
+        "engine_generated_npcs": "pass",
+        "player_and_dynasty_exclusions": "pass",
+        "male_ruler_designer": "pass",
+        "forced_male_birth": "pass",
+        "preexisting_save_males": "pass",
+        "agp_parent_role_coexistence": "pass",
+        "text_save_menu_reload": "pass",
+        "compressed_save_process_restart": "pass",
+        "normal_exit_autosave": "pass",
+        "disabled_ufg_agp_only": "pass"
+      },
+      "manual_test_evidence": [
+        "release/evidence/existing-save-male-2026-11-24.log",
+        "release/evidence/runtime-generation-2026-11-24.log",
+        "release/evidence/parent-role-setup-2026-11-24.log",
+        "release/evidence/menu-reload-2026-11-24.log",
+        "release/evidence/normal-exit-autosave-2026-11-24.json",
+        "release/evidence/compressed-restart-2026-11-24.log",
+        "release/evidence/history-and-marriages-2026-11-24.log",
+        "release/evidence/engine-generated-npcs-2026-11-24.log",
+        "release/evidence/forced-male-birth-2026-11-24.log",
+        "release/evidence/ruler-designer-retest-2026-11-25.log",
+        "release/evidence/engine-generated-npcs-designer-fix-2026-11-25.log",
+        "release/evidence/runtime-generation-designer-fix-2026-11-25.log",
+        "release/evidence/disabled-ufg-agp-only-2026-11-25.log"
+      ],
+      "runtime_log_evidence": "release/evidence/native-startup-designer-fix-2026-11-25.log",
+      "baseline_setup": {
+        "status": "pass",
+        "evidence": "release/evidence/baseline-male-2026-11-24.log",
+        "ufg_enabled": false
+      },
+      "baseline_save": {
+        "file": "ufg_121_baseline.ck3",
+        "size_bytes": 167304897,
+        "sha256": "17f919f326049964c7d30479ac8fc6844c028bdfc7b1a8b1e1aeffa912786996",
+        "baseline_flag_present": true,
+        "format": "text",
+        "ufg_enabled": false
+      },
+      "startup": {
+        "status": "pass",
+        "agp_readiness_sites": 22,
+        "ufg_native_patches": "committed",
+        "gameplay_acceptance": "pass"
+      },
+      "player_exclusion_checks": {
+        "current_player_dynasty": "pass_runtime_after_designer_fix",
+        "human_player_guard": "pass_automated",
+        "male_ruler_designer": "pass_runtime"
+      },
+      "acceptance_checkpoint": {
+        "file": "ufg_121_acceptance.ck3",
+        "size_bytes": 167310992,
+        "sha256": "10fa77e81877e3786ba5f044d9e93bc39c4a2387116f8b3e524dd184b0707cf7",
+        "format": "text",
+        "required_flags_present": [
+          "ufg_persist_mother",
+          "ufg_persist_father",
+          "ufg_persist_real_mother",
+          "ufg_persist_real_father",
+          "ufg_persist_child",
+          "ufg_native_explicit_male_unrelated",
+          "ufg_native_default_unrelated",
+          "ufg_native_template_unrelated",
+          "ufg_native_player_dynasty_male"
+        ],
+        "baseline_unchanged": true
+      },
+      "exit_autosave": {
+        "file": "autosave_exit.ck3",
+        "size_bytes": 12105383,
+        "sha256": "2c5ad988ecb88a886c9ac480bf19169b69362a4b0d93102d2b1a991aa96f53d0",
+        "format": "compressed binary",
+        "zip_crc": "pass",
+        "gamestate_uncompressed_bytes": 93969943,
+        "ck3_version_in_header": "1.21.0.3",
+        "process_closed": true,
+        "restart_roles_check": "pass"
+      },
+      "engine_generation_checks": {
+        "pool_origin": "0x2f13033",
+        "court_wrapper_origin": "0x2de53f1",
+        "requested_male_resolved_female": true,
+        "protection_unavailable": false,
+        "context": "fresh 1066 initialization",
+        "post_designer_fix_retest": "pass",
+        "evidence": "release/evidence/engine-generated-npcs-designer-fix-2026-11-25.log"
+      },
+      "birth_investigation": {
+        "status": "resolved",
+        "pregnancy_setup": "pass",
+        "result_check": "fail",
+        "birth_callback_marker": "absent",
+        "evidence": "release/evidence/forced-male-birth-first-attempt-2026-11-24.log",
+        "cause_evidence": "release/evidence/birth-pregnancy-loss-2026-11-24.json",
+        "retry": "pass",
+        "retry_setup_evidence": "release/evidence/forced-male-pregnancy-retry-setup-2026-11-24.log",
+        "retry_evidence": "release/evidence/forced-male-birth-2026-11-24.log",
+        "conclusion": "First pregnancy ended via vanilla miscarriage; second pregnancy delivered a male child with the expected native father and real_father roles."
+      },
+      "ruler_designer_investigation": {
+        "status": "resolved",
+        "character_id": 70413,
+        "character_name": "tester UFG von Arnstein",
+        "observed_gender": "female",
+        "evidence": "release/evidence/ruler-designer-first-attempt-2026-11-24.log",
+        "designer_input_confirmation": "superseded_by_verified_native_trace_and_successful_retest",
+        "cause": "Legacy nested wrapper-caller exclusion was omitted during initial port.",
+        "fix_evidence": "release/evidence/ruler-designer-wrapper-fix-1.21.0.3.txt",
+        "installed_fix_evidence": "release/evidence/real-install-designer-fix-2026-11-25.json",
+        "runtime_retest": "pass",
+        "retest_character_id": 70432,
+        "retest_character_name": "UFG test von Regenstein",
+        "retest_evidence": "release/evidence/ruler-designer-retest-2026-11-25.log",
+        "guard_observed": "origin 0x2de53f1 / wrapper 0x2eaba44: male requested and preserved"
+      },
+      "candidate_artifacts": {
+        "dxcompiler.dll": {
+          "sha256": "989aed11ff81ec1d3ba7195e5520d456ad805090370cfe61e5ce0e5fad2ba16d",
+          "size_bytes": 157696
+        },
+        "AWOW Universal Female Generation/awow_ufg.dll": {
+          "sha256": "ec0f7c9d0f66f26dd3e9469d071c4d6ed5c80623d377d52478c081b9d71aa751",
+          "size_bytes": 195584
+        }
+      }
+    }
+  },
+  "automated": {
+    "native_checks": {
+      "status": "pass",
+      "checks": 145,
+      "executed_generation_relays": 4,
+      "executed_history_relays": 7,
+      "evidence": "release/evidence/native-tests-designer-fix-2026-11-24.txt",
+      "notes": "Manager restoration is deliberately not patched; executed legacy-relay code is test-only for that path."
+    },
+    "binary_audit": {
+      "status": "pass",
+      "checks": 48,
+      "evidence": "release/evidence/binary-audit-designer-fix-1.21.0.3.json"
+    },
+    "installer_tests": {
+      "status": "pass",
+      "tests": 56,
+      "evidence": "release/evidence/installer-tests-final-2026-11-25.txt"
+    },
+    "package_verification": {
+      "status": "pass",
+      "archives": 3,
+      "evidence": "release/evidence/local-packages-final-2026-11-25.json"
+    },
+    "frozen_installers": {
+      "status": "pass",
+      "transactions": 3,
+      "evidence": "release/evidence/frozen-installers-2026-11-25.json"
+    }
+  },
+  "deferred": [
+    "AGP installer recognition of the new UFG proxy/payload; no AGP repository changes in this work."
+  ]
+}

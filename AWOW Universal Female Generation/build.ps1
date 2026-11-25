@@ -77,13 +77,15 @@ $definition = Join-Path $scriptRoot 'dxcompiler_proxy.def'
 $versionSource = Join-Path $scriptRoot 'version.rc'
 $proxyVersionResource = Join-Path $buildDirectory 'ufg_proxy_version.res'
 $payloadVersionResource = Join-Path $buildDirectory 'ufg_payload_version.res'
-$payloadSources = @('ufg_generation_hook.cpp', 'ufg_patch_runtime.cpp', 'ufg_generation.cpp', 'ufg_history.cpp') | ForEach-Object { Join-Path $scriptRoot "src\$_" }
-$loaderSources = @('ufg_dxcompiler_loader.cpp', 'ufg_patch_runtime.cpp') | ForEach-Object { Join-Path $scriptRoot "src\$_" }
+$payloadSources = @('ufg_generation_hook.cpp', 'ufg_build_profile.cpp', 'ufg_patch_runtime.cpp', 'ufg_generation.cpp', 'ufg_history.cpp') | ForEach-Object { Join-Path $scriptRoot "src\$_" }
+$loaderSources = @('ufg_dxcompiler_loader.cpp', 'ufg_build_profile.cpp', 'ufg_patch_runtime.cpp') | ForEach-Object { Join-Path $scriptRoot "src\$_" }
 
 foreach ($source in @($payloadSources) + $loaderSources + $definition + $versionSource) {
 	if (-not (Test-Path -LiteralPath $source -PathType Leaf)) { throw "Required native build input is missing: $source" }
 }
 New-Item -ItemType Directory -Force -Path $payloadDirectory | Out-Null
+& python (Join-Path $scriptRoot 'tools/generate_profiles.py') (Join-Path $buildDirectory 'ufg_profiles.generated.h')
+if ($LASTEXITCODE -ne 0) { throw 'Native profile generation failed.' }
 $intermediateFiles = @(
 	'awow_ufg.exp', 'awow_ufg.lib', 'dxcompiler.exp', 'dxcompiler.lib',
 	'ufg_generation_hook.obj', 'ufg_patch_runtime.obj', 'ufg_generation.obj', 'ufg_history.obj',
@@ -101,8 +103,8 @@ try {
 	Write-Host 'GitHub Actions output is the canonical release artifact; local output is for verification and smoke testing.'
 	Invoke-VcCommand $vcVarsAll "rc.exe /nologo /dUFG_PROXY /fo `"$proxyVersionResource`" `"$versionSource`"" $toolchain
 	Invoke-VcCommand $vcVarsAll "rc.exe /nologo /fo `"$payloadVersionResource`" `"$versionSource`"" $toolchain
-	Invoke-VcCommand $vcVarsAll "cl.exe /nologo /std:c++17 /EHsc /LD /O2 $payloadArguments `"$payloadVersionResource`" /link /Brepro /OUT:`"$payloadOutput`" /IMPLIB:`"$payloadImportLibrary`" bcrypt.lib" $toolchain
-	Invoke-VcCommand $vcVarsAll "cl.exe /nologo /std:c++17 /EHsc /LD /O2 $loaderArguments `"$proxyVersionResource`" /link /Brepro /DEF:`"$definition`" /OUT:`"$loaderOutput`" /IMPLIB:`"$loaderImportLibrary`" bcrypt.lib" $toolchain
+	Invoke-VcCommand $vcVarsAll "cl.exe /nologo /std:c++17 /EHsc /LD /O2 /I `"$buildDirectory`" $payloadArguments `"$payloadVersionResource`" /link /Brepro /OUT:`"$payloadOutput`" /IMPLIB:`"$payloadImportLibrary`" bcrypt.lib" $toolchain
+	Invoke-VcCommand $vcVarsAll "cl.exe /nologo /std:c++17 /EHsc /LD /O2 /I `"$buildDirectory`" $loaderArguments `"$proxyVersionResource`" /link /Brepro /DEF:`"$definition`" /OUT:`"$loaderOutput`" /IMPLIB:`"$loaderImportLibrary`" bcrypt.lib" $toolchain
 }
 finally { Pop-Location }
 

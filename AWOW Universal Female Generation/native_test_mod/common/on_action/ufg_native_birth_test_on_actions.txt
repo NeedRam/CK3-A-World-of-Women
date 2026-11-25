@@ -1,27 +1,11 @@
-# "Forced male" describes the child's selected gender, not the pregnant parent.
-on_birth_child = {
-	on_actions = {
-		ufg_native_score_forced_male_child_birth_test
-	}
-}
-
+﻿on_birth_child = { on_actions = { ufg_native_score_forced_male_child_birth_test } }
 ufg_native_score_forced_male_child_birth_test = {
-	trigger = {
-		scope:mother ?= {
-			has_character_flag = ufg_native_forced_male_child_birth_test_mother
-		}
-	}
-
-	effect = {
-		if = {
-			limit = { is_female = no }
-			debug_log = "UFG_NATIVE_TEST_PASS: Forced-male child remained male at birth."
-		}
-		else = {
-			debug_log = "UFG_NATIVE_TEST_FAIL: Forced-male child was changed to female at birth."
-		}
-		scope:mother = {
-			remove_character_flag = ufg_native_forced_male_child_birth_test_mother
-		}
-	}
+ trigger = { exists = scope:mother scope:mother = { has_character_flag = ufg_native_forced_male_child_birth_test_mother } }
+ effect = {
+  if = { limit = { is_female = no exists = father exists = real_father father = { has_character_flag = ufg_native_birth_test_father } real_father = father }
+   add_character_flag = ufg_native_verified_male_birth debug_log = "UFG_ACCEPTANCE_PASS forced_male_birth_native_roles"
+  }
+  else = { debug_log = "UFG_ACCEPTANCE_FAIL forced_male_birth_native_roles" }
+  scope:mother = { remove_character_flag = ufg_native_forced_male_child_birth_test_mother }
+ }
 }

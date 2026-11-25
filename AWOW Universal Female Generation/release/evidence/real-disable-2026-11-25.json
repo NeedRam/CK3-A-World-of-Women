@@ -1,0 +1,16 @@
+{
+  "transaction_id": "9146cd2c-9b48-4b82-a060-42e2c49d4ccf",
+  "state": "ufg_proxy_only",
+  "ufg_payload_absent": true,
+  "protected_files_unchanged": true,
+  "protected_file_sha256": {
+    "dxcompiler.dll": "989aed11ff81ec1d3ba7195e5520d456ad805090370cfe61e5ce0e5fad2ba16d",
+    "dxcompiler_original.dll": "40e381d1d0ccf3bd725e30914b07d3d0cdaa907900e4d194da0e9cbd41d06e65",
+    "AGP Native Hook/agp_parenthook.dll": "e6bb03805e7caa4392210fa45e3253de769d082ccd59087475a50c24b420071c",
+    "AGP Native Hook/agp-install-state.json": "acfc1a9ada57197de8a7431dd129a711d66b661ea27f4d2f8ca80de9ba3b0770"
+  },
+  "runtime_verification": "pass",
+  "runtime_evidence": "release/evidence/disabled-ufg-agp-only-2026-11-25.log",
+  "agp_readiness_sites": 22,
+  "requested_male_preserved": true
+}

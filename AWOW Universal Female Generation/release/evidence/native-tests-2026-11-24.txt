@@ -1,0 +1,4 @@
+Pinned MSVC 14.44.35207 / Windows SDK 10.0.22621.0, Windows x64.
+PASS: 137 native checks, including 4 generation and 7 history executed-relay cases.
+Includes player/dynasty protection, missing/invalid data, original-byte recheck, overlap rejection, abort/rollback, AGP readiness and unsupported executable rejection.
+Manager restoration remains unpatched; runtime generation is handled at its audited live constructor.

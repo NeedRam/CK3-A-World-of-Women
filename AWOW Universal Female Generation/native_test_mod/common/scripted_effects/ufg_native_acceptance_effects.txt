@@ -1,0 +1,203 @@
+﻿ufg_native_run_history_test_effect = {
+
+		if = {
+			limit = {
+				character:ufg_native_history_explicit_male = {
+					is_female = yes
+					is_spouse_of = character:ufg_native_history_ordinary_spouse
+				}
+			}
+			debug_log = "UFG_NATIVE_TEST_PASS: Explicit-male history and add_spouse resolved to a female-female marriage."
+		}
+		else = {
+			set_variable = { name = ufg_acceptance_ok value = 0 }
+			debug_log = "UFG_NATIVE_TEST_FAIL: Explicit-male history or add_spouse result is incorrect."
+		}
+		if = {
+			limit = {
+				character:ufg_native_history_unspecified = {
+					is_female = yes
+					is_spouse_of = character:ufg_native_history_matrilineal_spouse
+				}
+			}
+			debug_log = "UFG_NATIVE_TEST_PASS: Unspecified history and add_matrilineal_spouse resolved to a female-female marriage."
+		}
+		else = {
+			set_variable = { name = ufg_acceptance_ok value = 0 }
+			debug_log = "UFG_NATIVE_TEST_FAIL: Unspecified history or add_matrilineal_spouse result is incorrect."
+		}
+		if = {
+			limit = {
+				character:ufg_native_history_same_sex_baseline = {
+					is_female = yes
+					is_spouse_of = character:ufg_native_history_same_sex_spouse
+				}
+			}
+			debug_log = "UFG_NATIVE_TEST_PASS: Existing add_same_sex_spouse history behavior remains valid."
+		}
+		else = {
+			set_variable = { name = ufg_acceptance_ok value = 0 }
+			debug_log = "UFG_NATIVE_TEST_FAIL: Existing add_same_sex_spouse history behavior is incorrect."
+		}
+		}
+
+ufg_native_run_runtime_test_effect = {
+
+			create_character = {
+				name = "UFG Explicit Male Unrelated"
+				gender = male
+				age = 30
+				random_traits = no
+				culture = scope:ufg_native_actor.culture
+				faith = scope:ufg_native_actor.faith
+				dynasty = none
+				employer = scope:ufg_native_actor
+				save_scope_as = ufg_native_explicit_male_unrelated
+			}
+			create_character = {
+				name = "UFG Chance Male Unrelated"
+				gender_female_chance = 0
+				age = 30
+				random_traits = no
+				culture = scope:ufg_native_actor.culture
+				faith = scope:ufg_native_actor.faith
+				dynasty = none
+				employer = scope:ufg_native_actor
+				save_scope_as = ufg_native_default_unrelated
+			}
+			create_character = {
+				name = "UFG Template Male Unrelated"
+				template = ufg_native_test_male_template
+				gender = male
+				culture = scope:ufg_native_actor.culture
+				faith = scope:ufg_native_actor.faith
+				dynasty = none
+				employer = scope:ufg_native_actor
+				save_scope_as = ufg_native_template_unrelated
+			}
+			create_character = {
+				name = "UFG Player Dynasty Male"
+				gender = male
+				age = 30
+				random_traits = no
+				culture = scope:ufg_native_actor.culture
+				faith = scope:ufg_native_actor.faith
+				dynasty_house = scope:ufg_native_actor.house
+				employer = scope:ufg_native_actor
+				save_scope_as = ufg_native_player_dynasty_male
+			}
+
+			if = {
+				limit = {
+                    exists = scope:ufg_native_explicit_male_unrelated
+                    exists = scope:ufg_native_default_unrelated
+                    exists = scope:ufg_native_template_unrelated
+					scope:ufg_native_explicit_male_unrelated = { is_female = yes }
+					scope:ufg_native_default_unrelated = { is_female = yes }
+					scope:ufg_native_template_unrelated = { is_female = yes }
+				}
+				debug_log = "UFG_NATIVE_TEST_PASS: Explicit-male, zero-female-chance, and template unrelated NPCs resolved female."
+			}
+			else = {
+				set_variable = { name = ufg_acceptance_ok value = 0 }
+				debug_log = "UFG_NATIVE_TEST_FAIL: One or more unrelated runtime NPCs did not resolve female."
+			}
+			if = {
+				limit = {
+                    exists = scope:ufg_native_player_dynasty_male
+					scope:ufg_native_player_dynasty_male = {
+						is_female = no
+						house = scope:ufg_native_actor.house
+					}
+				}
+				debug_log = "UFG_NATIVE_TEST_PASS: Explicit-male current-player-dynasty character remained male."
+			}
+			else = {
+				set_variable = { name = ufg_acceptance_ok value = 0 }
+				debug_log = "UFG_NATIVE_TEST_FAIL: Current-player-dynasty exemption failed or the requested house was not assigned in time."
+			}
+
+scope:ufg_native_explicit_male_unrelated = { add_character_flag = ufg_native_explicit_male_unrelated }
+scope:ufg_native_default_unrelated = { add_character_flag = ufg_native_default_unrelated }
+scope:ufg_native_template_unrelated = { add_character_flag = ufg_native_template_unrelated }
+scope:ufg_native_player_dynasty_male = { add_character_flag = ufg_native_player_dynasty_male }
+}
+
+ufg_native_prepare_forced_male_child_birth_test_effect = { ufg_native_birth_setup_effect = yes }
+
+ufg_native_baseline_setup_effect = {
+if = { limit = { NOT = { has_character_flag = ufg_native_baseline_created } }
+create_character = { name = "UFG ufg_baseline_male" gender = male age = 30 random_traits = no culture = scope:ufg_native_actor.culture faith = scope:ufg_native_actor.faith dynasty = none employer = scope:ufg_native_actor save_scope_as = ufg_baseline_male }
+scope:ufg_baseline_male = { add_character_flag = ufg_baseline_male }
+add_character_flag = ufg_native_baseline_created
+}
+random_living_character = { limit = { has_character_flag = ufg_baseline_male } save_scope_as = ufg_baseline_existing }
+if = { limit = { exists = scope:ufg_baseline_existing scope:ufg_baseline_existing = { is_female = no } } debug_log = "UFG_ACCEPTANCE_PASS baseline_male_created" } else = { set_variable = { name = ufg_acceptance_ok value = 0 } debug_log = "UFG_ACCEPTANCE_FAIL baseline_male_created" }
+}
+
+ufg_native_baseline_check_effect = {
+random_living_character = { limit = { has_character_flag = ufg_baseline_male } save_scope_as = ufg_baseline_existing }
+if = { limit = { exists = scope:ufg_baseline_existing scope:ufg_baseline_existing = { is_female = no } } debug_log = "UFG_ACCEPTANCE_PASS preexisting_save_male" } else = { set_variable = { name = ufg_acceptance_ok value = 0 } debug_log = "UFG_ACCEPTANCE_FAIL preexisting_save_male" }
+}
+
+ufg_native_persistence_check_effect = {
+random_living_character = { limit = { has_character_flag = ufg_persist_mother } save_scope_as = ufg_persist_mother }
+random_living_character = { limit = { has_character_flag = ufg_persist_father } save_scope_as = ufg_persist_father }
+random_living_character = { limit = { has_character_flag = ufg_persist_real_mother } save_scope_as = ufg_persist_real_mother }
+random_living_character = { limit = { has_character_flag = ufg_persist_real_father } save_scope_as = ufg_persist_real_father }
+random_living_character = { limit = { has_character_flag = ufg_persist_child } save_scope_as = ufg_persist_child }
+if = { limit = { exists = scope:ufg_persist_mother exists = scope:ufg_persist_father exists = scope:ufg_persist_real_mother exists = scope:ufg_persist_real_father exists = scope:ufg_persist_child scope:ufg_persist_child = { mother = scope:ufg_persist_mother father = scope:ufg_persist_father real_mother = scope:ufg_persist_real_mother real_father = scope:ufg_persist_real_father } } debug_log = "UFG_ACCEPTANCE_PASS distinct_parent_roles" } else = { set_variable = { name = ufg_acceptance_ok value = 0 } debug_log = "UFG_ACCEPTANCE_FAIL distinct_parent_roles" }
+}
+
+ufg_native_persistence_setup_effect = {
+if = { limit = { NOT = { has_character_flag = ufg_native_persistence_created } }
+create_character = { name = "UFG ufg_persist_mother" gender = male age = 45 random_traits = no culture = scope:ufg_native_actor.culture faith = scope:ufg_native_actor.faith dynasty = none employer = scope:ufg_native_actor save_scope_as = ufg_persist_mother }
+scope:ufg_persist_mother = { add_character_flag = ufg_persist_mother }
+create_character = { name = "UFG ufg_persist_father" gender = male age = 45 random_traits = no culture = scope:ufg_native_actor.culture faith = scope:ufg_native_actor.faith dynasty = none employer = scope:ufg_native_actor save_scope_as = ufg_persist_father }
+scope:ufg_persist_father = { add_character_flag = ufg_persist_father }
+create_character = { name = "UFG ufg_persist_real_mother" gender = male age = 45 random_traits = no culture = scope:ufg_native_actor.culture faith = scope:ufg_native_actor.faith dynasty = none employer = scope:ufg_native_actor save_scope_as = ufg_persist_real_mother }
+scope:ufg_persist_real_mother = { add_character_flag = ufg_persist_real_mother }
+create_character = { name = "UFG ufg_persist_real_father" gender = male age = 45 random_traits = no culture = scope:ufg_native_actor.culture faith = scope:ufg_native_actor.faith dynasty = none employer = scope:ufg_native_actor save_scope_as = ufg_persist_real_father }
+scope:ufg_persist_real_father = { add_character_flag = ufg_persist_real_father }
+create_character = { name = "UFG ufg_persist_child" gender = male age = 20 random_traits = no culture = scope:ufg_native_actor.culture faith = scope:ufg_native_actor.faith dynasty = none employer = scope:ufg_native_actor save_scope_as = ufg_persist_child }
+scope:ufg_persist_child = { add_character_flag = ufg_persist_child }
+scope:ufg_persist_child = { set_mother = scope:ufg_persist_mother set_father = scope:ufg_persist_father set_real_mother = scope:ufg_persist_real_mother set_real_father = scope:ufg_persist_real_father }
+add_character_flag = ufg_native_persistence_created
+}
+ufg_native_persistence_check_effect = yes
+}
+
+ufg_native_reload_check_effect = {
+random_living_character = { limit = { has_character_flag = ufg_persist_mother } save_scope_as = ufg_persist_mother }
+random_living_character = { limit = { has_character_flag = ufg_persist_father } save_scope_as = ufg_persist_father }
+random_living_character = { limit = { has_character_flag = ufg_persist_real_mother } save_scope_as = ufg_persist_real_mother }
+random_living_character = { limit = { has_character_flag = ufg_persist_real_father } save_scope_as = ufg_persist_real_father }
+random_living_character = { limit = { has_character_flag = ufg_persist_child } save_scope_as = ufg_persist_child }
+if = { limit = { exists = scope:ufg_persist_mother exists = scope:ufg_persist_father exists = scope:ufg_persist_real_mother exists = scope:ufg_persist_real_father exists = scope:ufg_persist_child scope:ufg_persist_child = { mother = scope:ufg_persist_mother father = scope:ufg_persist_father real_mother = scope:ufg_persist_real_mother real_father = scope:ufg_persist_real_father } } debug_log = "UFG_ACCEPTANCE_PASS distinct_parent_roles" } else = { set_variable = { name = ufg_acceptance_ok value = 0 } debug_log = "UFG_ACCEPTANCE_FAIL distinct_parent_roles" }
+random_living_character = { limit = { has_character_flag = ufg_native_explicit_male_unrelated } save_scope_as = ufg_native_explicit_male_unrelated }
+if = { limit = { exists = scope:ufg_native_explicit_male_unrelated scope:ufg_native_explicit_male_unrelated = { is_female = yes } } debug_log = "UFG_ACCEPTANCE_PASS reload_ufg_native_explicit_male_unrelated" } else = { set_variable = { name = ufg_acceptance_ok value = 0 } debug_log = "UFG_ACCEPTANCE_FAIL reload_ufg_native_explicit_male_unrelated" }
+random_living_character = { limit = { has_character_flag = ufg_native_default_unrelated } save_scope_as = ufg_native_default_unrelated }
+if = { limit = { exists = scope:ufg_native_default_unrelated scope:ufg_native_default_unrelated = { is_female = yes } } debug_log = "UFG_ACCEPTANCE_PASS reload_ufg_native_default_unrelated" } else = { set_variable = { name = ufg_acceptance_ok value = 0 } debug_log = "UFG_ACCEPTANCE_FAIL reload_ufg_native_default_unrelated" }
+random_living_character = { limit = { has_character_flag = ufg_native_template_unrelated } save_scope_as = ufg_native_template_unrelated }
+if = { limit = { exists = scope:ufg_native_template_unrelated scope:ufg_native_template_unrelated = { is_female = yes } } debug_log = "UFG_ACCEPTANCE_PASS reload_ufg_native_template_unrelated" } else = { set_variable = { name = ufg_acceptance_ok value = 0 } debug_log = "UFG_ACCEPTANCE_FAIL reload_ufg_native_template_unrelated" }
+random_living_character = { limit = { has_character_flag = ufg_native_player_dynasty_male } save_scope_as = ufg_native_player_dynasty_male }
+if = { limit = { exists = scope:ufg_native_player_dynasty_male scope:ufg_native_player_dynasty_male = { is_female = no } } debug_log = "UFG_ACCEPTANCE_PASS reload_ufg_native_player_dynasty_male" } else = { set_variable = { name = ufg_acceptance_ok value = 0 } debug_log = "UFG_ACCEPTANCE_FAIL reload_ufg_native_player_dynasty_male" }
+}
+
+ufg_native_birth_setup_effect = {
+create_character = { name = "UFG ufg_birth_mother" gender = female age = 30 random_traits = no culture = scope:ufg_native_actor.culture faith = scope:ufg_native_actor.faith dynasty = none employer = scope:ufg_native_actor save_scope_as = ufg_birth_mother }
+scope:ufg_birth_mother = { add_character_flag = ufg_native_forced_male_child_birth_test_mother }
+create_character = { name = "UFG ufg_birth_father" gender = male age = 30 random_traits = no culture = scope:ufg_native_actor.culture faith = scope:ufg_native_actor.faith dynasty = none employer = scope:ufg_native_actor save_scope_as = ufg_birth_father }
+scope:ufg_birth_father = { add_character_flag = ufg_native_birth_test_father }
+scope:ufg_birth_mother = { marry = scope:ufg_birth_father make_pregnant_no_checks = { father = scope:ufg_birth_father number_of_children = 1 } set_pregnancy_gender = male }
+if = { limit = { exists = scope:ufg_birth_mother scope:ufg_birth_mother = { is_pregnant = yes } } debug_log = "UFG_ACCEPTANCE_PASS forced_male_pregnancy_created" } else = { set_variable = { name = ufg_acceptance_ok value = 0 } debug_log = "UFG_ACCEPTANCE_FAIL forced_male_pregnancy_created" }
+}
+
+ufg_native_birth_check_effect = {
+if = { limit = { any_living_character = { has_character_flag = ufg_native_verified_male_birth is_female = no } } debug_log = "UFG_ACCEPTANCE_PASS forced_male_birth" } else = { set_variable = { name = ufg_acceptance_ok value = 0 } debug_log = "UFG_ACCEPTANCE_FAIL forced_male_birth" }
+}
+
+ufg_native_ruler_designer_check_effect = {
+if = { limit = { is_female = no } debug_log = "UFG_ACCEPTANCE_PASS male_ruler_designer" } else = { set_variable = { name = ufg_acceptance_ok value = 0 } debug_log = "UFG_ACCEPTANCE_FAIL male_ruler_designer" }
+debug_log_scopes = yes
+}

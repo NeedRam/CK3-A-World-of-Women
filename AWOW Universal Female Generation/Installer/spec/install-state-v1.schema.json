@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://awow-ufg.invalid/schema/install-state-v1.json",
+  "title": "AWOW Universal Female Generation persistent install state v1",
+  "description": "The UFG-owned state. AGP state is a separate contract and is never written by UFG.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schema_version", "kind", "status", "transaction_id", "release", "target", "baseline", "agp_dependency", "managed_files", "quarantined_files", "foreign_cleanup", "created_utc", "updated_utc"],
+  "properties": {
+    "$schema": {"const": "https://awow-ufg.invalid/schema/install-state-v1.json"},
+    "schema_version": {"const": 1},
+    "kind": {"const": "ufg_install_state"},
+    "status": {"enum": ["managed_ufg", "ufg_proxy_only"]},
+    "transaction_id": {"$ref": "#/$defs/uuid"},
+    "release": {"$ref": "#/$defs/release"},
+    "target": {"$ref": "#/$defs/target"},
+    "baseline": {"$ref": "#/$defs/baseline"},
+    "agp_dependency": {"$ref": "#/$defs/agpDependency"},
+    "managed_files": {"type": "array", "minItems": 2, "items": {"$ref": "#/$defs/managedFile"}},
+    "quarantined_files": {"type": "array", "items": {"$ref": "#/$defs/quarantinedFile"}},
+    "foreign_cleanup": {"$ref": "#/$defs/foreignCleanup"},
+    "created_utc": {"$ref": "#/$defs/utc"},
+    "updated_utc": {"$ref": "#/$defs/utc"}
+  },
+  "$defs": {
+    "relativePath": {"type": "string", "pattern": "^(?!/)(?!.*(?:^|/)\\.{1,2}(?:/|$))(?!.*:)[^\\\\/:*?\"<>|\\x00-\\x1F]+(?:/[^\\\\/:*?\"<>|\\x00-\\x1F]+)*$"},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$"},
+    "uuid": {"type": "string", "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"},
+    "utc": {"type": "string", "format": "date-time"},
+    "release": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "version", "manifest_sha256"],
+      "properties": {"id": {"const": "awow-ufg"}, "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"}, "manifest_sha256": {"$ref": "#/$defs/sha256"}}
+    },
+    "target": {
+      "type": "object", "additionalProperties": false,
+      "required": ["game_id", "build_id", "binaries_relative_path", "executable_relative_path", "target_root_kind"],
+      "properties": {"game_id": {"const": "crusader_kings_iii"}, "build_id": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+$"}, "binaries_relative_path": {"const": "binaries"}, "executable_relative_path": {"const": "ck3.exe"}, "target_root_kind": {"const": "steam_game_binaries"}}
+    },
+    "baselineFile": {
+      "type": "object", "additionalProperties": false,
+      "required": ["relative_path", "sha256", "size_bytes", "ownership"],
+      "properties": {"relative_path": {"$ref": "#/$defs/relativePath"}, "sha256": {"$ref": "#/$defs/sha256"}, "size_bytes": {"type": "integer", "minimum": 0}, "ownership": {"const": "steam"}}
+    },
+    "baseline": {"type": "object", "additionalProperties": false, "required": ["original_dxcompiler", "executable"], "properties": {"original_dxcompiler": {"$ref": "#/$defs/baselineFile"}, "executable": {"$ref": "#/$defs/baselineFile"}}},
+    "agpDependency": {
+      "type": "object", "additionalProperties": false,
+      "required": ["build_id", "version", "proxy_relative_path", "proxy_sha256", "payload_relative_path", "payload_sha256", "original_dxcompiler_sha256", "state_relative_path", "state_sha256"],
+      "properties": {"build_id": {"$ref": "#/$defs/id"}, "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"}, "proxy_relative_path": {"const": "dxcompiler.dll"}, "proxy_sha256": {"$ref": "#/$defs/sha256"}, "payload_relative_path": {"const": "AGP Native Hook/agp_parenthook.dll"}, "payload_sha256": {"$ref": "#/$defs/sha256"}, "original_dxcompiler_sha256": {"$ref": "#/$defs/sha256"}, "state_relative_path": {"const": "AGP Native Hook/agp-install-state.json"}, "state_sha256": {"anyOf": [{"$ref": "#/$defs/sha256"}, {"const": "absent"}]}}
+    },
+    "restore": {"type": "object", "additionalProperties": false, "required": ["action"], "properties": {"action": {"enum": ["leave_managed_file", "remove_managed_file"]}}},
+    "managedFile": {
+      "type": "object", "additionalProperties": false,
+      "required": ["relative_path", "role", "ownership", "installed_sha256", "installed_size_bytes", "present", "restore"],
+      "properties": {"relative_path": {"$ref": "#/$defs/relativePath"}, "role": {"enum": ["ufg_proxy", "ufg_payload"]}, "ownership": {"const": "managed"}, "installed_sha256": {"$ref": "#/$defs/sha256"}, "installed_size_bytes": {"type": "integer", "minimum": 0}, "present": {"type": "boolean"}, "restore": {"$ref": "#/$defs/restore"}}
+    },
+    "quarantinedFile": {
+      "type": "object", "additionalProperties": false,
+      "required": ["original_relative_path", "quarantine_relative_path", "kind", "sha256", "size_bytes", "ownership", "restore_policy"],
+      "properties": {"original_relative_path": {"$ref": "#/$defs/relativePath"}, "quarantine_relative_path": {"$ref": "#/$defs/relativePath"}, "kind": {"enum": ["file", "directory_manifest"]}, "sha256": {"$ref": "#/$defs/sha256"}, "size_bytes": {"type": "integer", "minimum": 0}, "ownership": {"const": "unknown_displaced"}, "restore_policy": {"const": "restore_on_rollback_only"}}
+    },
+    "foreignCleanup": {"type": "object", "additionalProperties": false, "required": ["kind", "quarantine_relative_path", "removed_paths", "uninstall_policy"], "properties": {"kind": {"const": "none"}, "quarantine_relative_path": {"$ref": "#/$defs/relativePath"}, "removed_paths": {"type": "array", "maxItems": 0}, "uninstall_policy": {"const": "none"}}}
+  }
+}

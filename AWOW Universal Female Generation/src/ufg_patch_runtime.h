@@ -20,6 +20,10 @@ struct Pattern {
 };
 
 void Log(const char* message);
+void BeginPatchTransaction();
+void AbortPatchTransaction();
+bool CommitPatchTransaction(std::size_t fault_after = static_cast<std::size_t>(-1));
+bool ReadMemory(const void* address, void* output, std::size_t size);
 bool GetTextSection(TextSection* result);
 std::vector<std::uint8_t*> FindPattern(const TextSection& section, const Pattern& pattern);
 bool Matches(const std::uint8_t* address, const Pattern& pattern);

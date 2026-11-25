@@ -1,7 +1,7 @@
-# AWOW UFG v1.0.0 EXE Installer
+# AWOW UFG v1.1.0 EXE Installer
 
 This package contains the AWOW Universal Female Generation graphical installer
-and uninstaller for Windows x64 with Steam Crusader Kings III `1.19.0.6`.
+and uninstaller for Windows x64 with Crusader Kings III `1.21.0.3`.
 Install a compatible Any-Gender Parenthook release first.
 
 ## Install
@@ -12,7 +12,7 @@ Install a compatible Any-Gender Parenthook release first.
    displayed path and any requested safe transition.
 
 The installer authorizes CK3 and AGP only by exact SHA-256 values. It preserves
-Steam's original compiler, the AGP payload and state, and unknown files.
+the game's original compiler, the AGP payload and state, and unknown files.
 
 ## Uninstall or disable UFG
 
@@ -24,3 +24,5 @@ AGP continues to load, and the resulting state is recorded as
 Keep the extracted folder together; the EXEs require the `Installer` manifest
 and native files beside them. This release is intentionally unsigned.
 `SHA256SUMS.txt` records the exact files in this package.
+
+AGP installer recognition of these new UFG binaries is a separate follow-up; use this UFG release's uninstaller to disable UFG while retaining AGP.

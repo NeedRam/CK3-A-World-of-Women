@@ -1,0 +1,145 @@
+The old direct_gender site is reached from the character manager reader, through its reserved-gender record parser. It is validated, never patched in UFG 1.1.0. Live non-template/script requests use the template constructor instead.
+FUNCTION 0x2ddbb90-0x2ddbc41
+02ddbb90: 48 89 5c 24 08                 mov qword ptr [rsp + 8], rbx
+02ddbb95: 57                             push rdi
+02ddbb96: 48 83 ec 30                    sub rsp, 0x30
+02ddbb9a: 83 ba e8 01 00 00 03           cmp dword ptr [rdx + 0x1e8], 3
+02ddbba1: 48 8b da                       mov rbx, rdx
+02ddbba4: 48 89 4c 24 20                 mov qword ptr [rsp + 0x20], rcx
+02ddbba9: 44 88 44 24 28                 mov byte ptr [rsp + 0x28], r8b
+02ddbbae: 74 23                          je 0x142ddbbd3
+02ddbbb0: 48 8d 8a e8 01 00 00           lea rcx, [rdx + 0x1e8]
+02ddbbb7: e8 f4 19 74 01                 call 0x14451d5b0
+02ddbbbc: 8b d0                          mov edx, eax
+02ddbbbe: 48 8d 4c 24 20                 lea rcx, [rsp + 0x20]
+02ddbbc3: e8 88 00 00 00                 call 0x142ddbc50
+02ddbbc8: 48 8b 5c 24 40                 mov rbx, qword ptr [rsp + 0x40]
+02ddbbcd: 48 83 c4 30                    add rsp, 0x30
+02ddbbd1: 5f                             pop rdi
+02ddbbd2: c3                             ret
+02ddbbd3: 48 8b cb                       mov rcx, rbx
+02ddbbd6: e8 85 e9 72 01                 call 0x14450a560
+02ddbbdb: 48 8d 8b e8 00 00 00           lea rcx, [rbx + 0xe8]
+02ddbbe2: e8 c9 19 74 01                 call 0x14451d5b0
+02ddbbe7: 8b d0                          mov edx, eax
+02ddbbe9: 48 8d 4c 24 20                 lea rcx, [rsp + 0x20]
+02ddbbee: e8 5d 00 00 00                 call 0x142ddbc50
+02ddbbf3: 83 bb e8 01 00 00 03           cmp dword ptr [rbx + 0x1e8], 3
+02ddbbfa: 75 08                          jne 0x142ddbc04
+02ddbbfc: 48 8b cb                       mov rcx, rbx
+02ddbbff: e8 cc dd 72 01                 call 0x1445099d0
+02ddbc04: 48 8b 8b e0 00 00 00           mov rcx, qword ptr [rbx + 0xe0]
+02ddbc0b: e8 00 b9 6f 01                 call 0x1444d7510
+02ddbc10: 48 8b 83 e0 00 00 00           mov rax, qword ptr [rbx + 0xe0]
+02ddbc17: 8b 48 54                       mov ecx, dword ptr [rax + 0x54]
+02ddbc1a: 85 c9                          test ecx, ecx
+02ddbc1c: 74 18                          je 0x142ddbc36
+02ddbc1e: 48 8b 50 48                    mov rdx, qword ptr [rax + 0x48]
+02ddbc22: 8d 41 ff                       lea eax, [rcx - 1]
+02ddbc25: 85 c0                          test eax, eax
+02ddbc27: 74 0d                          je 0x142ddbc36
+02ddbc29: 80 3a 40                       cmp byte ptr [rdx], 0x40
+02ddbc2c: 75 08                          jne 0x142ddbc36
+02ddbc2e: 48 8b cb                       mov rcx, rbx
+02ddbc31: e8 da 8d 76 01                 call 0x144544a10
+02ddbc36: 48 8b 5c 24 40                 mov rbx, qword ptr [rsp + 0x40]
+02ddbc3b: 48 83 c4 30                    add rsp, 0x30
+02ddbc3f: 5f                             pop rdi
+02ddbc40: c3                             ret
+FUNCTION 0x2ddbc50-0x2ddbcf7
+02ddbc50: 48 89 5c 24 08                 mov qword ptr [rsp + 8], rbx
+02ddbc55: 48 89 74 24 10                 mov qword ptr [rsp + 0x10], rsi
+02ddbc5a: 48 89 7c 24 18                 mov qword ptr [rsp + 0x18], rdi
+02ddbc5f: 41 56                          push r14
+02ddbc61: 48 83 ec 20                    sub rsp, 0x20
+02ddbc65: 48 8b 39                       mov rdi, qword ptr [rcx]
+02ddbc68: 4c 8b f1                       mov r14, rcx
+02ddbc6b: 0f b6 59 08                    movzx ebx, byte ptr [rcx + 8]
+02ddbc6f: 8b f2                          mov esi, edx
+02ddbc71: 48 8b 8f 38 4e 00 00           mov rcx, qword ptr [rdi + 0x4e38]
+02ddbc78: e8 e3 ff 03 00                 call 0x142e1bc60
+02ddbc7d: 48 8b 15 a4 cc ac 03           mov rdx, qword ptr [rip + 0x3accca4]
+02ddbc84: 84 db                          test bl, bl
+02ddbc86: b8 18 4e 00 00                 mov eax, 0x4e18
+02ddbc8b: b9 1c 4e 00 00                 mov ecx, 0x4e1c
+02ddbc90: 0f 44 c1                       cmove eax, ecx
+02ddbc93: 89 34 38                       mov dword ptr [rax + rdi], esi
+02ddbc96: 48 85 d2                       test rdx, rdx
+02ddbc99: 74 24                          je 0x142ddbcbf
+02ddbc9b: 8b c6                          mov eax, esi
+02ddbc9d: 25 ff ff ff 00                 and eax, 0xffffff
+02ddbca2: 3b 42 2c                       cmp eax, dword ptr [rdx + 0x2c]
+02ddbca5: 73 18                          jae 0x142ddbcbf
+02ddbca7: 8b c8                          mov ecx, eax
+02ddbca9: 48 8b 42 20                    mov rax, qword ptr [rdx + 0x20]
+02ddbcad: 48 03 c9                       add rcx, rcx
+02ddbcb0: 48 8b 4c c8 08                 mov rcx, qword ptr [rax + rcx*8 + 8]
+02ddbcb5: 48 85 c9                       test rcx, rcx
+02ddbcb8: 74 05                          je 0x142ddbcbf
+02ddbcba: 39 71 18                       cmp dword ptr [rcx + 0x18], esi
+02ddbcbd: 74 07                          je 0x142ddbcc6
+02ddbcbf: 48 8b 0d 6a cc ac 03           mov rcx, qword ptr [rip + 0x3accc6a]
+02ddbcc6: 80 b9 a5 01 00 00 00           cmp byte ptr [rcx + 0x1a5], 0
+02ddbccd: 75 0b                          jne 0x142ddbcda
+02ddbccf: 41 0f b6 46 08                 movzx eax, byte ptr [r14 + 8]
+02ddbcd4: 88 81 a1 01 00 00              mov byte ptr [rcx + 0x1a1], al
+02ddbcda: 48 8b 5c 24 30                 mov rbx, qword ptr [rsp + 0x30]
+02ddbcdf: 48 8b 74 24 38                 mov rsi, qword ptr [rsp + 0x38]
+02ddbce4: 48 8b 7c 24 40                 mov rdi, qword ptr [rsp + 0x40]
+02ddbce9: c6 81 a5 01 00 00 01           mov byte ptr [rcx + 0x1a5], 1
+02ddbcf0: 48 83 c4 20                    add rsp, 0x20
+02ddbcf4: 41 5e                          pop r14
+02ddbcf6: c3                             ret
+FUNCTION 0x2de1190-0x2de16f4
+02de11b4: 49 63 d8                       movsxd rbx, r8d
+02de11b7: 4c 8b fa                       mov r15, rdx
+02de11ba: 4c 8b e9                       mov r13, rcx
+02de11bd: 81 fb e6 2c 00 00              cmp ebx, 0x2ce6
+02de11c3: 0f 8f e0 00 00 00              jg 0x142de12a9
+02de11c9: 0f 84 21 01 00 00              je 0x142de12f0
+02de11cf: 81 fb 5b 2b 00 00              cmp ebx, 0x2b5b
+02de11d5: 0f 8f 87 00 00 00              jg 0x142de1262
+02de11db: 74 61                          je 0x142de123e
+02de11dd: 81 eb 57 27 00 00              sub ebx, 0x2757
+02de11e3: 74 39                          je 0x142de121e
+02de11e5: 81 eb 03 03 00 00              sub ebx, 0x303
+02de11eb: 74 1d                          je 0x142de120a
+02de11ed: 83 fb 05                       cmp ebx, 5
+02de11f0: 0f 85 a7 03 00 00              jne 0x142de159d
+02de11f6: 48 8d 91 b8 4e 00 00           lea rdx, [rcx + 0x4eb8]
+02de11fd: 49 8b cf                       mov rcx, r15
+02de1200: e8 6b b0 00 00                 call 0x142dec270
+02de1205: e9 c9 04 00 00                 jmp 0x142de16d3
+02de120a: 48 8d 91 a0 4e 00 00           lea rdx, [rcx + 0x4ea0]
+02de1211: 49 8b cf                       mov rcx, r15
+02de1214: e8 57 b0 00 00                 call 0x142dec270
+02de1219: e9 b5 04 00 00                 jmp 0x142de16d3
+02de121e: 48 8b 99 38 4e 00 00           mov rbx, qword ptr [rcx + 0x4e38]
+02de1225: 48 8d 8b f8 01 00 00           lea rcx, [rbx + 0x1f8]
+02de122c: 48 8b 01                       mov rax, qword ptr [rcx]
+02de122f: ff 50 18                       call qword ptr [rax + 0x18]
+02de1232: c6 83 50 02 00 00 01           mov byte ptr [rbx + 0x250], 1
+02de1239: e9 95 04 00 00                 jmp 0x142de16d3
+02de123e: 48 8d 81 08 53 00 00           lea rax, [rcx + 0x5308]
+02de1245: 48 89 45 7f                    mov qword ptr [rbp + 0x7f], rax
+02de1249: 48 8d 45 7f                    lea rax, [rbp + 0x7f]
+02de124d: 48 89 45 b7                    mov qword ptr [rbp - 0x49], rax
+02de1251: 48 8d 55 b7                    lea rdx, [rbp - 0x49]
+02de1255: 49 8b cf                       mov rcx, r15
+02de1258: e8 13 ef 00 00                 call 0x142df0170
+02de125d: e9 71 04 00 00                 jmp 0x142de16d3
+02de1262: 81 eb 5c 2b 00 00              sub ebx, 0x2b5c
+02de1268: 74 2b                          je 0x142de1295
+02de126a: 81 eb 45 01 00 00              sub ebx, 0x145
+02de1270: 74 16                          je 0x142de1288
+02de1272: 83 fb 01                       cmp ebx, 1
+02de1275: 0f 85 22 03 00 00              jne 0x142de159d
+02de127b: 45 33 c0                       xor r8d, r8d
+02de127e: e8 0d a9 ff ff                 call 0x142ddbb90
+02de1283: e9 4b 04 00 00                 jmp 0x142de16d3
+02de1288: 41 b0 01                       mov r8b, 1
+02de128b: e8 00 a9 ff ff                 call 0x142ddbb90
+02de1290: e9 3e 04 00 00                 jmp 0x142de16d3
+02de1295: 48 8d 91 d8 55 00 00           lea rdx, [rcx + 0x55d8]
+02de129c: 49 8b cf                       mov rcx, r15
+02de129f: e8 7c f5 dc fd                 call 0x140bb0820

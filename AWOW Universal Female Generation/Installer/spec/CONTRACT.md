@@ -1,4 +1,4 @@
-# AWOW Universal Female Generation installer contract v1
+# AWOW Universal Female Generation installer contract v2
 
 The Python and PowerShell engines are independent implementations of the JSON
 contract in this directory. They must make the same classification, ownership,
@@ -60,3 +60,13 @@ contracts, tests needed for audit, and end-user documentation/launchers. The
 native test mod, source, build staging, repository metadata, and unrelated
 AWOW modules are excluded. `SHA256SUMS.txt`, the adjacent ZIP checksum, and
 provenance identify the exact staged bytes.
+
+## Current version and migration
+
+New installs use schema-v2 manifests, UFG state and journals with game-neutral
+ownership and an exact native profile identity. Existing schema-v1 UFG state is
+read-only until an explicitly confirmed, successful transaction writes v2.
+Valid disabled state can rebase onto the exact supported standalone AGP pairing.
+AGP schema-v1/v2 state is read and verified, never rewritten by UFG. Current
+installation support is CK3 1.21.0.3 with the published AGP 1.1.0 artifacts;
+old state recognition does not add old native game support.

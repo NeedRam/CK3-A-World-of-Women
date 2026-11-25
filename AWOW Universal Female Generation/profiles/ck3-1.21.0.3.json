@@ -1,0 +1,454 @@
+{
+  "schema_version": 1,
+  "release_version": "1.1.0",
+  "compatibility_basis": "exact_executable_and_original_dxcompiler_sha256",
+  "profiles": [
+    {
+      "profile_id": "ck3-1.21.0.3-x64",
+      "version": "1.21.0.3",
+      "executable_sha256": "859f0d380098adcb130eb9d453458222749fcdf6d46126ad0ed99d78f9a0aa28",
+      "original_dxcompiler_sha256": "40e381d1d0ccf3bd725e30914b07d3d0cdaa907900e4d194da0e9cbd41d06e65",
+      "static_verified": true,
+      "gameplay_verified": true,
+      "agp": {
+        "version": "1.1.0",
+        "source_commit": "0576adacd68073aa4462755c82cade14260f006c",
+        "proxy_sha256": "e8365d61ffd80b4d8fcaf4d6d79ac00c8373831a0a86e66647a4fc1e4cef2e58",
+        "payload_sha256": "e6bb03805e7caa4392210fa45e3253de769d082ccd59087475a50c24b420071c"
+      },
+      "offsets": {
+        "character_id": 24,
+        "gender": 417,
+        "gender_lock": 421,
+        "character_house": 344,
+        "house_id": 16,
+        "house_dynasty": 44,
+        "game_state": 160,
+        "players": 159688,
+        "player_count": 159700,
+        "request_house": 168,
+        "database_slots": 32,
+        "database_count": 44,
+        "slot_stride": 16,
+        "slot_object": 8
+      },
+      "globals": {
+        "game_root": "0x68b2090",
+        "characters": "0x68a8928",
+        "houses": "0x6a66640"
+      },
+      "origins": {
+        "direct": [
+          "0x2ddbbc8",
+          "0x2ddbbf3"
+        ],
+        "template": [
+          "0x2de53f1",
+          "0x2f13033",
+          "0x32cbad2"
+        ],
+        "ruler_designer": [
+          "0x2eaca4c"
+        ],
+        "ruler_designer_wrapper": [
+          "0x2eaba44"
+        ]
+      },
+      "sites": [
+        {
+          "id": "direct_gender",
+          "rva": "0x2ddbccf",
+          "original": "41 0f b6 46 08 88 81 a1 01 00 00 48 8b 5c 24 30 48 8b 74 24 38 48 8b 7c 24 40 c6 81 a5 01 00 00 01 48 83 c4 20 41 5e c3",
+          "overwrite": 0,
+          "resume_rva": "0x2ddbccf",
+          "kind": "validation",
+          "purpose": "Character-manager restoration of reserved gender records; validate only, never force female."
+        },
+        {
+          "id": "template_gender",
+          "rva": "0x2e11efa",
+          "original": "0f b6 86 b4 00 00 00 88 83 a1 01 00 00 48 8b 15 12 57 c5 03 48 85 d2 74 2d 44 8b 86 a0 00 00 00 41 8b c0 25 ff ff ff 00",
+          "overwrite": 13,
+          "resume_rva": "0x2e11f07"
+        },
+        {
+          "id": "history_gender",
+          "rva": "0x2e2e82f",
+          "original": "0f b6 8b 79 01 00 00 48 8b 45 7f 44 38 b8 a5 01 00 00 75 06 88 88 a1 01 00 00 48 8b 3d e0 a0 a7 03 4c 8b f7 4c 89 65 97",
+          "overwrite": 26,
+          "resume_rva": "0x2e2e849"
+        },
+        {
+          "id": "history_spouse",
+          "rva": "0x2e2cd80",
+          "original": "48 89 5c 24 08 48 89 74 24 10 48 89 7c 24 18 4c 89 64 24 20 55 41 56 41 57 48 8d 6c 24 b9 48 81 ec 90 00 00 00 41 8b f1",
+          "overwrite": 5,
+          "resume_rva": "0x2e2cd85"
+        }
+      ],
+      "validation_sites": [
+        {
+          "id": "generation_wrapper_frame",
+          "rva": "0x2de5380",
+          "original": "48 89 5c 24 08 48 89 6c 24 10 48 89 74 24 18 57 41 56 41 57 48 81 ec 90 00 00 00 49 8b f9 45 8b f8 48 8b da 4c 8b f1 48 8b ac 24 d0 00 00 00"
+        },
+        {
+          "id": "designer_registration",
+          "rva": "0x2eaba44",
+          "original": "48 8b d8 49 8d 8d 98 6f 02 00 44 8b 40 18 44 89 45 67"
+        },
+        {
+          "id": "gender_lock_direct",
+          "rva": "0x2ddbcc6",
+          "original": "80 b9 a5 01 00 00 00 75 0b 41 0f b6 46 08 88 81 a1 01 00 00 48 8b 5c 24 30 48 8b 74 24 38 48 8b 7c 24 40 c6"
+        },
+        {
+          "id": "gender_lock_template",
+          "rva": "0x2e11ef1",
+          "original": "80 bb a5 01 00 00 00 75 0d 0f b6 86 b4 00 00 00 88 83 a1 01 00 00 48 8b 15 12 57 c5 03 48 85 d2 74 2d 44 8b"
+        },
+        {
+          "id": "requested_house",
+          "rva": "0x2e11fe6",
+          "original": "48 8b 15 53 46 c5 03 48 85 d2 74 2d 44 8b 86 a8 00 00 00 41 8b c0 25 ff ff ff 00 3b 42 2c 73 19 8b c8 48 8b"
+        },
+        {
+          "id": "house_character_id",
+          "rva": "0x2d965cf",
+          "original": "8b 91 58 01 00 00 8b c2 25 ff ff ff 00 41 3b 41 2c 73 19 8b c8 48 03 c9 49 8b 41 20 4c 8b 74 c8 08 4d 85 f6"
+        },
+        {
+          "id": "house_dynasty",
+          "rva": "0x2d96733",
+          "original": "8b 40 2c 4d 85 c0 74 2f 44 8b 95 58 01 00 00 41 8b ca 81 e1 ff ff ff 00 41 3b 48 2c 73 19 8b d1 48 03 d2 49"
+        },
+        {
+          "id": "current_players",
+          "rva": "0x30cf5c6",
+          "original": "48 8b 98 a0 00 00 00 48 8b 8b c8 6f 02 00 48 63 83 d4 6f 02 00 48 8d 14 81 e8 5c 57 a4 fd 48 8b 8b c8 6f 02"
+        },
+        {
+          "id": "history_spouse_mode",
+          "rva": "0x2e2cdf1",
+          "original": "44 0f b6 bf a1 01 00 00 44 0f b6 a0 a1 01 00 00 33 d2 8b ca 45 3a fc 0f 94 c1 83 fe 02 0f 94 c2 3b ca 0f 84"
+        }
+      ],
+      "call_targets": [
+        {
+          "id": "ruler_designer_wrapper",
+          "call_rva": "0x2eaba3f",
+          "target_rva": "0x2de5380",
+          "prologue": "48 89 5c 24 08 48 89 6c 24 10 48 89 74 24 18 57 41 56 41 57 48 81 ec 90 00 00 00"
+        },
+        {
+          "id": "direct_a",
+          "call_rva": "0x2ddbbc3",
+          "target_rva": "0x2ddbc50",
+          "prologue": "48 89 5c 24 08 48 89 74 24 10 48 89 7c 24 18 41 56 48 83 ec"
+        },
+        {
+          "id": "direct_b",
+          "call_rva": "0x2ddbbee",
+          "target_rva": "0x2ddbc50",
+          "prologue": "48 89 5c 24 08 48 89 74 24 10 48 89 7c 24 18 41 56 48 83 ec"
+        },
+        {
+          "id": "template_wrapper",
+          "call_rva": "0x2de53ec",
+          "target_rva": "0x2e11c10",
+          "prologue": "48 89 5c 24 10 48 89 6c 24 18 48 89 74 24 20 57 41 54 41 55"
+        },
+        {
+          "id": "template_pool",
+          "call_rva": "0x2f1302e",
+          "target_rva": "0x2e11c10",
+          "prologue": "48 89 5c 24 10 48 89 6c 24 18 48 89 74 24 20 57 41 54 41 55"
+        },
+        {
+          "id": "template_script",
+          "call_rva": "0x32cbacd",
+          "target_rva": "0x2e11c10",
+          "prologue": "48 89 5c 24 10 48 89 6c 24 18 48 89 74 24 20 57 41 54 41 55"
+        },
+        {
+          "id": "ruler_designer",
+          "call_rva": "0x2eaca47",
+          "target_rva": "0x2e11c10",
+          "prologue": "48 89 5c 24 10 48 89 6c 24 18 48 89 74 24 20 57 41 54 41 55"
+        },
+        {
+          "id": "human_player",
+          "call_rva": "0x2d9662b",
+          "target_rva": "0x30cf5b0",
+          "prologue": "40 53 48 83 ec 20 48 8b 05 d3 2a 7e 03 4c 8d 44 24 30 89 4c"
+        },
+        {
+          "id": "set_house",
+          "call_rva": "0x2e1202c",
+          "target_rva": "0x2d96590",
+          "prologue": "48 89 5c 24 08 48 89 6c 24 10 48 89 74 24 18 57 41 54 41 55"
+        },
+        {
+          "id": "history_spouse",
+          "call_rva": "0x2e2bce7",
+          "target_rva": "0x2e2cd80",
+          "prologue": "48 89 5c 24 08 48 89 74 24 10 48 89 7c 24 18 4c 89 64 24 20"
+        }
+      ],
+      "rip_references": [
+        {
+          "id": "character_database",
+          "rva": "0x2ddbc7d",
+          "original": "48 8b 15 a4 cc ac 03",
+          "displacement_offset": 3,
+          "instruction_size": 7,
+          "target_rva": "0x68a8928"
+        },
+        {
+          "id": "house_database",
+          "rva": "0x2e11fe6",
+          "original": "48 8b 15 53 46 c5 03",
+          "displacement_offset": 3,
+          "instruction_size": 7,
+          "target_rva": "0x6a66640"
+        },
+        {
+          "id": "game_root",
+          "rva": "0x30cf5b6",
+          "original": "48 8b 05 d3 2a 7e 03",
+          "displacement_offset": 3,
+          "instruction_size": 7,
+          "target_rva": "0x68b2090"
+        }
+      ],
+      "agp_readiness": [
+        {
+          "id": "female_effect_parent",
+          "rva": "0x32a8471",
+          "original": "80 b8 a1 01 00 00 00 74 54 4c 8d 05 a7 4c cf 01 c7 85 30 01 00 00 00 00 00 00 ba 00 02 00 00 48",
+          "patch_offset": 7,
+          "kind": "bytes",
+          "overwrite": 1,
+          "replacement": "eb",
+          "relay_prefix": ""
+        },
+        {
+          "id": "female_effect_real_parent",
+          "rva": "0x32a8c43",
+          "original": "80 b8 a1 01 00 00 00 74 54 4c 8d 05 d5 44 cf 01 c7 85 30 01 00 00 00 00 00 00 ba 00 02 00 00 48",
+          "patch_offset": 7,
+          "kind": "bytes",
+          "overwrite": 1,
+          "replacement": "eb",
+          "relay_prefix": ""
+        },
+        {
+          "id": "male_effect_parent",
+          "rva": "0x32a8241",
+          "original": "80 b8 a1 01 00 00 01 74 54 4c 8d 05 d7 4e cf 01 c7 85 30 01 00 00 00 00 00 00 ba 00 02 00 00 48",
+          "patch_offset": 7,
+          "kind": "bytes",
+          "overwrite": 1,
+          "replacement": "eb",
+          "relay_prefix": ""
+        },
+        {
+          "id": "male_effect_real_parent",
+          "rva": "0x32a8973",
+          "original": "80 b8 a1 01 00 00 01 74 54 4c 8d 05 a5 47 cf 01 c7 85 30 01 00 00 00 00 00 00 ba 00 02 00 00 48",
+          "patch_offset": 7,
+          "kind": "bytes",
+          "overwrite": 1,
+          "replacement": "eb",
+          "relay_prefix": ""
+        },
+        {
+          "id": "female_pregnancy_a",
+          "rva": "0x32b1b7c",
+          "original": "80 b8 a1 01 00 00 00 0f 84 a1 00 00 00 48 8d 54 24 40 48 8b cf e8 6a b3 af ff 90 33 f6 89 b5 60",
+          "patch_offset": 7,
+          "kind": "bytes",
+          "overwrite": 6,
+          "replacement": "e9 a2 00 00 00 90",
+          "relay_prefix": ""
+        },
+        {
+          "id": "female_pregnancy_b",
+          "rva": "0x32b20f1",
+          "original": "80 b8 a1 01 00 00 00 0f 84 9e 00 00 00 48 8d 54 24 40 48 8b cf e8 f5 ad af ff 90 45 33 f6 44 89",
+          "patch_offset": 7,
+          "kind": "bytes",
+          "overwrite": 6,
+          "replacement": "e9 9f 00 00 00 90",
+          "relay_prefix": ""
+        },
+        {
+          "id": "male_carrier_a",
+          "rva": "0x32b1ad3",
+          "original": "80 bb a1 01 00 00 00 0f 85 9c 00 00 00 48 8d 54 24 40 48 8b cb e8 13 b4 af ff 90 33 f6 89 b5 60",
+          "patch_offset": 7,
+          "kind": "bytes",
+          "overwrite": 6,
+          "replacement": "e9 9d 00 00 00 90",
+          "relay_prefix": ""
+        },
+        {
+          "id": "male_carrier_b",
+          "rva": "0x32b2046",
+          "original": "80 bb a1 01 00 00 00 0f 85 9e 00 00 00 48 8d 54 24 40 48 8b cb e8 a0 ae af ff 90 45 33 f6 44 89",
+          "patch_offset": 7,
+          "kind": "bytes",
+          "overwrite": 6,
+          "replacement": "e9 9f 00 00 00 90",
+          "relay_prefix": ""
+        },
+        {
+          "id": "female_native_parent",
+          "rva": "0x2d98576",
+          "original": "80 bf a1 01 00 00 00 75 44 48 3b fb 74 3f 4c 8b 83 a8 01 00 00 49 8d 48 04 e8 2c 95 b7 fd 8b 4f",
+          "patch_offset": 7,
+          "kind": "bytes",
+          "overwrite": 2,
+          "replacement": "90 90",
+          "relay_prefix": ""
+        },
+        {
+          "id": "male_native_parent",
+          "rva": "0x2d98686",
+          "original": "80 bf a1 01 00 00 00 74 41 48 3b fb 74 3c 4c 8b 83 a8 01 00 00 49 8b c8 e8 1d 94 b7 fd 8b 4f 18",
+          "patch_offset": 7,
+          "kind": "bytes",
+          "overwrite": 2,
+          "replacement": "90 90",
+          "relay_prefix": ""
+        },
+        {
+          "id": "female_native_override",
+          "rva": "0x2d985ef",
+          "original": "80 ba a1 01 00 00 00 75 3a 8b 41 18 39 03 74 33 48 83 b9 a8 01 00 00 00 75 1d 48 8b 05 80 9a b1",
+          "patch_offset": 7,
+          "kind": "bytes",
+          "overwrite": 2,
+          "replacement": "90 90",
+          "relay_prefix": ""
+        },
+        {
+          "id": "male_native_override",
+          "rva": "0x2d986ff",
+          "original": "80 ba a1 01 00 00 01 75 3a 8b 41 18 39 03 74 33 48 83 b9 a8 01 00 00 00 75 1d 48 8b 05 70 99 b1",
+          "patch_offset": 7,
+          "kind": "bytes",
+          "overwrite": 2,
+          "replacement": "90 90",
+          "relay_prefix": ""
+        },
+        {
+          "id": "create_mother",
+          "rva": "0x45e93d9",
+          "original": "41 80 bc 24 a1 01 00 00 01 74 60 65 48 8b 04 25 58 00 00 00 bb 51 01 00 00 48 8b 08 80 3c 0b 00",
+          "patch_offset": 9,
+          "kind": "bytes",
+          "overwrite": 1,
+          "replacement": "eb",
+          "relay_prefix": ""
+        },
+        {
+          "id": "create_father",
+          "rva": "0x45e945f",
+          "original": "80 b8 a1 01 00 00 00 74 5d 65 48 8b 04 25 58 00 00 00 8b d3 48 8b 08 80 3c 0a 00 75 44 8b 05 a6",
+          "patch_offset": 7,
+          "kind": "bytes",
+          "overwrite": 1,
+          "replacement": "eb",
+          "relay_prefix": ""
+        },
+        {
+          "id": "create_real_father",
+          "rva": "0x45e94df",
+          "original": "80 b8 a1 01 00 00 00 74 5d 65 48 8b 04 25 58 00 00 00 8b d3 48 8b 08 80 3c 0a 00 75 44 8b 05 26",
+          "patch_offset": 7,
+          "kind": "bytes",
+          "overwrite": 1,
+          "replacement": "eb",
+          "relay_prefix": ""
+        },
+        {
+          "id": "history_parent",
+          "rva": "0x2e2eff3",
+          "original": "44 38 bf a1 01 00 00 0f 84 c5 00 00 00 48 8b 4e 10 48 81 c1 b0 00 00 00 48 8d 54 24 50 e8 9b c1",
+          "patch_offset": 7,
+          "kind": "bytes",
+          "overwrite": 6,
+          "replacement": "e9 c6 00 00 00 90",
+          "relay_prefix": ""
+        },
+        {
+          "id": "father_persistence",
+          "rva": "0x2d9859a",
+          "original": "41 89 48 04 48 8b c8 48 8b 5c 24 30 48 83 c4 20 5f e9 40 92 32 00 48 8b 81 a8 01 00 00 48 85 c0",
+          "patch_offset": 0,
+          "kind": "detour",
+          "overwrite": 7,
+          "replacement": "",
+          "relay_prefix": "41 89 48 04 41 52"
+        },
+        {
+          "id": "mother_persistence",
+          "rva": "0x2d986a9",
+          "original": "41 89 08 48 8b c8 48 8b 5c 24 30 48 83 c4 20 5f e9 32 91 32 00 48 8b 81 a8 01 00 00 48 85 c0 74",
+          "patch_offset": 0,
+          "kind": "detour",
+          "overwrite": 6,
+          "replacement": "",
+          "relay_prefix": "41 89 08 41 52"
+        },
+        {
+          "id": "parent_reconstruction",
+          "rva": "0x2e1ba0b",
+          "original": "80 bf a1 01 00 00 00 74 7a 81 7f 1c 72 61 68 43 75 5d 83 7f 18 ff 74 57 48 83 bb a8 01 00 00 00",
+          "patch_offset": 0,
+          "kind": "detour",
+          "overwrite": 7,
+          "replacement": "",
+          "relay_prefix": "48 8b cb 48 8b d7 48 83 ec 20"
+        },
+        {
+          "id": "close_family",
+          "rva": "0x2e007b0",
+          "original": "80 b9 a1 01 00 00 00 74 3d 4c 3b c1 74 74 4d 8b 80 a8 01 00 00 b8 ff ff ff ff 4d 85 c0 74 05 45",
+          "patch_offset": 0,
+          "kind": "detour",
+          "overwrite": 7,
+          "replacement": "",
+          "relay_prefix": "41 52 41 53 48 83 ec 28"
+        },
+        {
+          "id": "family_role_writer",
+          "rva": "0x2e4f1d5",
+          "original": "4c 63 7e 2c 33 ed 48 89 7c 24 40 4d 85 ff 7e 54 44 8b f5 0f 1f 84 00 00 00 00 00 48 8b 46 20 48",
+          "patch_offset": 0,
+          "kind": "detour",
+          "overwrite": 6,
+          "replacement": "",
+          "relay_prefix": "48 8b cb 48 8b d6 48 83 ec 20"
+        },
+        {
+          "id": "family_role_reader",
+          "rva": "0x2e1fb1d",
+          "original": "8b 87 e8 00 00 00 49 8b 17 3d d3 2b 00 00 0f 8f a1 00 00 00 0f 84 95 00 00 00 3d 11 28 00 00 7f",
+          "patch_offset": 0,
+          "kind": "detour",
+          "overwrite": 9,
+          "replacement": "",
+          "relay_prefix": "8b 87 e8 00 00 00 49 8b 17"
+        }
+      ],
+      "origin_semantics": {
+        "direct": "manager save-record reconstruction; excluded",
+        "template": "eligible runtime generation; direct script requests also use this constructor",
+        "ruler_designer": "direct Designer generation path; excluded",
+        "ruler_designer_wrapper": "custom ruler creation through the common wrapper before player/Designer registration; preserve requested gender"
+      }
+    }
+  ]
+}

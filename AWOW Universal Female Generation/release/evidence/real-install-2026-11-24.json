@@ -1,0 +1,31 @@
+{
+  "operation": "install",
+  "decision": "proceed",
+  "ufg_state_schema": 2,
+  "protected_files_unchanged": {
+    "dxcompiler_original.dll": "40e381d1d0ccf3bd725e30914b07d3d0cdaa907900e4d194da0e9cbd41d06e65",
+    "AGP Native Hook/agp_parenthook.dll": "e6bb03805e7caa4392210fa45e3253de769d082ccd59087475a50c24b420071c",
+    "AGP Native Hook/agp-install-state.json": "acfc1a9ada57197de8a7431dd129a711d66b661ea27f4d2f8ca80de9ba3b0770"
+  },
+  "ufg_artifacts": [
+    {
+      "id": "ufg-proxy",
+      "relative_path": "dxcompiler.dll",
+      "role": "ufg_proxy",
+      "sha256": "9debd04b5d1b281c875deb2db5100e16c1502e5a55670c831febac98fea0f824",
+      "size_bytes": 157184,
+      "size_is_informational": true,
+      "source_relative_path": "build/dxcompiler.dll"
+    },
+    {
+      "id": "ufg-payload",
+      "relative_path": "AWOW Universal Female Generation/awow_ufg.dll",
+      "role": "ufg_payload",
+      "sha256": "7ffa2e6f2355532d9be86d3ba0be8011a55a475b2a5a2fb059a4f0c219b412cd",
+      "size_bytes": 194560,
+      "size_is_informational": true,
+      "source_relative_path": "build/AWOW Universal Female Generation/awow_ufg.dll"
+    }
+  ],
+  "transaction_id": "99643d34-a6a3-407c-8fbe-37788d009963"
+}

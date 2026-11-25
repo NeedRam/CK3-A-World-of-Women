@@ -1,8 +1,9 @@
 [CmdletBinding()]
 param(
-    [string]$Version = '1.0.0',
+    [string]$Version = '1.1.0',
     [string]$OutputDirectory,
     [switch]$SkipNativeBuild,
+    [switch]$AllowIncompleteValidation,
     [switch]$RequireCanonicalCi
 )
 
@@ -10,6 +11,12 @@ $ErrorActionPreference = 'Stop'
 $releaseRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
 $repositoryRoot = Split-Path -Parent $releaseRoot
 $isCanonicalCi = $env:GITHUB_ACTIONS -eq 'true'
+if ($AllowIncompleteValidation -and $isCanonicalCi) {throw 'Incomplete UFG candidates are local-only.'}
+$validationArguments=@((Join-Path $releaseRoot 'check-release.py'))
+if ($AllowIncompleteValidation) {$validationArguments+='--allow-incomplete'}
+& python @validationArguments
+if ($LASTEXITCODE -ne 0) {throw 'UFG release acceptance validation failed.'}
+
 if ($RequireCanonicalCi -and -not $isCanonicalCi) { throw 'Canonical release assembly is restricted to GitHub Actions.' }
 if (-not $OutputDirectory) { $OutputDirectory = Join-Path $releaseRoot 'out' }
 $OutputDirectory = [IO.Path]::GetFullPath($OutputDirectory)
@@ -54,7 +61,7 @@ $manifestPath = Join-Path $repositoryRoot 'Installer\release-manifest.json'
 if (-not (Test-Path -LiteralPath $manifestPath -PathType Leaf)) { throw "Release manifest is missing: $manifestPath" }
 $manifest = Get-Content -LiteralPath $manifestPath -Raw | ConvertFrom-Json
 if ([string]$manifest.release.version -ne $Version) { throw "Requested version $Version does not match manifest version $($manifest.release.version)." }
-if (-not $manifest.release.unsigned) { throw 'UFG v1.0.0 must remain explicitly unsigned.' }
+if (-not $manifest.release.unsigned) { throw 'UFG releases must remain explicitly unsigned.' }
 if (-not $SkipNativeBuild) {
     & (Join-Path $repositoryRoot 'build.ps1')
     if ($LASTEXITCODE -ne 0) { throw 'Native UFG build failed.' }
@@ -125,6 +132,12 @@ foreach ($definition in $packageDefinitions) {
     $zipPath = Join-Path $OutputDirectory "$($definition.Name).zip"
     $checksumPath = "$zipPath.sha256"
     $provenancePath = Join-Path $OutputDirectory "$($definition.Name)-provenance.json"
+    $outputPrefix = [IO.Path]::GetFullPath($OutputDirectory).TrimEnd('\') + '\'
+    foreach ($candidatePath in @($stagingRoot, $packageRoot, $zipPath, $checksumPath, $provenancePath)) {
+        if (-not ([IO.Path]::GetFullPath($candidatePath).StartsWith($outputPrefix, [StringComparison]::OrdinalIgnoreCase))) {
+            throw 'Release output escaped the selected output directory.'
+        }
+    }
     if (Test-Path -LiteralPath $stagingRoot) { Remove-Item -LiteralPath $stagingRoot -Recurse -Force }
     foreach ($outputPath in @($zipPath, $checksumPath, $provenancePath)) {
         if (Test-Path -LiteralPath $outputPath) { Remove-Item -LiteralPath $outputPath -Force }
@@ -186,6 +199,11 @@ foreach ($definition in $packageDefinitions) {
         Assert-Hash $path ([string]$artifact.sha256) ([string]$artifact.relative_path) | Out-Null
     }
 
+    if ($AllowIncompleteValidation) {
+        $readmePath=Join-Path $packageRoot 'README.md'
+        $content=[IO.File]::ReadAllText($readmePath)
+        [IO.File]::WriteAllText($readmePath,"# Development candidate - acceptance incomplete`r`n`r`nNot a verified public release; see release/validation.json for outstanding tests.`r`n`r`n"+$content,[Text.UTF8Encoding]::new($false))
+    }
     $checksumLines = New-Object Collections.Generic.List[string]
     Get-ChildItem -LiteralPath $packageRoot -Recurse -File | Sort-Object FullName | ForEach-Object {
         $relative = $_.FullName.Substring($packageRoot.Length).TrimStart('\').Replace('\', '/')
@@ -199,6 +217,7 @@ foreach ($definition in $packageDefinitions) {
     $provenance = [ordered]@{
         schema_version = 1
         kind = 'ufg_release_provenance'
+        validation = [ordered]@{ acceptance_complete = (-not $AllowIncompleteValidation); status = $(if ($AllowIncompleteValidation) {'incomplete_local_candidate'} else {'accepted'}) }
         release = [ordered]@{ id = $manifest.release.id; version = $Version; channel = $manifest.release.channel; unsigned = $true; signing = 'not_performed' }
         source = [ordered]@{ repository = $manifest.release.source_repo; commit = $commit; workflow = 'release/build-release.ps1' }
         build = [ordered]@{ authority = $(if ($isCanonicalCi) { 'canonical_github_actions' } else { 'local_smoke_test' }); canonical_release_artifact = $isCanonicalCi; github_actions_runner = $toolchain.github_actions_runner; visual_studio_version_range = $toolchain.visual_studio_version_range; vc_tools_version = $toolchain.vc_tools_version; windows_sdk_version = $toolchain.windows_sdk_version; host_architecture = $toolchain.host_architecture; target_architecture = $toolchain.target_architecture; vcvars_architecture = $toolchain.vcvars_architecture; toolchain_contract = 'toolchain.json' }
@@ -210,3 +229,13 @@ foreach ($definition in $packageDefinitions) {
     Write-Host "SHA-256 $zipHash"
     Write-Host "Created $checksumPath and $provenancePath"
 }
+
+$handoff=[ordered]@{schema_version=1;kind='ufg_agp_compatibility_handoff';ufg_version=$Version;ck3_builds=$manifest.target.supported_builds;agp_dependency=$manifest.compatible_agp_builds;artifacts=@();ufg_state_schema=2;disable_behavior='remove payload and named logs; leave active UFG proxy loading AGP';agp_update_performed=$false}
+foreach ($artifact in @($manifest.artifacts)) {
+    $path=Join-Path $repositoryRoot ([string]$artifact.source_relative_path -replace '/', '\')
+    $handoff.artifacts+=@{relative_path=$artifact.relative_path;sha256=(Get-Sha256 $path);size_bytes=[int64](Get-Item -LiteralPath $path).Length}
+}
+[IO.File]::WriteAllText((Join-Path $OutputDirectory "AWOW UFG v$Version-AGP-handoff.json"),($handoff|ConvertTo-Json -Depth 16)+"`n",[Text.UTF8Encoding]::new($false))
+# All required native commands are checked at their call sites. Do not leak a
+# caller's earlier native exit code after successful PowerShell-only assembly.
+$global:LASTEXITCODE = 0

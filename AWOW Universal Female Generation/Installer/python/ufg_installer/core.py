@@ -136,21 +136,21 @@ def _is_sha(value: object) -> bool:
     return isinstance(value, str) and len(value) == 64 and all(char in "0123456789abcdefABCDEF" for char in value)
 
 
-def _valid_baseline(item: object, relative: str) -> bool:
+def _valid_baseline(item: object, relative: str, owner: str) -> bool:
     return (
         isinstance(item, dict)
         and item.get("relative_path") == relative
         and _is_sha(item.get("sha256"))
         and isinstance(item.get("size_bytes"), int)
         and item["size_bytes"] >= 0
-        and item.get("ownership") == "steam"
+        and item.get("ownership") == owner
     )
 
 
 def _is_valid_state(data: object, *, active_rel: str = "dxcompiler.dll", payload_rel: str = "AWOW Universal Female Generation/awow_ufg.dll", original_rel: str = "dxcompiler_original.dll", state_rel: str = "AWOW Universal Female Generation/ufg-install-state.json") -> bool:
     """Validate the durable state shape without trusting it for ownership."""
 
-    if not isinstance(data, dict) or data.get("schema_version") != 1 or data.get("kind") != "ufg_install_state":
+    if not isinstance(data, dict) or data.get("schema_version") not in (1, 2) or data.get("kind") != "ufg_install_state":
         return False
     status = data.get("status")
     if status not in {"managed_ufg", "ufg_proxy_only"} or not _is_uuid(data.get("transaction_id")):
@@ -160,11 +160,16 @@ def _is_valid_state(data: object, *, active_rel: str = "dxcompiler.dll", payload
         return False
     if not isinstance(release.get("version"), str) or re.fullmatch(r"[0-9]+\.[0-9]+\.[0-9]+", release["version"]) is None:
         return False
+    version = data["schema_version"]
+    owner = "steam" if version == 1 else "game"
+    root_kind = "steam_game_binaries" if version == 1 else "ck3_game_binaries"
     target = data.get("target")
-    if not isinstance(target, dict) or target.get("game_id") != "crusader_kings_iii" or target.get("binaries_relative_path") != "binaries" or target.get("executable_relative_path") != "ck3.exe" or target.get("target_root_kind") != "steam_game_binaries":
+    if not isinstance(target, dict) or target.get("game_id") != "crusader_kings_iii" or target.get("binaries_relative_path") != "binaries" or target.get("executable_relative_path") != "ck3.exe" or target.get("target_root_kind") != root_kind:
+        return False
+    if version == 2 and (not isinstance(target.get("profile_id"), str) or re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]{0,63}", target["profile_id"]) is None):
         return False
     baseline = data.get("baseline")
-    if not isinstance(baseline, dict) or not _valid_baseline(baseline.get("original_dxcompiler"), original_rel) or not _valid_baseline(baseline.get("executable"), "ck3.exe"):
+    if not isinstance(baseline, dict) or not _valid_baseline(baseline.get("original_dxcompiler"), original_rel, owner) or not _valid_baseline(baseline.get("executable"), "ck3.exe", owner):
         return False
     dependency = data.get("agp_dependency")
     if not isinstance(dependency, dict) or dependency.get("proxy_relative_path") != active_rel or dependency.get("payload_relative_path") != "AGP Native Hook/agp_parenthook.dll" or dependency.get("state_relative_path") != "AGP Native Hook/agp-install-state.json" or not _is_sha(dependency.get("proxy_sha256")) or not _is_sha(dependency.get("payload_sha256")) or not _is_sha(dependency.get("original_dxcompiler_sha256")) or dependency.get("state_sha256") != "absent" and not _is_sha(dependency.get("state_sha256")):
@@ -271,15 +276,15 @@ class _Transaction:
     def write_journal(self, preserved_agp: dict[str, Any] | None = None) -> None:
         self.phase = "journal"
         journal: dict[str, Any] = {
-            "$schema": "https://awow-ufg.invalid/schema/install-journal-v1.json",
-            "schema_version": 1,
+            "$schema": "https://awow-ufg.invalid/schema/install-journal-v2.json",
+            "schema_version": 2,
             "kind": "ufg_install_journal",
             "transaction_id": self.id,
             "operation": self.operation,
             "source_state": self.source_state,
             "target_state": self.target_state,
             "phase": self.phase,
-            "target": {"game_id": "crusader_kings_iii", "build_id": self.engine.build_id, "binaries_relative_path": "binaries", "target_root_kind": "steam_game_binaries"},
+            "target": {"game_id": "crusader_kings_iii", "build_id": self.engine.build_id, "binaries_relative_path": "binaries", "target_root_kind": "ck3_game_binaries", "profile_id": self.engine.supported["profile_id"]},
             "entries": self.entries,
         }
         if preserved_agp is not None:
@@ -351,8 +356,8 @@ class Installer:
         self.package_root = Path(package_root or here.parents[3]).resolve()
         self.manifest_path = Path(manifest_path or self.package_root / "Installer" / "release-manifest.json").resolve()
         self.manifest = _read_json(self.manifest_path)
-        if self.manifest.get("schema_version") != 1 or self.manifest.get("kind") != "ufg_release_manifest":
-            raise InstallError("release manifest is not UFG schema-v1")
+        if self.manifest.get("schema_version") != 2 or self.manifest.get("kind") != "ufg_release_manifest":
+            raise InstallError("release manifest is not UFG schema-v2")
         self.process_checker = process_checker or _is_process_running
         self.write_fault_at = write_fault_at
         self.target_manifest = self.manifest["target"]
@@ -394,8 +399,15 @@ class Installer:
             raise InstallError(str(exc)) from exc
         if self.process_checker():
             raise InstallError("ck3.exe is running; close the game before changing UFG files")
-        if not _same_file(contained(target, "ck3.exe"), self.supported["executable_sha256"]):
-            raise InstallError("selected target is not the supported CK3 executable build")
+        try:
+            executable_hash = _sha256(contained(target, "ck3.exe"))
+        except OSError as exc:
+            raise InstallError("CK3 executable is missing or unreadable") from exc
+        matches = [build for build in self.target_manifest["supported_builds"] if build["executable_sha256"] == executable_hash]
+        if len(matches) != 1:
+            raise InstallError("selected target must match exactly one supported CK3 executable profile")
+        self.supported = matches[0]
+        self.build_id = self.supported["id"]
         journal_root = contained(target, self.target_manifest["journal_relative_directory"])
         if journal_root.exists() and (not journal_root.is_dir() or any(journal_root.iterdir())):
             raise InstallError("an incomplete UFG transaction journal exists; manual recovery is required")
@@ -422,8 +434,18 @@ class Installer:
             data = _read_json(path)
         except InstallError:
             return False
-        if data.get("schema_version") != 1 or data.get("kind") != "agp_install_state" or data.get("status") != "managed_agp":
+        if data.get("schema_version") not in (1, 2) or data.get("kind") != "agp_install_state" or data.get("status") != "managed_agp":
             return False
+        if data["schema_version"] == 2:
+            if not all(isinstance(data.get(key), dict) for key in ("target", "release", "baseline")) or not isinstance(data.get("managed_files"), list) or len(data["managed_files"]) != 2:
+                return False
+            target_info = data.get("target", {})
+            if target_info.get("build_id") != self.build_id or target_info.get("target_root_kind") != "ck3_game_binaries" or target_info.get("profile_id") != candidate.get("profile_id") or data.get("release", {}).get("version") != candidate["version"]:
+                return False
+            for key, relative, expected in (("executable", "ck3.exe", candidate["executable_sha256"]), ("original_dxcompiler", self.original_rel, candidate["original_dxcompiler_sha256"])):
+                item = data.get("baseline", {}).get(key, {})
+                if item.get("ownership") != "game" or item.get("relative_path") != relative or item.get("sha256") != expected or not _same_file(contained(target, relative), expected, item.get("size_bytes")):
+                    return False
         baseline = data.get("baseline", {}).get("original_dxcompiler", {})
         if baseline.get("sha256", "").lower() != candidate["original_dxcompiler_sha256"].lower():
             return False
@@ -503,7 +525,7 @@ class Installer:
         self._target_preflight(root)
         data, valid = self._state(root)
         if data is not None and not valid:
-            return Classification("unknown_conflicting", "UFG state is unreadable or not schema-v1; manual recovery is required", data, False)
+            return Classification("unknown_conflicting", "UFG state is unreadable or unsupported; manual recovery is required", data, False)
         if valid and data is not None:
             proxy_item = self._managed_item(data, self.active_rel)
             dependency = self._compatible_agp(root, allowed_active=(proxy_item["installed_sha256"], proxy_item["installed_size_bytes"]) if proxy_item else None)
@@ -629,14 +651,14 @@ class Installer:
             release = dict(owned_state["release"])
         now = _utc()
         return {
-            "$schema": "https://awow-ufg.invalid/schema/install-state-v1.json",
-            "schema_version": 1,
+            "$schema": "https://awow-ufg.invalid/schema/install-state-v2.json",
+            "schema_version": 2,
             "kind": "ufg_install_state",
             "status": status,
             "transaction_id": tx.id,
             "release": release,
-            "target": {"game_id": self.target_manifest["game_id"], "build_id": self.build_id, "binaries_relative_path": "binaries", "executable_relative_path": "ck3.exe", "target_root_kind": "steam_game_binaries"},
-            "baseline": {"original_dxcompiler": {"relative_path": self.original_rel, "sha256": original["sha256"], "size_bytes": original["size_bytes"], "ownership": "steam"}, "executable": {"relative_path": "ck3.exe", "sha256": executable["sha256"], "size_bytes": executable["size_bytes"], "ownership": "steam"}},
+            "target": {"game_id": self.target_manifest["game_id"], "build_id": self.build_id, "binaries_relative_path": "binaries", "executable_relative_path": "ck3.exe", "target_root_kind": "ck3_game_binaries", "profile_id": self.supported["profile_id"]},
+            "baseline": {"original_dxcompiler": {"relative_path": self.original_rel, "sha256": original["sha256"], "size_bytes": original["size_bytes"], "ownership": "game"}, "executable": {"relative_path": "ck3.exe", "sha256": executable["sha256"], "size_bytes": executable["size_bytes"], "ownership": "game"}},
             "agp_dependency": {"build_id": dependency["id"], "version": dependency["version"], "proxy_relative_path": dependency["proxy_relative_path"], "proxy_sha256": dependency["proxy_sha256"].lower(), "payload_relative_path": dependency["payload_relative_path"], "payload_sha256": dependency["payload_sha256"].lower(), "original_dxcompiler_sha256": dependency["original_dxcompiler_sha256"].lower(), "state_relative_path": dependency["state_relative_path"], "state_sha256": agp_state_sha},
             "managed_files": [
                 {"relative_path": self.active_rel, "role": "ufg_proxy", "ownership": "managed", "installed_sha256": proxy["sha256"].lower(), "installed_size_bytes": proxy["size_bytes"], "present": True, "restore": {"action": "leave_managed_file"}},
@@ -656,12 +678,12 @@ class Installer:
 
     def _write_and_verify_state(self, target: Path, state: dict[str, Any]) -> None:
         if not _is_valid_state(state, active_rel=self.active_rel, payload_rel=self.payload_rel, original_rel=self.original_rel, state_rel=self.state_rel):
-            raise InstallError("generated UFG state failed schema-v1 structural validation")
+            raise InstallError("generated UFG state failed schema-v2 structural validation")
         path = contained(target, self.state_rel)
         _write_json(path, state)
         read_back = _read_json(path)
         if not _is_valid_state(read_back, active_rel=self.active_rel, payload_rel=self.payload_rel, original_rel=self.original_rel, state_rel=self.state_rel):
-            raise InstallError("committed UFG state failed schema-v1 verification")
+            raise InstallError("committed UFG state failed schema-v2 verification")
 
     def _finish_failure(self, tx: _Transaction, classification: Classification, exc: Exception, fallback: str) -> Result:
         if not tx.journal_path.exists():

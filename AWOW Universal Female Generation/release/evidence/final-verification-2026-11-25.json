@@ -1,0 +1,21 @@
+{
+  "ck3_version": "1.21.0.3",
+  "ufg_version": "1.1.0",
+  "manual_scenarios_passed": 12,
+  "native_checks_passed": 145,
+  "binary_audit_checks_passed": 48,
+  "installer_tests_passed": 56,
+  "frozen_installer_transactions_passed": 3,
+  "archives_verified": 3,
+  "release_gate": {
+    "source_checks_ok": true,
+    "release_ready": true,
+    "errors": [],
+    "pending": []
+  },
+  "installed_ufg": "restored managed_ufg",
+  "agp_followup": "installer recognition of final canonical UFG hashes remains separate",
+  "source_branch": "UFG-updates",
+  "source_committed": false,
+  "public_release_created": false
+}

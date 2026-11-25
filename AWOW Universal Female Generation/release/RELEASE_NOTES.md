@@ -1,31 +1,31 @@
-# AWOW Universal Female Generation v1.0.0
+# AWOW Universal Female Generation v1.1.0
 
-The release is available as three separate downloads: Base Files (Manual
-Install), Batch File Installer, and EXE Installer. Each ZIP contains only the
-files required for that installation method.
+Targets Windows x64 CK3 1.21.0.3 and the published AGP v1.1.0 dependency only.
+The previous UFG release remains separate for CK3 1.19.0.6.
 
-- Added an independent Python/Tkinter and PowerShell transactional installer.
-- Fresh install now requires exact hashes for the compatible AGP proxy,
-  payload, and Steam original declared in `compatible_agp_builds`.
-- Added stateful `managed_ufg` and `ufg_proxy_only` transitions.
-- UFG uninstall removes only its payload/logs and leaves the active UFG proxy,
-  Steam original, AGP payload, and AGP state unchanged.
-- Added manual-layout adoption, managed upgrades, proxy-only re-enable,
-  reparse/running-game guards, rollback, release checksums, and provenance.
-- Added changed-hash UFG upgrades and the ordered disable-AGP replacement-UFG
-  re-enable transition without trusting version labels alone.
-- Fixed BAT package-root quoting so proxy-only re-enable, manual adoption, and
-  managed reinstall confirmation arguments reach the PowerShell engine.
-- Replaced typed UFG confirmation phrases with short, state-specific **OK** / **Cancel**
-  questions in both graphical and BAT installer flows.
-- Canonicalized displayed default paths to the filesystem's proper Windows,
-  Steam, and Crusader Kings III capitalization.
-- Added exact compatibility for the current canonical AGP v1.0.2 package
-  hashes while retaining the earlier compatible AGP build.
-- Pinned and enforced the native MSVC/Windows SDK toolchain, added PE identity
-  metadata, canonical main-line provenance attestation, and packaged security,
-  privacy, and signing policies.
+- Re-audited runtime generation, gender-locked history assignment, and
+  history marriage handling against the current executable.
+- Classified the legacy direct site as manager restoration; leave it unpatched.
+  Both explicit script requests and named templates use the live constructor.
+- Rebuilt relays with current register/stack layouts and volatile XMM protection.
+- Revalidated current-player, player-dynasty and requested-house exclusions;
+  unknown origins and unavailable protection data preserve the requested gender.
+- Restored the legacy Ruler Designer wrapper-caller exclusion before player
+  registration, with native regression checks and an in-game male-ruler retest.
+- Validate all 22 AGP modifications, including parent serialization, before UFG.
+- Stage native changes transactionally with original-byte checks and rollback.
+- Added UFG schema-v2 state/journals, legacy-state migration, and AGP v2-state support.
+- Retain UFG-only ownership and proxy-only disable behavior.
+- Added native machine-code tests, binary auditing, and isolated manual fixtures.
 
-This release targets CK3 `1.19.0.6` and is intentionally unsigned. Runtime
-gameplay validation requires launching the user's CK3 installation and is not
-performed by release assembly.
+All 12 required gameplay scenarios passed on CK3 1.21.0.3, including history
+marriages, generation and player/dynasty exclusions, male Ruler Designer,
+forced-male birth, parent roles, text and compressed save reloads, exit autosave,
+and disabling UFG while AGP remains active. Automated validation includes 145
+native checks, 48 executable audit checks, and 56 installer/profile tests.
+See `validation.json` and the archived evidence. Public packages are produced
+by the canonical CI workflow; local builds are identified in provenance.
+
+AGP's currently published installers do not recognize this new UFG proxy/payload.
+Use UFG's own uninstaller to disable UFG and keep AGP running. Updating AGP's
+recognition of the final UFG hashes is a separate follow-up, outside this work.

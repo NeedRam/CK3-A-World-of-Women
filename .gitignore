@@ -30,3 +30,15 @@
 
 # Unignore this file itself
 !.gitignore
+
+# UFG generated artifacts and local analysis
+AWOW Universal Female Generation/build/
+AWOW Universal Female Generation/Installer/python/build/
+AWOW Universal Female Generation/Installer/python/dist/
+AWOW Universal Female Generation/Installer/python/**/__pycache__/
+AWOW Universal Female Generation/Installer/python/**/*.pyc
+AWOW Universal Female Generation/release/out/
+AWOW Universal Female Generation/release/__pycache__/
+
+AWOW Universal Female Generation/**/__pycache__/
+AWOW Universal Female Generation/**/*.pyc

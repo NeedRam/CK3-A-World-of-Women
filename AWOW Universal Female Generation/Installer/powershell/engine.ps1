@@ -115,12 +115,15 @@ function Test-Sha([object]$Value) {
 function Test-UfgStateShape([hashtable]$Context, $State) {
     if ($null -eq $State) { return $false }
     try {
-        if ($State.schema_version -ne 1 -or $State.kind -ne 'ufg_install_state' -or $State.status -notin @('managed_ufg', 'ufg_proxy_only')) { return $false }
+        if ($State.schema_version -notin @(1,2) -or $State.kind -ne 'ufg_install_state' -or $State.status -notin @('managed_ufg', 'ufg_proxy_only')) { return $false }
         if ([string]$State.transaction_id -notmatch '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$') { return $false }
         if ($State.release.id -ne 'awow-ufg' -or $State.release.version -notmatch '^\d+\.\d+\.\d+$' -or -not (Test-Sha $State.release.manifest_sha256)) { return $false }
-        if ($State.target.game_id -ne 'crusader_kings_iii' -or $State.target.binaries_relative_path -ne 'binaries' -or $State.target.executable_relative_path -ne 'ck3.exe' -or $State.target.target_root_kind -ne 'steam_game_binaries') { return $false }
+        $owner = if ($State.schema_version -eq 1) { 'steam' } else { 'game' }
+        $rootKind = if ($State.schema_version -eq 1) { 'steam_game_binaries' } else { 'ck3_game_binaries' }
+        if ($State.schema_version -eq 2 -and $State.target.profile_id -notmatch '^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$') { return $false }
+        if ($State.target.game_id -ne 'crusader_kings_iii' -or $State.target.binaries_relative_path -ne 'binaries' -or $State.target.executable_relative_path -ne 'ck3.exe' -or $State.target.target_root_kind -ne $rootKind) { return $false }
         foreach ($base in @($State.baseline.original_dxcompiler, $State.baseline.executable)) {
-            if ($null -eq $base -or $base.relative_path -notin @($Context.Manifest.target.original_dxcompiler_relative_path, 'ck3.exe') -or -not (Test-RelativePath ([string]$base.relative_path)) -or -not (Test-Sha $base.sha256) -or [int64]$base.size_bytes -lt 0 -or $base.ownership -ne 'steam') { return $false }
+            if ($null -eq $base -or $base.relative_path -notin @($Context.Manifest.target.original_dxcompiler_relative_path, 'ck3.exe') -or -not (Test-RelativePath ([string]$base.relative_path)) -or -not (Test-Sha $base.sha256) -or [int64]$base.size_bytes -lt 0 -or $base.ownership -ne $owner) { return $false }
         }
         if ($State.baseline.original_dxcompiler.relative_path -ne $Context.Manifest.target.original_dxcompiler_relative_path -or $State.baseline.executable.relative_path -ne 'ck3.exe') { return $false }
         $dependency = $State.agp_dependency
@@ -148,7 +151,14 @@ function Test-AgpState([hashtable]$Context, $Candidate) {
     $statePath = Get-ContainedPath $Context 'AGP Native Hook/agp-install-state.json'
     if (-not (Test-Path -LiteralPath $statePath)) { return $true }
     $state = Get-JsonObject $statePath
-    if ($null -eq $state -or $state.schema_version -ne 1 -or $state.kind -ne 'agp_install_state' -or $state.status -ne 'managed_agp') { return $false }
+    if ($null -eq $state -or $state.schema_version -notin @(1,2) -or $state.kind -ne 'agp_install_state' -or $state.status -ne 'managed_agp') { return $false }
+    if ($state.schema_version -eq 2) {
+        if ($state.target.build_id -ne $Context.Build.id -or $state.target.target_root_kind -ne 'ck3_game_binaries' -or $state.target.profile_id -ne $Candidate.profile_id -or $state.release.version -ne $Candidate.version) { return $false }
+        foreach ($pair in @(@('executable','ck3.exe',$Candidate.executable_sha256),@('original_dxcompiler',$Context.Manifest.target.original_dxcompiler_relative_path,$Candidate.original_dxcompiler_sha256))) {
+            $item = $state.baseline.($pair[0]); $actual = Get-Observation $Context $pair[1]
+            if ($item.ownership -ne 'game' -or $item.relative_path -ne $pair[1] -or $item.sha256 -ne $pair[2] -or -not $actual.exists -or $actual.sha256 -ne $pair[2] -or $actual.size_bytes -ne $item.size_bytes) { return $false }
+        }
+    }
     if ([string]$state.baseline.original_dxcompiler.sha256 -notlike ([string]$Candidate.original_dxcompiler_sha256)) { return $false }
     $found = @{}
     foreach ($item in @($state.managed_files)) {
@@ -222,7 +232,7 @@ function New-Context {
     $manifestPath = Join-Path $package 'Installer\release-manifest.json'
     if (-not (Test-Path -LiteralPath $manifestPath -PathType Leaf)) { Fail "Missing UFG release manifest: $manifestPath" }
     $manifest = Get-JsonObject $manifestPath
-    if ($null -eq $manifest -or $manifest.schema_version -ne 1 -or $manifest.kind -ne 'ufg_release_manifest') { Fail 'Release manifest is not UFG schema-v1.' }
+    if ($null -eq $manifest -or $manifest.schema_version -ne 2 -or $manifest.kind -ne 'ufg_release_manifest') { Fail 'Release manifest is not UFG schema-v2.' }
     $build = @($manifest.target.supported_builds)[0]
     if ($null -eq $build) { Fail 'Manifest has no supported CK3 build.' }
     $ctx = @{
@@ -269,7 +279,10 @@ function Test-Preflight([hashtable]$Context) {
     Test-PathSafety $Context $Context.Root
     foreach ($relative in @('ck3.exe', $Context.Manifest.target.active_dxcompiler_relative_path, $Context.Manifest.target.original_dxcompiler_relative_path, $Context.Manifest.target.state_relative_path, $Context.Manifest.target.journal_relative_directory, $Context.Manifest.target.quarantine_relative_directory, 'AGP Native Hook/agp_parenthook.dll', 'AGP Native Hook/agp-install-state.json')) { [void](Get-ContainedPath $Context $relative) }
     $exe = Get-Observation $Context ([string]$Context.Manifest.target.executable_relative_path)
-    if (-not $exe.exists -or $exe.kind -ne 'file' -or $exe.sha256 -ne ([string]$Context.Build.executable_sha256).ToLowerInvariant()) { Fail 'Unsupported or missing CK3 executable hash.' }
+    if (-not $exe.exists -or $exe.kind -ne 'file') { Fail 'CK3 executable is missing or unreadable.' }
+    $matches = @($Context.Manifest.target.supported_builds | Where-Object { ([string]$_.executable_sha256).ToLowerInvariant() -eq $exe.sha256 })
+    if (-not $exe.exists -or $exe.kind -ne 'file' -or $matches.Count -ne 1) { Fail 'CK3 must match exactly one supported executable profile.' }
+    $Context.Build = $matches[0]
     $journalRoot = Get-ContainedPath $Context ([string]$Context.Manifest.target.journal_relative_directory)
     if (Test-Path -LiteralPath $journalRoot) {
         if (-not (Get-Item -LiteralPath $journalRoot).PSIsContainer -or @(Get-ChildItem -LiteralPath $journalRoot -Force).Count -gt 0) { Fail 'An incomplete UFG transaction journal exists; manual recovery is required.' }
@@ -451,15 +464,15 @@ function New-InstallJournal([hashtable]$Context) {
     [void]$entries.Add((New-JournalEntry $Context $state 'file' $stateOp "$($Context.StageRelative)/state.json" 'managed'))
     foreach ($log in @($Context.Manifest.target.logs)) { [void]$entries.Add((New-JournalEntry $Context ([string]$log.relative_path) 'file' 'verify_only' "$($Context.StageRelative)/snapshot/$([string]$log.relative_path -replace '/', '__')" 'managed')) }
     $Context.Journal = [ordered]@{
-        '$schema' = 'https://awow-ufg.invalid/schema/install-journal-v1.json'
-        schema_version = 1
+        '$schema' = 'https://awow-ufg.invalid/schema/install-journal-v2.json'
+        schema_version = 2
         kind = 'ufg_install_journal'
         transaction_id = $Context.TransactionId
         operation = 'install'
         source_state = $Context.Classification
         target_state = 'managed_ufg'
         phase = 'journal'
-        target = [ordered]@{ game_id = 'crusader_kings_iii'; build_id = [string]$Context.Build.id; binaries_relative_path = 'binaries'; target_root_kind = 'steam_game_binaries' }
+        target = [ordered]@{ game_id = 'crusader_kings_iii'; build_id = [string]$Context.Build.id; binaries_relative_path = 'binaries'; target_root_kind = 'ck3_game_binaries'; profile_id = [string]$Context.Build.profile_id }
         entries = $entries.ToArray()
         preserved_agp = Get-PreservedAgpObservations $Context $Context.Candidate
     }
@@ -507,14 +520,14 @@ function New-UfgState([hashtable]$Context, $Candidate, [string]$Status, [string]
         $payloadHash = ([string]$ownedPayload.installed_sha256).ToLowerInvariant(); $payloadSize = [int64]$ownedPayload.installed_size_bytes
     }
     return [ordered]@{
-        '$schema' = 'https://awow-ufg.invalid/schema/install-state-v1.json'
-        schema_version = 1
+        '$schema' = 'https://awow-ufg.invalid/schema/install-state-v2.json'
+        schema_version = 2
         kind = 'ufg_install_state'
         status = $Status
         transaction_id = $Context.TransactionId
         release = $release
-        target = [ordered]@{ game_id = 'crusader_kings_iii'; build_id = [string]$Context.Build.id; binaries_relative_path = 'binaries'; executable_relative_path = 'ck3.exe'; target_root_kind = 'steam_game_binaries' }
-        baseline = [ordered]@{ original_dxcompiler = [ordered]@{ relative_path = [string]$Context.Manifest.target.original_dxcompiler_relative_path; sha256 = $original.sha256; size_bytes = [int64]$original.size_bytes; ownership = 'steam' }; executable = [ordered]@{ relative_path = 'ck3.exe'; sha256 = $exe.sha256; size_bytes = [int64]$exe.size_bytes; ownership = 'steam' } }
+        target = [ordered]@{ game_id = 'crusader_kings_iii'; build_id = [string]$Context.Build.id; binaries_relative_path = 'binaries'; executable_relative_path = 'ck3.exe'; target_root_kind = 'ck3_game_binaries'; profile_id = [string]$Context.Build.profile_id }
+        baseline = [ordered]@{ original_dxcompiler = [ordered]@{ relative_path = [string]$Context.Manifest.target.original_dxcompiler_relative_path; sha256 = $original.sha256; size_bytes = [int64]$original.size_bytes; ownership = 'game' }; executable = [ordered]@{ relative_path = 'ck3.exe'; sha256 = $exe.sha256; size_bytes = [int64]$exe.size_bytes; ownership = 'game' } }
         agp_dependency = [ordered]@{ build_id = [string]$Candidate.id; version = [string]$Candidate.version; proxy_relative_path = [string]$Candidate.proxy_relative_path; proxy_sha256 = ([string]$Candidate.proxy_sha256).ToLowerInvariant(); payload_relative_path = [string]$Candidate.payload_relative_path; payload_sha256 = ([string]$Candidate.payload_sha256).ToLowerInvariant(); original_dxcompiler_sha256 = ([string]$Candidate.original_dxcompiler_sha256).ToLowerInvariant(); state_relative_path = [string]$Candidate.state_relative_path; state_sha256 = $agpHash }
         managed_files = @(
             [ordered]@{ relative_path = [string]$Context.Manifest.target.active_dxcompiler_relative_path; role = 'ufg_proxy'; ownership = 'managed'; installed_sha256 = $proxyHash; installed_size_bytes = $proxySize; present = $true; restore = [ordered]@{ action = 'leave_managed_file' } },
@@ -621,7 +634,7 @@ function Invoke-Uninstall([hashtable]$Context) {
     $candidate = Get-AgpCandidate $Context $allowedActive
     if ($null -eq $candidate) { Fail 'Compatible AGP dependency changed before mutation.' }
     $Context.Journal = [ordered]@{
-        '$schema' = 'https://awow-ufg.invalid/schema/install-journal-v1.json'; schema_version = 1; kind = 'ufg_install_journal'; transaction_id = $Context.TransactionId; operation = 'uninstall'; source_state = $Context.Classification; target_state = 'ufg_proxy_only'; phase = 'journal'; target = [ordered]@{ game_id = 'crusader_kings_iii'; build_id = [string]$Context.Build.id; binaries_relative_path = 'binaries'; target_root_kind = 'steam_game_binaries' }; entries = @((New-JournalEntry $Context 'dxcompiler.dll' 'file' 'verify_only' "$($Context.StageRelative)/snapshot/dxcompiler.dll" 'managed'), (New-JournalEntry $Context 'AWOW Universal Female Generation/awow_ufg.dll' 'file' 'remove' "$($Context.StageRelative)/snapshot/AWOW Universal Female Generation__awow_ufg.dll" 'managed'), (New-JournalEntry $Context ([string]$Context.Manifest.target.state_relative_path) 'file' 'replace' "$($Context.StageRelative)/state.json" 'managed')); preserved_agp = Get-PreservedAgpObservations $Context $candidate
+        '$schema' = 'https://awow-ufg.invalid/schema/install-journal-v2.json'; schema_version = 2; kind = 'ufg_install_journal'; transaction_id = $Context.TransactionId; operation = 'uninstall'; source_state = $Context.Classification; target_state = 'ufg_proxy_only'; phase = 'journal'; target = [ordered]@{ game_id = 'crusader_kings_iii'; build_id = [string]$Context.Build.id; binaries_relative_path = 'binaries'; target_root_kind = 'ck3_game_binaries'; profile_id = [string]$Context.Build.profile_id }; entries = @((New-JournalEntry $Context 'dxcompiler.dll' 'file' 'verify_only' "$($Context.StageRelative)/snapshot/dxcompiler.dll" 'managed'), (New-JournalEntry $Context 'AWOW Universal Female Generation/awow_ufg.dll' 'file' 'remove' "$($Context.StageRelative)/snapshot/AWOW Universal Female Generation__awow_ufg.dll" 'managed'), (New-JournalEntry $Context ([string]$Context.Manifest.target.state_relative_path) 'file' 'replace' "$($Context.StageRelative)/state.json" 'managed')); preserved_agp = Get-PreservedAgpObservations $Context $candidate
     }
     foreach ($log in @($Context.Manifest.target.logs)) { $Context.Journal.entries += ,(New-JournalEntry $Context ([string]$log.relative_path) 'file' 'remove' "$($Context.StageRelative)/snapshot/$([string]$log.relative_path -replace '/', '__')" 'managed') }
     Write-JsonFile $Context.JournalPath $Context.Journal

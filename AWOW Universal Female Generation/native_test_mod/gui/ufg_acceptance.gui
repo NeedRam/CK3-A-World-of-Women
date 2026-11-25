@@ -1,0 +1,12 @@
+﻿flowcontainer = { name = "ufg_acceptance_controls" parentanchor = top|left position = { 480 120 } layer = confirmation direction = vertical spacing = 4 visible = "[InDebugMode]" using = dockable_background
+dockable_button = { size = { 330 32 } raw_text = "UFG: History and marriages" onclick = "[ExecuteConsoleCommand('event ufg_acceptance.1')]" }
+dockable_button = { size = { 330 32 } raw_text = "UFG: Runtime generation" onclick = "[ExecuteConsoleCommand('event ufg_acceptance.2')]" }
+dockable_button = { size = { 330 32 } raw_text = "UFG: Create baseline male (AGP only)" onclick = "[ExecuteConsoleCommand('event ufg_acceptance.3')]" }
+dockable_button = { size = { 330 32 } raw_text = "UFG: Check existing-save male" onclick = "[ExecuteConsoleCommand('event ufg_acceptance.4')]" }
+dockable_button = { size = { 330 32 } raw_text = "UFG: Set up parent-role save test" onclick = "[ExecuteConsoleCommand('event ufg_acceptance.5')]" }
+dockable_button = { size = { 330 32 } raw_text = "UFG: Check saved roles and genders" onclick = "[ExecuteConsoleCommand('event ufg_acceptance.6')]" }
+dockable_button = { size = { 330 32 } raw_text = "UFG: Prepare forced-male birth" onclick = "[ExecuteConsoleCommand('event ufg_acceptance.7')]" }
+dockable_button = { size = { 330 32 } raw_text = "UFG: Check birth result" onclick = "[ExecuteConsoleCommand('event ufg_acceptance.8')]" }
+dockable_button = { size = { 330 32 } raw_text = "UFG: Check male Ruler Designer" onclick = "[ExecuteConsoleCommand('event ufg_acceptance.9')]" }
+dockable_button = { size = { 330 32 } raw_text = "UFG: Save acceptance game" onclick = "[ExecuteConsoleCommand('save ufg_121_acceptance')]" }
+}

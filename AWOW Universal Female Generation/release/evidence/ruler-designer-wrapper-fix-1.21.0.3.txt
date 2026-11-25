@@ -1,0 +1,12 @@
+Ruler Designer regression investigation
+
+Legacy branch: 1.19.0.6-Legacy, commit 4180a68.
+Legacy src/ufg_generation.cpp already passed the wrapper caller as a sixth callback argument and excluded caller RVA 0x26fa75e. The initial 1.21 port omitted that nested-caller guard.
+
+CK3 1.21.0.3: custom-ruler creation function 0x2eab800 calls the shared wrapper at 0x2eaba3f (return 0x2eaba44), then registers the created character in ruler_designer_characters at game state +0x26f98. The shared wrapper calls the constructor at 0x2de53ec (return 0x2de53f1). Excluding only direct constructor caller 0x2eaca4c does not cover custom-ruler creation.
+
+The wrapper frame has three pushes plus 0x90 bytes of locals (0xa8 total). At the constructor hook, its return is at original RSP +0xb8; wrapper return is at original RSP +0xb8+8+0xa8. The relay saves 0xd0 bytes, so the sixth callback argument points at relay RSP +0x238. The callback reads that slot only for immediate origin 0x2de53f1 and preserves the requested gender for wrapper origin 0x2eaba44.
+
+The profile verifies the unique wrapper-frame context, custom-ruler registration context, and Designer-to-wrapper call target. Executed relay tests verify sixth-argument slot, stack alignment, GPR/flag/XMM preservation. Protection tests cover male/female Designer requests before player registration and ordinary wrapper conversion.
+
+Original observed failure is preserved in ruler-designer-first-attempt-2026-11-24.log; in-game retest required with a newly created ruler. Existing converted test ruler is not repaired retroactively.

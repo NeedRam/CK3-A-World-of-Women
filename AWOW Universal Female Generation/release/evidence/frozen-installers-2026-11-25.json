@@ -1,0 +1,30 @@
+{
+  "scope": "Disposable writable fixture; RunAsInvoker used only for fixture process; shipped elevation manifest unchanged.",
+  "artifacts": {
+    "UFGInstaller.exe": "f8465c120a134251be8a020135906e6247c205ce5fad98d671ef66dcfa48b393",
+    "UFGUninstaller.exe": "b9d6512b296c21ff190b2304d3b83594fd7074b2ad7b1f55976eb572fd1024fc"
+  },
+  "checks": [
+    {
+      "executable": "UFGInstaller.exe",
+      "confirmation": null,
+      "exit_code": 0,
+      "result_state": "managed_ufg",
+      "preserved_agp": true
+    },
+    {
+      "executable": "UFGUninstaller.exe",
+      "confirmation": null,
+      "exit_code": 0,
+      "result_state": "ufg_proxy_only",
+      "preserved_agp": true
+    },
+    {
+      "executable": "UFGInstaller.exe",
+      "confirmation": "RE_ENABLE_UFG",
+      "exit_code": 0,
+      "result_state": "managed_ufg",
+      "preserved_agp": true
+    }
+  ]
+}

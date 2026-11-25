@@ -77,7 +77,7 @@ class ContractFileTests(unittest.TestCase):
         self.assertIn("Expected WindowsSDKVersion", build_script)
         version_resource = (ROOT / "version.rc").read_text(encoding="utf-8")
         self.assertIn('VALUE "OriginalFilename", UFG_ORIGINAL_FILENAME', version_resource)
-        self.assertIn('VALUE "ProductVersion", "1.0.0.0', version_resource)
+        self.assertIn('VALUE "ProductVersion", "1.1.0.0', version_resource)
 
     def test_release_builder_excludes_development_content_and_splits_packages(self) -> None:
         builder = (ROOT / "release" / "build-release.ps1").read_text(encoding="utf-8")
@@ -93,11 +93,11 @@ class ContractFileTests(unittest.TestCase):
             for token in ("UPGRADE_UFG_IN_PLACE", "ADOPT_UFG_LAYOUT", "RE_ENABLE_UFG", "I_UNDERSTAND_UNKNOWN_CONFLICT"):
                 self.assertNotIn(token, readme)
 
-    def test_current_agp_v102_dependency_hashes_are_declared(self) -> None:
+    def test_current_agp_v110_dependency_hashes_are_declared(self) -> None:
         manifest = json.loads((CONTRACT / "release-manifest.json").read_text(encoding="utf-8"))
-        candidate = next(item for item in manifest["compatible_agp_builds"] if item["id"] == "agp-v1.0.2-repackaged")
-        self.assertEqual(candidate["proxy_sha256"], "7c266520db764c7c334a610b8d975241671273c45a90157548a47ec2af732bb0")
-        self.assertEqual(candidate["payload_sha256"], "9a75b00582261e3af75d262e68dbd858a88e20888e81b127b84dc2e87348ee52")
+        candidate = next(item for item in manifest["compatible_agp_builds"] if item["id"] == "agp-v1.1.0")
+        self.assertEqual(candidate["proxy_sha256"], "e8365d61ffd80b4d8fcaf4d6d79ac00c8373831a0a86e66647a4fc1e4cef2e58")
+        self.assertEqual(candidate["payload_sha256"], "e6bb03805e7caa4392210fa45e3253de769d082ccd59087475a50c24b420071c")
 
     def test_interactive_ufg_frontends_use_two_button_confirmations(self) -> None:
         gui = (ROOT / "Installer" / "python" / "ufg_installer" / "gui.py").read_text(encoding="utf-8")
