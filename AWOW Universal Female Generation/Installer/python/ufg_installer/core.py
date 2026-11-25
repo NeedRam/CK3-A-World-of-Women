@@ -429,12 +429,26 @@ class Installer:
     def _agp_state_valid(self, target: Path, candidate: dict[str, Any]) -> bool:
         path = contained(target, "AGP Native Hook/agp-install-state.json")
         if not path.exists():
-            return True
+            # A state-less AGP layout is the frozen native 1.1.0 identity.
+            return str(candidate.get("version")) == "1.1.0"
         try:
             data = _read_json(path)
         except InstallError:
             return False
         if data.get("schema_version") not in (1, 2) or data.get("kind") != "agp_install_state" or data.get("status") != "managed_agp":
+            return False
+        release = data.get("release")
+        if release is not None and (not isinstance(release, dict) or release.get("id") not in (None, "agp")):
+            return False
+        recorded_version = release.get("version") if isinstance(release, dict) else None
+        # Schema-v1 installations predating durable release metadata are
+        # legacy 1.1.0 state.  A present version must select that exact
+        # candidate; never silently treat an unsupported version as native
+        # compatibility merely because the DLL hashes happen to match.
+        if recorded_version is None:
+            if data["schema_version"] != 1 or str(candidate.get("version")) != "1.1.0":
+                return False
+        elif str(recorded_version) != str(candidate.get("version")):
             return False
         if data["schema_version"] == 2:
             if not all(isinstance(data.get(key), dict) for key in ("target", "release", "baseline")) or not isinstance(data.get("managed_files"), list) or len(data["managed_files"]) != 2:
@@ -464,7 +478,32 @@ class Installer:
         return None
 
     def _compatible_agp(self, target: Path, *, allowed_active: tuple[str, int] | None = None) -> dict[str, Any] | None:
+        state_path = contained(target, "AGP Native Hook/agp-install-state.json")
+        state_present = state_path.exists()
+        recorded_version: str | None = None
+        if state_present:
+            try:
+                raw_state = _read_json(state_path)
+                release = raw_state.get("release")
+                if isinstance(release, dict) and release.get("version") is not None:
+                    recorded_version = str(release.get("version"))
+                elif raw_state.get("schema_version") != 1:
+                    return None
+                else:
+                    # Legacy schema-v1 state has no reliable package version;
+                    # the only admissible inference is the frozen 1.1.0
+                    # native identity.
+                    recorded_version = "1.1.0"
+            except InstallError:
+                return None
+        matches: list[dict[str, Any]] = []
         for candidate in self.compatible_agp_builds:
+            # With no AGP state file, do not let the new package candidate
+            # make an old state-less native layout ambiguous.
+            if recorded_version is None and str(candidate.get("version")) != "1.1.0":
+                continue
+            if recorded_version is not None and str(candidate.get("version")) != recorded_version:
+                continue
             try:
                 if not _same_file(contained(target, "ck3.exe"), candidate["executable_sha256"]):
                     continue
@@ -478,10 +517,12 @@ class Installer:
                     continue
                 if not self._agp_state_valid(target, candidate):
                     continue
-                return candidate
+                matches.append(candidate)
             except (KeyError, InstallError, PathSafetyError):
                 continue
-        return None
+        # Multiple candidates with the same observed identity are unsafe: the
+        # dependency recorded in newly written UFG state must be deterministic.
+        return matches[0] if len(matches) == 1 else None
 
     def _managed_state_matches(self, target: Path, state: dict[str, Any], dependency: dict[str, Any] | None = None) -> bool:
         if not _is_valid_state(state, active_rel=self.active_rel, payload_rel=self.payload_rel, original_rel=self.original_rel, state_rel=self.state_rel):

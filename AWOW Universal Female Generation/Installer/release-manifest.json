@@ -4,11 +4,19 @@
   "kind": "ufg_release_manifest",
   "release": {
     "id": "awow-ufg",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "channel": "stable",
     "unsigned": true,
     "source_repo": "https://github.com/NeedRam/CK3-A-World-of-Women",
     "license": "MIT"
+  },
+  "native_release": {
+    "version": "1.1.0",
+    "repository": "NeedRam/CK3-A-World-of-Women",
+    "tag": "ufg-v1.1.0",
+    "source_commit": "835c71f954c0f89f46ce14d05c79e1a3a1d0ad77",
+    "archive_url": "https://github.com/NeedRam/CK3-A-World-of-Women/releases/download/ufg-v1.1.0/AWOW.UFG.v1.1.0.Base.Files.Manual.Install.zip",
+    "archive_sha256": "ff1ed556d79e1f03906354a1118274399a80f0b845b23c5df9b97f0ef5d539cd"
   },
   "target": {
     "platform": "windows",
@@ -45,7 +53,7 @@
     ]
   },
   "package": {
-    "id": "awow-ufg-v1.1.0-win-x64",
+    "id": "awow-ufg-v1.1.1-win-x64",
     "manifest_relative_path": "Installer/release-manifest.json",
     "managed_files": [
       {
@@ -151,7 +159,7 @@
       "id": "ufg-proxy",
       "relative_path": "dxcompiler.dll",
       "role": "ufg_proxy",
-      "sha256": "989aed11ff81ec1d3ba7195e5520d456ad805090370cfe61e5ce0e5fad2ba16d",
+      "sha256": "6406c83ce1d31415e6e2c013e222d9098219ea912fa541ce4ece8f7b23f07c44",
       "size_bytes": 157696,
       "size_is_informational": true,
       "source_relative_path": "build/dxcompiler.dll"
@@ -160,7 +168,7 @@
       "id": "ufg-payload",
       "relative_path": "AWOW Universal Female Generation/awow_ufg.dll",
       "role": "ufg_payload",
-      "sha256": "ec0f7c9d0f66f26dd3e9469d071c4d6ed5c80623d377d52478c081b9d71aa751",
+      "sha256": "796afce9e724b3ec48cfa31e08469335b895b8dc661de7974660676e776d276e",
       "size_bytes": 195584,
       "size_is_informational": true,
       "source_relative_path": "build/AWOW Universal Female Generation/awow_ufg.dll"
@@ -170,6 +178,19 @@
     {
       "id": "agp-v1.1.0",
       "version": "1.1.0",
+      "executable_sha256": "859f0d380098adcb130eb9d453458222749fcdf6d46126ad0ed99d78f9a0aa28",
+      "proxy_relative_path": "dxcompiler.dll",
+      "proxy_sha256": "e8365d61ffd80b4d8fcaf4d6d79ac00c8373831a0a86e66647a4fc1e4cef2e58",
+      "payload_relative_path": "AGP Native Hook/agp_parenthook.dll",
+      "payload_sha256": "e6bb03805e7caa4392210fa45e3253de769d082ccd59087475a50c24b420071c",
+      "original_dxcompiler_sha256": "40e381d1d0ccf3bd725e30914b07d3d0cdaa907900e4d194da0e9cbd41d06e65",
+      "state_relative_path": "AGP Native Hook/agp-install-state.json",
+      "state_policy": "absent_or_valid_managed_agp",
+      "profile_id": "gog-ck3-1.21.0.3"
+    },
+    {
+      "id": "agp-v1.1.1",
+      "version": "1.1.1",
       "executable_sha256": "859f0d380098adcb130eb9d453458222749fcdf6d46126ad0ed99d78f9a0aa28",
       "proxy_relative_path": "dxcompiler.dll",
       "proxy_sha256": "e8365d61ffd80b4d8fcaf4d6d79ac00c8373831a0a86e66647a4fc1e4cef2e58",
@@ -262,7 +283,7 @@
             {
               "relative_path": "dxcompiler.dll",
               "kind": "file",
-              "sha256": "989aed11ff81ec1d3ba7195e5520d456ad805090370cfe61e5ce0e5fad2ba16d",
+              "sha256": "6406c83ce1d31415e6e2c013e222d9098219ea912fa541ce4ece8f7b23f07c44",
               "size_bytes": 157696
             },
             {
@@ -274,7 +295,7 @@
             {
               "relative_path": "AWOW Universal Female Generation/awow_ufg.dll",
               "kind": "file",
-              "sha256": "ec0f7c9d0f66f26dd3e9469d071c4d6ed5c80623d377d52478c081b9d71aa751",
+              "sha256": "796afce9e724b3ec48cfa31e08469335b895b8dc661de7974660676e776d276e",
               "size_bytes": 195584
             },
             {
@@ -323,7 +344,7 @@
             {
               "relative_path": "dxcompiler.dll",
               "kind": "file",
-              "sha256": "989aed11ff81ec1d3ba7195e5520d456ad805090370cfe61e5ce0e5fad2ba16d",
+              "sha256": "6406c83ce1d31415e6e2c013e222d9098219ea912fa541ce4ece8f7b23f07c44",
               "size_bytes": 157696
             },
             {

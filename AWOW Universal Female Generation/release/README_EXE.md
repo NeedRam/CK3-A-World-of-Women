@@ -1,4 +1,4 @@
-# AWOW UFG v1.1.0 EXE Installer
+# AWOW UFG v1.1.1 EXE Installer
 
 This package contains the AWOW Universal Female Generation graphical installer
 and uninstaller for Windows x64 with Crusader Kings III `1.21.0.3`.

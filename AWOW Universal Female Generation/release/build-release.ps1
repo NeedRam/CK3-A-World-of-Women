@@ -1,7 +1,8 @@
 [CmdletBinding()]
 param(
-    [string]$Version = '1.1.0',
+    [string]$Version = '1.1.1',
     [string]$OutputDirectory,
+    [string]$NativeArchivePath,
     [switch]$SkipNativeBuild,
     [switch]$AllowIncompleteValidation,
     [switch]$RequireCanonicalCi
@@ -62,11 +63,6 @@ if (-not (Test-Path -LiteralPath $manifestPath -PathType Leaf)) { throw "Release
 $manifest = Get-Content -LiteralPath $manifestPath -Raw | ConvertFrom-Json
 if ([string]$manifest.release.version -ne $Version) { throw "Requested version $Version does not match manifest version $($manifest.release.version)." }
 if (-not $manifest.release.unsigned) { throw 'UFG releases must remain explicitly unsigned.' }
-if (-not $SkipNativeBuild) {
-    & (Join-Path $repositoryRoot 'build.ps1')
-    if ($LASTEXITCODE -ne 0) { throw 'Native UFG build failed.' }
-}
-
 New-Item -ItemType Directory -Force -Path $OutputDirectory | Out-Null
 $legacyOutputs = @(
     "AWOW-Universal-Female-Generation-v$Version-win64.zip",
@@ -80,6 +76,51 @@ foreach ($legacyName in $legacyOutputs) {
 
 $nativeProxy = Join-Path $repositoryRoot 'build\dxcompiler.dll'
 $nativePayload = Join-Path $repositoryRoot 'build\AWOW Universal Female Generation\awow_ufg.dll'
+$nativeStage = $null
+$nativeTempRoot = [IO.Path]::GetFullPath([IO.Path]::GetTempPath())
+function Assert-ContainedPath([string]$BasePath, [string]$CandidatePath) {
+    $base = [IO.Path]::GetFullPath($BasePath)
+    while ($base.EndsWith('\') -or $base.EndsWith('/')) { $base = $base.Substring(0, $base.Length - 1) }
+    $candidate = [IO.Path]::GetFullPath($CandidatePath)
+    $basePrefix = $base + [IO.Path]::DirectorySeparatorChar
+    if ($candidate -eq $base -or -not $candidate.StartsWith($basePrefix, [StringComparison]::OrdinalIgnoreCase)) {
+        throw "Refusing path outside the intended containment root: $candidate"
+    }
+}
+function Remove-NativeStage([string]$BasePath, [string]$StagePath) {
+    if ([string]::IsNullOrWhiteSpace($StagePath)) { return }
+    Assert-ContainedPath $BasePath $StagePath
+    if (Test-Path -LiteralPath $StagePath -PathType Container) {
+        Remove-Item -LiteralPath ([IO.Path]::GetFullPath($StagePath)) -Recurse -Force
+    }
+}
+try {
+if ($RequireCanonicalCi -and [string]::IsNullOrWhiteSpace($NativeArchivePath)) {
+    throw 'Canonical packaging requires the verified published native archive.'
+}
+if (-not [string]::IsNullOrWhiteSpace($NativeArchivePath)) {
+    $archivePath = [IO.Path]::GetFullPath($NativeArchivePath)
+    if (-not (Test-Path -LiteralPath $archivePath -PathType Leaf)) { throw "Published native archive is missing: $archivePath" }
+    $expectedArchiveSha = [string]$manifest.native_release.archive_sha256
+    if ([string]::IsNullOrWhiteSpace($expectedArchiveSha)) { throw 'Manifest does not declare native_release.archive_sha256.' }
+    Assert-Hash $archivePath $expectedArchiveSha 'Published native archive' | Out-Null
+    $nativeStage = Join-Path ([IO.Path]::GetTempPath()) ('awow-ufg-native-' + [Guid]::NewGuid().ToString('N'))
+    Assert-ContainedPath $nativeTempRoot $nativeStage
+    New-Item -ItemType Directory -Force -Path $nativeStage | Out-Null
+    Expand-Archive -LiteralPath $archivePath -DestinationPath $nativeStage -Force
+    $proxySource = Get-ChildItem -LiteralPath $nativeStage -Recurse -File -Filter 'dxcompiler.dll' | Select-Object -First 1
+    $payloadSource = Get-ChildItem -LiteralPath $nativeStage -Recurse -File -Filter 'awow_ufg.dll' | Select-Object -First 1
+    if ($null -eq $proxySource -or $null -eq $payloadSource) { throw 'Published native archive does not contain the expected UFG DLL pair.' }
+    $nativeProxy = $proxySource.FullName
+    $nativePayload = $payloadSource.FullName
+} elseif (-not $SkipNativeBuild) {
+    throw 'UFG 1.1.1 packaging requires -NativeArchivePath or explicit -SkipNativeBuild; native compiler fallback is forbidden.'
+}
+if (-not (Test-Path -LiteralPath $nativeProxy -PathType Leaf) -or -not (Test-Path -LiteralPath $nativePayload -PathType Leaf)) {
+    throw 'Native UFG artifact pair is missing; provide the verified -NativeArchivePath or preverified local DLLs with -SkipNativeBuild.'
+}
+Assert-Hash $nativeProxy ([string](@($manifest.artifacts | Where-Object { $_.id -eq 'ufg-proxy' })[0].sha256)) 'UFG proxy' | Out-Null
+Assert-Hash $nativePayload ([string](@($manifest.artifacts | Where-Object { $_.id -eq 'ufg-payload' })[0].sha256)) 'UFG payload' | Out-Null
 $forbiddenNames = @('native_test_mod', 'src', 'build', 'dist', 'tests', 'fixtures', '__pycache__', '.git', '.github', '.venv', 'venv', 'A World of Women CORE', 'AWOW Vanilla History OVERRIDES', 'AWOW Vanilla Male Source OVERRIDES')
 $forbiddenFiles = @('build.py', 'requirements-build.txt', 'UFGInstaller.spec', 'UFGUninstaller.spec', 'UFGInstaller.version.txt', 'UFGUninstaller.version.txt')
 $commit = 'unavailable'
@@ -220,6 +261,7 @@ foreach ($definition in $packageDefinitions) {
         validation = [ordered]@{ acceptance_complete = (-not $AllowIncompleteValidation); status = $(if ($AllowIncompleteValidation) {'incomplete_local_candidate'} else {'accepted'}) }
         release = [ordered]@{ id = $manifest.release.id; version = $Version; channel = $manifest.release.channel; unsigned = $true; signing = 'not_performed' }
         source = [ordered]@{ repository = $manifest.release.source_repo; commit = $commit; workflow = 'release/build-release.ps1' }
+        native_source = [ordered]@{ version = $manifest.native_release.version; repository = $manifest.native_release.repository; tag = $manifest.native_release.tag; source_commit = $manifest.native_release.source_commit; archive_url = $manifest.native_release.archive_url; archive_sha256 = $manifest.native_release.archive_sha256 }
         build = [ordered]@{ authority = $(if ($isCanonicalCi) { 'canonical_github_actions' } else { 'local_smoke_test' }); canonical_release_artifact = $isCanonicalCi; github_actions_runner = $toolchain.github_actions_runner; visual_studio_version_range = $toolchain.visual_studio_version_range; vc_tools_version = $toolchain.vc_tools_version; windows_sdk_version = $toolchain.windows_sdk_version; host_architecture = $toolchain.host_architecture; target_architecture = $toolchain.target_architecture; vcvars_architecture = $toolchain.vcvars_architecture; toolchain_contract = 'toolchain.json' }
         artifact = [ordered]@{ file = (Split-Path -Leaf $zipPath); sha256 = $zipHash; package_id = "$($manifest.package.id)-$($definition.Id)"; package_kind = $definition.Id; file_count = @(Get-ChildItem -LiteralPath $packageRoot -Recurse -File).Count }
         safety = [ordered]@{ excluded = $forbiddenNames; credentials_used = $false; agp_dependency = 'exact SHA-256 values declared in compatible_agp_builds' }
@@ -239,3 +281,6 @@ foreach ($artifact in @($manifest.artifacts)) {
 # All required native commands are checked at their call sites. Do not leak a
 # caller's earlier native exit code after successful PowerShell-only assembly.
 $global:LASTEXITCODE = 0
+} finally {
+    Remove-NativeStage $nativeTempRoot $nativeStage
+}

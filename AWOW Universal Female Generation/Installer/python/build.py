@@ -21,7 +21,10 @@ def build() -> None:
         # A locked per-user site-packages directory can make PyInstaller's
         # dependency scan fail before it reaches project code.
         env["PYTHONNOUSERSITE"] = "1"
-        subprocess.run([sys.executable, "-m", "PyInstaller", "--noconfirm", "--clean", "--distpath", str(ROOT / "dist"), "--workpath", str(ROOT / "build"), str(ROOT / f"{name}.spec")], check=True, cwd=ROOT, env=env)
+        options = {"check": True, "cwd": ROOT, "env": env}
+        if os.name == "nt":
+            options["creationflags"] = subprocess.CREATE_NO_WINDOW
+        subprocess.run([sys.executable, "-m", "PyInstaller", "--noconfirm", "--clean", "--distpath", str(ROOT / "dist"), "--workpath", str(ROOT / "build"), str(ROOT / f"{name}.spec")], **options)
         built = ROOT / "dist" / f"{name}.exe"
         if not built.is_file():
             raise SystemExit(f"PyInstaller did not produce {built}")

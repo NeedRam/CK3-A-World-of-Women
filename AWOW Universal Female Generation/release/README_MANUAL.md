@@ -1,4 +1,4 @@
-# AWOW UFG v1.1.0 Base Files (Manual Install)
+# AWOW UFG v1.1.1 Base Files (Manual Install)
 
 This package contains only the AWOW Universal Female Generation native files
 for manual installation on Windows x64 with Crusader Kings III
@@ -14,7 +14,9 @@ the exact supported hashes below:
 - `AGP Native Hook\agp_parenthook.dll`: `e6bb03805e7caa4392210fa45e3253de769d082ccd59087475a50c24b420071c`
 
 For upgrades, an existing UFG installation, or any hash mismatch, use the EXE
-or batch installer package instead.
+or batch installer package instead. The installer recognizes AGP package state
+1.1.0 and 1.1.1; a state-less matching layout is the pinned native 1.1.0
+identity.
 
 ## Install
 

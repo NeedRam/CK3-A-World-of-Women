@@ -1,4 +1,4 @@
-# AWOW UFG v1.1.0 Batch File Installer
+# AWOW UFG v1.1.1 Batch File Installer
 
 This package contains the AWOW Universal Female Generation batch/PowerShell
 installer and uninstaller for Windows x64 with Crusader Kings III

@@ -149,9 +149,17 @@ function Test-UfgStateShape([hashtable]$Context, $State) {
 
 function Test-AgpState([hashtable]$Context, $Candidate) {
     $statePath = Get-ContainedPath $Context 'AGP Native Hook/agp-install-state.json'
-    if (-not (Test-Path -LiteralPath $statePath)) { return $true }
+    if (-not (Test-Path -LiteralPath $statePath)) { return ([string]$Candidate.version -eq '1.1.0') }
     $state = Get-JsonObject $statePath
     if ($null -eq $state -or $state.schema_version -notin @(1,2) -or $state.kind -ne 'agp_install_state' -or $state.status -ne 'managed_agp') { return $false }
+    $agpRelease = $null
+    $releaseProperty = $state.PSObject.Properties['release']
+    if ($null -ne $releaseProperty) { $agpRelease = $releaseProperty.Value }
+    $agpIdProperty = if ($null -ne $agpRelease) { $agpRelease.PSObject.Properties['id'] } else { $null }
+    if ($null -ne $agpIdProperty -and [string]$agpIdProperty.Value -ne 'agp') { return $false }
+    $agpVersionProperty = if ($null -ne $agpRelease) { $agpRelease.PSObject.Properties['version'] } else { $null }
+    $recordedVersion = if ($null -ne $agpVersionProperty) { [string]$agpVersionProperty.Value } elseif ($state.schema_version -eq 1) { '1.1.0' } else { return $false }
+    if ($recordedVersion -ne [string]$Candidate.version) { return $false }
     if ($state.schema_version -eq 2) {
         if ($state.target.build_id -ne $Context.Build.id -or $state.target.target_root_kind -ne 'ck3_game_binaries' -or $state.target.profile_id -ne $Candidate.profile_id -or $state.release.version -ne $Candidate.version) { return $false }
         foreach ($pair in @(@('executable','ck3.exe',$Candidate.executable_sha256),@('original_dxcompiler',$Context.Manifest.target.original_dxcompiler_relative_path,$Candidate.original_dxcompiler_sha256))) {
@@ -176,7 +184,27 @@ function Get-ManagedItem($State, [string]$RelativePath) {
 }
 
 function Get-AgpCandidate([hashtable]$Context, [string]$AllowedActiveSha = '') {
+    $statePath = Get-ContainedPath $Context 'AGP Native Hook/agp-install-state.json'
+    $statePresent = Test-Path -LiteralPath $statePath
+    $recordedVersion = $null
+    if ($statePresent) {
+        $rawState = Get-JsonObject $statePath
+        if ($null -eq $rawState) { return $null }
+        $agpReleaseProperty = $rawState.PSObject.Properties['release']
+        $agpRelease = if ($null -ne $agpReleaseProperty) { $agpReleaseProperty.Value } else { $null }
+        $agpVersionProperty = if ($null -ne $agpRelease) { $agpRelease.PSObject.Properties['version'] } else { $null }
+        if ($null -ne $agpVersionProperty) {
+            $recordedVersion = [string]$agpVersionProperty.Value
+        } elseif ($rawState.schema_version -eq 1) {
+            # Legacy schema-v1 state predates reliable package metadata and is
+            # treated as the frozen 1.1.0 native identity.
+            $recordedVersion = '1.1.0'
+        } else { return $null }
+    }
+    $matches = New-Object Collections.Generic.List[object]
     foreach ($candidate in @($Context.Manifest.compatible_agp_builds)) {
+        if ($null -eq $recordedVersion -and [string]$candidate.version -ne '1.1.0') { continue }
+        if ($null -ne $recordedVersion -and [string]$candidate.version -ne $recordedVersion) { continue }
         $exe = Get-Observation $Context 'ck3.exe'
         if (-not $exe.exists -or $exe.kind -ne 'file' -or $exe.sha256 -ne ([string]$candidate.executable_sha256).ToLowerInvariant()) { continue }
         $active = Get-Observation $Context ([string]$candidate.proxy_relative_path)
@@ -190,8 +218,9 @@ function Get-AgpCandidate([hashtable]$Context, [string]$AllowedActiveSha = '') {
         $original = Get-Observation $Context ([string]$Context.Manifest.target.original_dxcompiler_relative_path)
         if (-not $original.exists -or $original.kind -ne 'file' -or $original.sha256 -ne ([string]$candidate.original_dxcompiler_sha256).ToLowerInvariant()) { continue }
         if (-not (Test-AgpState $Context $candidate)) { continue }
-        return $candidate
+        [void]$matches.Add($candidate)
     }
+    if ($matches.Count -eq 1) { return $matches[0] }
     return $null
 }
 

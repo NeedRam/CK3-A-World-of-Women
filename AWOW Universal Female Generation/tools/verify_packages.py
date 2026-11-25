@@ -36,7 +36,9 @@ def runtime_image(data):
     return headers,contents
 
 def verify(directory,require_canonical=False):
-    archives=sorted(directory.glob('*v1.1.0*.zip'));assert len(archives)==3,'expected exactly three v1.1.0 packages'
+    manifest=json.loads((ROOT/'Installer/release-manifest.json').read_text(encoding='utf-8'))
+    version=manifest['release']['version']
+    archives=sorted(directory.glob(f'*v{version}*.zip'));assert len(archives)==3,f'expected exactly three v{version} packages'
     provenances=[json.loads(p.read_text(encoding='utf-8-sig')) for p in directory.glob('*provenance.json')]
     records=[]
     for path in archives:
@@ -54,7 +56,8 @@ def verify(directory,require_canonical=False):
             for line in files[sums].decode('utf-8-sig').splitlines():
                 expected,relative=line.split(' *',1);assert hashlib.sha256(files[prefix+relative.replace(chr(92),'/')]).hexdigest()==expected
             for relative in ('dxcompiler.dll','AWOW Universal Female Generation/awow_ufg.dll'):
-                assert runtime_image(files[prefix+relative])==runtime_image((ROOT/'build'/relative).read_bytes()),'archive runtime differs from tested native build'
+                expected=next(a['sha256'] for a in manifest['artifacts'] if a['relative_path']==relative)
+                assert hashlib.sha256(files[prefix+relative]).hexdigest()==expected,'archive runtime differs from pinned native release'
             for name in files:
                 assert not {'native_test_mod','src','tests','ck3.exe','dxcompiler_original.dll','agp_parenthook.dll'}.intersection(PurePosixPath(name).parts)
                 if name.endswith('/Installer/release-manifest.json'):

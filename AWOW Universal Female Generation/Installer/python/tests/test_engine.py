@@ -61,8 +61,8 @@ class EngineTests(unittest.TestCase):
         manifest["target"]["supported_builds"][0].update({"executable_sha256": digest(ck3), "original_dxcompiler_sha256": digest(steam)})
         manifest["artifacts"][0].update({"sha256": digest(ufg_proxy), "size_bytes": len(ufg_proxy)})
         manifest["artifacts"][1].update({"sha256": digest(ufg_payload), "size_bytes": len(ufg_payload)})
-        candidate = manifest["compatible_agp_builds"][0]
-        candidate.update({"executable_sha256": digest(ck3), "proxy_sha256": digest(agp_proxy), "payload_sha256": digest(agp_payload), "original_dxcompiler_sha256": digest(steam)})
+        for candidate in manifest["compatible_agp_builds"]:
+            candidate.update({"executable_sha256": digest(ck3), "proxy_sha256": digest(agp_proxy), "payload_sha256": digest(agp_payload), "original_dxcompiler_sha256": digest(steam)})
         for seed in manifest["compatibility"]["seeds"]:
             for item in seed["match"].get("required_files", []):
                 relative = item["relative_path"]

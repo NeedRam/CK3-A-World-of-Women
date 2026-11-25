@@ -2,11 +2,11 @@
   "$schema": "https://awow-ufg.invalid/schema/package-layout-v2.json",
   "schema_version": 2,
   "kind": "ufg_package_layout",
-  "package_id": "awow-ufg-v1.0.0-win-x64",
+  "package_id": "awow-ufg-v1.1.1-win-x64",
   "package_variants": [
-    {"id": "manual", "archive_name": "AWOW UFG v1.0.0 Base Files (Manual Install).zip", "entrypoints": []},
-    {"id": "batch", "archive_name": "AWOW UFG v1.0.0 Batch File Installer.zip", "entrypoints": ["Install UFG.bat", "Uninstall UFG.bat"]},
-    {"id": "exe", "archive_name": "AWOW UFG v1.0.0 EXE Installer.zip", "entrypoints": ["UFG-Installer.exe", "UFG-Uninstaller.exe"]}
+    {"id": "manual", "archive_name": "AWOW UFG v1.1.1 Base Files (Manual Install).zip", "entrypoints": []},
+    {"id": "batch", "archive_name": "AWOW UFG v1.1.1 Batch File Installer.zip", "entrypoints": ["Install UFG.bat", "Uninstall UFG.bat"]},
+    {"id": "exe", "archive_name": "AWOW UFG v1.1.1 EXE Installer.zip", "entrypoints": ["UFG-Installer.exe", "UFG-Uninstaller.exe"]}
   ],
   "available_entries": [
     {"relative_path": "dxcompiler.dll", "role": "ufg_proxy", "variants": ["manual", "batch", "exe"], "artifact_id": "ufg-proxy"},

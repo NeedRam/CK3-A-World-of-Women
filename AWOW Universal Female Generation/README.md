@@ -19,7 +19,14 @@ AWOW CORE remains responsible for birth gender and culling. UFG does not require
 
 ## Compatibility
 
-UFG v1.1.0 targets the exact Windows x64 CK3 `1.21.0.3` executable and published AGP `1.1.0` hashes in `profiles/ck3-1.21.0.3.json`. All 12 required gameplay scenarios passed; native binary auditing, automated checks, and archived runtime evidence are tracked in `release/validation.json`. Compatibility follows file identities rather than storefront metadata. The previous UFG release remains separate for CK3 1.19.0.6.
+UFG v1.1.1 targets the exact Windows x64 CK3 `1.21.0.3` executable and the
+frozen published native v1.1.0 bytes. Its installer accepts matching AGP
+package state `1.1.0` or `1.1.1`; state-less matching files infer native
+identity `1.1.0`. All 12 required gameplay scenarios passed; native binary
+auditing, automated checks, and archived runtime evidence are tracked in
+`release/validation.json`. Compatibility follows file identities rather than
+storefront metadata. The previous UFG release remains separate for CK3
+1.19.0.6.
 
 UFG requires the unchanged Any-Gender Parenthook payload. Its loader starts `AGP Native Hook\agp_parenthook.dll`, waits for every expected AGP patch, and loads UFG only after AGP is ready. A missing UFG payload leaves AGP active. A missing, timed-out, or partially patched AGP installation prevents UFG from loading.
 
@@ -85,8 +92,8 @@ The script builds all payload translation units as one DLL, builds the DXCompile
 ## Installation for maintainer testing
 
 Install Any-Gender Parenthook first, then close CK3 before changing the game
-binaries. Download `AWOW UFG v1.1.0 EXE Installer.zip`, `AWOW UFG v1.1.0
-Batch File Installer.zip`, or `AWOW UFG v1.1.0 Base Files (Manual
+binaries. Download `AWOW UFG v1.1.1 EXE Installer.zip`, `AWOW UFG v1.1.1
+Batch File Installer.zip`, or `AWOW UFG v1.1.1 Base Files (Manual
 Install).zip`. The EXE and batch installers verify the exact CK3,
 game-original, AGP proxy, and AGP payload hashes before changing anything.
 The CK3 `binaries` directory must already contain the untouched original

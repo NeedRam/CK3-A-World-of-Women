@@ -9,6 +9,7 @@
     "schema_version",
     "kind",
     "release",
+    "native_release",
     "target",
     "package",
     "artifacts",
@@ -28,6 +29,9 @@
     },
     "release": {
       "$ref": "#/$defs/release"
+    },
+    "native_release": {
+      "$ref": "#/$defs/nativeRelease"
     },
     "target": {
       "$ref": "#/$defs/target"
@@ -103,6 +107,44 @@
         },
         "license": {
           "const": "MIT"
+        }
+      }
+    },
+    "nativeRelease": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "repository",
+        "tag",
+        "source_commit",
+        "archive_url",
+        "archive_sha256"
+      ],
+      "properties": {
+        "version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+        },
+        "repository": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tag": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "archive_url": {
+          "type": "string",
+          "format": "uri",
+          "minLength": 1
+        },
+        "archive_sha256": {
+          "$ref": "#/$defs/sha256"
         }
       }
     },

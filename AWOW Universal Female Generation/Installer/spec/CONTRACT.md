@@ -68,5 +68,7 @@ ownership and an exact native profile identity. Existing schema-v1 UFG state is
 read-only until an explicitly confirmed, successful transaction writes v2.
 Valid disabled state can rebase onto the exact supported standalone AGP pairing.
 AGP schema-v1/v2 state is read and verified, never rewritten by UFG. Current
-installation support is CK3 1.21.0.3 with the published AGP 1.1.0 artifacts;
-old state recognition does not add old native game support.
+installation support is CK3 1.21.0.3 with frozen published native artifacts.
+AGP package state 1.1.0 and 1.1.1 are accepted when their exact published DLL
+hashes match; a state-less matching layout infers native 1.1.0. Old state
+recognition does not add old native game support.

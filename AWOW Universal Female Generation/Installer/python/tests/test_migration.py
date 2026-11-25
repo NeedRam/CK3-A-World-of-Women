@@ -55,3 +55,22 @@ class MigrationTests(unittest.TestCase):
             engine=Installer(package_root=package,process_checker=lambda:False)
             with self.assertRaises(InstallError):engine.install(target)
             code,result=self.fixture.run_ps('install',target,package);self.assertEqual((code,result['decision']),(2,'reject'))
+
+    def test_agp_state_version_selects_matching_candidate_and_is_recorded(self):
+        for engine_name in ['python','powershell']:
+            with self.subTest(engine=engine_name),tempfile.TemporaryDirectory() as temp:
+                package,target,path=self.setup_target(Path(temp));state=json.loads(path.read_text(encoding='utf-8'));state['release']['version']='1.1.1';path.write_text(json.dumps(state),encoding='utf-8')
+                engine=Installer(package_root=package,process_checker=lambda:False)
+                if engine_name=='python': result=engine.install(target)
+                else:
+                    code,result=self.fixture.run_ps('install',target,package);self.assertEqual((code,result['decision']),(0,'proceed'),result)
+                if engine_name=='python': self.assertEqual(result.decision,'proceed',result.message)
+                written=json.loads((target/'AWOW Universal Female Generation/ufg-install-state.json').read_text(encoding='utf-8'))
+                self.assertEqual(written['agp_dependency']['version'],'1.1.1')
+
+    def test_unsupported_agp_state_version_is_zero_write_refusal(self):
+        with tempfile.TemporaryDirectory() as temp:
+            package,target,path=self.setup_target(Path(temp));state=json.loads(path.read_text(encoding='utf-8'));state['release']['version']='9.9.9';path.write_text(json.dumps(state),encoding='utf-8');before={p.relative_to(target):p.read_bytes() for p in target.rglob('*') if p.is_file()}
+            engine=Installer(package_root=package,process_checker=lambda:False);self.assertEqual(engine.install(target).decision,'reject')
+            code,result=self.fixture.run_ps('install',target,package);self.assertEqual((code,result['decision']),(2,'reject'),result)
+            self.assertEqual({p.relative_to(target):p.read_bytes() for p in target.rglob('*') if p.is_file()},before)

@@ -1,6 +1,7 @@
-# AWOW Universal Female Generation v1.1.0
+# AWOW Universal Female Generation v1.1.1
 
-Targets Windows x64 CK3 1.21.0.3 and the published AGP v1.1.0 dependency only.
+Targets Windows x64 CK3 1.21.0.3 and the frozen published UFG native v1.1.0
+bytes. The installer accepts matching AGP state versions 1.1.0 and 1.1.1.
 The previous UFG release remains separate for CK3 1.19.0.6.
 
 - Re-audited runtime generation, gender-locked history assignment, and
@@ -16,6 +17,8 @@ The previous UFG release remains separate for CK3 1.19.0.6.
 - Stage native changes transactionally with original-byte checks and rollback.
 - Added UFG schema-v2 state/journals, legacy-state migration, and AGP v2-state support.
 - Retain UFG-only ownership and proxy-only disable behavior.
+- Package-only 1.1.1 installer update; native DLL pins and embedded native
+  resource versions remain v1.1.0.
 - Added native machine-code tests, binary auditing, and isolated manual fixtures.
 
 All 12 required gameplay scenarios passed on CK3 1.21.0.3, including history

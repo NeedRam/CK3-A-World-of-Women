@@ -32,6 +32,10 @@ class ContractFileTests(unittest.TestCase):
 
     def test_manifest_declares_exact_agp_hash_dependency(self) -> None:
         manifest = json.loads((CONTRACT / "release-manifest.json").read_text(encoding="utf-8"))
+        self.assertEqual(manifest["release"]["version"], "1.1.1")
+        self.assertEqual(manifest["native_release"]["version"], "1.1.0")
+        self.assertEqual(manifest["native_release"]["source_commit"], "835c71f954c0f89f46ce14d05c79e1a3a1d0ad77")
+        self.assertEqual({item["version"] for item in manifest["compatible_agp_builds"]}, {"1.1.0", "1.1.1"})
         candidates = manifest["compatible_agp_builds"]
         self.assertTrue(candidates)
         for candidate in candidates:
@@ -63,6 +67,9 @@ class ContractFileTests(unittest.TestCase):
         self.assertIn("merge-base --is-ancestor HEAD origin/main", workflow)
         self.assertIn("actions/attest@v4", workflow)
         self.assertIn("attestations: write", workflow)
+        self.assertIn("native.archive_sha256", workflow)
+        self.assertIn("NativeArchivePath", workflow)
+        self.assertNotIn("Build native UFG proxy and payload", workflow)
         self.assertNotIn("github.event.inputs.version || '1.0.0'", workflow)
 
     def test_native_toolchain_and_version_metadata_are_declared(self) -> None:
@@ -86,6 +93,17 @@ class ContractFileTests(unittest.TestCase):
         self.assertIn("LICENSE", builder)
         for excluded in ("tests", "fixtures", "build.py", "requirements-build.txt"):
             self.assertIn(excluded, builder)
+
+    def test_release_builder_forbids_native_compiler_fallback_and_guards_stage_cleanup(self) -> None:
+        builder = (ROOT / "release" / "build-release.ps1").read_text(encoding="utf-8")
+        self.assertIn("requires -NativeArchivePath or explicit -SkipNativeBuild", builder)
+        self.assertNotIn("& (Join-Path $repositoryRoot 'build.ps1')", builder)
+        self.assertNotRegex(builder, r"(?im)^\s*&.*build\.ps1")
+        self.assertNotIn("Native UFG build failed", builder)
+        self.assertIn("Assert-ContainedPath $nativeTempRoot $nativeStage", builder)
+        self.assertIn("Assert-ContainedPath $BasePath $StagePath", builder)
+        self.assertIn("Remove-Item -LiteralPath ([IO.Path]::GetFullPath($StagePath)) -Recurse -Force", builder)
+        self.assertIn("} finally {", builder)
 
     def test_focused_end_user_readmes_hide_internal_confirmation_tokens(self) -> None:
         for name in ("README_MANUAL.md", "README_BATCH.md", "README_EXE.md"):
